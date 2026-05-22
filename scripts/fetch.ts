@@ -638,7 +638,6 @@ function makeItem(
     ]);
   return {
     id,
-    attachment_urls: [],
     summary: null,
     diff_summary: null,
     auto_summary: false,
