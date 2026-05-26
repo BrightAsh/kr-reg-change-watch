@@ -1,12 +1,10 @@
 {
-  "last_run_at": "2026-05-26T06:11:47.937Z",
-  "last_target_date": "2026-05-25",
+  "date": "2026-05-25",
+  "collected_at": "2026-05-26T06:11:47.935Z",
   "item_count": 0,
   "changed_count": 0,
-  "available_dates": [
-    "2026-05-25"
-  ],
   "cache_hit": false,
+  "items": [],
   "logs": [
     {
       "source": "국가법령정보센터 법령 변경이력",
