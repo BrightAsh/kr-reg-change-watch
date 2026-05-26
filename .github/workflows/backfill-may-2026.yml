@@ -1,0 +1,126 @@
+name: Backfill May 2026
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/backfill-may-2026.yml"
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
+      LAWMAKING_BASE: http://www.lawmaking.go.kr/rest
+      GWANBO_LIST_URL: ${{ secrets.GWANBO_LIST_URL }}
+      DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+      NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      FETCH_LOOKBACK_DAYS: 1
+      OPENAI_API_KEY: ""
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Backfill May dates
+        run: |
+          set +e
+          failed=""
+          dates=(
+            2026-05-01
+            2026-05-02
+            2026-05-03
+            2026-05-04
+            2026-05-05
+            2026-05-06
+            2026-05-07
+            2026-05-08
+            2026-05-09
+            2026-05-10
+            2026-05-11
+            2026-05-12
+            2026-05-13
+            2026-05-14
+            2026-05-15
+            2026-05-16
+            2026-05-17
+            2026-05-18
+            2026-05-19
+            2026-05-20
+            2026-05-21
+            2026-05-22
+            2026-05-23
+            2026-05-26
+          )
+
+          for target_date in "${dates[@]}"; do
+            echo "Backfilling ${target_date}"
+            if npm run collect -- --date "${target_date}" --force; then
+              echo "Completed ${target_date}"
+            else
+              echo "::warning::Backfill failed for ${target_date}"
+              failed="${failed} ${target_date}"
+            fi
+          done
+
+          echo "BACKFILL_FAILED_DATES=${failed}" >> "$GITHUB_ENV"
+
+      - name: Commit backfilled data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No backfilled data changes to commit."
+          else
+            git commit -m "Backfill May 2026 regulatory changes"
+            git push
+          fi
+
+      - name: Build static app
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Report failed dates
+        if: always()
+        run: |
+          if [ -n "${BACKFILL_FAILED_DATES}" ]; then
+            echo "::warning::Failed dates:${BACKFILL_FAILED_DATES}"
+          else
+            echo "All requested May backfill dates completed."
+          fi
