@@ -57,6 +57,7 @@ jobs:
       - run: npm install
 
       - name: Collect official changes
+        if: github.event_name != 'push'
         run: |
           if [ -n "$TARGET_DATE" ]; then
             if [ "$FORCE_COLLECT" = "1" ]; then
@@ -69,6 +70,7 @@ jobs:
           fi
 
       - name: Commit collected data
+        if: github.event_name != 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
