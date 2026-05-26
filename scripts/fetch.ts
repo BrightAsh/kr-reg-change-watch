@@ -464,7 +464,13 @@ async function fetchLawmakingNotices(
     pageIndex: 1,
     pageSize: 100
   });
-  const payload = await fetchJsonOrXml(url);
+  let payload: unknown;
+  try {
+    payload = await fetchJsonOrXml(url);
+  } catch (error) {
+    addLog(logs, source, "error", `국민참여입법센터 API 수집 실패: ${messageOf(error)}`, 0, url);
+    return [];
+  }
   const rows = findRecordRows(payload, [
     "공고명",
     "법령안명",
@@ -476,7 +482,14 @@ async function fetchLawmakingNotices(
   const items = rows
     .map((row) => normalizeLawmakingRow(row, source, label, endpoint, url))
     .filter((item): item is CollectedItem => Boolean(item && item.publish_date === targetDate));
-  addLog(logs, source, "ok", "국민참여입법센터 공개 LINK API 수집 완료", items.length, LAWMAKING_GUIDE);
+  addLog(
+    logs,
+    source,
+    "ok",
+    rows.length ? "국민참여입법센터 공개 LINK API 수집 완료" : "국민참여입법센터 API 응답에서 게시 항목을 찾지 못했습니다.",
+    items.length,
+    LAWMAKING_GUIDE
+  );
   return items;
 }
 
@@ -565,15 +578,15 @@ async function fetchConfiguredMinistryBoard(logs: CollectionLog[], route: Minist
 
 async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const defaultRss = [
-    "https://www.korea.kr/rss/pressrelease.xml",
-    "https://www.korea.kr/rss/policy.xml",
-    "https://www.korea.kr/rss/dept_moleg.xml",
-    "https://www.korea.kr/rss/dept_mois.xml",
-    "https://www.korea.kr/rss/dept_moef.xml",
-    "https://www.korea.kr/rss/president.xml",
-    "https://www.korea.kr/rss/speech.xml",
-    "https://www.korea.kr/rss/cabinet.xml",
-    "https://www.korea.kr/rss/ebriefing.xml"
+    "http://www.korea.kr/rss/pressrelease.xml",
+    "http://www.korea.kr/rss/policy.xml",
+    "http://www.korea.kr/rss/dept_moleg.xml",
+    "http://www.korea.kr/rss/dept_mois.xml",
+    "http://www.korea.kr/rss/dept_moef.xml",
+    "http://www.korea.kr/rss/president.xml",
+    "http://www.korea.kr/rss/speech.xml",
+    "http://www.korea.kr/rss/cabinet.xml",
+    "http://www.korea.kr/rss/ebriefing.xml"
   ].join(",");
   const urls = env("KOREA_POLICY_RSS", defaultRss)
     .split(",")

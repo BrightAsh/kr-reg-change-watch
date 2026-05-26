@@ -92,25 +92,41 @@ export function env(name: string, fallback = ""): string {
 }
 
 export async function fetchText(url: string, init: RequestInit = {}): Promise<string> {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000);
-  try {
-    const response = await fetch(url, {
-      ...init,
-      headers: {
-        "user-agent": "kr-reg-change-watch/0.1 (+https://github.com)",
-        accept: "application/json, application/xml, text/xml, text/html;q=0.9, */*;q=0.8",
-        ...headersObject(init.headers)
-      },
-      signal: controller.signal
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status} ${response.statusText}`);
+  const retries = Math.max(1, Number(env("FETCH_RETRIES", "3")) || 3);
+  const timeoutMs = Math.max(5000, Number(env("FETCH_TIMEOUT_MS", "45000")) || 45000);
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= retries; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const response = await fetch(url, {
+        ...init,
+        headers: {
+          "user-agent": "Mozilla/5.0 (compatible; kr-reg-change-watch/0.1; +https://github.com/BrightAsh/kr-reg-change-watch)",
+          accept: "application/json, application/xml, text/xml, text/html;q=0.9, */*;q=0.8",
+          "accept-language": "ko-KR,ko;q=0.9,en;q=0.8",
+          ...headersObject(init.headers)
+        },
+        signal: controller.signal
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status} ${response.statusText}`);
+      }
+      return await response.text();
+    } catch (error) {
+      lastError = error;
+      if (attempt < retries) await sleep(750 * attempt);
+    } finally {
+      clearTimeout(timeout);
     }
-    return await response.text();
-  } finally {
-    clearTimeout(timeout);
   }
+
+  throw new Error(`GET ${url} failed after ${retries} attempt(s): ${lastError instanceof Error ? lastError.message : String(lastError)}`);
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function headersObject(headers?: HeadersInit): Record<string, string> {
@@ -123,8 +139,12 @@ function headersObject(headers?: HeadersInit): Record<string, string> {
 export async function fetchJsonOrXml(url: string): Promise<unknown> {
   const raw = await fetchText(url);
   const trimmed = raw.trim();
+  if (!trimmed) return {};
   if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
     return JSON.parse(trimmed);
+  }
+  if (/^<!doctype html/i.test(trimmed) || /^<html[\s>]/i.test(trimmed)) {
+    return {};
   }
   return parseXml(trimmed);
 }

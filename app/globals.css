@@ -215,6 +215,18 @@ p {
   padding: 0 14px;
 }
 
+.date-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-picker span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .date-bar button,
 .category-tabs button,
 .summary-console button {
@@ -237,6 +249,10 @@ p {
 
 .date-bar input {
   width: 156px;
+}
+
+.date-bar select {
+  min-width: 156px;
 }
 
 .category-tabs button {

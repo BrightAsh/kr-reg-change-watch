@@ -39,6 +39,8 @@ jobs:
       NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
       FETCH_LOOKBACK_DAYS: 1
+      FETCH_RETRIES: 4
+      FETCH_TIMEOUT_MS: 60000
       OPENAI_API_KEY: ""
     steps:
       - uses: actions/checkout@v4
@@ -51,6 +53,8 @@ jobs:
 
       - name: Backfill May dates
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           set +e
           failed=""
           dates=(
@@ -84,6 +88,14 @@ jobs:
             echo "Backfilling ${target_date}"
             if npm run collect -- --date "${target_date}" --force; then
               echo "Completed ${target_date}"
+              git add data
+              if git diff --cached --quiet; then
+                echo "No data changes for ${target_date}."
+              else
+                git commit -m "Backfill regulatory changes for ${target_date}"
+                git pull --rebase
+                git push
+              fi
             else
               echo "::warning::Backfill failed for ${target_date}"
               failed="${failed} ${target_date}"

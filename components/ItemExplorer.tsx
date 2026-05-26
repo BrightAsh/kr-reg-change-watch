@@ -169,16 +169,21 @@ export default function ItemExplorer({
           <button className={!selectedDate ? "active" : ""} type="button" onClick={() => setSelectedDate("")}>
             전체 날짜
           </button>
-          {dates.slice(0, 8).map((value) => (
-            <button
-              className={selectedDate === value ? "active" : ""}
-              key={value}
-              type="button"
-              onClick={() => setSelectedDate(value)}
+          <label className="date-picker">
+            <span>저장 날짜</span>
+            <select
+              aria-label="저장된 날짜 선택"
+              value={dates.includes(selectedDate) ? selectedDate : ""}
+              onChange={(event) => setSelectedDate(event.target.value)}
             >
-              {value}
-            </button>
-          ))}
+              <option value="">선택</option>
+              {dates.map((value) => (
+                <option key={value} value={value}>
+                  {value}
+                </option>
+              ))}
+            </select>
+          </label>
           <input
             aria-label="날짜 직접 입력"
             type="date"
