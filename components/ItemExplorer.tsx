@@ -10,13 +10,14 @@ interface Props {
   ministries: string[];
   dates: string[];
   logs: CollectionLog[];
+  detailHrefPrefix?: string;
 }
 
 const sourceTypes = Object.keys(sourceTypeLabels) as SourceType[];
 const documentTypes = Object.keys(documentTypeLabels) as DocumentType[];
 const changeTypes = Object.keys(changeTypeLabels) as ChangeType[];
 
-export default function ItemExplorer({ items, ministries, dates, logs }: Props) {
+export default function ItemExplorer({ items, ministries, dates, logs, detailHrefPrefix = "/items" }: Props) {
   const [query, setQuery] = useState("");
   const [ministry, setMinistry] = useState("");
   const [sourceType, setSourceType] = useState("");
@@ -116,7 +117,7 @@ export default function ItemExplorer({ items, ministries, dates, logs }: Props) 
 
       <section className="item-list" aria-label="변경 목록">
         {filtered.length ? (
-          filtered.map((item) => <ItemRow key={item.id} item={item} />)
+          filtered.map((item) => <ItemRow key={item.id} item={item} detailHrefPrefix={detailHrefPrefix} />)
         ) : (
           <div className="empty-state">
             <strong>표시할 항목이 없습니다.</strong>
@@ -148,7 +149,9 @@ export default function ItemExplorer({ items, ministries, dates, logs }: Props) 
   );
 }
 
-function ItemRow({ item }: { item: CollectedItem }) {
+function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPrefix: string }) {
+  const detailHref = `${detailHrefPrefix.replace(/\/$/, "")}/${encodeURIComponent(item.id)}`;
+
   return (
     <article className="item-card">
       <div className="item-main">
@@ -161,7 +164,7 @@ function ItemRow({ item }: { item: CollectedItem }) {
           {item.verification_required ? <span className="warn">검증 필요</span> : null}
         </div>
         <h2>
-          <Link href={`/items/${item.id}`}>{item.title}</Link>
+          <Link href={detailHref}>{item.title}</Link>
         </h2>
         <p>{item.summary || "자동요약 전입니다. 원문 링크를 먼저 확인하세요."}</p>
         <div className="item-foot">
@@ -175,7 +178,7 @@ function ItemRow({ item }: { item: CollectedItem }) {
         <a href={item.original_url} target="_blank" rel="noreferrer">
           원문
         </a>
-        <Link href={`/items/${item.id}`}>상세</Link>
+        <Link href={detailHref}>상세</Link>
       </div>
     </article>
   );
