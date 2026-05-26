@@ -3,8 +3,8 @@
     "source": "국가법령정보센터 법령 변경이력",
     "status": "ok",
     "message": "법제처 공식 법령 변경이력 API 수집 완료",
-    "count": 0,
-    "at": "2026-05-26T06:07:04.930Z",
+    "count": 117,
+    "at": "2026-05-26T06:13:53.854Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -12,7 +12,7 @@
     "status": "ok",
     "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료",
     "count": 0,
-    "at": "2026-05-26T06:07:06.963Z",
+    "at": "2026-05-26T06:13:55.819Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -20,7 +20,7 @@
     "status": "ok",
     "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
     "count": 0,
-    "at": "2026-05-26T06:07:07.417Z",
+    "at": "2026-05-26T06:13:56.263Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -28,7 +28,7 @@
     "status": "ok",
     "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
     "count": 0,
-    "at": "2026-05-26T06:07:07.882Z",
+    "at": "2026-05-26T06:13:56.719Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -36,21 +36,21 @@
     "status": "error",
     "message": "Cannot read properties of undefined (reading 'tagName')",
     "count": 0,
-    "at": "2026-05-26T06:07:08.964Z"
+    "at": "2026-05-26T06:13:57.836Z"
   },
   {
     "source": "collector",
     "status": "error",
     "message": "Cannot read properties of undefined (reading 'tagName')",
     "count": 0,
-    "at": "2026-05-26T06:07:10.068Z"
+    "at": "2026-05-26T06:13:58.755Z"
   },
   {
     "source": "대한민국 전자관보",
     "status": "skipped",
     "message": "관보 공공데이터포털 데이터셋은 확인됐지만 실제 Swagger 호출 URL은 환경변수 GWANBO_LIST_URL 설정 후 사용합니다.",
     "count": 0,
-    "at": "2026-05-26T06:07:10.068Z",
+    "at": "2026-05-26T06:13:58.755Z",
     "url": "https://www.data.go.kr/data/15109157/openapi.do"
   },
   {
@@ -58,7 +58,7 @@
     "status": "error",
     "message": "공식 게시판 수집 실패: fetch failed",
     "count": 0,
-    "at": "2026-05-26T06:07:20.557Z",
+    "at": "2026-05-26T06:14:09.246Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
   },
   {
@@ -66,7 +66,7 @@
     "status": "error",
     "message": "공식 게시판 수집 실패: fetch failed",
     "count": 0,
-    "at": "2026-05-26T06:07:31.052Z",
+    "at": "2026-05-26T06:14:19.741Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
   },
   {
@@ -74,7 +74,7 @@
     "status": "error",
     "message": "공식 게시판 수집 실패: fetch failed",
     "count": 0,
-    "at": "2026-05-26T06:07:31.556Z",
+    "at": "2026-05-26T06:14:20.274Z",
     "url": "https://www.moef.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
   },
   {
@@ -82,7 +82,7 @@
     "status": "error",
     "message": "공식 게시판 수집 실패: fetch failed",
     "count": 0,
-    "at": "2026-05-26T06:07:34.082Z",
+    "at": "2026-05-26T06:14:22.083Z",
     "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
   },
   {
@@ -90,7 +90,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-26T06:08:32.996Z",
+    "at": "2026-05-26T06:15:18.312Z",
     "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
   },
   {
@@ -98,7 +98,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-26T06:09:29.757Z",
+    "at": "2026-05-26T06:16:07.960Z",
     "url": "https://www.moef.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
   },
   {
@@ -106,7 +106,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-26T06:10:34.240Z",
+    "at": "2026-05-26T06:16:57.405Z",
     "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
   },
   {
@@ -114,7 +114,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-26T06:11:33.097Z",
+    "at": "2026-05-26T06:17:48.924Z",
     "url": "https://www.moef.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
   },
   {
@@ -122,7 +122,7 @@
     "status": "error",
     "message": "RSS 수집 실패: fetch failed",
     "count": 0,
-    "at": "2026-05-26T06:11:33.712Z",
+    "at": "2026-05-26T06:17:49.443Z",
     "url": "https://www.korea.kr/rss/pressrelease.xml"
   },
   {
@@ -130,7 +130,7 @@
     "status": "ok",
     "message": "정책브리핑 RSS 수집 완료",
     "count": 0,
-    "at": "2026-05-26T06:11:47.934Z",
+    "at": "2026-05-26T06:18:03.134Z",
     "url": "https://www.korea.kr/etc/rss.do"
   },
   {
@@ -138,6 +138,6 @@
     "status": "skipped",
     "message": "NAVER_CLIENT_ID/NAVER_CLIENT_SECRET 미설정으로 뉴스 보조 수집을 건너뜁니다.",
     "count": 0,
-    "at": "2026-05-26T06:11:47.934Z"
+    "at": "2026-05-26T06:18:03.134Z"
   }
 ]
