@@ -39,6 +39,10 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
             <dd>{item.issue_number || "-"}</dd>
           </div>
           <div>
+            <dt>수집 기준일</dt>
+            <dd>{item.collection_date || item.publish_date || "-"}</dd>
+          </div>
+          <div>
             <dt>공표일</dt>
             <dd>{item.publish_date || "-"}</dd>
           </div>

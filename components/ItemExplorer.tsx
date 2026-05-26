@@ -69,12 +69,13 @@ export default function ItemExplorer({
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return enrichedItems.filter((item) => {
+      const itemDate = item.collection_date || item.publish_date;
       if (category !== "all" && item.category !== category) return false;
       if (ministry && item.ministry !== ministry) return false;
       if (sourceType && item.source_type !== sourceType) return false;
       if (documentType && item.document_type !== documentType) return false;
       if (changeType && item.change_type !== changeType) return false;
-      if (selectedDate && item.publish_date !== selectedDate) return false;
+      if (selectedDate && itemDate !== selectedDate) return false;
       if (!normalizedQuery) return true;
       return [item.title, item.raw_text, item.ministry, item.issue_number, item.source]
         .filter(Boolean)
@@ -92,7 +93,7 @@ export default function ItemExplorer({
 
   const dateHasCache = !selectedDate || dates.includes(selectedDate);
   const selectedDateCount = selectedDate
-    ? enrichedItems.filter((item) => item.publish_date === selectedDate).length
+    ? enrichedItems.filter((item) => (item.collection_date || item.publish_date) === selectedDate).length
     : enrichedItems.length;
 
   function saveApiKey(value: string) {
@@ -114,7 +115,8 @@ export default function ItemExplorer({
           `${index + 1}. ${item.title}`,
           `분류: ${categoryLabels[item.category || itemCategory(item)]}`,
           `기관: ${item.ministry}`,
-          `공표일: ${item.publish_date || "-"}`,
+          `기준일: ${item.collection_date || item.publish_date || "-"}`,
+          `공표일/발령일: ${item.publish_date || "-"}`,
           `출처: ${item.source}`,
           `요약/원문: ${item.summary || item.raw_text.slice(0, 500)}`
         ].join("\n")
@@ -354,6 +356,7 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
         <div className="item-foot">
           <span>{item.ministry}</span>
           <span>{item.issue_number || "문서번호 없음"}</span>
+          <span>기준 {item.collection_date || item.publish_date || "-"}</span>
           <span>공표 {item.publish_date || "-"}</span>
           <span>시행 {item.effective_date || "-"}</span>
         </div>

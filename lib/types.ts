@@ -50,6 +50,7 @@ export interface CollectedItem {
   confidence: Confidence;
   verification_required?: boolean;
   auto_summary?: boolean;
+  collection_date?: string;
   collected_at?: string;
   source_record_id?: string | null;
 }

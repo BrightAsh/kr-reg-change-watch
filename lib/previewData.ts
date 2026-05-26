@@ -23,6 +23,7 @@ export const previewItems: CollectedItem[] = [
     confidence: "official",
     verification_required: false,
     auto_summary: true,
+    collection_date: "2026-05-26",
     collected_at: "2026-05-26T06:10:00+09:00",
     source_record_id: "preview-001"
   },
@@ -48,6 +49,7 @@ export const previewItems: CollectedItem[] = [
     confidence: "official_notice",
     verification_required: false,
     auto_summary: true,
+    collection_date: "2026-05-26",
     collected_at: "2026-05-26T06:10:00+09:00",
     source_record_id: "preview-002"
   },
@@ -73,6 +75,7 @@ export const previewItems: CollectedItem[] = [
     confidence: "official",
     verification_required: false,
     auto_summary: true,
+    collection_date: "2026-05-25",
     collected_at: "2026-05-25T06:10:00+09:00",
     source_record_id: "preview-003"
   },
@@ -98,6 +101,7 @@ export const previewItems: CollectedItem[] = [
     confidence: "press",
     verification_required: true,
     auto_summary: true,
+    collection_date: "2026-05-24",
     collected_at: "2026-05-24T06:10:00+09:00",
     source_record_id: "preview-004"
   },
@@ -123,6 +127,7 @@ export const previewItems: CollectedItem[] = [
     confidence: "news",
     verification_required: true,
     auto_summary: false,
+    collection_date: "2026-05-23",
     collected_at: "2026-05-23T06:10:00+09:00",
     source_record_id: "preview-005"
   }

@@ -25,7 +25,11 @@ export const itemTableColumns = [
   "raw_hash",
   "summary",
   "diff_summary",
-  "confidence"
+  "confidence",
+  "verification_required",
+  "auto_summary",
+  "collection_date",
+  "collected_at"
 ] as const;
 
 export const supabaseMigrationHint = `
@@ -50,6 +54,7 @@ create table regulatory_items (
   confidence text not null,
   verification_required boolean not null default false,
   auto_summary boolean not null default false,
+  collection_date date,
   collected_at timestamptz
 );
 `.trim();

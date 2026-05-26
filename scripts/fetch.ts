@@ -846,10 +846,12 @@ function normalizeAndFilterByTargetDate(items: CollectedItem[]): CollectedItem[]
   const byId = new Map<string, CollectedItem>();
   for (const item of items) {
     const publishDate = item.publish_date ? normalizeDate(item.publish_date) : null;
-    if (publishDate !== targetDate) continue;
+    const collectionDate = normalizeDate(item.collection_date) || targetDate;
+    if (collectionDate !== targetDate && publishDate !== targetDate) continue;
     const normalized = {
       ...item,
       publish_date: publishDate,
+      collection_date: collectionDate,
       category: itemCategory(item)
     };
     byId.set(normalized.id, { ...byId.get(normalized.id), ...normalized });
@@ -892,6 +894,7 @@ function makeItem(
     summary: null,
     diff_summary: null,
     auto_summary: false,
+    collection_date: targetDate,
     collected_at: new Date().toISOString(),
     ...input,
     title,
