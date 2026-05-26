@@ -2,8 +2,18 @@ name: Daily collect and deploy
 
 on:
   schedule:
-    - cron: "10 21 * * *"
+    - cron: "0 15 * * *"
   workflow_dispatch:
+    inputs:
+      target_date:
+        description: "수집할 날짜(YYYY-MM-DD). 비우면 한국시간 기준 전일을 수집합니다."
+        required: false
+        type: string
+      force:
+        description: "이미 일자별 캐시가 있어도 다시 수집합니다."
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -29,6 +39,9 @@ jobs:
       NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      FETCH_LOOKBACK_DAYS: 1
+      TARGET_DATE: ${{ github.event.inputs.target_date }}
+      FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -39,7 +52,29 @@ jobs:
       - run: npm install
 
       - name: Collect official changes
-        run: npm run collect
+        run: |
+          if [ -n "$TARGET_DATE" ]; then
+            if [ "$FORCE_COLLECT" = "1" ]; then
+              npm run collect -- --date "$TARGET_DATE" --force
+            else
+              npm run collect -- --date "$TARGET_DATE"
+            fi
+          else
+            npm run collect
+          fi
+
+      - name: Commit collected data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No collected data changes to commit."
+          else
+            DATE_LABEL="${TARGET_DATE:-scheduled}"
+            git commit -m "Collect regulatory changes for ${DATE_LABEL}"
+            git push
+          fi
 
       - name: Build static app
         run: npm run build
