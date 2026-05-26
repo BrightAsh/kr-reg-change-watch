@@ -1,14 +1,10 @@
 {
-  "last_run_at": "2026-05-26T06:24:09.022Z",
-  "last_target_date": "2026-05-23",
+  "date": "2026-05-23",
+  "collected_at": "2026-05-26T06:24:09.018Z",
   "item_count": 0,
   "changed_count": 0,
-  "available_dates": [
-    "2026-05-25",
-    "2026-05-24",
-    "2026-05-23"
-  ],
   "cache_hit": false,
+  "items": [],
   "logs": [
     {
       "source": "collector",
