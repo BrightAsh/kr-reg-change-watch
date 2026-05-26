@@ -35,6 +35,7 @@ const categoryFilters: Array<{ value: CategoryFilter; label: string }> = [
   { value: "guideline", label: categoryLabels.guideline },
   { value: "news", label: categoryLabels.news }
 ];
+const actionsHref = "https://github.com/BrightAsh/kr-reg-change-watch/actions/workflows/daily-collect.yml";
 
 export default function ItemExplorer({
   items,
@@ -149,6 +150,15 @@ export default function ItemExplorer({
   return (
     <>
       <section className="control-panel" aria-label="탐색 도구">
+        <div className="panel-head">
+          <div>
+            <strong>일자별 캐시 탐색</strong>
+            <span>{selectedDate ? `${selectedDate} 저장 자료` : "누적 자료"} 기준</span>
+          </div>
+          <a href={actionsHref} target="_blank" rel="noreferrer">
+            날짜 수집 실행
+          </a>
+        </div>
         <div className="date-bar" aria-label="날짜 선택">
           <button className={!selectedDate ? "active" : ""} type="button" onClick={() => setSelectedDate("")}>
             전체 날짜
@@ -289,6 +299,11 @@ export default function ItemExplorer({
                 ? "현재 조건에 맞는 수집 결과가 없습니다."
                 : "GitHub Actions에서 해당 날짜를 수집하면 이 날짜가 목록에 나타납니다."}
             </span>
+            {!dateHasCache ? (
+              <a href={actionsHref} target="_blank" rel="noreferrer">
+                수동 수집 열기
+              </a>
+            ) : null}
           </div>
         )}
       </section>

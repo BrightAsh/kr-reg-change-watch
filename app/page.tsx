@@ -1,6 +1,9 @@
 import ItemExplorer from "@/components/ItemExplorer";
 import { getStats, readAvailableDailyDates, readItems, readRunMetadata, sortItems, uniqueSorted } from "@/lib/data";
 
+const actionsHref = "https://github.com/BrightAsh/kr-reg-change-watch/actions/workflows/daily-collect.yml";
+const repoHref = "https://github.com/BrightAsh/kr-reg-change-watch";
+
 export default async function HomePage() {
   const items = sortItems(await readItems());
   const run = await readRunMetadata();
@@ -13,11 +16,20 @@ export default async function HomePage() {
       <header className="topbar">
         <div>
           <p className="eyebrow">Daily regulatory watch</p>
-          <h1>오늘의 법령·행정규칙 변경</h1>
+          <h1>한국 규제·법령 변경 모니터</h1>
         </div>
-        <div className="run-info">
+        <div className="run-info" aria-label="실행 상태">
+          <span className="status-chip">{run.cache_hit ? "캐시 조회" : "자동 수집"}</span>
           <span>기준일 {run.last_target_date || "미수집"}</span>
-          <span>최근 실행 {run.last_run_at ? new Date(run.last_run_at).toLocaleString("ko-KR") : "없음"}</span>
+          <span>{run.last_run_at ? new Date(run.last_run_at).toLocaleString("ko-KR") : "최근 실행 없음"}</span>
+          <nav className="header-actions" aria-label="외부 작업">
+            <a href={actionsHref} target="_blank" rel="noreferrer">
+              수동 수집
+            </a>
+            <a href={repoHref} target="_blank" rel="noreferrer">
+              저장소
+            </a>
+          </nav>
         </div>
       </header>
 
