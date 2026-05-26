@@ -1,155 +1,155 @@
 {
-  "last_run_at": "2026-05-26T06:42:40.058Z",
-  "last_target_date": "2026-05-24",
-  "item_count": 117,
-  "changed_count": 117,
-  "available_dates": [
-    "2026-05-25",
-    "2026-05-24",
-    "2026-05-23"
-  ],
-  "cache_hit": false,
-  "logs": [
-    {
-      "source": "국가법령정보센터 법령 변경이력",
-      "status": "ok",
-      "message": "법제처 공식 법령 변경이력 API 수집 완료",
-      "count": 117,
-      "at": "2026-05-26T06:38:48.048Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-    },
-    {
-      "source": "국가법령정보센터 일자별 조문 개정 이력",
-      "status": "ok",
-      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료",
-      "count": 0,
-      "at": "2026-05-26T06:38:49.980Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-    },
-    {
-      "source": "국가법령정보센터 행정규칙",
-      "status": "ok",
-      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
-      "count": 0,
-      "at": "2026-05-26T06:38:50.519Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-    },
-    {
-      "source": "국가법령정보센터 행정규칙 신구법 비교",
-      "status": "ok",
-      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-      "count": 0,
-      "at": "2026-05-26T06:38:50.979Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-    },
-    {
-      "source": "collector",
-      "status": "error",
-      "message": "Cannot read properties of undefined (reading 'tagName')",
-      "count": 0,
-      "at": "2026-05-26T06:38:51.964Z"
-    },
-    {
-      "source": "collector",
-      "status": "error",
-      "message": "Cannot read properties of undefined (reading 'tagName')",
-      "count": 0,
-      "at": "2026-05-26T06:38:52.893Z"
-    },
-    {
-      "source": "대한민국 전자관보",
-      "status": "skipped",
-      "message": "관보 공공데이터포털 데이터셋은 확인됐지만 실제 Swagger 호출 URL은 환경변수 GWANBO_LIST_URL 설정 후 사용합니다.",
-      "count": 0,
-      "at": "2026-05-26T06:38:52.893Z",
-      "url": "https://www.data.go.kr/data/15109157/openapi.do"
-    },
-    {
-      "source": "행정안전부 훈령·예규·고시",
-      "status": "error",
-      "message": "공식 게시판 수집 실패: fetch failed",
-      "count": 0,
-      "at": "2026-05-26T06:39:03.382Z",
-      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
-    },
-    {
-      "source": "행정안전부 입법·행정예고",
-      "status": "error",
-      "message": "공식 게시판 수집 실패: fetch failed",
-      "count": 0,
-      "at": "2026-05-26T06:39:13.877Z",
-      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
-    },
-    {
-      "source": "기획재정부 훈령",
-      "status": "error",
-      "message": "공식 게시판 수집 실패: fetch failed",
-      "count": 0,
-      "at": "2026-05-26T06:39:14.434Z",
-      "url": "https://www.moef.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
-    },
-    {
-      "source": "기획재정부 예규",
-      "status": "error",
-      "message": "공식 게시판 수집 실패: fetch failed",
-      "count": 0,
-      "at": "2026-05-26T06:39:15.865Z",
-      "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
-    },
-    {
-      "source": "기획재정부 고시",
-      "status": "ok",
-      "message": "공식 게시판 HTML 수집 완료",
-      "count": 0,
-      "at": "2026-05-26T06:40:06.914Z",
-      "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
-    },
-    {
-      "source": "기획재정부 공고",
-      "status": "ok",
-      "message": "공식 게시판 HTML 수집 완료",
-      "count": 0,
-      "at": "2026-05-26T06:40:53.354Z",
-      "url": "https://www.moef.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
-    },
-    {
-      "source": "기획재정부 지침",
-      "status": "ok",
-      "message": "공식 게시판 HTML 수집 완료",
-      "count": 0,
-      "at": "2026-05-26T06:41:37.807Z",
-      "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
-    },
-    {
-      "source": "기획재정부 입법·행정예고",
-      "status": "ok",
-      "message": "공식 게시판 HTML 수집 완료",
-      "count": 0,
-      "at": "2026-05-26T06:42:22.675Z",
-      "url": "https://www.moef.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: fetch failed",
-      "count": 0,
-      "at": "2026-05-26T06:42:23.240Z",
-      "url": "https://www.korea.kr/rss/pressrelease.xml"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "ok",
-      "message": "정책브리핑 RSS 수집 완료",
-      "count": 0,
-      "at": "2026-05-26T06:42:36.718Z",
-      "url": "https://www.korea.kr/etc/rss.do"
-    },
-    {
-      "source": "네이버 뉴스 검색 API",
-      "status": "ok",
-      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
-      "count": 0,
-      "at": "2026-05-26T06:42:40.044Z"
-    }
-  ]
+    "last_run_at":  "2026-05-26T06:42:40.058Z",
+    "last_target_date":  "2026-05-24",
+    "item_count":  2,
+    "changed_count":  2,
+    "available_dates":  [
+                            "2026-05-25",
+                            "2026-05-24",
+                            "2026-05-23"
+                        ],
+    "cache_hit":  false,
+    "logs":  [
+                 {
+                     "source":  "국가법령정보센터 법령 변경이력",
+                     "status":  "ok",
+                     "message":  "법제처 공식 법령 변경이력 API 수집 완료. 원자료 117행을 법령 단위 2건으로 묶었습니다.",
+                     "count":  2,
+                     "at":  "2026-05-26T06:38:48.048Z",
+                     "url":  "https://open.law.go.kr/LSO/openApi/guideList.do"
+                 },
+                 {
+                     "source":  "국가법령정보센터 일자별 조문 개정 이력",
+                     "status":  "ok",
+                     "message":  "법제처 공식 일자별 조문 개정 이력 API 수집 완료",
+                     "count":  0,
+                     "at":  "2026-05-26T06:38:49.980Z",
+                     "url":  "https://open.law.go.kr/LSO/openApi/guideList.do"
+                 },
+                 {
+                     "source":  "국가법령정보센터 행정규칙",
+                     "status":  "ok",
+                     "message":  "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+                     "count":  0,
+                     "at":  "2026-05-26T06:38:50.519Z",
+                     "url":  "https://open.law.go.kr/LSO/openApi/guideList.do"
+                 },
+                 {
+                     "source":  "국가법령정보센터 행정규칙 신구법 비교",
+                     "status":  "ok",
+                     "message":  "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+                     "count":  0,
+                     "at":  "2026-05-26T06:38:50.979Z",
+                     "url":  "https://open.law.go.kr/LSO/openApi/guideList.do"
+                 },
+                 {
+                     "source":  "collector",
+                     "status":  "error",
+                     "message":  "Cannot read properties of undefined (reading \u0027tagName\u0027)",
+                     "count":  0,
+                     "at":  "2026-05-26T06:38:51.964Z"
+                 },
+                 {
+                     "source":  "collector",
+                     "status":  "error",
+                     "message":  "Cannot read properties of undefined (reading \u0027tagName\u0027)",
+                     "count":  0,
+                     "at":  "2026-05-26T06:38:52.893Z"
+                 },
+                 {
+                     "source":  "대한민국 전자관보",
+                     "status":  "skipped",
+                     "message":  "관보 공공데이터포털 데이터셋은 확인됐지만 실제 Swagger 호출 URL은 환경변수 GWANBO_LIST_URL 설정 후 사용합니다.",
+                     "count":  0,
+                     "at":  "2026-05-26T06:38:52.893Z",
+                     "url":  "https://www.data.go.kr/data/15109157/openapi.do"
+                 },
+                 {
+                     "source":  "행정안전부 훈령·예규·고시",
+                     "status":  "error",
+                     "message":  "공식 게시판 수집 실패: fetch failed",
+                     "count":  0,
+                     "at":  "2026-05-26T06:39:03.382Z",
+                     "url":  "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+                 },
+                 {
+                     "source":  "행정안전부 입법·행정예고",
+                     "status":  "error",
+                     "message":  "공식 게시판 수집 실패: fetch failed",
+                     "count":  0,
+                     "at":  "2026-05-26T06:39:13.877Z",
+                     "url":  "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+                 },
+                 {
+                     "source":  "기획재정부 훈령",
+                     "status":  "error",
+                     "message":  "공식 게시판 수집 실패: fetch failed",
+                     "count":  0,
+                     "at":  "2026-05-26T06:39:14.434Z",
+                     "url":  "https://www.moef.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118\u0026menuNo=7090100"
+                 },
+                 {
+                     "source":  "기획재정부 예규",
+                     "status":  "error",
+                     "message":  "공식 게시판 수집 실패: fetch failed",
+                     "count":  0,
+                     "at":  "2026-05-26T06:39:15.865Z",
+                     "url":  "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119\u0026menuNo=7090100"
+                 },
+                 {
+                     "source":  "기획재정부 고시",
+                     "status":  "ok",
+                     "message":  "공식 게시판 HTML 수집 완료",
+                     "count":  0,
+                     "at":  "2026-05-26T06:40:06.914Z",
+                     "url":  "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120\u0026menuNo=7090200"
+                 },
+                 {
+                     "source":  "기획재정부 공고",
+                     "status":  "ok",
+                     "message":  "공식 게시판 HTML 수집 완료",
+                     "count":  0,
+                     "at":  "2026-05-26T06:40:53.354Z",
+                     "url":  "https://www.moef.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060\u0026menuNo=7090200"
+                 },
+                 {
+                     "source":  "기획재정부 지침",
+                     "status":  "ok",
+                     "message":  "공식 게시판 HTML 수집 완료",
+                     "count":  0,
+                     "at":  "2026-05-26T06:41:37.807Z",
+                     "url":  "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121\u0026menuNo=7090200"
+                 },
+                 {
+                     "source":  "기획재정부 입법·행정예고",
+                     "status":  "ok",
+                     "message":  "공식 게시판 HTML 수집 완료",
+                     "count":  0,
+                     "at":  "2026-05-26T06:42:22.675Z",
+                     "url":  "https://www.moef.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055\u0026menuNo=7050300"
+                 },
+                 {
+                     "source":  "대한민국 정책브리핑 RSS",
+                     "status":  "error",
+                     "message":  "RSS 수집 실패: fetch failed",
+                     "count":  0,
+                     "at":  "2026-05-26T06:42:23.240Z",
+                     "url":  "https://www.korea.kr/rss/pressrelease.xml"
+                 },
+                 {
+                     "source":  "대한민국 정책브리핑 RSS",
+                     "status":  "ok",
+                     "message":  "정책브리핑 RSS 수집 완료",
+                     "count":  0,
+                     "at":  "2026-05-26T06:42:36.718Z",
+                     "url":  "https://www.korea.kr/etc/rss.do"
+                 },
+                 {
+                     "source":  "네이버 뉴스 검색 API",
+                     "status":  "ok",
+                     "message":  "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+                     "count":  0,
+                     "at":  "2026-05-26T06:42:40.044Z"
+                 }
+             ]
 }

@@ -213,29 +213,95 @@ async function runSource(
 async function fetchLawChangeHistory(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const source = "국가법령정보센터 법령 변경이력";
   const rows = await fetchLawSearch(logs, source, "lsHstInf", { regDt: yyyymmdd(targetDate) });
-  const items = rows.map((row) => {
+  const items = groupLawChangeHistoryRows(source, rows);
+  const suffix = rows.length === items.length ? "" : ` 원자료 ${rows.length}행을 법령 단위 ${items.length}건으로 묶었습니다.`;
+  addLog(logs, source, "ok", `법제처 공식 법령 변경이력 API 수집 완료.${suffix}`, items.length, OFFICIAL_LAW_GUIDE);
+  return items;
+}
+
+function groupLawChangeHistoryRows(source: string, rows: AnyRecord[]): CollectedItem[] {
+  const groups = new Map<string, AnyRecord[]>();
+  for (const row of rows) {
+    const lawId = text(row, ["법령ID"]);
     const title = text(row, ["법령명한글", "법령명"]);
-    const originalUrl = lawUrl(text(row, ["법령상세링크"]), text(row, ["법령일련번호"]));
-    const rawText = compactText(JSON.stringify(row));
+    const lawType = text(row, ["법령구분명"]);
+    const key = lawId || stableId([source, title, lawType]);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key)?.push(row);
+  }
+
+  return [...groups.entries()].map(([lawKey, groupRows]) => {
+    const sortedRows = [...groupRows].sort(compareLawHistoryRowsDesc);
+    const representative =
+      sortedRows.find((row) => text(row, ["현행연혁코드"]) === "현행") ||
+      sortedRows[0] ||
+      groupRows[0];
+    const title = text(representative, ["법령명한글", "법령명"]) || "법령 변경이력";
+    const originalUrl = lawUrl(text(representative, ["법령상세링크"]), text(representative, ["법령일련번호"]));
+    const rawText = buildLawHistoryRawText(lawKey, sortedRows);
+    const rowCount = groupRows.length;
+
     return makeItem({
+      id: stableId([source, "law-history", lawKey, targetDate]),
       source,
       source_type: "official_law",
-      ministry: text(row, ["소관부처명"]) || "미상",
-      document_type: inferDocumentType(`${text(row, ["법령구분명"])} ${title}`),
-      title,
-      issue_number: text(row, ["공포번호"]) || null,
-      publish_date: normalizeDate(text(row, ["공포일자"])) || targetDate,
-      effective_date: normalizeDate(text(row, ["시행일자"])),
-      change_type: inferChangeType(text(row, ["제개정구분명"])),
+      ministry: text(representative, ["소관부처명"]) || "미상",
+      document_type: inferDocumentType(`${text(representative, ["법령구분명"])} ${title}`),
+      title: `${title} 변경이력 갱신 ${rowCount.toLocaleString("ko-KR")}건`,
+      issue_number: text(representative, ["공포번호"]) || null,
+      publish_date: normalizeDate(text(representative, ["공포일자"])) || targetDate,
+      effective_date: normalizeDate(text(representative, ["시행일자"])),
+      change_type: inferChangeType(text(representative, ["제개정구분명"])),
       original_url: originalUrl,
       raw_text: rawText,
       raw_hash: hashText(rawText),
+      summary: `${targetDate} 기준 법제처 변경이력 API가 반환한 ${rowCount.toLocaleString("ko-KR")}개 연혁 행을 법령ID ${lawKey} 단위로 묶은 항목입니다.`,
+      diff_summary: summarizeLawHistoryRows(sortedRows),
       confidence: "official",
-      source_record_id: text(row, ["법령일련번호", "법령ID"]) || null
+      source_record_id: lawKey
     });
   });
-  addLog(logs, source, "ok", "법제처 공식 법령 변경이력 API 수집 완료", items.length, OFFICIAL_LAW_GUIDE);
-  return items;
+}
+
+function compareLawHistoryRowsDesc(a: AnyRecord, b: AnyRecord): number {
+  return lawHistorySortDate(b).localeCompare(lawHistorySortDate(a));
+}
+
+function lawHistorySortDate(row: AnyRecord): string {
+  return normalizeDate(text(row, ["공포일자"])) || normalizeDate(text(row, ["시행일자"])) || "";
+}
+
+function buildLawHistoryRawText(lawKey: string, rows: AnyRecord[]): string {
+  const historyLines = rows.map((row) => {
+    const promulgation = normalizeDate(text(row, ["공포일자"])) || "-";
+    const effective = normalizeDate(text(row, ["시행일자"])) || "-";
+    const revision = text(row, ["제개정구분명"]) || "-";
+    const issue = text(row, ["공포번호"]) || "-";
+    const title = text(row, ["법령명한글", "법령명"]) || "-";
+    return `공포 ${promulgation} / 시행 ${effective} / ${revision} / 제${issue}호 / ${title}`;
+  });
+
+  return compactText(
+    [
+      "법령 변경이력 갱신",
+      `수집 기준일: ${targetDate}`,
+      `법령ID: ${lawKey}`,
+      `연혁 행 수: ${rows.length.toLocaleString("ko-KR")}`,
+      "연혁 목록:",
+      ...historyLines,
+      `원자료 JSON: ${JSON.stringify(rows)}`
+    ].join("\n")
+  );
+}
+
+function summarizeLawHistoryRows(rows: AnyRecord[]): string | null {
+  if (!rows.length) return null;
+  const latest = rows[0];
+  const earliest = rows[rows.length - 1];
+  const latestDate = lawHistorySortDate(latest) || "-";
+  const earliestDate = lawHistorySortDate(earliest) || "-";
+  const latestRevision = text(latest, ["제개정구분명"]) || "변경";
+  return `전체 연혁 ${rows.length.toLocaleString("ko-KR")}행, 기간 ${earliestDate}~${latestDate}, 최신 이력은 ${latestRevision}입니다.`;
 }
 
 async function fetchArticleChanges(logs: CollectionLog[]): Promise<CollectedItem[]> {
