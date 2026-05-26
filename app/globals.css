@@ -452,6 +452,26 @@ select:focus {
   overflow: hidden;
 }
 
+.item-evidence {
+  display: grid;
+  gap: 5px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid #e5ebe4;
+  border-radius: 6px;
+  background: #fbfcfa;
+  color: #344139;
+  font-size: 13px;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.item-evidence li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .item-foot {
   display: flex;
   flex-wrap: wrap;
@@ -631,6 +651,27 @@ select:focus {
   gap: 8px;
   padding-left: 18px;
   word-break: break-all;
+}
+
+.history-list {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid #e5ebe4;
+  border-radius: 8px;
+  background: #fbfcfa;
+  list-style: none;
+}
+
+.history-list li {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #edf1eb;
+  line-height: 1.55;
+}
+
+.history-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .raw-text {

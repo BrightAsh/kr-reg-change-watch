@@ -240,6 +240,7 @@ function groupLawChangeHistoryRows(source: string, rows: AnyRecord[]): Collected
     const originalUrl = lawUrl(text(representative, ["법령상세링크"]), text(representative, ["법령일련번호"]));
     const rawText = buildLawHistoryRawText(lawKey, sortedRows);
     const rowCount = groupRows.length;
+    const historySummary = summarizeLawHistoryRows(sortedRows);
 
     return makeItem({
       id: stableId([source, "law-history", lawKey, targetDate]),
@@ -255,8 +256,9 @@ function groupLawChangeHistoryRows(source: string, rows: AnyRecord[]): Collected
       original_url: originalUrl,
       raw_text: rawText,
       raw_hash: hashText(rawText),
-      summary: `${targetDate} 기준 법제처 변경이력 API가 반환한 ${rowCount.toLocaleString("ko-KR")}개 연혁 행을 법령ID ${lawKey} 단위로 묶은 항목입니다.`,
-      diff_summary: summarizeLawHistoryRows(sortedRows),
+      summary: `${targetDate} 기준 법제처 변경이력 API가 반환한 ${rowCount.toLocaleString("ko-KR")}개 연혁 행을 법령ID ${lawKey} 단위로 묶었습니다. ${historySummary || ""}`.trim(),
+      diff_summary:
+        "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 원문 버튼에서 법제처 법령 본문을 확인할 수 있습니다.",
       confidence: "official",
       source_record_id: lawKey
     });
@@ -281,17 +283,22 @@ function buildLawHistoryRawText(lawKey: string, rows: AnyRecord[]): string {
     return `공포 ${promulgation} / 시행 ${effective} / ${revision} / 제${issue}호 / ${title}`;
   });
 
-  return compactText(
-    [
-      "법령 변경이력 갱신",
-      `수집 기준일: ${targetDate}`,
-      `법령ID: ${lawKey}`,
-      `연혁 행 수: ${rows.length.toLocaleString("ko-KR")}`,
-      "연혁 목록:",
-      ...historyLines,
-      `원자료 JSON: ${JSON.stringify(rows)}`
-    ].join("\n")
-  );
+  return [
+    "법령 변경이력 갱신",
+    "",
+    `수집 기준일: ${targetDate}`,
+    `법령ID: ${lawKey}`,
+    `연혁 행 수: ${rows.length.toLocaleString("ko-KR")}`,
+    "",
+    "최근 연혁",
+    ...historyLines.slice(0, 12),
+    "",
+    "전체 연혁",
+    ...historyLines,
+    "",
+    "원자료 JSON",
+    JSON.stringify(rows)
+  ].join("\n");
 }
 
 function summarizeLawHistoryRows(rows: AnyRecord[]): string | null {
@@ -301,7 +308,17 @@ function summarizeLawHistoryRows(rows: AnyRecord[]): string | null {
   const latestDate = lawHistorySortDate(latest) || "-";
   const earliestDate = lawHistorySortDate(earliest) || "-";
   const latestRevision = text(latest, ["제개정구분명"]) || "변경";
-  return `전체 연혁 ${rows.length.toLocaleString("ko-KR")}행, 기간 ${earliestDate}~${latestDate}, 최신 이력은 ${latestRevision}입니다.`;
+  const latestIssue = text(latest, ["공포번호"]);
+  const recent = rows
+    .slice(0, 5)
+    .map((row) => {
+      const date = lawHistorySortDate(row) || "-";
+      const revision = text(row, ["제개정구분명"]) || "변경";
+      const issue = text(row, ["공포번호"]);
+      return `${date} ${revision}${issue ? ` 제${issue}호` : ""}`;
+    })
+    .join("; ");
+  return `기간 ${earliestDate}~${latestDate}, 최신 이력은 ${latestDate} ${latestRevision}${latestIssue ? ` 제${latestIssue}호` : ""}입니다. 최근 이력: ${recent}.`;
 }
 
 async function fetchArticleChanges(logs: CollectionLog[]): Promise<CollectedItem[]> {

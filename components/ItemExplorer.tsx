@@ -336,6 +336,7 @@ export default function ItemExplorer({
 function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPrefix: string }) {
   const detailHref = `${detailHrefPrefix.replace(/\/$/, "")}/${encodeURIComponent(item.id)}`;
   const category = item.category || itemCategory(item);
+  const historyLines = extractHistoryLines(item.raw_text).slice(0, 3);
 
   return (
     <article className={`item-card category-${category}`}>
@@ -353,6 +354,13 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
           <Link href={detailHref}>{item.title}</Link>
         </h2>
         <p>{item.summary || "요약 전입니다. 원문 링크와 메타데이터를 먼저 확인하세요."}</p>
+        {historyLines.length ? (
+          <ul className="item-evidence" aria-label="최근 연혁">
+            {historyLines.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+        ) : null}
         <div className="item-foot">
           <span>{item.ministry}</span>
           <span>{item.issue_number || "문서번호 없음"}</span>
@@ -386,4 +394,14 @@ function extractOutputText(value: unknown): string {
 
 function compactOutput(value: unknown): string {
   return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function extractHistoryLines(value: string): string[] {
+  const lines = value
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const start = lines.indexOf("최근 연혁");
+  if (start === -1) return [];
+  return lines.slice(start + 1).filter((line) => line.startsWith("공포 "));
 }
