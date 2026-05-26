@@ -27,6 +27,7 @@ async function main() {
   const summarized: CollectedItem[] = [];
   for (const item of items) {
     const summary = await buildGroundedSummary(item);
+    const summaryWasGenerated = Boolean(openAiKey) || summary !== item.summary;
     const diffSummary = changedIds.has(item.id)
       ? "어제 스냅샷과 raw_hash가 달라 원문 내용 변경 가능성이 있습니다. 상세 원문을 확인하세요."
       : addedIds.has(item.id)
@@ -37,7 +38,7 @@ async function main() {
       ...item,
       summary,
       diff_summary: diffSummary,
-      auto_summary: true,
+      auto_summary: item.auto_summary || summaryWasGenerated,
       raw_hash: item.raw_hash || hashText(item.raw_text)
     });
   }
@@ -66,6 +67,11 @@ async function updateDailySummary(allItems: CollectedItem[]): Promise<void> {
 }
 
 async function buildGroundedSummary(item: CollectedItem): Promise<string> {
+  const existingSummary = compactText(item.summary || "");
+  if (!openAiKey && existingSummary && !existingSummary.startsWith("자동요약:")) {
+    return item.summary || existingSummary;
+  }
+
   const evidence = compactText(item.raw_text).slice(0, maxChars);
   const base = [
     item.ministry && `${item.ministry}`,

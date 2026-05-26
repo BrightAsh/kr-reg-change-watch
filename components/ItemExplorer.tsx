@@ -66,16 +66,22 @@ export default function ItemExplorer({
     [items]
   );
 
+  const dateScopedItems = useMemo(
+    () =>
+      selectedDate
+        ? enrichedItems.filter((item) => (item.collection_date || item.publish_date) === selectedDate)
+        : enrichedItems,
+    [enrichedItems, selectedDate]
+  );
+
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
-    return enrichedItems.filter((item) => {
-      const itemDate = item.collection_date || item.publish_date;
+    return dateScopedItems.filter((item) => {
       if (category !== "all" && item.category !== category) return false;
       if (ministry && item.ministry !== ministry) return false;
       if (sourceType && item.source_type !== sourceType) return false;
       if (documentType && item.document_type !== documentType) return false;
       if (changeType && item.change_type !== changeType) return false;
-      if (selectedDate && itemDate !== selectedDate) return false;
       if (!normalizedQuery) return true;
       return [item.title, item.raw_text, item.ministry, item.issue_number, item.source]
         .filter(Boolean)
@@ -83,18 +89,16 @@ export default function ItemExplorer({
         .toLowerCase()
         .includes(normalizedQuery);
     });
-  }, [category, changeType, documentType, enrichedItems, ministry, query, selectedDate, sourceType]);
+  }, [category, changeType, dateScopedItems, documentType, ministry, query, sourceType]);
 
   const counts = useMemo(() => {
-    const byCategory: Record<CategoryFilter, number> = { all: enrichedItems.length, law: 0, notice: 0, guideline: 0, news: 0 };
-    for (const item of enrichedItems) byCategory[item.category || itemCategory(item)] += 1;
+    const byCategory: Record<CategoryFilter, number> = { all: dateScopedItems.length, law: 0, notice: 0, guideline: 0, news: 0 };
+    for (const item of dateScopedItems) byCategory[item.category || itemCategory(item)] += 1;
     return byCategory;
-  }, [enrichedItems]);
+  }, [dateScopedItems]);
 
   const dateHasCache = !selectedDate || dates.includes(selectedDate);
-  const selectedDateCount = selectedDate
-    ? enrichedItems.filter((item) => (item.collection_date || item.publish_date) === selectedDate).length
-    : enrichedItems.length;
+  const selectedDateCount = dateScopedItems.length;
 
   function saveApiKey(value: string) {
     setApiKey(value);
