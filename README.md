@@ -1,54 +1,54 @@
-# 한국 법령/행정규칙 변경 모니터 MVP
+# 한국 규제·법령 변경 모니터
 
-한국 정부의 법령, 행정규칙, 관보, 입법/행정예고, 부처 게시판, 보도자료/뉴스를 매일 수집해 보여주는 Next.js + TypeScript MVP입니다. 공식 출처 링크가 없는 결과는 `검증 필요`로 표시하고, 뉴스는 공식 변경으로 분류하지 않습니다.
+한국의 법령, 고시·공고, 지침·행정규칙, 정책 발언·뉴스를 날짜별로 수집하고 정리하는 Next.js 기반 모니터링 앱입니다. GitHub Actions가 매일 한국시간 00:00에 전일 24시간 자료를 수집하고, GitHub Pages는 이미 수집된 일자별 캐시를 정적 화면으로 보여줍니다.
 
-## 주요 기능
+## 화면 구성
 
-- `scripts/fetch.ts`: 법제처/국가법령정보센터 API를 우선 호출하고, 설정된 RSS/게시판/뉴스 보조 소스를 수집합니다.
-- `scripts/diff.ts`: 최신 스냅샷과 직전 스냅샷의 신규/변경/삭제 항목을 비교합니다.
-- `scripts/summarize.ts`: `OPENAI_API_KEY`가 있으면 OpenAI Responses API로, 없으면 근거 추출 방식으로 `자동요약`을 생성합니다. 자동요약은 원문을 대체하지 않습니다.
-- `app/page.tsx`: 오늘의 변경 목록, 기관/유형/변경상태/날짜 필터, 제목/본문/기관/문서번호 검색을 제공합니다.
-- `app/items/[id]/page.tsx`: 상세, 원문 URL, 첨부 URL, 원문 추출 텍스트를 보여줍니다.
+- `법령`: 법률, 시행령, 시행규칙 등 법령 단위 변경
+- `고시/공고`: 고시, 공고, 입법예고, 행정예고, 관보성 자료
+- `지침/규칙`: 훈령, 예규, 지침 등 행정규칙성 자료
+- `뉴스/발언`: 정책브리핑, 대통령·국무회의·연설 RSS, 뉴스 검색 보조 자료
 
-## 공식 출처와 구현 상태
+홈 화면에서 날짜, 분류 탭, 기관, 출처, 문서 유형, 변경상태, 검색어로 필터링합니다. OpenAI API 키를 브라우저에 입력하면 현재 표시 중인 항목을 세션 안에서 요약할 수 있습니다. 배포 자동 수집 요약은 GitHub Actions의 `OPENAI_API_KEY` secret이 있을 때 수행됩니다.
 
-- 국가법령정보센터 Open API: [공동활용 Open API 가이드](https://open.law.go.kr/LSO/openApi/guideList.do)
-  - 법령 변경이력: `target=lsHstInf`
-  - 일자별 조문 개정 이력: `target=lsJoHstInf`
-  - 행정규칙 목록/본문: `target=admrul`
-  - 행정규칙 신구법 비교: `target=admrulOldAndNew`
-- 국민참여입법센터 API: [OPEN API 활용가이드](https://opinion.lawmaking.go.kr/api/operationGuide)
-  - 입법예고: `http://www.lawmaking.go.kr/rest/ogLmPp`
-  - 행정예고: `http://www.lawmaking.go.kr/rest/ptcpAdmPp`
-- 관보 Open API: [공공데이터포털 관보 데이터셋](https://www.data.go.kr/data/15109157/openapi.do)
-  - Swagger에서 확인한 실제 목록 API URL을 `GWANBO_LIST_URL`에 넣은 경우에만 활성화합니다. 확인 전 임의 endpoint를 호출하지 않습니다.
-- 부처 게시판/RSS
-  - 행정안전부 게시판은 `MOIS_BOARD_URL` 기본값으로 HTML 목록을 시도합니다.
-  - 재정경제부/기획재정부 게시판은 정부 조직/사이트 개편 가능성이 있어 `MOEF_BOARD_URL`을 설정한 경우에만 수집합니다.
-  - 대한민국 정책브리핑 RSS는 보조 `press` 소스로 수집합니다.
-- 네이버 뉴스 검색 API: [공식 문서](https://developers.naver.com/docs/serviceapi/search/news/news.md)
-  - `news`로만 저장하며 공식 변경으로 표시하지 않습니다.
-- OpenAI 요약: [Responses API 문서](https://platform.openai.com/docs/api-reference/responses)
-  - 선택 기능입니다. 키가 없으면 근거 추출형 자동요약으로 동작합니다.
+## 수집 출처
 
-## 환경변수
+- 국가법령정보센터 Open API
+  - 법령 변경이력: `lsHstInf`
+  - 일자별 조문 개정 이력: `lsJoHstInf`
+  - 행정규칙 목록/본문: `admrul`
+  - 행정규칙 신구법 비교: `admrulOldAndNew`
+- 국민참여입법센터 공개 API
+  - 입법예고: `ogLmPp`
+  - 행정예고: `ptcpAdmPp`
+- 대한민국 전자관보 API
+  - `GWANBO_LIST_URL`과 `DATA_GO_KR_SERVICE_KEY`가 있을 때 활성화
+- 행정안전부 공식 게시판
+  - 훈령·예규·고시
+  - 입법·행정예고
+- 기획재정부 공식 게시판
+  - 훈령, 예규, 고시, 공고, 지침
+  - 입법·행정예고
+- 대한민국 정책브리핑 RSS
+  - 보도자료, 정책뉴스, 법제처, 행정안전부, 재정경제부, 대통령 브리핑, 연설문, 국무회의 브리핑, 부처 브리핑
+- 네이버 뉴스 검색 API
+  - 지정 키워드별 검색 후 해당 날짜 기사만 저장
 
-`.env.example`을 참고해 `.env.local`을 만듭니다.
+뉴스와 발언은 참고 자료이며 공식 법령 변경으로 확정하지 않습니다. 화면에는 `검증 필요` 상태로 표시됩니다.
 
-```bash
-LAW_OPEN_API_OC=your-open-law-oc
-LAWMAKING_BASE=http://www.lawmaking.go.kr/rest
-GWANBO_LIST_URL=
-DATA_GO_KR_SERVICE_KEY=
-NAVER_CLIENT_ID=
-NAVER_CLIENT_SECRET=
-OPENAI_API_KEY=
-OPENAI_MODEL=gpt-5
-```
+## 일자별 캐시
 
-법제처 API 키는 국가법령정보센터 공동활용 신청 후 발급받습니다. 공공데이터포털 관보 API는 활용신청 후 Swagger에서 실제 호출 URL을 확인해 `GWANBO_LIST_URL`에 넣습니다.
+수집 결과는 다음 파일에 저장됩니다.
 
-## 로컬 실행
+- 누적 목록: `data/items.json`
+- 일자별 캐시: `data/daily/YYYY-MM-DD.json`
+- 비교용 스냅샷: `data/snapshots/YYYY-MM-DD.json`
+- 최근 실행 상태: `data/run.json`
+- 최근 수집 로그: `data/logs/last-fetch.json`
+
+같은 날짜의 `data/daily/YYYY-MM-DD.json`이 이미 있으면 기본적으로 외부 수집을 다시 하지 않고 캐시를 사용합니다. 강제 재수집은 GitHub Actions 수동 실행에서 `force`를 켜거나, 로컬에서 `--force`를 붙입니다.
+
+## 실행 방식
 
 ```bash
 npm install
@@ -56,50 +56,47 @@ npm run collect
 npm run dev
 ```
 
-수집 API 키 없이 화면과 필터 동작만 확인하려면 개발 서버 실행 후 `/preview`로 접속합니다. 이 경로는 `data/items.json`을 사용하지 않고 샘플 데이터만 보여줍니다.
-
-Node.js/npm 없이 빠르게 확인해야 하는 환경에서는 저장소 루트의 `preview.html`을 브라우저로 열면 됩니다. 이 파일은 샘플 목록, 필터, 검색, 상세 화면을 단일 HTML 안에서 보여줍니다.
-
-정적 배포 파일은 다음 명령으로 생성됩니다.
+특정 날짜를 수집하려면:
 
 ```bash
-npm run build
+npm run collect -- --date 2026-05-25
 ```
 
-생성 결과는 `out/`에 저장되어 GitHub Pages에 올릴 수 있습니다. Vercel에서도 같은 Next.js 구조로 배포할 수 있습니다.
+이미 캐시가 있어도 다시 수집하려면:
+
+```bash
+npm run collect -- --date 2026-05-25 --force
+```
+
+Node.js/npm 없이 화면 형태만 확인해야 하는 환경에서는 저장소 루트의 `preview.html`을 브라우저로 엽니다. 이 파일은 샘플 데이터 기반 단일 HTML 미리보기입니다.
 
 ## GitHub Actions
 
-`.github/workflows/daily-collect.yml`은 매일 06:10 Asia/Seoul 기준으로 실행됩니다. GitHub cron은 UTC라서 `10 21 * * *`로 설정되어 있습니다.
+`.github/workflows/daily-collect.yml`은 매일 `15:00 UTC`, 즉 한국시간 `00:00`에 실행됩니다. 기본값은 한국시간 기준 전일 24시간 자료입니다.
 
-필수 secrets:
+수동 실행(`workflow_dispatch`) 입력:
 
-- `LAW_OPEN_API_OC`
-- `DATA_GO_KR_SERVICE_KEY`와 `GWANBO_LIST_URL`은 관보 API를 사용할 때 설정
-- `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET`은 뉴스 보조 수집을 사용할 때 설정
-- `OPENAI_API_KEY`는 실제 AI 자동요약을 사용할 때 설정
+- `target_date`: `YYYY-MM-DD` 형식 날짜
+- `force`: 기존 일자별 캐시가 있어도 재수집
 
-선택 repository variables:
+필수 또는 권장 secrets:
 
-- `MOIS_BOARD_URL`
-- `MOEF_BOARD_URL`
-- `KOREA_POLICY_RSS`
-- `NEXT_PUBLIC_BASE_PATH` GitHub Pages가 `/repo-name` 하위 경로일 때 설정
+- `LAW_OPEN_API_OC`: 국가법령정보센터 Open API 키
+- `DATA_GO_KR_SERVICE_KEY`: 관보 API 사용 시
+- `GWANBO_LIST_URL`: 관보 목록 API 실제 호출 URL
+- `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET`: 뉴스 검색 보조 수집
+- `OPENAI_API_KEY`: Actions 수집 후 자동요약
 
-## 데이터 저장
+선택 variables:
 
-현재 저장소는 로컬 JSON입니다.
+- `KOREA_POLICY_RSS`: 기본 정책브리핑 RSS 목록을 대체할 쉼표 구분 URL
+- `NAVER_NEWS_QUERIES`: 기본 뉴스 검색 키워드를 대체할 쉼표 구분 키워드
+- `FETCH_MAX_PAGES`: 공식 게시판/API 페이지 탐색 수
+- `FETCH_DETAIL_LIMIT`: 상세 본문 조회 수 제한
+- `SUMMARY_MAX_CHARS`: 요약 입력 원문 길이
 
-- 누적 데이터: `data/items.json`
-- 일별 스냅샷: `data/snapshots/YYYY-MM-DD.json`
-- diff 결과: `data/diff.json`
-- 수집 로그: `data/logs/last-fetch.json`
+## 정적 배포 제약
 
-Supabase로 확장할 때는 `lib/store.ts`의 `DataStore` 인터페이스와 `itemTableColumns`를 기준으로 JSON store를 DB store로 바꾸면 됩니다.
+현재 배포 방식은 GitHub Pages 정적 export입니다. 따라서 사용자가 웹페이지에서 날짜를 클릭하는 순간 서버가 즉시 새 수집을 실행할 수는 없습니다. 페이지는 이미 생성된 일자별 캐시와 누적 데이터를 보여줍니다.
 
-## 운영 주의사항
-
-- 원문 상세 URL이 없으면 공식 API/목록 URL을 남기고 `검증 필요`로 표시합니다.
-- 첨부파일 파싱 실패는 수집 로그에 남기고 원문 URL을 유지합니다.
-- 뉴스와 정책 RSS는 참고 신호입니다. `confidence=news` 또는 `press`로 저장되며 공식 변경으로 집계하지 않습니다.
-- 자동요약은 `자동요약:` 접두사를 붙이고, 원문 근거가 부족하면 단정하지 않는 문구를 넣습니다.
+웹페이지 클릭으로 즉시 수집하려면 Vercel, Cloudflare Workers, Supabase Edge Functions 같은 서버 실행 환경과 사용자 인증이 필요합니다. 이 경우 `scripts/collect.ts`를 서버 작업으로 호출하고, 수집 결과를 DB 또는 저장소에 기록하는 구조로 확장합니다.

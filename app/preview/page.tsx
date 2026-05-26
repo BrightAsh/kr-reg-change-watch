@@ -45,6 +45,7 @@ export default function PreviewPage() {
         ministries={ministries}
         dates={dates}
         logs={previewRun.logs}
+        run={previewRun}
         detailHrefPrefix="/preview/items"
       />
     </main>

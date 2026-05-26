@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { categoryLabels, itemCategory } from "@/lib/categories";
 import { changeTypeLabels, confidenceLabels, documentTypeLabels, sourceTypeLabels } from "@/lib/labels";
 import type { CollectedItem } from "@/lib/types";
 
@@ -9,6 +10,8 @@ interface Props {
 }
 
 export default function ItemDetailView({ item, backHref, backLabel = "목록으로" }: Props) {
+  const category = item.category || itemCategory(item);
+
   return (
     <main className="page-shell detail-shell">
       <Link className="back-link" href={backHref}>
@@ -17,6 +20,7 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
 
       <article className="detail-panel">
         <div className="item-meta">
+          <span>{categoryLabels[category]}</span>
           <span>{sourceTypeLabels[item.source_type]}</span>
           <span>{documentTypeLabels[item.document_type]}</span>
           <span>{changeTypeLabels[item.change_type]}</span>

@@ -1,9 +1,10 @@
 import path from "node:path";
-import type { CollectedItem, CollectionLog } from "../lib/types";
+import type { CollectedItem, CollectionLog, DailyCollection, SourceType } from "../lib/types";
 import {
   addLog,
   asArray,
   dateDaysAgo,
+  dailyDir,
   ensureDataDirs,
   env,
   fetchJsonOrXml,
@@ -18,6 +19,7 @@ import {
   snapshotsDir,
   writeJson
 } from "./common";
+import { itemCategory } from "../lib/categories";
 import {
   compactText,
   hashText,
@@ -44,11 +46,113 @@ const lookback = Number(env("FETCH_LOOKBACK_DAYS", "1"));
 const targetDate = String(args.date || dateDaysAgo(Number.isFinite(lookback) ? lookback : 1));
 const maxPages = Number(env("FETCH_MAX_PAGES", "5"));
 const detailLimit = Number(env("FETCH_DETAIL_LIMIT", "30"));
+const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
 const itemsPath = path.join(rootDir, "data", "items.json");
 const runPath = path.join(rootDir, "data", "run.json");
+const dailyPath = path.join(dailyDir, `${targetDate}.json`);
+
+interface MinistryRoute {
+  source: string;
+  envName: string;
+  defaultUrl: string;
+  ministry: string;
+  sourceType?: SourceType;
+}
+
+const MINISTRY_ROUTES: MinistryRoute[] = [
+  {
+    source: "행정안전부 훈령·예규·고시",
+    envName: "MOIS_BOARD_URL",
+    defaultUrl: "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016",
+    ministry: "행정안전부",
+    sourceType: "ministry_board"
+  },
+  {
+    source: "행정안전부 입법·행정예고",
+    envName: "MOIS_NOTICE_BOARD_URL",
+    defaultUrl: "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017",
+    ministry: "행정안전부",
+    sourceType: "legislation_notice"
+  },
+  {
+    source: "기획재정부 훈령",
+    envName: "MOEF_DIRECTIVE_URL",
+    defaultUrl: "https://www.moef.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100",
+    ministry: "기획재정부",
+    sourceType: "ministry_board"
+  },
+  {
+    source: "기획재정부 예규",
+    envName: "MOEF_ESTABLISHED_RULE_URL",
+    defaultUrl: "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100",
+    ministry: "기획재정부",
+    sourceType: "ministry_board"
+  },
+  {
+    source: "기획재정부 고시",
+    envName: "MOEF_NOTICE_URL",
+    defaultUrl: "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200",
+    ministry: "기획재정부",
+    sourceType: "ministry_board"
+  },
+  {
+    source: "기획재정부 공고",
+    envName: "MOEF_ANNOUNCEMENT_URL",
+    defaultUrl: "https://www.moef.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200",
+    ministry: "기획재정부",
+    sourceType: "legislation_notice"
+  },
+  {
+    source: "기획재정부 지침",
+    envName: "MOEF_GUIDELINE_URL",
+    defaultUrl: "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200",
+    ministry: "기획재정부",
+    sourceType: "ministry_board"
+  },
+  {
+    source: "기획재정부 입법·행정예고",
+    envName: "MOEF_LEGISLATION_NOTICE_URL",
+    defaultUrl: "https://www.moef.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300",
+    ministry: "기획재정부",
+    sourceType: "legislation_notice"
+  }
+];
 
 async function main() {
   await ensureDataDirs();
+
+  if (!forceCollect) {
+    const cached = await readJson<DailyCollection | null>(dailyPath, null);
+    if (cached?.date === targetDate) {
+      const existing = await readJson<CollectedItem[]>(itemsPath, []);
+      const merged = mergeItems(existing, cached.items);
+      const cacheLogs: CollectionLog[] = [
+        ...cached.logs,
+        {
+          source: "일자별 캐시",
+          status: "ok",
+          message: `${targetDate} 캐시가 있어 외부 수집을 건너뜁니다.`,
+          count: cached.items.length,
+          at: new Date().toISOString()
+        }
+      ];
+      await writeJson(itemsPath, merged);
+      await writeJson(path.join(snapshotsDir, `${targetDate}.json`), cached.items);
+      await writeJson(path.join(logsDir, "last-fetch.json"), cacheLogs);
+      await writeJson(runPath, {
+        last_run_at: new Date().toISOString(),
+        last_target_date: targetDate,
+        item_count: merged.length,
+        changed_count: cached.changed_count,
+        available_dates: await listDailyDates(),
+        cache_hit: true,
+        logs: cacheLogs
+      });
+      console.log(`Cache hit for ${targetDate}. Reused ${cached.items.length} item(s).`);
+      return;
+    }
+  }
+
   const logs: CollectionLog[] = [];
   const collected: CollectedItem[] = [];
 
@@ -59,27 +163,39 @@ async function main() {
   await runSource(logs, collected, () => fetchLawmakingNotices(logs, "입법예고", "ogLmPp"));
   await runSource(logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
   await runSource(logs, collected, () => fetchGazette(logs));
-  await runSource(logs, collected, () => fetchMoisBoard(logs));
-  await runSource(logs, collected, () => fetchConfiguredMinistryBoard(logs, "재정경제부/기획재정부 게시판", "MOEF_BOARD_URL"));
+  await runSource(logs, collected, () => fetchMinistryRoutes(logs));
   await runSource(logs, collected, () => fetchPolicyRss(logs));
   await runSource(logs, collected, () => fetchNaverNews(logs));
 
+  const scoped = normalizeAndFilterByTargetDate(collected);
   const existing = await readJson<CollectedItem[]>(itemsPath, []);
-  const merged = mergeItems(existing, collected);
-  const changedToday = collected.length;
+  const merged = mergeItems(existing, scoped);
+  const changedToday = scoped.length;
+  const daily: DailyCollection = {
+    date: targetDate,
+    collected_at: new Date().toISOString(),
+    item_count: scoped.length,
+    changed_count: changedToday,
+    cache_hit: false,
+    items: scoped,
+    logs
+  };
 
   await writeJson(itemsPath, merged);
-  await writeJson(path.join(snapshotsDir, `${targetDate}.json`), collected);
+  await writeJson(path.join(snapshotsDir, `${targetDate}.json`), scoped);
+  await writeJson(dailyPath, daily);
   await writeJson(path.join(logsDir, "last-fetch.json"), logs);
   await writeJson(runPath, {
     last_run_at: new Date().toISOString(),
     last_target_date: targetDate,
     item_count: merged.length,
     changed_count: changedToday,
+    available_dates: await listDailyDates(),
+    cache_hit: false,
     logs
   });
 
-  console.log(`Collected ${collected.length} item(s) for ${targetDate}. Total stored: ${merged.length}.`);
+  console.log(`Collected ${scoped.length} item(s) for ${targetDate}. Total stored: ${merged.length}.`);
 }
 
 async function runSource(
@@ -276,7 +392,7 @@ async function fetchLawmakingNotices(
   ]);
   const items = rows
     .map((row) => normalizeLawmakingRow(row, source, label, endpoint, url))
-    .filter((item): item is CollectedItem => Boolean(item));
+    .filter((item): item is CollectedItem => Boolean(item && item.publish_date === targetDate));
   addLog(logs, source, "ok", "국민참여입법센터 공개 LINK API 수집 완료", items.length, LAWMAKING_GUIDE);
   return items;
 }
@@ -330,29 +446,53 @@ async function fetchGazette(logs: CollectionLog[]): Promise<CollectedItem[]> {
   return items;
 }
 
-async function fetchMoisBoard(logs: CollectionLog[]): Promise<CollectedItem[]> {
-  return fetchConfiguredMinistryBoard(logs, "행정안전부 훈령·예규·고시", "MOIS_BOARD_URL", "행정안전부");
+async function fetchMinistryRoutes(logs: CollectionLog[]): Promise<CollectedItem[]> {
+  const items: CollectedItem[] = [];
+  for (const route of MINISTRY_ROUTES) {
+    try {
+      items.push(...(await fetchConfiguredMinistryBoard(logs, route)));
+    } catch (error) {
+      addLog(logs, route.source, "error", `공식 게시판 수집 실패: ${messageOf(error)}`, 0, route.defaultUrl);
+    }
+  }
+  return items;
 }
 
-async function fetchConfiguredMinistryBoard(
-  logs: CollectionLog[],
-  source: string,
-  envName: string,
-  defaultMinistry = "재정경제부/기획재정부"
-): Promise<CollectedItem[]> {
-  const url = env(envName);
+async function fetchConfiguredMinistryBoard(logs: CollectionLog[], route: MinistryRoute): Promise<CollectedItem[]> {
+  const configured = env(route.envName);
+  const url = configured || route.defaultUrl;
   if (!url) {
-    addLog(logs, source, "skipped", `${envName} 미설정으로 게시판 HTML 수집을 건너뜁니다.`, 0);
+    addLog(logs, route.source, "skipped", `${route.envName} 미설정으로 게시판 HTML 수집을 건너뜁니다.`, 0);
     return [];
   }
-  const html = await fetchText(url);
-  const rows = parseBoardRows(html, url, defaultMinistry, source, logs);
-  addLog(logs, source, "ok", "공식 게시판 HTML 수집 완료", rows.length, url);
-  return rows;
+
+  const items: CollectedItem[] = [];
+  for (let page = 1; page <= maxPages; page += 1) {
+    const pageUrl = withPage(url, page);
+    const html = await fetchText(pageUrl);
+    const rows = await parseBoardRows(html, pageUrl, route, logs);
+    items.push(...rows);
+    if (!hasLikelyNextPage(html, page)) break;
+  }
+
+  const unique = mergeItems([], items);
+  addLog(logs, route.source, "ok", "공식 게시판 HTML 수집 완료", unique.length, url);
+  return unique;
 }
 
 async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
-  const urls = env("KOREA_POLICY_RSS")
+  const defaultRss = [
+    "https://www.korea.kr/rss/pressrelease.xml",
+    "https://www.korea.kr/rss/policy.xml",
+    "https://www.korea.kr/rss/dept_moleg.xml",
+    "https://www.korea.kr/rss/dept_mois.xml",
+    "https://www.korea.kr/rss/dept_moef.xml",
+    "https://www.korea.kr/rss/president.xml",
+    "https://www.korea.kr/rss/speech.xml",
+    "https://www.korea.kr/rss/cabinet.xml",
+    "https://www.korea.kr/rss/ebriefing.xml"
+  ].join(",");
+  const urls = env("KOREA_POLICY_RSS", defaultRss)
     .split(",")
     .map((url) => url.trim())
     .filter(Boolean);
@@ -370,6 +510,8 @@ async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
       for (const entry of entries) {
         const title = compactText(text(entry, ["title"]));
         const body = compactText(text(entry, ["description", "content:encoded"]));
+        const publishDate = normalizeDate(text(entry, ["pubDate", "dc:date"])) || targetDate;
+        if (publishDate !== targetDate) continue;
         if (!/(법령|개정|제정|폐지|고시|공고|훈령|예규|지침|입법예고|행정예고)/.test(`${title} ${body}`)) {
           continue;
         }
@@ -382,7 +524,7 @@ async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
             document_type: "news",
             title,
             issue_number: null,
-            publish_date: normalizeDate(text(entry, ["pubDate", "dc:date"])) || targetDate,
+            publish_date: publishDate,
             effective_date: null,
             change_type: inferChangeType(`${title} ${body}`),
             original_url: text(entry, ["link"]) || url,
@@ -409,17 +551,20 @@ async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
     addLog(logs, source, "skipped", "NAVER_CLIENT_ID/NAVER_CLIENT_SECRET 미설정으로 뉴스 보조 수집을 건너뜁니다.", 0);
     return [];
   }
-  const queries = env("NAVER_NEWS_QUERIES", "법령 개정")
+  const queries = env(
+    "NAVER_NEWS_QUERIES",
+    "법제처 법령 개정,행정안전부 고시,행정안전부 지침,기획재정부 고시,기획재정부 지침,입법예고 행정예고,대통령 법령 개정,장관 고시 개정"
+  )
     .split(",")
     .map((query) => query.trim())
     .filter(Boolean);
   const items: CollectedItem[] = [];
   for (const query of queries) {
-    const url = makeUrl("https://openapi.naver.com/v1/search/news.json", {
-      query,
-      display: 10,
-      sort: "date"
-    });
+      const url = makeUrl("https://openapi.naver.com/v1/search/news.json", {
+        query,
+        display: 100,
+        sort: "date"
+      });
     try {
       const raw = await fetchText(url, {
         headers: {
@@ -431,6 +576,8 @@ async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
       for (const row of payload.items || []) {
         const title = compactText(text(row, ["title"]));
         const body = compactText(text(row, ["description"]));
+        const publishDate = normalizeDate(text(row, ["pubDate"])) || "";
+        if (publishDate !== targetDate) continue;
         const rawText = compactText(`${title} ${body}`);
         items.push(
           makeItem({
@@ -440,7 +587,7 @@ async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
             document_type: "news",
             title,
             issue_number: null,
-            publish_date: normalizeDate(text(row, ["pubDate"])) || targetDate,
+            publish_date: publishDate,
             effective_date: null,
             change_type: "unknown",
             original_url: text(row, ["originallink", "link"]),
@@ -552,50 +699,60 @@ function normalizeLawmakingRow(
   });
 }
 
-function parseBoardRows(
+async function parseBoardRows(
   html: string,
   listUrl: string,
-  ministry: string,
-  source: string,
+  route: MinistryRoute,
   logs: CollectionLog[]
-): CollectedItem[] {
+): Promise<CollectedItem[]> {
   const rows: CollectedItem[] = [];
-  const trMatches = html.matchAll(/<tr[\s\S]*?<\/tr>/gi);
-  for (const trMatch of trMatches) {
-    const chunk = trMatch[0];
-    const hrefMatch = chunk.match(/href=["']([^"']*(?:commonSelectBoardArticle|View\.do|view|article)[^"']*)["'][^>]*>([\s\S]*?)<\/a>/i);
-    if (!hrefMatch) continue;
-    const rawHref = hrefMatch[1].replaceAll("&amp;", "&");
-    const title = compactText(hrefMatch[2]);
-    if (!title) continue;
+  const seenUrls = new Set<string>();
+  const anchors = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)];
+
+  for (const match of anchors) {
+    const rawHref = decodeHtml(match[1]);
+    const title = compactText(decodeHtml(match[2]));
+    if (!isLikelyBoardTitle(title, rawHref)) continue;
+
     let absoluteUrl = "";
     try {
       absoluteUrl = new URL(rawHref, listUrl).toString();
     } catch (error) {
-      addLog(logs, source, "error", `게시글 원문 URL 파싱 실패: ${title} - ${messageOf(error)}`, 0, listUrl);
+      addLog(logs, route.source, "error", `게시글 원문 URL 파싱 실패: ${title} - ${messageOf(error)}`, 0, listUrl);
       continue;
     }
-    const publishDate = normalizeDate(chunk.match(/20\d{2}[./-]\d{2}[./-]\d{2}/)?.[0]) || targetDate;
-    const attachmentUrls: string[] = [];
-    for (const match of chunk.matchAll(/href=["']([^"']+\.(?:hwp|hwpx|pdf|docx?|xlsx?|zip)[^"']*)["']/gi)) {
-      try {
-        attachmentUrls.push(new URL(match[1].replaceAll("&amp;", "&"), listUrl).toString());
-      } catch (error) {
-        addLog(logs, source, "error", `첨부파일 URL 파싱 실패: ${title} - ${messageOf(error)}`, 0, absoluteUrl);
-      }
+    if (seenUrls.has(absoluteUrl)) continue;
+    seenUrls.add(absoluteUrl);
+
+    const matchIndex = match.index ?? 0;
+    const context = html.slice(Math.max(0, matchIndex - 900), Math.min(html.length, matchIndex + match[0].length + 1200));
+    let detailHtml = "";
+    try {
+      detailHtml = await fetchText(absoluteUrl);
+    } catch {
+      detailHtml = "";
     }
-    const rawText = compactText(chunk);
+
+    const detailText = compactText(detailHtml || context);
+    const publishDate =
+      normalizeDate(findLabelDate(detailText, ["등록일", "작성일", "발령일자", "검색기간", "예고기간"])) ||
+      normalizeDate(context.match(/20\d{2}[./-]\d{1,2}[./-]\d{1,2}/)?.[0]) ||
+      null;
+    if (publishDate !== targetDate) continue;
+
+    const attachmentUrls = collectAttachmentUrls(detailHtml || context, absoluteUrl, logs, route.source, title);
+    const rawText = compactText([title, detailText || context].join(" "));
     rows.push(
       makeItem({
-        source,
-        source_type: "ministry_board",
-        ministry,
-        document_type: inferDocumentType(title),
+        source: route.source,
+        source_type: route.sourceType || "ministry_board",
+        ministry: route.ministry,
+        document_type: inferDocumentType(`${route.source} ${title} ${rawText}`),
         title,
-        issue_number: extractIssueNumber(title),
+        issue_number: extractIssueNumber(`${title} ${rawText}`),
         publish_date: publishDate,
-        effective_date: normalizeDate(title.match(/시행[^\d]*(20\d{2}[./-]\d{1,2}[./-]\d{1,2})/)?.[1]),
-        change_type: inferChangeType(title),
+        effective_date: normalizeDate(rawText.match(/시행[^\d]*(20\d{2}[./-]\d{1,2}[./-]\d{1,2})/)?.[1]),
+        change_type: inferChangeType(`${title} ${rawText}`),
         original_url: absoluteUrl,
         attachment_urls: attachmentUrls,
         raw_text: rawText,
@@ -608,15 +765,109 @@ function parseBoardRows(
   return rows;
 }
 
+function withPage(url: string, page: number): string {
+  try {
+    const parsed = new URL(url);
+    if (page > 1 || parsed.searchParams.has("pageIndex")) parsed.searchParams.set("pageIndex", String(page));
+    if (parsed.searchParams.has("pageNo")) parsed.searchParams.set("pageNo", String(page));
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+}
+
+function hasLikelyNextPage(html: string, page: number): boolean {
+  const next = String(page + 1);
+  return html.includes(`pageIndex=${next}`) || new RegExp(`>\\s*${next}\\s*<`).test(html);
+}
+
+function isLikelyBoardTitle(title: string, href: string): boolean {
+  if (title.length < 4 || title.length > 180) return false;
+  if (/^(처음|이전|다음|마지막|목록|검색|다운로드|자료열기|RSS|홈으로)$/i.test(title)) return false;
+  if (/\.(?:hwp|hwpx|pdf|docx?|xlsx?|zip)(?:$|[?#])/i.test(href)) return false;
+  if (!/(View|view|Article|article|detail|Tb|Ntt|ntt|bbs|admrul|denm|pblanc|lap|lawService|lawSearch|DRF)/.test(href)) {
+    return false;
+  }
+  return true;
+}
+
+function decodeHtml(value: string): string {
+  return value
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#x27;/g, "'");
+}
+
+function findLabelDate(textValue: string, labels: string[]): string | null {
+  for (const label of labels) {
+    const index = textValue.indexOf(label);
+    if (index === -1) continue;
+    const nearby = textValue.slice(index, index + 120);
+    const found = normalizeDate(nearby);
+    if (found) return found;
+  }
+  return normalizeDate(textValue.match(/20\d{2}[./-]\d{1,2}[./-]\d{1,2}/)?.[0]);
+}
+
+function collectAttachmentUrls(
+  html: string,
+  baseUrl: string,
+  logs: CollectionLog[],
+  source: string,
+  title: string
+): string[] {
+  const attachmentUrls: string[] = [];
+  for (const match of html.matchAll(/href=["']([^"']+\.(?:hwp|hwpx|pdf|docx?|xlsx?|zip)[^"']*)["']/gi)) {
+    try {
+      attachmentUrls.push(new URL(decodeHtml(match[1]), baseUrl).toString());
+    } catch (error) {
+      addLog(logs, source, "error", `첨부파일 URL 파싱 실패: ${title} - ${messageOf(error)}`, 0, baseUrl);
+    }
+  }
+  return [...new Set(attachmentUrls)];
+}
+
 function mergeItems(existing: CollectedItem[], incoming: CollectedItem[]): CollectedItem[] {
   const map = new Map<string, CollectedItem>();
-  for (const item of existing) map.set(item.id, item);
-  for (const item of incoming) map.set(item.id, { ...map.get(item.id), ...item });
+  for (const item of existing) map.set(item.id, { ...item, category: itemCategory(item) });
+  for (const item of incoming) map.set(item.id, { ...map.get(item.id), ...item, category: itemCategory(item) });
   return [...map.values()].sort((a, b) => {
     const dateOrder = (b.publish_date || "").localeCompare(a.publish_date || "");
     if (dateOrder !== 0) return dateOrder;
     return a.title.localeCompare(b.title, "ko");
   });
+}
+
+function normalizeAndFilterByTargetDate(items: CollectedItem[]): CollectedItem[] {
+  const byId = new Map<string, CollectedItem>();
+  for (const item of items) {
+    const publishDate = item.publish_date ? normalizeDate(item.publish_date) : null;
+    if (publishDate !== targetDate) continue;
+    const normalized = {
+      ...item,
+      publish_date: publishDate,
+      category: itemCategory(item)
+    };
+    byId.set(normalized.id, { ...byId.get(normalized.id), ...normalized });
+  }
+  return [...byId.values()];
+}
+
+async function listDailyDates(): Promise<string[]> {
+  try {
+    const fs = await import("node:fs/promises");
+    const files = await fs.readdir(dailyDir);
+    return files
+      .filter((file) => /^\d{4}-\d{2}-\d{2}\.json$/.test(file))
+      .map((file) => file.replace(".json", ""))
+      .sort((a, b) => b.localeCompare(a));
+  } catch {
+    return [];
+  }
 }
 
 function makeItem(
@@ -644,6 +895,7 @@ function makeItem(
     collected_at: new Date().toISOString(),
     ...input,
     title,
+    category: itemCategory(input),
     original_url: originalUrl,
     verification_required: input.verification_required || !hasOriginalUrl,
     raw_hash: input.raw_hash || hashText(input.raw_text),

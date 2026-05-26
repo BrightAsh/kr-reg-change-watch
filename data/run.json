@@ -3,5 +3,7 @@
   "last_target_date": null,
   "item_count": 0,
   "changed_count": 0,
+  "available_dates": [],
+  "cache_hit": false,
   "logs": []
 }

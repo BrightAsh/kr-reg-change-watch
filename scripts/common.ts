@@ -8,6 +8,7 @@ export const rootDir = process.cwd();
 export const dataDir = path.join(rootDir, "data");
 export const snapshotsDir = path.join(dataDir, "snapshots");
 export const logsDir = path.join(dataDir, "logs");
+export const dailyDir = path.join(dataDir, "daily");
 
 const xmlParser = new XMLParser({
   ignoreAttributes: false,
@@ -49,6 +50,7 @@ export async function ensureDataDirs(): Promise<void> {
   await fs.mkdir(dataDir, { recursive: true });
   await fs.mkdir(snapshotsDir, { recursive: true });
   await fs.mkdir(logsDir, { recursive: true });
+  await fs.mkdir(dailyDir, { recursive: true });
 }
 
 export async function readJson<T>(filePath: string, fallback: T): Promise<T> {
@@ -178,4 +180,8 @@ export function dateDaysAgo(days: number): string {
     month: "2-digit",
     day: "2-digit"
   }).format(date);
+}
+
+export function isDateString(value: unknown): value is string {
+  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value);
 }

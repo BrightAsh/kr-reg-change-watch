@@ -1,11 +1,12 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { CollectedItem, ItemFilters, RunMetadata } from "./types";
+import type { CollectedItem, DailyCollection, ItemFilters, RunMetadata } from "./types";
 
 const root = process.cwd();
 const dataDir = path.join(root, "data");
 const itemsPath = path.join(dataDir, "items.json");
 const runPath = path.join(dataDir, "run.json");
+const dailyDir = path.join(dataDir, "daily");
 
 export async function readItems(): Promise<CollectedItem[]> {
   try {
@@ -26,8 +27,31 @@ export async function readRunMetadata(): Promise<RunMetadata> {
       last_target_date: null,
       item_count: 0,
       changed_count: 0,
+      available_dates: [],
+      cache_hit: false,
       logs: []
     };
+  }
+}
+
+export async function readAvailableDailyDates(): Promise<string[]> {
+  try {
+    const files = await fs.readdir(dailyDir);
+    return files
+      .filter((file) => /^\d{4}-\d{2}-\d{2}\.json$/.test(file))
+      .map((file) => file.replace(".json", ""))
+      .sort((a, b) => b.localeCompare(a));
+  } catch {
+    return [];
+  }
+}
+
+export async function readDailyCollection(date: string): Promise<DailyCollection | null> {
+  try {
+    const raw = await fs.readFile(path.join(dailyDir, `${date}.json`), "utf8");
+    return JSON.parse(raw) as DailyCollection;
+  } catch {
+    return null;
   }
 }
 

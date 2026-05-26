@@ -27,10 +27,13 @@ export type ChangeType =
 
 export type Confidence = "official" | "official_notice" | "press" | "news";
 
+export type RegulatoryCategory = "law" | "notice" | "guideline" | "news";
+
 export interface CollectedItem {
   id: string;
   source: string;
   source_type: SourceType;
+  category?: RegulatoryCategory;
   ministry: string;
   document_type: DocumentType;
   title: string;
@@ -65,6 +68,8 @@ export interface RunMetadata {
   last_target_date: string | null;
   item_count: number;
   changed_count: number;
+  available_dates?: string[];
+  cache_hit?: boolean;
   logs: CollectionLog[];
 }
 
@@ -75,4 +80,14 @@ export interface ItemFilters {
   changeType?: ChangeType;
   date?: string;
   query?: string;
+}
+
+export interface DailyCollection {
+  date: string;
+  collected_at: string;
+  item_count: number;
+  changed_count: number;
+  cache_hit?: boolean;
+  items: CollectedItem[];
+  logs: CollectionLog[];
 }

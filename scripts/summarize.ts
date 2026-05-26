@@ -1,11 +1,12 @@
 import path from "node:path";
-import type { CollectedItem } from "../lib/types";
+import type { CollectedItem, DailyCollection } from "../lib/types";
 import { changeTypeLabels, documentTypeLabels } from "../lib/labels";
-import { ensureDataDirs, env, loadDotEnv, readJson, rootDir, writeJson } from "./common";
+import { dailyDir, ensureDataDirs, env, loadDotEnv, parseArgs, readJson, rootDir, writeJson } from "./common";
 import { compactText, hashText } from "../lib/text";
 
 loadDotEnv();
 
+const args = parseArgs();
 const itemsPath = path.join(rootDir, "data", "items.json");
 const diffPath = path.join(rootDir, "data", "diff.json");
 const maxChars = Number(env("SUMMARY_MAX_CHARS", "800"));
@@ -42,7 +43,26 @@ async function main() {
   }
 
   await writeJson(itemsPath, summarized);
+  await updateDailySummary(summarized);
   console.log(`Summarized ${summarized.length} item(s).`);
+}
+
+async function updateDailySummary(allItems: CollectedItem[]): Promise<void> {
+  const targetDate =
+    typeof args.date === "string"
+      ? args.date
+      : (await readJson<{ last_target_date?: string | null }>(path.join(rootDir, "data", "run.json"), {})).last_target_date;
+  if (!targetDate) return;
+
+  const dailyPath = path.join(dailyDir, `${targetDate}.json`);
+  const daily = await readJson<DailyCollection | null>(dailyPath, null);
+  if (!daily) return;
+
+  const byId = new Map(allItems.map((item) => [item.id, item]));
+  await writeJson(dailyPath, {
+    ...daily,
+    items: daily.items.map((item) => byId.get(item.id) || item)
+  });
 }
 
 async function buildGroundedSummary(item: CollectedItem): Promise<string> {

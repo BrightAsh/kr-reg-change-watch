@@ -1,12 +1,12 @@
 import ItemExplorer from "@/components/ItemExplorer";
-import { getStats, readItems, readRunMetadata, sortItems, uniqueSorted } from "@/lib/data";
+import { getStats, readAvailableDailyDates, readItems, readRunMetadata, sortItems, uniqueSorted } from "@/lib/data";
 
 export default async function HomePage() {
   const items = sortItems(await readItems());
   const run = await readRunMetadata();
   const stats = getStats(items);
   const ministries = uniqueSorted(items.map((item) => item.ministry));
-  const dates = uniqueSorted(items.map((item) => item.publish_date)).reverse();
+  const dates = uniqueSorted([...(await readAvailableDailyDates()), ...items.map((item) => item.publish_date)]).reverse();
 
   return (
     <main className="page-shell">
@@ -40,7 +40,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <ItemExplorer items={items} ministries={ministries} dates={dates} logs={run.logs || []} />
+      <ItemExplorer items={items} ministries={ministries} dates={dates} logs={run.logs || []} run={run} />
     </main>
   );
 }

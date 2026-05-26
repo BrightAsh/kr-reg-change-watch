@@ -3,20 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>한국 법령 변경 모니터 미리보기</title>
+    <title>한국 규제·법령 변경 모니터 미리보기</title>
     <style>
       :root {
-        --bg: #f7f8f5;
-        --panel: #ffffff;
-        --panel-subtle: #eef3ee;
-        --text: #17201b;
-        --muted: #657068;
-        --line: #d9dfd8;
+        --bg: #f5f6f2;
+        --panel: #fff;
+        --subtle: #f0f3ed;
+        --text: #18201b;
+        --muted: #657069;
+        --line: #d9ded6;
         --accent: #12625b;
-        --accent-2: #8c4b18;
-        --accent-3: #2f5d92;
-        --warn: #9f3a2e;
-        --shadow: 0 8px 28px rgba(31, 41, 35, 0.08);
+        --law: #214f82;
+        --notice: #7a4a12;
+        --guideline: #4d5c25;
+        --news: #6a4d7c;
+        --warn: #a33a2b;
+        --shadow: 0 10px 28px rgba(28, 35, 31, 0.07);
       }
 
       * {
@@ -33,14 +35,24 @@
         margin: 0;
       }
 
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
       a {
         color: inherit;
       }
 
-      .page-shell {
-        width: min(1180px, calc(100% - 32px));
+      .shell {
+        width: min(1240px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 32px 0 56px;
+        padding: 28px 0 56px;
       }
 
       .topbar {
@@ -48,7 +60,7 @@
         align-items: flex-end;
         justify-content: space-between;
         gap: 24px;
-        padding: 8px 0 24px;
+        padding: 8px 0 22px;
         border-bottom: 1px solid var(--line);
       }
 
@@ -57,7 +69,6 @@
         color: var(--accent);
         font-size: 12px;
         font-weight: 700;
-        letter-spacing: 0;
         text-transform: uppercase;
       }
 
@@ -67,70 +78,108 @@
         margin-top: 0;
       }
 
-      .topbar h1 {
+      h1 {
         margin-bottom: 0;
-        font-size: 40px;
-        line-height: 1.15;
-        letter-spacing: 0;
+        font-size: 36px;
+        line-height: 1.18;
       }
 
       .run-info {
         display: grid;
         gap: 6px;
-        min-width: 240px;
         color: var(--muted);
         font-size: 13px;
         text-align: right;
       }
 
-      .stats-strip {
+      .stats {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 12px;
-        padding: 20px 0;
+        gap: 10px;
+        padding: 18px 0;
       }
 
-      .stats-strip div,
-      .filters,
-      .logs-panel,
-      .detail-panel {
+      .stats div,
+      .panel,
+      .digest,
+      .detail {
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 8px;
         box-shadow: var(--shadow);
       }
 
-      .stats-strip div {
+      .stats div {
         display: grid;
         gap: 4px;
         padding: 16px;
       }
 
-      .stats-strip strong {
+      .stats strong {
         color: var(--accent);
-        font-size: 26px;
-        line-height: 1;
+        font-size: 25px;
       }
 
-      .stats-strip span {
+      .stats span {
         color: var(--muted);
         font-size: 13px;
       }
 
-      .filters {
+      .panel {
         display: grid;
-        grid-template-columns: minmax(220px, 1.5fr) repeat(5, minmax(120px, 1fr));
-        gap: 12px;
+        gap: 14px;
         padding: 14px;
       }
 
-      .filters label {
+      .datebar,
+      .tabs,
+      .summary {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .datebar button,
+      .tabs button,
+      .summary button {
+        min-height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fbfcfa;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 700;
+        padding: 8px 11px;
+      }
+
+      .datebar button.active,
+      .tabs button.active {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .tabs button {
+        display: inline-flex;
+        gap: 8px;
+      }
+
+      .filters {
+        display: grid;
+        grid-template-columns: minmax(240px, 1.6fr) repeat(3, minmax(130px, 1fr));
+        gap: 10px;
+      }
+
+      label,
+      .summary div {
         display: grid;
         gap: 6px;
         min-width: 0;
       }
 
-      .filters span {
+      label span,
+      .summary span {
         color: var(--muted);
         font-size: 12px;
         font-weight: 700;
@@ -144,41 +193,62 @@
         border-radius: 6px;
         background: #fbfcfa;
         color: var(--text);
-        font: inherit;
         padding: 8px 10px;
       }
 
-      input:focus,
-      select:focus {
-        outline: 2px solid rgba(18, 98, 91, 0.24);
-        border-color: var(--accent);
+      .summary div {
+        flex: 1 1 280px;
       }
 
-      .results-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        margin: 20px 0 10px;
+      .summary button {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .summary button:disabled {
+        cursor: not-allowed;
+        border-color: var(--line);
+        background: #e6e9e3;
         color: var(--muted);
       }
 
-      .results-header strong {
+      .digest {
+        display: none;
+        margin-top: 14px;
+        padding: 16px;
+        border-left: 5px solid var(--accent);
+      }
+
+      .digest p {
+        margin-bottom: 0;
+        line-height: 1.7;
+      }
+
+      .result-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 18px 0 10px;
+        color: var(--muted);
+      }
+
+      .result-head strong {
         color: var(--text);
         font-size: 18px;
       }
 
-      .item-list {
+      .list {
         display: grid;
         gap: 10px;
       }
 
-      .item-card {
+      .item {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
         gap: 16px;
         align-items: center;
-        min-height: 148px;
+        min-height: 142px;
         padding: 18px;
         background: var(--panel);
         border: 1px solid var(--line);
@@ -186,60 +256,61 @@
         border-radius: 8px;
       }
 
-      .item-main {
-        min-width: 0;
+      .item.law {
+        border-left-color: var(--law);
       }
 
-      .item-meta {
+      .item.notice {
+        border-left-color: var(--notice);
+      }
+
+      .item.guideline {
+        border-left-color: var(--guideline);
+      }
+
+      .item.news {
+        border-left-color: var(--news);
+      }
+
+      .meta {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
         margin-bottom: 10px;
       }
 
-      .item-meta span {
-        min-height: 24px;
+      .meta span {
+        min-height: 23px;
         padding: 4px 8px;
         border-radius: 999px;
-        background: var(--panel-subtle);
+        background: var(--subtle);
         color: var(--accent);
         font-size: 12px;
         font-weight: 700;
-        white-space: nowrap;
       }
 
-      .item-meta .warn {
+      .meta .warn {
         background: #fdecea;
         color: var(--warn);
       }
 
-      .item-card h2 {
+      .item h2 {
         margin-bottom: 8px;
-        font-size: 19px;
-        line-height: 1.35;
-        letter-spacing: 0;
+        font-size: 18px;
+        line-height: 1.38;
       }
 
-      .item-card button {
-        padding: 0;
+      .item h2 button {
         border: 0;
         background: transparent;
         color: inherit;
         cursor: pointer;
         font: inherit;
-        font-size: 19px;
         font-weight: 700;
-        line-height: 1.35;
         text-align: left;
       }
 
-      .item-card button:hover,
-      .back-link:hover,
-      .detail-section a:hover {
-        text-decoration: underline;
-      }
-
-      .item-card p {
+      .item p {
         display: -webkit-box;
         margin-bottom: 12px;
         color: #3a453d;
@@ -250,7 +321,7 @@
         overflow: hidden;
       }
 
-      .item-foot {
+      .foot {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -258,15 +329,15 @@
         font-size: 13px;
       }
 
-      .item-actions {
+      .actions {
         display: grid;
         gap: 8px;
         min-width: 82px;
       }
 
-      .item-actions a,
-      .item-actions button,
-      .back-link {
+      .actions a,
+      .actions button,
+      .back {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -274,180 +345,70 @@
         padding: 8px 12px;
         border: 1px solid var(--accent);
         border-radius: 6px;
+        background: #fff;
         color: var(--accent);
         font-size: 14px;
         font-weight: 700;
-        line-height: 1.2;
         text-decoration: none;
       }
 
-      .item-actions a {
+      .actions a {
         background: var(--accent);
         color: #fff;
       }
 
-      .item-actions button {
-        background: #fff;
-        cursor: pointer;
-      }
-
-      .empty-state {
-        display: grid;
-        gap: 8px;
-        padding: 32px;
+      .empty {
+        padding: 34px;
         border: 1px dashed var(--line);
         border-radius: 8px;
         color: var(--muted);
         text-align: center;
       }
 
-      .empty-state strong {
-        color: var(--text);
-      }
-
-      .logs-panel {
-        margin-top: 24px;
-        padding: 18px;
-      }
-
-      .logs-panel h2 {
-        margin-bottom: 12px;
-        font-size: 18px;
-      }
-
-      .logs-panel ul {
-        display: grid;
-        gap: 8px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-      }
-
-      .logs-panel li {
-        display: grid;
-        grid-template-columns: 12px minmax(0, 1fr) auto;
-        gap: 10px;
-        align-items: start;
-        padding: 10px 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .logs-panel li:first-child {
-        border-top: 0;
-      }
-
-      .logs-panel p {
-        margin: 4px 0 0;
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .status-dot {
-        width: 9px;
-        height: 9px;
-        margin-top: 5px;
-        border-radius: 999px;
-        background: var(--accent-3);
-      }
-
-      .status-dot.error {
-        background: var(--warn);
-      }
-
-      .status-dot.skipped {
-        background: var(--accent-2);
-      }
-
-      .detail-shell {
-        max-width: 960px;
-      }
-
-      .back-link {
-        width: fit-content;
-        margin-bottom: 16px;
-        background: var(--panel);
-        cursor: pointer;
-      }
-
-      .detail-panel {
+      .detail {
         padding: 24px;
       }
 
-      .detail-panel h1 {
+      .detail h1 {
         margin: 8px 0 20px;
-        font-size: 36px;
-        line-height: 1.25;
-        letter-spacing: 0;
+        font-size: 34px;
       }
 
-      .detail-grid {
+      .grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1px;
-        margin: 0 0 22px;
+        margin-bottom: 22px;
         background: var(--line);
         border: 1px solid var(--line);
         border-radius: 8px;
         overflow: hidden;
       }
 
-      .detail-grid div {
-        min-width: 0;
+      .grid div {
         padding: 12px;
         background: #fff;
       }
 
-      .detail-grid dt {
+      .grid dt {
         margin-bottom: 4px;
         color: var(--muted);
         font-size: 12px;
         font-weight: 700;
       }
 
-      .detail-grid dd {
+      .grid dd {
         margin: 0;
         word-break: break-word;
       }
 
-      .detail-section {
-        padding-top: 18px;
-        margin-top: 18px;
-        border-top: 1px solid var(--line);
-      }
-
-      .detail-section h2 {
-        margin-bottom: 8px;
-        color: var(--accent);
-        font-size: 17px;
-      }
-
-      .detail-section p {
-        line-height: 1.7;
-      }
-
-      .note {
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .link-list {
-        display: grid;
-        gap: 8px;
-        padding-left: 18px;
-        word-break: break-all;
-      }
-
-      .raw-text {
-        max-height: 520px;
+      .raw {
+        max-height: 420px;
         overflow: auto;
         padding: 16px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #fbfcfa;
-        color: #2b352e;
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 13px;
-        line-height: 1.65;
         white-space: pre-wrap;
       }
 
@@ -455,8 +416,9 @@
         display: none;
       }
 
-      @media (max-width: 920px) {
-        .topbar {
+      @media (max-width: 800px) {
+        .topbar,
+        .result-head {
           align-items: flex-start;
           flex-direction: column;
         }
@@ -465,166 +427,99 @@
           text-align: left;
         }
 
-        .stats-strip {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .filters {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 640px) {
-        .page-shell {
-          width: min(100% - 20px, 1180px);
-          padding-top: 18px;
-        }
-
-        .topbar h1 {
-          font-size: 30px;
-        }
-
-        .detail-panel h1 {
-          font-size: 28px;
-        }
-
-        .stats-strip,
+        .stats,
         .filters,
-        .detail-grid {
+        .grid {
           grid-template-columns: 1fr;
         }
 
-        .item-card {
+        .item {
           grid-template-columns: 1fr;
         }
 
-        .item-actions {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .results-header {
-          align-items: flex-start;
-          flex-direction: column;
+        .actions {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>
   </head>
   <body>
-    <main id="list-view" class="page-shell">
+    <main id="home" class="shell">
       <header class="topbar">
         <div>
           <p class="eyebrow">Local preview</p>
-          <h1>샘플 데이터 미리보기</h1>
+          <h1>한국 규제·법령 변경 모니터</h1>
         </div>
         <div class="run-info">
-          <span id="target-date"></span>
-          <span id="run-at"></span>
+          <span>기준일 2026-05-26</span>
+          <span>샘플 데이터 미리보기</span>
         </div>
       </header>
 
-      <section class="stats-strip" aria-label="샘플 통계">
-        <div>
-          <strong id="stat-total">0</strong>
-          <span>전체 항목</span>
+      <section class="stats">
+        <div><strong id="total">0</strong><span>전체 항목</span></div>
+        <div><strong id="official">0</strong><span>공식 법령/관보</span></div>
+        <div><strong id="notices">0</strong><span>예고/공고</span></div>
+        <div><strong id="verify">0</strong><span>검증 필요</span></div>
+      </section>
+
+      <section class="panel">
+        <div id="datebar" class="datebar"></div>
+        <div id="tabs" class="tabs"></div>
+        <div class="filters">
+          <label><span>검색</span><input id="q" placeholder="제목, 본문, 기관, 문서번호" /></label>
+          <label><span>기관</span><select id="ministry"></select></label>
+          <label><span>출처</span><select id="source"></select></label>
+          <label><span>문서</span><select id="doc"></select></label>
         </div>
-        <div>
-          <strong id="stat-official">0</strong>
-          <span>공식 법령/관보</span>
-        </div>
-        <div>
-          <strong id="stat-notices">0</strong>
-          <span>예고/공고</span>
-        </div>
-        <div>
-          <strong id="stat-verify">0</strong>
-          <span>검증 필요</span>
+        <div class="summary">
+          <div><span>OpenAI API key</span><input id="key" type="password" placeholder="sk-..." /></div>
+          <button id="summarize" type="button">표시 항목 요약</button>
+          <button id="clearKey" type="button">키 지우기</button>
         </div>
       </section>
 
-      <section class="filters" aria-label="필터와 검색">
-        <label>
-          <span>검색</span>
-          <input id="query" placeholder="제목, 본문, 기관, 문서번호" />
-        </label>
-        <label>
-          <span>기관</span>
-          <select id="ministry"></select>
-        </label>
-        <label>
-          <span>출처 유형</span>
-          <select id="source-type"></select>
-        </label>
-        <label>
-          <span>문서 유형</span>
-          <select id="document-type"></select>
-        </label>
-        <label>
-          <span>변경상태</span>
-          <select id="change-type"></select>
-        </label>
-        <label>
-          <span>날짜</span>
-          <select id="date"></select>
-        </label>
-      </section>
-
-      <section class="results-header">
-        <strong id="result-count">0건</strong>
-        <span>뉴스와 보도자료는 공식 변경으로 집계하지 않습니다.</span>
-      </section>
-
-      <section id="item-list" class="item-list" aria-label="변경 목록"></section>
-
-      <section class="logs-panel" aria-label="수집 로그">
-        <h2>최근 수집 로그</h2>
-        <ul id="logs"></ul>
-      </section>
+      <section id="digest" class="digest"><strong>AI 요약</strong><p></p></section>
+      <section class="result-head"><strong id="count">0건</strong><span>뉴스와 발언은 검증 필요로 표시됩니다.</span></section>
+      <section id="list" class="list"></section>
     </main>
 
-    <main id="detail-view" class="page-shell detail-shell hidden"></main>
+    <main id="detail" class="shell hidden"></main>
 
     <script>
-      const sourceTypeLabels = {
-        official_law: "법령",
-        gazette: "관보",
-        ministry_board: "부처 게시판",
-        legislation_notice: "입법/행정예고",
-        press: "보도자료",
-        news: "뉴스"
-      };
-
-      const documentTypeLabels = {
-        law: "법률",
-        decree: "시행령",
-        ordinance: "시행규칙/조례",
-        notice: "고시",
-        directive: "훈령",
-        established_rule: "예규",
-        guideline: "지침",
-        announcement: "공고",
-        news: "뉴스"
-      };
-
-      const changeTypeLabels = {
-        new: "신규",
-        partial_revision: "일부개정",
-        full_revision: "전부개정",
-        abolished: "폐지",
-        notice: "예고/공고",
-        unknown: "미분류"
-      };
-
-      const confidenceLabels = {
-        official: "공식",
-        official_notice: "공식 예고",
-        press: "보도/정책자료",
-        news: "뉴스"
+      const labels = {
+        source: {
+          official_law: "법령",
+          gazette: "관보",
+          ministry_board: "부처 게시판",
+          legislation_notice: "입법/행정예고",
+          press: "보도자료",
+          news: "뉴스"
+        },
+        document: {
+          law: "법률",
+          decree: "시행령",
+          ordinance: "시행규칙/조례",
+          notice: "고시",
+          directive: "훈령",
+          established_rule: "예규",
+          guideline: "지침",
+          announcement: "공고",
+          news: "뉴스"
+        },
+        category: {
+          all: "전체",
+          law: "법령",
+          notice: "고시/공고",
+          guideline: "지침/규칙",
+          news: "뉴스/발언"
+        }
       };
 
       const items = [
         {
-          id: "preview-official-law-2026-05-26",
-          source: "국가법령정보센터",
+          id: "law-1",
+          category: "law",
           source_type: "official_law",
           ministry: "행정안전부",
           document_type: "law",
@@ -632,20 +527,16 @@
           issue_number: "법률 제00001호",
           publish_date: "2026-05-26",
           effective_date: "2026-08-01",
-          change_type: "partial_revision",
+          change_type: "일부개정",
+          confidence: "공식",
           original_url: "https://www.law.go.kr",
-          attachment_urls: ["https://www.law.go.kr/sample/egov-amendment.pdf"],
-          raw_text:
-            "전자정부서비스 제공 절차와 민원 처리 통지 방식에 관한 조항을 정비한다. 온라인 고지, 전자문서 송달, 행정정보 공동이용 절차의 적용 범위를 명확히 한다.",
-          summary: "전자정부서비스 고지와 송달 절차를 정비하고 공동이용 범위를 명확히 하는 일부개정 예시입니다.",
-          diff_summary: "제12조의 전자문서 송달 문구가 보완되고 부칙 시행일이 추가되었습니다.",
-          confidence: "official",
-          verification_required: false,
-          auto_summary: true
+          summary: "전자정부서비스 고지와 송달 절차를 정비하고 공동이용 범위를 명확히 하는 예시입니다.",
+          raw_text: "전자정부서비스 제공 절차와 민원 처리 통지 방식에 관한 조항을 정비한다.",
+          verification_required: false
         },
         {
-          id: "preview-notice-2026-05-26",
-          source: "국민참여입법센터",
+          id: "notice-1",
+          category: "notice",
           source_type: "legislation_notice",
           ministry: "고용노동부",
           document_type: "notice",
@@ -653,112 +544,62 @@
           issue_number: "고용노동부공고 제2026-101호",
           publish_date: "2026-05-26",
           effective_date: null,
-          change_type: "notice",
+          change_type: "예고/공고",
+          confidence: "공식 예고",
           original_url: "https://opinion.lawmaking.go.kr",
-          attachment_urls: [],
-          raw_text:
-            "근로시간 기록 보관 기간, 전자기록 인정 요건, 사업장 점검 시 제출자료 범위를 정비하는 행정예고 예시 데이터입니다. 의견 제출 기한은 공고일로부터 20일입니다.",
-          summary: "근로시간 전자기록의 인정 요건과 제출자료 범위를 손보는 행정예고 예시입니다.",
-          diff_summary: null,
-          confidence: "official_notice",
-          verification_required: false,
-          auto_summary: true
+          summary: "근로시간 전자기록 인정 요건과 제출자료 범위를 손보는 행정예고 예시입니다.",
+          raw_text: "근로시간 기록 보관 기간, 전자기록 인정 요건, 사업장 점검 시 제출자료 범위를 정비한다.",
+          verification_required: false
         },
         {
-          id: "preview-gazette-2026-05-25",
-          source: "관보",
-          source_type: "gazette",
-          ministry: "환경부",
-          document_type: "announcement",
-          title: "대기환경 측정망 운영계획 변경 고시",
-          issue_number: "환경부고시 제2026-55호",
-          publish_date: "2026-05-25",
-          effective_date: "2026-06-15",
-          change_type: "new",
-          original_url: "https://www.gwanbo.go.kr",
-          attachment_urls: ["https://www.gwanbo.go.kr/sample/air-monitoring.hwp"],
-          raw_text:
-            "대기환경 측정망 운영 지점, 측정 항목, 자료 공개 주기를 정하는 고시 예시입니다. 일부 신규 측정소의 운영 개시일과 관할 기관을 포함합니다.",
-          summary: "대기환경 측정망 운영 지점과 공개 주기를 정하는 관보 고시 예시입니다.",
-          diff_summary: "신규 측정소 3곳과 자료 공개 주기 항목이 추가되었습니다.",
-          confidence: "official",
-          verification_required: false,
-          auto_summary: true
-        },
-        {
-          id: "preview-press-2026-05-24",
-          source: "정책브리핑",
-          source_type: "press",
+          id: "guideline-1",
+          category: "guideline",
+          source_type: "ministry_board",
           ministry: "기획재정부",
-          document_type: "news",
-          title: "디지털 행정서비스 개선방안 발표",
-          issue_number: null,
-          publish_date: "2026-05-24",
-          effective_date: null,
-          change_type: "unknown",
-          original_url: "https://www.korea.kr",
-          attachment_urls: [],
-          raw_text:
-            "정부가 디지털 행정서비스 개선방안을 발표했다는 보도자료 예시입니다. 이 항목은 참고자료이며 공식 법령 변경으로 집계하지 않습니다.",
-          summary: "정책 방향을 보여주는 보도자료 예시이며 공식 변경 건수에는 포함하지 않습니다.",
-          diff_summary: null,
-          confidence: "press",
-          verification_required: true,
-          auto_summary: true
+          document_type: "guideline",
+          title: "국고보조금 집행관리 지침 개정",
+          issue_number: "기획재정부지침 제2026-12호",
+          publish_date: "2026-05-25",
+          effective_date: "2026-06-01",
+          change_type: "일부개정",
+          confidence: "공식 예고",
+          original_url: "https://www.moef.go.kr",
+          summary: "보조금 집행 증빙과 사후점검 기준을 정비하는 지침 예시입니다.",
+          raw_text: "국고보조금 집행관리 지침 중 증빙자료 제출 방식과 사후점검 기준을 개정한다.",
+          verification_required: false
         },
         {
-          id: "preview-news-2026-05-23",
-          source: "뉴스 검색",
-          source_type: "news",
-          ministry: "국토교통부",
+          id: "news-1",
+          category: "news",
+          source_type: "press",
+          ministry: "법제처",
           document_type: "news",
-          title: "건축 인허가 절차 간소화 관련 기사",
+          title: "정비 대상 법령 발굴 계획 발표",
           issue_number: null,
-          publish_date: "2026-05-23",
+          publish_date: "2026-05-26",
           effective_date: null,
-          change_type: "unknown",
-          original_url: "https://news.example.com/regulation-preview",
-          attachment_urls: [],
-          raw_text:
-            "건축 인허가 절차 간소화 논의에 관한 뉴스 예시입니다. 공식 출처를 확인하기 전까지 검증 필요 상태로 표시합니다.",
-          summary: "공식 원문 확인 전 참고용으로만 보는 뉴스 예시입니다.",
-          diff_summary: null,
-          confidence: "news",
-          verification_required: true,
-          auto_summary: false
+          change_type: "미분류",
+          confidence: "보도/정책자료",
+          original_url: "https://www.korea.kr",
+          summary: "정책 방향을 보여주는 보도자료 예시이며 공식 변경 건수에는 포함하지 않습니다.",
+          raw_text: "법령 정비 과제 발굴 계획을 발표했다는 정책브리핑 예시입니다.",
+          verification_required: true
         }
       ];
 
-      const run = {
-        last_run_at: "2026-05-26T06:10:00+09:00",
-        last_target_date: "2026-05-26",
-        logs: [
-          { source: "국가법령정보센터", status: "ok", message: "샘플 법령 변경 데이터를 불러왔습니다.", count: 1 },
-          { source: "국민참여입법센터", status: "ok", message: "샘플 예고 데이터를 불러왔습니다.", count: 1 },
-          { source: "관보", status: "ok", message: "샘플 관보 데이터를 불러왔습니다.", count: 1 },
-          { source: "뉴스 검색", status: "skipped", message: "뉴스는 공식 변경으로 집계하지 않습니다.", count: 1 }
-        ]
-      };
-
-      const sortedItems = [...items].sort((a, b) => {
-        const dateCompare = String(b.publish_date || "").localeCompare(String(a.publish_date || ""));
-        return dateCompare || a.title.localeCompare(b.title, "ko");
-      });
+      let selectedDate = "";
+      let selectedCategory = "all";
+      const dates = [...new Set(items.map((item) => item.publish_date))].sort().reverse();
 
       const controls = {
-        query: document.getElementById("query"),
+        q: document.getElementById("q"),
         ministry: document.getElementById("ministry"),
-        sourceType: document.getElementById("source-type"),
-        documentType: document.getElementById("document-type"),
-        changeType: document.getElementById("change-type"),
-        date: document.getElementById("date")
+        source: document.getElementById("source"),
+        doc: document.getElementById("doc"),
+        key: document.getElementById("key")
       };
 
-      function unique(values) {
-        return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b, "ko"));
-      }
-
-      function escapeHtml(value) {
+      function esc(value) {
         return String(value ?? "")
           .replaceAll("&", "&amp;")
           .replaceAll("<", "&lt;")
@@ -767,190 +608,185 @@
           .replaceAll("'", "&#039;");
       }
 
-      function optionHtml(value, label) {
-        return `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`;
-      }
-
-      function fillSelect(select, values, labels) {
+      function fillSelect(select, values, names) {
         select.innerHTML =
-          optionHtml("", "전체") +
-          values.map((value) => optionHtml(value, labels ? labels[value] : value)).join("");
-      }
-
-      function renderStats() {
-        const stats = {
-          total: sortedItems.length,
-          official: sortedItems.filter((item) => item.confidence === "official").length,
-          notices: sortedItems.filter((item) => item.source_type === "legislation_notice").length,
-          verify: sortedItems.filter((item) => item.verification_required).length
-        };
-
-        document.getElementById("stat-total").textContent = stats.total.toLocaleString("ko-KR");
-        document.getElementById("stat-official").textContent = stats.official.toLocaleString("ko-KR");
-        document.getElementById("stat-notices").textContent = stats.notices.toLocaleString("ko-KR");
-        document.getElementById("stat-verify").textContent = stats.verify.toLocaleString("ko-KR");
-        document.getElementById("target-date").textContent = `기준일 ${run.last_target_date}`;
-        document.getElementById("run-at").textContent = `최근 실행 ${new Date(run.last_run_at).toLocaleString("ko-KR")}`;
+          '<option value="">전체</option>' +
+          values.map((value) => `<option value="${esc(value)}">${esc(names ? names[value] : value)}</option>`).join("");
       }
 
       function filterItems() {
-        const query = controls.query.value.trim().toLowerCase();
-        return sortedItems.filter((item) => {
+        const q = controls.q.value.trim().toLowerCase();
+        return items.filter((item) => {
+          if (selectedCategory !== "all" && item.category !== selectedCategory) return false;
+          if (selectedDate && item.publish_date !== selectedDate) return false;
           if (controls.ministry.value && item.ministry !== controls.ministry.value) return false;
-          if (controls.sourceType.value && item.source_type !== controls.sourceType.value) return false;
-          if (controls.documentType.value && item.document_type !== controls.documentType.value) return false;
-          if (controls.changeType.value && item.change_type !== controls.changeType.value) return false;
-          if (controls.date.value && item.publish_date !== controls.date.value) return false;
-          if (!query) return true;
-          return [item.title, item.raw_text, item.ministry, item.issue_number, item.source]
-            .filter(Boolean)
-            .join(" ")
-            .toLowerCase()
-            .includes(query);
+          if (controls.source.value && item.source_type !== controls.source.value) return false;
+          if (controls.doc.value && item.document_type !== controls.doc.value) return false;
+          if (!q) return true;
+          return [item.title, item.summary, item.raw_text, item.ministry, item.issue_number].filter(Boolean).join(" ").toLowerCase().includes(q);
         });
       }
 
-      function metaHtml(item) {
-        const labels = [
-          sourceTypeLabels[item.source_type],
-          documentTypeLabels[item.document_type],
-          changeTypeLabels[item.change_type],
-          confidenceLabels[item.confidence],
-          item.auto_summary ? "자동요약" : "",
-          item.verification_required ? "검증 필요" : ""
-        ].filter(Boolean);
+      function renderStats() {
+        document.getElementById("total").textContent = items.length.toLocaleString("ko-KR");
+        document.getElementById("official").textContent = items.filter((item) => item.confidence === "공식").length.toLocaleString("ko-KR");
+        document.getElementById("notices").textContent = items.filter((item) => item.category === "notice").length.toLocaleString("ko-KR");
+        document.getElementById("verify").textContent = items.filter((item) => item.verification_required).length.toLocaleString("ko-KR");
+      }
 
-        return labels
-          .map((label) => `<span class="${label === "검증 필요" ? "warn" : ""}">${escapeHtml(label)}</span>`)
+      function renderDatebar() {
+        document.getElementById("datebar").innerHTML =
+          `<button class="${selectedDate ? "" : "active"}" data-date="">전체 날짜</button>` +
+          dates.map((date) => `<button class="${selectedDate === date ? "active" : ""}" data-date="${esc(date)}">${esc(date)}</button>`).join("") +
+          `<input type="date" value="${esc(selectedDate)}" aria-label="날짜 직접 입력" />`;
+        document.querySelectorAll("[data-date]").forEach((button) => {
+          button.addEventListener("click", () => {
+            selectedDate = button.getAttribute("data-date") || "";
+            render();
+          });
+        });
+        document.querySelector("#datebar input").addEventListener("change", (event) => {
+          selectedDate = event.target.value;
+          render();
+        });
+      }
+
+      function renderTabs() {
+        const counts = { all: items.length, law: 0, notice: 0, guideline: 0, news: 0 };
+        items.forEach((item) => (counts[item.category] += 1));
+        document.getElementById("tabs").innerHTML = Object.keys(labels.category)
+          .map(
+            (key) =>
+              `<button class="${selectedCategory === key ? "active" : ""}" data-cat="${key}"><span>${labels.category[key]}</span><strong>${counts[key]}</strong></button>`
+          )
+          .join("");
+        document.querySelectorAll("[data-cat]").forEach((button) => {
+          button.addEventListener("click", () => {
+            selectedCategory = button.getAttribute("data-cat");
+            render();
+          });
+        });
+      }
+
+      function meta(item) {
+        return [
+          labels.category[item.category],
+          labels.source[item.source_type],
+          labels.document[item.document_type],
+          item.change_type,
+          item.confidence,
+          item.verification_required ? "검증 필요" : ""
+        ]
+          .filter(Boolean)
+          .map((value) => `<span class="${value === "검증 필요" ? "warn" : ""}">${esc(value)}</span>`)
           .join("");
       }
 
       function renderList() {
         const filtered = filterItems();
-        const itemList = document.getElementById("item-list");
-        document.getElementById("result-count").textContent = `${filtered.length.toLocaleString("ko-KR")}건`;
-
+        document.getElementById("count").textContent = `${filtered.length.toLocaleString("ko-KR")}건`;
         if (!filtered.length) {
-          itemList.innerHTML =
-            '<div class="empty-state"><strong>표시할 항목이 없습니다.</strong><span>현재 필터 조건에 맞는 수집 결과가 없습니다.</span></div>';
+          document.getElementById("list").innerHTML = '<div class="empty">현재 조건에 맞는 수집 결과가 없습니다.</div>';
           return;
         }
-
-        itemList.innerHTML = filtered
+        document.getElementById("list").innerHTML = filtered
           .map(
             (item) => `
-              <article class="item-card">
-                <div class="item-main">
-                  <div class="item-meta">${metaHtml(item)}</div>
-                  <h2><button type="button" data-detail="${escapeHtml(item.id)}">${escapeHtml(item.title)}</button></h2>
-                  <p>${escapeHtml(item.summary || "자동요약 전입니다. 원문 링크를 먼저 확인하세요.")}</p>
-                  <div class="item-foot">
-                    <span>${escapeHtml(item.ministry)}</span>
-                    <span>${escapeHtml(item.issue_number || "문서번호 없음")}</span>
-                    <span>공표 ${escapeHtml(item.publish_date || "-")}</span>
-                    <span>시행 ${escapeHtml(item.effective_date || "-")}</span>
-                  </div>
-                </div>
-                <div class="item-actions">
-                  <a href="${escapeHtml(item.original_url)}" target="_blank" rel="noreferrer">원문</a>
-                  <button type="button" data-detail="${escapeHtml(item.id)}">상세</button>
-                </div>
-              </article>
-            `
-          )
-          .join("");
-
-        itemList.querySelectorAll("[data-detail]").forEach((button) => {
-          button.addEventListener("click", () => showDetail(button.getAttribute("data-detail")));
-        });
-      }
-
-      function renderLogs() {
-        document.getElementById("logs").innerHTML = run.logs
-          .map(
-            (log) => `
-              <li>
-                <span class="status-dot ${escapeHtml(log.status)}"></span>
+              <article class="item ${esc(item.category)}">
                 <div>
-                  <strong>${escapeHtml(log.source)}</strong>
-                  <p>${escapeHtml(log.message)}</p>
+                  <div class="meta">${meta(item)}</div>
+                  <h2><button data-id="${esc(item.id)}">${esc(item.title)}</button></h2>
+                  <p>${esc(item.summary)}</p>
+                  <div class="foot"><span>${esc(item.ministry)}</span><span>${esc(item.issue_number || "문서번호 없음")}</span><span>공표 ${esc(item.publish_date)}</span><span>시행 ${esc(item.effective_date || "-")}</span></div>
                 </div>
-                <span>${Number(log.count).toLocaleString("ko-KR")}건</span>
-              </li>
-            `
+                <div class="actions"><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문</a><button data-id="${esc(item.id)}">상세</button></div>
+              </article>`
           )
           .join("");
+        document.querySelectorAll("[data-id]").forEach((button) => button.addEventListener("click", () => showDetail(button.getAttribute("data-id"))));
       }
 
       function showDetail(id) {
-        const item = sortedItems.find((entry) => entry.id === id);
+        const item = items.find((entry) => entry.id === id);
         if (!item) return;
-
-        document.getElementById("list-view").classList.add("hidden");
-        const detailView = document.getElementById("detail-view");
-        detailView.classList.remove("hidden");
-        detailView.innerHTML = `
-          <button class="back-link" type="button" id="back-to-list">미리보기 목록으로</button>
-          <article class="detail-panel">
-            <div class="item-meta">${metaHtml(item)}</div>
-            <h1>${escapeHtml(item.title)}</h1>
-            <dl class="detail-grid">
-              <div><dt>기관</dt><dd>${escapeHtml(item.ministry)}</dd></div>
-              <div><dt>문서번호</dt><dd>${escapeHtml(item.issue_number || "-")}</dd></div>
-              <div><dt>공표일</dt><dd>${escapeHtml(item.publish_date || "-")}</dd></div>
-              <div><dt>시행일</dt><dd>${escapeHtml(item.effective_date || "-")}</dd></div>
-              <div><dt>출처</dt><dd>${escapeHtml(item.source)}</dd></div>
-              <div><dt>원문</dt><dd><a href="${escapeHtml(item.original_url)}" target="_blank" rel="noreferrer">원문 열기</a></dd></div>
+        document.getElementById("home").classList.add("hidden");
+        const detail = document.getElementById("detail");
+        detail.classList.remove("hidden");
+        detail.innerHTML = `
+          <button class="back" id="back">미리보기 목록으로</button>
+          <article class="detail">
+            <div class="meta">${meta(item)}</div>
+            <h1>${esc(item.title)}</h1>
+            <dl class="grid">
+              <div><dt>기관</dt><dd>${esc(item.ministry)}</dd></div>
+              <div><dt>문서번호</dt><dd>${esc(item.issue_number || "-")}</dd></div>
+              <div><dt>공표일</dt><dd>${esc(item.publish_date || "-")}</dd></div>
+              <div><dt>시행일</dt><dd>${esc(item.effective_date || "-")}</dd></div>
+              <div><dt>출처</dt><dd>${esc(labels.source[item.source_type])}</dd></div>
+              <div><dt>원문</dt><dd><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문 열기</a></dd></div>
             </dl>
-            <section class="detail-section">
-              <h2>자동요약</h2>
-              <p>${escapeHtml(item.summary || "자동요약: 아직 요약이 생성되지 않았습니다. 원문을 우선 확인하세요.")}</p>
-              <p class="note">자동요약은 원문을 대체하지 않습니다.</p>
-            </section>
-            ${
-              item.diff_summary
-                ? `<section class="detail-section"><h2>변경 감지</h2><p>${escapeHtml(item.diff_summary)}</p></section>`
-                : ""
-            }
-            ${
-              item.attachment_urls.length
-                ? `<section class="detail-section"><h2>첨부</h2><ul class="link-list">${item.attachment_urls
-                    .map((url) => `<li><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(url)}</a></li>`)
-                    .join("")}</ul></section>`
-                : ""
-            }
-            <section class="detail-section">
-              <h2>원문 추출 텍스트</h2>
-              <pre class="raw-text">${escapeHtml(item.raw_text || "원문 본문을 가져오지 못했습니다. 원문 링크를 확인하세요.")}</pre>
-            </section>
-          </article>
-        `;
-        document.getElementById("back-to-list").addEventListener("click", showList);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+            <h2>요약</h2>
+            <p>${esc(item.summary)}</p>
+            <h2>원문 추출 텍스트</h2>
+            <pre class="raw">${esc(item.raw_text)}</pre>
+          </article>`;
+        document.getElementById("back").addEventListener("click", () => {
+          detail.classList.add("hidden");
+          document.getElementById("home").classList.remove("hidden");
+        });
       }
 
-      function showList() {
-        document.getElementById("detail-view").classList.add("hidden");
-        document.getElementById("list-view").classList.remove("hidden");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      async function summarize() {
+        const key = controls.key.value.trim();
+        const filtered = filterItems();
+        if (!key || !filtered.length) return;
+        const digest = document.getElementById("digest");
+        digest.style.display = "block";
+        digest.querySelector("p").textContent = "요약 중";
+        const input = filtered.map((item, i) => `${i + 1}. ${item.title}\n분류: ${labels.category[item.category]}\n기관: ${item.ministry}\n내용: ${item.summary || item.raw_text}`).join("\n\n");
+        try {
+          const response = await fetch("https://api.openai.com/v1/responses", {
+            method: "POST",
+            headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
+            body: JSON.stringify({
+              model: "gpt-5",
+              max_output_tokens: 500,
+              instructions: "한국 규제·법령 변경 모니터의 편집자처럼 제공된 항목만 근거로 간결하게 요약하세요.",
+              input
+            })
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          digest.querySelector("p").textContent = (data.output_text || JSON.stringify(data.output || "")).replace(/\s+/g, " ").trim();
+        } catch (error) {
+          digest.querySelector("p").textContent = `요약 실패: ${error.message || error}`;
+        }
       }
 
-      function init() {
-        fillSelect(controls.ministry, unique(sortedItems.map((item) => item.ministry)));
-        fillSelect(controls.sourceType, Object.keys(sourceTypeLabels), sourceTypeLabels);
-        fillSelect(controls.documentType, Object.keys(documentTypeLabels), documentTypeLabels);
-        fillSelect(controls.changeType, Object.keys(changeTypeLabels), changeTypeLabels);
-        fillSelect(controls.date, unique(sortedItems.map((item) => item.publish_date)).reverse());
-
-        Object.values(controls).forEach((control) => control.addEventListener("input", renderList));
-        Object.values(controls).forEach((control) => control.addEventListener("change", renderList));
-
-        renderStats();
-        renderLogs();
+      function render() {
+        renderDatebar();
+        renderTabs();
         renderList();
       }
 
-      init();
+      fillSelect(controls.ministry, [...new Set(items.map((item) => item.ministry))].sort());
+      fillSelect(controls.source, Object.keys(labels.source), labels.source);
+      fillSelect(controls.doc, Object.keys(labels.document), labels.document);
+      Object.values(controls).forEach((control) => {
+        if (control.id !== "key") {
+          control.addEventListener("input", renderList);
+          control.addEventListener("change", renderList);
+        }
+      });
+      controls.key.value = sessionStorage.getItem("preview-openai-key") || "";
+      controls.key.addEventListener("change", () => sessionStorage.setItem("preview-openai-key", controls.key.value));
+      document.getElementById("summarize").addEventListener("click", summarize);
+      document.getElementById("clearKey").addEventListener("click", () => {
+        controls.key.value = "";
+        sessionStorage.removeItem("preview-openai-key");
+      });
+      renderStats();
+      render();
     </script>
   </body>
 </html>
