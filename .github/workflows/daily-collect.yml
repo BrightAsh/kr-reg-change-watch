@@ -1,6 +1,9 @@
 name: Daily collect and deploy
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "0 15 * * *"
   workflow_dispatch:
