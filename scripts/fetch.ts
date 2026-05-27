@@ -1099,9 +1099,39 @@ function normalizeAndFilterByTargetDate(items: CollectedItem[]): CollectedItem[]
       collection_date: collectionDate,
       category: itemCategory(item)
     };
-    byId.set(normalized.id, { ...byId.get(normalized.id), ...normalized });
+    const key = canonicalItemKey(normalized);
+    const existing = byId.get(key);
+    byId.set(key, existing ? mergeEquivalentItems(existing, normalized) : normalized);
   }
   return [...byId.values()];
+}
+
+function canonicalItemKey(item: CollectedItem): string {
+  if (isAdministrativeRuleEvidence(item) && item.source_record_id) return `administrative-rule:${item.source_record_id}`;
+  return item.id;
+}
+
+function isAdministrativeRuleEvidence(item: CollectedItem): boolean {
+  return item.source_type === "official_law" && /^국가법령정보센터 행정규칙/.test(item.source);
+}
+
+function mergeEquivalentItems(existing: CollectedItem, incoming: CollectedItem): CollectedItem {
+  const primary = existing.source.includes("신구법 비교") && !incoming.source.includes("신구법 비교") ? incoming : existing;
+  const secondary = primary === existing ? incoming : existing;
+  const rawText = uniqueStrings([primary.raw_text, secondary.raw_text]).join("\n\n--- 추가 근거 ---\n\n");
+  const source = uniqueStrings([primary.source, secondary.source]).join(" + ");
+  return {
+    ...primary,
+    source,
+    raw_text: rawText,
+    raw_hash: hashText(rawText),
+    summary: primary.summary || secondary.summary,
+    diff_summary: primary.diff_summary || secondary.diff_summary,
+    auto_summary: primary.auto_summary || secondary.auto_summary,
+    original_url: primary.original_url || secondary.original_url,
+    attachment_urls: [...new Set([...(primary.attachment_urls || []), ...(secondary.attachment_urls || [])])],
+    verification_required: primary.verification_required && secondary.verification_required
+  };
 }
 
 async function listDailyDates(): Promise<string[]> {

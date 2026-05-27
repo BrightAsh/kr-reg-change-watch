@@ -41,6 +41,7 @@ jobs:
       FETCH_LOOKBACK_DAYS: 1
       FETCH_RETRIES: 4
       FETCH_TIMEOUT_MS: 60000
+      REPAIR_TARGET_DATE: 2026-05-26
       OPENAI_API_KEY: ""
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +53,7 @@ jobs:
       - run: npm install
 
       - name: Recollect 2026-05-26
-        run: npm run collect -- --date 2026-05-26 --force
+        run: npm run collect -- --date "$REPAIR_TARGET_DATE" --force
 
       - name: Commit repaired data
         run: |
@@ -62,7 +63,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No repaired data changes to commit."
           else
-            git commit -m "Repair 2026-05-26 collected data"
+            git commit -m "Repair ${REPAIR_TARGET_DATE} collected data"
             git pull --rebase
             git push
           fi
