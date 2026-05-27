@@ -308,10 +308,7 @@ function buildLawHistoryRawText(lawKey: string, rows: AnyRecord[]): string {
     ...historyLines.slice(0, 12),
     "",
     "전체 연혁",
-    ...historyLines,
-    "",
-    "원자료 JSON",
-    JSON.stringify(rows)
+    ...historyLines
   ].join("\n");
 }
 
@@ -408,10 +405,7 @@ function buildArticleChangeRawText(lawKey: string, rows: AnyRecord[]): string {
     `조문 변경 수: ${lines.length.toLocaleString("ko-KR")}`,
     "",
     "변경 조문",
-    ...lines,
-    "",
-    "원자료 JSON",
-    JSON.stringify(rows)
+    ...lines
   ].join("\n");
 }
 
@@ -506,8 +500,7 @@ async function fetchAdministrativeRules(logs: CollectionLog[]): Promise<Collecte
         text(merged, ["조문내용"]),
         text(merged, ["부칙내용"]),
         text(merged, ["제개정이유내용"]),
-        text(merged, ["개정문내용"]),
-        JSON.stringify(row)
+        text(merged, ["개정문내용"])
       ].join(" ")
     );
     return makeItem({
@@ -555,7 +548,7 @@ async function fetchAdministrativeRuleComparisons(logs: CollectionLog[]): Promis
     const originalUrl = lawUrl(text(merged, ["신구법상세링크", "신구법 상세링크"]));
     const oldText = compactText(text(detail || {}, ["구조문목록", "구조문_기본정보", "구조문"]));
     const newText = compactText(text(detail || {}, ["신조문목록", "신조문_기본정보", "신조문"]));
-    const rawText = compactText([title, oldText, newText, JSON.stringify(row)].join(" "));
+    const rawText = compactText([title, oldText, newText].join(" "));
     return makeItem({
       source,
       source_type: "official_law",
@@ -669,7 +662,16 @@ async function fetchGazette(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const rows = findRecordRows(payload, ["관보제목", "title", "발행일자", "pdf"]);
   const items = rows.map((row) => {
     const title = text(row, ["관보제목", "제목", "title", "gwanboSj"]);
-    const rawText = compactText(JSON.stringify(row));
+    const rawText = compactText(
+      [
+        title,
+        text(row, ["관보구분", "편집구분"]),
+        text(row, ["발행기관", "기관명"]),
+        text(row, ["관보번호", "공고번호", "호수"]),
+        text(row, ["발행일자", "publishDate"]),
+        text(row, ["표준내용URL", "PDF", "pdf", "link"])
+      ].join(" ")
+    );
     const originalUrl = text(row, ["표준내용URL", "PDF", "pdf", "link"]);
     return makeItem({
       source,
@@ -934,8 +936,7 @@ function normalizeLawmakingRow(
   const rawText = compactText(
     [
       title,
-      text(row, ["lmPpCts", "admPpCts", "입법예고내용", "행정예고내용"]),
-      JSON.stringify(row)
+      text(row, ["lmPpCts", "admPpCts", "입법예고내용", "행정예고내용"])
     ].join(" ")
   );
   return makeItem({

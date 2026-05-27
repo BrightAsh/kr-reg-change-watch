@@ -193,6 +193,7 @@ p {
 .calendar-toolbar button,
 .filter-trigger,
 .ai-brief-button,
+.detail-action-button,
 .modal-actions button,
 .filter-popover-actions button,
 .back-link,
@@ -660,7 +661,7 @@ select:focus {
 
 .item-card h2 a:hover,
 .back-link:hover,
-.detail-section a:hover {
+.detail-content-card a:hover {
   text-decoration: underline;
 }
 
@@ -832,7 +833,7 @@ select:focus {
 }
 
 .detail-shell {
-  max-width: 980px;
+  max-width: 1080px;
 }
 
 .back-link {
@@ -842,59 +843,170 @@ select:focus {
 }
 
 .detail-panel {
-  padding: 26px;
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-.detail-panel h1 {
-  margin: 10px 0 22px;
-  font-size: clamp(28px, 4vw, 44px);
+.detail-hero,
+.detail-snapshot,
+.detail-content-card {
+  border: 1px solid rgba(216, 224, 235, 0.92);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-soft), var(--shadow-line);
+}
+
+.detail-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.detail-hero::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 7px;
+  background: var(--accent);
+  content: "";
+}
+
+.detail-hero.category-notice::before {
+  background: var(--orange);
+}
+
+.detail-hero.category-guideline::before {
+  background: var(--green);
+}
+
+.detail-hero.category-news::before {
+  background: var(--purple);
+}
+
+.detail-hero-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.detail-hero h1 {
+  max-width: 920px;
+  margin: 9px 0 12px;
+  font-size: clamp(26px, 3.4vw, 40px);
   line-height: 1.18;
   letter-spacing: 0;
 }
 
-.detail-grid {
+.detail-lead {
+  max-width: 760px;
+  margin-bottom: 18px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.detail-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+.detail-action-button.primary {
+  border-color: transparent;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+}
+
+.detail-ai-button {
+  background: var(--surface-blue);
+  color: var(--accent-dark);
+}
+
+.detail-snapshot {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
-  margin: 0 0 22px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
   background: var(--line);
 }
 
-.detail-grid div {
+.detail-snapshot div {
   min-width: 0;
-  padding: 13px;
+  padding: 14px;
   background: #fff;
 }
 
-.detail-grid dt {
+.detail-snapshot span {
+  display: block;
   margin-bottom: 5px;
   color: var(--muted);
   font-size: 12px;
   font-weight: 800;
 }
 
-.detail-grid dd {
-  margin: 0;
+.detail-snapshot strong {
+  display: block;
   color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.45;
   word-break: break-word;
 }
 
-.detail-section {
-  padding-top: 19px;
-  margin-top: 19px;
-  border-top: 1px solid var(--line);
+.detail-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.65fr);
+  gap: 14px;
 }
 
-.detail-section h2 {
-  margin-bottom: 9px;
+.detail-content-card {
+  padding: 20px;
+}
+
+.detail-content-card.full {
+  grid-column: 1 / -1;
+}
+
+.summary-card {
+  background:
+    linear-gradient(135deg, rgba(10, 132, 255, 0.08), rgba(255, 255, 255, 0) 48%),
+    var(--surface-raised);
+}
+
+.detail-section-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.detail-section-title h2 {
+  margin: 0;
   color: var(--ink);
-  font-size: 18px;
+  font-size: 19px;
 }
 
-.detail-section p {
+.detail-section-title span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.detail-content-card p {
   color: var(--ink-soft);
   line-height: 1.75;
 }
@@ -911,40 +1023,99 @@ select:focus {
   word-break: break-all;
 }
 
-.history-list {
+.impact-list {
   display: grid;
-  gap: 8px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #f8fafc;
+  gap: 0;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
-.history-list li {
-  padding-bottom: 8px;
+.impact-list li {
+  display: grid;
+  gap: 5px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
-  color: var(--ink-soft);
-  line-height: 1.55;
 }
 
-.history-list li:last-child {
+.impact-list li:first-child {
+  padding-top: 0;
+}
+
+.impact-list li:last-child {
   padding-bottom: 0;
   border-bottom: 0;
 }
 
-.raw-text {
-  max-height: 520px;
-  overflow: auto;
-  padding: 16px;
+.impact-list strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.impact-list span {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.readable-section-list {
+  display: grid;
+  gap: 14px;
+}
+
+.readable-section {
+  padding: 15px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #f8fafc;
+}
+
+.readable-section h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.readable-lines {
+  display: grid;
+  gap: 8px;
+  max-height: 680px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+}
+
+.readable-lines li {
+  padding: 0 0 8px;
+  border-bottom: 1px solid rgba(216, 224, 235, 0.72);
   color: var(--ink-soft);
-  font-family: Consolas, "Courier New", monospace;
-  font-size: 13px;
   line-height: 1.65;
-  white-space: pre-wrap;
+}
+
+.readable-lines li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.readable-body {
+  max-height: 680px;
+  margin: 0;
+  overflow: auto;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.detail-empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+.modal-note {
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 @media (max-width: 1220px) {
@@ -974,7 +1145,8 @@ select:focus {
     padding: 10px;
   }
 
-  .detail-grid {
+  .detail-snapshot,
+  .detail-content-grid {
     grid-template-columns: 1fr;
   }
 
