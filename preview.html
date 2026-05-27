@@ -3,22 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>한국 규제·법령 변경 모니터 미리보기</title>
+    <title>한국 규제 변경 모니터 미리보기</title>
     <style>
       :root {
-        --bg: #f5f6f2;
-        --panel: #fff;
-        --subtle: #f0f3ed;
-        --text: #18201b;
-        --muted: #657069;
-        --line: #d9ded6;
-        --accent: #12625b;
-        --law: #214f82;
-        --notice: #7a4a12;
-        --guideline: #4d5c25;
-        --news: #6a4d7c;
-        --warn: #a33a2b;
-        --shadow: 0 10px 28px rgba(28, 35, 31, 0.07);
+        --bg: #f5f6f8;
+        --surface: rgba(255, 255, 255, 0.92);
+        --surface-solid: #fff;
+        --surface-soft: #eef2f6;
+        --ink: #111318;
+        --ink-soft: #323842;
+        --muted: #737b87;
+        --line: #dde3eb;
+        --line-strong: #cad2dd;
+        --accent: #0a84ff;
+        --green: #24a865;
+        --orange: #f59b14;
+        --purple: #8d5cf6;
+        --red: #e5484d;
+        --shadow: 0 18px 42px rgba(31, 41, 55, 0.09);
+        --shadow-soft: 0 10px 26px rgba(31, 41, 55, 0.06);
       }
 
       * {
@@ -26,8 +29,9 @@
       }
 
       html {
-        background: var(--bg);
-        color: var(--text);
+        min-height: 100%;
+        background: linear-gradient(180deg, #fff 0, #f5f6f8 380px), var(--bg);
+        color: var(--ink);
         font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
       }
 
@@ -49,366 +53,711 @@
         color: inherit;
       }
 
-      .shell {
-        width: min(1240px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 28px 0 56px;
-      }
-
-      .topbar {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 24px;
-        padding: 8px 0 22px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .eyebrow {
-        margin: 0 0 8px;
-        color: var(--accent);
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-
       h1,
       h2,
       p {
         margin-top: 0;
       }
 
-      h1 {
-        margin-bottom: 0;
-        font-size: 36px;
-        line-height: 1.18;
+      .app-shell,
+      .page-shell {
+        width: min(1380px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 22px 0 64px;
       }
 
-      .run-info {
-        display: grid;
-        gap: 6px;
-        color: var(--muted);
-        font-size: 13px;
-        text-align: right;
-      }
-
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
-        padding: 18px 0;
-      }
-
-      .stats div,
-      .panel,
-      .digest,
-      .detail {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-      }
-
-      .stats div {
-        display: grid;
-        gap: 4px;
-        padding: 16px;
-      }
-
-      .stats strong {
-        color: var(--accent);
-        font-size: 25px;
-      }
-
-      .stats span {
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .panel {
-        display: grid;
-        gap: 14px;
-        padding: 14px;
-      }
-
-      .datebar,
-      .tabs,
-      .summary {
+      .app-header {
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
         align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 66px;
+        margin-bottom: 18px;
       }
 
-      .datebar button,
-      .tabs button,
-      .summary button {
-        min-height: 36px;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        background: #fbfcfa;
-        color: var(--text);
-        font-size: 13px;
-        font-weight: 700;
-        padding: 8px 11px;
-      }
-
-      .datebar button.active,
-      .tabs button.active {
-        border-color: var(--accent);
-        background: var(--accent);
-        color: #fff;
-      }
-
-      .tabs button {
-        display: inline-flex;
-        gap: 8px;
-      }
-
-      .filters {
-        display: grid;
-        grid-template-columns: minmax(240px, 1.6fr) repeat(3, minmax(130px, 1fr));
-        gap: 10px;
-      }
-
-      label,
-      .summary div {
-        display: grid;
-        gap: 6px;
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        gap: 12px;
         min-width: 0;
       }
 
-      label span,
-      .summary span {
+      .app-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 800;
+      }
+
+      .brand-lockup p {
+        margin-bottom: 2px;
         color: var(--muted);
         font-size: 12px;
         font-weight: 700;
+      }
+
+      .brand-lockup strong {
+        display: block;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .sync-status {
+        display: grid;
+        justify-items: end;
+        gap: 2px;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: right;
+      }
+
+      .sync-status span {
+        color: var(--green);
+        font-weight: 800;
+      }
+
+      .sync-status strong {
+        color: var(--ink);
+        font-size: 14px;
+      }
+
+      .sync-status small {
+        font-size: 12px;
+      }
+
+      .overview-band {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(420px, 0.72fr);
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 20px;
+        padding: 22px;
+        border: 1px solid rgba(221, 227, 235, 0.72);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(10, 132, 255, 0.11), rgba(36, 168, 101, 0.08) 48%, rgba(255, 255, 255, 0.86)),
+          var(--surface-solid);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .overview-copy {
+        max-width: 720px;
+      }
+
+      .eyebrow {
+        margin-bottom: 8px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .overview-copy h1 {
+        margin-bottom: 8px;
+        color: var(--ink);
+        font-size: clamp(26px, 3vw, 38px);
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .overview-copy p:last-child {
+        max-width: 620px;
+        margin-bottom: 0;
+        color: var(--ink-soft);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .overview-metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow: hidden;
+        border: 1px solid rgba(202, 210, 221, 0.74);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.62);
+        backdrop-filter: blur(18px);
+      }
+
+      .overview-metrics div {
+        display: grid;
+        gap: 6px;
+        min-height: 82px;
+        padding: 15px;
+        border-right: 1px solid rgba(202, 210, 221, 0.74);
+        border-bottom: 1px solid rgba(202, 210, 221, 0.74);
+      }
+
+      .overview-metrics div:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .overview-metrics div:nth-last-child(-n + 2) {
+        border-bottom: 0;
+      }
+
+      .overview-metrics span,
+      .section-title span,
+      .field-label span,
+      .search-field span,
+      .briefing-panel span,
+      .scope-card span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .overview-metrics strong {
+        color: var(--ink);
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .app-workspace {
+        display: grid;
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .side-panel {
+        position: sticky;
+        top: 18px;
+        display: grid;
+        gap: 14px;
+        max-height: calc(100vh - 36px);
+        overflow: auto;
+        padding: 14px;
+        border: 1px solid rgba(221, 227, 235, 0.9);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow-soft);
+        backdrop-filter: blur(18px);
+      }
+
+      .side-section {
+        display: grid;
+        gap: 12px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .side-section:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .section-title strong {
+        color: var(--ink);
+        font-size: 13px;
+      }
+
+      .date-chip,
+      .date-list button,
+      .quiet-button,
+      .segment-tabs button,
+      .briefing-panel button,
+      .item-actions a,
+      .item-actions button,
+      .back-link {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface-solid);
+        color: var(--ink);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .date-chip,
+      .quiet-button,
+      .briefing-panel button {
+        min-height: 38px;
+        padding: 9px 12px;
+      }
+
+      .date-chip.active,
+      .date-list button.active,
+      .segment-tabs button.active {
+        border-color: transparent;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .date-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        max-height: 248px;
+        overflow: auto;
+        padding-right: 2px;
+      }
+
+      .date-list button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 42px;
+        padding: 10px;
+      }
+
+      .date-list button span {
+        font-size: 14px;
+      }
+
+      .date-list button strong {
+        font-size: 12px;
+        opacity: 0.74;
+      }
+
+      .field-label,
+      .search-field,
+      .briefing-panel label {
+        display: grid;
+        gap: 7px;
+        min-width: 0;
       }
 
       input,
       select {
         width: 100%;
-        min-height: 38px;
+        min-height: 42px;
         border: 1px solid var(--line);
-        border-radius: 6px;
-        background: #fbfcfa;
-        color: var(--text);
-        padding: 8px 10px;
+        border-radius: 8px;
+        background: #fbfcfe;
+        color: var(--ink);
+        padding: 9px 11px;
       }
 
-      .summary div {
-        flex: 1 1 280px;
+      input:focus,
+      select:focus {
+        outline: 3px solid rgba(10, 132, 255, 0.16);
+        border-color: rgba(10, 132, 255, 0.72);
       }
 
-      .summary button {
-        border-color: var(--accent);
+      .quiet-button {
+        color: var(--muted);
+      }
+
+      .source-list {
+        display: grid;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .source-list li {
+        display: grid;
+        grid-template-columns: 10px minmax(0, 1fr);
+        gap: 9px;
+        align-items: start;
+      }
+
+      .source-list strong {
+        display: block;
+        overflow: hidden;
+        color: var(--ink-soft);
+        font-size: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .source-list small {
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        margin-top: 4px;
+        border-radius: 999px;
+        background: var(--green);
+      }
+
+      .content-stage {
+        display: grid;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .search-panel,
+      .briefing-panel,
+      .digest-panel,
+      .results-header,
+      .detail-panel {
+        border: 1px solid rgba(221, 227, 235, 0.9);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow-soft);
+        backdrop-filter: blur(18px);
+      }
+
+      .search-panel {
+        display: grid;
+        grid-template-columns: minmax(280px, 1fr) 160px;
+        gap: 12px;
+        align-items: end;
+        padding: 14px;
+      }
+
+      .scope-card {
+        display: grid;
+        gap: 5px;
+        min-height: 68px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcfe;
+      }
+
+      .scope-card strong {
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .segment-tabs {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .segment-tabs button {
+        display: grid;
+        gap: 5px;
+        min-height: 68px;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .segment-tabs span {
+        overflow: hidden;
+        color: inherit;
+        font-size: 13px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .segment-tabs strong {
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .briefing-panel {
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) minmax(220px, 0.9fr) auto auto;
+        gap: 12px;
+        align-items: end;
+        padding: 14px;
+      }
+
+      .briefing-panel > div {
+        display: grid;
+        gap: 5px;
+      }
+
+      .briefing-panel > div strong {
+        color: var(--ink);
+        font-size: 15px;
+      }
+
+      .briefing-panel button {
+        border-color: transparent;
         background: var(--accent);
         color: #fff;
       }
 
-      .summary button:disabled {
+      .briefing-panel button:disabled {
         cursor: not-allowed;
+        background: var(--line-strong);
+        color: #fff;
+      }
+
+      .briefing-panel .text-button {
         border-color: var(--line);
-        background: #e6e9e3;
+        background: var(--surface-solid);
         color: var(--muted);
       }
 
-      .digest {
+      .digest-panel {
         display: none;
-        margin-top: 14px;
         padding: 16px;
         border-left: 5px solid var(--accent);
       }
 
-      .digest p {
-        margin-bottom: 0;
-        line-height: 1.7;
+      .digest-panel.error {
+        border-left-color: var(--red);
       }
 
-      .result-head {
+      .digest-panel strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .digest-panel p {
+        margin: 0;
+        color: var(--ink-soft);
+        line-height: 1.75;
+      }
+
+      .results-header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         gap: 12px;
-        margin: 18px 0 10px;
+        padding: 13px 15px;
         color: var(--muted);
       }
 
-      .result-head strong {
-        color: var(--text);
-        font-size: 18px;
+      .results-header div {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
       }
 
-      .list {
+      .results-header strong {
+        color: var(--ink);
+        font-size: 20px;
+      }
+
+      .results-header span {
+        font-size: 13px;
+      }
+
+      .item-list {
         display: grid;
         gap: 10px;
       }
 
-      .item {
+      .item-card {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 16px;
-        align-items: center;
-        min-height: 142px;
-        padding: 18px;
-        background: var(--panel);
+        grid-template-columns: 7px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: stretch;
+        min-height: 136px;
+        padding: 14px;
         border: 1px solid var(--line);
-        border-left: 5px solid var(--accent);
         border-radius: 8px;
+        background: var(--surface-solid);
+        box-shadow: 0 1px 0 rgba(17, 19, 24, 0.02);
       }
 
-      .item.law {
-        border-left-color: var(--law);
+      .item-card:hover {
+        border-color: var(--line-strong);
+        box-shadow: var(--shadow-soft);
       }
 
-      .item.notice {
-        border-left-color: var(--notice);
+      .category-rail {
+        width: 7px;
+        border-radius: 8px;
+        background: var(--accent);
       }
 
-      .item.guideline {
-        border-left-color: var(--guideline);
+      .category-notice .category-rail {
+        background: var(--orange);
       }
 
-      .item.news {
-        border-left-color: var(--news);
+      .category-guideline .category-rail {
+        background: var(--green);
       }
 
-      .meta {
+      .category-news .category-rail {
+        background: var(--purple);
+      }
+
+      .item-main {
+        min-width: 0;
+      }
+
+      .item-meta {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
-        margin-bottom: 10px;
+        margin-bottom: 9px;
       }
 
-      .meta span {
-        min-height: 23px;
-        padding: 4px 8px;
+      .item-meta span {
+        min-height: 24px;
+        padding: 5px 8px;
         border-radius: 999px;
-        background: var(--subtle);
-        color: var(--accent);
+        background: var(--surface-soft);
+        color: var(--ink-soft);
         font-size: 12px;
-        font-weight: 700;
+        font-weight: 800;
+        white-space: nowrap;
       }
 
-      .meta .warn {
-        background: #fdecea;
-        color: var(--warn);
+      .item-meta .warn {
+        background: #fff0f0;
+        color: var(--red);
       }
 
-      .item h2 {
+      .item-card h2 {
         margin-bottom: 8px;
         font-size: 18px;
-        line-height: 1.38;
+        line-height: 1.42;
+        letter-spacing: 0;
       }
 
-      .item h2 button {
+      .item-card h2 button {
         border: 0;
         background: transparent;
         color: inherit;
         cursor: pointer;
         font: inherit;
-        font-weight: 700;
+        font-weight: 800;
         text-align: left;
       }
 
-      .item p {
+      .item-card p {
         display: -webkit-box;
-        margin-bottom: 12px;
-        color: #3a453d;
+        margin-bottom: 10px;
+        color: var(--ink-soft);
         font-size: 14px;
-        line-height: 1.55;
+        line-height: 1.58;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
       }
 
-      .foot {
+      .item-foot {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 9px;
         color: var(--muted);
-        font-size: 13px;
+        font-size: 12px;
       }
 
-      .actions {
+      .item-actions {
         display: grid;
+        align-content: center;
         gap: 8px;
-        min-width: 82px;
+        width: 82px;
       }
 
-      .actions a,
-      .actions button,
-      .back {
+      .item-actions a,
+      .item-actions button,
+      .back-link {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 36px;
-        padding: 8px 12px;
-        border: 1px solid var(--accent);
-        border-radius: 6px;
-        background: #fff;
-        color: var(--accent);
-        font-size: 14px;
-        font-weight: 700;
-        text-decoration: none;
+        min-height: 38px;
+        padding: 9px 12px;
+        font-size: 13px;
       }
 
-      .actions a {
-        background: var(--accent);
+      .item-actions a {
+        border-color: transparent;
+        background: var(--ink);
         color: #fff;
       }
 
-      .empty {
-        padding: 34px;
-        border: 1px dashed var(--line);
+      .empty-state {
+        display: grid;
+        justify-items: center;
+        gap: 8px;
+        min-height: 220px;
+        padding: 42px 22px;
+        border: 1px dashed var(--line-strong);
         border-radius: 8px;
+        background: rgba(255, 255, 255, 0.62);
         color: var(--muted);
         text-align: center;
       }
 
-      .detail {
-        padding: 24px;
+      .empty-state strong {
+        color: var(--ink);
       }
 
-      .detail h1 {
-        margin: 8px 0 20px;
-        font-size: 34px;
+      .detail-shell {
+        max-width: 980px;
       }
 
-      .grid {
+      .back-link {
+        width: fit-content;
+        margin-bottom: 16px;
+        background: var(--surface-solid);
+      }
+
+      .detail-panel {
+        padding: 26px;
+      }
+
+      .detail-panel h1 {
+        margin: 10px 0 22px;
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .detail-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1px;
-        margin-bottom: 22px;
-        background: var(--line);
+        margin: 0 0 22px;
+        overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 8px;
-        overflow: hidden;
+        background: var(--line);
       }
 
-      .grid div {
-        padding: 12px;
+      .detail-grid div {
+        min-width: 0;
+        padding: 13px;
         background: #fff;
       }
 
-      .grid dt {
-        margin-bottom: 4px;
+      .detail-grid dt {
+        margin-bottom: 5px;
         color: var(--muted);
         font-size: 12px;
-        font-weight: 700;
+        font-weight: 800;
       }
 
-      .grid dd {
+      .detail-grid dd {
         margin: 0;
+        color: var(--ink-soft);
         word-break: break-word;
       }
 
-      .raw {
-        max-height: 420px;
+      .detail-section {
+        padding-top: 19px;
+        margin-top: 19px;
+        border-top: 1px solid var(--line);
+      }
+
+      .detail-section h2 {
+        margin-bottom: 9px;
+        color: var(--ink);
+        font-size: 18px;
+      }
+
+      .detail-section p {
+        color: var(--ink-soft);
+        line-height: 1.75;
+      }
+
+      .raw-text {
+        max-height: 520px;
         overflow: auto;
         padding: 16px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: #fbfcfa;
+        background: #fbfcfe;
+        color: var(--ink-soft);
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 13px;
+        line-height: 1.65;
         white-space: pre-wrap;
       }
 
@@ -416,75 +765,197 @@
         display: none;
       }
 
-      @media (max-width: 800px) {
-        .topbar,
-        .result-head {
+      @media (max-width: 1080px) {
+        .overview-band,
+        .app-workspace {
+          grid-template-columns: 1fr;
+        }
+
+        .side-panel {
+          position: static;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          max-height: none;
+        }
+
+        .source-section {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .app-shell,
+        .page-shell {
+          width: min(100% - 20px, 1380px);
+          padding-top: 14px;
+        }
+
+        .app-header,
+        .results-header {
           align-items: flex-start;
           flex-direction: column;
         }
 
-        .run-info {
+        .sync-status {
+          justify-items: start;
           text-align: left;
         }
 
-        .stats,
-        .filters,
-        .grid {
+        .overview-band {
+          padding: 20px;
+        }
+
+        .overview-metrics,
+        .side-panel,
+        .search-panel,
+        .briefing-panel,
+        .detail-grid {
           grid-template-columns: 1fr;
         }
 
-        .item {
-          grid-template-columns: 1fr;
+        .segment-tabs {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .actions {
-          grid-template-columns: repeat(2, 1fr);
+        .item-card {
+          grid-template-columns: 6px minmax(0, 1fr);
+        }
+
+        .item-actions {
+          grid-column: 2;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 460px) {
+        .overview-copy h1 {
+          font-size: 32px;
+        }
+
+        .date-list,
+        .segment-tabs {
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <main id="home" class="shell">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Local preview</p>
-          <h1>한국 규제·법령 변경 모니터</h1>
+    <main id="home" class="app-shell">
+      <header class="app-header">
+        <div class="brand-lockup">
+          <span class="app-mark" aria-hidden="true">R</span>
+          <div>
+            <p>Preview</p>
+            <strong>샘플 데이터 미리보기</strong>
+          </div>
         </div>
-        <div class="run-info">
-          <span>기준일 2026-05-26</span>
-          <span>샘플 데이터 미리보기</span>
+        <div class="sync-status" aria-label="미리보기 상태">
+          <span>로컬 미리보기</span>
+          <strong>2026-05-26</strong>
+          <small>설치 없이 확인</small>
         </div>
       </header>
 
-      <section class="stats">
-        <div><strong id="total">0</strong><span>전체 항목</span></div>
-        <div><strong id="official">0</strong><span>공식 법령/관보</span></div>
-        <div><strong id="notices">0</strong><span>예고/공고</span></div>
-        <div><strong id="verify">0</strong><span>검증 필요</span></div>
-      </section>
-
-      <section class="panel">
-        <div id="datebar" class="datebar"></div>
-        <div id="tabs" class="tabs"></div>
-        <div class="filters">
-          <label><span>검색</span><input id="q" placeholder="제목, 본문, 기관, 문서번호" /></label>
-          <label><span>기관</span><select id="ministry"></select></label>
-          <label><span>출처</span><select id="source"></select></label>
-          <label><span>문서</span><select id="doc"></select></label>
+      <section class="overview-band" aria-label="샘플 화면 개요">
+        <div class="overview-copy">
+          <p class="eyebrow">Local app preview</p>
+          <h1>샘플 규제 변경</h1>
+          <p>설치 없이 샘플 데이터로 날짜, 필터, 상세 화면을 확인합니다.</p>
         </div>
-        <div class="summary">
-          <div><span>OpenAI API key</span><input id="key" type="password" placeholder="sk-..." /></div>
-          <button id="summarize" type="button">표시 항목 요약</button>
-          <button id="clearKey" type="button">키 지우기</button>
+        <div class="overview-metrics" aria-label="샘플 통계">
+          <div><span>전체</span><strong id="total">0</strong></div>
+          <div><span>공식 자료</span><strong id="official">0</strong></div>
+          <div><span>예고/공고</span><strong id="notices">0</strong></div>
+          <div><span>확인 필요</span><strong id="verify">0</strong></div>
         </div>
       </section>
 
-      <section id="digest" class="digest"><strong>AI 요약</strong><p></p></section>
-      <section class="result-head"><strong id="count">0건</strong><span>뉴스와 발언은 검증 필요로 표시됩니다.</span></section>
-      <section id="list" class="list"></section>
+      <section class="app-workspace" aria-label="규제 변경 탐색">
+        <aside class="side-panel" aria-label="탐색 설정">
+          <section class="side-section">
+            <div class="section-title">
+              <span>기준일</span>
+              <strong id="selectedDateLabel">전체 기간</strong>
+            </div>
+            <button id="allDates" class="date-chip" type="button">전체 기간</button>
+            <div id="dateList" class="date-list" aria-label="저장된 날짜"></div>
+            <label class="field-label">
+              <span>날짜 직접 선택</span>
+              <input id="dateInput" aria-label="날짜 직접 선택" type="date" />
+            </label>
+          </section>
+
+          <section class="side-section">
+            <div class="section-title">
+              <span>필터</span>
+              <strong id="filterCount">기본 보기</strong>
+            </div>
+            <label class="field-label">
+              <span>기관</span>
+              <select id="ministry"></select>
+            </label>
+            <label class="field-label">
+              <span>출처</span>
+              <select id="source"></select>
+            </label>
+            <label class="field-label">
+              <span>문서</span>
+              <select id="doc"></select>
+            </label>
+            <button id="clearFilters" class="quiet-button" type="button">필터 초기화</button>
+          </section>
+
+          <section class="side-section source-section">
+            <div class="section-title">
+              <span>출처 상태</span>
+              <strong>샘플</strong>
+            </div>
+            <ul id="sourceList" class="source-list"></ul>
+          </section>
+        </aside>
+
+        <div class="content-stage">
+          <section class="search-panel" aria-label="검색">
+            <label class="search-field">
+              <span>검색</span>
+              <input id="q" placeholder="제목, 본문, 기관, 문서번호 검색" />
+            </label>
+            <div class="scope-card">
+              <span id="scopeTitle">전체 누적 자료</span>
+              <strong id="scopeCount">0건</strong>
+            </div>
+          </section>
+
+          <nav id="tabs" class="segment-tabs" aria-label="문서 분류"></nav>
+
+          <section class="briefing-panel" aria-label="AI 브리핑">
+            <div>
+              <span>AI 브리핑</span>
+              <strong>현재 화면의 항목을 짧게 정리합니다.</strong>
+            </div>
+            <label>
+              <span>API 키</span>
+              <input id="key" type="password" placeholder="sk-..." />
+            </label>
+            <button id="summarize" type="button">브리핑 생성</button>
+            <button id="clearKey" class="text-button" type="button">키 삭제</button>
+          </section>
+
+          <section id="digest" class="digest-panel">
+            <strong>AI 브리핑</strong>
+            <p></p>
+          </section>
+
+          <section class="results-header">
+            <div><strong id="count">0건</strong><span id="cacheState">표시 중</span></div>
+            <span>샘플 데이터</span>
+          </section>
+          <section id="list" class="item-list" aria-label="변경 목록"></section>
+        </div>
+      </section>
     </main>
 
-    <main id="detail" class="shell hidden"></main>
+    <main id="detail" class="page-shell detail-shell hidden"></main>
 
     <script>
       const labels = {
@@ -525,6 +996,7 @@
           document_type: "law",
           title: "전자정부법 일부개정법률 시행",
           issue_number: "법률 제00001호",
+          collection_date: "2026-05-26",
           publish_date: "2026-05-26",
           effective_date: "2026-08-01",
           change_type: "일부개정",
@@ -542,6 +1014,7 @@
           document_type: "notice",
           title: "근로시간 기록 관리지침 일부개정안 행정예고",
           issue_number: "고용노동부공고 제2026-101호",
+          collection_date: "2026-05-26",
           publish_date: "2026-05-26",
           effective_date: null,
           change_type: "예고/공고",
@@ -559,6 +1032,7 @@
           document_type: "guideline",
           title: "국고보조금 집행관리 지침 개정",
           issue_number: "기획재정부지침 제2026-12호",
+          collection_date: "2026-05-25",
           publish_date: "2026-05-25",
           effective_date: "2026-06-01",
           change_type: "일부개정",
@@ -576,6 +1050,7 @@
           document_type: "news",
           title: "정비 대상 법령 발굴 계획 발표",
           issue_number: null,
+          collection_date: "2026-05-26",
           publish_date: "2026-05-26",
           effective_date: null,
           change_type: "미분류",
@@ -587,10 +1062,17 @@
         }
       ];
 
-      let selectedDate = "";
-      let selectedCategory = "all";
+      const sourceLogs = [
+        { source: "법제처 API", count: 1 },
+        { source: "입법/행정예고", count: 1 },
+        { source: "부처 게시판", count: 1 },
+        { source: "보도자료", count: 1 }
+      ];
+
       const itemDate = (item) => item.collection_date || item.publish_date || "";
       const dates = [...new Set(items.map(itemDate).filter(Boolean))].sort().reverse();
+      let selectedDate = dates[0] || "";
+      let selectedCategory = "all";
 
       const controls = {
         q: document.getElementById("q"),
@@ -609,23 +1091,54 @@
           .replaceAll("'", "&#039;");
       }
 
-      function fillSelect(select, values, names) {
+      function fillSelect(select, values, names, allLabel) {
         select.innerHTML =
-          '<option value="">전체</option>' +
+          `<option value="">${allLabel}</option>` +
           values.map((value) => `<option value="${esc(value)}">${esc(names ? names[value] : value)}</option>`).join("");
+      }
+
+      function shortDate(value) {
+        const parts = value.split("-");
+        return `${Number(parts[1])}.${Number(parts[2])}`;
+      }
+
+      function dateLabel(value) {
+        if (!value) return "전체 기간";
+        const parts = value.split("-");
+        return `${parts[0]}. ${Number(parts[1])}. ${Number(parts[2])}.`;
+      }
+
+      function dateCounts() {
+        const counts = {};
+        for (const item of items) {
+          const date = itemDate(item);
+          counts[date] = (counts[date] || 0) + 1;
+        }
+        return counts;
+      }
+
+      function scopedItems() {
+        return selectedDate ? items.filter((item) => itemDate(item) === selectedDate) : items;
       }
 
       function filterItems() {
         const q = controls.q.value.trim().toLowerCase();
-        return items.filter((item) => {
+        return scopedItems().filter((item) => {
           if (selectedCategory !== "all" && item.category !== selectedCategory) return false;
-          if (selectedDate && itemDate(item) !== selectedDate) return false;
           if (controls.ministry.value && item.ministry !== controls.ministry.value) return false;
           if (controls.source.value && item.source_type !== controls.source.value) return false;
           if (controls.doc.value && item.document_type !== controls.doc.value) return false;
           if (!q) return true;
-          return [item.title, item.summary, item.raw_text, item.ministry, item.issue_number].filter(Boolean).join(" ").toLowerCase().includes(q);
+          return [item.title, item.summary, item.raw_text, item.ministry, item.issue_number]
+            .filter(Boolean)
+            .join(" ")
+            .toLowerCase()
+            .includes(q);
         });
+      }
+
+      function activeFilterCount() {
+        return [controls.q.value, controls.ministry.value, controls.source.value, controls.doc.value, selectedCategory !== "all" ? selectedCategory : ""].filter(Boolean).length;
       }
 
       function renderStats() {
@@ -635,73 +1148,91 @@
         document.getElementById("verify").textContent = items.filter((item) => item.verification_required).length.toLocaleString("ko-KR");
       }
 
-      function renderDatebar() {
-        document.getElementById("datebar").innerHTML =
-          `<button class="${selectedDate ? "" : "active"}" data-date="">전체 날짜</button>` +
-          dates.map((date) => `<button class="${selectedDate === date ? "active" : ""}" data-date="${esc(date)}">${esc(date)}</button>`).join("") +
-          `<input type="date" value="${esc(selectedDate)}" aria-label="날짜 직접 입력" />`;
+      function renderDates() {
+        const counts = dateCounts();
+        document.getElementById("selectedDateLabel").textContent = selectedDate || "전체 기간";
+        document.getElementById("allDates").className = selectedDate ? "date-chip" : "date-chip active";
+        document.getElementById("dateInput").value = selectedDate;
+        document.getElementById("dateList").innerHTML = dates
+          .map(
+            (date) =>
+              `<button class="${selectedDate === date ? "active" : ""}" type="button" data-date="${esc(date)}"><span>${shortDate(date)}</span><strong>${counts[date] || 0}</strong></button>`
+          )
+          .join("");
         document.querySelectorAll("[data-date]").forEach((button) => {
           button.addEventListener("click", () => {
             selectedDate = button.getAttribute("data-date") || "";
             render();
           });
         });
-        document.querySelector("#datebar input").addEventListener("change", (event) => {
-          selectedDate = event.target.value;
-          render();
-        });
       }
 
       function renderTabs() {
-        const scoped = selectedDate ? items.filter((item) => itemDate(item) === selectedDate) : items;
-        const counts = { all: scoped.length, law: 0, notice: 0, guideline: 0, news: 0 };
-        scoped.forEach((item) => (counts[item.category] += 1));
+        const counts = { all: scopedItems().length, law: 0, notice: 0, guideline: 0, news: 0 };
+        for (const item of scopedItems()) counts[item.category] += 1;
         document.getElementById("tabs").innerHTML = Object.keys(labels.category)
           .map(
             (key) =>
-              `<button class="${selectedCategory === key ? "active" : ""}" data-cat="${key}"><span>${labels.category[key]}</span><strong>${counts[key]}</strong></button>`
+              `<button class="${selectedCategory === key ? "active" : ""}" type="button" data-cat="${key}"><span>${labels.category[key]}</span><strong>${counts[key].toLocaleString("ko-KR")}</strong></button>`
           )
           .join("");
         document.querySelectorAll("[data-cat]").forEach((button) => {
           button.addEventListener("click", () => {
-            selectedCategory = button.getAttribute("data-cat");
-            render();
+            selectedCategory = button.getAttribute("data-cat") || "all";
+            renderList();
           });
         });
+      }
+
+      function renderSourceList() {
+        document.getElementById("sourceList").innerHTML = sourceLogs
+          .map((log) => `<li><span class="status-dot"></span><div><strong>${esc(log.source)}</strong><small>${log.count.toLocaleString("ko-KR")}건</small></div></li>`)
+          .join("");
+      }
+
+      function renderScope() {
+        document.getElementById("scopeTitle").textContent = selectedDate ? `${dateLabel(selectedDate)} 자료` : "전체 누적 자료";
+        document.getElementById("scopeCount").textContent = `${scopedItems().length.toLocaleString("ko-KR")}건`;
+        const count = activeFilterCount();
+        document.getElementById("filterCount").textContent = count ? `${count}개 적용` : "기본 보기";
       }
 
       function meta(item) {
         return [
           labels.category[item.category],
-          labels.source[item.source_type],
           labels.document[item.document_type],
           item.change_type,
           item.confidence,
-          item.verification_required ? "검증 필요" : ""
+          item.verification_required ? "확인 필요" : ""
         ]
           .filter(Boolean)
-          .map((value) => `<span class="${value === "검증 필요" ? "warn" : ""}">${esc(value)}</span>`)
+          .map((value) => `<span class="${value === "확인 필요" ? "warn" : ""}">${esc(value)}</span>`)
           .join("");
       }
 
       function renderList() {
         const filtered = filterItems();
+        renderTabs();
+        renderScope();
         document.getElementById("count").textContent = `${filtered.length.toLocaleString("ko-KR")}건`;
+        document.getElementById("cacheState").textContent = dates.includes(selectedDate) || !selectedDate ? "표시 중" : "저장 자료 없음";
         if (!filtered.length) {
-          document.getElementById("list").innerHTML = '<div class="empty">현재 조건에 맞는 수집 결과가 없습니다.</div>';
+          document.getElementById("list").innerHTML =
+            '<div class="empty-state"><strong>표시할 항목이 없습니다.</strong><span>날짜, 검색어, 필터를 조정해보세요.</span></div>';
           return;
         }
         document.getElementById("list").innerHTML = filtered
           .map(
             (item) => `
-              <article class="item ${esc(item.category)}">
-                <div>
-                  <div class="meta">${meta(item)}</div>
-                  <h2><button data-id="${esc(item.id)}">${esc(item.title)}</button></h2>
-                  <p>${esc(item.summary)}</p>
-                  <div class="foot"><span>${esc(item.ministry)}</span><span>${esc(item.issue_number || "문서번호 없음")}</span><span>기준 ${esc(itemDate(item))}</span><span>공표 ${esc(item.publish_date)}</span><span>시행 ${esc(item.effective_date || "-")}</span></div>
+              <article class="item-card category-${esc(item.category)}">
+                <div class="category-rail" aria-hidden="true"></div>
+                <div class="item-main">
+                  <div class="item-meta">${meta(item)}</div>
+                  <h2><button type="button" data-id="${esc(item.id)}">${esc(item.title)}</button></h2>
+                  <p>${esc(item.summary || "요약 전입니다. 상세 화면에서 원문과 수집 근거를 확인할 수 있습니다.")}</p>
+                  <div class="item-foot"><span>${esc(item.ministry)}</span><span>${esc(item.issue_number || "문서번호 없음")}</span><span>기준 ${esc(itemDate(item) || "-")}</span><span>시행 ${esc(item.effective_date || "-")}</span></div>
                 </div>
-                <div class="actions"><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문</a><button data-id="${esc(item.id)}">상세</button></div>
+                <div class="item-actions"><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문</a><button type="button" data-id="${esc(item.id)}">상세</button></div>
               </article>`
           )
           .join("");
@@ -715,11 +1246,11 @@
         const detail = document.getElementById("detail");
         detail.classList.remove("hidden");
         detail.innerHTML = `
-          <button class="back" id="back">미리보기 목록으로</button>
-          <article class="detail">
-            <div class="meta">${meta(item)}</div>
+          <button class="back-link" id="back" type="button">미리보기 목록으로</button>
+          <article class="detail-panel">
+            <div class="item-meta">${meta(item)}</div>
             <h1>${esc(item.title)}</h1>
-            <dl class="grid">
+            <dl class="detail-grid">
               <div><dt>기관</dt><dd>${esc(item.ministry)}</dd></div>
               <div><dt>문서번호</dt><dd>${esc(item.issue_number || "-")}</dd></div>
               <div><dt>수집 기준일</dt><dd>${esc(itemDate(item) || "-")}</dd></div>
@@ -728,10 +1259,14 @@
               <div><dt>출처</dt><dd>${esc(labels.source[item.source_type])}</dd></div>
               <div><dt>원문</dt><dd><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문 열기</a></dd></div>
             </dl>
-            <h2>요약</h2>
-            <p>${esc(item.summary)}</p>
-            <h2>원문 추출 텍스트</h2>
-            <pre class="raw">${esc(item.raw_text)}</pre>
+            <section class="detail-section">
+              <h2>요약</h2>
+              <p>${esc(item.summary || "아직 요약이 생성되지 않았습니다.")}</p>
+            </section>
+            <section class="detail-section">
+              <h2>원문 추출 텍스트</h2>
+              <pre class="raw-text">${esc(item.raw_text || "원문 본문을 가져오지 못했습니다.")}</pre>
+            </section>
           </article>`;
         document.getElementById("back").addEventListener("click", () => {
           detail.classList.add("hidden");
@@ -744,9 +1279,14 @@
         const filtered = filterItems();
         if (!key || !filtered.length) return;
         const digest = document.getElementById("digest");
+        digest.classList.remove("error");
         digest.style.display = "block";
-        digest.querySelector("p").textContent = "요약 중";
-        const input = filtered.map((item, i) => `${i + 1}. ${item.title}\n분류: ${labels.category[item.category]}\n기관: ${item.ministry}\n내용: ${item.summary || item.raw_text}`).join("\n\n");
+        digest.querySelector("strong").textContent = "AI 브리핑";
+        digest.querySelector("p").textContent = "정리 중";
+        const input = filtered
+          .slice(0, 20)
+          .map((item, i) => `${i + 1}. ${item.title}\n분류: ${labels.category[item.category]}\n기관: ${item.ministry}\n내용: ${item.summary || item.raw_text}`)
+          .join("\n\n");
         try {
           const response = await fetch("https://api.openai.com/v1/responses", {
             method: "POST",
@@ -754,7 +1294,7 @@
             body: JSON.stringify({
               model: "gpt-5",
               max_output_tokens: 500,
-              instructions: "한국 규제·법령 변경 모니터의 편집자처럼 제공된 항목만 근거로 간결하게 요약하세요.",
+              instructions: "한국 규제 변경 모니터의 편집자처럼 제공된 항목만 근거로 간결하게 요약하세요.",
               input
             })
           });
@@ -762,19 +1302,42 @@
           const data = await response.json();
           digest.querySelector("p").textContent = (data.output_text || JSON.stringify(data.output || "")).replace(/\s+/g, " ").trim();
         } catch (error) {
-          digest.querySelector("p").textContent = `요약 실패: ${error.message || error}`;
+          digest.classList.add("error");
+          digest.querySelector("strong").textContent = "브리핑 실패";
+          digest.querySelector("p").textContent = error.message || String(error);
         }
       }
 
-      function render() {
-        renderDatebar();
-        renderTabs();
+      function clearFilters() {
+        controls.q.value = "";
+        controls.ministry.value = "";
+        controls.source.value = "";
+        controls.doc.value = "";
+        selectedCategory = "all";
         renderList();
       }
 
-      fillSelect(controls.ministry, [...new Set(items.map((item) => item.ministry))].sort());
-      fillSelect(controls.source, Object.keys(labels.source), labels.source);
-      fillSelect(controls.doc, Object.keys(labels.document), labels.document);
+      function render() {
+        renderDates();
+        renderList();
+      }
+
+      fillSelect(controls.ministry, [...new Set(items.map((item) => item.ministry))].sort(), null, "전체 기관");
+      fillSelect(controls.source, Object.keys(labels.source), labels.source, "전체 출처");
+      fillSelect(controls.doc, Object.keys(labels.document), labels.document, "전체 문서");
+      renderStats();
+      renderSourceList();
+      render();
+
+      document.getElementById("allDates").addEventListener("click", () => {
+        selectedDate = "";
+        render();
+      });
+      document.getElementById("dateInput").addEventListener("change", (event) => {
+        selectedDate = event.target.value;
+        render();
+      });
+      document.getElementById("clearFilters").addEventListener("click", clearFilters);
       Object.values(controls).forEach((control) => {
         if (control.id !== "key") {
           control.addEventListener("input", renderList);
@@ -788,8 +1351,6 @@
         controls.key.value = "";
         sessionStorage.removeItem("preview-openai-key");
       });
-      renderStats();
-      render();
     </script>
   </body>
 </html>

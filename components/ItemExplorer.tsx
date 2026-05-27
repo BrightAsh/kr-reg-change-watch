@@ -35,7 +35,6 @@ const categoryFilters: Array<{ value: CategoryFilter; label: string }> = [
   { value: "guideline", label: categoryLabels.guideline },
   { value: "news", label: categoryLabels.news }
 ];
-const actionsHref = "https://github.com/BrightAsh/kr-reg-change-watch/actions/workflows/daily-collect.yml";
 
 export default function ItemExplorer({
   items,
@@ -92,18 +91,43 @@ export default function ItemExplorer({
   }, [category, changeType, dateScopedItems, documentType, ministry, query, sourceType]);
 
   const counts = useMemo(() => {
-    const byCategory: Record<CategoryFilter, number> = { all: dateScopedItems.length, law: 0, notice: 0, guideline: 0, news: 0 };
+    const byCategory: Record<CategoryFilter, number> = {
+      all: dateScopedItems.length,
+      law: 0,
+      notice: 0,
+      guideline: 0,
+      news: 0
+    };
     for (const item of dateScopedItems) byCategory[item.category || itemCategory(item)] += 1;
     return byCategory;
   }, [dateScopedItems]);
 
+  const dateCounts = useMemo(() => {
+    const result = new Map<string, number>();
+    for (const item of enrichedItems) {
+      const date = item.collection_date || item.publish_date;
+      if (date) result.set(date, (result.get(date) || 0) + 1);
+    }
+    return result;
+  }, [enrichedItems]);
+
   const dateHasCache = !selectedDate || dates.includes(selectedDate);
   const selectedDateCount = dateScopedItems.length;
+  const filterCount = [query, ministry, sourceType, documentType, changeType, category !== "all" ? category : ""].filter(Boolean).length;
 
   function saveApiKey(value: string) {
     setApiKey(value);
     if (value) sessionStorage.setItem("kr-reg-openai-key", value);
     else sessionStorage.removeItem("kr-reg-openai-key");
+  }
+
+  function clearFilters() {
+    setQuery("");
+    setMinistry("");
+    setSourceType("");
+    setDocumentType("");
+    setChangeType("");
+    setCategory("all");
   }
 
   async function summarizeVisible() {
@@ -154,45 +178,130 @@ export default function ItemExplorer({
   }
 
   return (
-    <>
-      <section className="control-panel" aria-label="탐색 도구">
-        <div className="panel-head">
-          <div>
-            <strong>일자별 캐시 탐색</strong>
-            <span>{selectedDate ? `${selectedDate} 저장 자료` : "누적 자료"} 기준</span>
+    <section className="app-workspace" aria-label="규제 변경 탐색">
+      <aside className="side-panel" aria-label="탐색 설정">
+        <section className="side-section">
+          <div className="section-title">
+            <span>기준일</span>
+            <strong>{selectedDate || "전체 기간"}</strong>
           </div>
-          <a href={actionsHref} target="_blank" rel="noreferrer">
-            날짜 수집 실행
-          </a>
-        </div>
-        <div className="date-bar" aria-label="날짜 선택">
-          <button className={!selectedDate ? "active" : ""} type="button" onClick={() => setSelectedDate("")}>
-            전체 날짜
+          <button className={!selectedDate ? "date-chip active" : "date-chip"} type="button" onClick={() => setSelectedDate("")}>
+            전체 기간
           </button>
-          <label className="date-picker">
-            <span>저장 날짜</span>
-            <select
-              aria-label="저장된 날짜 선택"
-              value={dates.includes(selectedDate) ? selectedDate : ""}
+          <div className="date-list" aria-label="저장된 날짜">
+            {dates.map((date) => (
+              <button
+                className={selectedDate === date ? "active" : ""}
+                key={date}
+                type="button"
+                onClick={() => setSelectedDate(date)}
+              >
+                <span>{formatShortDate(date)}</span>
+                <strong>{dateCounts.get(date) || 0}</strong>
+              </button>
+            ))}
+          </div>
+          <label className="field-label">
+            <span>날짜 직접 선택</span>
+            <input
+              aria-label="날짜 직접 선택"
+              type="date"
+              value={selectedDate}
               onChange={(event) => setSelectedDate(event.target.value)}
-            >
-              <option value="">선택</option>
-              {dates.map((value) => (
+            />
+          </label>
+        </section>
+
+        <section className="side-section">
+          <div className="section-title">
+            <span>필터</span>
+            <strong>{filterCount ? `${filterCount}개 적용` : "기본 보기"}</strong>
+          </div>
+          <label className="field-label">
+            <span>기관</span>
+            <select value={ministry} onChange={(event) => setMinistry(event.target.value)}>
+              <option value="">전체 기관</option>
+              {ministries.map((value) => (
                 <option key={value} value={value}>
                   {value}
                 </option>
               ))}
             </select>
           </label>
-          <input
-            aria-label="날짜 직접 입력"
-            type="date"
-            value={selectedDate}
-            onChange={(event) => setSelectedDate(event.target.value)}
-          />
-        </div>
+          <label className="field-label">
+            <span>출처</span>
+            <select value={sourceType} onChange={(event) => setSourceType(event.target.value)}>
+              <option value="">전체 출처</option>
+              {sourceTypes.map((value) => (
+                <option key={value} value={value}>
+                  {sourceTypeLabels[value]}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="field-label">
+            <span>문서</span>
+            <select value={documentType} onChange={(event) => setDocumentType(event.target.value)}>
+              <option value="">전체 문서</option>
+              {documentTypes.map((value) => (
+                <option key={value} value={value}>
+                  {documentTypeLabels[value]}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="field-label">
+            <span>변경</span>
+            <select value={changeType} onChange={(event) => setChangeType(event.target.value)}>
+              <option value="">전체 변경</option>
+              {changeTypes.map((value) => (
+                <option key={value} value={value}>
+                  {changeTypeLabels[value]}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button className="quiet-button" type="button" onClick={clearFilters}>
+            필터 초기화
+          </button>
+        </section>
 
-        <div className="category-tabs" aria-label="문서 분류">
+        <section className="side-section source-section">
+          <div className="section-title">
+            <span>출처 상태</span>
+            <strong>{logs.length ? `${logs.length}개` : "대기"}</strong>
+          </div>
+          <ul className="source-list">
+            {logs.slice(0, 8).map((log, index) => (
+              <li key={`${log.source}-${index}`}>
+                <span className={`status-dot ${log.status}`} />
+                <div>
+                  <strong>{log.source}</strong>
+                  <small>{log.count.toLocaleString("ko-KR")}건</small>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </aside>
+
+      <div className="content-stage">
+        <section className="search-panel" aria-label="검색">
+          <label className="search-field">
+            <span>검색</span>
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="제목, 본문, 기관, 문서번호 검색"
+            />
+          </label>
+          <div className="scope-card">
+            <span>{selectedDate ? `${formatDateLabel(selectedDate)} 자료` : "전체 누적 자료"}</span>
+            <strong>{selectedDateCount.toLocaleString("ko-KR")}건</strong>
+          </div>
+        </section>
+
+        <nav className="segment-tabs" aria-label="문서 분류">
           {categoryFilters.map((tab) => (
             <button
               className={category === tab.value ? "active" : ""}
@@ -204,165 +313,84 @@ export default function ItemExplorer({
               <strong>{counts[tab.value].toLocaleString("ko-KR")}</strong>
             </button>
           ))}
-        </div>
+        </nav>
 
-        <div className="filters" aria-label="필터와 검색">
-          <label>
-            <span>검색</span>
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="제목, 본문, 기관, 문서번호"
-            />
-          </label>
-          <label>
-            <span>기관</span>
-            <select value={ministry} onChange={(event) => setMinistry(event.target.value)}>
-              <option value="">전체</option>
-              {ministries.map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <span>출처</span>
-            <select value={sourceType} onChange={(event) => setSourceType(event.target.value)}>
-              <option value="">전체</option>
-              {sourceTypes.map((value) => (
-                <option key={value} value={value}>
-                  {sourceTypeLabels[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <span>문서</span>
-            <select value={documentType} onChange={(event) => setDocumentType(event.target.value)}>
-              <option value="">전체</option>
-              {documentTypes.map((value) => (
-                <option key={value} value={value}>
-                  {documentTypeLabels[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <span>변경</span>
-            <select value={changeType} onChange={(event) => setChangeType(event.target.value)}>
-              <option value="">전체</option>
-              {changeTypes.map((value) => (
-                <option key={value} value={value}>
-                  {changeTypeLabels[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-
-        <div className="summary-console">
+        <section className="briefing-panel" aria-label="AI 브리핑">
           <div>
-            <span>OpenAI API key</span>
+            <span>AI 브리핑</span>
+            <strong>현재 화면의 항목을 짧게 정리합니다.</strong>
+          </div>
+          <label>
+            <span>API 키</span>
             <input
               type="password"
               value={apiKey}
               onChange={(event) => saveApiKey(event.target.value)}
               placeholder="sk-..."
             />
-          </div>
+          </label>
           <button disabled={!apiKey || !filtered.length || summaryStatus === "working"} type="button" onClick={summarizeVisible}>
-            {summaryStatus === "working" ? "요약 중" : "표시 항목 요약"}
+            {summaryStatus === "working" ? "정리 중" : "브리핑 생성"}
           </button>
           {apiKey ? (
-            <button className="secondary" type="button" onClick={() => saveApiKey("")}>
-              키 지우기
+            <button className="text-button" type="button" onClick={() => saveApiKey("")}>
+              키 삭제
             </button>
           ) : null}
-        </div>
-      </section>
-
-      {digest || summaryError ? (
-        <section className={`digest-panel ${summaryStatus === "error" ? "error" : ""}`}>
-          <strong>{summaryStatus === "error" ? "요약 실패" : "AI 요약"}</strong>
-          <p>{summaryStatus === "error" ? summaryError : digest}</p>
         </section>
-      ) : null}
 
-      <section className="results-header">
-        <div>
-          <strong>{filtered.length.toLocaleString("ko-KR")}건</strong>
-          <span>{selectedDate ? `${selectedDate} 캐시 ${selectedDateCount.toLocaleString("ko-KR")}건` : "전체 누적 자료"}</span>
-        </div>
-        <span>
-          {run?.cache_hit ? "캐시 사용" : "최근 수집"} · {run?.last_run_at ? new Date(run.last_run_at).toLocaleString("ko-KR") : "미실행"}
-        </span>
-      </section>
+        {digest || summaryError ? (
+          <section className={`digest-panel ${summaryStatus === "error" ? "error" : ""}`}>
+            <strong>{summaryStatus === "error" ? "브리핑 실패" : "AI 브리핑"}</strong>
+            <p>{summaryStatus === "error" ? summaryError : digest}</p>
+          </section>
+        ) : null}
 
-      <section className="item-list" aria-label="변경 목록">
-        {filtered.length ? (
-          filtered.map((item) => <ItemRow key={item.id} item={item} detailHrefPrefix={detailHrefPrefix} />)
-        ) : (
-          <div className="empty-state">
-            <strong>{dateHasCache ? "표시할 항목이 없습니다." : "캐시된 자료가 없습니다."}</strong>
-            <span>
-              {dateHasCache
-                ? "현재 조건에 맞는 수집 결과가 없습니다."
-                : "GitHub Actions에서 해당 날짜를 수집하면 이 날짜가 목록에 나타납니다."}
-            </span>
-            {!dateHasCache ? (
-              <a href={actionsHref} target="_blank" rel="noreferrer">
-                수동 수집 열기
-              </a>
-            ) : null}
+        <section className="results-header">
+          <div>
+            <strong>{filtered.length.toLocaleString("ko-KR")}건</strong>
+            <span>{dateHasCache ? "표시 중" : "저장 자료 없음"}</span>
           </div>
-        )}
-      </section>
+          <span>{run?.last_run_at ? `${formatDateTime(run.last_run_at)} 업데이트` : "업데이트 대기"}</span>
+        </section>
 
-      <section className="logs-panel" aria-label="수집 로그">
-        <h2>최근 수집 로그</h2>
-        {logs.length ? (
-          <ul>
-            {logs.slice(0, 10).map((log, index) => (
-              <li key={`${log.source}-${index}`}>
-                <span className={`status-dot ${log.status}`} />
-                <div>
-                  <strong>{log.source}</strong>
-                  <p>{log.message}</p>
-                </div>
-                <span>{log.count.toLocaleString("ko-KR")}건</span>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>아직 실행 로그가 없습니다.</p>
-        )}
-      </section>
-    </>
+        <section className="item-list" aria-label="변경 목록">
+          {filtered.length ? (
+            filtered.map((item) => <ItemRow key={item.id} item={item} detailHrefPrefix={detailHrefPrefix} />)
+          ) : (
+            <div className="empty-state">
+              <strong>{dateHasCache ? "표시할 항목이 없습니다." : "저장된 자료가 없습니다."}</strong>
+              <span>
+                {dateHasCache ? "검색어나 필터를 조금 넓혀보세요." : "해당 날짜의 수집 자료가 준비되면 이곳에 표시됩니다."}
+              </span>
+            </div>
+          )}
+        </section>
+      </div>
+    </section>
   );
 }
 
 function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPrefix: string }) {
   const detailHref = `${detailHrefPrefix.replace(/\/$/, "")}/${encodeURIComponent(item.id)}`;
   const category = item.category || itemCategory(item);
-  const evidenceLines = extractEvidenceLines(item.raw_text).slice(0, 3);
+  const evidenceLines = extractEvidenceLines(item.raw_text).slice(0, 2);
 
   return (
     <article className={`item-card category-${category}`}>
+      <div className="category-rail" aria-hidden="true" />
       <div className="item-main">
         <div className="item-meta">
           <span>{categoryLabels[category]}</span>
-          <span>{sourceTypeLabels[item.source_type]}</span>
           <span>{documentTypeLabels[item.document_type]}</span>
           <span>{changeTypeLabels[item.change_type]}</span>
           <span>{confidenceLabels[item.confidence]}</span>
-          {item.auto_summary ? <span>자동요약</span> : null}
-          {item.verification_required ? <span className="warn">검증 필요</span> : null}
+          {item.verification_required ? <span className="warn">확인 필요</span> : null}
         </div>
         <h2>
           <Link href={detailHref}>{item.title}</Link>
         </h2>
-        <p>{item.summary || "요약 전입니다. 원문 링크와 메타데이터를 먼저 확인하세요."}</p>
+        <p>{item.summary || "요약 전입니다. 상세 화면에서 원문과 수집 근거를 확인할 수 있습니다."}</p>
         {evidenceLines.length ? (
           <ul className="item-evidence" aria-label="수집 근거">
             {evidenceLines.map((line) => (
@@ -374,7 +402,6 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
           <span>{item.ministry}</span>
           <span>{item.issue_number || "문서번호 없음"}</span>
           <span>기준 {item.collection_date || item.publish_date || "-"}</span>
-          <span>공표 {item.publish_date || "-"}</span>
           <span>시행 {item.effective_date || "-"}</span>
         </div>
       </div>
@@ -386,6 +413,25 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
       </div>
     </article>
   );
+}
+
+function formatShortDate(value: string): string {
+  const [, month, day] = value.split("-");
+  return `${Number(month)}.${Number(day)}`;
+}
+
+function formatDateLabel(value: string): string {
+  const [year, month, day] = value.split("-");
+  return `${year}. ${Number(month)}. ${Number(day)}.`;
+}
+
+function formatDateTime(value: string): string {
+  return new Date(value).toLocaleString("ko-KR", {
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
+  });
 }
 
 function extractOutputText(value: unknown): string {
