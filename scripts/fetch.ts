@@ -1022,6 +1022,9 @@ async function parseBoardRows(
     seenUrls.add(absoluteUrl);
 
     const context = html.slice(Math.max(0, anchor.index - 900), Math.min(html.length, anchor.index + anchor.html.length + 1200));
+    const contextDate = boardContextDate(context);
+    if (contextDate && contextDate !== targetDate && !containsDateText(context, targetDate)) continue;
+
     let detailHtml = "";
     try {
       detailHtml = await fetchText(absoluteUrl);
@@ -1032,7 +1035,7 @@ async function parseBoardRows(
     const detailText = compactText(detailHtml || context);
     const publishDate =
       normalizeDate(findLabelDate(detailText, ["등록일", "작성일", "발령일자", "검색기간", "예고기간"])) ||
-      normalizeDate(context.match(/20\d{2}[./-]\d{1,2}[./-]\d{1,2}/)?.[0]) ||
+      contextDate ||
       null;
     if (publishDate !== targetDate) continue;
 
@@ -1060,6 +1063,30 @@ async function parseBoardRows(
     );
   }
   return rows;
+}
+
+function boardContextDate(context: string): string | null {
+  const textValue = compactText(context);
+  return (
+    normalizeDate(findLabelDate(textValue, ["등록일", "작성일", "발령일자", "예고기간"])) ||
+    normalizeDate(textValue.match(/20\d{2}[./-]\d{1,2}[./-]\d{1,2}/)?.[0]) ||
+    null
+  );
+}
+
+function containsDateText(value: string, date: string): boolean {
+  const [year, month, day] = date.split("-");
+  const monthNumber = String(Number(month));
+  const dayNumber = String(Number(day));
+  const variants = [
+    date,
+    `${year}.${month}.${day}`,
+    `${year}.${monthNumber}.${dayNumber}`,
+    `${year}/${month}/${day}`,
+    `${year}/${monthNumber}/${dayNumber}`,
+    `${year}-${monthNumber}-${dayNumber}`
+  ];
+  return variants.some((variant) => value.includes(variant));
 }
 
 interface BoardLinkCandidate {

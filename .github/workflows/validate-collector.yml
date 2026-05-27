@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - ".github/workflows/validate-collector.yml"
+      - "scripts/fetch.ts"
+      - "scripts/common.ts"
   workflow_dispatch:
 
 env:
