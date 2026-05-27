@@ -137,7 +137,8 @@ async function main() {
     const cached = await readJson<DailyCollection | null>(dailyPath, null);
     if (cached?.date === targetDate) {
       const existing = await readJson<CollectedItem[]>(itemsPath, []);
-      const merged = mergeItems(existing, cached.items);
+      const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
+      const merged = mergeItems(canonicalExisting, cached.items);
       const cacheLogs: CollectionLog[] = [
         ...cached.logs,
         {
@@ -181,7 +182,8 @@ async function main() {
 
   const scoped = normalizeAndFilterByTargetDate(collected);
   const existing = await readJson<CollectedItem[]>(itemsPath, []);
-  const merged = mergeItems(existing, scoped);
+  const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
+  const merged = mergeItems(canonicalExisting, scoped);
   const changedToday = scoped.length;
   const daily: DailyCollection = {
     date: targetDate,
@@ -1347,6 +1349,24 @@ async function listDailyDates(): Promise<string[]> {
   } catch {
     return [];
   }
+}
+
+async function readCanonicalItemsExcludingDate(date: string, fallbackItems: CollectedItem[]): Promise<CollectedItem[]> {
+  try {
+    const fs = await import("node:fs/promises");
+    const files = (await fs.readdir(dailyDir))
+      .filter((file) => /^\d{4}-\d{2}-\d{2}\.json$/.test(file))
+      .filter((file) => file !== `${date}.json`);
+    const items: CollectedItem[] = [];
+    for (const file of files) {
+      const daily = await readJson<DailyCollection | null>(path.join(dailyDir, file), null);
+      if (daily?.items?.length) items.push(...daily.items);
+    }
+    if (items.length) return mergeItems([], items);
+  } catch {
+    // Fall back to the cumulative file if daily cache files are unavailable.
+  }
+  return fallbackItems.filter((item) => (item.collection_date || item.publish_date) !== date);
 }
 
 function makeItem(
