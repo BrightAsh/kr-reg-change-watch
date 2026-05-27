@@ -269,22 +269,23 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
             ))}
           </div>
           <div className="calendar-grid">
-            {calendarCells.map((cell, index) =>
-              cell.date ? (
+            {calendarCells.map((cell, index) => {
+              if (!cell.date) return <div className="calendar-empty" key={`empty-${index}`} />;
+              const date = cell.date;
+              const count = dateCounts.get(date) || 0;
+              return (
                 <button
-                  className={calendarClassName(cell.date, index, selectedDate, dateCounts.get(cell.date) || 0)}
-                  key={cell.date}
+                  className={calendarClassName(date, index, selectedDate, count)}
+                  key={date}
                   type="button"
-                  aria-label={`${formatDateLabel(cell.date)} ${dateCounts.get(cell.date) || 0}건`}
-                  onClick={() => selectCalendarDate(cell.date)}
+                  aria-label={`${formatDateLabel(date)} ${count}건`}
+                  onClick={() => selectCalendarDate(date)}
                 >
                   <span>{cell.day}</span>
-                  <small>{(dateCounts.get(cell.date) || 0).toLocaleString("ko-KR")}</small>
+                  <small>{count.toLocaleString("ko-KR")}</small>
                 </button>
-              ) : (
-                <div className="calendar-empty" key={`empty-${index}`} />
-              )
-            )}
+              );
+            })}
           </div>
         </section>
 
