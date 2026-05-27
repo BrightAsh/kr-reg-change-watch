@@ -1311,8 +1311,34 @@ function normalizeAndFilterByTargetDate(items: CollectedItem[]): CollectedItem[]
 }
 
 function canonicalItemKey(item: CollectedItem): string {
-  if (isAdministrativeRuleEvidence(item) && item.source_record_id) return `administrative-rule:${item.source_record_id}`;
+  const administrativeRuleId = administrativeRuleRecordId(item);
+  if (administrativeRuleId) return `administrative-rule:${administrativeRuleId}`;
   return item.id;
+}
+
+function administrativeRuleRecordId(item: CollectedItem): string | null {
+  if (isAdministrativeRuleEvidence(item) && item.source_record_id) return item.source_record_id;
+  return administrativeRuleIdFromUrl(item.original_url);
+}
+
+function administrativeRuleIdFromUrl(url: string | null | undefined): string | null {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    const target = urlParamInsensitive(parsed, "target");
+    if (target?.toLowerCase() !== "admrul") return null;
+    return urlParamInsensitive(parsed, "id");
+  } catch {
+    return null;
+  }
+}
+
+function urlParamInsensitive(url: URL, name: string): string | null {
+  const desired = name.toLowerCase();
+  for (const [key, value] of url.searchParams.entries()) {
+    if (key.toLowerCase() === desired && value) return value;
+  }
+  return null;
 }
 
 function isAdministrativeRuleEvidence(item: CollectedItem): boolean {
@@ -1320,7 +1346,7 @@ function isAdministrativeRuleEvidence(item: CollectedItem): boolean {
 }
 
 function mergeEquivalentItems(existing: CollectedItem, incoming: CollectedItem): CollectedItem {
-  const primary = existing.source.includes("신구법 비교") && !incoming.source.includes("신구법 비교") ? incoming : existing;
+  const primary = pickPrimaryItem(existing, incoming);
   const secondary = primary === existing ? incoming : existing;
   const rawText = uniqueStrings([primary.raw_text, secondary.raw_text]).join("\n\n--- 추가 근거 ---\n\n");
   const source = uniqueStrings([primary.source, secondary.source]).join(" + ");
@@ -1336,6 +1362,15 @@ function mergeEquivalentItems(existing: CollectedItem, incoming: CollectedItem):
     attachment_urls: [...new Set([...(primary.attachment_urls || []), ...(secondary.attachment_urls || [])])],
     verification_required: primary.verification_required && secondary.verification_required
   };
+}
+
+function pickPrimaryItem(existing: CollectedItem, incoming: CollectedItem): CollectedItem {
+  if (existing.source_type !== incoming.source_type) {
+    if (existing.source_type === "official_law") return existing;
+    if (incoming.source_type === "official_law") return incoming;
+  }
+  if (existing.source.includes("신구법 비교") && !incoming.source.includes("신구법 비교")) return incoming;
+  return existing;
 }
 
 async function listDailyDates(): Promise<string[]> {
