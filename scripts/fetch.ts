@@ -324,33 +324,145 @@ function summarizeLawHistoryRows(rows: AnyRecord[]): string | null {
 async function fetchArticleChanges(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const source = "국가법령정보센터 일자별 조문 개정 이력";
   const rows = await fetchLawSearch(logs, source, "lsJoHstInf", { regDt: yyyymmdd(targetDate) });
-  const items = rows.map((row) => {
+  const items = groupArticleChangeRows(source, rows);
+  const suffix = rows.length === items.length ? "" : ` 원자료 ${rows.length}행을 법령 단위 ${items.length}건으로 묶었습니다.`;
+  addLog(logs, source, "ok", `법제처 공식 일자별 조문 개정 이력 API 수집 완료.${suffix}`, items.length, OFFICIAL_LAW_GUIDE);
+  return items;
+}
+
+function groupArticleChangeRows(source: string, rows: AnyRecord[]): CollectedItem[] {
+  const groups = new Map<string, AnyRecord[]>();
+  for (const row of rows) {
+    const lawId = text(row, ["법령ID"]);
     const title = text(row, ["법령명한글", "법령명"]);
+    const key = lawId || stableId([source, title, text(row, ["소관부처명"])]);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key)?.push(row);
+  }
+
+  return [...groups.entries()].map(([lawKey, groupRows]) => {
+    const sortedRows = [...groupRows].sort(compareArticleRowsDesc);
+    const representative = sortedRows[0] || groupRows[0];
+    const title = text(representative, ["법령명한글", "법령명"]) || "조문 개정 이력";
+    const articleCount = sortedRows.reduce((sum, row) => sum + Math.max(collectArticleRows(row).length, 1), 0);
     const originalUrl =
-      lawUrl(text(row, ["조문변경이력상세링크", "조문링크"]), text(row, ["법령일련번호"])) ||
+      lawUrl("", text(representative, ["법령일련번호"])) ||
+      lawUrl(text(representative, ["조문변경이력상세링크", "조문링크"])) ||
       OFFICIAL_LAW_GUIDE;
-    const rawText = compactText(
-      [title, text(row, ["조문정보"]), text(row, ["변경사유"]), JSON.stringify(row)].join(" ")
-    );
+    const rawText = buildArticleChangeRawText(lawKey, sortedRows);
+    const summary = summarizeArticleChangeRows(sortedRows, articleCount);
+
     return makeItem({
+      id: stableId([source, "article-history", lawKey, targetDate]),
       source,
       source_type: "official_law",
-      ministry: text(row, ["소관부처명"]) || "미상",
-      document_type: inferDocumentType(`${text(row, ["법령구분명"])} ${title}`),
-      title: `${title}${text(row, ["조문번호"]) ? ` ${text(row, ["조문번호"])}` : ""}`,
-      issue_number: text(row, ["공포번호"]) || null,
-      publish_date: normalizeDate(text(row, ["조문개정일", "공포일자"])) || targetDate,
-      effective_date: normalizeDate(text(row, ["조문시행일", "시행일자"])),
-      change_type: inferChangeType(text(row, ["제개정구분명", "변경사유"])),
+      ministry: text(representative, ["소관부처명"]) || "미상",
+      document_type: inferDocumentType(`${text(representative, ["법령구분명"])} ${title}`),
+      title: `${title} 조문 변경 ${articleCount.toLocaleString("ko-KR")}건`,
+      issue_number: text(representative, ["공포번호"]) || null,
+      publish_date: targetDate,
+      effective_date: normalizeDate(text(representative, ["조문시행일", "시행일자"])),
+      change_type: inferChangeType(`${text(representative, ["제개정구분명"])} ${rawText}`),
       original_url: originalUrl,
       raw_text: rawText,
       raw_hash: hashText(rawText),
+      summary,
+      diff_summary:
+        "이 항목은 법제처 조문 변경이력 메타데이터를 법령 단위로 묶은 것입니다. 조문별 본문은 원문 링크에서 확인하세요.",
       confidence: "official",
-      source_record_id: text(row, ["법령일련번호", "법령ID", "조문번호"]) || null
+      source_record_id: lawKey
     });
   });
-  addLog(logs, source, "ok", "법제처 공식 일자별 조문 개정 이력 API 수집 완료", items.length, OFFICIAL_LAW_GUIDE);
-  return items;
+}
+
+function compareArticleRowsDesc(a: AnyRecord, b: AnyRecord): number {
+  return articleChangeSortDate(b).localeCompare(articleChangeSortDate(a));
+}
+
+function articleChangeSortDate(row: AnyRecord): string {
+  return normalizeDate(text(row, ["조문개정일", "공포일자"])) || normalizeDate(text(row, ["조문시행일", "시행일자"])) || "";
+}
+
+function buildArticleChangeRawText(lawKey: string, rows: AnyRecord[]): string {
+  const lines = uniqueStrings(rows.flatMap((row) => articleChangeLines(row)));
+  return [
+    "조문 개정 이력",
+    "",
+    `수집 기준일: ${targetDate}`,
+    `법령ID: ${lawKey}`,
+    `원자료 행 수: ${rows.length.toLocaleString("ko-KR")}`,
+    `조문 변경 수: ${lines.length.toLocaleString("ko-KR")}`,
+    "",
+    "변경 조문",
+    ...lines,
+    "",
+    "원자료 JSON",
+    JSON.stringify(rows)
+  ].join("\n");
+}
+
+function summarizeArticleChangeRows(rows: AnyRecord[], articleCount: number): string {
+  const latest = rows[0];
+  const recent = uniqueStrings(rows.flatMap((row) => articleChangeLines(row)))
+    .slice(0, 8)
+    .join("; ");
+  const lawTitle = text(latest, ["법령명한글", "법령명"]) || "해당 법령";
+  return `${targetDate} 기준 법제처 조문 개정 이력 API가 반환한 ${rows.length.toLocaleString(
+    "ko-KR"
+  )}개 행을 ${lawTitle} 법령 단위로 묶었습니다. 확인된 조문 변경은 ${articleCount.toLocaleString(
+    "ko-KR"
+  )}건입니다.${recent ? ` 최근 변경: ${recent}.` : ""}`;
+}
+
+function articleChangeLines(row: AnyRecord): string[] {
+  const title = text(row, ["법령명한글", "법령명"]) || "법령";
+  const issue = text(row, ["공포번호"]);
+  const revision = text(row, ["제개정구분명", "변경사유"]) || "변경";
+  const fallbackAmendDate = normalizeDate(text(row, ["조문개정일", "공포일자"])) || "-";
+  const fallbackEffectiveDate = normalizeDate(text(row, ["조문시행일", "시행일자"])) || "-";
+  const articleRows = collectArticleRows(row);
+  if (!articleRows.length) {
+    return [`${title} / 개정 ${fallbackAmendDate} / 시행 ${fallbackEffectiveDate} / ${revision}${issue ? ` / 제${issue}호` : ""}`];
+  }
+  return articleRows.map((article) => {
+    const articleNo = formatArticleNumber(directText(article, ["조문번호"]));
+    const amendDate = normalizeDate(directText(article, ["조문개정일"])) || fallbackAmendDate;
+    const effectiveDate = normalizeDate(directText(article, ["조문시행일"])) || fallbackEffectiveDate;
+    const reason = directText(article, ["변경사유"]) || revision;
+    return `${title}${articleNo ? ` ${articleNo}` : ""} / 개정 ${amendDate} / 시행 ${effectiveDate} / ${reason}${
+      issue ? ` / 제${issue}호` : ""
+    }`;
+  });
+}
+
+function collectArticleRows(row: AnyRecord): AnyRecord[] {
+  const rows: AnyRecord[] = [];
+  walk(row, (node) => {
+    if (isRecord(node) && hasDirectKey(node, "조문번호")) rows.push(node);
+  });
+  const seen = new Set<string>();
+  return rows.filter((entry) => {
+    const key = [
+      directText(entry, ["조문번호"]),
+      directText(entry, ["조문개정일"]),
+      directText(entry, ["조문시행일"]),
+      directText(entry, ["변경사유"])
+    ].join("|");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function formatArticleNumber(value: string): string {
+  const digits = value.replace(/\D/g, "");
+  if (digits.length >= 6) {
+    const main = Number(digits.slice(0, 4));
+    const branch = Number(digits.slice(4, 6));
+    if (main && branch) return `제${main}조의${branch}`;
+    if (main) return `제${main}조`;
+  }
+  return value ? `제${value}조` : "";
 }
 
 async function fetchAdministrativeRules(logs: CollectionLog[]): Promise<CollectedItem[]> {
@@ -807,12 +919,14 @@ async function parseBoardRows(
 
   for (const match of anchors) {
     const rawHref = decodeHtml(match[1]);
-    const title = compactText(decodeHtml(match[2]));
+    if (!isAllowedBoardHrefForRoute(route, rawHref)) continue;
+
+    const title = cleanBoardTitle(htmlToText(match[2]), route);
     if (!isLikelyBoardTitle(title, rawHref)) continue;
 
     let absoluteUrl = "";
     try {
-      absoluteUrl = new URL(rawHref, listUrl).toString();
+      absoluteUrl = normalizeOriginalUrl(new URL(rawHref, listUrl).toString());
     } catch (error) {
       addLog(logs, route.source, "error", `게시글 원문 URL 파싱 실패: ${title} - ${messageOf(error)}`, 0, listUrl);
       continue;
@@ -879,12 +993,47 @@ function hasLikelyNextPage(html: string, page: number): boolean {
 
 function isLikelyBoardTitle(title: string, href: string): boolean {
   if (title.length < 4 || title.length > 180) return false;
+  if (/^(#|javascript:)/i.test(href.trim()) || href.trim() === "/") return false;
   if (/^(처음|이전|다음|마지막|목록|검색|다운로드|자료열기|RSS|홈으로)$/i.test(title)) return false;
+  if (/^(입법·행정예고·기타|입법·행정예고|보도자료|관련법령|주요지표|정책자료|정보공개청구 및 정보목록|행정규칙|훈령·예규|고시·공고·지침|더보기)$/i.test(title)) {
+    return false;
+  }
+  if (/더보기$/i.test(title)) return false;
   if (/\.(?:hwp|hwpx|pdf|docx?|xlsx?|zip)(?:$|[?#])/i.test(href)) return false;
   if (!/(View|view|Article|article|detail|Tb|Ntt|ntt|bbs|admrul|denm|pblanc|lap|lawService|lawSearch|DRF)/.test(href)) {
     return false;
   }
   return true;
+}
+
+function isAllowedBoardHrefForRoute(route: MinistryRoute, href: string): boolean {
+  if (!isMoefRoute(route)) return true;
+  if (route.defaultUrl.includes("/lw/lap/")) return /\/lw\/lap\/detailTbPrvntcView\.do/i.test(href);
+  if (route.defaultUrl.includes("/lw/pblanc/")) return /\/lw\/pblanc\/detailTbPblanc/i.test(href);
+  if (route.defaultUrl.includes("/lw/denm/")) return /\/lw\/denm\/detailTbDenm/i.test(href);
+  if (route.defaultUrl.includes("/lw/admrul")) {
+    return /\/lw\/admrul\/detail/i.test(href) || /law\.go\.kr\/.*admrul/i.test(href);
+  }
+  return false;
+}
+
+function isMoefRoute(route: MinistryRoute): boolean {
+  return /moef\.go\.kr|mofe\.go\.kr/i.test(route.defaultUrl);
+}
+
+function cleanBoardTitle(title: string, route: MinistryRoute): string {
+  if (!isMoefRoute(route)) return title;
+  const cleaned = title
+    .replace(/^(입법·행정예고|훈령·예규|고시·공고·지침|행정규칙|공고|고시|지침)\s+/, "")
+    .replace(/\s+20\d{2}[./-]\d{1,2}[./-]\d{1,2}\s*~\s*20\d{2}[./-]\d{1,2}[./-]\d{1,2}\s*$/, "")
+    .replace(/\s+20\d{2}[./-]\d{1,2}[./-]\d{1,2}\s*$/, "")
+    .replace(/\s+[가-힣·]+(?:관|과|팀|실|국|단|센터)\s*$/, "")
+    .trim();
+  return cleaned || title;
+}
+
+function htmlToText(value: string): string {
+  return compactText(decodeHtml(value.replace(/<[^>]+>/g, " ")));
 }
 
 function decodeHtml(value: string): string {
@@ -973,7 +1122,7 @@ function makeItem(
     Partial<Pick<CollectedItem, "id" | "attachment_urls" | "summary" | "diff_summary" | "auto_summary" | "collected_at">>
 ): CollectedItem {
   const hasOriginalUrl = Boolean(input.original_url);
-  const originalUrl = input.original_url || OFFICIAL_LAW_GUIDE;
+  const originalUrl = normalizeOriginalUrl(input.original_url || OFFICIAL_LAW_GUIDE);
   const title = input.title || "제목 없음";
   const id =
     input.id ||
@@ -1057,6 +1206,24 @@ function text(record: unknown, keys: string[]): string {
   return "";
 }
 
+function directText(record: unknown, keys: string[]): string {
+  if (!isRecord(record)) return "";
+  for (const key of keys) {
+    const desired = normalizeKey(key);
+    for (const [entryKey, value] of Object.entries(record)) {
+      if (normalizeKey(entryKey) === desired && value !== undefined && value !== null && value !== "") {
+        return compactText(valueToString(value));
+      }
+    }
+  }
+  return "";
+}
+
+function hasDirectKey(record: AnyRecord, key: string): boolean {
+  const desired = normalizeKey(key);
+  return Object.keys(record).some((entryKey) => normalizeKey(entryKey) === desired);
+}
+
 function findValue(record: AnyRecord, desiredKey: string): unknown {
   const desired = normalizeKey(desiredKey);
   for (const [key, value] of Object.entries(record)) {
@@ -1084,11 +1251,24 @@ function normalizeKey(value: string): string {
 
 function lawUrl(link: string, fallbackId?: string): string {
   if (link) {
-    if (/^https?:\/\//i.test(link)) return link;
-    return new URL(link.startsWith("/") ? link : `/${link}`, "https://www.law.go.kr").toString();
+    if (/^https?:\/\//i.test(link)) return normalizeOriginalUrl(link);
+    return normalizeOriginalUrl(new URL(link.startsWith("/") ? link : `/${link}`, "https://www.law.go.kr").toString());
   }
   if (fallbackId) return `https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=${encodeURIComponent(fallbackId)}`;
   return "";
+}
+
+function normalizeOriginalUrl(url: string): string {
+  const cleaned = decodeHtml(url).replace(/;jsessionid=[^/?#]+/gi, "");
+  try {
+    return new URL(cleaned).toString();
+  } catch {
+    return cleaned;
+  }
+}
+
+function uniqueStrings(values: string[]): string[] {
+  return [...new Set(values.filter(Boolean))];
 }
 
 function collectLinks(value: unknown): string[] {

@@ -1,0 +1,80 @@
+name: Repair 2026-05-26 Data
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/repair-2026-05-26.yml"
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
+      LAWMAKING_BASE: http://www.lawmaking.go.kr/rest
+      GWANBO_LIST_URL: ${{ secrets.GWANBO_LIST_URL }}
+      DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+      NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      FETCH_LOOKBACK_DAYS: 1
+      FETCH_RETRIES: 4
+      FETCH_TIMEOUT_MS: 60000
+      OPENAI_API_KEY: ""
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Recollect 2026-05-26
+        run: npm run collect -- --date 2026-05-26 --force
+
+      - name: Commit repaired data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No repaired data changes to commit."
+          else
+            git commit -m "Repair 2026-05-26 collected data"
+            git pull --rebase
+            git push
+          fi
+
+      - name: Build static app
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
