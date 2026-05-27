@@ -4,7 +4,7 @@
     "status": "ok",
     "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 187행을 법령 단위 78건으로 묶었습니다.",
     "count": 78,
-    "at": "2026-05-27T00:39:15.986Z",
+    "at": "2026-05-27T02:24:15.813Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -12,7 +12,7 @@
     "status": "ok",
     "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료. 원자료 65행을 법령 단위 64건으로 묶었습니다.",
     "count": 64,
-    "at": "2026-05-27T00:39:19.313Z",
+    "at": "2026-05-27T02:24:27.713Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -20,7 +20,7 @@
     "status": "ok",
     "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
     "count": 5,
-    "at": "2026-05-27T00:39:24.506Z",
+    "at": "2026-05-27T02:24:33.638Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -28,23 +28,23 @@
     "status": "ok",
     "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
     "count": 5,
-    "at": "2026-05-27T00:39:33.105Z",
+    "at": "2026-05-27T02:24:40.765Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
     "source": "국민참여입법센터 입법예고",
-    "status": "ok",
-    "message": "국민참여입법센터 API 응답에서 게시 항목을 찾지 못했습니다.",
+    "status": "error",
+    "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
     "count": 0,
-    "at": "2026-05-27T00:39:34.003Z",
+    "at": "2026-05-27T02:24:42.890Z",
     "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
   },
   {
     "source": "국민참여입법센터 행정예고",
-    "status": "ok",
-    "message": "국민참여입법센터 API 응답에서 게시 항목을 찾지 못했습니다.",
+    "status": "error",
+    "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
     "count": 0,
-    "at": "2026-05-27T00:39:34.773Z",
+    "at": "2026-05-27T02:24:43.947Z",
     "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
   },
   {
@@ -52,23 +52,23 @@
     "status": "skipped",
     "message": "관보 공공데이터포털 데이터셋은 확인됐지만 실제 Swagger 호출 URL은 환경변수 GWANBO_LIST_URL 설정 후 사용합니다.",
     "count": 0,
-    "at": "2026-05-27T00:39:34.773Z",
+    "at": "2026-05-27T02:24:43.948Z",
     "url": "https://www.data.go.kr/data/15109157/openapi.do"
   },
   {
     "source": "행정안전부 훈령·예규·고시",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed after 4 attempt(s): fetch failed",
-    "count": 0,
-    "at": "2026-05-27T00:40:21.254Z",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 3,
+    "at": "2026-05-27T02:27:17.852Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
   },
   {
     "source": "행정안전부 입법·행정예고",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017 failed after 4 attempt(s): fetch failed",
-    "count": 0,
-    "at": "2026-05-27T00:41:07.737Z",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 3,
+    "at": "2026-05-27T02:27:41.773Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
   },
   {
@@ -76,55 +76,63 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-27T00:41:50.413Z",
-    "url": "https://www.moef.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
+    "at": "2026-05-27T02:27:51.764Z",
+    "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
   },
   {
     "source": "기획재정부 예규",
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-27T00:41:54.679Z",
-    "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
+    "at": "2026-05-27T02:27:57.084Z",
+    "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
   },
   {
     "source": "기획재정부 고시",
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-27T00:41:57.318Z",
-    "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
+    "at": "2026-05-27T02:28:02.348Z",
+    "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
   },
   {
     "source": "기획재정부 공고",
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-27T00:41:59.700Z",
-    "url": "https://www.moef.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
+    "at": "2026-05-27T02:28:07.569Z",
+    "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
   },
   {
     "source": "기획재정부 지침",
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-27T00:42:02.184Z",
-    "url": "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
+    "at": "2026-05-27T02:28:13.244Z",
+    "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
   },
   {
-    "source": "기획재정부 입법·행정예고",
+    "source": "기획재정부 입법예고",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 1,
+    "at": "2026-05-27T02:28:22.723Z",
+    "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
+  },
+  {
+    "source": "기획재정부 행정예고",
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-27T00:42:04.650Z",
-    "url": "https://www.moef.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
+    "at": "2026-05-27T02:28:28.246Z",
+    "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
   },
   {
     "source": "대한민국 정책브리핑 RSS",
     "status": "ok",
     "message": "정책브리핑 RSS 수집 완료",
     "count": 0,
-    "at": "2026-05-27T00:42:11.724Z",
+    "at": "2026-05-27T02:28:36.901Z",
     "url": "https://www.korea.kr/etc/rss.do"
   },
   {
@@ -132,6 +140,6 @@
     "status": "ok",
     "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
     "count": 0,
-    "at": "2026-05-27T00:42:14.672Z"
+    "at": "2026-05-27T02:28:39.949Z"
   }
 ]
