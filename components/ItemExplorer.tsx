@@ -405,7 +405,7 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
           <span>시행 {item.effective_date || "-"}</span>
         </div>
       </div>
-      <div className="item-actions">
+      <div className="item-links">
         <a href={item.original_url} target="_blank" rel="noreferrer">
           원문
         </a>

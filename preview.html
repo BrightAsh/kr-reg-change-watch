@@ -267,8 +267,8 @@
       .quiet-button,
       .segment-tabs button,
       .briefing-panel button,
-      .item-actions a,
-      .item-actions button,
+      .item-links a,
+      .item-links button,
       .back-link {
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -638,15 +638,15 @@
         font-size: 12px;
       }
 
-      .item-actions {
+      .item-links {
         display: grid;
         align-content: center;
         gap: 8px;
         width: 82px;
       }
 
-      .item-actions a,
-      .item-actions button,
+      .item-links a,
+      .item-links button,
       .back-link {
         display: inline-flex;
         align-items: center;
@@ -656,7 +656,7 @@
         font-size: 13px;
       }
 
-      .item-actions a {
+      .item-links a {
         border-color: transparent;
         background: var(--ink);
         color: #fff;
@@ -820,7 +820,7 @@
           grid-template-columns: 6px minmax(0, 1fr);
         }
 
-        .item-actions {
+        .item-links {
           grid-column: 2;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           width: 100%;
@@ -1232,7 +1232,7 @@
                   <p>${esc(item.summary || "요약 전입니다. 상세 화면에서 원문과 수집 근거를 확인할 수 있습니다.")}</p>
                   <div class="item-foot"><span>${esc(item.ministry)}</span><span>${esc(item.issue_number || "문서번호 없음")}</span><span>기준 ${esc(itemDate(item) || "-")}</span><span>시행 ${esc(item.effective_date || "-")}</span></div>
                 </div>
-                <div class="item-actions"><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문</a><button type="button" data-id="${esc(item.id)}">상세</button></div>
+                <div class="item-links"><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문</a><button type="button" data-id="${esc(item.id)}">상세</button></div>
               </article>`
           )
           .join("");

@@ -269,8 +269,8 @@ p {
 .quiet-button,
 .segment-tabs button,
 .briefing-panel button,
-.item-actions a,
-.item-actions a:visited,
+.item-links a,
+.item-links a:visited,
 .back-link {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -671,14 +671,14 @@ select:focus {
   font-size: 12px;
 }
 
-.item-actions {
+.item-links {
   display: grid;
   align-content: center;
   gap: 8px;
   width: 82px;
 }
 
-.item-actions a,
+.item-links a,
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -688,7 +688,7 @@ select:focus {
   font-size: 13px;
 }
 
-.item-actions a:first-child {
+.item-links a:first-child {
   border-color: transparent;
   background: var(--ink);
   color: #fff;
@@ -885,7 +885,7 @@ select:focus {
     grid-template-columns: 6px minmax(0, 1fr);
   }
 
-  .item-actions {
+  .item-links {
     grid-column: 2;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
