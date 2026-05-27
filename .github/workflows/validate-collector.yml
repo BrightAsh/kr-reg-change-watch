@@ -1,0 +1,62 @@
+name: Validate collector
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/validate-collector.yml"
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
+      LAWMAKING_OC: ${{ secrets.LAWMAKING_OC || secrets.LAW_OPEN_API_OC }}
+      LAWMAKING_BASE: https://www.lawmaking.go.kr/rest
+      GWANBO_LIST_URL: ${{ secrets.GWANBO_LIST_URL }}
+      DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+      OPENAI_API_KEY: ""
+      NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      FETCH_RETRIES: 4
+      FETCH_TIMEOUT_MS: 60000
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Recollect 2026-05-26 without committing
+        run: npm run collect -- --date 2026-05-26 --force
+
+      - name: Print validation summary
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const run = JSON.parse(fs.readFileSync('data/run.json', 'utf8'));
+          console.log(JSON.stringify({
+            last_target_date: run.last_target_date,
+            item_count: run.item_count,
+            changed_count: run.changed_count,
+            logs: (run.logs || []).map((log) => ({
+              source: log.source,
+              status: log.status,
+              count: log.count,
+              message: log.message
+            }))
+          }, null, 2));
+          NODE
+
+      - run: npm run build
