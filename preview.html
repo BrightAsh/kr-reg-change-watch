@@ -3,332 +3,342 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>한국 규제 변경 모니터 미리보기</title>
+    <title>Reg Watch Preview</title>
     <style>
       :root {
-        --bg: #f5f6f8;
-        --surface: rgba(255, 255, 255, 0.92);
-        --surface-solid: #fff;
-        --surface-soft: #eef2f6;
-        --ink: #111318;
-        --ink-soft: #323842;
-        --muted: #737b87;
-        --line: #dde3eb;
-        --line-strong: #cad2dd;
+        --bg: #edf1f6;
+        --surface: #fff;
+        --soft: #f3f6fa;
+        --blue-soft: #f1f7ff;
+        --ink: #101217;
+        --ink-soft: #313845;
+        --muted: #758091;
+        --line: #d8e0eb;
+        --line-strong: #c7d2df;
         --accent: #0a84ff;
-        --green: #24a865;
+        --accent-dark: #0064d2;
+        --green: #21a366;
         --orange: #f59b14;
         --purple: #8d5cf6;
         --red: #e5484d;
-        --shadow: 0 18px 42px rgba(31, 41, 55, 0.09);
-        --shadow-soft: 0 10px 26px rgba(31, 41, 55, 0.06);
+        --shadow: 0 18px 48px rgba(33, 43, 58, 0.12);
+        --shadow-soft: 0 10px 28px rgba(33, 43, 58, 0.08);
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
+      * { box-sizing: border-box; }
       html {
         min-height: 100%;
-        background: linear-gradient(180deg, #fff 0, #f5f6f8 380px), var(--bg);
+        background: linear-gradient(180deg, #fbfcff 0, var(--bg) 360px);
         color: var(--ink);
         font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
       }
+      body { margin: 0; }
+      button, input { font: inherit; }
+      button { cursor: pointer; }
+      a { color: inherit; }
+      h1, h2, p { margin-top: 0; }
 
-      body {
-        margin: 0;
-      }
-
-      button,
-      input,
-      select {
-        font: inherit;
-      }
-
-      button {
-        cursor: pointer;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      h1,
-      h2,
-      p {
-        margin-top: 0;
-      }
-
-      .app-shell,
-      .page-shell {
-        width: min(1380px, calc(100% - 36px));
+      .app-shell {
+        width: min(1440px, calc(100% - 36px));
         margin: 0 auto;
-        padding: 22px 0 64px;
+        padding: 20px 0 64px;
       }
-
       .app-header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        min-height: 66px;
-        margin-bottom: 18px;
+        min-height: 58px;
+        margin-bottom: 14px;
       }
-
       .brand-lockup {
         display: flex;
         align-items: center;
         gap: 12px;
-        min-width: 0;
       }
-
       .app-mark {
         display: grid;
         place-items: center;
         width: 42px;
         height: 42px;
         border-radius: 8px;
-        background: var(--ink);
+        background: linear-gradient(180deg, #20242b, #090b10);
         color: #fff;
         font-weight: 800;
+        box-shadow: 0 10px 22px rgba(16, 18, 23, 0.18);
       }
-
       .brand-lockup p {
         margin-bottom: 2px;
         color: var(--muted);
         font-size: 12px;
-        font-weight: 700;
+        font-weight: 800;
       }
-
       .brand-lockup strong {
         display: block;
-        color: var(--ink);
         font-size: 18px;
-        line-height: 1.2;
       }
-
-      .sync-status {
-        display: grid;
-        justify-items: end;
-        gap: 2px;
-        color: var(--muted);
-        font-size: 12px;
-        text-align: right;
-      }
-
-      .sync-status span {
-        color: var(--green);
-        font-weight: 800;
-      }
-
-      .sync-status strong {
-        color: var(--ink);
-        font-size: 14px;
-      }
-
-      .sync-status small {
-        font-size: 12px;
-      }
-
       .overview-band {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(420px, 0.72fr);
-        gap: 24px;
-        align-items: end;
-        margin-bottom: 20px;
-        padding: 22px;
-        border: 1px solid rgba(221, 227, 235, 0.72);
+        margin-bottom: 18px;
+        padding: 18px 20px;
+        border: 1px solid var(--line);
         border-radius: 8px;
-        background:
-          linear-gradient(135deg, rgba(10, 132, 255, 0.11), rgba(36, 168, 101, 0.08) 48%, rgba(255, 255, 255, 0.86)),
-          var(--surface-solid);
+        background: linear-gradient(135deg, rgba(10, 132, 255, 0.1), rgba(255,255,255,0) 42%), var(--surface);
         box-shadow: var(--shadow-soft);
       }
-
-      .overview-copy {
-        max-width: 720px;
-      }
-
       .eyebrow {
-        margin-bottom: 8px;
-        color: var(--accent);
+        margin-bottom: 7px;
+        color: var(--accent-dark);
         font-size: 12px;
         font-weight: 800;
       }
-
-      .overview-copy h1 {
-        margin-bottom: 8px;
-        color: var(--ink);
-        font-size: clamp(26px, 3vw, 38px);
-        line-height: 1.12;
-        letter-spacing: 0;
+      .overview-band h1 {
+        margin-bottom: 7px;
+        font-size: clamp(24px, 2.4vw, 34px);
+        line-height: 1.14;
       }
-
-      .overview-copy p:last-child {
-        max-width: 620px;
+      .overview-band p:last-child {
         margin-bottom: 0;
         color: var(--ink-soft);
-        font-size: 16px;
-        line-height: 1.7;
+        font-size: 15px;
+        line-height: 1.65;
       }
-
-      .overview-metrics {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        overflow: hidden;
-        border: 1px solid rgba(202, 210, 221, 0.74);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.62);
-        backdrop-filter: blur(18px);
-      }
-
-      .overview-metrics div {
-        display: grid;
-        gap: 6px;
-        min-height: 82px;
-        padding: 15px;
-        border-right: 1px solid rgba(202, 210, 221, 0.74);
-        border-bottom: 1px solid rgba(202, 210, 221, 0.74);
-      }
-
-      .overview-metrics div:nth-child(2n) {
-        border-right: 0;
-      }
-
-      .overview-metrics div:nth-last-child(-n + 2) {
-        border-bottom: 0;
-      }
-
-      .overview-metrics span,
-      .section-title span,
-      .field-label span,
-      .search-field span,
-      .briefing-panel span,
-      .scope-card span {
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 800;
-      }
-
-      .overview-metrics strong {
-        color: var(--ink);
-        font-size: 28px;
-        line-height: 1;
-      }
-
       .app-workspace {
         display: grid;
-        grid-template-columns: 300px minmax(0, 1fr);
+        grid-template-columns: 334px minmax(0, 1fr);
         gap: 18px;
         align-items: start;
       }
-
       .side-panel {
         position: sticky;
         top: 18px;
         display: grid;
         gap: 14px;
-        max-height: calc(100vh - 36px);
-        overflow: auto;
         padding: 14px;
-        border: 1px solid rgba(221, 227, 235, 0.9);
+        border: 1px solid var(--line-strong);
+        border-radius: 8px;
+        background: rgba(247, 249, 252, 0.88);
+        box-shadow: var(--shadow);
+      }
+      .calendar-card, .category-summary, .filter-toolbar, .results-header, .item-card {
+        border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--surface);
         box-shadow: var(--shadow-soft);
-        backdrop-filter: blur(18px);
       }
-
-      .side-section {
+      .calendar-card {
         display: grid;
         gap: 12px;
-        padding-bottom: 14px;
-        border-bottom: 1px solid var(--line);
+        padding: 14px;
       }
-
-      .side-section:last-child {
-        padding-bottom: 0;
-        border-bottom: 0;
+      .calendar-toolbar {
+        display: grid;
+        grid-template-columns: 38px 1fr 38px;
+        gap: 8px;
+        align-items: center;
       }
-
-      .section-title {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 10px;
-      }
-
-      .section-title strong {
-        color: var(--ink);
-        font-size: 13px;
-      }
-
-      .date-chip,
-      .date-list button,
-      .quiet-button,
-      .segment-tabs button,
-      .briefing-panel button,
-      .item-links a,
-      .item-links button,
-      .back-link {
+      .calendar-toolbar button, .filter-trigger, .ai-button, .item-links a, .item-links button, .modal-actions button, .popover-actions button, .close-button {
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: var(--surface-solid);
+        background: var(--surface);
         color: var(--ink);
         font-weight: 800;
         text-decoration: none;
       }
-
-      .date-chip,
-      .quiet-button,
-      .briefing-panel button {
-        min-height: 38px;
-        padding: 9px 12px;
-      }
-
-      .date-chip.active,
-      .date-list button.active,
-      .segment-tabs button.active {
-        border-color: transparent;
-        background: var(--ink);
-        color: #fff;
-      }
-
-      .date-list {
+      .calendar-toolbar button {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-        max-height: 248px;
-        overflow: auto;
-        padding-right: 2px;
+        place-items: center;
+        height: 38px;
+        color: var(--accent-dark);
       }
-
-      .date-list button {
+      .calendar-toolbar strong {
+        justify-self: center;
+        font-size: 17px;
+      }
+      .calendar-weekdays, .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+      }
+      .calendar-weekdays {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        text-align: center;
+      }
+      .calendar-weekdays span:first-child, .calendar-weekdays span:last-child { color: var(--red); }
+      .calendar-grid { gap: 5px; }
+      .calendar-empty, .calendar-day {
+        aspect-ratio: 1;
+        min-height: 39px;
+      }
+      .calendar-day {
+        display: grid;
+        place-items: center;
+        gap: 1px;
+        padding: 5px 2px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: #f7f9fc;
+        color: var(--ink-soft);
+      }
+      .calendar-day span {
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .calendar-day small {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 800;
+      }
+      .calendar-day.holiday span, .calendar-day.holiday small { color: var(--red); }
+      .calendar-day.has-data {
+        border-color: rgba(10, 132, 255, 0.22);
+        background: var(--blue-soft);
+      }
+      .calendar-day.selected {
+        border-color: transparent;
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 10px 22px rgba(10, 132, 255, 0.24);
+      }
+      .calendar-day.selected span, .calendar-day.selected small { color: #fff; }
+      .category-summary {
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+      }
+      .category-summary button {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        min-height: 46px;
+        padding: 10px 12px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--ink-soft);
+        font-weight: 800;
+        text-align: left;
+      }
+      .category-summary button.active {
+        border-color: rgba(10, 132, 255, 0.26);
+        background: #eaf4ff;
+        color: var(--accent-dark);
+      }
+      .category-summary strong { font-size: 18px; }
+      .content-stage {
+        display: grid;
+        gap: 12px;
+        min-width: 0;
+      }
+      .filter-toolbar {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(94px, 118px)) minmax(300px, 1fr);
+        gap: 9px;
+        align-items: center;
+        padding: 12px;
+      }
+      .filter-menu { position: relative; }
+      .filter-trigger {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+        width: 100%;
+        min-height: 42px;
+        padding: 9px 11px;
+        color: var(--ink-soft);
+      }
+      .filter-trigger.active {
+        border-color: rgba(10, 132, 255, 0.25);
+        background: #eaf4ff;
+        color: var(--accent-dark);
+      }
+      .filter-trigger strong:not(:empty) {
+        display: grid;
+        place-items: center;
+        min-width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 11px;
+      }
+      .filter-popover {
+        position: absolute;
+        top: calc(100% + 9px);
+        left: 0;
+        z-index: 20;
+        width: 300px;
+        overflow: hidden;
+        border: 1px solid var(--line-strong);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: 0 22px 58px rgba(33,43,58,.2);
+      }
+      .popover-head, .popover-actions {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        min-height: 42px;
-        padding: 10px;
+        gap: 10px;
+        padding: 12px;
+        background: #f7f9fc;
       }
-
-      .date-list button span {
-        font-size: 14px;
-      }
-
-      .date-list button strong {
+      .popover-head button {
+        border: 0;
+        background: transparent;
+        color: var(--accent-dark);
         font-size: 12px;
-        opacity: 0.74;
+        font-weight: 800;
       }
-
-      .field-label,
-      .search-field,
-      .briefing-panel label {
+      .filter-options {
+        display: grid;
+        max-height: 292px;
+        overflow: auto;
+        padding: 8px;
+      }
+      .filter-options label {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 9px;
+        align-items: center;
+        min-height: 36px;
+        padding: 7px 8px;
+        border-radius: 8px;
+        color: var(--ink-soft);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .filter-options label:hover { background: var(--soft); }
+      .filter-options input {
+        width: 16px;
+        height: 16px;
+        min-height: 0;
+        accent-color: var(--accent);
+      }
+      .popover-actions {
+        border-top: 1px solid var(--line);
+      }
+      .popover-actions button, .modal-actions button {
+        min-height: 38px;
+        padding: 8px 13px;
+      }
+      .popover-actions button:last-child, .modal-actions button:first-child, .ai-button {
+        border-color: transparent;
+        background: var(--accent);
+        color: #fff;
+      }
+      .search-field {
         display: grid;
         gap: 7px;
         min-width: 0;
       }
-
-      input,
-      select {
+      .search-field span, .modal label span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      input {
         width: 100%;
         min-height: 42px;
         border: 1px solid var(--line);
@@ -337,288 +347,79 @@
         color: var(--ink);
         padding: 9px 11px;
       }
-
-      input:focus,
-      select:focus {
-        outline: 3px solid rgba(10, 132, 255, 0.16);
-        border-color: rgba(10, 132, 255, 0.72);
-      }
-
-      .quiet-button {
-        color: var(--muted);
-      }
-
-      .source-list {
-        display: grid;
-        gap: 8px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-      }
-
-      .source-list li {
-        display: grid;
-        grid-template-columns: 10px minmax(0, 1fr);
-        gap: 9px;
-        align-items: start;
-      }
-
-      .source-list strong {
-        display: block;
-        overflow: hidden;
-        color: var(--ink-soft);
-        font-size: 12px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .source-list small {
-        color: var(--muted);
-        font-size: 11px;
-      }
-
-      .status-dot {
-        width: 8px;
-        height: 8px;
-        margin-top: 4px;
-        border-radius: 999px;
-        background: var(--green);
-      }
-
-      .content-stage {
-        display: grid;
-        gap: 14px;
-        min-width: 0;
-      }
-
-      .search-panel,
-      .briefing-panel,
-      .digest-panel,
-      .results-header,
-      .detail-panel {
-        border: 1px solid rgba(221, 227, 235, 0.9);
-        border-radius: 8px;
-        background: var(--surface);
-        box-shadow: var(--shadow-soft);
-        backdrop-filter: blur(18px);
-      }
-
-      .search-panel {
-        display: grid;
-        grid-template-columns: minmax(280px, 1fr) 160px;
-        gap: 12px;
-        align-items: end;
-        padding: 14px;
-      }
-
-      .scope-card {
-        display: grid;
-        gap: 5px;
-        min-height: 68px;
-        padding: 12px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fbfcfe;
-      }
-
-      .scope-card strong {
-        font-size: 22px;
-        line-height: 1;
-      }
-
-      .segment-tabs {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 8px;
-      }
-
-      .segment-tabs button {
-        display: grid;
-        gap: 5px;
-        min-height: 68px;
-        padding: 12px;
-        text-align: left;
-      }
-
-      .segment-tabs span {
-        overflow: hidden;
-        color: inherit;
-        font-size: 13px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .segment-tabs strong {
-        font-size: 18px;
-        line-height: 1;
-      }
-
-      .briefing-panel {
-        display: grid;
-        grid-template-columns: minmax(220px, 1fr) minmax(220px, 0.9fr) auto auto;
-        gap: 12px;
-        align-items: end;
-        padding: 14px;
-      }
-
-      .briefing-panel > div {
-        display: grid;
-        gap: 5px;
-      }
-
-      .briefing-panel > div strong {
-        color: var(--ink);
-        font-size: 15px;
-      }
-
-      .briefing-panel button {
-        border-color: transparent;
-        background: var(--accent);
-        color: #fff;
-      }
-
-      .briefing-panel button:disabled {
-        cursor: not-allowed;
-        background: var(--line-strong);
-        color: #fff;
-      }
-
-      .briefing-panel .text-button {
-        border-color: var(--line);
-        background: var(--surface-solid);
-        color: var(--muted);
-      }
-
-      .digest-panel {
-        display: none;
-        padding: 16px;
-        border-left: 5px solid var(--accent);
-      }
-
-      .digest-panel.error {
-        border-left-color: var(--red);
-      }
-
-      .digest-panel strong {
-        display: block;
-        margin-bottom: 8px;
-      }
-
-      .digest-panel p {
-        margin: 0;
-        color: var(--ink-soft);
-        line-height: 1.75;
-      }
-
       .results-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 12px;
-        padding: 13px 15px;
+        padding: 12px 14px;
         color: var(--muted);
       }
-
       .results-header div {
         display: flex;
-        gap: 10px;
+        flex-wrap: wrap;
+        gap: 9px;
         align-items: baseline;
       }
-
       .results-header strong {
         color: var(--ink);
         font-size: 20px;
       }
-
-      .results-header span {
-        font-size: 13px;
+      .ai-button {
+        min-height: 38px;
+        padding: 9px 14px;
       }
-
       .item-list {
         display: grid;
         gap: 10px;
       }
-
       .item-card {
         display: grid;
         grid-template-columns: 7px minmax(0, 1fr) auto;
         gap: 14px;
-        align-items: stretch;
         min-height: 136px;
         padding: 14px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--surface-solid);
-        box-shadow: 0 1px 0 rgba(17, 19, 24, 0.02);
       }
-
-      .item-card:hover {
-        border-color: var(--line-strong);
-        box-shadow: var(--shadow-soft);
-      }
-
       .category-rail {
         width: 7px;
         border-radius: 8px;
         background: var(--accent);
       }
-
-      .category-notice .category-rail {
-        background: var(--orange);
-      }
-
-      .category-guideline .category-rail {
-        background: var(--green);
-      }
-
-      .category-news .category-rail {
-        background: var(--purple);
-      }
-
-      .item-main {
-        min-width: 0;
-      }
-
+      .category-notice .category-rail { background: var(--orange); }
+      .category-guideline .category-rail { background: var(--green); }
+      .category-news .category-rail { background: var(--purple); }
       .item-meta {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
         margin-bottom: 9px;
       }
-
       .item-meta span {
         min-height: 24px;
         padding: 5px 8px;
         border-radius: 999px;
-        background: var(--surface-soft);
+        background: var(--soft);
         color: var(--ink-soft);
         font-size: 12px;
         font-weight: 800;
-        white-space: nowrap;
       }
-
       .item-meta .warn {
         background: #fff0f0;
         color: var(--red);
       }
-
       .item-card h2 {
         margin-bottom: 8px;
         font-size: 18px;
         line-height: 1.42;
-        letter-spacing: 0;
       }
-
       .item-card h2 button {
         border: 0;
         background: transparent;
         color: inherit;
-        cursor: pointer;
         font: inherit;
         font-weight: 800;
         text-align: left;
       }
-
       .item-card p {
         display: -webkit-box;
         margin-bottom: 10px;
@@ -629,7 +430,6 @@
         -webkit-line-clamp: 2;
         overflow: hidden;
       }
-
       .item-foot {
         display: flex;
         flex-wrap: wrap;
@@ -637,720 +437,376 @@
         color: var(--muted);
         font-size: 12px;
       }
-
       .item-links {
         display: grid;
         align-content: center;
         gap: 8px;
         width: 82px;
       }
-
-      .item-links a,
-      .item-links button,
-      .back-link {
+      .item-links a, .item-links button {
         display: inline-flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         min-height: 38px;
         padding: 9px 12px;
         font-size: 13px;
       }
-
       .item-links a {
         border-color: transparent;
         background: var(--ink);
         color: #fff;
       }
-
-      .empty-state {
-        display: grid;
-        justify-items: center;
-        gap: 8px;
-        min-height: 220px;
+      .empty {
         padding: 42px 22px;
         border: 1px dashed var(--line-strong);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.62);
+        background: rgba(251,252,255,.68);
         color: var(--muted);
         text-align: center;
       }
-
-      .empty-state strong {
-        color: var(--ink);
-      }
-
-      .detail-shell {
-        max-width: 980px;
-      }
-
-      .back-link {
-        width: fit-content;
-        margin-bottom: 16px;
-        background: var(--surface-solid);
-      }
-
-      .detail-panel {
-        padding: 26px;
-      }
-
-      .detail-panel h1 {
-        margin: 10px 0 22px;
-        font-size: clamp(28px, 4vw, 44px);
-        line-height: 1.18;
-        letter-spacing: 0;
-      }
-
-      .detail-grid {
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1px;
-        margin: 0 0 22px;
-        overflow: hidden;
-        border: 1px solid var(--line);
+        place-items: center;
+        padding: 20px;
+        background: rgba(17,19,24,.28);
+        backdrop-filter: blur(12px);
+      }
+      .modal {
+        display: grid;
+        gap: 14px;
+        width: min(520px, 100%);
+        padding: 18px;
         border-radius: 8px;
-        background: var(--line);
+        background: var(--surface);
+        box-shadow: 0 28px 76px rgba(16,18,23,.26);
       }
-
-      .detail-grid div {
-        min-width: 0;
-        padding: 13px;
-        background: #fff;
+      .modal-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
       }
-
-      .detail-grid dt {
-        margin-bottom: 5px;
+      .modal-head span {
         color: var(--muted);
         font-size: 12px;
         font-weight: 800;
       }
-
-      .detail-grid dd {
-        margin: 0;
-        color: var(--ink-soft);
-        word-break: break-word;
-      }
-
-      .detail-section {
-        padding-top: 19px;
-        margin-top: 19px;
-        border-top: 1px solid var(--line);
-      }
-
-      .detail-section h2 {
-        margin-bottom: 9px;
-        color: var(--ink);
+      .modal-head strong {
+        display: block;
+        margin-top: 5px;
         font-size: 18px;
       }
-
-      .detail-section p {
+      .close-button {
+        width: 34px;
+        height: 34px;
+        font-size: 22px;
+      }
+      .modal label {
+        display: grid;
+        gap: 7px;
+      }
+      .modal-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .digest {
+        display: none;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-left: 5px solid var(--accent);
+        border-radius: 8px;
+        background: #f8fafc;
+      }
+      .digest p {
+        margin-bottom: 0;
         color: var(--ink-soft);
         line-height: 1.75;
       }
+      .hidden { display: none; }
 
-      .raw-text {
-        max-height: 520px;
-        overflow: auto;
-        padding: 16px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fbfcfe;
-        color: var(--ink-soft);
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 13px;
-        line-height: 1.65;
-        white-space: pre-wrap;
+      @media (max-width: 1120px) {
+        .app-workspace { grid-template-columns: 1fr; }
+        .side-panel { position: static; }
+        .filter-toolbar { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .search-field { grid-column: 1 / -1; }
       }
-
-      .hidden {
-        display: none;
-      }
-
-      @media (max-width: 1080px) {
-        .overview-band,
-        .app-workspace {
-          grid-template-columns: 1fr;
-        }
-
-        .side-panel {
-          position: static;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          max-height: none;
-        }
-
-        .source-section {
-          grid-column: 1 / -1;
-        }
-      }
-
       @media (max-width: 760px) {
-        .app-shell,
-        .page-shell {
-          width: min(100% - 20px, 1380px);
-          padding-top: 14px;
-        }
-
-        .app-header,
-        .results-header {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-
-        .sync-status {
-          justify-items: start;
-          text-align: left;
-        }
-
-        .overview-band {
-          padding: 20px;
-        }
-
-        .overview-metrics,
-        .side-panel,
-        .search-panel,
-        .briefing-panel,
-        .detail-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .segment-tabs {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .item-card {
-          grid-template-columns: 6px minmax(0, 1fr);
-        }
-
-        .item-links {
-          grid-column: 2;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          width: 100%;
-        }
-      }
-
-      @media (max-width: 460px) {
-        .overview-copy h1 {
-          font-size: 32px;
-        }
-
-        .date-list,
-        .segment-tabs {
-          grid-template-columns: 1fr;
-        }
+        .app-shell { width: min(100% - 20px, 1440px); }
+        .filter-toolbar { grid-template-columns: 1fr; }
+        .results-header { align-items: stretch; flex-direction: column; }
+        .item-card { grid-template-columns: 6px minmax(0, 1fr); }
+        .item-links { grid-column: 2; grid-template-columns: repeat(2, 1fr); width: 100%; }
       }
     </style>
   </head>
   <body>
-    <main id="home" class="app-shell">
+    <main class="app-shell">
       <header class="app-header">
         <div class="brand-lockup">
-          <span class="app-mark" aria-hidden="true">R</span>
+          <span class="app-mark">R</span>
           <div>
             <p>Preview</p>
             <strong>샘플 데이터 미리보기</strong>
           </div>
         </div>
-        <div class="sync-status" aria-label="미리보기 상태">
-          <span>로컬 미리보기</span>
-          <strong>2026-05-26</strong>
-          <small>설치 없이 확인</small>
-        </div>
       </header>
 
-      <section class="overview-band" aria-label="샘플 화면 개요">
-        <div class="overview-copy">
-          <p class="eyebrow">Local app preview</p>
-          <h1>샘플 규제 변경</h1>
-          <p>설치 없이 샘플 데이터로 날짜, 필터, 상세 화면을 확인합니다.</p>
-        </div>
-        <div class="overview-metrics" aria-label="샘플 통계">
-          <div><span>전체</span><strong id="total">0</strong></div>
-          <div><span>공식 자료</span><strong id="official">0</strong></div>
-          <div><span>예고/공고</span><strong id="notices">0</strong></div>
-          <div><span>확인 필요</span><strong id="verify">0</strong></div>
-        </div>
+      <section class="overview-band">
+        <p class="eyebrow">Local app preview</p>
+        <h1>Reg Watch Preview</h1>
+        <p>샘플 데이터로 날짜 선택, 필터, 상세 화면의 흐름을 설치 없이 확인합니다.</p>
       </section>
 
-      <section class="app-workspace" aria-label="규제 변경 탐색">
-        <aside class="side-panel" aria-label="탐색 설정">
-          <section class="side-section">
-            <div class="section-title">
-              <span>기준일</span>
-              <strong id="selectedDateLabel">전체 기간</strong>
+      <section class="app-workspace">
+        <aside class="side-panel">
+          <section class="calendar-card">
+            <div class="calendar-toolbar">
+              <button id="prevMonth" type="button">&lt;</button>
+              <strong id="monthLabel"></strong>
+              <button id="nextMonth" type="button">&gt;</button>
             </div>
-            <button id="allDates" class="date-chip" type="button">전체 기간</button>
-            <div id="dateList" class="date-list" aria-label="저장된 날짜"></div>
-            <label class="field-label">
-              <span>날짜 직접 선택</span>
-              <input id="dateInput" aria-label="날짜 직접 선택" type="date" />
-            </label>
-          </section>
-
-          <section class="side-section">
-            <div class="section-title">
-              <span>필터</span>
-              <strong id="filterCount">기본 보기</strong>
+            <div class="calendar-weekdays">
+              <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
             </div>
-            <label class="field-label">
-              <span>기관</span>
-              <select id="ministry"></select>
-            </label>
-            <label class="field-label">
-              <span>출처</span>
-              <select id="source"></select>
-            </label>
-            <label class="field-label">
-              <span>문서</span>
-              <select id="doc"></select>
-            </label>
-            <button id="clearFilters" class="quiet-button" type="button">필터 초기화</button>
+            <div id="calendar" class="calendar-grid"></div>
           </section>
-
-          <section class="side-section source-section">
-            <div class="section-title">
-              <span>출처 상태</span>
-              <strong>샘플</strong>
-            </div>
-            <ul id="sourceList" class="source-list"></ul>
-          </section>
+          <nav id="categories" class="category-summary"></nav>
         </aside>
 
         <div class="content-stage">
-          <section class="search-panel" aria-label="검색">
-            <label class="search-field">
-              <span>검색</span>
-              <input id="q" placeholder="제목, 본문, 기관, 문서번호 검색" />
-            </label>
-            <div class="scope-card">
-              <span id="scopeTitle">전체 누적 자료</span>
-              <strong id="scopeCount">0건</strong>
-            </div>
-          </section>
-
-          <nav id="tabs" class="segment-tabs" aria-label="문서 분류"></nav>
-
-          <section class="briefing-panel" aria-label="AI 브리핑">
-            <div>
-              <span>AI 브리핑</span>
-              <strong>현재 화면의 항목을 짧게 정리합니다.</strong>
-            </div>
-            <label>
-              <span>API 키</span>
-              <input id="key" type="password" placeholder="sk-..." />
-            </label>
-            <button id="summarize" type="button">브리핑 생성</button>
-            <button id="clearKey" class="text-button" type="button">키 삭제</button>
-          </section>
-
-          <section id="digest" class="digest-panel">
-            <strong>AI 브리핑</strong>
-            <p></p>
-          </section>
-
+          <section id="filterToolbar" class="filter-toolbar"></section>
           <section class="results-header">
-            <div><strong id="count">0건</strong><span id="cacheState">표시 중</span></div>
-            <span>샘플 데이터</span>
+            <div><strong id="count">0건</strong><span id="state">표시 중</span><small id="filterCount"></small></div>
+            <button id="openAi" class="ai-button" type="button">AI 브리핑</button>
           </section>
-          <section id="list" class="item-list" aria-label="변경 목록"></section>
+          <section id="list" class="item-list"></section>
         </div>
       </section>
     </main>
 
-    <main id="detail" class="page-shell detail-shell hidden"></main>
+    <div id="aiModal" class="modal-backdrop hidden">
+      <section class="modal">
+        <div class="modal-head">
+          <div><span>AI 브리핑</span><strong>현재 화면의 항목을 요약합니다.</strong></div>
+          <button id="closeAi" class="close-button" type="button">×</button>
+        </div>
+        <label><span>OpenAI API 키</span><input id="apiKey" type="password" placeholder="sk-..." /></label>
+        <div class="modal-actions">
+          <button id="summarize" type="button">브리핑 생성</button>
+          <button id="clearKey" type="button">키 삭제</button>
+        </div>
+        <div id="digest" class="digest"><strong>AI 브리핑</strong><p></p></div>
+      </section>
+    </div>
 
     <script>
       const labels = {
-        source: {
-          official_law: "법령",
-          gazette: "관보",
-          ministry_board: "부처 게시판",
-          legislation_notice: "입법/행정예고",
-          press: "보도자료",
-          news: "뉴스"
-        },
-        document: {
-          law: "법률",
-          decree: "시행령",
-          ordinance: "시행규칙/조례",
-          notice: "고시",
-          directive: "훈령",
-          established_rule: "예규",
-          guideline: "지침",
-          announcement: "공고",
-          news: "뉴스"
-        },
-        category: {
-          all: "전체",
-          law: "법령",
-          notice: "고시/공고",
-          guideline: "지침/규칙",
-          news: "뉴스/발언"
-        }
+        source: { official_law: "법령", gazette: "관보", ministry_board: "부처 게시판", legislation_notice: "입법/행정예고", press: "보도자료", news: "뉴스" },
+        document: { law: "법률", decree: "시행령", ordinance: "시행규칙/조례", notice: "고시", directive: "훈령", established_rule: "예규", guideline: "지침", announcement: "공고", news: "뉴스" },
+        change: { partial_revision: "일부개정", notice: "예고/공고", unknown: "미분류" },
+        category: { all: "전체", law: "법령", notice: "고시/공고", guideline: "지침/규칙", news: "뉴스/발언" }
       };
 
       const items = [
-        {
-          id: "law-1",
-          category: "law",
-          source_type: "official_law",
-          ministry: "행정안전부",
-          document_type: "law",
-          title: "전자정부법 일부개정법률 시행",
-          issue_number: "법률 제00001호",
-          collection_date: "2026-05-26",
-          publish_date: "2026-05-26",
-          effective_date: "2026-08-01",
-          change_type: "일부개정",
-          confidence: "공식",
-          original_url: "https://www.law.go.kr",
-          summary: "전자정부서비스 고지와 송달 절차를 정비하고 공동이용 범위를 명확히 하는 예시입니다.",
-          raw_text: "전자정부서비스 제공 절차와 민원 처리 통지 방식에 관한 조항을 정비한다.",
-          verification_required: false
-        },
-        {
-          id: "notice-1",
-          category: "notice",
-          source_type: "legislation_notice",
-          ministry: "고용노동부",
-          document_type: "notice",
-          title: "근로시간 기록 관리지침 일부개정안 행정예고",
-          issue_number: "고용노동부공고 제2026-101호",
-          collection_date: "2026-05-26",
-          publish_date: "2026-05-26",
-          effective_date: null,
-          change_type: "예고/공고",
-          confidence: "공식 예고",
-          original_url: "https://opinion.lawmaking.go.kr",
-          summary: "근로시간 전자기록 인정 요건과 제출자료 범위를 손보는 행정예고 예시입니다.",
-          raw_text: "근로시간 기록 보관 기간, 전자기록 인정 요건, 사업장 점검 시 제출자료 범위를 정비한다.",
-          verification_required: false
-        },
-        {
-          id: "guideline-1",
-          category: "guideline",
-          source_type: "ministry_board",
-          ministry: "기획재정부",
-          document_type: "guideline",
-          title: "국고보조금 집행관리 지침 개정",
-          issue_number: "기획재정부지침 제2026-12호",
-          collection_date: "2026-05-25",
-          publish_date: "2026-05-25",
-          effective_date: "2026-06-01",
-          change_type: "일부개정",
-          confidence: "공식 예고",
-          original_url: "https://www.moef.go.kr",
-          summary: "보조금 집행 증빙과 사후점검 기준을 정비하는 지침 예시입니다.",
-          raw_text: "국고보조금 집행관리 지침 중 증빙자료 제출 방식과 사후점검 기준을 개정한다.",
-          verification_required: false
-        },
-        {
-          id: "news-1",
-          category: "news",
-          source_type: "press",
-          ministry: "법제처",
-          document_type: "news",
-          title: "정비 대상 법령 발굴 계획 발표",
-          issue_number: null,
-          collection_date: "2026-05-26",
-          publish_date: "2026-05-26",
-          effective_date: null,
-          change_type: "미분류",
-          confidence: "보도/정책자료",
-          original_url: "https://www.korea.kr",
-          summary: "정책 방향을 보여주는 보도자료 예시이며 공식 변경 건수에는 포함하지 않습니다.",
-          raw_text: "법령 정비 과제 발굴 계획을 발표했다는 정책브리핑 예시입니다.",
-          verification_required: true
-        }
+        { id: "law-1", category: "law", source_type: "official_law", ministry: "행정안전부", document_type: "law", title: "전자정부법 일부개정법률 시행", issue_number: "법률 제00001호", collection_date: "2026-05-26", publish_date: "2026-05-26", effective_date: "2026-08-01", change_type: "partial_revision", confidence: "공식", original_url: "https://www.law.go.kr", summary: "전자정부서비스 고지와 송달 절차를 정비하고 공동이용 범위를 명확히 하는 예시입니다.", raw_text: "전자정부서비스 제공 절차와 민원 처리 통지 방식에 관한 조항을 정비한다.", verification_required: false },
+        { id: "notice-1", category: "notice", source_type: "legislation_notice", ministry: "고용노동부", document_type: "notice", title: "근로시간 기록 관리지침 일부개정안 행정예고", issue_number: "고용노동부공고 제2026-101호", collection_date: "2026-05-26", publish_date: "2026-05-26", effective_date: null, change_type: "notice", confidence: "공식 예고", original_url: "https://opinion.lawmaking.go.kr", summary: "근로시간 전자기록 인정 요건과 제출자료 범위를 손보는 행정예고 예시입니다.", raw_text: "근로시간 기록 보관 기간, 전자기록 인정 요건, 사업장 점검 시 제출자료 범위를 정비한다.", verification_required: false },
+        { id: "guideline-1", category: "guideline", source_type: "ministry_board", ministry: "기획재정부", document_type: "guideline", title: "국고보조금 집행관리 지침 개정", issue_number: "기획재정부지침 제2026-12호", collection_date: "2026-05-25", publish_date: "2026-05-25", effective_date: "2026-06-01", change_type: "partial_revision", confidence: "공식 예고", original_url: "https://www.moef.go.kr", summary: "보조금 집행 증빙과 사후점검 기준을 정비하는 지침 예시입니다.", raw_text: "국고보조금 집행관리 지침 중 증빙자료 제출 방식과 사후점검 기준을 개정한다.", verification_required: false },
+        { id: "news-1", category: "news", source_type: "press", ministry: "법제처", document_type: "news", title: "정비 대상 법령 발굴 계획 발표", issue_number: null, collection_date: "2026-05-26", publish_date: "2026-05-26", effective_date: null, change_type: "unknown", confidence: "보도/정책자료", original_url: "https://www.korea.kr", summary: "정책 방향을 보여주는 보도자료 예시이며 공식 변경 건수에는 포함하지 않습니다.", raw_text: "법령 정비 과제 발굴 계획을 발표했다는 정책브리핑 예시입니다.", verification_required: true }
       ];
 
-      const sourceLogs = [
-        { source: "법제처 API", count: 1 },
-        { source: "입법/행정예고", count: 1 },
-        { source: "부처 게시판", count: 1 },
-        { source: "보도자료", count: 1 }
-      ];
+      const fixedHolidays = new Set(["01-01", "03-01", "05-05", "06-06", "08-15", "10-03", "10-09", "12-25"]);
+      const holidayOverrides = new Set(["2026-05-24", "2026-05-25"]);
+      const dates = [...new Set(items.map((item) => item.collection_date || item.publish_date))].sort().reverse();
+      const filters = { ministry: [], source: [], document: [], change: [] };
+      let selectedDate = dates[0];
+      let monthCursor = selectedDate.slice(0, 7);
+      let category = "all";
+      let activeFilter = null;
+      let draft = [];
+      let query = "";
 
-      const itemDate = (item) => item.collection_date || item.publish_date || "";
-      const dates = [...new Set(items.map(itemDate).filter(Boolean))].sort().reverse();
-      let selectedDate = dates[0] || "";
-      let selectedCategory = "all";
+      const esc = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+      const pad = (value) => String(value).padStart(2, "0");
+      const dateOf = (item) => item.collection_date || item.publish_date || "";
+      const monthLabel = (value) => `${value.slice(0, 4)}년 ${Number(value.slice(5))}월`;
+      const countsByDate = () => items.reduce((map, item) => ((map[dateOf(item)] = (map[dateOf(item)] || 0) + 1), map), {});
+      const hasHoliday = (date) => fixedHolidays.has(date.slice(5)) || holidayOverrides.has(date);
 
-      const controls = {
-        q: document.getElementById("q"),
-        ministry: document.getElementById("ministry"),
-        source: document.getElementById("source"),
-        doc: document.getElementById("doc"),
-        key: document.getElementById("key")
-      };
-
-      function esc(value) {
-        return String(value ?? "")
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
-          .replaceAll('"', "&quot;")
-          .replaceAll("'", "&#039;");
-      }
-
-      function fillSelect(select, values, names, allLabel) {
-        select.innerHTML =
-          `<option value="">${allLabel}</option>` +
-          values.map((value) => `<option value="${esc(value)}">${esc(names ? names[value] : value)}</option>`).join("");
-      }
-
-      function shortDate(value) {
-        const parts = value.split("-");
-        return `${Number(parts[1])}.${Number(parts[2])}`;
-      }
-
-      function dateLabel(value) {
-        if (!value) return "전체 기간";
-        const parts = value.split("-");
-        return `${parts[0]}. ${Number(parts[1])}. ${Number(parts[2])}.`;
-      }
-
-      function dateCounts() {
-        const counts = {};
-        for (const item of items) {
-          const date = itemDate(item);
-          counts[date] = (counts[date] || 0) + 1;
-        }
-        return counts;
+      function calendarCells() {
+        const [year, month] = monthCursor.split("-").map(Number);
+        const first = new Date(year, month - 1, 1).getDay();
+        const days = new Date(year, month, 0).getDate();
+        const cells = Array.from({ length: first }, () => null);
+        for (let day = 1; day <= days; day += 1) cells.push(`${year}-${pad(month)}-${pad(day)}`);
+        while (cells.length < 42) cells.push(null);
+        return cells;
       }
 
       function scopedItems() {
-        return selectedDate ? items.filter((item) => itemDate(item) === selectedDate) : items;
+        return items.filter((item) => dateOf(item) === selectedDate);
       }
 
-      function filterItems() {
-        const q = controls.q.value.trim().toLowerCase();
+      function filteredItems() {
+        const text = query.trim().toLowerCase();
         return scopedItems().filter((item) => {
-          if (selectedCategory !== "all" && item.category !== selectedCategory) return false;
-          if (controls.ministry.value && item.ministry !== controls.ministry.value) return false;
-          if (controls.source.value && item.source_type !== controls.source.value) return false;
-          if (controls.doc.value && item.document_type !== controls.doc.value) return false;
-          if (!q) return true;
-          return [item.title, item.summary, item.raw_text, item.ministry, item.issue_number]
-            .filter(Boolean)
-            .join(" ")
-            .toLowerCase()
-            .includes(q);
+          if (category !== "all" && item.category !== category) return false;
+          if (filters.ministry.length && !filters.ministry.includes(item.ministry)) return false;
+          if (filters.source.length && !filters.source.includes(item.source_type)) return false;
+          if (filters.document.length && !filters.document.includes(item.document_type)) return false;
+          if (filters.change.length && !filters.change.includes(item.change_type)) return false;
+          if (!text) return true;
+          return [item.title, item.summary, item.raw_text, item.ministry, item.issue_number].filter(Boolean).join(" ").toLowerCase().includes(text);
         });
       }
 
-      function activeFilterCount() {
-        return [controls.q.value, controls.ministry.value, controls.source.value, controls.doc.value, selectedCategory !== "all" ? selectedCategory : ""].filter(Boolean).length;
+      function renderCalendar() {
+        const counts = countsByDate();
+        document.getElementById("monthLabel").textContent = monthLabel(monthCursor);
+        document.getElementById("calendar").innerHTML = calendarCells().map((date, index) => {
+          if (!date) return '<div class="calendar-empty"></div>';
+          const day = Number(date.slice(8));
+          const count = counts[date] || 0;
+          const cls = ["calendar-day", date === selectedDate ? "selected" : "", count ? "has-data" : "", index % 7 === 0 || index % 7 === 6 || hasHoliday(date) ? "holiday" : ""].filter(Boolean).join(" ");
+          return `<button class="${cls}" type="button" data-date="${date}"><span>${day}</span><small>${count.toLocaleString("ko-KR")}</small></button>`;
+        }).join("");
+        document.querySelectorAll("[data-date]").forEach((button) => button.addEventListener("click", () => {
+          selectedDate = button.getAttribute("data-date");
+          monthCursor = selectedDate.slice(0, 7);
+          render();
+        }));
       }
 
-      function renderStats() {
-        document.getElementById("total").textContent = items.length.toLocaleString("ko-KR");
-        document.getElementById("official").textContent = items.filter((item) => item.confidence === "공식").length.toLocaleString("ko-KR");
-        document.getElementById("notices").textContent = items.filter((item) => item.category === "notice").length.toLocaleString("ko-KR");
-        document.getElementById("verify").textContent = items.filter((item) => item.verification_required).length.toLocaleString("ko-KR");
-      }
-
-      function renderDates() {
-        const counts = dateCounts();
-        document.getElementById("selectedDateLabel").textContent = selectedDate || "전체 기간";
-        document.getElementById("allDates").className = selectedDate ? "date-chip" : "date-chip active";
-        document.getElementById("dateInput").value = selectedDate;
-        document.getElementById("dateList").innerHTML = dates
-          .map(
-            (date) =>
-              `<button class="${selectedDate === date ? "active" : ""}" type="button" data-date="${esc(date)}"><span>${shortDate(date)}</span><strong>${counts[date] || 0}</strong></button>`
-          )
-          .join("");
-        document.querySelectorAll("[data-date]").forEach((button) => {
-          button.addEventListener("click", () => {
-            selectedDate = button.getAttribute("data-date") || "";
-            render();
-          });
-        });
-      }
-
-      function renderTabs() {
+      function renderCategories() {
         const counts = { all: scopedItems().length, law: 0, notice: 0, guideline: 0, news: 0 };
-        for (const item of scopedItems()) counts[item.category] += 1;
-        document.getElementById("tabs").innerHTML = Object.keys(labels.category)
-          .map(
-            (key) =>
-              `<button class="${selectedCategory === key ? "active" : ""}" type="button" data-cat="${key}"><span>${labels.category[key]}</span><strong>${counts[key].toLocaleString("ko-KR")}</strong></button>`
-          )
-          .join("");
-        document.querySelectorAll("[data-cat]").forEach((button) => {
-          button.addEventListener("click", () => {
-            selectedCategory = button.getAttribute("data-cat") || "all";
-            renderList();
-          });
+        scopedItems().forEach((item) => counts[item.category] += 1);
+        document.getElementById("categories").innerHTML = Object.keys(labels.category).map((key) =>
+          `<button class="${category === key ? "active" : ""}" type="button" data-cat="${key}"><span>${labels.category[key]}</span><strong>${counts[key].toLocaleString("ko-KR")}</strong></button>`
+        ).join("");
+        document.querySelectorAll("[data-cat]").forEach((button) => button.addEventListener("click", () => {
+          category = button.getAttribute("data-cat");
+          render();
+        }));
+      }
+
+      function filterOptions(key) {
+        if (key === "ministry") return [...new Set(items.map((item) => item.ministry))].sort().map((value) => ({ value, label: value }));
+        if (key === "source") return Object.keys(labels.source).map((value) => ({ value, label: labels.source[value] }));
+        if (key === "document") return Object.keys(labels.document).map((value) => ({ value, label: labels.document[value] }));
+        return Object.keys(labels.change).map((value) => ({ value, label: labels.change[value] }));
+      }
+
+      function renderToolbar() {
+        const configs = [
+          ["ministry", "기관"],
+          ["source", "출처"],
+          ["document", "문서"],
+          ["change", "변경"]
+        ];
+        document.getElementById("filterToolbar").innerHTML = configs.map(([key, label]) => `
+          <div class="filter-menu">
+            <button class="filter-trigger ${filters[key].length ? "active" : ""}" type="button" data-filter="${key}"><span>${label}</span><strong>${filters[key].length || ""}</strong></button>
+            ${activeFilter === key ? renderPopover(key, label) : ""}
+          </div>`).join("") + `
+          <label class="search-field"><span>검색</span><input id="searchInput" value="${esc(query)}" placeholder="제목, 본문, 기관, 문서번호 검색" /></label>`;
+        document.querySelectorAll("[data-filter]").forEach((button) => button.addEventListener("click", () => {
+          const key = button.getAttribute("data-filter");
+          activeFilter = activeFilter === key ? null : key;
+          draft = [...filters[key]];
+          renderToolbar();
+        }));
+        document.querySelectorAll("[data-check]").forEach((checkbox) => checkbox.addEventListener("change", () => {
+          const value = checkbox.getAttribute("data-check");
+          draft = checkbox.checked ? [...draft, value] : draft.filter((entry) => entry !== value);
+          renderToolbar();
+        }));
+        document.querySelectorAll("[data-clear]").forEach((button) => button.addEventListener("click", () => {
+          draft = [];
+          renderToolbar();
+        }));
+        document.querySelectorAll("[data-cancel]").forEach((button) => button.addEventListener("click", () => {
+          activeFilter = null;
+          renderToolbar();
+        }));
+        document.querySelectorAll("[data-apply]").forEach((button) => button.addEventListener("click", () => {
+          filters[button.getAttribute("data-apply")] = [...draft];
+          activeFilter = null;
+          render();
+        }));
+        document.getElementById("searchInput").addEventListener("input", (event) => {
+          query = event.target.value;
+          renderList();
         });
       }
 
-      function renderSourceList() {
-        document.getElementById("sourceList").innerHTML = sourceLogs
-          .map((log) => `<li><span class="status-dot"></span><div><strong>${esc(log.source)}</strong><small>${log.count.toLocaleString("ko-KR")}건</small></div></li>`)
-          .join("");
-      }
-
-      function renderScope() {
-        document.getElementById("scopeTitle").textContent = selectedDate ? `${dateLabel(selectedDate)} 자료` : "전체 누적 자료";
-        document.getElementById("scopeCount").textContent = `${scopedItems().length.toLocaleString("ko-KR")}건`;
-        const count = activeFilterCount();
-        document.getElementById("filterCount").textContent = count ? `${count}개 적용` : "기본 보기";
-      }
-
-      function meta(item) {
-        return [
-          labels.category[item.category],
-          labels.document[item.document_type],
-          item.change_type,
-          item.confidence,
-          item.verification_required ? "확인 필요" : ""
-        ]
-          .filter(Boolean)
-          .map((value) => `<span class="${value === "확인 필요" ? "warn" : ""}">${esc(value)}</span>`)
-          .join("");
+      function renderPopover(key, label) {
+        return `<div class="filter-popover">
+          <div class="popover-head"><strong>${label}</strong><button type="button" data-clear="${key}">전체 해제</button></div>
+          <div class="filter-options">${filterOptions(key).map((option) =>
+            `<label><input type="checkbox" data-check="${esc(option.value)}" ${draft.includes(option.value) ? "checked" : ""} /><span>${esc(option.label)}</span></label>`
+          ).join("")}</div>
+          <div class="popover-actions"><button type="button" data-cancel="${key}">취소</button><button type="button" data-apply="${key}">확인</button></div>
+        </div>`;
       }
 
       function renderList() {
-        const filtered = filterItems();
-        renderTabs();
-        renderScope();
-        document.getElementById("count").textContent = `${filtered.length.toLocaleString("ko-KR")}건`;
-        document.getElementById("cacheState").textContent = dates.includes(selectedDate) || !selectedDate ? "표시 중" : "저장 자료 없음";
-        if (!filtered.length) {
-          document.getElementById("list").innerHTML =
-            '<div class="empty-state"><strong>표시할 항목이 없습니다.</strong><span>날짜, 검색어, 필터를 조정해보세요.</span></div>';
+        const list = filteredItems();
+        const filterCount = Object.values(filters).reduce((sum, value) => sum + value.length, 0);
+        document.getElementById("count").textContent = `${list.length.toLocaleString("ko-KR")}건`;
+        document.getElementById("state").textContent = dates.includes(selectedDate) ? "표시 중" : "저장 자료 없음";
+        document.getElementById("filterCount").textContent = filterCount ? `${filterCount.toLocaleString("ko-KR")}개 필터` : "";
+        if (!list.length) {
+          document.getElementById("list").innerHTML = '<div class="empty"><strong>표시할 항목이 없습니다.</strong><br />날짜, 검색어, 필터를 조정해보세요.</div>';
           return;
         }
-        document.getElementById("list").innerHTML = filtered
-          .map(
-            (item) => `
-              <article class="item-card category-${esc(item.category)}">
-                <div class="category-rail" aria-hidden="true"></div>
-                <div class="item-main">
-                  <div class="item-meta">${meta(item)}</div>
-                  <h2><button type="button" data-id="${esc(item.id)}">${esc(item.title)}</button></h2>
-                  <p>${esc(item.summary || "요약 전입니다. 상세 화면에서 원문과 수집 근거를 확인할 수 있습니다.")}</p>
-                  <div class="item-foot"><span>${esc(item.ministry)}</span><span>${esc(item.issue_number || "문서번호 없음")}</span><span>기준 ${esc(itemDate(item) || "-")}</span><span>시행 ${esc(item.effective_date || "-")}</span></div>
-                </div>
-                <div class="item-links"><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문</a><button type="button" data-id="${esc(item.id)}">상세</button></div>
-              </article>`
-          )
-          .join("");
-        document.querySelectorAll("[data-id]").forEach((button) => button.addEventListener("click", () => showDetail(button.getAttribute("data-id"))));
-      }
-
-      function showDetail(id) {
-        const item = items.find((entry) => entry.id === id);
-        if (!item) return;
-        document.getElementById("home").classList.add("hidden");
-        const detail = document.getElementById("detail");
-        detail.classList.remove("hidden");
-        detail.innerHTML = `
-          <button class="back-link" id="back" type="button">미리보기 목록으로</button>
-          <article class="detail-panel">
-            <div class="item-meta">${meta(item)}</div>
-            <h1>${esc(item.title)}</h1>
-            <dl class="detail-grid">
-              <div><dt>기관</dt><dd>${esc(item.ministry)}</dd></div>
-              <div><dt>문서번호</dt><dd>${esc(item.issue_number || "-")}</dd></div>
-              <div><dt>수집 기준일</dt><dd>${esc(itemDate(item) || "-")}</dd></div>
-              <div><dt>공표일</dt><dd>${esc(item.publish_date || "-")}</dd></div>
-              <div><dt>시행일</dt><dd>${esc(item.effective_date || "-")}</dd></div>
-              <div><dt>출처</dt><dd>${esc(labels.source[item.source_type])}</dd></div>
-              <div><dt>원문</dt><dd><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문 열기</a></dd></div>
-            </dl>
-            <section class="detail-section">
-              <h2>요약</h2>
-              <p>${esc(item.summary || "아직 요약이 생성되지 않았습니다.")}</p>
-            </section>
-            <section class="detail-section">
-              <h2>원문 추출 텍스트</h2>
-              <pre class="raw-text">${esc(item.raw_text || "원문 본문을 가져오지 못했습니다.")}</pre>
-            </section>
-          </article>`;
-        document.getElementById("back").addEventListener("click", () => {
-          detail.classList.add("hidden");
-          document.getElementById("home").classList.remove("hidden");
-        });
-      }
-
-      async function summarize() {
-        const key = controls.key.value.trim();
-        const filtered = filterItems();
-        if (!key || !filtered.length) return;
-        const digest = document.getElementById("digest");
-        digest.classList.remove("error");
-        digest.style.display = "block";
-        digest.querySelector("strong").textContent = "AI 브리핑";
-        digest.querySelector("p").textContent = "정리 중";
-        const input = filtered
-          .slice(0, 20)
-          .map((item, i) => `${i + 1}. ${item.title}\n분류: ${labels.category[item.category]}\n기관: ${item.ministry}\n내용: ${item.summary || item.raw_text}`)
-          .join("\n\n");
-        try {
-          const response = await fetch("https://api.openai.com/v1/responses", {
-            method: "POST",
-            headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
-            body: JSON.stringify({
-              model: "gpt-5",
-              max_output_tokens: 500,
-              instructions: "한국 규제 변경 모니터의 편집자처럼 제공된 항목만 근거로 간결하게 요약하세요.",
-              input
-            })
-          });
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const data = await response.json();
-          digest.querySelector("p").textContent = (data.output_text || JSON.stringify(data.output || "")).replace(/\s+/g, " ").trim();
-        } catch (error) {
-          digest.classList.add("error");
-          digest.querySelector("strong").textContent = "브리핑 실패";
-          digest.querySelector("p").textContent = error.message || String(error);
-        }
-      }
-
-      function clearFilters() {
-        controls.q.value = "";
-        controls.ministry.value = "";
-        controls.source.value = "";
-        controls.doc.value = "";
-        selectedCategory = "all";
-        renderList();
+        document.getElementById("list").innerHTML = list.map((item) => `
+          <article class="item-card category-${item.category}">
+            <div class="category-rail"></div>
+            <div>
+              <div class="item-meta"><span>${labels.category[item.category]}</span><span>${labels.document[item.document_type]}</span><span>${labels.change[item.change_type]}</span>${item.verification_required ? '<span class="warn">확인 필요</span>' : ""}</div>
+              <h2><button type="button">${esc(item.title)}</button></h2>
+              <p>${esc(item.summary)}</p>
+              <div class="item-foot"><span>${esc(item.ministry)}</span><span>${esc(item.issue_number || "문서번호 없음")}</span><span>기준 ${dateOf(item)}</span><span>시행 ${esc(item.effective_date || "-")}</span></div>
+            </div>
+            <div class="item-links"><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문</a><button type="button">상세</button></div>
+          </article>`).join("");
       }
 
       function render() {
-        renderDates();
+        renderCalendar();
+        renderCategories();
+        renderToolbar();
         renderList();
       }
 
-      fillSelect(controls.ministry, [...new Set(items.map((item) => item.ministry))].sort(), null, "전체 기관");
-      fillSelect(controls.source, Object.keys(labels.source), labels.source, "전체 출처");
-      fillSelect(controls.doc, Object.keys(labels.document), labels.document, "전체 문서");
-      renderStats();
-      renderSourceList();
-      render();
-
-      document.getElementById("allDates").addEventListener("click", () => {
-        selectedDate = "";
-        render();
+      document.getElementById("prevMonth").addEventListener("click", () => {
+        const [year, month] = monthCursor.split("-").map(Number);
+        const next = new Date(year, month - 2, 1);
+        monthCursor = `${next.getFullYear()}-${pad(next.getMonth() + 1)}`;
+        renderCalendar();
       });
-      document.getElementById("dateInput").addEventListener("change", (event) => {
-        selectedDate = event.target.value;
-        render();
+      document.getElementById("nextMonth").addEventListener("click", () => {
+        const [year, month] = monthCursor.split("-").map(Number);
+        const next = new Date(year, month, 1);
+        monthCursor = `${next.getFullYear()}-${pad(next.getMonth() + 1)}`;
+        renderCalendar();
       });
-      document.getElementById("clearFilters").addEventListener("click", clearFilters);
-      Object.values(controls).forEach((control) => {
-        if (control.id !== "key") {
-          control.addEventListener("input", renderList);
-          control.addEventListener("change", renderList);
-        }
-      });
-      controls.key.value = sessionStorage.getItem("preview-openai-key") || "";
-      controls.key.addEventListener("change", () => sessionStorage.setItem("preview-openai-key", controls.key.value));
-      document.getElementById("summarize").addEventListener("click", summarize);
+      document.getElementById("openAi").addEventListener("click", () => document.getElementById("aiModal").classList.remove("hidden"));
+      document.getElementById("closeAi").addEventListener("click", () => document.getElementById("aiModal").classList.add("hidden"));
+      document.getElementById("apiKey").value = sessionStorage.getItem("preview-openai-key") || "";
+      document.getElementById("apiKey").addEventListener("change", (event) => sessionStorage.setItem("preview-openai-key", event.target.value));
       document.getElementById("clearKey").addEventListener("click", () => {
-        controls.key.value = "";
+        document.getElementById("apiKey").value = "";
         sessionStorage.removeItem("preview-openai-key");
       });
+      document.getElementById("summarize").addEventListener("click", () => {
+        const digest = document.getElementById("digest");
+        digest.style.display = "block";
+        digest.querySelector("p").textContent = filteredItems().map((item) => item.title).join(", ") || "표시 중인 항목이 없습니다.";
+      });
+      render();
     </script>
   </body>
 </html>

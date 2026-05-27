@@ -7,10 +7,8 @@ import { changeTypeLabels, confidenceLabels, documentTypeLabels, sourceTypeLabel
 import type {
   ChangeType,
   CollectedItem,
-  CollectionLog,
   DocumentType,
   RegulatoryCategory,
-  RunMetadata,
   SourceType
 } from "@/lib/types";
 
@@ -18,16 +16,21 @@ interface Props {
   items: CollectedItem[];
   ministries: string[];
   dates: string[];
-  logs: CollectionLog[];
-  run?: RunMetadata;
   detailHrefPrefix?: string;
 }
 
 type CategoryFilter = "all" | RegulatoryCategory;
+type FilterKey = "ministry" | "source" | "document" | "change";
+
+interface FilterOption {
+  value: string;
+  label: string;
+}
 
 const sourceTypes = Object.keys(sourceTypeLabels) as SourceType[];
 const documentTypes = Object.keys(documentTypeLabels) as DocumentType[];
 const changeTypes = Object.keys(changeTypeLabels) as ChangeType[];
+const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 const categoryFilters: Array<{ value: CategoryFilter; label: string }> = [
   { value: "all", label: "전체" },
   { value: "law", label: categoryLabels.law },
@@ -36,22 +39,32 @@ const categoryFilters: Array<{ value: CategoryFilter; label: string }> = [
   { value: "news", label: categoryLabels.news }
 ];
 
-export default function ItemExplorer({
-  items,
-  ministries,
-  dates,
-  logs,
-  run,
-  detailHrefPrefix = "/items"
-}: Props) {
+const fixedHolidayMonthDays = new Set(["01-01", "03-01", "05-05", "06-06", "08-15", "10-03", "10-09", "12-25"]);
+const holidayOverrides = new Set([
+  "2026-02-16",
+  "2026-02-17",
+  "2026-02-18",
+  "2026-05-24",
+  "2026-05-25",
+  "2026-09-24",
+  "2026-09-25",
+  "2026-09-26"
+]);
+
+export default function ItemExplorer({ items, ministries, dates, detailHrefPrefix = "/items" }: Props) {
+  const initialDate = dates[0] || formatDateString(new Date());
   const [query, setQuery] = useState("");
-  const [ministry, setMinistry] = useState("");
-  const [sourceType, setSourceType] = useState("");
-  const [documentType, setDocumentType] = useState("");
-  const [changeType, setChangeType] = useState("");
-  const [selectedDate, setSelectedDate] = useState(dates[0] || "");
+  const [ministryFilters, setMinistryFilters] = useState<string[]>([]);
+  const [sourceTypeFilters, setSourceTypeFilters] = useState<string[]>([]);
+  const [documentTypeFilters, setDocumentTypeFilters] = useState<string[]>([]);
+  const [changeTypeFilters, setChangeTypeFilters] = useState<string[]>([]);
+  const [selectedDate, setSelectedDate] = useState(initialDate);
+  const [monthCursor, setMonthCursor] = useState(initialDate.slice(0, 7));
   const [category, setCategory] = useState<CategoryFilter>("all");
+  const [activeFilter, setActiveFilter] = useState<FilterKey | null>(null);
+  const [draftSelection, setDraftSelection] = useState<string[]>([]);
   const [apiKey, setApiKey] = useState("");
+  const [aiOpen, setAiOpen] = useState(false);
   const [digest, setDigest] = useState("");
   const [summaryStatus, setSummaryStatus] = useState<"idle" | "working" | "done" | "error">("idle");
   const [summaryError, setSummaryError] = useState("");
@@ -65,30 +78,19 @@ export default function ItemExplorer({
     [items]
   );
 
+  const dateCounts = useMemo(() => {
+    const result = new Map<string, number>();
+    for (const item of enrichedItems) {
+      const date = item.collection_date || item.publish_date;
+      if (date) result.set(date, (result.get(date) || 0) + 1);
+    }
+    return result;
+  }, [enrichedItems]);
+
   const dateScopedItems = useMemo(
-    () =>
-      selectedDate
-        ? enrichedItems.filter((item) => (item.collection_date || item.publish_date) === selectedDate)
-        : enrichedItems,
+    () => enrichedItems.filter((item) => (item.collection_date || item.publish_date) === selectedDate),
     [enrichedItems, selectedDate]
   );
-
-  const filtered = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
-    return dateScopedItems.filter((item) => {
-      if (category !== "all" && item.category !== category) return false;
-      if (ministry && item.ministry !== ministry) return false;
-      if (sourceType && item.source_type !== sourceType) return false;
-      if (documentType && item.document_type !== documentType) return false;
-      if (changeType && item.change_type !== changeType) return false;
-      if (!normalizedQuery) return true;
-      return [item.title, item.raw_text, item.ministry, item.issue_number, item.source]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase()
-        .includes(normalizedQuery);
-    });
-  }, [category, changeType, dateScopedItems, documentType, ministry, query, sourceType]);
 
   const counts = useMemo(() => {
     const byCategory: Record<CategoryFilter, number> = {
@@ -102,18 +104,64 @@ export default function ItemExplorer({
     return byCategory;
   }, [dateScopedItems]);
 
-  const dateCounts = useMemo(() => {
-    const result = new Map<string, number>();
-    for (const item of enrichedItems) {
-      const date = item.collection_date || item.publish_date;
-      if (date) result.set(date, (result.get(date) || 0) + 1);
-    }
-    return result;
-  }, [enrichedItems]);
+  const filtered = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+    return dateScopedItems.filter((item) => {
+      if (category !== "all" && item.category !== category) return false;
+      if (ministryFilters.length && !ministryFilters.includes(item.ministry)) return false;
+      if (sourceTypeFilters.length && !sourceTypeFilters.includes(item.source_type)) return false;
+      if (documentTypeFilters.length && !documentTypeFilters.includes(item.document_type)) return false;
+      if (changeTypeFilters.length && !changeTypeFilters.includes(item.change_type)) return false;
+      if (!normalizedQuery) return true;
+      return [item.title, item.raw_text, item.ministry, item.issue_number, item.source]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase()
+        .includes(normalizedQuery);
+    });
+  }, [
+    category,
+    changeTypeFilters,
+    dateScopedItems,
+    documentTypeFilters,
+    ministryFilters,
+    query,
+    sourceTypeFilters
+  ]);
 
-  const dateHasCache = !selectedDate || dates.includes(selectedDate);
-  const selectedDateCount = dateScopedItems.length;
-  const filterCount = [query, ministry, sourceType, documentType, changeType, category !== "all" ? category : ""].filter(Boolean).length;
+  const calendarCells = useMemo(() => buildCalendar(monthCursor), [monthCursor]);
+  const dateHasCache = dates.includes(selectedDate);
+  const activeFilterCount =
+    ministryFilters.length + sourceTypeFilters.length + documentTypeFilters.length + changeTypeFilters.length;
+
+  const filterConfigs: Array<{
+    key: FilterKey;
+    label: string;
+    selected: string[];
+    options: FilterOption[];
+  }> = [
+    { key: "ministry", label: "기관", selected: ministryFilters, options: ministries.map((value) => ({ value, label: value })) },
+    {
+      key: "source",
+      label: "출처",
+      selected: sourceTypeFilters,
+      options: sourceTypes.map((value) => ({ value, label: sourceTypeLabels[value] }))
+    },
+    {
+      key: "document",
+      label: "문서",
+      selected: documentTypeFilters,
+      options: documentTypes.map((value) => ({ value, label: documentTypeLabels[value] }))
+    },
+    {
+      key: "change",
+      label: "변경",
+      selected: changeTypeFilters,
+      options: changeTypes.map((value) => ({ value, label: changeTypeLabels[value] }))
+    }
+  ];
+
+  const currentFilterConfig = filterConfigs.find((config) => config.key === activeFilter);
 
   function saveApiKey(value: string) {
     setApiKey(value);
@@ -121,13 +169,38 @@ export default function ItemExplorer({
     else sessionStorage.removeItem("kr-reg-openai-key");
   }
 
-  function clearFilters() {
-    setQuery("");
-    setMinistry("");
-    setSourceType("");
-    setDocumentType("");
-    setChangeType("");
-    setCategory("all");
+  function shiftMonth(offset: number) {
+    const [year, month] = monthCursor.split("-").map(Number);
+    const next = new Date(year, month - 1 + offset, 1);
+    setMonthCursor(formatMonthString(next));
+  }
+
+  function selectCalendarDate(date: string) {
+    setSelectedDate(date);
+    setMonthCursor(date.slice(0, 7));
+  }
+
+  function openFilterMenu(key: FilterKey, selected: string[]) {
+    if (activeFilter === key) {
+      setActiveFilter(null);
+      return;
+    }
+    setDraftSelection(selected);
+    setActiveFilter(key);
+  }
+
+  function toggleDraft(value: string) {
+    setDraftSelection((current) =>
+      current.includes(value) ? current.filter((entry) => entry !== value) : [...current, value]
+    );
+  }
+
+  function applyFilter() {
+    if (activeFilter === "ministry") setMinistryFilters(draftSelection);
+    if (activeFilter === "source") setSourceTypeFilters(draftSelection);
+    if (activeFilter === "document") setDocumentTypeFilters(draftSelection);
+    if (activeFilter === "change") setChangeTypeFilters(draftSelection);
+    setActiveFilter(null);
   }
 
   async function summarizeVisible() {
@@ -179,129 +252,43 @@ export default function ItemExplorer({
 
   return (
     <section className="app-workspace" aria-label="규제 변경 탐색">
-      <aside className="side-panel" aria-label="탐색 설정">
-        <section className="side-section">
-          <div className="section-title">
-            <span>기준일</span>
-            <strong>{selectedDate || "전체 기간"}</strong>
+      <aside className="side-panel" aria-label="날짜와 분류">
+        <section className="calendar-card" aria-label="날짜 선택">
+          <div className="calendar-toolbar">
+            <button type="button" aria-label="이전 달" onClick={() => shiftMonth(-1)}>
+              &lt;
+            </button>
+            <strong>{formatMonthLabel(monthCursor)}</strong>
+            <button type="button" aria-label="다음 달" onClick={() => shiftMonth(1)}>
+              &gt;
+            </button>
           </div>
-          <button className={!selectedDate ? "date-chip active" : "date-chip"} type="button" onClick={() => setSelectedDate("")}>
-            전체 기간
-          </button>
-          <div className="date-list" aria-label="저장된 날짜">
-            {dates.map((date) => (
-              <button
-                className={selectedDate === date ? "active" : ""}
-                key={date}
-                type="button"
-                onClick={() => setSelectedDate(date)}
-              >
-                <span>{formatShortDate(date)}</span>
-                <strong>{dateCounts.get(date) || 0}</strong>
-              </button>
+          <div className="calendar-weekdays" aria-hidden="true">
+            {weekdays.map((day) => (
+              <span key={day}>{day}</span>
             ))}
           </div>
-          <label className="field-label">
-            <span>날짜 직접 선택</span>
-            <input
-              aria-label="날짜 직접 선택"
-              type="date"
-              value={selectedDate}
-              onChange={(event) => setSelectedDate(event.target.value)}
-            />
-          </label>
-        </section>
-
-        <section className="side-section">
-          <div className="section-title">
-            <span>필터</span>
-            <strong>{filterCount ? `${filterCount}개 적용` : "기본 보기"}</strong>
-          </div>
-          <label className="field-label">
-            <span>기관</span>
-            <select value={ministry} onChange={(event) => setMinistry(event.target.value)}>
-              <option value="">전체 기관</option>
-              {ministries.map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="field-label">
-            <span>출처</span>
-            <select value={sourceType} onChange={(event) => setSourceType(event.target.value)}>
-              <option value="">전체 출처</option>
-              {sourceTypes.map((value) => (
-                <option key={value} value={value}>
-                  {sourceTypeLabels[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="field-label">
-            <span>문서</span>
-            <select value={documentType} onChange={(event) => setDocumentType(event.target.value)}>
-              <option value="">전체 문서</option>
-              {documentTypes.map((value) => (
-                <option key={value} value={value}>
-                  {documentTypeLabels[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="field-label">
-            <span>변경</span>
-            <select value={changeType} onChange={(event) => setChangeType(event.target.value)}>
-              <option value="">전체 변경</option>
-              {changeTypes.map((value) => (
-                <option key={value} value={value}>
-                  {changeTypeLabels[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <button className="quiet-button" type="button" onClick={clearFilters}>
-            필터 초기화
-          </button>
-        </section>
-
-        <section className="side-section source-section">
-          <div className="section-title">
-            <span>출처 상태</span>
-            <strong>{logs.length ? `${logs.length}개` : "대기"}</strong>
-          </div>
-          <ul className="source-list">
-            {logs.slice(0, 8).map((log, index) => (
-              <li key={`${log.source}-${index}`}>
-                <span className={`status-dot ${log.status}`} />
-                <div>
-                  <strong>{log.source}</strong>
-                  <small>{log.count.toLocaleString("ko-KR")}건</small>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </aside>
-
-      <div className="content-stage">
-        <section className="search-panel" aria-label="검색">
-          <label className="search-field">
-            <span>검색</span>
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="제목, 본문, 기관, 문서번호 검색"
-            />
-          </label>
-          <div className="scope-card">
-            <span>{selectedDate ? `${formatDateLabel(selectedDate)} 자료` : "전체 누적 자료"}</span>
-            <strong>{selectedDateCount.toLocaleString("ko-KR")}건</strong>
+          <div className="calendar-grid">
+            {calendarCells.map((cell, index) =>
+              cell.date ? (
+                <button
+                  className={calendarClassName(cell.date, index, selectedDate, dateCounts.get(cell.date) || 0)}
+                  key={cell.date}
+                  type="button"
+                  aria-label={`${formatDateLabel(cell.date)} ${dateCounts.get(cell.date) || 0}건`}
+                  onClick={() => selectCalendarDate(cell.date)}
+                >
+                  <span>{cell.day}</span>
+                  <small>{(dateCounts.get(cell.date) || 0).toLocaleString("ko-KR")}</small>
+                </button>
+              ) : (
+                <div className="calendar-empty" key={`empty-${index}`} />
+              )
+            )}
           </div>
         </section>
 
-        <nav className="segment-tabs" aria-label="문서 분류">
+        <nav className="category-summary" aria-label="문서 분류">
           {categoryFilters.map((tab) => (
             <button
               className={category === tab.value ? "active" : ""}
@@ -314,44 +301,72 @@ export default function ItemExplorer({
             </button>
           ))}
         </nav>
+      </aside>
 
-        <section className="briefing-panel" aria-label="AI 브리핑">
-          <div>
-            <span>AI 브리핑</span>
-            <strong>현재 화면의 항목을 짧게 정리합니다.</strong>
-          </div>
-          <label>
-            <span>API 키</span>
+      <div className="content-stage">
+        <section className="filter-toolbar" aria-label="검색과 필터">
+          {filterConfigs.map((config) => (
+            <div className="filter-menu" key={config.key}>
+              <button
+                className={config.selected.length ? "filter-trigger active" : "filter-trigger"}
+                type="button"
+                onClick={() => openFilterMenu(config.key, config.selected)}
+              >
+                <span>{config.label}</span>
+                <strong>{config.selected.length || ""}</strong>
+              </button>
+              {activeFilter === config.key && currentFilterConfig ? (
+                <div className="filter-popover">
+                  <div className="filter-popover-head">
+                    <strong>{currentFilterConfig.label}</strong>
+                    <button type="button" onClick={() => setDraftSelection([])}>
+                      전체 해제
+                    </button>
+                  </div>
+                  <div className="filter-options">
+                    {currentFilterConfig.options.map((option) => (
+                      <label key={option.value}>
+                        <input
+                          type="checkbox"
+                          checked={draftSelection.includes(option.value)}
+                          onChange={() => toggleDraft(option.value)}
+                        />
+                        <span>{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                  <div className="filter-popover-actions">
+                    <button type="button" onClick={() => setActiveFilter(null)}>
+                      취소
+                    </button>
+                    <button type="button" onClick={applyFilter}>
+                      확인
+                    </button>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          ))}
+
+          <label className="search-field">
+            <span>검색</span>
             <input
-              type="password"
-              value={apiKey}
-              onChange={(event) => saveApiKey(event.target.value)}
-              placeholder="sk-..."
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="제목, 본문, 기관, 문서번호 검색"
             />
           </label>
-          <button disabled={!apiKey || !filtered.length || summaryStatus === "working"} type="button" onClick={summarizeVisible}>
-            {summaryStatus === "working" ? "정리 중" : "브리핑 생성"}
-          </button>
-          {apiKey ? (
-            <button className="text-button" type="button" onClick={() => saveApiKey("")}>
-              키 삭제
-            </button>
-          ) : null}
         </section>
-
-        {digest || summaryError ? (
-          <section className={`digest-panel ${summaryStatus === "error" ? "error" : ""}`}>
-            <strong>{summaryStatus === "error" ? "브리핑 실패" : "AI 브리핑"}</strong>
-            <p>{summaryStatus === "error" ? summaryError : digest}</p>
-          </section>
-        ) : null}
 
         <section className="results-header">
           <div>
             <strong>{filtered.length.toLocaleString("ko-KR")}건</strong>
             <span>{dateHasCache ? "표시 중" : "저장 자료 없음"}</span>
+            {activeFilterCount ? <small>{activeFilterCount.toLocaleString("ko-KR")}개 필터</small> : null}
           </div>
-          <span>{run?.last_run_at ? `${formatDateTime(run.last_run_at)} 업데이트` : "업데이트 대기"}</span>
+          <button className="ai-brief-button" type="button" onClick={() => setAiOpen(true)}>
+            AI 브리핑
+          </button>
         </section>
 
         <section className="item-list" aria-label="변경 목록">
@@ -367,6 +382,53 @@ export default function ItemExplorer({
           )}
         </section>
       </div>
+
+      {aiOpen ? (
+        <div className="modal-backdrop" role="presentation" onClick={() => setAiOpen(false)}>
+          <section
+            className="ai-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="AI 브리핑"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="modal-head">
+              <div>
+                <span>AI 브리핑</span>
+                <strong>현재 화면의 항목을 요약합니다.</strong>
+              </div>
+              <button type="button" aria-label="닫기" onClick={() => setAiOpen(false)}>
+                ×
+              </button>
+            </div>
+            <label className="field-label">
+              <span>OpenAI API 키</span>
+              <input
+                type="password"
+                value={apiKey}
+                onChange={(event) => saveApiKey(event.target.value)}
+                placeholder="sk-..."
+              />
+            </label>
+            <div className="modal-actions">
+              <button disabled={!apiKey || !filtered.length || summaryStatus === "working"} type="button" onClick={summarizeVisible}>
+                {summaryStatus === "working" ? "정리 중" : "브리핑 생성"}
+              </button>
+              {apiKey ? (
+                <button className="secondary" type="button" onClick={() => saveApiKey("")}>
+                  키 삭제
+                </button>
+              ) : null}
+            </div>
+            {digest || summaryError ? (
+              <div className={`digest-panel ${summaryStatus === "error" ? "error" : ""}`}>
+                <strong>{summaryStatus === "error" ? "브리핑 실패" : "AI 브리핑"}</strong>
+                <p>{summaryStatus === "error" ? summaryError : digest}</p>
+              </div>
+            ) : null}
+          </section>
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -415,9 +477,48 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
   );
 }
 
-function formatShortDate(value: string): string {
-  const [, month, day] = value.split("-");
-  return `${Number(month)}.${Number(day)}`;
+function buildCalendar(monthCursor: string): Array<{ date: string | null; day: number | null }> {
+  const [year, month] = monthCursor.split("-").map(Number);
+  const monthIndex = month - 1;
+  const firstWeekday = new Date(year, monthIndex, 1).getDay();
+  const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+  const cells: Array<{ date: string | null; day: number | null }> = [];
+  for (let index = 0; index < firstWeekday; index += 1) cells.push({ date: null, day: null });
+  for (let day = 1; day <= daysInMonth; day += 1) cells.push({ date: makeDateString(year, monthIndex, day), day });
+  while (cells.length < 42) cells.push({ date: null, day: null });
+  return cells;
+}
+
+function calendarClassName(date: string, index: number, selectedDate: string, count: number): string {
+  return [
+    "calendar-day",
+    date === selectedDate ? "selected" : "",
+    count ? "has-data" : "",
+    index % 7 === 0 || index % 7 === 6 || isKoreanHoliday(date) ? "holiday" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function isKoreanHoliday(date: string): boolean {
+  return fixedHolidayMonthDays.has(date.slice(5)) || holidayOverrides.has(date);
+}
+
+function makeDateString(year: number, monthIndex: number, day: number): string {
+  return `${year}-${pad(monthIndex + 1)}-${pad(day)}`;
+}
+
+function formatDateString(date: Date): string {
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function formatMonthString(date: Date): string {
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}`;
+}
+
+function formatMonthLabel(value: string): string {
+  const [year, month] = value.split("-");
+  return `${year}년 ${Number(month)}월`;
 }
 
 function formatDateLabel(value: string): string {
@@ -425,13 +526,8 @@ function formatDateLabel(value: string): string {
   return `${year}. ${Number(month)}. ${Number(day)}.`;
 }
 
-function formatDateTime(value: string): string {
-  return new Date(value).toLocaleString("ko-KR", {
-    month: "numeric",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit"
-  });
+function pad(value: number): string {
+  return String(value).padStart(2, "0");
 }
 
 function extractOutputText(value: unknown): string {
