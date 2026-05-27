@@ -147,7 +147,10 @@ async function fetchTextWithCurl(url: string, init: RequestInit, timeoutMs: numb
   const curl = process.platform === "win32" ? "curl.exe" : "curl";
   const args = [
     "-L",
+    "-4",
     "--http1.1",
+    "--connect-timeout",
+    "15",
     "--retry",
     String(retries),
     "--retry-all-errors",
@@ -173,7 +176,8 @@ async function fetchTextWithCurl(url: string, init: RequestInit, timeoutMs: numb
     return stdout;
   } catch (error) {
     const code = typeof error === "object" && error && "code" in error ? String((error as { code?: unknown }).code) : "";
-    throw new Error(`curl failed${code ? ` with code ${code}` : ""}`);
+    const signal = typeof error === "object" && error && "signal" in error ? String((error as { signal?: unknown }).signal) : "";
+    throw new Error(`curl failed${code ? ` with code ${code}` : ""}${signal ? ` (${signal})` : ""}`);
   }
 }
 
