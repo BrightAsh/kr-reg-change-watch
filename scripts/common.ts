@@ -170,7 +170,7 @@ async function fetchTextWithCurl(url: string, init: RequestInit, timeoutMs: numb
       timeout: timeoutMs + 5000,
       maxBuffer: 25 * 1024 * 1024
     });
-    return typeof stdout === "string" ? stdout : stdout.toString("utf8");
+    return stdout;
   } catch (error) {
     const code = typeof error === "object" && error && "code" in error ? String((error as { code?: unknown }).code) : "";
     throw new Error(`curl failed${code ? ` with code ${code}` : ""}`);
