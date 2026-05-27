@@ -102,7 +102,7 @@
       }
       .app-workspace {
         display: grid;
-        grid-template-columns: 334px minmax(0, 1fr);
+        grid-template-columns: minmax(610px, 0.86fr) minmax(520px, 1fr);
         gap: 18px;
         align-items: start;
       }
@@ -110,6 +110,7 @@
         position: sticky;
         top: 18px;
         display: grid;
+        grid-template-columns: minmax(320px, 1fr) minmax(210px, 0.62fr);
         gap: 14px;
         padding: 14px;
         border: 1px solid var(--line-strong);
@@ -203,6 +204,7 @@
       .category-summary {
         display: grid;
         gap: 8px;
+        align-self: start;
         padding: 12px;
       }
       .category-summary button {
@@ -233,7 +235,7 @@
         position: relative;
         z-index: 3;
         display: grid;
-        grid-template-columns: repeat(4, minmax(94px, 118px)) minmax(300px, 1fr);
+        grid-template-columns: repeat(4, minmax(72px, 92px)) minmax(210px, 1fr);
         gap: 9px;
         align-items: center;
         padding: 12px;
@@ -246,7 +248,7 @@
         gap: 7px;
         width: 100%;
         min-height: 42px;
-        padding: 9px 11px;
+        padding: 9px 8px;
         color: var(--ink-soft);
       }
       .filter-trigger.active {
@@ -527,15 +529,15 @@
       }
       .hidden { display: none; }
 
-      @media (max-width: 1120px) {
+      @media (max-width: 1220px) {
         .app-workspace { grid-template-columns: 1fr; }
-        .side-panel { position: static; }
-        .filter-toolbar { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .search-field { grid-column: 1 / -1; }
+        .side-panel { position: static; grid-template-columns: minmax(310px, 1fr) minmax(210px, 0.62fr); }
       }
       @media (max-width: 760px) {
         .app-shell { width: min(100% - 20px, 1440px); }
-        .filter-toolbar { grid-template-columns: 1fr; }
+        .side-panel { grid-template-columns: 1fr; }
+        .filter-toolbar { grid-template-columns: repeat(4, minmax(70px, 88px)) minmax(190px, 1fr); overflow-x: auto; }
+        .search-field { min-width: 190px; }
         .results-header { align-items: stretch; flex-direction: column; }
         .item-card { grid-template-columns: 6px minmax(0, 1fr); }
         .item-links { grid-column: 2; grid-template-columns: repeat(2, 1fr); width: 100%; }
