@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { CollectedItem } from "../lib/types";
-import { ensureDataDirs, readJson, rootDir, snapshotsDir, writeJson } from "./common";
+import { ensureDataDirs, parseArgs, readJson, rootDir, snapshotsDir, writeJson } from "./common";
 
 interface DiffResult {
   today: string | null;
@@ -13,12 +13,14 @@ interface DiffResult {
 
 async function main() {
   await ensureDataDirs();
+  const args = parseArgs();
   const snapshotFiles = (await fs.readdir(snapshotsDir).catch(() => []))
     .filter((file) => /^\d{4}-\d{2}-\d{2}\.json$/.test(file))
     .sort();
 
-  const todayFile = snapshotFiles.at(-1);
-  const yesterdayFile = snapshotFiles.at(-2);
+  const requestedFile = typeof args.date === "string" ? `${args.date}.json` : null;
+  const todayFile = requestedFile && snapshotFiles.includes(requestedFile) ? requestedFile : snapshotFiles.at(-1);
+  const yesterdayFile = todayFile ? snapshotFiles.filter((file) => file < todayFile).at(-1) : null;
   const today = todayFile ? todayFile.replace(".json", "") : null;
   const yesterday = yesterdayFile ? yesterdayFile.replace(".json", "") : null;
 

@@ -1,6 +1,8 @@
 import fs from "node:fs/promises";
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { XMLParser } from "fast-xml-parser";
 import type { CollectionLog } from "../lib/types";
 
@@ -18,6 +20,9 @@ const xmlParser = new XMLParser({
   parseAttributeValue: false,
   trimValues: true
 });
+const execFileAsync = promisify(execFile);
+const defaultUserAgent =
+  "Mozilla/5.0 (compatible; kr-reg-change-watch/0.1; +https://github.com/BrightAsh/kr-reg-change-watch)";
 
 export function loadDotEnv(): void {
   for (const file of [".env.local", ".env"]) {
@@ -103,7 +108,7 @@ export async function fetchText(url: string, init: RequestInit = {}): Promise<st
       const response = await fetch(url, {
         ...init,
         headers: {
-          "user-agent": "Mozilla/5.0 (compatible; kr-reg-change-watch/0.1; +https://github.com/BrightAsh/kr-reg-change-watch)",
+          "user-agent": defaultUserAgent,
           accept: "application/json, application/xml, text/xml, text/html;q=0.9, */*;q=0.8",
           "accept-language": "ko-KR,ko;q=0.9,en;q=0.8",
           ...headersObject(init.headers)
@@ -122,7 +127,54 @@ export async function fetchText(url: string, init: RequestInit = {}): Promise<st
     }
   }
 
-  throw new Error(`GET ${url} failed after ${retries} attempt(s): ${lastError instanceof Error ? lastError.message : String(lastError)}`);
+  try {
+    return await fetchTextWithCurl(url, init, timeoutMs, retries);
+  } catch (curlError) {
+    throw new Error(
+      `GET ${url} failed after ${retries} attempt(s): ${
+        lastError instanceof Error ? lastError.message : String(lastError)
+      }; curl fallback failed: ${curlError instanceof Error ? curlError.message : String(curlError)}`
+    );
+  }
+}
+
+async function fetchTextWithCurl(url: string, init: RequestInit, timeoutMs: number, retries: number): Promise<string> {
+  const headers = {
+    accept: "application/json, application/xml, text/xml, text/html;q=0.9, */*;q=0.8",
+    "accept-language": "ko-KR,ko;q=0.9,en;q=0.8",
+    ...headersObject(init.headers)
+  };
+  const curl = process.platform === "win32" ? "curl.exe" : "curl";
+  const args = [
+    "-L",
+    "--http1.1",
+    "--retry",
+    String(retries),
+    "--retry-all-errors",
+    "--max-time",
+    String(Math.ceil(timeoutMs / 1000)),
+    "-sS",
+    "--fail",
+    "-A",
+    defaultUserAgent
+  ];
+  if (process.platform === "win32") args.push("--ssl-no-revoke");
+  for (const [name, value] of Object.entries(headers)) {
+    args.push("-H", `${name}: ${value}`);
+  }
+  args.push(url);
+
+  try {
+    const { stdout } = await execFileAsync(curl, args, {
+      encoding: "utf8",
+      timeout: timeoutMs + 5000,
+      maxBuffer: 25 * 1024 * 1024
+    });
+    return typeof stdout === "string" ? stdout : stdout.toString("utf8");
+  } catch (error) {
+    const code = typeof error === "object" && error && "code" in error ? String((error as { code?: unknown }).code) : "";
+    throw new Error(`curl failed${code ? ` with code ${code}` : ""}`);
+  }
 }
 
 function sleep(ms: number): Promise<void> {

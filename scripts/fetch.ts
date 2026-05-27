@@ -38,6 +38,11 @@ const LAWMAKING_GUIDE =
   "https://opinion.lawmaking.go.kr/api/operationGuide";
 const GWANBO_DATASET =
   "https://www.data.go.kr/data/15109157/openapi.do";
+const LAWMAKING_TARGETS = [
+  { name: "법제처", code: "1170000" },
+  { name: "행정안전부", code: "1741000" },
+  { name: "기획재정부", code: "1051000" }
+];
 
 loadDotEnv();
 
@@ -77,42 +82,49 @@ const MINISTRY_ROUTES: MinistryRoute[] = [
   {
     source: "기획재정부 훈령",
     envName: "MOEF_DIRECTIVE_URL",
-    defaultUrl: "https://www.moef.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100",
+    defaultUrl: "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100",
     ministry: "기획재정부",
     sourceType: "ministry_board"
   },
   {
     source: "기획재정부 예규",
     envName: "MOEF_ESTABLISHED_RULE_URL",
-    defaultUrl: "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100",
+    defaultUrl: "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100",
     ministry: "기획재정부",
     sourceType: "ministry_board"
   },
   {
     source: "기획재정부 고시",
     envName: "MOEF_NOTICE_URL",
-    defaultUrl: "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200",
+    defaultUrl: "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200",
     ministry: "기획재정부",
     sourceType: "ministry_board"
   },
   {
     source: "기획재정부 공고",
     envName: "MOEF_ANNOUNCEMENT_URL",
-    defaultUrl: "https://www.moef.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200",
+    defaultUrl: "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200",
     ministry: "기획재정부",
     sourceType: "legislation_notice"
   },
   {
     source: "기획재정부 지침",
     envName: "MOEF_GUIDELINE_URL",
-    defaultUrl: "https://www.moef.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200",
+    defaultUrl: "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200",
     ministry: "기획재정부",
     sourceType: "ministry_board"
   },
   {
-    source: "기획재정부 입법·행정예고",
+    source: "기획재정부 입법예고",
     envName: "MOEF_LEGISLATION_NOTICE_URL",
-    defaultUrl: "https://www.moef.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300",
+    defaultUrl: "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300",
+    ministry: "기획재정부",
+    sourceType: "legislation_notice"
+  },
+  {
+    source: "기획재정부 행정예고",
+    envName: "MOEF_ADMIN_NOTICE_URL",
+    defaultUrl: "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
     ministry: "기획재정부",
     sourceType: "legislation_notice"
   }
@@ -570,35 +582,60 @@ async function fetchLawmakingNotices(
   label: "입법예고" | "행정예고",
   endpoint: "ogLmPp" | "ptcpAdmPp"
 ): Promise<CollectedItem[]> {
-  const base = env("LAWMAKING_BASE", "http://www.lawmaking.go.kr/rest").replace(/\/$/, "");
   const source = `국민참여입법센터 ${label}`;
-  const url = makeUrl(`${base}/${endpoint}`, {
-    pageIndex: 1,
-    pageSize: 100
-  });
-  let payload: unknown;
-  try {
-    payload = await fetchJsonOrXml(url);
-  } catch (error) {
-    addLog(logs, source, "error", `국민참여입법센터 API 수집 실패: ${messageOf(error)}`, 0, url);
+  const oc = env("LAWMAKING_OC", env("LAW_OPEN_API_OC"));
+  if (!oc) {
+    addLog(logs, source, "skipped", "LAWMAKING_OC 또는 LAW_OPEN_API_OC 미설정으로 국민참여입법센터 API를 건너뜁니다.", 0, LAWMAKING_GUIDE);
     return [];
   }
-  const rows = findRecordRows(payload, [
-    "공고명",
-    "법령안명",
-    "admPpSeq",
-    "lbicId",
-    "mappingLbicId",
-    "mappingAdmRulSeq"
-  ]);
-  const items = rows
-    .map((row) => normalizeLawmakingRow(row, source, label, endpoint, url))
-    .filter((item): item is CollectedItem => Boolean(item && item.publish_date === targetDate));
+  const base = env("LAWMAKING_BASE", "https://www.lawmaking.go.kr/rest").replace(/\/$/, "");
+  const items: CollectedItem[] = [];
+  const errors: string[] = [];
+  const date = dottedDate(targetDate);
+
+  for (const target of LAWMAKING_TARGETS) {
+    const params =
+      endpoint === "ogLmPp"
+        ? { OC: oc, cptOfiOrgCd: target.code, stYdFmt: date, edYdFmt: date }
+        : { OC: oc, asndOfiNm: target.name, stYdFmt: date, edYdFmt: date };
+    const url = makeUrl(`${base}/${endpoint}.xml`, params);
+    try {
+      const payload = await fetchJsonOrXml(url);
+      const retMsg = text(payload, ["retMsg"]);
+      if (retMsg && retMsg !== "00" && retMsg !== "0") {
+        errors.push(`${target.name}: retMsg ${retMsg}`);
+        continue;
+      }
+      const rows = findRecordRows(payload, [
+        "공고명",
+        "법령안명",
+        "입법예고명",
+        "행정예고명",
+        "ogLmPpSeq",
+        "ogAdmPpSeq",
+        "mappingLbicId",
+        "mappingAdmRulSeq",
+        "announceType",
+        "pntcDt",
+        "stYd"
+      ]);
+      items.push(
+        ...rows
+          .map((row) => normalizeLawmakingRow(row, source, label, endpoint, url, oc))
+          .filter((item): item is CollectedItem => Boolean(item && item.publish_date === targetDate))
+      );
+    } catch (error) {
+      errors.push(`${target.name}: ${messageOf(error)}`);
+    }
+  }
+
   addLog(
     logs,
     source,
-    "ok",
-    rows.length ? "국민참여입법센터 공개 LINK API 수집 완료" : "국민참여입법센터 API 응답에서 게시 항목을 찾지 못했습니다.",
+    errors.length ? "error" : "ok",
+    errors.length
+      ? `국민참여입법센터 API 일부 실패: ${errors.join("; ")}`
+      : "국민참여입법센터 공개 XML API 수집 완료",
     items.length,
     LAWMAKING_GUIDE
   );
@@ -871,7 +908,8 @@ function normalizeLawmakingRow(
   source: string,
   label: "입법예고" | "행정예고",
   endpoint: "ogLmPp" | "ptcpAdmPp",
-  endpointUrl: string
+  endpointUrl: string,
+  oc: string
 ): CollectedItem | null {
   const title = text(row, [
     "법령안명",
@@ -881,30 +919,79 @@ function normalizeLawmakingRow(
     "title",
     "lbicNm",
     "admRulNm",
-    "ppNm"
+    "ppNm",
+    "lsNm"
   ]);
   if (!title) return null;
-  const recordId = text(row, ["lbicId", "admPpSeq", "seq", "mappingLbicId", "mappingAdmRulSeq"]);
+  const recordId = text(row, ["ogLmPpSeq", "ogAdmPpSeq", "lbicId", "admPpSeq", "seq"]);
+  const mappingId = text(row, ["mappingLbicId", "mappingAdmRulSeq"]);
+  const announceType = text(row, ["announceType"]);
   const detailUrl = text(row, ["상세URL", "url", "link", "detailUrl"]);
-  const rawText = compactText(JSON.stringify(row));
+  const originalUrl = detailUrl || lawmakingDetailUrl(endpoint, recordId, mappingId, announceType, oc) || endpointUrl;
+  const attachments = collectLawmakingLinks(row, endpointUrl);
+  const rawText = compactText(
+    [
+      title,
+      text(row, ["lmPpCts", "admPpCts", "입법예고내용", "행정예고내용"]),
+      JSON.stringify(row)
+    ].join(" ")
+  );
   return makeItem({
     source,
     source_type: "legislation_notice",
-    ministry: text(row, ["소관부처", "소관부처명", "부처명", "ministry", "deptNm"]) || "미상",
-    document_type: endpoint === "ogLmPp" ? inferDocumentType(title) : "announcement",
+    ministry: text(row, ["소관부처", "소관부처명", "부처명", "ministry", "deptNm", "asndOfiNm", "cptOfiOrgNm"]) || "미상",
+    document_type: inferDocumentType(`${text(row, ["lsClsNm", "lmTpNm"])} ${title}`),
     title,
-    issue_number: text(row, ["공고번호", "공포번호", "noticeNo"]) || null,
+    issue_number: text(row, ["공고번호", "공포번호", "noticeNo", "pntcNo"]) || null,
     publish_date:
-      normalizeDate(text(row, ["공고일자", "예고시작일자", "시작일자", "stYdFmt", "pubDate"])) || targetDate,
-    effective_date: normalizeDate(text(row, ["시행일자", "예고종료일자", "종료일자", "edYdFmt"])),
+      normalizeDate(text(row, ["공고일자", "예고시작일자", "시작일자", "stYdFmt", "pubDate", "pntcDt", "stYd"])) ||
+      targetDate,
+    effective_date: normalizeDate(text(row, ["시행일자", "예고종료일자", "종료일자", "edYdFmt", "edYd"])),
     change_type: "notice",
-    original_url: detailUrl || endpointUrl,
+    original_url: originalUrl,
+    attachment_urls: attachments,
     raw_text: rawText,
     raw_hash: hashText(rawText),
     confidence: "official_notice",
-    source_record_id: recordId || null,
-    verification_required: !detailUrl
+    source_record_id: [recordId, mappingId, announceType].filter(Boolean).join(":") || null,
+    verification_required: !originalUrl
   });
+}
+
+function dottedDate(date: string): string {
+  const [year, month, day] = date.split("-");
+  return `${year}.${Number(month)}.${Number(day)}.`;
+}
+
+function lawmakingDetailUrl(
+  endpoint: "ogLmPp" | "ptcpAdmPp",
+  recordId: string,
+  mappingId: string,
+  announceType: string,
+  oc: string
+): string {
+  if (!recordId || !mappingId || !announceType) return "";
+  return makeUrl(`https://www.lawmaking.go.kr/rest/${endpoint}/${recordId}/${mappingId}/${announceType}.html`, { OC: oc });
+}
+
+function collectLawmakingLinks(row: AnyRecord, baseUrl: string): string[] {
+  const links: string[] = [];
+  walk(row, (node) => {
+    if (!isRecord(node)) return;
+    for (const [key, child] of Object.entries(node)) {
+      if (!/(FileDownLink|FileDownUrl|fileDownUrl|다운로드|첨부|파일|link|url)/i.test(key)) continue;
+      for (const candidate of asArray(child as string | string[])) {
+        const raw = compactText(candidate);
+        if (!raw || raw === baseUrl) continue;
+        try {
+          links.push(new URL(raw, baseUrl).toString());
+        } catch {
+          // Ignore malformed attachment hints from XML rows.
+        }
+      }
+    }
+  });
+  return [...new Set(links)];
 }
 
 async function parseBoardRows(
@@ -915,13 +1002,13 @@ async function parseBoardRows(
 ): Promise<CollectedItem[]> {
   const rows: CollectedItem[] = [];
   const seenUrls = new Set<string>();
-  const anchors = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)];
+  const anchors = extractBoardLinkCandidates(html, listUrl, route);
 
-  for (const match of anchors) {
-    const rawHref = decodeHtml(match[1]);
+  for (const anchor of anchors) {
+    const rawHref = decodeHtml(anchor.href);
     if (!isAllowedBoardHrefForRoute(route, rawHref)) continue;
 
-    const title = cleanBoardTitle(htmlToText(match[2]), route);
+    const title = cleanBoardTitle(htmlToText(anchor.label), route);
     if (!isLikelyBoardTitle(title, rawHref)) continue;
 
     let absoluteUrl = "";
@@ -934,8 +1021,7 @@ async function parseBoardRows(
     if (seenUrls.has(absoluteUrl)) continue;
     seenUrls.add(absoluteUrl);
 
-    const matchIndex = match.index ?? 0;
-    const context = html.slice(Math.max(0, matchIndex - 900), Math.min(html.length, matchIndex + match[0].length + 1200));
+    const context = html.slice(Math.max(0, anchor.index - 900), Math.min(html.length, anchor.index + anchor.html.length + 1200));
     let detailHtml = "";
     try {
       detailHtml = await fetchText(absoluteUrl);
@@ -968,11 +1054,95 @@ async function parseBoardRows(
         raw_text: rawText,
         raw_hash: hashText(rawText),
         confidence: "official_notice",
-        verification_required: false
+        verification_required: false,
+        source_record_id: anchor.recordId || null
       })
     );
   }
   return rows;
+}
+
+interface BoardLinkCandidate {
+  href: string;
+  label: string;
+  html: string;
+  index: number;
+  recordId?: string;
+}
+
+function extractBoardLinkCandidates(html: string, listUrl: string, route: MinistryRoute): BoardLinkCandidate[] {
+  const candidates: BoardLinkCandidate[] = [];
+  for (const match of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
+    candidates.push({
+      href: match[1],
+      label: match[2],
+      html: match[0],
+      index: match.index ?? 0
+    });
+  }
+  candidates.push(...extractMoisOnclickCandidates(html));
+  candidates.push(...extractMoefJavascriptCandidates(html, listUrl, route));
+  return candidates;
+}
+
+function extractMoisOnclickCandidates(html: string): BoardLinkCandidate[] {
+  const candidates: BoardLinkCandidate[] = [];
+  const pattern =
+    /<a\b[^>]*onclick=["'][^"']*fn_egov_inqire_notice\('([^']+)'\s*,\s*'([^']+)'\)[^"']*["'][^>]*>([\s\S]*?)<\/a>/gi;
+  for (const match of html.matchAll(pattern)) {
+    const nttId = match[1];
+    const bbsId = match[2];
+    candidates.push({
+      href: `/frt/bbs/type001/commonSelectBoardArticle.do?bbsId=${encodeURIComponent(bbsId)}&nttId=${encodeURIComponent(nttId)}`,
+      label: match[3],
+      html: match[0],
+      index: match.index ?? 0,
+      recordId: `${bbsId}:${nttId}`
+    });
+  }
+  return candidates;
+}
+
+function extractMoefJavascriptCandidates(html: string, listUrl: string, route: MinistryRoute): BoardLinkCandidate[] {
+  if (!isMoefRoute(route)) return [];
+  const candidates: BoardLinkCandidate[] = [];
+  const detailPath = moefDetailPath(route);
+  if (!detailPath) return [];
+  const bbsId = urlSearchParam(listUrl, "bbsId") || urlSearchParam(route.defaultUrl, "bbsId");
+  const menuNo = urlSearchParam(listUrl, "menuNo") || urlSearchParam(route.defaultUrl, "menuNo");
+  if (!bbsId || !menuNo) return [];
+
+  const pattern = /<a\b[^>]*href=['"]javascript:fn_egov_select\(["']([^"']+)["']\);?['"][^>]*>([\s\S]*?)<\/a>/gi;
+  for (const match of html.matchAll(pattern)) {
+    const recordId = match[1];
+    const params =
+      detailPath.includes("/lw/lap/")
+        ? { bbsId, searchNttId1: recordId, menuNo }
+        : { searchBbsId1: bbsId, searchNttId1: recordId, menuNo };
+    candidates.push({
+      href: makeUrl(detailPath, params),
+      label: match[2],
+      html: match[0],
+      index: match.index ?? 0,
+      recordId: `${bbsId}:${recordId}`
+    });
+  }
+  return candidates;
+}
+
+function moefDetailPath(route: MinistryRoute): string {
+  if (route.defaultUrl.includes("/lw/lap/")) return "https://mofe.go.kr/lw/lap/detailTbPrvntcView.do";
+  if (route.defaultUrl.includes("/lw/pblanc/")) return "https://mofe.go.kr/lw/pblanc/detailTbPblancView.do";
+  if (route.defaultUrl.includes("/lw/denm/")) return "https://mofe.go.kr/lw/denm/detailTbDenmView.do";
+  return "";
+}
+
+function urlSearchParam(url: string, name: string): string {
+  try {
+    return new URL(url).searchParams.get(name) || "";
+  } catch {
+    return "";
+  }
 }
 
 function withPage(url: string, page: number): string {

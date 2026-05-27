@@ -62,7 +62,7 @@ export function filterItems(items: CollectedItem[], filters: ItemFilters): Colle
     if (filters.sourceType && item.source_type !== filters.sourceType) return false;
     if (filters.documentType && item.document_type !== filters.documentType) return false;
     if (filters.changeType && item.change_type !== filters.changeType) return false;
-    if (filters.date && item.publish_date !== filters.date) return false;
+    if (filters.date && (item.collection_date || item.publish_date) !== filters.date) return false;
     if (!query) return true;
     return [
       item.title,
@@ -86,9 +86,11 @@ export function uniqueSorted(values: Array<string | null | undefined>): string[]
 
 export function sortItems(items: CollectedItem[]): CollectedItem[] {
   return [...items].sort((a, b) => {
-    const dateA = a.publish_date ?? "";
-    const dateB = b.publish_date ?? "";
+    const dateA = a.collection_date || a.publish_date || "";
+    const dateB = b.collection_date || b.publish_date || "";
     if (dateA !== dateB) return dateB.localeCompare(dateA);
+    const published = (b.publish_date || "").localeCompare(a.publish_date || "");
+    if (published !== 0) return published;
     return a.title.localeCompare(b.title, "ko");
   });
 }

@@ -1,11 +1,6 @@
 name: Backfill May 2026
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/backfill-may-2026.yml"
   workflow_dispatch:
 
 env:
@@ -18,7 +13,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   backfill:
@@ -32,7 +27,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
-      LAWMAKING_BASE: http://www.lawmaking.go.kr/rest
+      LAWMAKING_OC: ${{ secrets.LAWMAKING_OC || secrets.LAW_OPEN_API_OC }}
+      LAWMAKING_BASE: https://www.lawmaking.go.kr/rest
       GWANBO_LIST_URL: ${{ secrets.GWANBO_LIST_URL }}
       DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
       NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}

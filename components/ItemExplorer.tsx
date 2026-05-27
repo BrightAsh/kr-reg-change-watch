@@ -345,7 +345,7 @@ export default function ItemExplorer({
 function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPrefix: string }) {
   const detailHref = `${detailHrefPrefix.replace(/\/$/, "")}/${encodeURIComponent(item.id)}`;
   const category = item.category || itemCategory(item);
-  const historyLines = extractHistoryLines(item.raw_text).slice(0, 3);
+  const evidenceLines = extractEvidenceLines(item.raw_text).slice(0, 3);
 
   return (
     <article className={`item-card category-${category}`}>
@@ -363,9 +363,9 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
           <Link href={detailHref}>{item.title}</Link>
         </h2>
         <p>{item.summary || "요약 전입니다. 원문 링크와 메타데이터를 먼저 확인하세요."}</p>
-        {historyLines.length ? (
-          <ul className="item-evidence" aria-label="최근 연혁">
-            {historyLines.map((line) => (
+        {evidenceLines.length ? (
+          <ul className="item-evidence" aria-label="수집 근거">
+            {evidenceLines.map((line) => (
               <li key={line}>{line}</li>
             ))}
           </ul>
@@ -405,12 +405,24 @@ function compactOutput(value: unknown): string {
   return String(value || "").replace(/\s+/g, " ").trim();
 }
 
-function extractHistoryLines(value: string): string[] {
+function extractEvidenceLines(value: string): string[] {
   const lines = value
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean);
-  const start = lines.indexOf("최근 연혁");
+  return [
+    ...extractSectionLines(lines, "최근 연혁").filter((line) => line.startsWith("공포 ")),
+    ...extractSectionLines(lines, "변경 조문")
+  ];
+}
+
+function extractSectionLines(lines: string[], heading: string): string[] {
+  const start = lines.indexOf(heading);
   if (start === -1) return [];
-  return lines.slice(start + 1).filter((line) => line.startsWith("공포 "));
+  const output: string[] = [];
+  for (const line of lines.slice(start + 1)) {
+    if (/^(전체 연혁|원자료 JSON|첨부|최근 연혁|변경 조문)$/.test(line)) break;
+    output.push(line);
+  }
+  return output;
 }

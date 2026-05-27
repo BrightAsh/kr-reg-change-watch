@@ -589,7 +589,8 @@
 
       let selectedDate = "";
       let selectedCategory = "all";
-      const dates = [...new Set(items.map((item) => item.publish_date))].sort().reverse();
+      const itemDate = (item) => item.collection_date || item.publish_date || "";
+      const dates = [...new Set(items.map(itemDate).filter(Boolean))].sort().reverse();
 
       const controls = {
         q: document.getElementById("q"),
@@ -618,7 +619,7 @@
         const q = controls.q.value.trim().toLowerCase();
         return items.filter((item) => {
           if (selectedCategory !== "all" && item.category !== selectedCategory) return false;
-          if (selectedDate && item.publish_date !== selectedDate) return false;
+          if (selectedDate && itemDate(item) !== selectedDate) return false;
           if (controls.ministry.value && item.ministry !== controls.ministry.value) return false;
           if (controls.source.value && item.source_type !== controls.source.value) return false;
           if (controls.doc.value && item.document_type !== controls.doc.value) return false;
@@ -652,8 +653,9 @@
       }
 
       function renderTabs() {
-        const counts = { all: items.length, law: 0, notice: 0, guideline: 0, news: 0 };
-        items.forEach((item) => (counts[item.category] += 1));
+        const scoped = selectedDate ? items.filter((item) => itemDate(item) === selectedDate) : items;
+        const counts = { all: scoped.length, law: 0, notice: 0, guideline: 0, news: 0 };
+        scoped.forEach((item) => (counts[item.category] += 1));
         document.getElementById("tabs").innerHTML = Object.keys(labels.category)
           .map(
             (key) =>
@@ -697,7 +699,7 @@
                   <div class="meta">${meta(item)}</div>
                   <h2><button data-id="${esc(item.id)}">${esc(item.title)}</button></h2>
                   <p>${esc(item.summary)}</p>
-                  <div class="foot"><span>${esc(item.ministry)}</span><span>${esc(item.issue_number || "문서번호 없음")}</span><span>공표 ${esc(item.publish_date)}</span><span>시행 ${esc(item.effective_date || "-")}</span></div>
+                  <div class="foot"><span>${esc(item.ministry)}</span><span>${esc(item.issue_number || "문서번호 없음")}</span><span>기준 ${esc(itemDate(item))}</span><span>공표 ${esc(item.publish_date)}</span><span>시행 ${esc(item.effective_date || "-")}</span></div>
                 </div>
                 <div class="actions"><a href="${esc(item.original_url)}" target="_blank" rel="noreferrer">원문</a><button data-id="${esc(item.id)}">상세</button></div>
               </article>`
@@ -720,6 +722,7 @@
             <dl class="grid">
               <div><dt>기관</dt><dd>${esc(item.ministry)}</dd></div>
               <div><dt>문서번호</dt><dd>${esc(item.issue_number || "-")}</dd></div>
+              <div><dt>수집 기준일</dt><dd>${esc(itemDate(item) || "-")}</dd></div>
               <div><dt>공표일</dt><dd>${esc(item.publish_date || "-")}</dd></div>
               <div><dt>시행일</dt><dd>${esc(item.effective_date || "-")}</dd></div>
               <div><dt>출처</dt><dd>${esc(labels.source[item.source_type])}</dd></div>

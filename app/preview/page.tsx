@@ -6,7 +6,7 @@ export default function PreviewPage() {
   const items = sortItems(previewItems);
   const stats = getStats(items);
   const ministries = uniqueSorted(items.map((item) => item.ministry));
-  const dates = uniqueSorted(items.map((item) => item.publish_date)).reverse();
+  const dates = uniqueSorted(items.map((item) => item.collection_date || item.publish_date)).reverse();
 
   return (
     <main className="page-shell">

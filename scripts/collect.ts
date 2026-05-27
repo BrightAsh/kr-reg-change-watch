@@ -8,7 +8,7 @@ const forceArgs = args.force ? ["--force"] : [];
 const tsx = path.join(rootDir, "node_modules", ".bin", process.platform === "win32" ? "tsx.cmd" : "tsx");
 
 run("fetch", ["scripts/fetch.ts", ...dateArgs, ...forceArgs]);
-run("diff", ["scripts/diff.ts"]);
+run("diff", ["scripts/diff.ts", ...dateArgs]);
 run("summarize", ["scripts/summarize.ts", ...dateArgs]);
 
 function run(label: string, commandArgs: string[]): void {

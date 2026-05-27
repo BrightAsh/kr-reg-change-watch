@@ -11,7 +11,7 @@ interface Props {
 
 export default function ItemDetailView({ item, backHref, backLabel = "목록으로" }: Props) {
   const category = item.category || itemCategory(item);
-  const historyLines = extractHistoryLines(item.raw_text);
+  const evidenceLines = extractEvidenceLines(item.raw_text);
 
   return (
     <main className="page-shell detail-shell">
@@ -78,11 +78,11 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
           </section>
         ) : null}
 
-        {historyLines.length ? (
+        {evidenceLines.length ? (
           <section className="detail-section">
-            <h2>최근 연혁</h2>
+            <h2>수집 근거</h2>
             <ul className="history-list">
-              {historyLines.slice(0, 12).map((line) => (
+              {evidenceLines.slice(0, 12).map((line) => (
                 <li key={line}>{line}</li>
               ))}
             </ul>
@@ -113,12 +113,24 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
   );
 }
 
-function extractHistoryLines(value: string): string[] {
+function extractEvidenceLines(value: string): string[] {
   const lines = value
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean);
-  const start = lines.indexOf("최근 연혁");
+  return [
+    ...extractSectionLines(lines, "최근 연혁").filter((line) => line.startsWith("공포 ")),
+    ...extractSectionLines(lines, "변경 조문")
+  ];
+}
+
+function extractSectionLines(lines: string[], heading: string): string[] {
+  const start = lines.indexOf(heading);
   if (start === -1) return [];
-  return lines.slice(start + 1).filter((line) => line.startsWith("공포 "));
+  const output: string[] = [];
+  for (const line of lines.slice(start + 1)) {
+    if (/^(전체 연혁|원자료 JSON|첨부|최근 연혁|변경 조문)$/.test(line)) break;
+    output.push(line);
+  }
+  return output;
 }

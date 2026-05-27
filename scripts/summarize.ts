@@ -29,9 +29,9 @@ async function main() {
     const summary = await buildGroundedSummary(item);
     const summaryWasGenerated = Boolean(openAiKey) || summary !== item.summary;
     const diffSummary = changedIds.has(item.id)
-      ? "어제 스냅샷과 raw_hash가 달라 원문 내용 변경 가능성이 있습니다. 상세 원문을 확인하세요."
+      ? item.diff_summary || "이전 스냅샷과 raw_hash가 달라 원문 내용 변경 가능성이 있습니다. 상세 원문을 확인하세요."
       : addedIds.has(item.id)
-        ? "이번 스냅샷에 새로 나타난 항목입니다."
+        ? item.diff_summary || "이번 스냅샷에 새로 나타난 항목입니다."
         : item.diff_summary;
 
     summarized.push({
