@@ -1204,6 +1204,7 @@ function isLikelyBoardTitle(title: string, href: string): boolean {
 }
 
 function isAllowedBoardHrefForRoute(route: MinistryRoute, href: string): boolean {
+  if (isMoisRoute(route)) return /\/frt\/bbs\/type001\/commonSelectBoardArticle\.do/i.test(href);
   if (!isMoefRoute(route)) return true;
   if (route.defaultUrl.includes("/lw/lap/")) return /\/lw\/lap\/detailTbPrvntcView\.do/i.test(href);
   if (route.defaultUrl.includes("/lw/pblanc/")) return /\/lw\/pblanc\/detailTbPblanc/i.test(href);
@@ -1216,6 +1217,10 @@ function isAllowedBoardHrefForRoute(route: MinistryRoute, href: string): boolean
 
 function isMoefRoute(route: MinistryRoute): boolean {
   return /moef\.go\.kr|mofe\.go\.kr/i.test(route.defaultUrl);
+}
+
+function isMoisRoute(route: MinistryRoute): boolean {
+  return /mois\.go\.kr/i.test(route.defaultUrl);
 }
 
 function cleanBoardTitle(title: string, route: MinistryRoute): string {
