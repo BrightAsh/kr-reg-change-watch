@@ -331,11 +331,37 @@
         color: #fff;
       }
       .search-field {
-        display: grid;
-        gap: 7px;
+        position: relative;
+        display: block;
         min-width: 0;
       }
-      .search-field span, .modal label span {
+      .search-field input {
+        padding-left: 40px;
+      }
+      .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 14px;
+        width: 15px;
+        height: 15px;
+        border: 2px solid var(--muted);
+        border-radius: 999px;
+        opacity: 0.72;
+        pointer-events: none;
+        transform: translateY(-50%);
+      }
+      .search-icon::after {
+        position: absolute;
+        right: -6px;
+        bottom: -3px;
+        width: 7px;
+        height: 2px;
+        border-radius: 999px;
+        background: var(--muted);
+        content: "";
+        transform: rotate(45deg);
+      }
+      .modal label span {
         color: var(--muted);
         font-size: 12px;
         font-weight: 800;
@@ -712,7 +738,7 @@
             <button class="filter-trigger ${filters[key].length ? "active" : ""}" type="button" data-filter="${key}"><span>${label}</span><strong>${filters[key].length || ""}</strong></button>
             ${activeFilter === key ? renderPopover(key, label) : ""}
           </div>`).join("") + `
-          <label class="search-field"><span>검색</span><input id="searchInput" value="${esc(query)}" placeholder="제목, 본문, 기관, 문서번호 검색" /></label>`;
+          <label class="search-field"><span class="search-icon" aria-hidden="true"></span><input id="searchInput" aria-label="검색" value="${esc(query)}" placeholder="제목, 본문, 기관, 문서번호" /></label>`;
         document.querySelectorAll("[data-filter]").forEach((button) => button.addEventListener("click", () => {
           const key = button.getAttribute("data-filter");
           activeFilter = activeFilter === key ? null : key;

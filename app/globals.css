@@ -478,19 +478,52 @@ p {
   color: var(--ink-soft);
 }
 
-.search-field,
 .field-label {
   display: grid;
   gap: 7px;
   min-width: 0;
 }
 
-.search-field span,
 .field-label span,
 .modal-head span {
   color: var(--muted);
   font-size: 12px;
   font-weight: 800;
+}
+
+.search-field {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.search-field input {
+  padding-left: 40px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--muted);
+  border-radius: 999px;
+  opacity: 0.72;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.search-icon::after {
+  position: absolute;
+  right: -6px;
+  bottom: -3px;
+  width: 7px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--muted);
+  content: "";
+  transform: rotate(45deg);
 }
 
 input,

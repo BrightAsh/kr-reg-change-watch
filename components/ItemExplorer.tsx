@@ -350,11 +350,12 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           ))}
 
           <label className="search-field">
-            <span>검색</span>
+            <span className="search-icon" aria-hidden="true" />
             <input
+              aria-label="검색"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="제목, 본문, 기관, 문서번호 검색"
+              placeholder="제목, 본문, 기관, 문서번호"
             />
           </label>
         </section>
