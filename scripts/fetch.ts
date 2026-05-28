@@ -51,6 +51,8 @@ const lookback = Number(env("FETCH_LOOKBACK_DAYS", "1"));
 const targetDate = String(args.date || dateDaysAgo(Number.isFinite(lookback) ? lookback : 1));
 const maxPages = Number(env("FETCH_MAX_PAGES", "5"));
 const detailLimit = Number(env("FETCH_DETAIL_LIMIT", "30"));
+const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "25")) || 25;
+const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 12000;
 const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
 const itemsPath = path.join(rootDir, "data", "items.json");
 const runPath = path.join(rootDir, "data", "run.json");
@@ -228,9 +230,10 @@ async function fetchLawChangeHistory(logs: CollectionLog[]): Promise<CollectedIt
   const source = "국가법령정보센터 법령 변경이력";
   const rows = await fetchLawSearch(logs, source, "lsHstInf", { regDt: yyyymmdd(targetDate) });
   const items = groupLawChangeHistoryRows(source, rows);
+  const enriched = await enrichLawItemsWithRevisionText(items, logs, source);
   const suffix = rows.length === items.length ? "" : ` 원자료 ${rows.length}행을 법령 단위 ${items.length}건으로 묶었습니다.`;
-  addLog(logs, source, "ok", `법제처 공식 법령 변경이력 API 수집 완료.${suffix}`, items.length, OFFICIAL_LAW_GUIDE);
-  return items;
+  addLog(logs, source, "ok", `법제처 공식 법령 변경이력 API 수집 완료.${suffix}`, enriched.length, OFFICIAL_LAW_GUIDE);
+  return enriched;
 }
 
 function groupLawChangeHistoryRows(source: string, rows: AnyRecord[]): CollectedItem[] {
@@ -336,9 +339,10 @@ async function fetchArticleChanges(logs: CollectionLog[]): Promise<CollectedItem
   const source = "국가법령정보센터 일자별 조문 개정 이력";
   const rows = await fetchLawSearch(logs, source, "lsJoHstInf", { regDt: yyyymmdd(targetDate) });
   const items = groupArticleChangeRows(source, rows);
+  const enriched = await enrichLawItemsWithRevisionText(items, logs, source);
   const suffix = rows.length === items.length ? "" : ` 원자료 ${rows.length}행을 법령 단위 ${items.length}건으로 묶었습니다.`;
-  addLog(logs, source, "ok", `법제처 공식 일자별 조문 개정 이력 API 수집 완료.${suffix}`, items.length, OFFICIAL_LAW_GUIDE);
-  return items;
+  addLog(logs, source, "ok", `법제처 공식 일자별 조문 개정 이력 API 수집 완료.${suffix}`, enriched.length, OFFICIAL_LAW_GUIDE);
+  return enriched;
 }
 
 function groupArticleChangeRows(source: string, rows: AnyRecord[]): CollectedItem[] {
@@ -855,15 +859,119 @@ async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
   return items;
 }
 
+async function enrichLawItemsWithRevisionText(
+  items: CollectedItem[],
+  logs: CollectionLog[],
+  source: string
+): Promise<CollectedItem[]> {
+  if (!items.length || lawTextDetailLimit <= 0) return items;
+
+  const output: CollectedItem[] = [];
+  let enrichedCount = 0;
+  let failedCount = 0;
+
+  for (const [index, item] of items.entries()) {
+    if (index >= lawTextDetailLimit) {
+      output.push(item);
+      continue;
+    }
+
+    try {
+      const revisionText = await fetchLawRevisionText(item);
+      if (!revisionText) {
+        output.push(item);
+        continue;
+      }
+      const rawText = `${item.raw_text}\n\n${revisionText}`;
+      output.push({
+        ...item,
+        raw_text: rawText,
+        raw_hash: hashText(rawText),
+        diff_summary:
+          item.diff_summary?.replace(
+            "원문 버튼에서 법제처 법령 본문을 확인할 수 있습니다.",
+            "아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다."
+          ) || item.diff_summary
+      });
+      enrichedCount += 1;
+    } catch (error) {
+      failedCount += 1;
+      output.push(item);
+      if (failedCount <= 3) {
+        addLog(logs, `${source} 본문 보강`, "error", `${item.title} 본문 보강 실패: ${messageOf(error)}`, 0, item.original_url);
+      }
+    }
+  }
+
+  if (enrichedCount) {
+    addLog(
+      logs,
+      `${source} 본문 보강`,
+      "ok",
+      `법제처 lawService API로 개정문/제개정이유 ${enrichedCount.toLocaleString("ko-KR")}건을 보강했습니다.`,
+      enrichedCount,
+      OFFICIAL_LAW_GUIDE
+    );
+  }
+  if (failedCount > 3) {
+    addLog(logs, `${source} 본문 보강`, "error", `본문 보강 실패 ${failedCount.toLocaleString("ko-KR")}건`, failedCount);
+  }
+  return output;
+}
+
+async function fetchLawRevisionText(item: CollectedItem): Promise<string | null> {
+  const params = lawServiceParamsFromItem(item);
+  if (!params) return null;
+
+  const detail = await fetchLawService("law", params);
+  const amendment = cleanCollectedBody(text(detail, ["개정문내용", "개정문"]));
+  const reason = cleanCollectedBody(text(detail, ["제개정이유내용", "제개정이유"]));
+  const mainText = cleanCollectedBody(text(detail, ["조문내용", "법령내용", "본문"]));
+  const sections = [
+    ["개정문", amendment],
+    ["제개정 이유", reason],
+    ["법령 본문", amendment || reason ? "" : mainText]
+  ]
+    .filter(([, value]) => value)
+    .map(([label, value]) => `${label}\n${limitCollectedBody(value)}`);
+
+  return sections.length ? sections.join("\n\n") : null;
+}
+
+function lawServiceParamsFromItem(item: CollectedItem): Record<string, string> | null {
+  try {
+    const parsed = new URL(item.original_url);
+    const mst = urlParamInsensitive(parsed, "MST");
+    if (!mst) return null;
+    const effective = urlParamInsensitive(parsed, "efYd") || yyyymmdd(item.effective_date || item.publish_date || targetDate);
+    return { MST: mst, efYd: effective };
+  } catch {
+    return null;
+  }
+}
+
+function cleanCollectedBody(value: string): string {
+  return compactText(value)
+    .replace(/\s*\[\s*/g, " ")
+    .replace(/\s*\]\s*/g, " ")
+    .replace(/\s*,\s*/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function limitCollectedBody(value: string): string {
+  return value.length > lawTextMaxChars ? `${value.slice(0, lawTextMaxChars).trim()}\n...` : value;
+}
+
 async function fetchLawSearch(
   logs: CollectionLog[],
   source: string,
   target: string,
   extraParams: Record<string, string | number>
 ): Promise<AnyRecord[]> {
-  const oc = env("LAW_OPEN_API_OC");
+  const oc = lawOpenApiOc();
   if (!oc) {
-    addLog(logs, source, "skipped", "LAW_OPEN_API_OC 미설정으로 법제처 API 수집을 건너뜁니다.", 0, OFFICIAL_LAW_GUIDE);
+    addLog(logs, source, "skipped", "LAW_OPEN_API_OC/LAW_OC/KOREAN_LAW_API_KEY 미설정으로 법제처 API 수집을 건너뜁니다.", 0, OFFICIAL_LAW_GUIDE);
     return [];
   }
   const base = `${env("LAW_OPEN_API_BASE", "https://www.law.go.kr/DRF").replace(/\/$/, "")}/lawSearch.do`;
@@ -894,8 +1002,8 @@ async function fetchLawSearch(
 }
 
 async function fetchLawService(target: string, params: Record<string, string>): Promise<AnyRecord> {
-  const oc = env("LAW_OPEN_API_OC");
-  if (!oc) throw new Error("LAW_OPEN_API_OC is required");
+  const oc = lawOpenApiOc();
+  if (!oc) throw new Error("LAW_OPEN_API_OC, LAW_OC, or KOREAN_LAW_API_KEY is required");
   const base = `${env("LAW_OPEN_API_BASE", "https://www.law.go.kr/DRF").replace(/\/$/, "")}/lawService.do`;
   const url = makeUrl(base, {
     OC: oc,
@@ -905,6 +1013,10 @@ async function fetchLawService(target: string, params: Record<string, string>): 
   });
   const payload = await fetchJsonOrXml(url);
   return (payload && typeof payload === "object" ? payload : {}) as AnyRecord;
+}
+
+function lawOpenApiOc(): string {
+  return env("LAW_OPEN_API_OC") || env("LAW_OC") || env("KOREAN_LAW_API_KEY");
 }
 
 function normalizeLawmakingRow(

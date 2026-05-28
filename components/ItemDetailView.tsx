@@ -15,7 +15,18 @@ interface ReadableSection {
   lines: string[];
 }
 
-const sectionHeadings = new Set(["최근 연혁", "전체 연혁", "변경 조문", "법령 본문", "본문", "수집 본문", "추가 근거", "첨부"]);
+const sectionHeadings = new Set([
+  "최근 연혁",
+  "전체 연혁",
+  "변경 조문",
+  "개정문",
+  "제개정 이유",
+  "법령 본문",
+  "본문",
+  "수집 본문",
+  "추가 근거",
+  "첨부"
+]);
 
 export default function ItemDetailView({ item, backHref, backLabel = "목록으로" }: Props) {
   const category = item.category || itemCategory(item);

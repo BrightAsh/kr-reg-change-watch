@@ -22,6 +22,7 @@ const xmlParser = new XMLParser({
 });
 const execFileAsync = promisify(execFile);
 const defaultUserAgent =
+  env("LAW_USER_AGENT") ||
   "Mozilla/5.0 (compatible; kr-reg-change-watch/0.1; +https://github.com/BrightAsh/kr-reg-change-watch)";
 
 export function loadDotEnv(): void {

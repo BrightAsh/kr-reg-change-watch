@@ -44,6 +44,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
+      LAW_OC: ${{ secrets.LAW_OC }}
+      KOREAN_LAW_API_KEY: ${{ secrets.KOREAN_LAW_API_KEY }}
       LAWMAKING_OC: ${{ secrets.LAWMAKING_OC || secrets.LAW_OPEN_API_OC }}
       LAWMAKING_BASE: https://www.lawmaking.go.kr/rest
       GWANBO_LIST_URL: ${{ secrets.GWANBO_LIST_URL }}
