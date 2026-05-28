@@ -1642,7 +1642,8 @@ function valueToString(value: unknown): string {
   if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") return String(value);
   if (Array.isArray(value)) return value.map(valueToString).join(" ");
   if (isRecord(value) && typeof value["#text"] === "string") return value["#text"];
-  return JSON.stringify(value);
+  if (isRecord(value)) return Object.values(value).map(valueToString).join(" ");
+  return "";
 }
 
 function normalizeKey(value: string): string {
