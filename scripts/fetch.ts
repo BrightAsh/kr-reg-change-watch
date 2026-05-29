@@ -53,7 +53,7 @@ const maxPages = Number(env("FETCH_MAX_PAGES", "5"));
 const detailLimit = Number(env("FETCH_DETAIL_LIMIT", "30"));
 const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "500")) || 500;
 const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 12000;
-const lawRevisionTextCache = new Map<string, string | null>();
+const lawRevisionTextCache = new Map<string, LawRevisionDetails | null>();
 const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
 const itemsPath = path.join(rootDir, "data", "items.json");
 const runPath = path.join(rootDir, "data", "run.json");
@@ -69,6 +69,11 @@ interface MinistryRoute {
 
 type LawmakingEndpoint = "ogLmPp" | "ogLmPpMod" | "ptcpAdmPp";
 type LawmakingLabel = "입법예고" | "입법예고(수정일 기준)" | "행정예고";
+
+interface LawRevisionDetails {
+  text: string;
+  attachmentUrls: string[];
+}
 
 const MINISTRY_ROUTES: MinistryRoute[] = [
   {
@@ -900,16 +905,17 @@ async function enrichLawItemsWithRevisionText(
     }
 
     try {
-      const revisionText = await fetchLawRevisionText(item);
-      if (!revisionText) {
+      const revision = await fetchLawRevisionText(item);
+      if (!revision?.text) {
         output.push(item);
         continue;
       }
-      const rawText = `${item.raw_text}\n\n${revisionText}`;
+      const rawText = `${item.raw_text}\n\n${revision.text}`;
       output.push({
         ...item,
         raw_text: rawText,
         raw_hash: hashText(rawText),
+        attachment_urls: [...new Set([...(item.attachment_urls || []), ...revision.attachmentUrls])],
         diff_summary:
           item.diff_summary?.replace(
             "원문 버튼에서 법제처 법령 본문을 확인할 수 있습니다.",
@@ -942,7 +948,7 @@ async function enrichLawItemsWithRevisionText(
   return output;
 }
 
-async function fetchLawRevisionText(item: CollectedItem): Promise<string | null> {
+async function fetchLawRevisionText(item: CollectedItem): Promise<LawRevisionDetails | null> {
   const params = lawServiceParamsFromItem(item);
   if (!params) return null;
 
@@ -950,18 +956,19 @@ async function fetchLawRevisionText(item: CollectedItem): Promise<string | null>
   if (lawRevisionTextCache.has(cacheKey)) return lawRevisionTextCache.get(cacheKey) || null;
 
   const detail = await fetchLawService("law", params);
-  const amendment = collectedBodyText(detail, ["개정문내용", "개정문"]);
-  const reason = collectedBodyText(detail, ["제개정이유내용", "제개정이유"]);
-  const mainText = collectedBodyText(detail, ["조문내용", "법령내용", "본문"]);
+  const amendment = collectedBodyPart(detail, ["개정문내용", "개정문"]);
+  const reason = collectedBodyPart(detail, ["제개정이유내용", "제개정이유"]);
+  const mainText = collectedBodyPart(detail, ["조문내용", "법령내용", "본문"]);
   const sections = [
-    ["개정문", amendment],
-    ["제개정 이유", reason],
-    ["법령 본문", amendment || reason ? "" : mainText]
+    ["개정문", amendment.text],
+    ["제개정 이유", reason.text],
+    ["법령 본문", amendment.text || reason.text ? "" : mainText.text]
   ]
     .filter(([, value]) => value)
     .map(([label, value]) => `${label}\n${limitCollectedBody(value)}`);
 
-  const result = sections.length ? sections.join("\n\n") : null;
+  const attachmentUrls = [...new Set([...amendment.attachmentUrls, ...reason.attachmentUrls, ...mainText.attachmentUrls])];
+  const result = sections.length ? { text: sections.join("\n\n"), attachmentUrls } : null;
   lawRevisionTextCache.set(cacheKey, result);
   return result;
 }
@@ -978,21 +985,27 @@ function lawServiceParamsFromItem(item: CollectedItem): Record<string, string> |
   }
 }
 
-function collectedBodyText(record: unknown, keys: string[]): string {
-  if (!isRecord(record)) return "";
+function collectedBodyPart(record: unknown, keys: string[]): LawRevisionDetails {
+  const empty = { text: "", attachmentUrls: [] };
+  if (!isRecord(record)) return empty;
   for (const key of keys) {
-    const values = findValues(record, key)
-      .map((value) => cleanCollectedBody(value))
-      .filter(Boolean);
-    if (values.length) return uniqueLines(values.join("\n"));
+    const rawValues = findValues(record, key);
+    const values = rawValues.map((value) => cleanCollectedBody(value)).filter(Boolean);
+    if (values.length) {
+      return {
+        text: uniqueLines(values.join("\n")),
+        attachmentUrls: [...new Set(rawValues.flatMap(extractLawAssetUrls))]
+      };
+    }
   }
-  return "";
+  return empty;
 }
 
 function cleanCollectedBody(value: unknown): string {
   return valueToCollectedString(value)
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<img\b[^>]*\bsrc=["']?([^"'\s>]+)["']?[^>]*>/gi, (_match, src: string) => `\n첨부 이미지: ${lawAssetUrl(src)}\n`)
     .replace(/<br\s*\/?>/gi, "\n")
     .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, "\n")
     .replace(/<[^>]*>/g, " ")
@@ -1016,6 +1029,23 @@ function valueToCollectedString(value: unknown): string {
   if (isRecord(value) && typeof value["#text"] === "string") return value["#text"];
   if (isRecord(value)) return Object.values(value).map(valueToCollectedString).filter(Boolean).join("\n");
   return "";
+}
+
+function extractLawAssetUrls(value: unknown): string[] {
+  const urls: string[] = [];
+  const textValue = valueToCollectedString(value);
+  for (const match of textValue.matchAll(/\b(?:src|href)=["']?([^"'\s>]+)["']?/gi)) {
+    urls.push(lawAssetUrl(match[1]));
+  }
+  return urls.filter(Boolean);
+}
+
+function lawAssetUrl(value: string): string {
+  try {
+    return new URL(value, "https://www.law.go.kr").toString().replace(/^http:/i, "https:");
+  } catch {
+    return value;
+  }
 }
 
 function findValues(record: AnyRecord, desiredKey: string): unknown[] {

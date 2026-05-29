@@ -1208,32 +1208,55 @@ select:focus {
 
 .readable-lines {
   display: grid;
-  gap: 8px;
-  max-height: 680px;
+  gap: 10px;
   margin: 0;
   padding: 0;
-  overflow: auto;
   list-style: none;
 }
 
 .readable-lines li {
-  padding: 0 0 8px;
-  border-bottom: 1px solid rgba(216, 224, 235, 0.72);
+  padding: 0;
   color: var(--ink-soft);
   line-height: 1.65;
 }
 
 .readable-lines li:last-child {
   padding-bottom: 0;
-  border-bottom: 0;
 }
 
 .readable-body {
-  max-height: 680px;
   margin: 0;
-  overflow: auto;
   color: var(--ink-soft);
   line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.source-image-list {
+  display: grid;
+  gap: 18px;
+}
+
+.source-image {
+  margin: 0;
+}
+
+.source-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.source-image figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .detail-empty {

@@ -32,6 +32,8 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
   const category = item.category || itemCategory(item);
   const readableSections = buildReadableSections(item.raw_text);
   const aiInput = buildAiInput(item, readableSections);
+  const inlineImageUrls = item.attachment_urls.filter(isLikelyInlineImageUrl);
+  const fileUrls = item.attachment_urls.filter((url) => !inlineImageUrls.includes(url));
   const sourceDate = item.collection_date || item.publish_date || "-";
   const keyFacts = [
     { label: "기관", value: item.ministry },
@@ -97,15 +99,7 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
               {readableSections.map((section, index) => (
                 <section className="readable-section" key={`${section.title}-${index}`}>
                   <h3>{section.title}</h3>
-                  {section.lines.length > 1 ? (
-                    <ul className="readable-lines">
-                      {section.lines.map((line, lineIndex) => (
-                        <li key={`${line}-${lineIndex}`}>{line}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="readable-body">{section.lines[0]}</p>
-                  )}
+                  <div className="readable-body">{section.lines.join("\n")}</div>
                 </section>
               ))}
             </div>
@@ -116,13 +110,33 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
           )}
         </section>
 
-        {item.attachment_urls.length ? (
+        {inlineImageUrls.length ? (
+          <section className="detail-content-card full">
+            <div className="detail-section-title">
+              <h2>원문 이미지</h2>
+            </div>
+            <div className="source-image-list">
+              {inlineImageUrls.map((url) => (
+                <figure className="source-image" key={url}>
+                  <img src={url} alt="법제처 원문 이미지" loading="lazy" />
+                  <figcaption>
+                    <a href={url} target="_blank" rel="noreferrer">
+                      이미지 원문 열기
+                    </a>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {fileUrls.length ? (
           <section className="detail-content-card full">
             <div className="detail-section-title">
               <h2>첨부 파일</h2>
             </div>
             <ul className="link-list">
-              {item.attachment_urls.map((url) => (
+              {fileUrls.map((url) => (
                 <li key={url}>
                   <a href={url} target="_blank" rel="noreferrer">
                     {url}
@@ -162,7 +176,7 @@ function buildReadableSections(rawText: string): ReadableSection[] {
   }
 
   pushSection(sections, current);
-  return mergeDuplicateSections(sections);
+  return preferContentSections(mergeDuplicateSections(sections));
 }
 
 function cleanupRawText(value: string): string {
@@ -183,6 +197,7 @@ function normalizeHeading(line: string): string {
 }
 
 function isTechnicalLine(line: string): boolean {
+  if (/^(법령 변경이력 갱신|조문 개정 이력)$/.test(line)) return true;
   if (/^(수집 기준일|법령ID|연혁 행 수|원자료 행 수|조문 변경 수):/.test(line)) return true;
   if (/^원자료\s*JSON/.test(line)) return true;
   if (/^[\[{]/.test(line) && /["{}[\]:]/.test(line)) return true;
@@ -209,8 +224,19 @@ function mergeDuplicateSections(sections: ReadableSection[]): ReadableSection[] 
   return [...byTitle.values()];
 }
 
+function preferContentSections(sections: ReadableSection[]): ReadableSection[] {
+  const contentTitles = new Set(["개정문", "제개정 이유", "법령 본문", "본문", "변경 조문", "추가 근거", "첨부"]);
+  const hasOfficialBody = sections.some((section) => ["개정문", "제개정 이유", "법령 본문", "본문"].includes(section.title));
+  if (!hasOfficialBody) return sections;
+  return sections.filter((section) => contentTitles.has(section.title));
+}
+
 function uniqueLines(lines: string[]): string[] {
   return [...new Set(lines.map((line) => line.trim()).filter(Boolean))];
+}
+
+function isLikelyInlineImageUrl(url: string): boolean {
+  return /\.(?:png|jpe?g|gif|webp|svg)(?:[?#]|$)/i.test(url) || /\/flDownload\.do\?flSeq=/i.test(url);
 }
 
 function tryBuildJsonSections(rawText: string): ReadableSection[] {
