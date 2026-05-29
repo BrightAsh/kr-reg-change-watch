@@ -51,7 +51,7 @@ const lookback = Number(env("FETCH_LOOKBACK_DAYS", "1"));
 const targetDate = String(args.date || dateDaysAgo(Number.isFinite(lookback) ? lookback : 1));
 const maxPages = Number(env("FETCH_MAX_PAGES", "5"));
 const detailLimit = Number(env("FETCH_DETAIL_LIMIT", "30"));
-const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "200")) || 200;
+const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "500")) || 500;
 const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 12000;
 const lawRevisionTextCache = new Map<string, string | null>();
 const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
@@ -981,8 +981,10 @@ function lawServiceParamsFromItem(item: CollectedItem): Record<string, string> |
 function collectedBodyText(record: unknown, keys: string[]): string {
   if (!isRecord(record)) return "";
   for (const key of keys) {
-    const value = findValue(record, key);
-    if (value !== undefined && value !== null && value !== "") return cleanCollectedBody(value);
+    const values = findValues(record, key)
+      .map((value) => cleanCollectedBody(value))
+      .filter(Boolean);
+    if (values.length) return uniqueLines(values.join("\n"));
   }
   return "";
 }
@@ -1014,6 +1016,33 @@ function valueToCollectedString(value: unknown): string {
   if (isRecord(value) && typeof value["#text"] === "string") return value["#text"];
   if (isRecord(value)) return Object.values(value).map(valueToCollectedString).filter(Boolean).join("\n");
   return "";
+}
+
+function findValues(record: AnyRecord, desiredKey: string): unknown[] {
+  const desired = normalizeKey(desiredKey);
+  const values: unknown[] = [];
+  for (const [key, value] of Object.entries(record)) {
+    if (normalizeKey(key) === desired) values.push(value);
+    if (isRecord(value)) values.push(...findValues(value, desiredKey));
+    if (Array.isArray(value)) {
+      for (const child of value) {
+        if (isRecord(child)) values.push(...findValues(child, desiredKey));
+      }
+    }
+  }
+  return values;
+}
+
+function uniqueLines(value: string): string {
+  const seen = new Set<string>();
+  const lines: string[] = [];
+  for (const line of value.split(/\r?\n/)) {
+    const cleaned = line.trim();
+    if (!cleaned || seen.has(cleaned)) continue;
+    seen.add(cleaned);
+    lines.push(cleaned);
+  }
+  return lines.join("\n");
 }
 
 function limitCollectedBody(value: string): string {
