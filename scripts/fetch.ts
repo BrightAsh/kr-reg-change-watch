@@ -51,8 +51,9 @@ const lookback = Number(env("FETCH_LOOKBACK_DAYS", "1"));
 const targetDate = String(args.date || dateDaysAgo(Number.isFinite(lookback) ? lookback : 1));
 const maxPages = Number(env("FETCH_MAX_PAGES", "5"));
 const detailLimit = Number(env("FETCH_DETAIL_LIMIT", "30"));
-const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "25")) || 25;
+const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "200")) || 200;
 const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 12000;
+const lawRevisionTextCache = new Map<string, string | null>();
 const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
 const itemsPath = path.join(rootDir, "data", "items.json");
 const runPath = path.join(rootDir, "data", "run.json");
@@ -945,10 +946,13 @@ async function fetchLawRevisionText(item: CollectedItem): Promise<string | null>
   const params = lawServiceParamsFromItem(item);
   if (!params) return null;
 
+  const cacheKey = JSON.stringify(params);
+  if (lawRevisionTextCache.has(cacheKey)) return lawRevisionTextCache.get(cacheKey) || null;
+
   const detail = await fetchLawService("law", params);
-  const amendment = cleanCollectedBody(text(detail, ["개정문내용", "개정문"]));
-  const reason = cleanCollectedBody(text(detail, ["제개정이유내용", "제개정이유"]));
-  const mainText = cleanCollectedBody(text(detail, ["조문내용", "법령내용", "본문"]));
+  const amendment = collectedBodyText(detail, ["개정문내용", "개정문"]);
+  const reason = collectedBodyText(detail, ["제개정이유내용", "제개정이유"]);
+  const mainText = collectedBodyText(detail, ["조문내용", "법령내용", "본문"]);
   const sections = [
     ["개정문", amendment],
     ["제개정 이유", reason],
@@ -957,7 +961,9 @@ async function fetchLawRevisionText(item: CollectedItem): Promise<string | null>
     .filter(([, value]) => value)
     .map(([label, value]) => `${label}\n${limitCollectedBody(value)}`);
 
-  return sections.length ? sections.join("\n\n") : null;
+  const result = sections.length ? sections.join("\n\n") : null;
+  lawRevisionTextCache.set(cacheKey, result);
+  return result;
 }
 
 function lawServiceParamsFromItem(item: CollectedItem): Record<string, string> | null {
@@ -972,13 +978,42 @@ function lawServiceParamsFromItem(item: CollectedItem): Record<string, string> |
   }
 }
 
-function cleanCollectedBody(value: string): string {
-  return compactText(value)
+function collectedBodyText(record: unknown, keys: string[]): string {
+  if (!isRecord(record)) return "";
+  for (const key of keys) {
+    const value = findValue(record, key);
+    if (value !== undefined && value !== null && value !== "") return cleanCollectedBody(value);
+  }
+  return "";
+}
+
+function cleanCollectedBody(value: unknown): string {
+  return valueToCollectedString(value)
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, "\n")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
     .replace(/\s*\[\s*/g, " ")
     .replace(/\s*\]\s*/g, " ")
-    .replace(/\s*,\s*/g, "\n")
+    .split(/\r?\n/)
+    .map((line) => line.replace(/\s+/g, " ").trim())
+    .filter(Boolean)
+    .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function valueToCollectedString(value: unknown): string {
+  if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") return String(value);
+  if (Array.isArray(value)) return value.map(valueToCollectedString).filter(Boolean).join("\n");
+  if (isRecord(value) && typeof value["#text"] === "string") return value["#text"];
+  if (isRecord(value)) return Object.values(value).map(valueToCollectedString).filter(Boolean).join("\n");
+  return "";
 }
 
 function limitCollectedBody(value: string): string {
