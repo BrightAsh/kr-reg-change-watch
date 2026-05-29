@@ -1,0 +1,68 @@
+name: Temporary backfill May 2026
+
+on:
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    env:
+      LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
+      LAW_OC: ${{ secrets.LAW_OC }}
+      KOREAN_LAW_API_KEY: ${{ secrets.KOREAN_LAW_API_KEY }}
+      LAWMAKING_OC: ${{ secrets.LAWMAKING_OC }}
+      LAWMAKING_BASE: https://www.lawmaking.go.kr/rest
+      GWANBO_LIST_URL: ${{ secrets.GWANBO_LIST_URL }}
+      DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+      FETCH_LOOKBACK_DAYS: 1
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Reset local data
+        run: |
+          rm -rf data
+          mkdir -p data/daily data/logs data/snapshots
+
+      - name: Backfill daily collections
+        run: |
+          for date in \
+            2026-05-18 \
+            2026-05-19 \
+            2026-05-20 \
+            2026-05-21 \
+            2026-05-22 \
+            2026-05-23 \
+            2026-05-24 \
+            2026-05-25 \
+            2026-05-26 \
+            2026-05-27 \
+            2026-05-28
+          do
+            npm run collect -- --date "$date" --force
+          done
+
+      - name: Commit backfilled data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Backfill regulatory changes for May 18-28 2026"
+            git push
+          fi
