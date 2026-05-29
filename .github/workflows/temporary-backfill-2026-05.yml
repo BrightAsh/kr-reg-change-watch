@@ -12,6 +12,7 @@ permissions:
 jobs:
   backfill:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     env:
       LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
       LAW_OC: ${{ secrets.LAW_OC }}
@@ -23,6 +24,8 @@ jobs:
       NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
       NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
       FETCH_LOOKBACK_DAYS: 1
+      FETCH_TIMEOUT_MS: 30000
+      FETCH_RETRIES: 2
     steps:
       - uses: actions/checkout@v4
 
@@ -52,7 +55,9 @@ jobs:
             2026-05-27 \
             2026-05-28
           do
-            npm run collect -- --date "$date" --force
+            echo "::group::Collect $date"
+            timeout 20m npm run collect -- --date "$date" --force
+            echo "::endgroup::"
           done
 
       - name: Commit backfilled data
