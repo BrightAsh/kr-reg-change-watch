@@ -66,6 +66,9 @@ interface MinistryRoute {
   sourceType?: SourceType;
 }
 
+type LawmakingEndpoint = "ogLmPp" | "ogLmPpMod" | "ptcpAdmPp";
+type LawmakingLabel = "입법예고" | "입법예고(수정일 기준)" | "행정예고";
+
 const MINISTRY_ROUTES: MinistryRoute[] = [
   {
     source: "행정안전부 훈령·예규·고시",
@@ -176,6 +179,7 @@ async function main() {
   await runSource(logs, collected, () => fetchAdministrativeRules(logs));
   await runSource(logs, collected, () => fetchAdministrativeRuleComparisons(logs));
   await runSource(logs, collected, () => fetchLawmakingNotices(logs, "입법예고", "ogLmPp"));
+  await runSource(logs, collected, () => fetchLawmakingNotices(logs, "입법예고(수정일 기준)", "ogLmPpMod"));
   await runSource(logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
   await runSource(logs, collected, () => fetchGazette(logs));
   await runSource(logs, collected, () => fetchMinistryRoutes(logs));
@@ -578,8 +582,8 @@ async function fetchAdministrativeRuleComparisons(logs: CollectionLog[]): Promis
 
 async function fetchLawmakingNotices(
   logs: CollectionLog[],
-  label: "입법예고" | "행정예고",
-  endpoint: "ogLmPp" | "ptcpAdmPp"
+  label: LawmakingLabel,
+  endpoint: LawmakingEndpoint
 ): Promise<CollectedItem[]> {
   const source = `국민참여입법센터 ${label}`;
   const oc = env("LAWMAKING_OC");
@@ -590,13 +594,15 @@ async function fetchLawmakingNotices(
   const base = env("LAWMAKING_BASE", "https://www.lawmaking.go.kr/rest").replace(/\/$/, "");
   const items: CollectedItem[] = [];
   const errors: string[] = [];
+  const detailErrors: string[] = [];
+  let detailFetchCount = 0;
   const date = dottedDate(targetDate);
 
   for (const target of LAWMAKING_TARGETS) {
     const params =
-      endpoint === "ogLmPp"
-        ? { OC: oc, cptOfiOrgCd: target.code, stYdFmt: date, edYdFmt: date }
-        : { OC: oc, asndOfiNm: target.name, stYdFmt: date, edYdFmt: date };
+      endpoint === "ptcpAdmPp"
+        ? { OC: oc, asndOfiNm: target.name, stYdFmt: date, edYdFmt: date }
+        : { OC: oc, cptOfiOrgCd: target.code, stYdFmt: date, edYdFmt: date };
     const url = makeUrl(`${base}/${endpoint}.xml`, params);
     try {
       const payload = await fetchJsonOrXml(url);
@@ -618,23 +624,25 @@ async function fetchLawmakingNotices(
         "pntcDt",
         "stYd"
       ]);
-      items.push(
-        ...rows
-          .map((row) => normalizeLawmakingRow(row, source, label, endpoint, url, oc))
-          .filter((item): item is CollectedItem => Boolean(item && item.publish_date === targetDate))
-      );
+      for (const row of rows) {
+        const fetchDetail = detailFetchCount < detailLimit;
+        if (fetchDetail) detailFetchCount += 1;
+        const item = await normalizeLawmakingRow(row, source, label, endpoint, url, oc, fetchDetail, detailErrors);
+        if (item?.publish_date === targetDate) items.push(item);
+      }
     } catch (error) {
       errors.push(`${target.name}: ${messageOf(error)}`);
     }
   }
 
+  const detailMessage = detailErrors.length ? ` 상세 일부 실패: ${detailErrors.slice(0, 3).join("; ")}` : "";
   addLog(
     logs,
     source,
     errors.length ? "error" : "ok",
     errors.length
       ? `국민참여입법센터 API 일부 실패: ${errors.join("; ")}`
-      : "국민참여입법센터 공개 XML API 수집 완료",
+      : `국민참여입법센터 공개 XML API 수집 완료.${detailMessage}`,
     items.length,
     LAWMAKING_GUIDE
   );
@@ -1033,15 +1041,43 @@ function lawOpenApiOc(): string {
   return env("LAW_OPEN_API_OC") || env("LAW_OC") || env("KOREAN_LAW_API_KEY");
 }
 
-function normalizeLawmakingRow(
+async function normalizeLawmakingRow(
   row: AnyRecord,
   source: string,
-  label: "입법예고" | "행정예고",
-  endpoint: "ogLmPp" | "ptcpAdmPp",
+  label: LawmakingLabel,
+  endpoint: LawmakingEndpoint,
   endpointUrl: string,
-  oc: string
-): CollectedItem | null {
-  const title = text(row, [
+  oc: string,
+  fetchDetail: boolean,
+  detailErrors: string[]
+): Promise<CollectedItem | null> {
+  const recordId = text(row, ["ogLmPpSeq", "ogAdmPpSeq", "lbicId", "admPpSeq", "seq"]);
+  const mappingId = text(row, ["mappingLbicId", "mappingAdmRulSeq"]);
+  const announceType = text(row, ["announceType"]);
+  let mergedRow = row;
+
+  if (fetchDetail && recordId && mappingId && announceType) {
+    try {
+      const detailUrl = lawmakingDetailUrl(endpoint, recordId, mappingId, announceType, oc, "xml");
+      const payload = await fetchJsonOrXml(detailUrl);
+      const detailRow =
+        findRecordRows(payload, [
+          "lmPpCts",
+          "admPpCts",
+          "FileDownUrl",
+          "fileDownUrl",
+          "ogLsFlList",
+          "ogLmPpFlList",
+          "admRulNm",
+          "lsNm"
+        ])[0] || flattenFirstObject(payload);
+      if (detailRow) mergedRow = { ...row, ...detailRow };
+    } catch (error) {
+      detailErrors.push(`${recordId}: ${messageOf(error)}`);
+    }
+  }
+
+  const title = text(mergedRow, [
     "법령안명",
     "공고명",
     "입법예고명",
@@ -1053,29 +1089,34 @@ function normalizeLawmakingRow(
     "lsNm"
   ]);
   if (!title) return null;
-  const recordId = text(row, ["ogLmPpSeq", "ogAdmPpSeq", "lbicId", "admPpSeq", "seq"]);
-  const mappingId = text(row, ["mappingLbicId", "mappingAdmRulSeq"]);
-  const announceType = text(row, ["announceType"]);
-  const detailUrl = text(row, ["상세URL", "url", "link", "detailUrl"]);
-  const originalUrl = detailUrl || lawmakingDetailUrl(endpoint, recordId, mappingId, announceType, oc) || endpointUrl;
-  const attachments = collectLawmakingLinks(row, endpointUrl);
+  const status = text(mergedRow, ["status", "상태"]);
+  const modifiedDate = normalizeDate(text(mergedRow, ["modDt", "수정일자"]));
+  const noticeDate =
+    normalizeDate(text(mergedRow, ["공고일자", "예고시작일자", "시작일자", "stYdFmt", "pubDate", "pntcDt", "stYd"])) ||
+    targetDate;
+  const publishDate = endpoint === "ogLmPpMod" ? modifiedDate || noticeDate : noticeDate;
+  const detailUrl = text(mergedRow, ["상세URL", "url", "link", "detailUrl"]);
+  const originalUrl = detailUrl || lawmakingDetailUrl(endpoint, recordId, mappingId, announceType, oc, "html") || endpointUrl;
+  const attachments = collectLawmakingLinks(mergedRow, endpointUrl);
   const rawText = compactText(
     [
+      label,
       title,
-      text(row, ["lmPpCts", "admPpCts", "입법예고내용", "행정예고내용"])
+      status ? `상태: ${status}` : "",
+      modifiedDate ? `수정일자: ${modifiedDate}` : "",
+      noticeDate ? `공고/예고일자: ${noticeDate}` : "",
+      text(mergedRow, ["lmPpCts", "admPpCts", "입법예고내용", "행정예고내용"])
     ].join(" ")
   );
   return makeItem({
     source,
     source_type: "legislation_notice",
-    ministry: text(row, ["소관부처", "소관부처명", "부처명", "ministry", "deptNm", "asndOfiNm", "cptOfiOrgNm"]) || "미상",
-    document_type: inferDocumentType(`${text(row, ["lsClsNm", "lmTpNm"])} ${title}`),
+    ministry: text(mergedRow, ["소관부처", "소관부처명", "부처명", "ministry", "deptNm", "asndOfiNm", "cptOfiOrgNm"]) || "미상",
+    document_type: inferDocumentType(`${text(mergedRow, ["lsClsNm", "lmTpNm"])} ${title}`),
     title,
-    issue_number: text(row, ["공고번호", "공포번호", "noticeNo", "pntcNo"]) || null,
-    publish_date:
-      normalizeDate(text(row, ["공고일자", "예고시작일자", "시작일자", "stYdFmt", "pubDate", "pntcDt", "stYd"])) ||
-      targetDate,
-    effective_date: normalizeDate(text(row, ["시행일자", "예고종료일자", "종료일자", "edYdFmt", "edYd"])),
+    issue_number: text(mergedRow, ["공고번호", "공포번호", "noticeNo", "pntcNo"]) || null,
+    publish_date: publishDate,
+    effective_date: normalizeDate(text(mergedRow, ["시행일자", "예고종료일자", "종료일자", "edYdFmt", "edYd"])),
     change_type: "notice",
     original_url: originalUrl,
     attachment_urls: attachments,
@@ -1093,14 +1134,16 @@ function dottedDate(date: string): string {
 }
 
 function lawmakingDetailUrl(
-  endpoint: "ogLmPp" | "ptcpAdmPp",
+  endpoint: LawmakingEndpoint,
   recordId: string,
   mappingId: string,
   announceType: string,
-  oc: string
+  oc: string,
+  format: "html" | "xml" = "html"
 ): string {
   if (!recordId || !mappingId || !announceType) return "";
-  return makeUrl(`https://www.lawmaking.go.kr/rest/${endpoint}/${recordId}/${mappingId}/${announceType}.html`, { OC: oc });
+  const base = env("LAWMAKING_BASE", "https://www.lawmaking.go.kr/rest").replace(/\/$/, "");
+  return makeUrl(`${base}/${endpoint}/${recordId}/${mappingId}/${announceType}.${format}`, { OC: oc });
 }
 
 function collectLawmakingLinks(row: AnyRecord, baseUrl: string): string[] {
@@ -1449,6 +1492,7 @@ function normalizeAndFilterByTargetDate(items: CollectedItem[]): CollectedItem[]
 function canonicalItemKey(item: CollectedItem): string {
   const administrativeRuleId = administrativeRuleRecordId(item);
   if (administrativeRuleId) return `administrative-rule:${administrativeRuleId}`;
+  if (item.source_type === "legislation_notice" && item.source_record_id) return `lawmaking:${item.source_record_id}`;
   return item.id;
 }
 

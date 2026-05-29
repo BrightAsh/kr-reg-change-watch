@@ -32,7 +32,6 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
   const category = item.category || itemCategory(item);
   const readableSections = buildReadableSections(item.raw_text);
   const aiInput = buildAiInput(item, readableSections);
-  const summaryText = item.summary || "자동 요약이 아직 없습니다. 아래 수집 본문과 공식 원문을 확인하세요.";
   const sourceDate = item.collection_date || item.publish_date || "-";
   const keyFacts = [
     { label: "기관", value: item.ministry },
@@ -69,16 +68,6 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
             <a className="detail-action-button primary" href={item.original_url} target="_blank" rel="noreferrer">
               원문 열기
             </a>
-            <DetailAiSummaryButton
-              title={item.title}
-              ministry={item.ministry}
-              source={item.source}
-              publishDate={item.publish_date}
-              effectiveDate={item.effective_date}
-              summary={summaryText}
-              diffSummary={item.diff_summary}
-              readableText={aiInput}
-            />
           </div>
         </header>
 
@@ -91,40 +80,17 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
           ))}
         </section>
 
-        <div className="detail-content-grid">
-          <section className="detail-content-card summary-card">
-            <div className="detail-section-title">
-              <h2>수집 요약</h2>
-              <span>{item.auto_summary ? "AI 생성" : "자동 정리"}</span>
-            </div>
-            <p>{summaryText}</p>
-          </section>
-
-          <section className="detail-content-card">
-            <div className="detail-section-title">
-              <h2>확인 포인트</h2>
-            </div>
-            <ul className="impact-list">
-              <li>
-                <strong>변경 상태</strong>
-                <span>{item.diff_summary || "이전 자료와의 세부 비교는 아직 생성되지 않았습니다."}</span>
-              </li>
-              <li>
-                <strong>업무 적용</strong>
-                <span>시행일과 원문을 기준으로 내부 절차, 제출 서식, 운영 기준 변경 여부를 확인하세요.</span>
-              </li>
-              <li>
-                <strong>AI 요약</strong>
-                <span>OpenAI API 키를 입력하면 이 항목만 별도로 요약할 수 있습니다.</span>
-              </li>
-            </ul>
-          </section>
-        </div>
-
         <section className="detail-content-card full">
           <div className="detail-section-title">
             <h2>수집 본문</h2>
-            <span>사용자용 정리</span>
+            <DetailAiSummaryButton
+              title={item.title}
+              ministry={item.ministry}
+              source={item.source}
+              publishDate={item.publish_date}
+              effectiveDate={item.effective_date}
+              readableText={aiInput}
+            />
           </div>
           {readableSections.length ? (
             <div className="readable-section-list">

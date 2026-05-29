@@ -8,8 +8,6 @@ interface Props {
   source: string;
   publishDate: string | null;
   effectiveDate: string | null;
-  summary: string;
-  diffSummary: string | null;
   readableText: string;
 }
 
@@ -21,8 +19,6 @@ export default function DetailAiSummaryButton({
   source,
   publishDate,
   effectiveDate,
-  summary,
-  diffSummary,
   readableText
 }: Props) {
   const [open, setOpen] = useState(false);
@@ -53,8 +49,6 @@ export default function DetailAiSummaryButton({
       `공포/게시일: ${publishDate || "-"}`,
       `시행일: ${effectiveDate || "-"}`,
       `출처: ${source}`,
-      `기존 요약: ${summary}`,
-      diffSummary ? `변경 감지: ${diffSummary}` : "",
       `수집 본문:\n${readableText}`
     ]
       .filter(Boolean)
@@ -88,7 +82,12 @@ export default function DetailAiSummaryButton({
 
   return (
     <>
-      <button className="detail-action-button detail-ai-button" type="button" onClick={() => setOpen(true)}>
+      <button
+        className="detail-action-button detail-ai-button"
+        type="button"
+        disabled={!readableText.trim()}
+        onClick={() => setOpen(true)}
+      >
         AI 요약
       </button>
 
@@ -104,7 +103,7 @@ export default function DetailAiSummaryButton({
             <div className="modal-head">
               <div>
                 <span>AI 요약</span>
-                <strong>현재 상세 항목만 정리합니다</strong>
+                <strong>수집 본문을 요약합니다</strong>
               </div>
               <button type="button" aria-label="닫기" onClick={() => setOpen(false)}>
                 x
@@ -119,7 +118,7 @@ export default function DetailAiSummaryButton({
                 placeholder="sk-..."
               />
             </label>
-            <p className="modal-note">키가 없으면 AI 요약 없이 수집 본문과 원문만 확인할 수 있습니다.</p>
+            <p className="modal-note">AI 요약은 아래 수집 본문만 근거로 생성합니다. 키는 이 브라우저 세션에만 저장됩니다.</p>
             <div className="modal-actions">
               <button disabled={!apiKey || status === "working"} type="button" onClick={summarizeItem}>
                 {status === "working" ? "요약 중" : "요약 생성"}
