@@ -99,7 +99,7 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
               {readableSections.map((section, index) => (
                 <section className="readable-section" key={`${section.title}-${index}`}>
                   <h3>{section.title}</h3>
-                  <div className="readable-body">{section.lines.join("\n")}</div>
+                  <div className="readable-body">{sectionToDisplayText(section)}</div>
                 </section>
               ))}
             </div>
@@ -235,6 +235,36 @@ function uniqueLines(lines: string[]): string[] {
   return [...new Set(lines.map((line) => line.trim()).filter(Boolean))];
 }
 
+function sectionToDisplayText(section: ReadableSection): string {
+  const paragraphs: string[] = [];
+  let current = "";
+
+  for (const line of section.lines) {
+    const cleaned = line.trim();
+    if (!cleaned || /^첨부 이미지:/.test(cleaned)) continue;
+    if (startsNewParagraph(cleaned) && current) {
+      paragraphs.push(current);
+      current = "";
+    }
+    current = current ? `${current} ${cleaned}` : cleaned;
+    if (isStandaloneParagraph(cleaned)) {
+      paragraphs.push(current);
+      current = "";
+    }
+  }
+
+  if (current) paragraphs.push(current);
+  return paragraphs.join("\n\n");
+}
+
+function startsNewParagraph(line: string): boolean {
+  return /^부칙$/.test(line) || /^제\d+조(?:의\d+)?\(/.test(line) || /^◇\s*/.test(line);
+}
+
+function isStandaloneParagraph(line: string): boolean {
+  return /^부칙$/.test(line);
+}
+
 function isLikelyInlineImageUrl(url: string): boolean {
   return /\.(?:png|jpe?g|gif|webp|svg)(?:[?#]|$)/i.test(url) || /\/flDownload\.do\?flSeq=/i.test(url);
 }
@@ -277,7 +307,7 @@ function isUsefulJsonKey(key: string): boolean {
 }
 
 function buildAiInput(item: CollectedItem, sections: ReadableSection[]): string {
-  const sectionText = sections.map((section) => `${section.title}\n${section.lines.join("\n")}`).join("\n\n");
+  const sectionText = sections.map((section) => `${section.title}\n${sectionToDisplayText(section)}`).join("\n\n");
   const itemJson = {
     id: item.id,
     source: item.source,
