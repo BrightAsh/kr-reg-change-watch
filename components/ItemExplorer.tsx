@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import AiSummaryDialog from "@/components/AiSummaryDialog";
 import { categoryLabels, itemCategory } from "@/lib/categories";
 import { changeTypeLabels, confidenceLabels, documentTypeLabels, sourceTypeLabels } from "@/lib/labels";
 import type {
@@ -51,6 +52,9 @@ const holidayOverrides = new Set([
   "2026-09-26"
 ]);
 
+const briefingInstructions =
+  "한국 규제·법령 변경 모니터의 편집자처럼 요약하세요. 제공된 항목 안에서만 판단하고, 법령/고시/지침/뉴스를 구분해 한국어로 간결하게 정리하세요. 실무자가 오늘 확인해야 할 핵심 변화와 주의할 항목을 먼저 알려주세요.";
+
 export default function ItemExplorer({ items, ministries, dates, detailHrefPrefix = "/items" }: Props) {
   const initialDate = dates[0] || formatDateString(new Date());
   const [query, setQuery] = useState("");
@@ -63,15 +67,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   const [category, setCategory] = useState<CategoryFilter>("all");
   const [activeFilter, setActiveFilter] = useState<FilterKey | null>(null);
   const [draftSelection, setDraftSelection] = useState<string[]>([]);
-  const [apiKey, setApiKey] = useState("");
   const [aiOpen, setAiOpen] = useState(false);
-  const [digest, setDigest] = useState("");
-  const [summaryStatus, setSummaryStatus] = useState<"idle" | "working" | "done" | "error">("idle");
-  const [summaryError, setSummaryError] = useState("");
-
-  useEffect(() => {
-    setApiKey(sessionStorage.getItem("kr-reg-openai-key") || "");
-  }, []);
 
   const enrichedItems = useMemo(
     () => items.map((item) => ({ ...item, category: itemCategory(item) })),
@@ -129,6 +125,25 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     sourceTypeFilters
   ]);
 
+  const briefingInput = useMemo(
+    () =>
+      filtered
+        .slice(0, 20)
+        .map((item, index) =>
+          [
+            `${index + 1}. ${item.title}`,
+            `분류: ${categoryLabels[item.category || itemCategory(item)]}`,
+            `기관: ${item.ministry}`,
+            `기준일: ${item.collection_date || item.publish_date || "-"}`,
+            `공표일/발령일: ${item.publish_date || "-"}`,
+            `출처: ${item.source}`,
+            `요약/원문: ${item.summary || item.raw_text.slice(0, 500)}`
+          ].join("\n")
+        )
+        .join("\n\n"),
+    [filtered]
+  );
+
   const calendarCells = useMemo(() => buildCalendar(monthCursor), [monthCursor]);
   const dateHasCache = dates.includes(selectedDate);
   const activeFilterCount =
@@ -163,12 +178,6 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
 
   const currentFilterConfig = filterConfigs.find((config) => config.key === activeFilter);
 
-  function saveApiKey(value: string) {
-    setApiKey(value);
-    if (value) sessionStorage.setItem("kr-reg-openai-key", value);
-    else sessionStorage.removeItem("kr-reg-openai-key");
-  }
-
   function shiftMonth(offset: number) {
     const [year, month] = monthCursor.split("-").map(Number);
     const next = new Date(year, month - 1 + offset, 1);
@@ -201,53 +210,6 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     if (activeFilter === "document") setDocumentTypeFilters(draftSelection);
     if (activeFilter === "change") setChangeTypeFilters(draftSelection);
     setActiveFilter(null);
-  }
-
-  async function summarizeVisible() {
-    if (!apiKey || !filtered.length) return;
-    setSummaryStatus("working");
-    setSummaryError("");
-    setDigest("");
-
-    const evidence = filtered
-      .slice(0, 20)
-      .map((item, index) =>
-        [
-          `${index + 1}. ${item.title}`,
-          `분류: ${categoryLabels[item.category || itemCategory(item)]}`,
-          `기관: ${item.ministry}`,
-          `기준일: ${item.collection_date || item.publish_date || "-"}`,
-          `공표일/발령일: ${item.publish_date || "-"}`,
-          `출처: ${item.source}`,
-          `요약/원문: ${item.summary || item.raw_text.slice(0, 500)}`
-        ].join("\n")
-      )
-      .join("\n\n");
-
-    try {
-      const response = await fetch("https://api.openai.com/v1/responses", {
-        method: "POST",
-        headers: {
-          authorization: `Bearer ${apiKey}`,
-          "content-type": "application/json"
-        },
-        body: JSON.stringify({
-          model: "gpt-5",
-          max_output_tokens: 700,
-          instructions:
-            "한국 규제·법령 변경 모니터의 편집자처럼 요약하세요. 제공된 항목 안에서만 판단하고, 법령/고시/지침/뉴스를 구분해 한국어로 간결하게 정리하세요.",
-          input: evidence
-        })
-      });
-      if (!response.ok) throw new Error(`OpenAI API HTTP ${response.status}`);
-      const payload = (await response.json()) as { output_text?: string; output?: unknown };
-      const text = compactOutput(payload.output_text || extractOutputText(payload.output));
-      setDigest(text || "요약 결과가 비어 있습니다.");
-      setSummaryStatus("done");
-    } catch (error) {
-      setSummaryError(error instanceof Error ? error.message : String(error));
-      setSummaryStatus("error");
-    }
   }
 
   return (
@@ -385,52 +347,21 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         </section>
       </div>
 
-      {aiOpen ? (
-        <div className="modal-backdrop" role="presentation" onClick={() => setAiOpen(false)}>
-          <section
-            className="ai-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-label="AI 브리핑"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="modal-head">
-              <div>
-                <span>AI 브리핑</span>
-                <strong>현재 화면의 항목을 요약합니다.</strong>
-              </div>
-              <button type="button" aria-label="닫기" onClick={() => setAiOpen(false)}>
-                ×
-              </button>
-            </div>
-            <label className="field-label">
-              <span>OpenAI API 키</span>
-              <input
-                type="password"
-                value={apiKey}
-                onChange={(event) => saveApiKey(event.target.value)}
-                placeholder="sk-..."
-              />
-            </label>
-            <div className="modal-actions">
-              <button disabled={!apiKey || !filtered.length || summaryStatus === "working"} type="button" onClick={summarizeVisible}>
-                {summaryStatus === "working" ? "정리 중" : "브리핑 생성"}
-              </button>
-              {apiKey ? (
-                <button className="secondary" type="button" onClick={() => saveApiKey("")}>
-                  키 삭제
-                </button>
-              ) : null}
-            </div>
-            {digest || summaryError ? (
-              <div className={`digest-panel ${summaryStatus === "error" ? "error" : ""}`}>
-                <strong>{summaryStatus === "error" ? "브리핑 실패" : "AI 브리핑"}</strong>
-                <p>{summaryStatus === "error" ? summaryError : digest}</p>
-              </div>
-            ) : null}
-          </section>
-        </div>
-      ) : null}
+      <AiSummaryDialog
+        open={aiOpen}
+        onClose={() => setAiOpen(false)}
+        title="AI 브리핑"
+        subtitle="현재 화면의 항목을 요약합니다."
+        input={briefingInput}
+        instructions={briefingInstructions}
+        submitLabel="브리핑 생성"
+        workingLabel="정리 중"
+        resultTitle="AI 브리핑"
+        errorTitle="브리핑 실패"
+        maxOutputTokens={700}
+        disabled={!filtered.length}
+        disabledMessage="현재 화면에 요약할 항목이 없습니다."
+      />
     </section>
   );
 }
@@ -530,23 +461,6 @@ function formatDateLabel(value: string): string {
 
 function pad(value: number): string {
   return String(value).padStart(2, "0");
-}
-
-function extractOutputText(value: unknown): string {
-  if (!value) return "";
-  if (typeof value === "string") return value;
-  if (Array.isArray(value)) return value.map(extractOutputText).filter(Boolean).join(" ");
-  if (typeof value === "object") {
-    const record = value as Record<string, unknown>;
-    if (typeof record.text === "string") return record.text;
-    if (typeof record.content === "string") return record.content;
-    return Object.values(record).map(extractOutputText).filter(Boolean).join(" ");
-  }
-  return "";
-}
-
-function compactOutput(value: unknown): string {
-  return String(value || "").replace(/\s+/g, " ").trim();
 }
 
 function extractEvidenceLines(value: string): string[] {
