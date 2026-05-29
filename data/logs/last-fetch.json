@@ -1,18 +1,10 @@
 [
   {
-    "source": "국가법령정보센터 법령 변경이력 본문 보강",
-    "status": "ok",
-    "message": "법제처 lawService API로 개정문/제개정이유 2건을 보강했습니다.",
-    "count": 2,
-    "at": "2026-05-29T05:47:37.344Z",
-    "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-  },
-  {
     "source": "국가법령정보센터 법령 변경이력",
     "status": "ok",
-    "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 117행을 법령 단위 2건으로 묶었습니다.",
-    "count": 2,
-    "at": "2026-05-29T05:47:37.344Z",
+    "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+    "count": 0,
+    "at": "2026-05-29T05:50:37.851Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -20,23 +12,23 @@
     "status": "ok",
     "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
     "count": 0,
-    "at": "2026-05-29T05:47:50.305Z",
+    "at": "2026-05-29T05:50:40.052Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
     "source": "국가법령정보센터 행정규칙",
     "status": "ok",
     "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
-    "count": 0,
-    "at": "2026-05-29T05:47:51.168Z",
+    "count": 1,
+    "at": "2026-05-29T05:50:41.240Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
     "source": "국가법령정보센터 행정규칙 신구법 비교",
     "status": "ok",
     "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-    "count": 0,
-    "at": "2026-05-29T05:47:51.654Z",
+    "count": 1,
+    "at": "2026-05-29T05:50:43.747Z",
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
@@ -44,7 +36,7 @@
     "status": "error",
     "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
     "count": 0,
-    "at": "2026-05-29T05:47:54.103Z",
+    "at": "2026-05-29T05:50:46.244Z",
     "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
   },
   {
@@ -52,7 +44,7 @@
     "status": "error",
     "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
     "count": 0,
-    "at": "2026-05-29T05:47:55.334Z",
+    "at": "2026-05-29T05:50:47.571Z",
     "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
   },
   {
@@ -60,7 +52,7 @@
     "status": "error",
     "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
     "count": 0,
-    "at": "2026-05-29T05:47:56.555Z",
+    "at": "2026-05-29T05:50:49.097Z",
     "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
   },
   {
@@ -68,15 +60,15 @@
     "status": "ok",
     "message": "설정된 관보 API URL 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:47:57.685Z",
+    "at": "2026-05-29T05:50:50.134Z",
     "url": "https://www.data.go.kr/data/15109157/openapi.do"
   },
   {
     "source": "행정안전부 훈령·예규·고시",
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
-    "count": 0,
-    "at": "2026-05-29T05:48:04.370Z",
+    "count": 2,
+    "at": "2026-05-29T05:51:00.719Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
   },
   {
@@ -84,7 +76,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:48:04.959Z",
+    "at": "2026-05-29T05:51:01.580Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
   },
   {
@@ -92,7 +84,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:48:13.984Z",
+    "at": "2026-05-29T05:51:13.730Z",
     "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
   },
   {
@@ -100,7 +92,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:48:20.649Z",
+    "at": "2026-05-29T05:51:20.767Z",
     "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
   },
   {
@@ -108,7 +100,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:48:27.433Z",
+    "at": "2026-05-29T05:51:27.345Z",
     "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
   },
   {
@@ -116,7 +108,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:48:34.175Z",
+    "at": "2026-05-29T05:51:34.279Z",
     "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
   },
   {
@@ -124,7 +116,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:48:40.404Z",
+    "at": "2026-05-29T05:51:41.450Z",
     "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
   },
   {
@@ -132,7 +124,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:48:46.913Z",
+    "at": "2026-05-29T05:51:48.456Z",
     "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
   },
   {
@@ -140,7 +132,7 @@
     "status": "ok",
     "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:48:53.460Z",
+    "at": "2026-05-29T05:51:55.436Z",
     "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
   },
   {
@@ -148,7 +140,7 @@
     "status": "ok",
     "message": "정책브리핑 RSS 수집 완료",
     "count": 0,
-    "at": "2026-05-29T05:49:05.690Z",
+    "at": "2026-05-29T05:52:10.487Z",
     "url": "https://www.korea.kr/etc/rss.do"
   },
   {
@@ -156,6 +148,6 @@
     "status": "ok",
     "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
     "count": 0,
-    "at": "2026-05-29T05:49:09.164Z"
+    "at": "2026-05-29T05:52:14.458Z"
   }
 ]
