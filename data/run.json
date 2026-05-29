@@ -1,9 +1,10 @@
 {
-  "last_run_at": "2026-05-29T08:46:44.948Z",
-  "last_target_date": "2026-05-28",
-  "item_count": 776,
-  "changed_count": 53,
+  "last_run_at": "2026-05-29T18:03:34.486Z",
+  "last_target_date": "2026-05-29",
+  "item_count": 836,
+  "changed_count": 60,
   "available_dates": [
+    "2026-05-29",
     "2026-05-28",
     "2026-05-27",
     "2026-05-26",
@@ -21,41 +22,41 @@
     {
       "source": "국가법령정보센터 법령 변경이력 본문 보강",
       "status": "ok",
-      "message": "법제처 lawService API로 개정문/제개정이유 26건을 보강했습니다.",
-      "count": 26,
-      "at": "2026-05-29T08:44:40.453Z",
+      "message": "법제처 lawService API로 개정문/제개정이유 36건을 보강했습니다.",
+      "count": 36,
+      "at": "2026-05-29T18:01:35.620Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
       "source": "국가법령정보센터 법령 변경이력",
       "status": "ok",
-      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 68행을 법령 단위 26건으로 묶었습니다.",
-      "count": 26,
-      "at": "2026-05-29T08:44:40.453Z",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 61행을 법령 단위 36건으로 묶었습니다.",
+      "count": 36,
+      "at": "2026-05-29T18:01:35.620Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
       "source": "국가법령정보센터 일자별 조문 개정 이력",
       "status": "ok",
       "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
-      "count": 3,
-      "at": "2026-05-29T08:44:42.648Z",
+      "count": 10,
+      "at": "2026-05-29T18:01:37.599Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
       "source": "국가법령정보센터 행정규칙",
       "status": "ok",
       "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
-      "count": 23,
-      "at": "2026-05-29T08:45:04.355Z",
+      "count": 13,
+      "at": "2026-05-29T18:01:54.056Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
       "source": "국가법령정보센터 행정규칙 신구법 비교",
       "status": "ok",
       "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-      "count": 23,
-      "at": "2026-05-29T08:45:19.065Z",
+      "count": 13,
+      "at": "2026-05-29T18:02:26.575Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
@@ -63,7 +64,7 @@
       "status": "error",
       "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
       "count": 0,
-      "at": "2026-05-29T08:45:21.445Z",
+      "at": "2026-05-29T18:02:28.589Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
@@ -71,7 +72,7 @@
       "status": "error",
       "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
       "count": 0,
-      "at": "2026-05-29T08:45:22.737Z",
+      "at": "2026-05-29T18:02:29.615Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
@@ -79,7 +80,7 @@
       "status": "error",
       "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
       "count": 0,
-      "at": "2026-05-29T08:45:24.024Z",
+      "at": "2026-05-29T18:02:30.615Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
@@ -87,7 +88,7 @@
       "status": "ok",
       "message": "설정된 관보 API URL 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:45:25.355Z",
+      "at": "2026-05-29T18:02:31.983Z",
       "url": "https://www.data.go.kr/data/15109157/openapi.do"
     },
     {
@@ -95,7 +96,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 1,
-      "at": "2026-05-29T08:45:34.439Z",
+      "at": "2026-05-29T18:02:38.599Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
     },
     {
@@ -103,7 +104,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:45:35.294Z",
+      "at": "2026-05-29T18:02:39.112Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
     },
     {
@@ -111,7 +112,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:45:45.304Z",
+      "at": "2026-05-29T18:02:49.033Z",
       "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
     },
     {
@@ -119,7 +120,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:45:52.009Z",
+      "at": "2026-05-29T18:02:53.733Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
     },
     {
@@ -127,7 +128,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:45:59.116Z",
+      "at": "2026-05-29T18:02:58.592Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
     },
     {
@@ -135,7 +136,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:46:05.817Z",
+      "at": "2026-05-29T18:03:03.293Z",
       "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
     },
     {
@@ -143,7 +144,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:46:12.618Z",
+      "at": "2026-05-29T18:03:08.419Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
     },
     {
@@ -151,7 +152,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:46:19.287Z",
+      "at": "2026-05-29T18:03:13.481Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
     },
     {
@@ -159,7 +160,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:46:26.177Z",
+      "at": "2026-05-29T18:03:22.569Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
     },
     {
@@ -167,7 +168,7 @@
       "status": "ok",
       "message": "정책브리핑 RSS 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:46:41.013Z",
+      "at": "2026-05-29T18:03:31.463Z",
       "url": "https://www.korea.kr/etc/rss.do"
     },
     {
@@ -175,7 +176,7 @@
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
       "count": 0,
-      "at": "2026-05-29T08:46:44.827Z"
+      "at": "2026-05-29T18:03:34.348Z"
     }
   ]
 }
