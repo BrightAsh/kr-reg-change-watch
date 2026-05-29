@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import AiInlineResult, { emptyAiRunState } from "@/components/AiInlineResult";
 import AiSummaryDialog from "@/components/AiSummaryDialog";
 
 interface Props {
@@ -32,6 +33,7 @@ export default function DetailAiSummaryButton({
   readableText
 }: Props) {
   const [open, setOpen] = useState(false);
+  const [aiRun, setAiRun] = useState(emptyAiRunState);
 
   const summaryInput = useMemo(
     () =>
@@ -66,13 +68,20 @@ export default function DetailAiSummaryButton({
         subtitle="수집 본문을 요약합니다."
         input={summaryInput}
         instructions={detailInstructions}
-        submitLabel="요약 생성"
+        submitLabel="요약 진행"
         workingLabel="요약 중"
-        resultTitle="AI 요약"
-        errorTitle="요약 실패"
         maxOutputTokens={2200}
         disabled={!readableText.trim()}
         disabledMessage="수집 본문이 없어 요약할 수 없습니다."
+        onRunStateChange={setAiRun}
+      />
+
+      <AiInlineResult
+        state={aiRun}
+        title="AI 요약"
+        workingText="수집 본문과 원문 링크 정보를 바탕으로 요약하고 있습니다."
+        errorTitle="요약 실패"
+        onOpenSettings={() => setOpen(true)}
       />
     </>
   );

@@ -3,8 +3,16 @@
 import { useEffect, useMemo, useState } from "react";
 
 type AiProviderId = "gemini" | "groq" | "openrouter" | "openai";
-type SummaryStatus = "idle" | "working" | "done" | "error";
+export type SummaryStatus = "idle" | "working" | "done" | "error";
 type JsonRecord = Record<string, unknown>;
+
+export interface AiRunState {
+  status: SummaryStatus;
+  result: string;
+  error: string;
+  providerLabel: string;
+  model: string;
+}
 
 interface AiModelOption {
   value: string;
@@ -29,11 +37,10 @@ interface Props {
   instructions: string;
   submitLabel: string;
   workingLabel: string;
-  resultTitle: string;
-  errorTitle: string;
   maxOutputTokens: number;
   disabled?: boolean;
   disabledMessage?: string;
+  onRunStateChange?: (state: AiRunState) => void;
 }
 
 const providerStorageKey = "kr-reg-ai-provider";
@@ -100,19 +107,16 @@ export default function AiSummaryDialog({
   instructions,
   submitLabel,
   workingLabel,
-  resultTitle,
-  errorTitle,
   maxOutputTokens,
   disabled,
-  disabledMessage
+  disabledMessage,
+  onRunStateChange
 }: Props) {
   const [providerId, setProviderId] = useState<AiProviderId>("gemini");
   const [model, setModel] = useState(providers.gemini.models[0].value);
   const [apiKey, setApiKey] = useState("");
   const [setupMode, setSetupMode] = useState(false);
   const [status, setStatus] = useState<SummaryStatus>("idle");
-  const [result, setResult] = useState("");
-  const [error, setError] = useState("");
 
   const provider = providers[providerId];
   const presetModelValue = provider.models.some((option) => option.value === model) ? model : customModelValue;
@@ -133,12 +137,6 @@ export default function AiSummaryDialog({
     setApiKey(savedKey);
     setSetupMode(!savedKey);
     setStatus("idle");
-    setResult("");
-    setError("");
-
-    if (savedKey && savedModel && input.trim() && !disabled) {
-      void runSummaryWith(savedProvider, savedModel, savedKey);
-    }
   }, [open]);
 
   function selectProvider(nextProvider: AiProviderId) {
@@ -147,8 +145,6 @@ export default function AiSummaryDialog({
     setProviderId(nextProvider);
     setModel(nextModel);
     setApiKey(nextKey);
-    setResult("");
-    setError("");
     setStatus("idle");
   }
 
@@ -176,15 +172,17 @@ export default function AiSummaryDialog({
     setApiKey("");
     setSetupMode(true);
     setStatus("idle");
-    setResult("");
-    setError("");
   }
 
   async function runSummaryWith(nextProvider: AiProviderId, nextModel: string, nextKey: string) {
     if (!nextKey.trim() || !nextModel.trim() || !input.trim() || disabled) return;
+    const runStateBase = {
+      providerLabel: providers[nextProvider].label,
+      model: nextModel.trim()
+    };
     setStatus("working");
-    setResult("");
-    setError("");
+    onRunStateChange?.({ ...runStateBase, status: "working", result: "", error: "" });
+    onClose();
 
     try {
       const text = await requestAiSummary({
@@ -195,11 +193,13 @@ export default function AiSummaryDialog({
         input,
         maxOutputTokens
       });
-      setResult(text || "요약 결과가 비어 있습니다.");
+      const nextResult = text || "요약 결과가 비어 있습니다.";
       setStatus("done");
+      onRunStateChange?.({ ...runStateBase, status: "done", result: nextResult, error: "" });
     } catch (caught) {
-      setError(caught instanceof Error ? caught.message : String(caught));
+      const nextError = caught instanceof Error ? caught.message : String(caught);
       setStatus("error");
+      onRunStateChange?.({ ...runStateBase, status: "error", result: "", error: nextError });
     }
   }
 
@@ -288,12 +288,12 @@ export default function AiSummaryDialog({
             </label>
 
             <p className="modal-note">
-              {`${provider.note} 키는 이 브라우저에 저장되고, 다음부터 AI 버튼을 누르면 바로 실행됩니다.`}
+              {`${provider.note} 키는 이 브라우저에 저장됩니다. 실제 API 호출은 아래 진행 버튼을 눌렀을 때만 실행됩니다.`}
             </p>
 
             <div className="modal-actions">
               <button disabled={!canRun} type="button" onClick={saveCurrentSettings}>
-                키 저장 후 실행
+                {submitLabel}
               </button>
               {apiKey ? (
                 <button className="secondary" type="button" onClick={deleteCurrentKey}>
@@ -311,12 +311,12 @@ export default function AiSummaryDialog({
             </div>
 
             <p className="modal-note">
-              AI 버튼을 누를 때마다 현재 화면 또는 수집 본문을 새로 요약합니다. 공용 PC에서는 사용 후 키를 삭제하세요.
+              모델과 키를 확인한 뒤 진행 버튼을 누르면 요약을 시작합니다. 공용 PC에서는 사용 후 키를 삭제하세요.
             </p>
 
             <div className="modal-actions">
               <button disabled={!canRun} type="button" onClick={() => runSummaryWith(providerId, model, apiKey)}>
-                {status === "working" ? workingLabel : result || error ? "다시 실행" : submitLabel}
+                {status === "working" ? workingLabel : submitLabel}
               </button>
               <button className="secondary" type="button" onClick={() => setSetupMode(true)}>
                 모델/키 변경
@@ -328,19 +328,6 @@ export default function AiSummaryDialog({
           </>
         )}
 
-        {status === "working" ? (
-          <div className="digest-panel">
-            <strong>{workingLabel}</strong>
-            <p>선택한 모델로 내용을 정리하고 있습니다.</p>
-          </div>
-        ) : null}
-
-        {result || error ? (
-          <div className={`digest-panel ${status === "error" ? "error" : ""}`}>
-            <strong>{status === "error" ? errorTitle : resultTitle}</strong>
-            <p>{status === "error" ? error : result}</p>
-          </div>
-        ) : null}
       </section>
     </div>
   );

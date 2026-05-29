@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import AiInlineResult, { emptyAiRunState } from "@/components/AiInlineResult";
 import AiSummaryDialog from "@/components/AiSummaryDialog";
 import { categoryLabels, itemCategory } from "@/lib/categories";
 import { changeTypeLabels, confidenceLabels, documentTypeLabels, sourceTypeLabels } from "@/lib/labels";
@@ -76,6 +77,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   const [activeFilter, setActiveFilter] = useState<FilterKey | null>(null);
   const [draftSelection, setDraftSelection] = useState<string[]>([]);
   const [aiOpen, setAiOpen] = useState(false);
+  const [aiRun, setAiRun] = useState(emptyAiRunState);
 
   const enrichedItems = useMemo(
     () => items.map((item) => ({ ...item, category: itemCategory(item) })),
@@ -327,6 +329,14 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           </button>
         </section>
 
+        <AiInlineResult
+          state={aiRun}
+          title="AI 브리핑"
+          workingText="현재 화면의 항목을 업무용 브리핑으로 정리하고 있습니다."
+          errorTitle="브리핑 실패"
+          onOpenSettings={() => setAiOpen(true)}
+        />
+
         <section className="item-list" aria-label="변경 목록">
           {filtered.length ? (
             filtered.map((item) => <ItemRow key={item.id} item={item} detailHrefPrefix={detailHrefPrefix} />)
@@ -348,13 +358,12 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         subtitle="현재 화면의 항목을 요약합니다."
         input={briefingInput}
         instructions={briefingInstructions}
-        submitLabel="브리핑 생성"
+        submitLabel="브리핑 진행"
         workingLabel="정리 중"
-        resultTitle="AI 브리핑"
-        errorTitle="브리핑 실패"
         maxOutputTokens={1800}
         disabled={!filtered.length}
         disabledMessage="현재 화면에 요약할 항목이 없습니다."
+        onRunStateChange={setAiRun}
       />
     </section>
   );
