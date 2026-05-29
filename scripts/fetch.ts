@@ -967,7 +967,8 @@ async function fetchLawRevisionText(item: CollectedItem): Promise<LawRevisionDet
     .filter(([, value]) => value)
     .map(([label, value]) => `${label}\n${limitCollectedBody(value)}`);
 
-  const attachmentUrls = [...new Set([...amendment.attachmentUrls, ...reason.attachmentUrls, ...mainText.attachmentUrls])];
+  const includedParts = amendment.text || reason.text ? [amendment, reason] : [mainText];
+  const attachmentUrls = [...new Set(includedParts.flatMap((part) => part.attachmentUrls))];
   const result = sections.length ? { text: sections.join("\n\n"), attachmentUrls } : null;
   lawRevisionTextCache.set(cacheKey, result);
   return result;
