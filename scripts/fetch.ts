@@ -582,9 +582,9 @@ async function fetchLawmakingNotices(
   endpoint: "ogLmPp" | "ptcpAdmPp"
 ): Promise<CollectedItem[]> {
   const source = `국민참여입법센터 ${label}`;
-  const oc = env("LAWMAKING_OC", env("LAW_OPEN_API_OC"));
+  const oc = env("LAWMAKING_OC");
   if (!oc) {
-    addLog(logs, source, "skipped", "LAWMAKING_OC 또는 LAW_OPEN_API_OC 미설정으로 국민참여입법센터 API를 건너뜁니다.", 0, LAWMAKING_GUIDE);
+    addLog(logs, source, "skipped", "LAWMAKING_OC 미설정으로 국민참여입법센터 API를 건너뜁니다.", 0, LAWMAKING_GUIDE);
     return [];
   }
   const base = env("LAWMAKING_BASE", "https://www.lawmaking.go.kr/rest").replace(/\/$/, "");
@@ -644,6 +644,7 @@ async function fetchLawmakingNotices(
 async function fetchGazette(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const source = "대한민국 전자관보";
   const url = env("GWANBO_LIST_URL");
+  const serviceKey = env("DATA_GO_KR_SERVICE_KEY");
   if (!url) {
     addLog(
       logs,
@@ -655,36 +656,49 @@ async function fetchGazette(logs: CollectionLog[]): Promise<CollectedItem[]> {
     );
     return [];
   }
+  if (!serviceKey) {
+    addLog(logs, source, "skipped", "DATA_GO_KR_SERVICE_KEY 미설정으로 관보 API를 건너뜁니다.", 0, GWANBO_DATASET);
+    return [];
+  }
   const withKey = makeUrl(url, {
-    serviceKey: env("DATA_GO_KR_SERVICE_KEY") || undefined,
+    serviceKey,
     pageNo: 1,
+    pageSize: 100,
     numOfRows: 100,
+    reqFrom: yyyymmdd(targetDate),
+    reqTo: yyyymmdd(targetDate),
     fromDate: yyyymmdd(targetDate),
-    toDate: yyyymmdd(targetDate)
+    toDate: yyyymmdd(targetDate),
+    type: 1
   });
   const payload = await fetchJsonOrXml(withKey);
-  const rows = findRecordRows(payload, ["관보제목", "title", "발행일자", "pdf"]);
+  const rows = findRecordRows(payload, ["cntntSj", "hopePblictDt", "pdfFilePath", "관보제목", "title", "발행일자", "pdf"]);
   const items = rows.map((row) => {
-    const title = text(row, ["관보제목", "제목", "title", "gwanboSj"]);
+    const title = text(row, ["cntntSj", "관보제목", "제목", "title", "gwanboSj", "ofcttBookNm"]);
+    const originalUrl = normalizeGazetteUrl(text(row, ["pdfFilePath", "표준내용URL", "PDF", "pdf", "link"]), url);
+    const publishDate = normalizeDate(text(row, ["hopePblictDt", "발행일자", "publishDate"])) || targetDate;
     const rawText = compactText(
       [
         title,
-        text(row, ["관보구분", "편집구분"]),
-        text(row, ["발행기관", "기관명"]),
-        text(row, ["관보번호", "공고번호", "호수"]),
-        text(row, ["발행일자", "publishDate"]),
-        text(row, ["표준내용URL", "PDF", "pdf", "link"])
+        text(row, ["ofcttBookNm"]),
+        text(row, ["cmplatSeNm", "관보구분", "편집구분"]),
+        text(row, ["themaSe", "테마구분"]),
+        text(row, ["pblcnInstNm", "발행기관", "기관명"]),
+        text(row, ["basisLawNm", "근거법령"]),
+        text(row, ["cntntSeqNo", "관보번호", "공고번호", "호수"]),
+        publishDate,
+        text(row, ["rvsnRsnMainCn", "개정이유", "주요내용"]),
+        originalUrl
       ].join(" ")
     );
-    const originalUrl = text(row, ["표준내용URL", "PDF", "pdf", "link"]);
     return makeItem({
       source,
       source_type: "gazette",
-      ministry: text(row, ["발행기관", "기관명"]) || "행정안전부",
-      document_type: inferDocumentType(`${text(row, ["관보구분", "편집구분"])} ${title}`),
+      ministry: text(row, ["pblcnInstNm", "발행기관", "기관명"]) || "행정안전부",
+      document_type: inferDocumentType(`${text(row, ["cmplatSeNm", "themaSe", "basisLawNm", "관보구분", "편집구분"])} ${title}`),
       title,
-      issue_number: text(row, ["관보번호", "공고번호", "호수"]) || null,
-      publish_date: normalizeDate(text(row, ["발행일자", "publishDate"])) || targetDate,
+      issue_number: text(row, ["ofcttBookNm", "관보번호", "공고번호", "호수", "cntntSeqNo"]) || null,
+      publish_date: publishDate,
       effective_date: null,
       change_type: inferChangeType(title),
       original_url: originalUrl || url,
@@ -692,9 +706,9 @@ async function fetchGazette(logs: CollectionLog[]): Promise<CollectedItem[]> {
       raw_hash: hashText(rawText),
       confidence: "official",
       verification_required: !originalUrl,
-      source_record_id: text(row, ["id", "문서번호", "gwanboId"]) || null
+      source_record_id: text(row, ["cntntSeqNo", "id", "문서번호", "gwanboId"]) || null
     });
-  });
+  }).filter((item) => item.publish_date === targetDate);
   addLog(logs, source, "ok", "설정된 관보 API URL 수집 완료", items.length, GWANBO_DATASET);
   return items;
 }
@@ -1107,6 +1121,15 @@ function collectLawmakingLinks(row: AnyRecord, baseUrl: string): string[] {
     }
   });
   return [...new Set(links)];
+}
+
+function normalizeGazetteUrl(rawUrl: string, baseUrl: string): string {
+  if (!rawUrl) return "";
+  try {
+    return normalizeOriginalUrl(new URL(rawUrl, baseUrl).toString());
+  } catch {
+    return normalizeOriginalUrl(rawUrl);
+  }
 }
 
 async function parseBoardRows(
