@@ -84,6 +84,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin main
           git add data
           if git diff --cached --quiet; then
             echo "No collected data changes to commit."
