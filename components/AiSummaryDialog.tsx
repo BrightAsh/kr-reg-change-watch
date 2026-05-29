@@ -405,21 +405,27 @@ async function requestGeminiSummary(
         system_instruction: { parts: [{ text: instructions }] },
         contents: [{ parts: [{ text: input }] }],
         generationConfig: {
-          temperature: 0.2,
-          maxOutputTokens
+          temperature: 0.1,
+          maxOutputTokens,
+          thinkingConfig: {
+            thinkingBudget: 0
+          }
         }
       })
     }
   );
 
   const payload = await parseJsonResponse(response, "Gemini API");
-  return compactOutput(
-    arrayValue(payload.candidates)
+  const candidates = arrayValue(payload.candidates);
+  const finishReason = stringValue(recordValue(candidates[0]).finishReason);
+  const text = compactOutput(
+    candidates
       .flatMap((candidate) => arrayValue(recordValue(recordValue(candidate).content).parts))
       .map((part) => stringValue(recordValue(part).text))
       .filter(Boolean)
       .join("\n\n")
   );
+  return appendFinishWarning(text, finishReason);
 }
 
 async function requestOpenAiSummary(
@@ -444,7 +450,12 @@ async function requestOpenAiSummary(
   });
 
   const payload = await parseJsonResponse(response, "OpenAI API");
-  return compactOutput(stringValue(payload.output_text) || extractOutputText(payload.output));
+  const incompleteDetails = recordValue(payload.incomplete_details);
+  const finishReason = stringValue(incompleteDetails.reason) || stringValue(payload.status);
+  return appendFinishWarning(
+    compactOutput(stringValue(payload.output_text) || extractOutputText(payload.output)),
+    finishReason
+  );
 }
 
 async function requestChatCompletionSummary(
@@ -490,7 +501,7 @@ async function requestChatCompletionSummary(
   const payload = await parseJsonResponse(response, provider === "groq" ? "Groq API" : "OpenRouter API");
   const firstChoice = recordValue(arrayValue(payload.choices)[0]);
   const message = recordValue(firstChoice.message);
-  return compactOutput(extractOutputText(message.content));
+  return appendFinishWarning(compactOutput(extractOutputText(message.content)), stringValue(firstChoice.finish_reason));
 }
 
 async function parseJsonResponse(response: Response, label: string): Promise<JsonRecord> {
@@ -539,6 +550,11 @@ function readStoredModel(providerId: AiProviderId): string {
 
 function compactOutput(value: unknown): string {
   return String(value || "").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+function appendFinishWarning(text: string, finishReason: string): string {
+  if (!/MAX_TOKENS|max_output_tokens|length|incomplete/i.test(finishReason)) return text;
+  return `${text}\n\n※ 출력 한도에 도달해 일부 내용이 잘렸을 수 있습니다. 다시 실행하거나 더 강한 모델을 선택해 확인하세요.`.trim();
 }
 
 function extractOutputText(value: unknown): string {

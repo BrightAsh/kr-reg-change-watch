@@ -252,19 +252,57 @@ function isUsefulJsonKey(key: string): boolean {
 
 function buildAiInput(item: CollectedItem, sections: ReadableSection[]): string {
   const sectionText = sections.map((section) => `${section.title}\n${section.lines.join("\n")}`).join("\n\n");
+  const itemJson = {
+    id: item.id,
+    source: item.source,
+    source_type: sourceTypeLabels[item.source_type],
+    category: categoryLabels[item.category || itemCategory(item)],
+    ministry: item.ministry,
+    document_type: documentTypeLabels[item.document_type],
+    change_type: changeTypeLabels[item.change_type],
+    confidence: confidenceLabels[item.confidence],
+    verification_required: Boolean(item.verification_required),
+    title: item.title,
+    issue_number: item.issue_number,
+    publish_date: item.publish_date,
+    effective_date: item.effective_date,
+    collection_date: item.collection_date,
+    collected_at: item.collected_at,
+    source_record_id: item.source_record_id,
+    original_url: item.original_url,
+    attachment_urls: item.attachment_urls,
+    existing_summary: item.summary,
+    diff_summary: item.diff_summary,
+    raw_hash: item.raw_hash
+  };
+
   return [
-    `제목: ${item.title}`,
-    `기관: ${item.ministry}`,
-    `분류: ${item.document_type} / ${item.change_type}`,
-    `기준일: ${item.collection_date || item.publish_date || "-"}`,
-    `공포/게시일: ${item.publish_date || "-"}`,
-    `시행일: ${item.effective_date || "-"}`,
-    `출처: ${item.source}`,
-    item.summary ? `기존 요약: ${item.summary}` : "",
-    item.diff_summary ? `변경 감지: ${item.diff_summary}` : "",
-    sectionText ? `수집 본문\n${sectionText}` : ""
+    "ITEM_JSON",
+    JSON.stringify(itemJson, null, 2),
+    "",
+    "URLS",
+    `원문 URL: ${item.original_url}`,
+    item.attachment_urls.length ? `첨부 URL:\n${item.attachment_urls.join("\n")}` : "첨부 URL: 없음",
+    "",
+    "READABLE_TEXT",
+    sectionText || "화면 표시용 수집 본문 없음",
+    "",
+    "RAW_COLLECTED_TEXT",
+    compactForAi(item.raw_text, 24000),
+    "",
+    "주의: URL은 제공된 링크이며, AI가 직접 열람한 원문으로 간주하지 마세요."
   ]
     .filter(Boolean)
     .join("\n\n")
-    .slice(0, 12000);
+    .slice(0, 32000);
+}
+
+function compactForAi(value: string, maxLength: number): string {
+  const compacted = value
+    .replace(/\r/g, "")
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  if (compacted.length <= maxLength) return compacted;
+  return `${compacted.slice(0, maxLength)}\n...[${(compacted.length - maxLength).toLocaleString("ko-KR")}자 더 있음]`;
 }
