@@ -5,7 +5,7 @@
     "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
     "auto_summary": false,
     "collection_date": "2026-05-24",
-    "collected_at": "2026-05-29T08:23:09.446Z",
+    "collected_at": "2026-06-01T08:12:09.565Z",
     "source": "국가법령정보센터 법령 변경이력",
     "source_type": "official_law",
     "ministry": "행정안전부",
@@ -22,7 +22,8 @@
     "source_record_id": "001020",
     "category": "law",
     "verification_required": false,
-    "attachment_urls": []
+    "attachment_urls": [],
+    "public_system_matches": []
   },
   {
     "id": "8cca7d45a5bdfed7",
@@ -30,7 +31,7 @@
     "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
     "auto_summary": false,
     "collection_date": "2026-05-24",
-    "collected_at": "2026-05-29T08:23:09.451Z",
+    "collected_at": "2026-06-01T08:12:09.570Z",
     "source": "국가법령정보센터 법령 변경이력",
     "source_type": "official_law",
     "ministry": "행정안전부",
@@ -47,6 +48,7 @@
     "source_record_id": "004242",
     "category": "law",
     "verification_required": false,
-    "attachment_urls": []
+    "attachment_urls": [],
+    "public_system_matches": []
   }
 ]

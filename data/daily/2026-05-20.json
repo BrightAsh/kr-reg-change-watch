@@ -1,6 +1,6 @@
 {
   "date": "2026-05-20",
-  "collected_at": "2026-05-29T08:03:44.807Z",
+  "collected_at": "2026-06-01T08:01:46.488Z",
   "item_count": 53,
   "changed_count": 53,
   "cache_hit": false,
@@ -11,7 +11,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.724Z",
+      "collected_at": "2026-06-01T07:58:40.870Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "개인정보보호위원회",
@@ -28,7 +28,8 @@
       "source_record_id": "011468",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "c8b379a84e19b5b5",
@@ -36,7 +37,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.725Z",
+      "collected_at": "2026-06-01T07:58:40.871Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "교육부",
@@ -53,7 +54,8 @@
       "source_record_id": "000899",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "5b0aa35c2d4b9dd6",
@@ -61,7 +63,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.726Z",
+      "collected_at": "2026-06-01T07:58:40.871Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "국가보훈부",
@@ -78,7 +80,8 @@
       "source_record_id": "001711",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "391476a6e67e6abb",
@@ -86,7 +89,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.726Z",
+      "collected_at": "2026-06-01T07:58:40.872Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "행정안전부",
@@ -103,7 +106,8 @@
       "source_record_id": "015123",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "0adc7085d25a7952",
@@ -111,7 +115,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.726Z",
+      "collected_at": "2026-06-01T07:58:40.872Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "과학기술정보통신부",
@@ -128,7 +132,8 @@
       "source_record_id": "014068",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "91b0fdde6507ba4c",
@@ -136,7 +141,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.727Z",
+      "collected_at": "2026-06-01T07:58:40.872Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "재정경제부",
@@ -153,7 +158,8 @@
       "source_record_id": "009247",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "c1dccecd83b4d49c",
@@ -161,7 +167,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.728Z",
+      "collected_at": "2026-06-01T07:58:40.873Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "경찰청",
@@ -180,7 +186,8 @@
       "verification_required": false,
       "attachment_urls": [
         "https://www.law.go.kr/flDownload.do?flSeq=162949423"
-      ]
+      ],
+      "public_system_matches": []
     },
     {
       "id": "8d4b00e2a9410507",
@@ -188,7 +195,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.728Z",
+      "collected_at": "2026-06-01T07:58:40.873Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "방송미디어통신위원회",
@@ -205,7 +212,8 @@
       "source_record_id": "015128",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "b28f15113cd46e91",
@@ -213,7 +221,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.728Z",
+      "collected_at": "2026-06-01T07:58:40.873Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "방송미디어통신위원회",
@@ -230,7 +238,8 @@
       "source_record_id": "010681",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "3bc9c67ef94248f0",
@@ -238,7 +247,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.729Z",
+      "collected_at": "2026-06-01T07:58:40.874Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "방위사업청,국방부,산업통상부",
@@ -255,7 +264,8 @@
       "source_record_id": "010194",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "c8c978b2db4f7e00",
@@ -263,7 +273,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.729Z",
+      "collected_at": "2026-06-01T07:58:40.874Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "방위사업청,국방부,산업통상부",
@@ -280,7 +290,8 @@
       "source_record_id": "010126",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "1178bba7ae3668d0",
@@ -288,7 +299,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.729Z",
+      "collected_at": "2026-06-01T07:58:40.874Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "방위사업청,국방부",
@@ -305,7 +316,8 @@
       "source_record_id": "014012",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "19f533dbe45778e8",
@@ -313,7 +325,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.729Z",
+      "collected_at": "2026-06-01T07:58:40.874Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "방위사업청,국방부",
@@ -330,7 +342,8 @@
       "source_record_id": "014002",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "9bacaefa7d309edc",
@@ -338,7 +351,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.729Z",
+      "collected_at": "2026-06-01T07:58:40.875Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "국가정보원",
@@ -355,7 +368,8 @@
       "source_record_id": "003649",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "b611d98d48f723d6",
@@ -363,7 +377,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.730Z",
+      "collected_at": "2026-06-01T07:58:40.875Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "행정안전부",
@@ -380,7 +394,8 @@
       "source_record_id": "015070",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "9d807d2c92099413",
@@ -388,7 +403,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.730Z",
+      "collected_at": "2026-06-01T07:58:40.876Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "법무부",
@@ -405,7 +420,8 @@
       "source_record_id": "011997",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "dfdb6faef248630e",
@@ -413,7 +429,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.730Z",
+      "collected_at": "2026-06-01T07:58:40.876Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "과학기술정보통신부",
@@ -430,7 +446,8 @@
       "source_record_id": "009925",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "87d8dc2896a183fe",
@@ -438,7 +455,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.730Z",
+      "collected_at": "2026-06-01T07:58:40.876Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "과학기술정보통신부",
@@ -455,7 +472,8 @@
       "source_record_id": "010191",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "3a892c4d9d58db54",
@@ -463,7 +481,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.730Z",
+      "collected_at": "2026-06-01T07:58:40.876Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "교육부",
@@ -480,7 +498,8 @@
       "source_record_id": "000191",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "9afccf011add74d6",
@@ -488,7 +507,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.730Z",
+      "collected_at": "2026-06-01T07:58:40.876Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "농림축산식품부",
@@ -508,7 +527,8 @@
       "attachment_urls": [
         "https://www.law.go.kr/flDownload.do?flSeq=164276099",
         "https://www.law.go.kr/flDownload.do?flSeq=164276101"
-      ]
+      ],
+      "public_system_matches": []
     },
     {
       "id": "e1648c81098b4c00",
@@ -516,7 +536,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.731Z",
+      "collected_at": "2026-06-01T07:58:40.876Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "원자력안전위원회",
@@ -533,7 +553,8 @@
       "source_record_id": "011435",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "2e1d8b828f8f3400",
@@ -541,7 +562,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.731Z",
+      "collected_at": "2026-06-01T07:58:40.876Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "교육부",
@@ -560,7 +581,8 @@
       "verification_required": false,
       "attachment_urls": [
         "https://www.law.go.kr/flDownload.do?flSeq=164174971"
-      ]
+      ],
+      "public_system_matches": []
     },
     {
       "id": "6d5b8f98f0601510",
@@ -568,7 +590,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.731Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "소방청",
@@ -585,7 +607,8 @@
       "source_record_id": "012114",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "f2c4fbc5898ef700",
@@ -593,7 +616,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.731Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "방송미디어통신위원회",
@@ -610,7 +633,8 @@
       "source_record_id": "010635",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "a827959a374b1f23",
@@ -618,7 +642,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.732Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "재정경제부",
@@ -635,7 +659,8 @@
       "source_record_id": "015130",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "66ad4bb7840b1a0d",
@@ -643,7 +668,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.732Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "산림청",
@@ -662,7 +687,8 @@
       "verification_required": false,
       "attachment_urls": [
         "https://www.law.go.kr/flDownload.do?flSeq=164275011"
-      ]
+      ],
+      "public_system_matches": []
     },
     {
       "id": "052fb5461ca2b739",
@@ -670,7 +696,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.732Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "산림청",
@@ -687,7 +713,8 @@
       "source_record_id": "014337",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "5df895eb3b8db018",
@@ -695,7 +722,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.732Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "과학기술정보통신부,방송미디어통신위원회",
@@ -712,7 +739,8 @@
       "source_record_id": "001733",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "303111dd8bcc3674",
@@ -720,7 +748,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.732Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "농림축산식품부",
@@ -739,7 +767,8 @@
       "verification_required": false,
       "attachment_urls": [
         "https://www.law.go.kr/flDownload.do?flSeq=164311087"
-      ]
+      ],
+      "public_system_matches": []
     },
     {
       "id": "0e2b078eb60f3978",
@@ -747,7 +776,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.733Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "행정안전부",
@@ -764,7 +793,8 @@
       "source_record_id": "001648",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "67230a699ce1749b",
@@ -772,7 +802,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.733Z",
+      "collected_at": "2026-06-01T07:58:40.877Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "국가보훈부",
@@ -789,7 +819,8 @@
       "source_record_id": "001326",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "35b48c8757613ff3",
@@ -797,7 +828,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.733Z",
+      "collected_at": "2026-06-01T07:58:40.878Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "경찰청",
@@ -816,7 +847,8 @@
       "verification_required": false,
       "attachment_urls": [
         "https://www.law.go.kr/flDownload.do?flSeq=164175501"
-      ]
+      ],
+      "public_system_matches": []
     },
     {
       "id": "91a64b1c42c8571a",
@@ -824,7 +856,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.733Z",
+      "collected_at": "2026-06-01T07:58:40.878Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "농림축산식품부",
@@ -848,7 +880,8 @@
         "https://www.law.go.kr/flDownload.do?flSeq=164314889",
         "https://www.law.go.kr/flDownload.do?flSeq=164314891",
         "https://www.law.go.kr/flDownload.do?flSeq=164314893"
-      ]
+      ],
+      "public_system_matches": []
     },
     {
       "id": "0d5b3536d730c8b0",
@@ -856,7 +889,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.734Z",
+      "collected_at": "2026-06-01T07:58:40.878Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "교육부",
@@ -873,7 +906,8 @@
       "source_record_id": "000889",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "ab2fa68bf805424b",
@@ -881,7 +915,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T07:59:13.734Z",
+      "collected_at": "2026-06-01T07:58:40.878Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "행정안전부",
@@ -898,7 +932,8 @@
       "source_record_id": "003728",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "ea10d5611f744a49",
@@ -906,7 +941,7 @@
       "diff_summary": "이 항목은 법제처 조문 변경이력 메타데이터를 법령 단위로 묶은 것입니다. 조문별 본문은 원문 링크에서 확인하세요.",
       "auto_summary": false,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:41.411Z",
+      "collected_at": "2026-06-01T07:59:49.007Z",
       "source": "국가법령정보센터 일자별 조문 개정 이력",
       "source_type": "official_law",
       "ministry": "소방청",
@@ -923,7 +958,8 @@
       "source_record_id": "012114",
       "category": "law",
       "verification_required": false,
-      "attachment_urls": []
+      "attachment_urls": [],
+      "public_system_matches": []
     },
     {
       "id": "3ab7be36226878ce",
@@ -931,7 +967,7 @@
       "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
       "auto_summary": true,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.727Z",
+      "collected_at": "2026-06-01T08:00:02.918Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "기후에너지환경부",
@@ -951,7 +987,8 @@
       "confidence": "official",
       "verification_required": false,
       "source_record_id": "2100000279488",
-      "category": "notice"
+      "category": "notice",
+      "public_system_matches": []
     },
     {
       "id": "b3d092f7717ad082",
@@ -959,7 +996,7 @@
       "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
       "auto_summary": true,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.729Z",
+      "collected_at": "2026-06-01T08:00:02.920Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "행정안전부",
@@ -1003,201 +1040,8 @@
       "confidence": "official",
       "verification_required": false,
       "source_record_id": "2100000279560",
-      "category": "notice"
-    },
-    {
-      "id": "e5e8f2c119c04ce8",
-      "summary": "자동요약: 조달청 · 훈령 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-06-01. 조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정 --- 추가 근거 --- 조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정 제1조(목적) 이 규정은 「국가를 당사자로 하는 계약에 관한 법률 시행령」제42조제7항 및 계약예규「종합심사낙찰제 심사기준」제14조 및 「조달청 종합심사낙찰제 심사세부기준」제23조 에 따라 설치하는 종합심사낙찰제 물량ㆍ시공계획 심사위원회의 구성 및 운영에 관하여 필요한 사항을 정한다. 1 제2조(용어정의) 이 규정에서 사용하는 용어의 정의는 다음과 같다. 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "구조문 849자, 신조문 954자 기준으로 신구법 비교 원문이 확인됨",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.730Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "조달청",
-      "document_type": "directive",
-      "title": "조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정",
-      "issue_number": "2390",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-06-01",
-      "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279966&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574091",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574087",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574097",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574093",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574463",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574459",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574469",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574465",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574475",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574471",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574481",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574477",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574487",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574483",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574493",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574489",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574499",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574495",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574505",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574501",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574511",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574507",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574517",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574513",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574523",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574519",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574529",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574525",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574535",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574531",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574541",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574537",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574547",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574543",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574553",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574549",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574559",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574555",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574565",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574561",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574571",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574567",
-        "http://law.go.kr/flDownload.do?flSeq=164569157",
-        "http://law.go.kr/flDownload.do?flSeq=164569161"
-      ],
-      "raw_text": "조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정\n\n--- 추가 근거 ---\n\n조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정 제1조(목적) 이 규정은 「국가를 당사자로 하는 계약에 관한 법률 시행령」제42조제7항 및 계약예규「종합심사낙찰제 심사기준」제14조 및 「조달청 종합심사낙찰제 심사세부기준」제23조 에 따라 설치하는 종합심사낙찰제 물량ㆍ시공계획 심사위원회의 구성 및 운영에 관하여 필요한 사항을 정한다. 1 제2조(용어정의) 이 규정에서 사용하는 용어의 정의는 다음과 같다. 2 1. “심사기준”이란 재정경제부 계약예규 「종합심사낙찰제 심사기준」 을 말한다. 3 2. “심사세부기준”이란 「조달청 종합심사낙찰제 심사세부기준」 을 말한다. 4 3. (생 략) 5 4. “심사위원”이란 「조달청 평가위원 통합관리규정」(이하 “통합관리규정”) 제7조제2항에 따라 선발된 위원을 말한다. 6 5. ∼ 11. (생 략) 7 제4조(심사위원회 구성) ① 심사위원회의 구성은 심사대상 공종의 심사위원으로 [별표1]에 따라 9인 이내를 원칙으로 하며 외부심사위원, 내부심사위원, 수요기관 심사위원으로 구성한다. 다만, 수요기관의 장은 해당기관 심사위원 선정 시 통합관리규정 제9조의 자격을 가진 자가 없는 경우 해당 자격을 가진 자를 외부에서 추천 할 수 있다. 8 ② ∼ ⑦ (생 략) 9 제14조(심사위원회 개회 및 의결) ① ∼ ⑦ (생 략) 10 ⑧ 심사주관부서의 장은 심사위원회에 참여하는 심사위원과 입찰참가업체로 하여금 각각 [별표 4-1]에서 [별표 4-4]까지의 서식에 따라 청렴서약서와 사전설명여부확인서 를 제출하게 하여야 한다. 11 ⑨ (생 략) 12 제15조(심사결과 조치) 심사주관부서의 장은 심사위원회 심의결과 당초설계서 와 다르게 입찰 물량이 채택되어 낙찰자가 된 경우에는 동 내용을 시설총괄과장에게 통보하여야 한다. 13 제1조(목적) 이 규정은 「국가를 당사자로 하는 계약에 관한 법률 시행령」제42조제7항 및 계약예규「공사계약 종합심사낙찰제 심사기준」제14조 및 「조달청 공사계약 종합심사낙찰제 심사세부기준」제23조와 「조달청 공공주택 공사계약 종합심사낙찰제 심사세부기준」제23조 에 따라 설치하는 종합심사낙찰제 물량ㆍ시공계획 심사위원회의 구성 및 운영에 관하여 필요한 사항을 정한다. 1 제2조(용어정의) 이 규정에서 사용하는 용어의 정의는 다음과 같다. 2 1. “심사기준”이란 재정경제부 계약예규 「공사계약 종합심사낙찰제 심사기준」 을 말한다. 3 2. “심사세부기준”이란 「조달청 공사계약 종합심사낙찰제 심사세부기준」과 「조달청 공공주택 공사계약 종합심사낙찰제 심사세부기준」 을 말한다. 4 3. (현행과 같음) 5 4. “심사위원”이란 「조달청 평가위원 통합관리 규정」(이하 “통합관리규정”) 제7조제2항에 따라 선발된 위원을 말한다. 6 5. ∼ 11. (현행과 같음) 7 제4조(심사위원회 구성) ① 심사위원회의 구성은 심사대상 공종의 심사위원으로 [별표1]에 따라 9인 이내를 원칙으로 하며 외부심사위원, 내부심사위원, 수요기관 심사위원으로 구성한다. 다만, 수요기관의 장은 해당기관 심사위원 선정 시 통합관리규정 제9조의 자격을 가진 자가 없는 경우 해당 자격을 가진 자를 외부에서 추천할 수 있다. 8 ② ∼ ⑦ (현행과 같음) 9 제14조(심사위원회 개회 및 의결) ① ∼ ⑦ (현행과 같음) 10 ⑧ 심사주관부서의 장은 심사위원회에 참여하는 심사위원과 입찰참가업체로 하여금 각각 [별표 4-1]에서 [별표 4-4]까지의 서식에 따라 청렴서약서와 사전설명여부 확인서 를 제출하게 하여야 한다. 11 ⑨ (현행과 같음) 12 제15조(심사결과 조치) 심사주관부서의 장은 심사위원회 심의결과 당초 설계서 와 다르게 입찰 물량이 채택되어 낙찰자가 된 경우에는 동 내용을 시설총괄과장에게 통보하여야 한다. 13",
-      "raw_hash": "4c994ff9a17b80e5c647c50ea5872392bb24cd88299fd520b40cfb4e7d2d6b7e",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279966",
-      "category": "guideline"
-    },
-    {
-      "id": "4e7312cc16381b18",
-      "summary": "자동요약: 기후에너지환경부 · 고시 · 신규 · 공표일 2026-05-20 · 시행일 2026-05-20. 화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시 부칙 제1조(시행일) 이 고시는 발령한 날부터 시행한다.제2조(경과조치) 이 고시 시행 전에 기후에너지환경부장관이 위탁하여 진행중인 업무에 대해서는 제2조 및 제3조의 개정 규정에도 불구하고 종전 규정에 따른다. --- 추가 근거 --- 화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.730Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "기후에너지환경부",
-      "document_type": "notice",
-      "title": "화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시",
-      "issue_number": "2026-125",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-20",
-      "change_type": "new",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279498&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351041",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351037",
-        "http://law.go.kr/flDownload.do?flSeq=164351163",
-        "http://law.go.kr/flDownload.do?flSeq=164351159"
-      ],
-      "raw_text": "화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시 부칙 제1조(시행일) 이 고시는 발령한 날부터 시행한다.제2조(경과조치) 이 고시 시행 전에 기후에너지환경부장관이 위탁하여 진행중인 업무에 대해서는 제2조 및 제3조의 개정 규정에도 불구하고 종전 규정에 따른다.\n\n--- 추가 근거 ---\n\n화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시",
-      "raw_hash": "b0ba7ecfa3bd5da177a5ebd6efe35d52839adb1c2617356fbc4237dbd72156fc",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279498",
-      "category": "notice"
-    },
-    {
-      "id": "bb9df36e79b13e04",
-      "summary": "자동요약: 지식재산처 · 훈령 · 신규 · 공표일 2026-05-20 · 시행일 2026-05-20. 자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정 부칙 이 훈령은 2026년 5월 20일부터 시행한다. --- 추가 근거 --- 자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.730Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "지식재산처",
-      "document_type": "directive",
-      "title": "자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정",
-      "issue_number": "28",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-20",
-      "change_type": "new",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279832&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164548515",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164548511",
-        "http://law.go.kr/flDownload.do?flSeq=164548403",
-        "http://law.go.kr/flDownload.do?flSeq=164548407"
-      ],
-      "raw_text": "자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정 부칙 이 훈령은 2026년 5월 20일부터 시행한다.\n\n--- 추가 근거 ---\n\n자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정",
-      "raw_hash": "06daa9bc96dd986ac6662b0479005889f486abb3ab0934ad08972d13c599c8a5",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279832",
-      "category": "guideline"
-    },
-    {
-      "id": "36650c8c872a1951",
-      "summary": "자동요약: 동해안산불방지센터 · 훈령 · 신규 · 공표일 2026-05-20 · 시행일 2026-05-20. 동해안 산불방지센터 사무분장규정 부칙 이 훈령은 2026년 5월 20일부터 시행한다. --- 추가 근거 --- 동해안 산불방지센터 사무분장규정 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.731Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "동해안산불방지센터",
-      "document_type": "directive",
-      "title": "동해안 산불방지센터 사무분장규정",
-      "issue_number": "1",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-20",
-      "change_type": "new",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279452&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "http://law.go.kr/flDownload.do?flSeq=164364507",
-        "http://law.go.kr/flDownload.do?flSeq=164364503"
-      ],
-      "raw_text": "동해안 산불방지센터 사무분장규정 부칙 이 훈령은 2026년 5월 20일부터 시행한다.\n\n--- 추가 근거 ---\n\n동해안 산불방지센터 사무분장규정",
-      "raw_hash": "5c8d880b9c90591be59bfa8ba576ec40e978d7f5fc46e3f049a65261b547eb9d",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279452",
-      "category": "guideline"
-    },
-    {
-      "id": "ebff30ff0f6b934b",
-      "summary": "자동요약: 낙동강유역환경청 · 훈령 · 폐지 · 공표일 2026-05-20 · 시행일 2026-05-20. 낙동강유역환경청 당직 및 비상근무 시행세칙 부칙 ① (시행일) 이 훈령은 발령한 날부터 시행한다.② (훈령의 폐지) 낙동강유역환경청 훈령 제71호(2026. 5. 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.731Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "낙동강유역환경청",
-      "document_type": "directive",
-      "title": "낙동강유역환경청 당직 및 비상근무 시행세칙",
-      "issue_number": "73",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-20",
-      "change_type": "abolished",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279582&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442935",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442931",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442917",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442913",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442923",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442919",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442929",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442925",
-        "http://law.go.kr/flDownload.do?flSeq=164440133",
-        "http://law.go.kr/flDownload.do?flSeq=164440137"
-      ],
-      "raw_text": "낙동강유역환경청 당직 및 비상근무 시행세칙 부칙 ① (시행일) 이 훈령은 발령한 날부터 시행한다.② (훈령의 폐지) 낙동강유역환경청 훈령 제71호(2026. 5. 20.)는 폐지한다.\n\n--- 추가 근거 ---\n\n낙동강유역환경청 당직 및 비상근무 시행세칙",
-      "raw_hash": "da5968a4ee3a8ef04bb5a210472fb6c9a7ef247dfd3cc71b0fb9c55a569807e9",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279582",
-      "category": "guideline"
+      "category": "notice",
+      "public_system_matches": []
     },
     {
       "id": "ab658ad08658037c",
@@ -1205,7 +1049,7 @@
       "diff_summary": "구조문 573자, 신조문 613자 기준으로 신구법 비교 원문이 확인됨",
       "auto_summary": true,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.732Z",
+      "collected_at": "2026-06-01T08:00:02.922Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "조달청",
@@ -1293,7 +1137,36 @@
       "confidence": "official",
       "verification_required": false,
       "source_record_id": "2100000279964",
-      "category": "guideline"
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "0ab91b5f1ae11240",
+      "summary": "자동요약: 기후에너지환경부 · 고시 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-20. 원문 본문 근거가 충분하지 않아 제목과 메타데이터 외 내용은 단정하지 않습니다.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.922Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "기후에너지환경부",
+      "document_type": "notice",
+      "title": "전국 생태·자연도(生態·自然圖) 수시고시",
+      "issue_number": "2026-126",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-20",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279484&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "http://law.go.kr/flDownload.do?flSeq=164350521"
+      ],
+      "raw_text": "전국 생태·자연도(生態·自然圖) 수시고시",
+      "raw_hash": "7b2a19d5b6df411c3d1e03a5eed1dd50c6602ecb7d9dac977526f217e0b80511",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279484",
+      "category": "notice",
+      "public_system_matches": []
     },
     {
       "id": "394f8aea8c9d9e4e",
@@ -1301,7 +1174,7 @@
       "diff_summary": "구조문 110자, 신조문 127자 기준으로 신구법 비교 원문이 확인됨",
       "auto_summary": true,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.732Z",
+      "collected_at": "2026-06-01T08:00:02.922Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "행정안전부",
@@ -1321,215 +1194,8 @@
       "confidence": "official",
       "verification_required": false,
       "source_record_id": "2100000279578",
-      "category": "guideline"
-    },
-    {
-      "id": "ef2f5adc05df9a8e",
-      "summary": "자동요약: 동해안산불방지센터 · 훈령 · 신규 · 공표일 2026-05-20 · 시행일 2026-05-20. 동해안 산불방지센터 위임전결사항규정 부칙 이 규정은 발령한 날부터 시행한다. --- 추가 근거 --- 동해안 산불방지센터 위임전결사항규정 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.733Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "동해안산불방지센터",
-      "document_type": "directive",
-      "title": "동해안 산불방지센터 위임전결사항규정",
-      "issue_number": "2",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-20",
-      "change_type": "new",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279454&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164367305",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164367287",
-        "http://law.go.kr/flDownload.do?flSeq=164364249",
-        "http://law.go.kr/flDownload.do?flSeq=164364253"
-      ],
-      "raw_text": "동해안 산불방지센터 위임전결사항규정 부칙 이 규정은 발령한 날부터 시행한다.\n\n--- 추가 근거 ---\n\n동해안 산불방지센터 위임전결사항규정",
-      "raw_hash": "d2aa50af6f0b53fb5255f99e0bcf0b21a13d73c56d5bc28435a774c0389e3926",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279454",
-      "category": "guideline"
-    },
-    {
-      "id": "e34882f6d4082a8b",
-      "summary": "자동요약: 우정사업본부 · 고시 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-21. 우체국예금에 관한 사항 --- 추가 근거 --- 우체국예금에 관한 사항 N 2047041 우체국예금에 관한 사항 20260428 20260501 고시 2026-21 2100000278398 일부개정 FAIL 1 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "구조문 70자, 신조문 6자 기준으로 신구법 비교 원문이 확인됨",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.733Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "우정사업본부",
-      "document_type": "notice",
-      "title": "우체국예금에 관한 사항",
-      "issue_number": "2026-25",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-21",
-      "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279522&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351987",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351983",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351993",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351989",
-        "http://law.go.kr/flDownload.do?flSeq=164351185",
-        "http://law.go.kr/flDownload.do?flSeq=164351189",
-        "http://law.go.kr/flDownload.do?flSeq=164351201",
-        "http://law.go.kr/flDownload.do?flSeq=164351209"
-      ],
-      "raw_text": "우체국예금에 관한 사항\n\n--- 추가 근거 ---\n\n우체국예금에 관한 사항 N 2047041 우체국예금에 관한 사항 20260428 20260501 고시 2026-21 2100000278398 일부개정 FAIL 1",
-      "raw_hash": "8750c1ca43142e993cbcf3d63887a54ad616027476b6a8148c61940e6112580e",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279522",
-      "category": "notice"
-    },
-    {
-      "id": "0ab91b5f1ae11240",
-      "summary": "자동요약: 기후에너지환경부 · 고시 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-20. 원문 본문 근거가 충분하지 않아 제목과 메타데이터 외 내용은 단정하지 않습니다.",
-      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.733Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "기후에너지환경부",
-      "document_type": "notice",
-      "title": "전국 생태·자연도(生態·自然圖) 수시고시",
-      "issue_number": "2026-126",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-20",
-      "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279484&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "http://law.go.kr/flDownload.do?flSeq=164350521"
-      ],
-      "raw_text": "전국 생태·자연도(生態·自然圖) 수시고시",
-      "raw_hash": "7b2a19d5b6df411c3d1e03a5eed1dd50c6602ecb7d9dac977526f217e0b80511",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279484",
-      "category": "notice"
-    },
-    {
-      "id": "5afa4e343433241d",
-      "summary": "자동요약: 국가유산청 · 훈령 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-20. 국가유산청 예산편성 기준에 관한 규정 --- 추가 근거 --- 국가유산청 예산편성 기준에 관한 규정 국가유산청 예산 편성 기준에 관한 규정 1 제7조(국고보조사업 편성 기준) ① ∼ ⑧ (생 략) 2 3 국가유산청 예산편성 기준에 관한 규정 1 제7조(국고보조사업 편성 기준) ① ∼ ⑧ (현행과 같음) 2 ⑨ 다음 각 호의 어느 하나에 해당하는 경우에는 국고보조사업으로 지원하지 아니한다. 1. 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "구조문 57자, 신조문 312자 기준으로 신구법 비교 원문이 확인됨",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.733Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "국가유산청",
-      "document_type": "directive",
-      "title": "국가유산청 예산편성 기준에 관한 규정",
-      "issue_number": "59",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-20",
-      "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279528&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "http://law.go.kr/flDownload.do?flSeq=164350579"
-      ],
-      "raw_text": "국가유산청 예산편성 기준에 관한 규정\n\n--- 추가 근거 ---\n\n국가유산청 예산편성 기준에 관한 규정 국가유산청 예산 편성 기준에 관한 규정 1 제7조(국고보조사업 편성 기준) ① ∼ ⑧ (생 략) 2 3 국가유산청 예산편성 기준에 관한 규정 1 제7조(국고보조사업 편성 기준) ① ∼ ⑧ (현행과 같음) 2 ⑨ 다음 각 호의 어느 하나에 해당하는 경우에는 국고보조사업으로 지원하지 아니한다. 1. 고도(古都) 지역 내 탐방센터 또는 그와 기능이 유사한 시설로서 지방자치단체가 자체적으로 수행할 필요가 있는 사업 2. 기존에 유산 주변에서 안내ㆍ홍보ㆍ교육ㆍ체험 등의 기능을 수행하는 시설이 설치ㆍ운영 중인 경우 그와 기능이 중복되는 시설의 건립 또는 지원 사업 3. 그 밖에 국가유산청장이 국고의 중복투자 또는 재정 비효율을 초래할 우려가 있다고 인정하는 사업 3",
-      "raw_hash": "0888c8f31cb7fcbf1ecacb70958cf1f8b0b2bbcf3f7f51026e040615796b952a",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279528",
-      "category": "guideline"
-    },
-    {
-      "id": "1d3321ecd3500e6a",
-      "summary": "자동요약: 농림축산검역본부 · 고시 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-20. 수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준 --- 추가 근거 --- 수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준 제3조(수출과수원의 등록 및 관리) ① 콜롬비아 검역당국(이하 “ICA”라 한다) 은 매년 한국 수출용 아보카도(Persea americana ‘Hass’ 품종) 생과실(이하 “아보카도 생과실”이라 한다)을 재배하는 과수원(이하 “수출과수원”이라 한다)을 등록하고 다음 각 호와 같이 관리하여야 한다. 1 1. 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "구조문 3,648자, 신조문 4,036자 기준으로 신구법 비교 원문이 확인됨",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.733Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "농림축산검역본부",
-      "document_type": "notice",
-      "title": "수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준",
-      "issue_number": "2026-18",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-20",
-      "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279594&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424753",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424747",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424759",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424755",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424765",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424761",
-        "http://law.go.kr/flDownload.do?flSeq=164427195",
-        "http://law.go.kr/flDownload.do?flSeq=164427199"
-      ],
-      "raw_text": "수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준\n\n--- 추가 근거 ---\n\n수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준 제3조(수출과수원의 등록 및 관리) ① 콜롬비아 검역당국(이하 “ICA”라 한다) 은 매년 한국 수출용 아보카도(Persea americana ‘Hass’ 품종) 생과실(이하 “아보카도 생과실”이라 한다)을 재배하는 과수원(이하 “수출과수원”이라 한다)을 등록하고 다음 각 호와 같이 관리하여야 한다. 1 1. ICA는 수출과수원에서 별표 1의 우려병해충(이하 “우려병해충”이라 한다)에 대해 다음 각 목에 따라 예찰 및 방제를 실시하도록 감독하여야 한다. 2 가. 최소 월 1회 이상 ICA 의 규정에 따라 예찰을 실시한다. 3 나.·다. (생 략) 4 2. ICA는 수출과수원에서 지중해과실파리에 대해 다음 각 목에 따라 예찰 및 방제를 실시하도록 감독하여야 한다. 5 가. ∼ 마. (생 략) 6 바. ICA는 지중해과실파리가 발생 기준을 초과하여 발생한 수출과수원을 저발생 기준 이하로 30일간 유지될 때까지 대한국 수출에서 즉시 제외하여야 한다. 이 경우 ICA는 수출에서 제외된 수출과수원을 농림축산검역본부(이하 “검역본부”라 한다)에 즉시 통보하여야 한다. 7 3. ICA는 수출과수원에서 Heilipus lauri, Heilipus trifasciatus에 대해 다음 각 목과 같이 과일 절개검사를 포함한 예찰 및 방제를 실시하고 감독하여야 한다. 8 가. ICA는 수출과수원에 최소 월 1회 예찰을 실시하여야 한다. 9 나. ICA는 각 수출과수원별로 면적에 따라 아보카도 나무를 무작위로 선정하여 예찰을 실시하여야 한다. 10 1)·2) (생 략) 11 다. 만약 H. lauri나 H. trifasciatus가 수출과수원에서 검출된 경우, 관련된 수출과수원은 즉시 수출을 중단한다. 수출 중단은 시즌 종료 시까지 유지된다(1차 시즌: 2월~7월, 2차 시즌: 8월~1월). 이 경우 ICA는 즉시 검역본부에 수출 중단 과수원 목록을 통보하여야 한다. 12 라. ICA는 검역본부가 요청할 경우 매 수출 시즌 한 달 전에 해충 모니터링 기록을 제공하여야 한다. 13 ② ICA는 등록된 수출과수원 목록(별표 2)을 제9조의 국외생산지조사 수행 이전에 검역본부에 제공하여야 한다. 14 ③ ICA는 국외생산지조사 수행 이후 수출과수원의 추가가 필요한 경우 추가될 과수원에서 생산된 아보카도의 수출을 시작하기 전에 추가 과수원 목록을 검역본부에 공식서신 으로 제공하여야 한다. 15 ④ ICA는 수출과수원에서 실시하는 예찰 및 방제에 대한 기록들을 보관하고, 검역본부의 요청에 따라 제공하여야 한다. 16 제4조(수출선과장의 등록 및 관리) ① ICA는 매년 제4조제2항의 요건에 적합한 한국 수출용 아보카도 생과실을 선과하는 선과장(이하 “수출선과장”이라 한다)을 등록하고 관리하여야 한다. 17 ② (생 략) 18 ③ ICA는 수출선과장 목록(별표 3)을 수출개시 30일 전까지 검역본부에 제공하여야 한다. 19 ④ ICA는 수출선과장 목록 추가가 필요한 경우, 추가될 수출선과장에서 아보카도 생과실의 수출이 개시되기 전에 그 목록을 검역본부에 공식서신 으로 제공하여야 한다. 20 제5조(선과 및 포장) ① 한국 수출용 아보카도 생과실은 ICA 에 등록된 수출선과장에서 다음 각 호와 같이 선과되어야 한다. 21 1. ∼ 3. (생 략) 22 ② 아보카도 생과실은 수출선과장 내에서 다음 각 호와 같이 포장 되어야 한다. 23 1. 항공화물인 경우, 포장상자는 병해충의 유입을 차단할 수 있는 재질로 포장[통기구멍을 설치할 경우, 망(1.6㎜×1.6㎜ 이하) 부착]하거나 파렛트 전체를 망(1.6㎜×1.6㎜ 이하)이나 비닐로 포장하여야 한다. 24 2.·3. (생 략) 25 ③ ICA는 포장이 완료된 수출용 화물의 보관 및 수송 중 병해충에 재 감염되지 않도록 적절한 조치를 취해야 한다. 26 제6조(수출검역 및 봉인) ① ICA 식물검역관은 수출 화물 포장상자의 2% 또는 600개 이상의 과일 샘플 을 채취하여 검역을 실시하여야 한다. 27 ② 채취된 샘플 중 50개 이상의 과일을 절개하여 지중해과실파리, H. lauri 및 H. trifasciatus의 감염 여부를 확인 한다 . 28 ③ (생 략) 29 ④ 수출검역 과정에서 살아있는 지중해과실파리가 발견되는 경우 ICA는 검출원인이 규명되고 개선조치가 마련될 때까지 콜롬비아산 아보카도 생과실 수출을 중단하고 검출 사실을 검역본부에 즉시 통보하여야 한다. 30 ⑤ ICA는 수출검역 과정에서 살아있는 H. lauri 및 H. trifasciatus가 발견되는 경우 해당화물을 불합격처리하고, ICA 에 의하여 H. lauri 또는 H. trifasciatus가 해당 수출과수원에서 제거되고, 검역본부가 승인할 때까지 해당 수출과수원산 아보카도의 수출을 중단하여야 한다. 이 경우 ICA는 H. lauri 또는 H. trifasciatus 검출 정보를 한국에 즉시 통보하여야 한다. 31 ⑥ 한국 수출용 선박 화물은 ICA 식물검역관의 감독 하에 봉인되어야 한다. 항공화물의 경우 포장상자 또는 파레트 전체를 ICA 마크가 표시된 테이프(봉합 테이프 겉면에 ICA 스탬프를 찍는 경우를 포함한다)로 봉인할 수 있다. 32 제7조(식물검역증명서) ICA 식물검역관은 제6조에 따른 수출검역에 합격한 아보카도 생과실에 대해 다음 각 호의 부기사항이 포함된 식물검역증명서를 발행하여야 한다. 33 1. ∼ 4. (생 략) 34 제8조(수입검역) ①·② (생 략) 35 ③ 수입검역에서 살아있는 지중해과실파리가 검출되는 경우 해당 화물은 불합격 처리되며, 검출원인이 규명되고 개선조치가 마련될 때까지 콜롬비아산 아보카도 생과실 수입을 중단하여야 한다. 이 경우 검역본부는 수입중단을 ICA에 공식서신 으로 통보하여야 한다. 36 ④ 수입검역에서 살아있는 H. lauri 또는 H. trifasciatus가 검출되는 경우 해당 화물은 불합격 처리되며, ICA 에 의하여 H. lauri 또는 H. trifasciatus가 해당 수출과수원에서 제거되고, 검역본부가 승인할 때까지 해당 수출과수원산 아보카도의 수입을 중단한다. 이 경우 검역본부는 수입 중단을 ICA에게 공식서신 으로 통보하여야 한다. 37 ⑤·⑥ (생 략) 38 제9조(국외생산지조사) ① 검역본부는 본 수입요건의 이행을 확인하기 위하여 매년 국외생산지조사를 실시하여야 한다. 39 ② ICA는 매년 7월 31일까지 조사 일정이 포함된 초청서신 을 통하여 검역본부에 국외생산지조사를 요청하여야 한다. 40 ③ ICA는 파견된 검역본부 식물검역관에게 국외생산지조사에 필요한 기록 및 정보를 제공하여야 한다. 41 ④ 콜롬비아에 파견된 검역본부 식물검역관은 본 요건에 부합하지 않은 수출과수원 또는 수출선과장에 대해 ICA 에 개선 또는 한국 수출 제외를 요청할 수 있다. 42 ⑤ (생 략) 43 ⑥ 검역본부는 최초 3년간 국외생산지조사 실시 후 지속여부를 검토할 수 있다. 44 제10조(기타사항) ① ICA는 제3조와 관련된 “과실파리예찰프로그램”의 개정이 필요한 경우 개정 전 검역본부와 협의하여야 한다. 45 ② (생 략) 46 ③ 이 고시는 한국과 콜롬비아 양국 합의하 에 개정할 수 있다. 47 48 제11조(재검토기한) 농림축산검역본부장은 이 고시에 대하여 「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2021년 7월 1일 을 기준으로 매 3년에 되는 시점(매 3년째의 6월 30일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 하여야 한다. 49 제3조(수출과수원의 등록 및 관리) ① 콜롬비아 검역당국(ICA) 은 매년 한국 수출용 아보카도(Persea americana ‘Hass’ 품종) 생과실(이하 “아보카도 생과실”이라 한다)을 재배하는 과수원(이하 “수출과수원”이라 한다)을 등록하고 다음 각 호와 같이 관리하여야 한다. 1 1. 콜롬비아 검역당국은 수출과수원에서 별표 1의 우려병해충(이하 “우려병해충”이라 한다)에 대해 다음 각 목에 따라 예찰 및 방제를 실시하도록 감독하여야 한다. 2 가. 최소 월 1회 이상 콜롬비아 검역당국 의 규정에 따라 예찰을 실시한다. 3 나.·다. (현행과 같음) 4 2. 콜롬비아 검역당국은 수출과수원에서 지중해과실파리에 대해 다음 각 목에 따라 예찰 및 방제를 실시하도록 감독하여야 한다. 5 가. ∼ 마. (현행과 같음) 6 바. 콜롬비아 검역당국은 지중해과실파리가 발생 기준을 초과하여 발생한 수출과수원을 저발생 기준 이하로 30일간 유지될 때까지 대한국 수출에서 즉시 제외하여야 한다. 이 경우 콜롬비아 검역당국은 수출에서 제외된 수출과수원을 농림축산검역본부(이하 “검역본부”라 한다)에 즉시 통보하여야 한다. 7 3. 콜롬비아 검역당국은 수출과수원에서 Heilipus lauri, Heilipus trifasciatus에 대해 다음 각 목과 같이 과일 절개검사를 포함한 예찰 및 방제를 실시하고 감독하여야 한다. 8 가. 콜롬비아 검역당국은 수출과수원에 최소 월 1회 예찰을 실시하여야 한다. 9 나. 콜롬비아 검역당국은 각 수출과수원별로 면적에 따라 아보카도 나무를 무작위로 선정하여 예찰을 실시하여야 한다. 10 1)·2) (현행과 같음) 11 다. 만약 H. lauri나 H. trifasciatus가 수출과수원에서 검출된 경우, 관련된 수출과수원은 즉시 수출을 중단한다. 수출 중단은 시즌 종료 시까지 유지된다(1차 시즌: 2월~7월, 2차 시즌: 8월~1월). 이 경우 콜롬비아 검역당국은 즉시 검역본부에 수출 중단 과수원 목록을 통보하여야 한다. 12 라. 콜롬비아 검역당국은 검역본부가 요청할 경우 매 수출 시즌 한 달 전에 해충 모니터링 기록을 제공하여야 한다. 13 ② 콜롬비아 검역당국은 등록된 수출과수원 목록(별표 2)을 수출 개시 30일 전까지 검역본부에 제공하여야 한다. 14 ③ 콜롬비아 검역당국은 국외생산지조사 수행 이후 수출과수원의 추가가 필요한 경우 추가될 과수원에서 생산된 아보카도의 수출을 시작하기 전에 추가 과수원 목록을 검역본부에 공식 서신 으로 제공하여야 한다. 15 ④ 콜롬비아 검역당국은 수출과수원에서 실시하는 예찰 및 방제에 대한 기록들을 보관하고, 검역본부의 요청에 따라 제공하여야 한다. 16 제4조(수출선과장의 등록 및 관리) ① 콜롬비아 검역당국은 매년 제4조제2항의 요건에 적합한 한국 수출용 아보카도 생과실을 선과하는 선과장(이하 “수출선과장”이라 한다)을 등록하고 관리하여야 한다. 17 ② (현행과 같음) 18 ③ 콜롬비아 검역당국은 수출선과장 목록(별표 3)을 수출개시 30일 전까지 검역본부에 제공하여야 한다. 19 ④ 콜롬비아 검역당국은 수출선과장 목록 추가가 필요한 경우, 추가될 수출선과장에서 아보카도 생과실의 수출이 개시되기 전에 그 목록을 검역본부에 공식 서신 으로 제공하여야 한다. 20 제5조(선과 및 포장) ① 한국 수출용 아보카도 생과실은 콜롬비아 검역당국 에 등록된 수출선과장에서 다음 각 호와 같이 선과되어야 한다. 21 1. ∼ 3. (현행과 같음) 22 ② 아보카도 생과실은 수출선과장 내에서 다음 각 호와 같이 포장 되어야 한다. 23 1. 항공화물인 경우, 포장상자는 병해충의 유입을 차단할 수 있는 재질로 포장[통기구멍을 설치할 경우, 망(1.6㎜×1.6㎜ 이하) 부착]하거나 팰릿(pallet: 화물운반대) 전체를 망(1.6㎜×1.6㎜ 이하)이나 비닐로 포장하여야 한다. 24 2.·3. (현행과 같음) 25 ③ 콜롬비아 검역당국은 포장이 완료된 수출용 화물의 보관 및 수송 중 병해충에 재 감염되지 않도록 적절한 조치를 취해야 한다. 26 제6조(수출검역 및 봉인) ① 콜롬비아 검역당국 식물검역관은 수출 화물 포장상자의 2% 또는 600개 이상의 과일 표본 을 채취하여 검역을 실시하여야 한다. 27 ② 채취된 표본 중 50개 이상의 과일을 절개하여 지중해과실파리, H. lauri 및 H. trifasciatus의 감염 여부를 확인한다 . 28 ③ (현행과 같음) 29 ④ 수출검역 과정에서 살아있는 지중해과실파리가 발견되는 경우 콜롬비아 검역당국은 검출원인이 규명되고 개선조치가 마련될 때까지 콜롬비아산 아보카도 생과실 수출을 중단하고 검출 사실을 검역본부에 즉시 통보하여야 한다. 30 ⑤ 콜롬비아 검역당국은 수출검역 과정에서 살아있는 H. lauri 및 H. trifasciatus가 발견되는 경우 해당화물을 불합격처리하고, 콜롬비아 검역당국 에 의하여 H. lauri 또는 H. trifasciatus가 해당 수출과수원에서 제거되고, 검역본부가 승인할 때까지 해당 수출과수원산 아보카도의 수출을 중단하여야 한다. 이 경우 콜롬비아 검역당국은 H. lauri 또는 H. trifasciatus 검출 정보를 한국에 즉시 통보하여야 한다. 31 ⑥ 한국 수출용 선박 화물은 콜롬비아 검역당국 식물검역관의 감독 하에 봉인되어야 한다. 항공화물의 경우 포장상자 또는 팰릿 전체를 콜롬비아 검역당국 마크가 표시된 테이프(봉합 테이프 겉면에 콜롬비아 검역당국 스탬프를 찍는 경우를 포함한다)로 봉인할 수 있다. 32 제7조(식물검역증명서) 콜롬비아 검역당국 식물검역관은 제6조에 따른 수출검역에 합격한 아보카도 생과실에 대해 다음 각 호의 부기사항이 포함된 식물검역증명서를 발행하여야 한다. 33 1. ∼ 4. (현행과 같음) 34 제8조(수입검역) ①·② (현행과 같음) 35 ③ 수입검역에서 살아있는 지중해과실파리가 검출되는 경우 해당 화물은 불합격 처리되며, 검출원인이 규명되고 개선조치가 마련될 때까지 콜롬비아산 아보카도 생과실 수입을 중단하여야 한다. 이 경우 검역본부는 수입중단을 콜롬비아 검역당국에 공식 서신 으로 통보하여야 한다. 36 ④ 수입검역에서 살아있는 H. lauri 또는 H. trifasciatus가 검출되는 경우 해당 화물은 불합격 처리되며, 콜롬비아 검역당국 에 의하여 H. lauri 또는 H. trifasciatus가 해당 수출과수원에서 제거되고, 검역본부가 승인할 때까지 해당 수출과수원산 아보카도의 수입을 중단한다. 이 경우 검역본부는 수입 중단을 콜롬비아 검역당국에게 공식 서신 으로 통보하여야 한다. 37 ⑤·⑥ (현행과 같음) 38 제9조(국외생산지조사) ① 검역본부는 본 수입요건의 이행을 확인하기 위하여 격년으로 국외생산지조사를 실시하여야 한다. 39 ② 콜롬비아 검역당국은 국외생산지조사를 실시하는 해당년도의 7월 31일까지 조사 일정이 포함된 초청 서신 을 통하여 검역본부에 국외생산지조사를 요청하여야 한다. 40 ③ 콜롬비아 검역당국은 파견된 검역본부 식물검역관 또는 검역본부 요청에 따라 과수원 병해충 관리, 선과장 관리 등에 관한 기록 및 정보를 제공하여야 한다. 41 ④ 콜롬비아에 파견된 검역본부 식물검역관 또는 검역본부는 본 요건에 부합하지 않은 수출과수원 또는 수출선과장에 대해 콜롬비아 검역당국 에 개선 또는 한국 수출 제외를 요청할 수 있다. 42 ⑤ (현행과 같음) 43 ⑥ 검역본부는 격년으로 국외생산지조사를 2회 실시한 후, 그 지속여부를 검토할 수 있다. 44 제10조(기타사항) ① 콜롬비아 검역당국은 제3조와 관련된 “과실파리예찰프로그램”의 개정이 필요한 경우 개정 전 검역본부와 협의하여야 한다. 45 ② (현행과 같음) 46 ③ 이 고시는 한국과 콜롬비아 양국 합의 하 에 개정할 수 있다. 47 ④ 본 수입요건 이행에 반복적인 위반사항이나 문제가 있을 경우 양국 협의를 거쳐 검역본부는 국외생산지조사 주기를 단축하는 등 필요한 조치를 취할 수 있다. 48 제11조(재검토기한) 농림축산검역본부장은 이 고시에 대하여 「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2026년 7월 1일 을 기준으로 매 3년에 되는 시점(매 3년째의 6월 30일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 하여야 한다. 49",
-      "raw_hash": "56c326ee58c17a05e74175008a513c2544ee4cf65617b3cfc7ba2c4693e186f9",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279594",
-      "category": "notice"
-    },
-    {
-      "id": "572ef983b758acd4",
-      "summary": "자동요약: 국가유산청 · 예규 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-26. 사적의 지정명칭 부여에 관한 일반 지침 --- 추가 근거 --- 사적의 지정명칭 부여에 관한 일반 지침 제2조(일반원칙) 사적 지정명칭 부여의 일반원칙은 아래와 같다. 1 1.·2. 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "구조문 538자, 신조문 547자 기준으로 신구법 비교 원문이 확인됨",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.734Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "국가유산청",
-      "document_type": "established_rule",
-      "title": "사적의 지정명칭 부여에 관한 일반 지침",
-      "issue_number": "30",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-26",
-      "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279604&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "http://law.go.kr/flDownload.do?flSeq=164427417",
-        "http://law.go.kr/flDownload.do?flSeq=164427421"
-      ],
-      "raw_text": "사적의 지정명칭 부여에 관한 일반 지침\n\n--- 추가 근거 ---\n\n사적의 지정명칭 부여에 관한 일반 지침 제2조(일반원칙) 사적 지정명칭 부여의 일반원칙은 아래와 같다. 1 1.·2. (생 략) 2 3. 사적 지정명칭은 한글로 하고, 괄호( ) 안에 한자를 병기한다. 다만, 명칭과 한자를 병기할 시 ‘음’이 다를 경우 큰 괄호[ ] 로 표기한다. 3 4. (생 략) 4 제5조(지정명칭 변경) 사적 지정명칭을 변경할 경우에는 아래사항을 고려하여 변경한다. 5 1. ∼ 5. (생 략) 6 6. 지정 당시의 명칭이 “지”로 되어 있는 사적의 복원ㆍ정비가 상당 부분 이루어진 경우에는 복원의 진정성 등을 고려하여 명칭에서 “지”를 문화유산위원회의 검토를 받아 삭제 할 수 있다. 7 제7조(연속유산의 지정명칭) ① 연속유산은 아래에 따른 조건을 모두 만족하는 둘 이상의 유산 을 말한다. 8 1. ∼ 3. (생 략) 9 ② (생 략) 10 제8조(지정명칭 변경절차) 제2조에서부터 제4조, 제6조 및 제7조에 따라 부여한 명칭이 해당 사적의 특성과 역사성을 충분히 반영하지 못하고 있다고 판단되는 경우에는 문화유산위원회(사적분과) 의 검토를 거쳐 변경할 수 있다. 11 제2조(일반원칙) 사적 지정명칭 부여의 일반원칙은 아래와 같다. 1 1.·2. (현행과 같음) 2 3. 사적 지정명칭은 한글로 하고, 괄호 안에 한자를 병기한다. 다만, 명칭과 한자를 병기할 시 ‘음’이 다를 경우 큰 괄호 로 표기한다. 3 4. (현행과 같음) 4 제5조(지정명칭 변경) 사적 지정명칭을 변경할 경우에는 아래사항을 고려하여 변경한다. 5 1. ∼ 5. (현행과 같음) 6 6. 지정 당시의 명칭이 “지”로 되어 있는 사적의 복원ㆍ정비가 상당 부분 이루어진 경우에는 복원의 진정성 등을 고려하여 명칭에서 “지”를 국가유산위원회의 검토를 받아 삭제 할 수 있다. 7 제7조(연속유산의 지정명칭) ① 연속유산은 아래에 따른 조건을 모두 만족하는 둘 이상의 유산 을 말한다. 8 1. ∼ 3. (현행과 같음) 9 ② (현행과 같음) 10 제8조(지정명칭 변경절차) 제2조에서부터 제4조, 제6조 및 제7조에 따라 부여한 명칭이 해당 사적의 특성과 역사성을 충분히 반영하지 못하고 있다고 판단되는 경우에는 국가유산위원회(사적분과) 의 검토를 거쳐 변경할 수 있다. 11",
-      "raw_hash": "b0b2d82eab4b94df39bc65df3decacc52eea750b8f6b4bb5787aa78a00d14f45",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279604",
-      "category": "guideline"
-    },
-    {
-      "id": "984e175ecac7fa45",
-      "summary": "자동요약: 국가유산청 · 훈령 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-26. 국가무형유산 전승지원금 지급·운영에 관한 규정 부칙 제1조(시행일) 이 훈령은 발령한 날부터 시행한다.제2조(경과조치) 이 훈령 시행 당시 종전의 규정에 의하여 처리한 사항은 이 규정에 의하여 처리한 것으로 본다. --- 추가 근거 --- 국가무형유산 전승지원금 지급·운영에 관한 규정 제4조(전승지원 계획 수립) 청장은 전승지원금의 효율적 집행을 위하여 법 제9조에 따른 무형유산위원회의 검토를 거쳐 국가무형유산 전승지원에 관한 계획을 매년 1월 20일까지 수립하여 국가유산청 홈페이지에 공지하여야 한다. 원문 링크를 기준으로 확인하세요.",
-      "diff_summary": "구조문 125자, 신조문 131자 기준으로 신구법 비교 원문이 확인됨",
-      "auto_summary": true,
-      "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.734Z",
-      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
-      "source_type": "official_law",
-      "ministry": "국가유산청",
-      "document_type": "directive",
-      "title": "국가무형유산 전승지원금 지급·운영에 관한 규정",
-      "issue_number": "57",
-      "publish_date": "2026-05-20",
-      "effective_date": "2026-05-26",
-      "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279612&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "http://law.go.kr/flDownload.do?flSeq=164440105",
-        "http://law.go.kr/flDownload.do?flSeq=164440109"
-      ],
-      "raw_text": "국가무형유산 전승지원금 지급·운영에 관한 규정 부칙 제1조(시행일) 이 훈령은 발령한 날부터 시행한다.제2조(경과조치) 이 훈령 시행 당시 종전의 규정에 의하여 처리한 사항은 이 규정에 의하여 처리한 것으로 본다.\n\n--- 추가 근거 ---\n\n국가무형유산 전승지원금 지급·운영에 관한 규정 제4조(전승지원 계획 수립) 청장은 전승지원금의 효율적 집행을 위하여 법 제9조에 따른 무형유산위원회의 검토를 거쳐 국가무형유산 전승지원에 관한 계획을 매년 1월 20일까지 수립하여 국가유산청 홈페이지에 공지하여야 한다. 1 제4조(전승지원 계획 수립) 청장은 전승지원금의 효율적 집행을 위하여 국가유산기본법 제9조에 따른 국가유산위원회의 검토를 거쳐 국가무형유산 전승지원에 관한 계획을 매년 1월 20일까지 수립하여 국가유산청 홈페이지에 공지하여야 한다. 1",
-      "raw_hash": "589889dee36fe409f6e52c3575a58c78dbbbb147447d1453dd3a9504dca56c40",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000279612",
-      "category": "guideline"
+      "category": "guideline",
+      "public_system_matches": []
     },
     {
       "id": "e8cd17040ff9dfa1",
@@ -1537,7 +1203,7 @@
       "diff_summary": "구조문 611자, 신조문 2,825자 기준으로 신구법 비교 원문이 확인됨",
       "auto_summary": true,
       "collection_date": "2026-05-20",
-      "collected_at": "2026-05-29T08:01:58.734Z",
+      "collected_at": "2026-06-01T08:00:02.923Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "기획예산처",
@@ -1585,7 +1251,394 @@
       "confidence": "official",
       "verification_required": false,
       "source_record_id": "2100000279462",
-      "category": "guideline"
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "ebff30ff0f6b934b",
+      "summary": "자동요약: 낙동강유역환경청 · 훈령 · 폐지 · 공표일 2026-05-20 · 시행일 2026-05-20. 낙동강유역환경청 당직 및 비상근무 시행세칙 부칙 ① (시행일) 이 훈령은 발령한 날부터 시행한다.② (훈령의 폐지) 낙동강유역환경청 훈령 제71호(2026. 5. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.923Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "낙동강유역환경청",
+      "document_type": "directive",
+      "title": "낙동강유역환경청 당직 및 비상근무 시행세칙",
+      "issue_number": "73",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-20",
+      "change_type": "abolished",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279582&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442935",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442931",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442917",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442913",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442923",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442919",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442929",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164442925",
+        "http://law.go.kr/flDownload.do?flSeq=164440133",
+        "http://law.go.kr/flDownload.do?flSeq=164440137"
+      ],
+      "raw_text": "낙동강유역환경청 당직 및 비상근무 시행세칙 부칙 ① (시행일) 이 훈령은 발령한 날부터 시행한다.② (훈령의 폐지) 낙동강유역환경청 훈령 제71호(2026. 5. 20.)는 폐지한다.\n\n--- 추가 근거 ---\n\n낙동강유역환경청 당직 및 비상근무 시행세칙",
+      "raw_hash": "da5968a4ee3a8ef04bb5a210472fb6c9a7ef247dfd3cc71b0fb9c55a569807e9",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279582",
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "ef2f5adc05df9a8e",
+      "summary": "자동요약: 동해안산불방지센터 · 훈령 · 신규 · 공표일 2026-05-20 · 시행일 2026-05-20. 동해안 산불방지센터 위임전결사항규정 부칙 이 규정은 발령한 날부터 시행한다. --- 추가 근거 --- 동해안 산불방지센터 위임전결사항규정 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.923Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "동해안산불방지센터",
+      "document_type": "directive",
+      "title": "동해안 산불방지센터 위임전결사항규정",
+      "issue_number": "2",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-20",
+      "change_type": "new",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279454&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164367305",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164367287",
+        "http://law.go.kr/flDownload.do?flSeq=164364249",
+        "http://law.go.kr/flDownload.do?flSeq=164364253"
+      ],
+      "raw_text": "동해안 산불방지센터 위임전결사항규정 부칙 이 규정은 발령한 날부터 시행한다.\n\n--- 추가 근거 ---\n\n동해안 산불방지센터 위임전결사항규정",
+      "raw_hash": "d2aa50af6f0b53fb5255f99e0bcf0b21a13d73c56d5bc28435a774c0389e3926",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279454",
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "bb9df36e79b13e04",
+      "summary": "자동요약: 지식재산처 · 훈령 · 신규 · 공표일 2026-05-20 · 시행일 2026-05-20. 자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정 부칙 이 훈령은 2026년 5월 20일부터 시행한다. --- 추가 근거 --- 자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.924Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "지식재산처",
+      "document_type": "directive",
+      "title": "자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정",
+      "issue_number": "28",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-20",
+      "change_type": "new",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279832&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164548515",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164548511",
+        "http://law.go.kr/flDownload.do?flSeq=164548403",
+        "http://law.go.kr/flDownload.do?flSeq=164548407"
+      ],
+      "raw_text": "자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정 부칙 이 훈령은 2026년 5월 20일부터 시행한다.\n\n--- 추가 근거 ---\n\n자율기구 지식재산인공지능전환추진단의 설치 및 운영에 관한 규정",
+      "raw_hash": "06daa9bc96dd986ac6662b0479005889f486abb3ab0934ad08972d13c599c8a5",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279832",
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "572ef983b758acd4",
+      "summary": "자동요약: 국가유산청 · 예규 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-26. 사적의 지정명칭 부여에 관한 일반 지침 --- 추가 근거 --- 사적의 지정명칭 부여에 관한 일반 지침 제2조(일반원칙) 사적 지정명칭 부여의 일반원칙은 아래와 같다. 1 1.·2. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "구조문 538자, 신조문 547자 기준으로 신구법 비교 원문이 확인됨",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.924Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "국가유산청",
+      "document_type": "established_rule",
+      "title": "사적의 지정명칭 부여에 관한 일반 지침",
+      "issue_number": "30",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-26",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279604&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "http://law.go.kr/flDownload.do?flSeq=164427417",
+        "http://law.go.kr/flDownload.do?flSeq=164427421"
+      ],
+      "raw_text": "사적의 지정명칭 부여에 관한 일반 지침\n\n--- 추가 근거 ---\n\n사적의 지정명칭 부여에 관한 일반 지침 제2조(일반원칙) 사적 지정명칭 부여의 일반원칙은 아래와 같다. 1 1.·2. (생 략) 2 3. 사적 지정명칭은 한글로 하고, 괄호( ) 안에 한자를 병기한다. 다만, 명칭과 한자를 병기할 시 ‘음’이 다를 경우 큰 괄호[ ] 로 표기한다. 3 4. (생 략) 4 제5조(지정명칭 변경) 사적 지정명칭을 변경할 경우에는 아래사항을 고려하여 변경한다. 5 1. ∼ 5. (생 략) 6 6. 지정 당시의 명칭이 “지”로 되어 있는 사적의 복원ㆍ정비가 상당 부분 이루어진 경우에는 복원의 진정성 등을 고려하여 명칭에서 “지”를 문화유산위원회의 검토를 받아 삭제 할 수 있다. 7 제7조(연속유산의 지정명칭) ① 연속유산은 아래에 따른 조건을 모두 만족하는 둘 이상의 유산 을 말한다. 8 1. ∼ 3. (생 략) 9 ② (생 략) 10 제8조(지정명칭 변경절차) 제2조에서부터 제4조, 제6조 및 제7조에 따라 부여한 명칭이 해당 사적의 특성과 역사성을 충분히 반영하지 못하고 있다고 판단되는 경우에는 문화유산위원회(사적분과) 의 검토를 거쳐 변경할 수 있다. 11 제2조(일반원칙) 사적 지정명칭 부여의 일반원칙은 아래와 같다. 1 1.·2. (현행과 같음) 2 3. 사적 지정명칭은 한글로 하고, 괄호 안에 한자를 병기한다. 다만, 명칭과 한자를 병기할 시 ‘음’이 다를 경우 큰 괄호 로 표기한다. 3 4. (현행과 같음) 4 제5조(지정명칭 변경) 사적 지정명칭을 변경할 경우에는 아래사항을 고려하여 변경한다. 5 1. ∼ 5. (현행과 같음) 6 6. 지정 당시의 명칭이 “지”로 되어 있는 사적의 복원ㆍ정비가 상당 부분 이루어진 경우에는 복원의 진정성 등을 고려하여 명칭에서 “지”를 국가유산위원회의 검토를 받아 삭제 할 수 있다. 7 제7조(연속유산의 지정명칭) ① 연속유산은 아래에 따른 조건을 모두 만족하는 둘 이상의 유산 을 말한다. 8 1. ∼ 3. (현행과 같음) 9 ② (현행과 같음) 10 제8조(지정명칭 변경절차) 제2조에서부터 제4조, 제6조 및 제7조에 따라 부여한 명칭이 해당 사적의 특성과 역사성을 충분히 반영하지 못하고 있다고 판단되는 경우에는 국가유산위원회(사적분과) 의 검토를 거쳐 변경할 수 있다. 11",
+      "raw_hash": "b0b2d82eab4b94df39bc65df3decacc52eea750b8f6b4bb5787aa78a00d14f45",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279604",
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "1d3321ecd3500e6a",
+      "summary": "자동요약: 농림축산검역본부 · 고시 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-20. 수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준 --- 추가 근거 --- 수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준 제3조(수출과수원의 등록 및 관리) ① 콜롬비아 검역당국(이하 “ICA”라 한다) 은 매년 한국 수출용 아보카도(Persea americana ‘Hass’ 품종) 생과실(이하 “아보카도 생과실”이라 한다)을 재배하는 과수원(이하 “수출과수원”이라 한다)을 등록하고 다음 각 호와 같이 관리하여야 한다. 1 1. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "구조문 3,648자, 신조문 4,036자 기준으로 신구법 비교 원문이 확인됨",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.924Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "농림축산검역본부",
+      "document_type": "notice",
+      "title": "수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준",
+      "issue_number": "2026-18",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-20",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279594&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424753",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424747",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424759",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424755",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424765",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164424761",
+        "http://law.go.kr/flDownload.do?flSeq=164427195",
+        "http://law.go.kr/flDownload.do?flSeq=164427199"
+      ],
+      "raw_text": "수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준\n\n--- 추가 근거 ---\n\n수입금지식물 중 콜롬비아산 아보카도 생과실의 수입금지 제외기준 제3조(수출과수원의 등록 및 관리) ① 콜롬비아 검역당국(이하 “ICA”라 한다) 은 매년 한국 수출용 아보카도(Persea americana ‘Hass’ 품종) 생과실(이하 “아보카도 생과실”이라 한다)을 재배하는 과수원(이하 “수출과수원”이라 한다)을 등록하고 다음 각 호와 같이 관리하여야 한다. 1 1. ICA는 수출과수원에서 별표 1의 우려병해충(이하 “우려병해충”이라 한다)에 대해 다음 각 목에 따라 예찰 및 방제를 실시하도록 감독하여야 한다. 2 가. 최소 월 1회 이상 ICA 의 규정에 따라 예찰을 실시한다. 3 나.·다. (생 략) 4 2. ICA는 수출과수원에서 지중해과실파리에 대해 다음 각 목에 따라 예찰 및 방제를 실시하도록 감독하여야 한다. 5 가. ∼ 마. (생 략) 6 바. ICA는 지중해과실파리가 발생 기준을 초과하여 발생한 수출과수원을 저발생 기준 이하로 30일간 유지될 때까지 대한국 수출에서 즉시 제외하여야 한다. 이 경우 ICA는 수출에서 제외된 수출과수원을 농림축산검역본부(이하 “검역본부”라 한다)에 즉시 통보하여야 한다. 7 3. ICA는 수출과수원에서 Heilipus lauri, Heilipus trifasciatus에 대해 다음 각 목과 같이 과일 절개검사를 포함한 예찰 및 방제를 실시하고 감독하여야 한다. 8 가. ICA는 수출과수원에 최소 월 1회 예찰을 실시하여야 한다. 9 나. ICA는 각 수출과수원별로 면적에 따라 아보카도 나무를 무작위로 선정하여 예찰을 실시하여야 한다. 10 1)·2) (생 략) 11 다. 만약 H. lauri나 H. trifasciatus가 수출과수원에서 검출된 경우, 관련된 수출과수원은 즉시 수출을 중단한다. 수출 중단은 시즌 종료 시까지 유지된다(1차 시즌: 2월~7월, 2차 시즌: 8월~1월). 이 경우 ICA는 즉시 검역본부에 수출 중단 과수원 목록을 통보하여야 한다. 12 라. ICA는 검역본부가 요청할 경우 매 수출 시즌 한 달 전에 해충 모니터링 기록을 제공하여야 한다. 13 ② ICA는 등록된 수출과수원 목록(별표 2)을 제9조의 국외생산지조사 수행 이전에 검역본부에 제공하여야 한다. 14 ③ ICA는 국외생산지조사 수행 이후 수출과수원의 추가가 필요한 경우 추가될 과수원에서 생산된 아보카도의 수출을 시작하기 전에 추가 과수원 목록을 검역본부에 공식서신 으로 제공하여야 한다. 15 ④ ICA는 수출과수원에서 실시하는 예찰 및 방제에 대한 기록들을 보관하고, 검역본부의 요청에 따라 제공하여야 한다. 16 제4조(수출선과장의 등록 및 관리) ① ICA는 매년 제4조제2항의 요건에 적합한 한국 수출용 아보카도 생과실을 선과하는 선과장(이하 “수출선과장”이라 한다)을 등록하고 관리하여야 한다. 17 ② (생 략) 18 ③ ICA는 수출선과장 목록(별표 3)을 수출개시 30일 전까지 검역본부에 제공하여야 한다. 19 ④ ICA는 수출선과장 목록 추가가 필요한 경우, 추가될 수출선과장에서 아보카도 생과실의 수출이 개시되기 전에 그 목록을 검역본부에 공식서신 으로 제공하여야 한다. 20 제5조(선과 및 포장) ① 한국 수출용 아보카도 생과실은 ICA 에 등록된 수출선과장에서 다음 각 호와 같이 선과되어야 한다. 21 1. ∼ 3. (생 략) 22 ② 아보카도 생과실은 수출선과장 내에서 다음 각 호와 같이 포장 되어야 한다. 23 1. 항공화물인 경우, 포장상자는 병해충의 유입을 차단할 수 있는 재질로 포장[통기구멍을 설치할 경우, 망(1.6㎜×1.6㎜ 이하) 부착]하거나 파렛트 전체를 망(1.6㎜×1.6㎜ 이하)이나 비닐로 포장하여야 한다. 24 2.·3. (생 략) 25 ③ ICA는 포장이 완료된 수출용 화물의 보관 및 수송 중 병해충에 재 감염되지 않도록 적절한 조치를 취해야 한다. 26 제6조(수출검역 및 봉인) ① ICA 식물검역관은 수출 화물 포장상자의 2% 또는 600개 이상의 과일 샘플 을 채취하여 검역을 실시하여야 한다. 27 ② 채취된 샘플 중 50개 이상의 과일을 절개하여 지중해과실파리, H. lauri 및 H. trifasciatus의 감염 여부를 확인 한다 . 28 ③ (생 략) 29 ④ 수출검역 과정에서 살아있는 지중해과실파리가 발견되는 경우 ICA는 검출원인이 규명되고 개선조치가 마련될 때까지 콜롬비아산 아보카도 생과실 수출을 중단하고 검출 사실을 검역본부에 즉시 통보하여야 한다. 30 ⑤ ICA는 수출검역 과정에서 살아있는 H. lauri 및 H. trifasciatus가 발견되는 경우 해당화물을 불합격처리하고, ICA 에 의하여 H. lauri 또는 H. trifasciatus가 해당 수출과수원에서 제거되고, 검역본부가 승인할 때까지 해당 수출과수원산 아보카도의 수출을 중단하여야 한다. 이 경우 ICA는 H. lauri 또는 H. trifasciatus 검출 정보를 한국에 즉시 통보하여야 한다. 31 ⑥ 한국 수출용 선박 화물은 ICA 식물검역관의 감독 하에 봉인되어야 한다. 항공화물의 경우 포장상자 또는 파레트 전체를 ICA 마크가 표시된 테이프(봉합 테이프 겉면에 ICA 스탬프를 찍는 경우를 포함한다)로 봉인할 수 있다. 32 제7조(식물검역증명서) ICA 식물검역관은 제6조에 따른 수출검역에 합격한 아보카도 생과실에 대해 다음 각 호의 부기사항이 포함된 식물검역증명서를 발행하여야 한다. 33 1. ∼ 4. (생 략) 34 제8조(수입검역) ①·② (생 략) 35 ③ 수입검역에서 살아있는 지중해과실파리가 검출되는 경우 해당 화물은 불합격 처리되며, 검출원인이 규명되고 개선조치가 마련될 때까지 콜롬비아산 아보카도 생과실 수입을 중단하여야 한다. 이 경우 검역본부는 수입중단을 ICA에 공식서신 으로 통보하여야 한다. 36 ④ 수입검역에서 살아있는 H. lauri 또는 H. trifasciatus가 검출되는 경우 해당 화물은 불합격 처리되며, ICA 에 의하여 H. lauri 또는 H. trifasciatus가 해당 수출과수원에서 제거되고, 검역본부가 승인할 때까지 해당 수출과수원산 아보카도의 수입을 중단한다. 이 경우 검역본부는 수입 중단을 ICA에게 공식서신 으로 통보하여야 한다. 37 ⑤·⑥ (생 략) 38 제9조(국외생산지조사) ① 검역본부는 본 수입요건의 이행을 확인하기 위하여 매년 국외생산지조사를 실시하여야 한다. 39 ② ICA는 매년 7월 31일까지 조사 일정이 포함된 초청서신 을 통하여 검역본부에 국외생산지조사를 요청하여야 한다. 40 ③ ICA는 파견된 검역본부 식물검역관에게 국외생산지조사에 필요한 기록 및 정보를 제공하여야 한다. 41 ④ 콜롬비아에 파견된 검역본부 식물검역관은 본 요건에 부합하지 않은 수출과수원 또는 수출선과장에 대해 ICA 에 개선 또는 한국 수출 제외를 요청할 수 있다. 42 ⑤ (생 략) 43 ⑥ 검역본부는 최초 3년간 국외생산지조사 실시 후 지속여부를 검토할 수 있다. 44 제10조(기타사항) ① ICA는 제3조와 관련된 “과실파리예찰프로그램”의 개정이 필요한 경우 개정 전 검역본부와 협의하여야 한다. 45 ② (생 략) 46 ③ 이 고시는 한국과 콜롬비아 양국 합의하 에 개정할 수 있다. 47 48 제11조(재검토기한) 농림축산검역본부장은 이 고시에 대하여 「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2021년 7월 1일 을 기준으로 매 3년에 되는 시점(매 3년째의 6월 30일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 하여야 한다. 49 제3조(수출과수원의 등록 및 관리) ① 콜롬비아 검역당국(ICA) 은 매년 한국 수출용 아보카도(Persea americana ‘Hass’ 품종) 생과실(이하 “아보카도 생과실”이라 한다)을 재배하는 과수원(이하 “수출과수원”이라 한다)을 등록하고 다음 각 호와 같이 관리하여야 한다. 1 1. 콜롬비아 검역당국은 수출과수원에서 별표 1의 우려병해충(이하 “우려병해충”이라 한다)에 대해 다음 각 목에 따라 예찰 및 방제를 실시하도록 감독하여야 한다. 2 가. 최소 월 1회 이상 콜롬비아 검역당국 의 규정에 따라 예찰을 실시한다. 3 나.·다. (현행과 같음) 4 2. 콜롬비아 검역당국은 수출과수원에서 지중해과실파리에 대해 다음 각 목에 따라 예찰 및 방제를 실시하도록 감독하여야 한다. 5 가. ∼ 마. (현행과 같음) 6 바. 콜롬비아 검역당국은 지중해과실파리가 발생 기준을 초과하여 발생한 수출과수원을 저발생 기준 이하로 30일간 유지될 때까지 대한국 수출에서 즉시 제외하여야 한다. 이 경우 콜롬비아 검역당국은 수출에서 제외된 수출과수원을 농림축산검역본부(이하 “검역본부”라 한다)에 즉시 통보하여야 한다. 7 3. 콜롬비아 검역당국은 수출과수원에서 Heilipus lauri, Heilipus trifasciatus에 대해 다음 각 목과 같이 과일 절개검사를 포함한 예찰 및 방제를 실시하고 감독하여야 한다. 8 가. 콜롬비아 검역당국은 수출과수원에 최소 월 1회 예찰을 실시하여야 한다. 9 나. 콜롬비아 검역당국은 각 수출과수원별로 면적에 따라 아보카도 나무를 무작위로 선정하여 예찰을 실시하여야 한다. 10 1)·2) (현행과 같음) 11 다. 만약 H. lauri나 H. trifasciatus가 수출과수원에서 검출된 경우, 관련된 수출과수원은 즉시 수출을 중단한다. 수출 중단은 시즌 종료 시까지 유지된다(1차 시즌: 2월~7월, 2차 시즌: 8월~1월). 이 경우 콜롬비아 검역당국은 즉시 검역본부에 수출 중단 과수원 목록을 통보하여야 한다. 12 라. 콜롬비아 검역당국은 검역본부가 요청할 경우 매 수출 시즌 한 달 전에 해충 모니터링 기록을 제공하여야 한다. 13 ② 콜롬비아 검역당국은 등록된 수출과수원 목록(별표 2)을 수출 개시 30일 전까지 검역본부에 제공하여야 한다. 14 ③ 콜롬비아 검역당국은 국외생산지조사 수행 이후 수출과수원의 추가가 필요한 경우 추가될 과수원에서 생산된 아보카도의 수출을 시작하기 전에 추가 과수원 목록을 검역본부에 공식 서신 으로 제공하여야 한다. 15 ④ 콜롬비아 검역당국은 수출과수원에서 실시하는 예찰 및 방제에 대한 기록들을 보관하고, 검역본부의 요청에 따라 제공하여야 한다. 16 제4조(수출선과장의 등록 및 관리) ① 콜롬비아 검역당국은 매년 제4조제2항의 요건에 적합한 한국 수출용 아보카도 생과실을 선과하는 선과장(이하 “수출선과장”이라 한다)을 등록하고 관리하여야 한다. 17 ② (현행과 같음) 18 ③ 콜롬비아 검역당국은 수출선과장 목록(별표 3)을 수출개시 30일 전까지 검역본부에 제공하여야 한다. 19 ④ 콜롬비아 검역당국은 수출선과장 목록 추가가 필요한 경우, 추가될 수출선과장에서 아보카도 생과실의 수출이 개시되기 전에 그 목록을 검역본부에 공식 서신 으로 제공하여야 한다. 20 제5조(선과 및 포장) ① 한국 수출용 아보카도 생과실은 콜롬비아 검역당국 에 등록된 수출선과장에서 다음 각 호와 같이 선과되어야 한다. 21 1. ∼ 3. (현행과 같음) 22 ② 아보카도 생과실은 수출선과장 내에서 다음 각 호와 같이 포장 되어야 한다. 23 1. 항공화물인 경우, 포장상자는 병해충의 유입을 차단할 수 있는 재질로 포장[통기구멍을 설치할 경우, 망(1.6㎜×1.6㎜ 이하) 부착]하거나 팰릿(pallet: 화물운반대) 전체를 망(1.6㎜×1.6㎜ 이하)이나 비닐로 포장하여야 한다. 24 2.·3. (현행과 같음) 25 ③ 콜롬비아 검역당국은 포장이 완료된 수출용 화물의 보관 및 수송 중 병해충에 재 감염되지 않도록 적절한 조치를 취해야 한다. 26 제6조(수출검역 및 봉인) ① 콜롬비아 검역당국 식물검역관은 수출 화물 포장상자의 2% 또는 600개 이상의 과일 표본 을 채취하여 검역을 실시하여야 한다. 27 ② 채취된 표본 중 50개 이상의 과일을 절개하여 지중해과실파리, H. lauri 및 H. trifasciatus의 감염 여부를 확인한다 . 28 ③ (현행과 같음) 29 ④ 수출검역 과정에서 살아있는 지중해과실파리가 발견되는 경우 콜롬비아 검역당국은 검출원인이 규명되고 개선조치가 마련될 때까지 콜롬비아산 아보카도 생과실 수출을 중단하고 검출 사실을 검역본부에 즉시 통보하여야 한다. 30 ⑤ 콜롬비아 검역당국은 수출검역 과정에서 살아있는 H. lauri 및 H. trifasciatus가 발견되는 경우 해당화물을 불합격처리하고, 콜롬비아 검역당국 에 의하여 H. lauri 또는 H. trifasciatus가 해당 수출과수원에서 제거되고, 검역본부가 승인할 때까지 해당 수출과수원산 아보카도의 수출을 중단하여야 한다. 이 경우 콜롬비아 검역당국은 H. lauri 또는 H. trifasciatus 검출 정보를 한국에 즉시 통보하여야 한다. 31 ⑥ 한국 수출용 선박 화물은 콜롬비아 검역당국 식물검역관의 감독 하에 봉인되어야 한다. 항공화물의 경우 포장상자 또는 팰릿 전체를 콜롬비아 검역당국 마크가 표시된 테이프(봉합 테이프 겉면에 콜롬비아 검역당국 스탬프를 찍는 경우를 포함한다)로 봉인할 수 있다. 32 제7조(식물검역증명서) 콜롬비아 검역당국 식물검역관은 제6조에 따른 수출검역에 합격한 아보카도 생과실에 대해 다음 각 호의 부기사항이 포함된 식물검역증명서를 발행하여야 한다. 33 1. ∼ 4. (현행과 같음) 34 제8조(수입검역) ①·② (현행과 같음) 35 ③ 수입검역에서 살아있는 지중해과실파리가 검출되는 경우 해당 화물은 불합격 처리되며, 검출원인이 규명되고 개선조치가 마련될 때까지 콜롬비아산 아보카도 생과실 수입을 중단하여야 한다. 이 경우 검역본부는 수입중단을 콜롬비아 검역당국에 공식 서신 으로 통보하여야 한다. 36 ④ 수입검역에서 살아있는 H. lauri 또는 H. trifasciatus가 검출되는 경우 해당 화물은 불합격 처리되며, 콜롬비아 검역당국 에 의하여 H. lauri 또는 H. trifasciatus가 해당 수출과수원에서 제거되고, 검역본부가 승인할 때까지 해당 수출과수원산 아보카도의 수입을 중단한다. 이 경우 검역본부는 수입 중단을 콜롬비아 검역당국에게 공식 서신 으로 통보하여야 한다. 37 ⑤·⑥ (현행과 같음) 38 제9조(국외생산지조사) ① 검역본부는 본 수입요건의 이행을 확인하기 위하여 격년으로 국외생산지조사를 실시하여야 한다. 39 ② 콜롬비아 검역당국은 국외생산지조사를 실시하는 해당년도의 7월 31일까지 조사 일정이 포함된 초청 서신 을 통하여 검역본부에 국외생산지조사를 요청하여야 한다. 40 ③ 콜롬비아 검역당국은 파견된 검역본부 식물검역관 또는 검역본부 요청에 따라 과수원 병해충 관리, 선과장 관리 등에 관한 기록 및 정보를 제공하여야 한다. 41 ④ 콜롬비아에 파견된 검역본부 식물검역관 또는 검역본부는 본 요건에 부합하지 않은 수출과수원 또는 수출선과장에 대해 콜롬비아 검역당국 에 개선 또는 한국 수출 제외를 요청할 수 있다. 42 ⑤ (현행과 같음) 43 ⑥ 검역본부는 격년으로 국외생산지조사를 2회 실시한 후, 그 지속여부를 검토할 수 있다. 44 제10조(기타사항) ① 콜롬비아 검역당국은 제3조와 관련된 “과실파리예찰프로그램”의 개정이 필요한 경우 개정 전 검역본부와 협의하여야 한다. 45 ② (현행과 같음) 46 ③ 이 고시는 한국과 콜롬비아 양국 합의 하 에 개정할 수 있다. 47 ④ 본 수입요건 이행에 반복적인 위반사항이나 문제가 있을 경우 양국 협의를 거쳐 검역본부는 국외생산지조사 주기를 단축하는 등 필요한 조치를 취할 수 있다. 48 제11조(재검토기한) 농림축산검역본부장은 이 고시에 대하여 「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2026년 7월 1일 을 기준으로 매 3년에 되는 시점(매 3년째의 6월 30일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 하여야 한다. 49",
+      "raw_hash": "56c326ee58c17a05e74175008a513c2544ee4cf65617b3cfc7ba2c4693e186f9",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279594",
+      "category": "notice",
+      "public_system_matches": []
+    },
+    {
+      "id": "36650c8c872a1951",
+      "summary": "자동요약: 동해안산불방지센터 · 훈령 · 신규 · 공표일 2026-05-20 · 시행일 2026-05-20. 동해안 산불방지센터 사무분장규정 부칙 이 훈령은 2026년 5월 20일부터 시행한다. --- 추가 근거 --- 동해안 산불방지센터 사무분장규정 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.924Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "동해안산불방지센터",
+      "document_type": "directive",
+      "title": "동해안 산불방지센터 사무분장규정",
+      "issue_number": "1",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-20",
+      "change_type": "new",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279452&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "http://law.go.kr/flDownload.do?flSeq=164364507",
+        "http://law.go.kr/flDownload.do?flSeq=164364503"
+      ],
+      "raw_text": "동해안 산불방지센터 사무분장규정 부칙 이 훈령은 2026년 5월 20일부터 시행한다.\n\n--- 추가 근거 ---\n\n동해안 산불방지센터 사무분장규정",
+      "raw_hash": "5c8d880b9c90591be59bfa8ba576ec40e978d7f5fc46e3f049a65261b547eb9d",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279452",
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "4e7312cc16381b18",
+      "summary": "자동요약: 기후에너지환경부 · 고시 · 신규 · 공표일 2026-05-20 · 시행일 2026-05-20. 화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시 부칙 제1조(시행일) 이 고시는 발령한 날부터 시행한다.제2조(경과조치) 이 고시 시행 전에 기후에너지환경부장관이 위탁하여 진행중인 업무에 대해서는 제2조 및 제3조의 개정 규정에도 불구하고 종전 규정에 따른다. --- 추가 근거 --- 화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.924Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "기후에너지환경부",
+      "document_type": "notice",
+      "title": "화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시",
+      "issue_number": "2026-125",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-20",
+      "change_type": "new",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279498&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351041",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351037",
+        "http://law.go.kr/flDownload.do?flSeq=164351163",
+        "http://law.go.kr/flDownload.do?flSeq=164351159"
+      ],
+      "raw_text": "화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시 부칙 제1조(시행일) 이 고시는 발령한 날부터 시행한다.제2조(경과조치) 이 고시 시행 전에 기후에너지환경부장관이 위탁하여 진행중인 업무에 대해서는 제2조 및 제3조의 개정 규정에도 불구하고 종전 규정에 따른다.\n\n--- 추가 근거 ---\n\n화학물질의 등록 및 평가 등에 관한 법률의 업무위탁에 관한 고시",
+      "raw_hash": "b0ba7ecfa3bd5da177a5ebd6efe35d52839adb1c2617356fbc4237dbd72156fc",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279498",
+      "category": "notice",
+      "public_system_matches": []
+    },
+    {
+      "id": "5afa4e343433241d",
+      "summary": "자동요약: 국가유산청 · 훈령 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-20. 국가유산청 예산편성 기준에 관한 규정 --- 추가 근거 --- 국가유산청 예산편성 기준에 관한 규정 국가유산청 예산 편성 기준에 관한 규정 1 제7조(국고보조사업 편성 기준) ① ∼ ⑧ (생 략) 2 3 국가유산청 예산편성 기준에 관한 규정 1 제7조(국고보조사업 편성 기준) ① ∼ ⑧ (현행과 같음) 2 ⑨ 다음 각 호의 어느 하나에 해당하는 경우에는 국고보조사업으로 지원하지 아니한다. 1. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "구조문 57자, 신조문 312자 기준으로 신구법 비교 원문이 확인됨",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.925Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "국가유산청",
+      "document_type": "directive",
+      "title": "국가유산청 예산편성 기준에 관한 규정",
+      "issue_number": "59",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-20",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279528&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "http://law.go.kr/flDownload.do?flSeq=164350579"
+      ],
+      "raw_text": "국가유산청 예산편성 기준에 관한 규정\n\n--- 추가 근거 ---\n\n국가유산청 예산편성 기준에 관한 규정 국가유산청 예산 편성 기준에 관한 규정 1 제7조(국고보조사업 편성 기준) ① ∼ ⑧ (생 략) 2 3 국가유산청 예산편성 기준에 관한 규정 1 제7조(국고보조사업 편성 기준) ① ∼ ⑧ (현행과 같음) 2 ⑨ 다음 각 호의 어느 하나에 해당하는 경우에는 국고보조사업으로 지원하지 아니한다. 1. 고도(古都) 지역 내 탐방센터 또는 그와 기능이 유사한 시설로서 지방자치단체가 자체적으로 수행할 필요가 있는 사업 2. 기존에 유산 주변에서 안내ㆍ홍보ㆍ교육ㆍ체험 등의 기능을 수행하는 시설이 설치ㆍ운영 중인 경우 그와 기능이 중복되는 시설의 건립 또는 지원 사업 3. 그 밖에 국가유산청장이 국고의 중복투자 또는 재정 비효율을 초래할 우려가 있다고 인정하는 사업 3",
+      "raw_hash": "0888c8f31cb7fcbf1ecacb70958cf1f8b0b2bbcf3f7f51026e040615796b952a",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279528",
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "e34882f6d4082a8b",
+      "summary": "자동요약: 우정사업본부 · 고시 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-21. 우체국예금에 관한 사항 --- 추가 근거 --- 우체국예금에 관한 사항 N 2047041 우체국예금에 관한 사항 20260428 20260501 고시 2026-21 2100000278398 일부개정 FAIL 1 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "구조문 70자, 신조문 6자 기준으로 신구법 비교 원문이 확인됨",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.925Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "우정사업본부",
+      "document_type": "notice",
+      "title": "우체국예금에 관한 사항",
+      "issue_number": "2026-25",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-21",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279522&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351987",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351983",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351993",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164351989",
+        "http://law.go.kr/flDownload.do?flSeq=164351185",
+        "http://law.go.kr/flDownload.do?flSeq=164351189",
+        "http://law.go.kr/flDownload.do?flSeq=164351201",
+        "http://law.go.kr/flDownload.do?flSeq=164351209"
+      ],
+      "raw_text": "우체국예금에 관한 사항\n\n--- 추가 근거 ---\n\n우체국예금에 관한 사항 N 2047041 우체국예금에 관한 사항 20260428 20260501 고시 2026-21 2100000278398 일부개정 FAIL 1",
+      "raw_hash": "8750c1ca43142e993cbcf3d63887a54ad616027476b6a8148c61940e6112580e",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279522",
+      "category": "notice",
+      "public_system_matches": []
+    },
+    {
+      "id": "e5e8f2c119c04ce8",
+      "summary": "자동요약: 조달청 · 훈령 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-06-01. 조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정 --- 추가 근거 --- 조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정 제1조(목적) 이 규정은 「국가를 당사자로 하는 계약에 관한 법률 시행령」제42조제7항 및 계약예규「종합심사낙찰제 심사기준」제14조 및 「조달청 종합심사낙찰제 심사세부기준」제23조 에 따라 설치하는 종합심사낙찰제 물량ㆍ시공계획 심사위원회의 구성 및 운영에 관하여 필요한 사항을 정한다. 1 제2조(용어정의) 이 규정에서 사용하는 용어의 정의는 다음과 같다. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "구조문 849자, 신조문 954자 기준으로 신구법 비교 원문이 확인됨",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.925Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "조달청",
+      "document_type": "directive",
+      "title": "조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정",
+      "issue_number": "2390",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-06-01",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279966&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574091",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574087",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574097",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574093",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574463",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574459",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574469",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574465",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574475",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574471",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574481",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574477",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574487",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574483",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574493",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574489",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574499",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574495",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574505",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574501",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574511",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574507",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574517",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574513",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574523",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574519",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574529",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574525",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574535",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574531",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574541",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574537",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574547",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574543",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574553",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574549",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574559",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574555",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574565",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574561",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574571",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164574567",
+        "http://law.go.kr/flDownload.do?flSeq=164569157",
+        "http://law.go.kr/flDownload.do?flSeq=164569161"
+      ],
+      "raw_text": "조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정\n\n--- 추가 근거 ---\n\n조달청 종합심사낙찰제 물량·시공계획 심사위원회 설치 및 운영규정 제1조(목적) 이 규정은 「국가를 당사자로 하는 계약에 관한 법률 시행령」제42조제7항 및 계약예규「종합심사낙찰제 심사기준」제14조 및 「조달청 종합심사낙찰제 심사세부기준」제23조 에 따라 설치하는 종합심사낙찰제 물량ㆍ시공계획 심사위원회의 구성 및 운영에 관하여 필요한 사항을 정한다. 1 제2조(용어정의) 이 규정에서 사용하는 용어의 정의는 다음과 같다. 2 1. “심사기준”이란 재정경제부 계약예규 「종합심사낙찰제 심사기준」 을 말한다. 3 2. “심사세부기준”이란 「조달청 종합심사낙찰제 심사세부기준」 을 말한다. 4 3. (생 략) 5 4. “심사위원”이란 「조달청 평가위원 통합관리규정」(이하 “통합관리규정”) 제7조제2항에 따라 선발된 위원을 말한다. 6 5. ∼ 11. (생 략) 7 제4조(심사위원회 구성) ① 심사위원회의 구성은 심사대상 공종의 심사위원으로 [별표1]에 따라 9인 이내를 원칙으로 하며 외부심사위원, 내부심사위원, 수요기관 심사위원으로 구성한다. 다만, 수요기관의 장은 해당기관 심사위원 선정 시 통합관리규정 제9조의 자격을 가진 자가 없는 경우 해당 자격을 가진 자를 외부에서 추천 할 수 있다. 8 ② ∼ ⑦ (생 략) 9 제14조(심사위원회 개회 및 의결) ① ∼ ⑦ (생 략) 10 ⑧ 심사주관부서의 장은 심사위원회에 참여하는 심사위원과 입찰참가업체로 하여금 각각 [별표 4-1]에서 [별표 4-4]까지의 서식에 따라 청렴서약서와 사전설명여부확인서 를 제출하게 하여야 한다. 11 ⑨ (생 략) 12 제15조(심사결과 조치) 심사주관부서의 장은 심사위원회 심의결과 당초설계서 와 다르게 입찰 물량이 채택되어 낙찰자가 된 경우에는 동 내용을 시설총괄과장에게 통보하여야 한다. 13 제1조(목적) 이 규정은 「국가를 당사자로 하는 계약에 관한 법률 시행령」제42조제7항 및 계약예규「공사계약 종합심사낙찰제 심사기준」제14조 및 「조달청 공사계약 종합심사낙찰제 심사세부기준」제23조와 「조달청 공공주택 공사계약 종합심사낙찰제 심사세부기준」제23조 에 따라 설치하는 종합심사낙찰제 물량ㆍ시공계획 심사위원회의 구성 및 운영에 관하여 필요한 사항을 정한다. 1 제2조(용어정의) 이 규정에서 사용하는 용어의 정의는 다음과 같다. 2 1. “심사기준”이란 재정경제부 계약예규 「공사계약 종합심사낙찰제 심사기준」 을 말한다. 3 2. “심사세부기준”이란 「조달청 공사계약 종합심사낙찰제 심사세부기준」과 「조달청 공공주택 공사계약 종합심사낙찰제 심사세부기준」 을 말한다. 4 3. (현행과 같음) 5 4. “심사위원”이란 「조달청 평가위원 통합관리 규정」(이하 “통합관리규정”) 제7조제2항에 따라 선발된 위원을 말한다. 6 5. ∼ 11. (현행과 같음) 7 제4조(심사위원회 구성) ① 심사위원회의 구성은 심사대상 공종의 심사위원으로 [별표1]에 따라 9인 이내를 원칙으로 하며 외부심사위원, 내부심사위원, 수요기관 심사위원으로 구성한다. 다만, 수요기관의 장은 해당기관 심사위원 선정 시 통합관리규정 제9조의 자격을 가진 자가 없는 경우 해당 자격을 가진 자를 외부에서 추천할 수 있다. 8 ② ∼ ⑦ (현행과 같음) 9 제14조(심사위원회 개회 및 의결) ① ∼ ⑦ (현행과 같음) 10 ⑧ 심사주관부서의 장은 심사위원회에 참여하는 심사위원과 입찰참가업체로 하여금 각각 [별표 4-1]에서 [별표 4-4]까지의 서식에 따라 청렴서약서와 사전설명여부 확인서 를 제출하게 하여야 한다. 11 ⑨ (현행과 같음) 12 제15조(심사결과 조치) 심사주관부서의 장은 심사위원회 심의결과 당초 설계서 와 다르게 입찰 물량이 채택되어 낙찰자가 된 경우에는 동 내용을 시설총괄과장에게 통보하여야 한다. 13",
+      "raw_hash": "4c994ff9a17b80e5c647c50ea5872392bb24cd88299fd520b40cfb4e7d2d6b7e",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279966",
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "984e175ecac7fa45",
+      "summary": "자동요약: 국가유산청 · 훈령 · 일부개정 · 공표일 2026-05-20 · 시행일 2026-05-26. 국가무형유산 전승지원금 지급·운영에 관한 규정 부칙 제1조(시행일) 이 훈령은 발령한 날부터 시행한다.제2조(경과조치) 이 훈령 시행 당시 종전의 규정에 의하여 처리한 사항은 이 규정에 의하여 처리한 것으로 본다. --- 추가 근거 --- 국가무형유산 전승지원금 지급·운영에 관한 규정 제4조(전승지원 계획 수립) 청장은 전승지원금의 효율적 집행을 위하여 법 제9조에 따른 무형유산위원회의 검토를 거쳐 국가무형유산 전승지원에 관한 계획을 매년 1월 20일까지 수립하여 국가유산청 홈페이지에 공지하여야 한다. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "구조문 125자, 신조문 131자 기준으로 신구법 비교 원문이 확인됨",
+      "auto_summary": true,
+      "collection_date": "2026-05-20",
+      "collected_at": "2026-06-01T08:00:02.926Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "국가유산청",
+      "document_type": "directive",
+      "title": "국가무형유산 전승지원금 지급·운영에 관한 규정",
+      "issue_number": "57",
+      "publish_date": "2026-05-20",
+      "effective_date": "2026-05-26",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000279612&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "http://law.go.kr/flDownload.do?flSeq=164440105",
+        "http://law.go.kr/flDownload.do?flSeq=164440109"
+      ],
+      "raw_text": "국가무형유산 전승지원금 지급·운영에 관한 규정 부칙 제1조(시행일) 이 훈령은 발령한 날부터 시행한다.제2조(경과조치) 이 훈령 시행 당시 종전의 규정에 의하여 처리한 사항은 이 규정에 의하여 처리한 것으로 본다.\n\n--- 추가 근거 ---\n\n국가무형유산 전승지원금 지급·운영에 관한 규정 제4조(전승지원 계획 수립) 청장은 전승지원금의 효율적 집행을 위하여 법 제9조에 따른 무형유산위원회의 검토를 거쳐 국가무형유산 전승지원에 관한 계획을 매년 1월 20일까지 수립하여 국가유산청 홈페이지에 공지하여야 한다. 1 제4조(전승지원 계획 수립) 청장은 전승지원금의 효율적 집행을 위하여 국가유산기본법 제9조에 따른 국가유산위원회의 검토를 거쳐 국가무형유산 전승지원에 관한 계획을 매년 1월 20일까지 수립하여 국가유산청 홈페이지에 공지하여야 한다. 1",
+      "raw_hash": "589889dee36fe409f6e52c3575a58c78dbbbb147447d1453dd3a9504dca56c40",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000279612",
+      "category": "guideline",
+      "public_system_matches": []
     }
   ],
   "logs": [
@@ -1594,7 +1647,7 @@
       "status": "ok",
       "message": "법제처 lawService API로 개정문/제개정이유 35건을 보강했습니다.",
       "count": 35,
-      "at": "2026-05-29T08:01:36.012Z",
+      "at": "2026-06-01T07:59:47.822Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
@@ -1602,7 +1655,7 @@
       "status": "ok",
       "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 44행을 법령 단위 35건으로 묶었습니다.",
       "count": 35,
-      "at": "2026-05-29T08:01:36.012Z",
+      "at": "2026-06-01T07:59:47.822Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
@@ -1610,7 +1663,7 @@
       "status": "ok",
       "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료. 원자료 2행을 법령 단위 1건으로 묶었습니다.",
       "count": 1,
-      "at": "2026-05-29T08:01:41.411Z",
+      "at": "2026-06-01T07:59:49.007Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
@@ -1618,7 +1671,7 @@
       "status": "ok",
       "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
       "count": 17,
-      "at": "2026-05-29T08:01:58.734Z",
+      "at": "2026-06-01T08:00:02.926Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
@@ -1626,31 +1679,31 @@
       "status": "ok",
       "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
       "count": 17,
-      "at": "2026-05-29T08:02:13.191Z",
+      "at": "2026-06-01T08:00:17.576Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
       "source": "국민참여입법센터 입법예고",
       "status": "error",
-      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
+      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 500; 행정안전부: retMsg 500; 기획재정부: retMsg 500",
       "count": 0,
-      "at": "2026-05-29T08:02:17.603Z",
+      "at": "2026-06-01T08:00:25.781Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
       "source": "국민참여입법센터 입법예고(수정일 기준)",
       "status": "error",
-      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
+      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 500; 행정안전부: retMsg 500; 기획재정부: retMsg 500",
       "count": 0,
-      "at": "2026-05-29T08:02:18.899Z",
+      "at": "2026-06-01T08:00:29.921Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
       "source": "국민참여입법센터 행정예고",
       "status": "error",
-      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 401; 행정안전부: retMsg 401; 기획재정부: retMsg 401",
+      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 200; 행정안전부: retMsg 200; 기획재정부: retMsg 200",
       "count": 0,
-      "at": "2026-05-29T08:02:20.206Z",
+      "at": "2026-06-01T08:00:35.436Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
@@ -1658,7 +1711,7 @@
       "status": "ok",
       "message": "설정된 관보 API URL 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:02:21.530Z",
+      "at": "2026-06-01T08:00:36.487Z",
       "url": "https://www.data.go.kr/data/15109157/openapi.do"
     },
     {
@@ -1666,7 +1719,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:02:30.608Z",
+      "at": "2026-06-01T08:00:42.390Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
     },
     {
@@ -1674,7 +1727,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:02:31.461Z",
+      "at": "2026-06-01T08:00:42.925Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
     },
     {
@@ -1682,7 +1735,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:02:44.076Z",
+      "at": "2026-06-01T08:00:50.110Z",
       "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
     },
     {
@@ -1690,7 +1743,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:02:50.736Z",
+      "at": "2026-06-01T08:00:55.661Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
     },
     {
@@ -1698,7 +1751,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:02:57.447Z",
+      "at": "2026-06-01T08:01:01.257Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
     },
     {
@@ -1706,7 +1759,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:03:04.392Z",
+      "at": "2026-06-01T08:01:06.811Z",
       "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
     },
     {
@@ -1714,7 +1767,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:03:11.425Z",
+      "at": "2026-06-01T08:01:12.378Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
     },
     {
@@ -1722,7 +1775,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:03:18.450Z",
+      "at": "2026-06-01T08:01:18.157Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
     },
     {
@@ -1730,15 +1783,31 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:03:25.479Z",
+      "at": "2026-06-01T08:01:23.723Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T08:01:28.014Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T08:01:36.419Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do"
     },
     {
       "source": "대한민국 정책브리핑 RSS",
       "status": "ok",
       "message": "정책브리핑 RSS 수집 완료",
       "count": 0,
-      "at": "2026-05-29T08:03:41.087Z",
+      "at": "2026-06-01T08:01:43.286Z",
       "url": "https://www.korea.kr/etc/rss.do"
     },
     {
@@ -1746,7 +1815,7 @@
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
       "count": 0,
-      "at": "2026-05-29T08:03:44.716Z"
+      "at": "2026-06-01T08:01:46.299Z"
     }
   ]
 }

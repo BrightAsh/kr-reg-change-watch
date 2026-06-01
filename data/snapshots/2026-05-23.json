@@ -5,7 +5,7 @@
     "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
     "auto_summary": false,
     "collection_date": "2026-05-23",
-    "collected_at": "2026-05-29T08:19:45.347Z",
+    "collected_at": "2026-06-01T08:10:12.152Z",
     "source": "국가법령정보센터 법령 변경이력",
     "source_type": "official_law",
     "ministry": "국가데이터처",
@@ -24,7 +24,8 @@
     "verification_required": false,
     "attachment_urls": [
       "https://www.law.go.kr/flDownload.do?flSeq=164370295"
-    ]
+    ],
+    "public_system_matches": []
   },
   {
     "id": "7fafd268427b5670",
@@ -32,7 +33,7 @@
     "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
     "auto_summary": false,
     "collection_date": "2026-05-23",
-    "collected_at": "2026-05-29T08:19:45.347Z",
+    "collected_at": "2026-06-01T08:10:12.152Z",
     "source": "국가법령정보센터 법령 변경이력",
     "source_type": "official_law",
     "ministry": "중앙선거관리위원회",
@@ -51,7 +52,8 @@
     "verification_required": false,
     "attachment_urls": [
       "https://www.law.go.kr/flDownload.do?flSeq=164370795"
-    ]
+    ],
+    "public_system_matches": []
   },
   {
     "id": "57298dc720b3919c",
@@ -59,7 +61,7 @@
     "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
     "auto_summary": false,
     "collection_date": "2026-05-23",
-    "collected_at": "2026-05-29T08:19:45.347Z",
+    "collected_at": "2026-06-01T08:10:12.153Z",
     "source": "국가법령정보센터 법령 변경이력",
     "source_type": "official_law",
     "ministry": "재정경제부",
@@ -87,7 +89,8 @@
       "https://www.law.go.kr/flDownload.do?flSeq=164399475",
       "https://www.law.go.kr/flDownload.do?flSeq=164399477",
       "https://www.law.go.kr/flDownload.do?flSeq=164413753"
-    ]
+    ],
+    "public_system_matches": []
   },
   {
     "id": "9f11408ba5b2814b",
@@ -95,7 +98,7 @@
     "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
     "auto_summary": false,
     "collection_date": "2026-05-23",
-    "collected_at": "2026-05-29T08:19:45.348Z",
+    "collected_at": "2026-06-01T08:10:12.153Z",
     "source": "국가법령정보센터 법령 변경이력",
     "source_type": "official_law",
     "ministry": "재정경제부",
@@ -112,7 +115,8 @@
     "source_record_id": "003956",
     "category": "law",
     "verification_required": false,
-    "attachment_urls": []
+    "attachment_urls": [],
+    "public_system_matches": []
   },
   {
     "id": "392af2e91014f249",
@@ -120,7 +124,7 @@
     "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
     "auto_summary": false,
     "collection_date": "2026-05-23",
-    "collected_at": "2026-05-29T08:19:45.348Z",
+    "collected_at": "2026-06-01T08:10:12.153Z",
     "source": "국가법령정보센터 법령 변경이력",
     "source_type": "official_law",
     "ministry": "행정안전부,재정경제부",
@@ -139,6 +143,7 @@
     "verification_required": false,
     "attachment_urls": [
       "https://www.law.go.kr/flDownload.do?flSeq=164356145"
-    ]
+    ],
+    "public_system_matches": []
   }
 ]
