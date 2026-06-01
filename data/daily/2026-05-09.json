@@ -1,57 +1,52 @@
 {
-  "last_run_at": "2026-06-01T10:14:59.922Z",
-  "last_target_date": "2026-05-17",
-  "item_count": 1968,
-  "changed_count": 60,
-  "available_dates": [
-    "2026-05-31",
-    "2026-05-30",
-    "2026-05-29",
-    "2026-05-28",
-    "2026-05-27",
-    "2026-05-26",
-    "2026-05-25",
-    "2026-05-24",
-    "2026-05-23",
-    "2026-05-22",
-    "2026-05-21",
-    "2026-05-20",
-    "2026-05-19",
-    "2026-05-18",
-    "2026-05-17",
-    "2026-05-16",
-    "2026-05-15",
-    "2026-05-14",
-    "2026-05-13",
-    "2026-05-12",
-    "2026-05-11",
-    "2026-05-10",
-    "2026-05-09",
-    "2026-05-08",
-    "2026-05-07",
-    "2026-05-06",
-    "2026-05-05",
-    "2026-05-04",
-    "2026-05-03",
-    "2026-05-02",
-    "2026-05-01"
-  ],
+  "date": "2026-05-09",
+  "collected_at": "2026-06-01T09:31:49.168Z",
+  "item_count": 1,
+  "changed_count": 1,
   "cache_hit": false,
+  "items": [
+    {
+      "id": "6c356326fb2df438",
+      "summary": "2026-05-09 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 002421 단위로 묶었습니다. 기간 2026-05-08~2026-05-08, 최신 이력은 2026-05-08 일부개정 제36316호입니다. 최근 이력: 2026-05-08 일부개정 제36316호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-05-09",
+      "collected_at": "2026-06-01T09:29:49.310Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "재정경제부",
+      "document_type": "decree",
+      "title": "관세법 시행령 변경이력 갱신 1건",
+      "issue_number": "36316",
+      "publish_date": "2026-05-08",
+      "effective_date": "2026-05-08",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&MST=285897&type=HTML&mobileYn=&efYd=20260508",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-05-09\n법령ID: 002421\n연혁 행 수: 1\n\n최근 연혁\n공포 2026-05-08 / 시행 2026-05-08 / 일부개정 / 제36316호 / 관세법 시행령\n\n전체 연혁\n공포 2026-05-08 / 시행 2026-05-08 / 일부개정 / 제36316호 / 관세법 시행령\n\n개정문\n국무회의의 심의를 거친 관세법 시행령 일부개정령을 이에 공포한다.\n대통령 이재명 (인)\n2026년 5월 8일\n국무총리 김민석\n국무위원 재정경제부 장관 구윤철\n⊙대통령령 제36316호\n관세법 시행령 일부개정령\n관세법 시행령 일부를 다음과 같이 개정한다.\n제20조제4항 각 호 외의 부분 중 \"다음 각 호의 어느 하나에 해당하는 물품의 운임\"을 \"다음 각 호의 어느 하나에 해당하는 물품의 운임(제4호의 경우에는 보험료를 포함한다. 이하 이 조에서 같다)\"으로 하고, 같은 항 각 호 외의 부분에 후단을 다음과 같이 신설한다.\n이 경우 통상적으로 적용하는 운임의 기준, 적용기한, 그 밖에 필요한 사항은 관세청장이 정한다.\n제20조제4항에 제4호를 다음과 같이 신설하고, 같은 조 제6항 본문 중 \"보험료를\"을 \"보험료 또는 제4항에 따라 통상적으로 적용하는 운임을\"로, \"제3항에 따른 재정경제부령으로 정하는\"을 \"제3항 또는 제4항에 따른\"으로 한다.\n4. 전쟁, 천재지변 등 불가피한 사유가 발생하여 통상적인 운송경로ㆍ운송일정 등과 다르게 운송되는 물품\n부칙\n제1조(시행일) 이 영은 공포한 날부터 시행한다.\n제2조(운임 등의 결정에 관한 적용례) 제20조제4항 및 제6항의 개정규정은 2026년 3월 1일 이후 수입신고를 하는 경우부터 적용한다.\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n최근 중동전쟁으로 수입물품을 선박으로 운송할 때 종전의 운송경로를 이용할 수 없게 되어 우회경로를 이용하게 되는 경우 관세 과세가격에 포함되는 운임이 상승하여 추가적인 관세 부담이 발생하는바,\n전쟁, 천재지변 등 불가피한 사유로 물품 운송경로 등이 변경되어 해당 물품의 운임이 선박회사가 통상적으로 적용하는 운임보다 현저히 상승하는 경우에는 수입물품의 관세 과세가격 결정 시 통상적으로 적용하는 운임을 적용할 수 있도록 함으로써 추가적인 관세 부담을 완화하고 수입물품의 가격 안정을 도모하려는 것임.",
+      "raw_hash": "0161ab3bd2e51325686c925337e1838a53f9717d2ae783ef1df372d638562cea",
+      "confidence": "official",
+      "source_record_id": "002421",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [],
+      "public_system_matches": []
+    }
+  ],
   "logs": [
     {
       "source": "국가법령정보센터 법령 변경이력 본문 보강",
       "status": "ok",
-      "message": "법제처 lawService API로 개정문/제개정이유 23건을 보강했습니다.",
-      "count": 23,
-      "at": "2026-06-01T10:12:17.399Z",
+      "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.",
+      "count": 1,
+      "at": "2026-06-01T09:30:08.762Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
       "source": "국가법령정보센터 법령 변경이력",
       "status": "ok",
       "message": "법제처 공식 법령 변경이력 API 수집 완료.",
-      "count": 23,
-      "at": "2026-06-01T10:12:17.399Z",
+      "count": 1,
+      "at": "2026-06-01T09:30:08.762Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
@@ -59,23 +54,23 @@
       "status": "ok",
       "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
       "count": 0,
-      "at": "2026-06-01T10:12:18.579Z",
+      "at": "2026-06-01T09:30:10.625Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
       "source": "국가법령정보센터 행정규칙",
       "status": "ok",
       "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
-      "count": 37,
-      "at": "2026-06-01T10:12:53.448Z",
+      "count": 0,
+      "at": "2026-06-01T09:30:11.104Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
       "source": "국가법령정보센터 행정규칙 신구법 비교",
       "status": "ok",
       "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-      "count": 37,
-      "at": "2026-06-01T10:13:23.222Z",
+      "count": 0,
+      "at": "2026-06-01T09:30:11.625Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
     },
     {
@@ -83,7 +78,7 @@
       "status": "error",
       "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 500; 행정안전부: retMsg 500; 기획재정부: retMsg 500",
       "count": 0,
-      "at": "2026-06-01T10:13:27.177Z",
+      "at": "2026-06-01T09:30:16.347Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
@@ -91,7 +86,7 @@
       "status": "error",
       "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 500; 행정안전부: retMsg 500; 기획재정부: retMsg 500",
       "count": 0,
-      "at": "2026-06-01T10:13:30.198Z",
+      "at": "2026-06-01T09:30:19.941Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
@@ -99,7 +94,7 @@
       "status": "error",
       "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 200; 행정안전부: retMsg 200; 기획재정부: retMsg 200",
       "count": 0,
-      "at": "2026-06-01T10:13:34.016Z",
+      "at": "2026-06-01T09:30:24.723Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
     },
     {
@@ -107,7 +102,7 @@
       "status": "ok",
       "message": "설정된 관보 API URL 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:13:34.918Z",
+      "at": "2026-06-01T09:30:25.867Z",
       "url": "https://www.data.go.kr/data/15109157/openapi.do"
     },
     {
@@ -115,7 +110,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:13:43.089Z",
+      "at": "2026-06-01T09:30:33.485Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
     },
     {
@@ -123,7 +118,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:13:43.920Z",
+      "at": "2026-06-01T09:30:34.319Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
     },
     {
@@ -131,7 +126,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:13:51.496Z",
+      "at": "2026-06-01T09:30:42.443Z",
       "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
     },
     {
@@ -139,7 +134,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:13:57.572Z",
+      "at": "2026-06-01T09:30:48.796Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
     },
     {
@@ -147,7 +142,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:14:03.703Z",
+      "at": "2026-06-01T09:30:55.191Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
     },
     {
@@ -155,7 +150,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:14:09.972Z",
+      "at": "2026-06-01T09:31:01.749Z",
       "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
     },
     {
@@ -163,7 +158,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:14:16.560Z",
+      "at": "2026-06-01T09:31:08.105Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
     },
     {
@@ -171,7 +166,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:14:22.894Z",
+      "at": "2026-06-01T09:31:14.541Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
     },
     {
@@ -179,7 +174,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:14:29.311Z",
+      "at": "2026-06-01T09:31:21.180Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
     },
     {
@@ -187,7 +182,7 @@
       "status": "ok",
       "message": "ALIO 법령/지침 원문 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:14:34.291Z",
+      "at": "2026-06-01T09:31:25.564Z",
       "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
     },
     {
@@ -195,7 +190,7 @@
       "status": "ok",
       "message": "ALIO 정책자료/보도자료 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:14:44.447Z",
+      "at": "2026-06-01T09:31:33.886Z",
       "url": "https://www.alio.go.kr/etc/etcPdsList.do"
     },
     {
@@ -203,7 +198,7 @@
       "status": "ok",
       "message": "정책브리핑 RSS 수집 완료",
       "count": 0,
-      "at": "2026-06-01T10:14:55.812Z",
+      "at": "2026-06-01T09:31:45.545Z",
       "url": "https://www.korea.kr/etc/rss.do"
     },
     {
@@ -211,7 +206,7 @@
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
       "count": 0,
-      "at": "2026-06-01T10:14:59.458Z"
+      "at": "2026-06-01T09:31:48.898Z"
     }
   ]
 }

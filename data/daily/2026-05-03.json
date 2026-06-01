@@ -1,0 +1,272 @@
+{
+  "date": "2026-05-03",
+  "collected_at": "2026-06-01T09:07:33.947Z",
+  "item_count": 3,
+  "changed_count": 3,
+  "cache_hit": false,
+  "items": [
+    {
+      "id": "87f4856cb5c2842f",
+      "summary": "2026-05-03 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 014079 단위로 묶었습니다. 기간 2021-12-31~2021-12-31, 최신 이력은 2021-12-31 타법개정 제00882호입니다. 최근 이력: 2021-12-31 타법개정 제00882호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-05-03",
+      "collected_at": "2026-06-01T09:05:42.401Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "재정경제부",
+      "document_type": "ordinance",
+      "title": "중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙 변경이력 갱신 1건",
+      "issue_number": "00882",
+      "publish_date": "2021-12-31",
+      "effective_date": "2022-01-01",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&MST=239013&type=HTML&mobileYn=&efYd=20220101",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-05-03\n법령ID: 014079\n연혁 행 수: 1\n\n최근 연혁\n공포 2021-12-31 / 시행 2022-01-01 / 타법개정 / 제00882호 / 중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙\n\n전체 연혁\n공포 2021-12-31 / 시행 2022-01-01 / 타법개정 / 제00882호 / 중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙\n\n개정문\n⊙기획재정부령 제882호(2021.12.31)\n관세ㆍ통계통합품목분류표 개정에 따른 덤핑방지관세 부과대상 정비를 위한 4개 법령의 일부개정에 관한 기획재정부령\n제1조 및 제2조 생략\n제3조(「중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙」의 개정) 중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙 일부를 다음과 같이 개정한다.\n제2조 각 호 외의 부분 본문 중 \"제3701.30.9100호\"를 \"제3701.30.2000호\"로 한다.\n제4조 생략\n부칙\n이 규칙은 2022년 1월 1일부터 시행한다.\n\n제개정 이유\n일괄개정 ◇ 개정이유 및 주요내용\n「관세법」에서 정하는 관세율표와 기획재정부장관이 우리나라 상황에 맞게 품목을 세분하여 정하는 「관세ㆍ통계통합품목분류표」가 2022년 1월 1일부터 개정ㆍ시행되는바, 통관(通關)상의 혼란을 방지하기 위해 덤핑방지관세가 부과되는 물품의 품목번호를 달라진 품목분류기준에 맞게 수정하는 등 「중국산 침엽수 합판에 대한 덤핑방지관세 부과에 관한 규칙」 등 4개의 기획재정부령의 품목번호 관련 사항을 정비하려는 것임.",
+      "raw_hash": "2eec2b8bbe899a5d5092b57b1005a4500f66ec9adfcfe74205b0908ab7bd6e4a",
+      "confidence": "official",
+      "source_record_id": "014079",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [],
+      "public_system_matches": []
+    },
+    {
+      "id": "b2b69d0671f5f756",
+      "summary": "자동요약: 소방청 · 훈령 · 신규 · 공표일 2026-05-03 · 시행일 2026-05-03. 자율기구 소방인공지능융합과 설치 및 운영에 관한 규정 부칙 제1조(시행일) 이 훈령은 발령한 날부터 시행한다.제2조(유효기간) 이 훈령은 2026년 11월 2일까지 효력을 가진다. --- 추가 근거 --- 자율기구 소방인공지능융합과 설치 및 운영에 관한 규정 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
+      "collection_date": "2026-05-03",
+      "collected_at": "2026-06-01T09:05:47.857Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "소방청",
+      "document_type": "directive",
+      "title": "자율기구 소방인공지능융합과 설치 및 운영에 관한 규정",
+      "issue_number": "465",
+      "publish_date": "2026-05-03",
+      "effective_date": "2026-05-03",
+      "change_type": "new",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000278986&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164150933",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=164150929",
+        "http://law.go.kr/flDownload.do?flSeq=164150913",
+        "http://law.go.kr/flDownload.do?flSeq=164150917"
+      ],
+      "raw_text": "자율기구 소방인공지능융합과 설치 및 운영에 관한 규정 부칙 제1조(시행일) 이 훈령은 발령한 날부터 시행한다.제2조(유효기간) 이 훈령은 2026년 11월 2일까지 효력을 가진다.\n\n--- 추가 근거 ---\n\n자율기구 소방인공지능융합과 설치 및 운영에 관한 규정",
+      "raw_hash": "2a63d64c099a933784086e83f44e3baac8e0ef3b5b0d4aa2b2740df76248c45f",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000278986",
+      "category": "guideline",
+      "public_system_matches": []
+    },
+    {
+      "id": "1ec64e23accc08f8",
+      "summary": "자동요약: 전남지방우정청 · 고시 · 폐지 · 공표일 2026-05-03 · 시행일 2026-05-06. (전남지방우정청) 국내특급우편물의 취급지역, 취급우체국, 취급시간에 대한 고시 1. 취급지역 및 취급우체국가. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
+      "collection_date": "2026-05-03",
+      "collected_at": "2026-06-01T09:05:47.857Z",
+      "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
+      "source_type": "official_law",
+      "ministry": "전남지방우정청",
+      "document_type": "notice",
+      "title": "(전남지방우정청) 국내특급우편물의 취급지역, 취급우체국, 취급시간에 대한 고시",
+      "issue_number": "2026-6",
+      "publish_date": "2026-05-03",
+      "effective_date": "2026-05-06",
+      "change_type": "abolished",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000278618&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "http://law.go.kr/flDownload.do?flSeq=164016805",
+        "http://law.go.kr/flDownload.do?flSeq=164016809"
+      ],
+      "raw_text": "(전남지방우정청) 국내특급우편물의 취급지역, 취급우체국, 취급시간에 대한 고시 1. 취급지역 및 취급우체국가. 전남지방우정청 접수지역 및 접수우체국(접수마감시간은 제4항 참조) 나. 전남지방우정청 배달지역 및 배달우체국 2. [익일특급] 접수일 다음날 배달이 곤란한 지역에 대한 추가소요일수 및 사유 3. 전남지방우정청 접수우체국 및 접수마감시간 4. 배달ㅇ 익일특급 : 접수 익일까지(토ㆍ일요일, 공휴일은 제외)ㅇ 단, \"교통장애 발생 시\"와 \"천재지변\", \"설, 추석 등 우편물 폭주 시\" 등의 경우에는 배달시간이 지연될 수 있음 5. 시행일 : 2026. 5. 6.(수) 6. 이 고시 시행과 동시에 전남지방우정청 고시 제2026-5호는 폐지한다. 7. 「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」(대통령훈령 제431호)에따라 이 고시의 재검토 기한은 2026년 5월 6일을 기준으로 매 3년이 되는 시점(2029. 5. 5.까지를 말한다)으로 한다.\n\n--- 추가 근거 ---\n\n(전남지방우정청) 국내특급우편물의 취급지역, 취급우체국, 취급시간에 대한 고시",
+      "raw_hash": "36c8a46b81934b17036af036d6e564e8ae2e205137126d65ef03b34e43dd6e50",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000278618",
+      "category": "notice",
+      "public_system_matches": []
+    }
+  ],
+  "logs": [
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.",
+      "count": 1,
+      "at": "2026-06-01T09:05:45.115Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+      "count": 1,
+      "at": "2026-06-01T09:05:45.115Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-01T09:05:46.320Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 2,
+      "at": "2026-06-01T09:05:47.857Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 2,
+      "at": "2026-06-01T09:05:49.326Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "error",
+      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 500; 행정안전부: retMsg 500; 기획재정부: retMsg 500",
+      "count": 0,
+      "at": "2026-06-01T09:05:53.508Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "error",
+      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 500; 행정안전부: retMsg 500; 기획재정부: retMsg 500",
+      "count": 0,
+      "at": "2026-06-01T09:05:56.558Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "error",
+      "message": "국민참여입법센터 API 일부 실패: 법제처: retMsg 200; 행정안전부: retMsg 200; 기획재정부: retMsg 200",
+      "count": 0,
+      "at": "2026-06-01T09:06:01.076Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:01.972Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do"
+    },
+    {
+      "source": "행정안전부 훈령·예규·고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:09.631Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+    },
+    {
+      "source": "행정안전부 입법·행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:10.462Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+    },
+    {
+      "source": "기획재정부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:19.761Z",
+      "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
+    },
+    {
+      "source": "기획재정부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:27.309Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
+    },
+    {
+      "source": "기획재정부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:34.472Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
+    },
+    {
+      "source": "기획재정부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:41.655Z",
+      "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
+    },
+    {
+      "source": "기획재정부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:48.731Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
+    },
+    {
+      "source": "기획재정부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:06:55.972Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
+    },
+    {
+      "source": "기획재정부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:07:02.951Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:07:07.856Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:07:16.472Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "ok",
+      "message": "정책브리핑 RSS 수집 완료",
+      "count": 0,
+      "at": "2026-06-01T09:07:30.360Z",
+      "url": "https://www.korea.kr/etc/rss.do"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-06-01T09:07:33.748Z"
+    }
+  ]
+}
