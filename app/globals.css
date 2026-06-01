@@ -152,6 +152,63 @@ p {
   align-items: start;
 }
 
+.workspace-tabs {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.32fr) minmax(320px, 0.68fr);
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid rgba(216, 224, 235, 0.92);
+  border-radius: 8px;
+  background: rgba(247, 249, 252, 0.88);
+  box-shadow: var(--shadow-soft), var(--shadow-line);
+}
+
+.workspace-tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-weight: 850;
+  text-align: left;
+}
+
+.workspace-tabs button.active {
+  border-color: rgba(10, 132, 255, 0.24);
+  background: #fff;
+  color: var(--accent-dark);
+  box-shadow: 0 10px 24px rgba(33, 43, 58, 0.08);
+}
+
+.workspace-tabs span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-tabs strong {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 26px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.workspace-tabs button.active strong {
+  background: var(--accent);
+  color: #fff;
+}
+
 .side-panel {
   position: sticky;
   top: 18px;
@@ -298,6 +355,11 @@ p {
   gap: 8px;
   align-self: start;
   padding: 12px;
+}
+
+.system-summary {
+  max-height: 492px;
+  overflow: auto;
 }
 
 .category-summary button {
@@ -646,6 +708,11 @@ select:focus {
 .item-meta .warn {
   background: #fff0f0;
   color: var(--red);
+}
+
+.item-meta .system-chip {
+  background: #eaf4ff;
+  color: var(--accent-dark);
 }
 
 .item-card h2 {
@@ -1273,6 +1340,10 @@ select:focus {
 
 @media (max-width: 1220px) {
   .app-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace-tabs {
     grid-template-columns: 1fr;
   }
 

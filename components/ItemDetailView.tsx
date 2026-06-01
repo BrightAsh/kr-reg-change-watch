@@ -35,13 +35,19 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
   const inlineImageUrls = item.attachment_urls.filter(isLikelyInlineImageUrl);
   const fileUrls = item.attachment_urls.filter((url) => !inlineImageUrls.includes(url));
   const sourceDate = item.collection_date || item.publish_date || "-";
+  const systemMatches = item.public_system_matches || [];
   const keyFacts = [
     { label: "기관", value: item.ministry },
     { label: "기준일", value: sourceDate },
     { label: "공포/게시일", value: item.publish_date || "-" },
     { label: "시행일", value: item.effective_date || "-" },
     { label: "문서번호", value: item.issue_number || "-" },
-    { label: "출처", value: item.source }
+    { label: "출처", value: item.source },
+    ...(item.alio_posted_date ? [{ label: "ALIO 등록일", value: item.alio_posted_date }] : []),
+    ...(item.alio_document_date ? [{ label: "문서 개정일", value: item.alio_document_date }] : []),
+    ...(systemMatches.length
+      ? [{ label: "공공기관 체계", value: systemMatches.map((match) => `${match.group_title}(${match.relation_label})`).join(", ") }]
+      : [])
   ];
 
   return (
@@ -59,6 +65,11 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
               <span>{documentTypeLabels[item.document_type]}</span>
               <span>{changeTypeLabels[item.change_type]}</span>
               <span>{confidenceLabels[item.confidence]}</span>
+              {systemMatches.slice(0, 2).map((match) => (
+                <span className="system-chip" key={`${match.group_id}-${match.relation}`}>
+                  {match.group_title} · {match.relation_label}
+                </span>
+              ))}
               {item.verification_required ? <span className="warn">확인 필요</span> : null}
             </div>
           </div>
@@ -325,6 +336,13 @@ function buildAiInput(item: CollectedItem, sections: ReadableSection[]): string 
     collection_date: item.collection_date,
     collected_at: item.collected_at,
     source_record_id: item.source_record_id,
+    public_system_matches: (item.public_system_matches || []).map((match) => ({
+      group: match.group_title,
+      relation: match.relation_label,
+      evidence: match.evidence
+    })),
+    alio_document_date: item.alio_document_date,
+    alio_posted_date: item.alio_posted_date,
     original_url: item.original_url,
     attachment_urls: item.attachment_urls,
     existing_summary: item.summary,

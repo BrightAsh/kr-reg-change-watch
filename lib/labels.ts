@@ -2,6 +2,7 @@ import type { ChangeType, Confidence, DocumentType, SourceType } from "./types";
 
 export const sourceTypeLabels: Record<SourceType, string> = {
   official_law: "법령",
+  alio: "ALIO",
   gazette: "관보",
   ministry_board: "부처 게시판",
   legislation_notice: "입법/행정예고",

@@ -1,4 +1,8 @@
+import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import type { CollectedItem, CollectionLog, DailyCollection, SourceType } from "../lib/types";
 import {
   addLog,
@@ -20,6 +24,7 @@ import {
   writeJson
 } from "./common";
 import { itemCategory } from "../lib/categories";
+import { classifyPublicInstitutionSystemItem } from "../lib/publicInstitutionSystem";
 import {
   compactText,
   hashText,
@@ -32,12 +37,16 @@ import {
 
 type AnyRecord = Record<string, unknown>;
 
+const execFileAsync = promisify(execFile);
+
 const OFFICIAL_LAW_GUIDE =
   "https://open.law.go.kr/LSO/openApi/guideList.do";
 const LAWMAKING_GUIDE =
   "https://opinion.lawmaking.go.kr/api/operationGuide";
 const GWANBO_DATASET =
   "https://www.data.go.kr/data/15109157/openapi.do";
+const ALIO_DOWNLOAD_URL = "https://www.alio.go.kr/download/download.json";
+const ALIO_TEXT_MAX_CHARS = 80000;
 const LAWMAKING_TARGETS = [
   { name: "법제처", code: "1170000" },
   { name: "행정안전부", code: "1741000" },
@@ -74,6 +83,46 @@ interface LawRevisionDetails {
   text: string;
   attachmentUrls: string[];
 }
+
+interface AlioSource {
+  id: string;
+  source: string;
+  sourceType: "law" | "policy";
+  documentKind: string;
+  listUrl: string;
+  detailUrl?: string;
+  detailParam?: string;
+  detailPayloadKey?: string;
+  pageUrl: string;
+}
+
+interface ExtractedAttachment {
+  status: string;
+  message: string;
+  text: string;
+}
+
+const ALIO_SOURCES: AlioSource[] = [
+  {
+    id: "alio-law",
+    source: "ALIO 공공기관 법령/지침",
+    sourceType: "law",
+    documentKind: "법령/지침 원문",
+    listUrl: "https://www.alio.go.kr/etc/findEtcLawList.json",
+    detailUrl: "https://www.alio.go.kr/etc/findEtcLawDtl.json",
+    detailParam: "boardNo",
+    detailPayloadKey: "etcLawDtl",
+    pageUrl: "https://www.alio.go.kr/etc/etcLawDtl.do"
+  },
+  {
+    id: "alio-policy",
+    source: "ALIO 공공정책자료",
+    sourceType: "policy",
+    documentKind: "정책자료/보도자료",
+    listUrl: "https://www.alio.go.kr/etc/findEtcPdsList.json",
+    pageUrl: "https://www.alio.go.kr/etc/etcPdsList.do"
+  }
+];
 
 const MINISTRY_ROUTES: MinistryRoute[] = [
   {
@@ -148,8 +197,9 @@ async function main() {
     const cached = await readJson<DailyCollection | null>(dailyPath, null);
     if (cached?.date === targetDate) {
       const existing = await readJson<CollectedItem[]>(itemsPath, []);
+      const cachedItems = cached.items.map(attachPublicSystemMatches);
       const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
-      const merged = mergeItems(canonicalExisting, cached.items);
+      const merged = mergeItems(canonicalExisting, cachedItems);
       const cacheLogs: CollectionLog[] = [
         ...cached.logs,
         {
@@ -161,7 +211,8 @@ async function main() {
         }
       ];
       await writeJson(itemsPath, merged);
-      await writeJson(path.join(snapshotsDir, `${targetDate}.json`), cached.items);
+      await writeJson(path.join(snapshotsDir, `${targetDate}.json`), cachedItems);
+      await writeJson(dailyPath, { ...cached, items: cachedItems });
       await writeJson(path.join(logsDir, "last-fetch.json"), cacheLogs);
       await writeJson(runPath, {
         last_run_at: new Date().toISOString(),
@@ -189,6 +240,7 @@ async function main() {
   await runSource(logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
   await runSource(logs, collected, () => fetchGazette(logs));
   await runSource(logs, collected, () => fetchMinistryRoutes(logs));
+  await runSource(logs, collected, () => fetchAlioPublicMaterials(logs));
   await runSource(logs, collected, () => fetchPolicyRss(logs));
   await runSource(logs, collected, () => fetchNaverNews(logs));
 
@@ -759,6 +811,222 @@ async function fetchConfiguredMinistryBoard(logs: CollectionLog[], route: Minist
   const unique = mergeItems([], items);
   addLog(logs, route.source, "ok", "공식 게시판 HTML 수집 완료", unique.length, url);
   return unique;
+}
+
+async function fetchAlioPublicMaterials(logs: CollectionLog[]): Promise<CollectedItem[]> {
+  const items: CollectedItem[] = [];
+  const errors: string[] = [];
+
+  for (const source of ALIO_SOURCES) {
+    try {
+      const rows = await fetchAlioListRows(source);
+      const targetRows = rows.filter((row) => normalizeDate(text(row, ["bdate", "idate", "disclosureResnDt"])) === targetDate);
+      for (const row of targetRows) {
+        const item = await normalizeAlioRow(source, row, logs);
+        if (item) items.push(item);
+      }
+      addLog(logs, source.source, "ok", `ALIO ${source.documentKind} 수집 완료`, targetRows.length, source.pageUrl);
+    } catch (error) {
+      errors.push(`${source.source}: ${messageOf(error)}`);
+      addLog(logs, source.source, "error", `ALIO 수집 실패: ${messageOf(error)}`, 0, source.pageUrl);
+    }
+  }
+
+  if (errors.length) {
+    addLog(logs, "ALIO 공공정책자료", "error", `ALIO 일부 수집 실패: ${errors.join("; ")}`, items.length, "https://www.alio.go.kr/etc/etcLawList.do");
+  }
+  return mergeItems([], items);
+}
+
+async function fetchAlioListRows(source: AlioSource): Promise<AnyRecord[]> {
+  const rows: AnyRecord[] = [];
+  let pageNo = 1;
+  let totalPage = 1;
+
+  do {
+    const url = makeUrl(source.listUrl, {
+      type: "title",
+      word: "",
+      pageNo
+    });
+    const payload = await fetchJsonOrXml(url);
+    const data: AnyRecord = isRecord(payload) && isRecord(payload.data) ? payload.data : {};
+    rows.push(...asArray(data.result).filter(isRecord));
+    const page = isRecord(data.page) ? data.page : {};
+    totalPage = Number(page.totalPage || 1);
+    pageNo += 1;
+  } while (pageNo <= totalPage);
+
+  return rows;
+}
+
+async function normalizeAlioRow(source: AlioSource, row: AnyRecord, logs: CollectionLog[]): Promise<CollectedItem | null> {
+  const boardNo = text(row, ["boardNo", "seq"]);
+  if (!boardNo) return null;
+
+  const detailPayload = source.detailUrl ? await fetchAlioDetail(source, boardNo) : {};
+  const detail = source.detailPayloadKey && isRecord(detailPayload[source.detailPayloadKey])
+    ? (detailPayload[source.detailPayloadKey] as AnyRecord)
+    : {};
+  const fileRecords = alioFileRecords(source, row, detailPayload);
+  const title = text(detail, ["rtitle"]) || text(row, ["rtitle"]) || "ALIO 자료";
+  const content = text(detail, ["content"]) || text(row, ["content"]);
+  const postedDate = normalizeDate(text(detail, ["bdate", "idate"]) || text(row, ["bdate", "idate", "disclosureResnDt"])) || targetDate;
+  const disclosureDate = normalizeDate(text(detail, ["disclosureResnDt"]) || text(row, ["disclosureResnDt"]));
+  const documentDates = uniqueStrings([
+    ...extractDateStrings(title),
+    ...fileRecords.flatMap((file) => extractDateStrings(text(file, ["fileNm", "file_name"]))),
+    disclosureDate || ""
+  ]);
+  const attachmentUrls = fileRecords
+    .map((file) => text(file, ["fileNo"]))
+    .filter(Boolean)
+    .map((fileNo) => `${ALIO_DOWNLOAD_URL}?fileNo=${encodeURIComponent(fileNo)}`);
+  const extractedBlocks = await extractAlioAttachments(fileRecords, logs, source.source, title);
+  const rawText = [
+    "ALIO 수집 자료",
+    "",
+    `자료 구분: ${source.documentKind}`,
+    `ALIO 등록일: ${postedDate}`,
+    disclosureDate ? `ALIO 게시/공시일: ${disclosureDate}` : "",
+    documentDates.length ? `문서 날짜 후보: ${documentDates.join(", ")}` : "",
+    "",
+    "본문",
+    title,
+    content,
+    "",
+    extractedBlocks.length ? "첨부 추출 본문" : "",
+    ...extractedBlocks
+  ]
+    .filter(Boolean)
+    .join("\n");
+  const originalUrl = source.sourceType === "law"
+    ? `${source.pageUrl}?boardNo=${encodeURIComponent(boardNo)}`
+    : attachmentUrls[0] || source.pageUrl;
+
+  return makeItem({
+    id: stableId([source.id, boardNo]),
+    source: source.source,
+    source_type: "alio",
+    ministry: text(detail, ["pname"]) || text(row, ["pname"]) || "재정경제부",
+    document_type: source.sourceType === "law" ? inferDocumentType(title) : "news",
+    title,
+    issue_number: boardNo,
+    publish_date: postedDate,
+    effective_date: null,
+    change_type: inferChangeType(`${title} ${content}`),
+    original_url: originalUrl,
+    attachment_urls: attachmentUrls,
+    raw_text: rawText,
+    raw_hash: hashText(rawText),
+    summary: buildAlioSummary(source, title, postedDate, documentDates),
+    diff_summary: source.sourceType === "law"
+      ? "ALIO 공공기관 법령/지침 원문 자료입니다. 문서명과 첨부파일의 개정일을 함께 확인하세요."
+      : "ALIO 공공정책자료입니다. 공식 변경 원문이 아니라 관련 정책자료 또는 보도자료일 수 있습니다.",
+    confidence: source.sourceType === "law" ? "official" : "press",
+    verification_required: source.sourceType !== "law",
+    source_record_id: `${source.id}:${boardNo}`,
+    alio_document_date: documentDates[0] || null,
+    alio_posted_date: postedDate
+  });
+}
+
+async function fetchAlioDetail(source: AlioSource, boardNo: string): Promise<AnyRecord> {
+  if (!source.detailUrl || !source.detailParam) return {};
+  const payload = await fetchJsonOrXml(makeUrl(source.detailUrl, { [source.detailParam]: boardNo }));
+  return isRecord(payload) && isRecord(payload.data) ? payload.data : {};
+}
+
+function alioFileRecords(source: AlioSource, row: AnyRecord, detailPayload: AnyRecord): AnyRecord[] {
+  const rows: AnyRecord[] = [];
+  if (source.sourceType === "policy" && text(row, ["fileNo"])) {
+    rows.push({
+      fileNo: text(row, ["fileNo"]),
+      fileNm: text(row, ["fileNm"]) || text(row, ["rtitle"])
+    });
+  }
+  rows.push(...asArray(detailPayload.fileList).filter(isRecord));
+  const seen = new Set<string>();
+  return rows.filter((file) => {
+    const fileNo = text(file, ["fileNo"]);
+    if (!fileNo || seen.has(fileNo)) return false;
+    seen.add(fileNo);
+    return true;
+  });
+}
+
+async function extractAlioAttachments(
+  files: AnyRecord[],
+  logs: CollectionLog[],
+  source: string,
+  title: string
+): Promise<string[]> {
+  const blocks: string[] = [];
+  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "alio-"));
+
+  try {
+    for (const file of files) {
+      const fileNo = text(file, ["fileNo"]);
+      const fileName = text(file, ["fileNm"]) || `${fileNo}.bin`;
+      if (!fileNo) continue;
+      const extension = path.extname(fileName).toLowerCase() || ".bin";
+      const tempPath = path.join(tempDir, `${fileNo}${extension}`);
+      const downloadUrl = `${ALIO_DOWNLOAD_URL}?fileNo=${encodeURIComponent(fileNo)}`;
+      try {
+        const buffer = await fetchBuffer(downloadUrl);
+        await fs.writeFile(tempPath, buffer);
+        const extracted = await extractAttachmentText(tempPath, fileName);
+        const textValue = trimLongText(extracted.text || "", ALIO_TEXT_MAX_CHARS);
+        blocks.push(
+          [
+            `첨부: ${fileName}`,
+            `추출 상태: ${extracted.status}${extracted.message ? ` (${extracted.message})` : ""}`,
+            textValue
+          ]
+            .filter(Boolean)
+            .join("\n")
+        );
+      } catch (error) {
+        addLog(logs, source, "error", `ALIO 첨부 추출 실패: ${title} / ${fileName} - ${messageOf(error)}`, 0, downloadUrl);
+        blocks.push([`첨부: ${fileName}`, `추출 상태: error (${messageOf(error)})`].join("\n"));
+      }
+    }
+  } finally {
+    await fs.rm(tempDir, { recursive: true, force: true });
+  }
+
+  return blocks;
+}
+
+async function fetchBuffer(url: string): Promise<Buffer> {
+  const response = await fetch(url, {
+    headers: {
+      accept: "application/octet-stream,*/*",
+      "user-agent": "kr-reg-change-watch/0.1"
+    }
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
+  return Buffer.from(await response.arrayBuffer());
+}
+
+async function extractAttachmentText(filePath: string, fileName: string): Promise<ExtractedAttachment> {
+  const scriptPath = path.join(rootDir, "scripts", "extract-alio-attachment.py");
+  const python = process.env.PYTHON || "python3";
+  try {
+    const { stdout } = await execFileAsync(python, [scriptPath, filePath, fileName], {
+      maxBuffer: 16 * 1024 * 1024,
+      timeout: 60000
+    });
+    return JSON.parse(stdout || "{}") as ExtractedAttachment;
+  } catch (error) {
+    return { status: "error", message: messageOf(error), text: "" };
+  }
+}
+
+function buildAlioSummary(source: AlioSource, title: string, postedDate: string, documentDates: string[]): string {
+  const documentDate = documentDates.find((date) => date !== postedDate);
+  const dateText = documentDate ? ` 문서상 개정일 후보는 ${documentDate}입니다.` : "";
+  return `${postedDate} ALIO에 등록된 ${source.documentKind}입니다.${dateText} 제목: ${title}`;
 }
 
 async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
@@ -1536,6 +1804,29 @@ function findLabelDate(textValue: string, labels: string[]): string | null {
   return normalizeDate(textValue.match(/20\d{2}[./-]\d{1,2}[./-]\d{1,2}/)?.[0]);
 }
 
+function extractDateStrings(value: string): string[] {
+  const dates: string[] = [];
+  const matcher = /((?:19|20)?\d{2})[.\-/년\s]+(\d{1,2})[.\-/월\s]+(\d{1,2})/g;
+  let match = matcher.exec(value || "");
+  while (match) {
+    const year = normalizeYear(match[1]);
+    dates.push(`${year}-${match[2].padStart(2, "0")}-${match[3].padStart(2, "0")}`);
+    match = matcher.exec(value || "");
+  }
+  return uniqueStrings(dates);
+}
+
+function normalizeYear(value: string): string {
+  if (value.length === 4) return value;
+  const year = Number(value);
+  return `${year >= 70 ? 1900 + year : 2000 + year}`;
+}
+
+function trimLongText(value: string, maxLength: number): string {
+  if (!value || value.length <= maxLength) return value || "";
+  return `${value.slice(0, maxLength)}\n\n... [${(value.length - maxLength).toLocaleString("ko-KR")}자 생략]`;
+}
+
 function collectAttachmentUrls(
   html: string,
   baseUrl: string,
@@ -1556,8 +1847,8 @@ function collectAttachmentUrls(
 
 function mergeItems(existing: CollectedItem[], incoming: CollectedItem[]): CollectedItem[] {
   const map = new Map<string, CollectedItem>();
-  for (const item of existing) map.set(item.id, { ...item, category: itemCategory(item) });
-  for (const item of incoming) map.set(item.id, { ...map.get(item.id), ...item, category: itemCategory(item) });
+  for (const item of existing) map.set(item.id, attachPublicSystemMatches({ ...item, category: itemCategory(item) }));
+  for (const item of incoming) map.set(item.id, attachPublicSystemMatches({ ...map.get(item.id), ...item, category: itemCategory(item) }));
   return [...map.values()].sort((a, b) => {
     const dateOrder = (b.publish_date || "").localeCompare(a.publish_date || "");
     if (dateOrder !== 0) return dateOrder;
@@ -1577,11 +1868,20 @@ function normalizeAndFilterByTargetDate(items: CollectedItem[]): CollectedItem[]
       collection_date: collectionDate,
       category: itemCategory(item)
     };
-    const key = canonicalItemKey(normalized);
+    const withSystemMatches = attachPublicSystemMatches(normalized);
+    const key = canonicalItemKey(withSystemMatches);
     const existing = byId.get(key);
-    byId.set(key, existing ? mergeEquivalentItems(existing, normalized) : normalized);
+    byId.set(key, existing ? mergeEquivalentItems(existing, withSystemMatches) : withSystemMatches);
   }
   return [...byId.values()];
+}
+
+function attachPublicSystemMatches(item: CollectedItem): CollectedItem {
+  const public_system_matches = classifyPublicInstitutionSystemItem(item);
+  return {
+    ...item,
+    public_system_matches
+  };
 }
 
 function canonicalItemKey(item: CollectedItem): string {
@@ -1635,8 +1935,21 @@ function mergeEquivalentItems(existing: CollectedItem, incoming: CollectedItem):
     auto_summary: primary.auto_summary || secondary.auto_summary,
     original_url: primary.original_url || secondary.original_url,
     attachment_urls: [...new Set([...(primary.attachment_urls || []), ...(secondary.attachment_urls || [])])],
+    public_system_matches: mergePublicSystemMatches(primary, secondary),
     verification_required: primary.verification_required && secondary.verification_required
   };
+}
+
+function mergePublicSystemMatches(...items: CollectedItem[]) {
+  const map = new Map<string, NonNullable<CollectedItem["public_system_matches"]>[number]>();
+  for (const item of items) {
+    for (const match of item.public_system_matches || []) {
+      const key = `${match.group_id}:${match.relation}`;
+      const existing = map.get(key);
+      if (!existing || match.score > existing.score) map.set(key, match);
+    }
+  }
+  return [...map.values()].sort((a, b) => b.score - a.score || a.group_order - b.group_order);
 }
 
 function pickPrimaryItem(existing: CollectedItem, incoming: CollectedItem): CollectedItem {

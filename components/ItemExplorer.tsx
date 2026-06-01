@@ -6,6 +6,7 @@ import AiInlineResult, { emptyAiRunState } from "@/components/AiInlineResult";
 import AiSummaryDialog from "@/components/AiSummaryDialog";
 import { categoryLabels, itemCategory } from "@/lib/categories";
 import { changeTypeLabels, confidenceLabels, documentTypeLabels, sourceTypeLabels } from "@/lib/labels";
+import { classifyPublicInstitutionSystemItem, publicInstitutionSystemGroups } from "@/lib/publicInstitutionSystem";
 import type {
   ChangeType,
   CollectedItem,
@@ -22,6 +23,7 @@ interface Props {
 }
 
 type CategoryFilter = "all" | RegulatoryCategory;
+type WorkspaceMode = "all" | "public-system";
 type FilterKey = "ministry" | "source" | "document" | "change";
 
 interface FilterOption {
@@ -74,28 +76,45 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   const [selectedDate, setSelectedDate] = useState(initialDate);
   const [monthCursor, setMonthCursor] = useState(initialDate.slice(0, 7));
   const [category, setCategory] = useState<CategoryFilter>("all");
+  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>("all");
+  const [activeSystemGroup, setActiveSystemGroup] = useState("all");
   const [activeFilter, setActiveFilter] = useState<FilterKey | null>(null);
   const [draftSelection, setDraftSelection] = useState<string[]>([]);
   const [aiOpen, setAiOpen] = useState(false);
   const [aiRun, setAiRun] = useState(emptyAiRunState);
 
   const enrichedItems = useMemo(
-    () => items.map((item) => ({ ...item, category: itemCategory(item) })),
+    () =>
+      items.map((item) => ({
+        ...item,
+        category: itemCategory(item),
+        public_system_matches: item.public_system_matches?.length
+          ? item.public_system_matches
+          : classifyPublicInstitutionSystemItem(item)
+      })),
     [items]
+  );
+
+  const modeScopedItems = useMemo(
+    () =>
+      workspaceMode === "public-system"
+        ? enrichedItems.filter((item) => (item.public_system_matches || []).length > 0)
+        : enrichedItems,
+    [enrichedItems, workspaceMode]
   );
 
   const dateCounts = useMemo(() => {
     const result = new Map<string, number>();
-    for (const item of enrichedItems) {
+    for (const item of modeScopedItems) {
       const date = item.collection_date || item.publish_date;
       if (date) result.set(date, (result.get(date) || 0) + 1);
     }
     return result;
-  }, [enrichedItems]);
+  }, [modeScopedItems]);
 
   const dateScopedItems = useMemo(
-    () => enrichedItems.filter((item) => (item.collection_date || item.publish_date) === selectedDate),
-    [enrichedItems, selectedDate]
+    () => modeScopedItems.filter((item) => (item.collection_date || item.publish_date) === selectedDate),
+    [modeScopedItems, selectedDate]
   );
 
   const counts = useMemo(() => {
@@ -110,10 +129,27 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     return byCategory;
   }, [dateScopedItems]);
 
+  const systemCounts = useMemo(() => {
+    const byGroup = new Map<string, number>();
+    for (const item of dateScopedItems) {
+      for (const match of item.public_system_matches || []) {
+        byGroup.set(match.group_id, (byGroup.get(match.group_id) || 0) + 1);
+      }
+    }
+    return byGroup;
+  }, [dateScopedItems]);
+
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return dateScopedItems.filter((item) => {
-      if (category !== "all" && item.category !== category) return false;
+      if (workspaceMode === "all" && category !== "all" && item.category !== category) return false;
+      if (
+        workspaceMode === "public-system" &&
+        activeSystemGroup !== "all" &&
+        !(item.public_system_matches || []).some((match) => match.group_id === activeSystemGroup)
+      ) {
+        return false;
+      }
       if (ministryFilters.length && !ministryFilters.includes(item.ministry)) return false;
       if (sourceTypeFilters.length && !sourceTypeFilters.includes(item.source_type)) return false;
       if (documentTypeFilters.length && !documentTypeFilters.includes(item.document_type)) return false;
@@ -126,13 +162,15 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         .includes(normalizedQuery);
     });
   }, [
+    activeSystemGroup,
     category,
     changeTypeFilters,
     dateScopedItems,
     documentTypeFilters,
     ministryFilters,
     query,
-    sourceTypeFilters
+    sourceTypeFilters,
+    workspaceMode
   ]);
 
   const briefingInput = useMemo(
@@ -210,6 +248,28 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
 
   return (
     <section className="app-workspace" aria-label="규제 변경 탐색">
+      <nav className="workspace-tabs" aria-label="수집 범위">
+        <button
+          className={workspaceMode === "all" ? "active" : ""}
+          type="button"
+          onClick={() => setWorkspaceMode("all")}
+        >
+          <span>전체 수집</span>
+          <strong>{enrichedItems.length.toLocaleString("ko-KR")}</strong>
+        </button>
+        <button
+          className={workspaceMode === "public-system" ? "active" : ""}
+          type="button"
+          onClick={() => setWorkspaceMode("public-system")}
+        >
+          <span>공공기관 운영 법령 및 정부지침 체계</span>
+          <strong>
+            {enrichedItems
+              .filter((item) => (item.public_system_matches || []).length > 0)
+              .length.toLocaleString("ko-KR")}
+          </strong>
+        </button>
+      </nav>
       <aside className="side-panel" aria-label="날짜와 분류">
         <section className="calendar-card" aria-label="날짜 선택">
           <div className="calendar-toolbar">
@@ -247,8 +307,33 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           </div>
         </section>
 
-        <nav className="category-summary" aria-label="문서 분류">
-          {categoryFilters.map((tab) => (
+        {workspaceMode === "public-system" ? (
+          <nav className="category-summary system-summary" aria-label="9개 공공기관 운영 체계">
+            <button
+              className={activeSystemGroup === "all" ? "active" : ""}
+              type="button"
+              onClick={() => setActiveSystemGroup("all")}
+            >
+              <span>9개 항목 전체</span>
+              <strong>{dateScopedItems.length.toLocaleString("ko-KR")}</strong>
+            </button>
+            {publicInstitutionSystemGroups.map((group) => (
+              <button
+                className={activeSystemGroup === group.id ? "active" : ""}
+                key={group.id}
+                type="button"
+                onClick={() => setActiveSystemGroup(group.id)}
+              >
+                <span>
+                  {group.order}. {group.shortTitle}
+                </span>
+                <strong>{(systemCounts.get(group.id) || 0).toLocaleString("ko-KR")}</strong>
+              </button>
+            ))}
+          </nav>
+        ) : (
+          <nav className="category-summary" aria-label="문서 분류">
+            {categoryFilters.map((tab) => (
             <button
               className={category === tab.value ? "active" : ""}
               key={tab.value}
@@ -258,8 +343,9 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
               <span>{tab.label}</span>
               <strong>{counts[tab.value].toLocaleString("ko-KR")}</strong>
             </button>
-          ))}
-        </nav>
+            ))}
+          </nav>
+        )}
       </aside>
 
       <div className="content-stage">
@@ -321,7 +407,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         <section className="results-header">
           <div>
             <strong>{filtered.length.toLocaleString("ko-KR")}건</strong>
-            <span>{dateHasCache ? "표시 중" : "저장 자료 없음"}</span>
+            <span>{dateHasCache ? (workspaceMode === "public-system" ? "체계 항목 표시 중" : "표시 중") : "저장 자료 없음"}</span>
             {activeFilterCount ? <small>{activeFilterCount.toLocaleString("ko-KR")}개 필터</small> : null}
           </div>
           <button className="ai-brief-button" type="button" onClick={() => setAiOpen(true)}>
@@ -373,6 +459,7 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
   const detailHref = `${detailHrefPrefix.replace(/\/$/, "")}/${encodeURIComponent(item.id)}`;
   const category = item.category || itemCategory(item);
   const evidenceLines = extractEvidenceLines(item.raw_text).slice(0, 2);
+  const systemMatches = item.public_system_matches || [];
 
   return (
     <article className={`item-card category-${category}`}>
@@ -383,6 +470,11 @@ function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPr
           <span>{documentTypeLabels[item.document_type]}</span>
           <span>{changeTypeLabels[item.change_type]}</span>
           <span>{confidenceLabels[item.confidence]}</span>
+          {systemMatches.slice(0, 2).map((match) => (
+            <span className="system-chip" key={`${match.group_id}-${match.relation}`}>
+              {match.group_title} · {match.relation_label}
+            </span>
+          ))}
           {item.verification_required ? <span className="warn">확인 필요</span> : null}
         </div>
         <h2>
@@ -519,6 +611,11 @@ function buildBriefingInput(items: Array<CollectedItem & { category?: Regulatory
       existing_summary: item.summary,
       diff_summary: item.diff_summary,
       source_record_id: item.source_record_id,
+      public_system_matches: (item.public_system_matches || []).map((match) => ({
+        group: match.group_title,
+        relation: match.relation_label,
+        evidence: match.evidence
+      })),
       raw_text_excerpt: compactForAi(item.raw_text, 1200)
     }))
   };

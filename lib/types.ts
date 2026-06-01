@@ -1,5 +1,6 @@
 export type SourceType =
   | "official_law"
+  | "alio"
   | "gazette"
   | "ministry_board"
   | "legislation_notice"
@@ -53,6 +54,20 @@ export interface CollectedItem {
   collection_date?: string;
   collected_at?: string;
   source_record_id?: string | null;
+  public_system_matches?: PublicInstitutionSystemMatch[];
+  alio_document_date?: string | null;
+  alio_posted_date?: string | null;
+}
+
+export interface PublicInstitutionSystemMatch {
+  group_id: string;
+  group_order: number;
+  group_title: string;
+  relation: "direct" | "delegated" | "candidate";
+  relation_label: string;
+  match_basis: string;
+  evidence: string[];
+  score: number;
 }
 
 export interface CollectionLog {

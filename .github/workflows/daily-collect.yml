@@ -66,6 +66,10 @@ jobs:
 
       - run: npm install
 
+      - name: Install ALIO attachment extractor dependencies
+        if: github.event_name != 'push'
+        run: python3 -m pip install --user olefile pypdf
+
       - name: Collect official changes
         if: github.event_name != 'push'
         run: |
