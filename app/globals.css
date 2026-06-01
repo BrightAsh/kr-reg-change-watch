@@ -397,8 +397,14 @@ p {
 }
 
 .system-side-panel .system-summary button {
-  flex: 1 1 168px;
-  min-width: 160px;
+  flex: 1 1 244px;
+  min-width: 230px;
+  min-height: 58px;
+}
+
+.system-side-panel .system-summary span {
+  line-height: 1.32;
+  white-space: normal;
 }
 
 .category-summary button {

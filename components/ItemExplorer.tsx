@@ -350,7 +350,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
                 onClick={() => setActiveSystemGroup(group.id)}
               >
                 <span>
-                  {group.order}. {group.shortTitle}
+                  {group.order}. {group.title}
                 </span>
                 <strong>{(systemCounts.get(group.id) || 0).toLocaleString("ko-KR")}</strong>
               </button>
