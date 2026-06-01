@@ -179,7 +179,31 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   );
 
   const calendarCells = useMemo(() => buildCalendar(monthCursor), [monthCursor]);
-  const dateHasCache = dates.includes(selectedDate);
+  const collectedDateSet = useMemo(() => new Set(dates), [dates]);
+  const dateHasCache = collectedDateSet.has(selectedDate);
+  const emptyTitle = !dateHasCache
+    ? "아직 수집하지 않은 날짜입니다."
+    : dateScopedItems.length
+      ? "표시할 항목이 없습니다."
+      : workspaceMode === "public-system"
+        ? "수집 완료, 9개 체계 해당 항목은 없습니다."
+        : "수집 완료, 자료는 0건입니다.";
+  const emptyMessage = !dateHasCache
+    ? "해당 날짜는 아직 수집 결과가 없어 캘린더에 수집 전으로 표시됩니다."
+    : dateScopedItems.length
+      ? "검색어나 필터를 조금 넓혀보세요."
+      : workspaceMode === "public-system"
+        ? "전체 수집 탭에는 자료가 있을 수 있지만, 이 체계에 매칭된 항목은 없습니다."
+        : "수집은 정상 완료됐지만 표시할 변경 자료가 없었습니다.";
+  const resultStatus = !dateHasCache
+    ? "수집 전"
+    : dateScopedItems.length === 0
+      ? workspaceMode === "public-system"
+        ? "수집 완료 · 체계 항목 없음"
+        : "수집 완료 · 자료 0건"
+      : workspaceMode === "public-system"
+        ? "체계 항목 표시 중"
+        : "표시 중";
   const activeFilterCount =
     ministryFilters.length + sourceTypeFilters.length + documentTypeFilters.length + changeTypeFilters.length;
 
@@ -270,7 +294,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           </strong>
         </button>
       </nav>
-      <aside className="side-panel" aria-label="날짜와 분류">
+      <aside className={workspaceMode === "public-system" ? "side-panel system-side-panel" : "side-panel"} aria-label="날짜와 분류">
         <section className="calendar-card" aria-label="날짜 선택">
           <div className="calendar-toolbar">
             <button type="button" aria-label="이전 달" onClick={() => shiftMonth(-1)}>
@@ -291,16 +315,17 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
               if (!cell.date) return <div className="calendar-empty" key={`empty-${index}`} />;
               const date = cell.date;
               const count = dateCounts.get(date) || 0;
+              const collected = collectedDateSet.has(date);
               return (
                 <button
-                  className={calendarClassName(date, index, selectedDate, count)}
+                  className={calendarClassName(date, index, selectedDate, count, collected)}
                   key={date}
                   type="button"
-                  aria-label={`${formatDateLabel(date)} ${count}건`}
+                  aria-label={`${formatDateLabel(date)} ${collected ? `${count}건 수집 완료` : "수집 전"}`}
                   onClick={() => selectCalendarDate(date)}
                 >
                   <span>{cell.day}</span>
-                  <small>{count.toLocaleString("ko-KR")}</small>
+                  <small>{collected ? count.toLocaleString("ko-KR") : "-"}</small>
                 </button>
               );
             })}
@@ -407,7 +432,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         <section className="results-header">
           <div>
             <strong>{filtered.length.toLocaleString("ko-KR")}건</strong>
-            <span>{dateHasCache ? (workspaceMode === "public-system" ? "체계 항목 표시 중" : "표시 중") : "저장 자료 없음"}</span>
+            <span>{resultStatus}</span>
             {activeFilterCount ? <small>{activeFilterCount.toLocaleString("ko-KR")}개 필터</small> : null}
           </div>
           <button className="ai-brief-button" type="button" onClick={() => setAiOpen(true)}>
@@ -428,10 +453,8 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
             filtered.map((item) => <ItemRow key={item.id} item={item} detailHrefPrefix={detailHrefPrefix} />)
           ) : (
             <div className="empty-state">
-              <strong>{dateHasCache ? "표시할 항목이 없습니다." : "저장된 자료가 없습니다."}</strong>
-              <span>
-                {dateHasCache ? "검색어나 필터를 조금 넓혀보세요." : "해당 날짜의 수집 자료가 준비되면 이곳에 표시됩니다."}
-              </span>
+              <strong>{emptyTitle}</strong>
+              <span>{emptyMessage}</span>
             </div>
           )}
         </section>
@@ -517,11 +540,13 @@ function buildCalendar(monthCursor: string): Array<{ date: string | null; day: n
   return cells;
 }
 
-function calendarClassName(date: string, index: number, selectedDate: string, count: number): string {
+function calendarClassName(date: string, index: number, selectedDate: string, count: number, collected: boolean): string {
   return [
     "calendar-day",
     date === selectedDate ? "selected" : "",
+    collected ? "collected" : "uncollected",
     count ? "has-data" : "",
+    collected && !count ? "collected-empty" : "",
     index % 7 === 0 || index % 7 === 6 || isKoreanHoliday(date) ? "holiday" : ""
   ]
     .filter(Boolean)

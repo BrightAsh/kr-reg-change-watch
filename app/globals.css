@@ -154,21 +154,25 @@ p {
 
 .workspace-tabs {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(180px, 0.32fr) minmax(320px, 0.68fr);
+  display: flex;
   gap: 8px;
+  overflow-x: auto;
   padding: 6px;
   border: 1px solid rgba(216, 224, 235, 0.92);
   border-radius: 8px;
   background: rgba(247, 249, 252, 0.88);
   box-shadow: var(--shadow-soft), var(--shadow-line);
+  scrollbar-width: thin;
 }
 
 .workspace-tabs button {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  width: min(360px, 64vw);
+  min-width: 178px;
   min-height: 46px;
   padding: 10px 12px;
   border: 1px solid transparent;
@@ -221,6 +225,10 @@ p {
   background: rgba(247, 249, 252, 0.88);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+}
+
+.system-side-panel {
+  grid-template-columns: minmax(360px, 0.82fr) minmax(360px, 1fr);
 }
 
 .calendar-card,
@@ -338,6 +346,24 @@ p {
   background: var(--surface-blue);
 }
 
+.calendar-day.collected-empty {
+  border-color: rgba(129, 145, 166, 0.28);
+  background: #fff;
+}
+
+.calendar-day.collected-empty small {
+  color: var(--muted);
+}
+
+.calendar-day.uncollected {
+  background: rgba(248, 250, 252, 0.56);
+  color: rgba(95, 111, 131, 0.58);
+}
+
+.calendar-day.uncollected small {
+  color: rgba(95, 111, 131, 0.42);
+}
+
 .calendar-day.selected {
   border-color: transparent;
   background: var(--accent);
@@ -360,6 +386,19 @@ p {
 .system-summary {
   max-height: 492px;
   overflow: auto;
+}
+
+.system-side-panel .system-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  max-height: none;
+  overflow: visible;
+}
+
+.system-side-panel .system-summary button {
+  flex: 1 1 168px;
+  min-width: 160px;
 }
 
 .category-summary button {
@@ -1343,11 +1382,8 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
-  .workspace-tabs {
-    grid-template-columns: 1fr;
-  }
-
-  .side-panel {
+  .side-panel,
+  .system-side-panel {
     position: static;
     grid-template-columns: minmax(310px, 1fr) minmax(210px, 0.62fr);
   }
@@ -1367,6 +1403,10 @@ select:focus {
   .side-panel {
     grid-template-columns: 1fr;
     padding: 10px;
+  }
+
+  .system-side-panel {
+    grid-template-columns: 1fr;
   }
 
   .detail-snapshot {
