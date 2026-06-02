@@ -71,6 +71,9 @@ async function main(): Promise<void> {
 
   const subscriptions = readSubscriptions();
   if (!subscriptions.length) {
+    if (env("MAIL_REQUIRE_RECIPIENT") === "1") {
+      throw new Error("Mail alert failed: no active subscriptions configured.");
+    }
     console.log("Mail alert skipped: no active subscriptions configured.");
     return;
   }
