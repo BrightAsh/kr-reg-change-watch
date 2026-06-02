@@ -13,7 +13,7 @@ interface Props {
 type MailWorkspaceMode = "all" | "public-system";
 type CategoryFilter = "all" | RegulatoryCategory;
 type DialogPanel = "subscribe" | "unsubscribe";
-type CopyState = "idle" | "requested" | "cancelled" | "found" | "missing" | "error";
+type CopyState = "idle" | "registered" | "unsubscribed" | "found" | "missing" | "error";
 
 interface MailSubscription {
   email: string;
@@ -76,6 +76,7 @@ export default function MailAlertDialog({ ministries }: Props) {
   const [query, setQuery] = useState("");
   const [advancedOpen, setAdvancedOpen] = useState(false);
   const [copyState, setCopyState] = useState<CopyState>("idle");
+  const [verifiedUnsubscribeEmail, setVerifiedUnsubscribeEmail] = useState("");
 
   const email = useMemo(() => buildEmailAddress(emailLocal, emailDomain, customEmailDomain), [
     customEmailDomain,
@@ -101,6 +102,7 @@ export default function MailAlertDialog({ ministries }: Props) {
   const configJson = useMemo(() => JSON.stringify([subscription], null, 2), [subscription]);
   const unsubscribeValue = email.trim();
   const canBuild = isEmailAddress(email);
+  const canUnsubscribe = canBuild && normalizeEmail(verifiedUnsubscribeEmail) === normalizeEmail(email);
   const activeAdvancedCount =
     selectedMinistries.length + selectedSources.length + selectedDocuments.length + selectedChanges.length + (query.trim() ? 1 : 0);
 
@@ -108,6 +110,10 @@ export default function MailAlertDialog({ ministries }: Props) {
     if (!open) return;
     setCopyState("idle");
   }, [open]);
+
+  useEffect(() => {
+    if (panel === "unsubscribe") setVerifiedUnsubscribeEmail("");
+  }, [panel]);
 
   function applySubscription(saved: MailSubscription) {
     setEmailParts(saved.email || "");
@@ -138,6 +144,7 @@ export default function MailAlertDialog({ ministries }: Props) {
 
   function updateEmailLocal(value: string) {
     setCopyState("idle");
+    setVerifiedUnsubscribeEmail("");
     if (value.includes("@")) {
       setEmailParts(value);
       return;
@@ -147,6 +154,7 @@ export default function MailAlertDialog({ ministries }: Props) {
 
   function updateEmailDomain(value: string) {
     setCopyState("idle");
+    setVerifiedUnsubscribeEmail("");
     setEmailDomain(value);
   }
 
@@ -155,9 +163,11 @@ export default function MailAlertDialog({ ministries }: Props) {
     const saved = readSavedSubscription();
     if (saved && normalizeEmail(saved.email) === normalizeEmail(email)) {
       applySubscription(saved);
+      setVerifiedUnsubscribeEmail(saved.email);
       setCopyState("found");
       return;
     }
+    setVerifiedUnsubscribeEmail("");
     setCopyState("missing");
   }
 
@@ -170,16 +180,17 @@ export default function MailAlertDialog({ ministries }: Props) {
   async function requestSubscription() {
     if (!canBuild) return;
     localStorage.setItem(storageKey, JSON.stringify(subscription));
-    await copyText(configJson, "requested");
+    await copyText(configJson, "registered");
   }
 
   async function requestUnsubscribe() {
-    if (!unsubscribeValue) return;
+    if (!canUnsubscribe) return;
     const saved = readSavedSubscription();
     if (saved && normalizeEmail(saved.email) === normalizeEmail(unsubscribeValue)) {
       localStorage.removeItem(storageKey);
     }
-    await copyText(unsubscribeValue, "cancelled");
+    setVerifiedUnsubscribeEmail("");
+    await copyText(unsubscribeValue, "unsubscribed");
   }
 
   async function copyText(value: string, nextState: CopyState) {
@@ -273,6 +284,7 @@ export default function MailAlertDialog({ ministries }: Props) {
                       value={customEmailDomain}
                       onChange={(event) => {
                         setCopyState("idle");
+                        setVerifiedUnsubscribeEmail("");
                         setCustomEmailDomain(event.target.value.replace(/\s/g, ""));
                       }}
                       placeholder="company.com"
@@ -442,15 +454,19 @@ export default function MailAlertDialog({ ministries }: Props) {
                       value={customEmailDomain}
                       onChange={(event) => {
                         setCopyState("idle");
+                        setVerifiedUnsubscribeEmail("");
                         setCustomEmailDomain(event.target.value.replace(/\s/g, ""));
                       }}
                       placeholder="company.com"
                     />
                   ) : null}
+                  <button className="mail-check-button" disabled={!canBuild} type="button" onClick={checkEmailRegistration}>
+                    아이디 확인
+                  </button>
                 </div>
               </label>
               <div className="modal-actions">
-                <button disabled={!canBuild} type="button" onClick={requestUnsubscribe}>
+                <button disabled={!canUnsubscribe} type="button" onClick={requestUnsubscribe}>
                   수신 중지 요청
                 </button>
               </div>
@@ -459,14 +475,14 @@ export default function MailAlertDialog({ ministries }: Props) {
 
           {copyState !== "idle" ? (
             <p className={copyState === "error" ? "mail-feedback error" : "mail-feedback"}>
-              {copyState === "requested"
-                ? "수신 신청 정보가 준비되었습니다."
-                : copyState === "cancelled"
-                  ? "수신 중지 요청이 준비되었습니다."
+              {copyState === "registered"
+                ? "등록되었습니다."
+                : copyState === "unsubscribed"
+                  ? "수신 거부되었습니다."
                   : copyState === "found"
-                    ? "이 브라우저에 저장된 아이디입니다. 필터를 불러왔습니다."
+                    ? "등록된 이력이 있습니다."
                     : copyState === "missing"
-                      ? "이 브라우저에 저장된 아이디가 없습니다."
+                      ? "등록된 아이디가 없습니다."
                       : "브라우저 권한을 확인해 주세요."}
             </p>
           ) : null}
