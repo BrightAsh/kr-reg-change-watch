@@ -1056,6 +1056,41 @@ textarea {
   font-weight: 800;
 }
 
+.mail-email-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) auto minmax(150px, 0.78fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.mail-email-row.custom {
+  grid-template-columns: minmax(130px, 1fr) auto minmax(138px, 0.72fr) minmax(138px, 0.72fr) auto;
+}
+
+.mail-at {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.mail-check-button {
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid rgba(10, 132, 255, 0.24);
+  border-radius: 8px;
+  background: var(--surface-blue);
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.mail-check-button:disabled {
+  border-color: var(--line);
+  background: var(--surface-soft);
+  color: var(--muted);
+}
+
 .mail-choice-grid {
   display: grid;
   gap: 7px;
@@ -1787,8 +1822,14 @@ textarea {
 
   .mail-choice-grid.compact,
   .mail-choice-grid.system,
+  .mail-email-row,
+  .mail-email-row.custom,
   .mail-filter-grid {
     grid-template-columns: 1fr;
+  }
+
+  .mail-at {
+    display: none;
   }
 
   .ai-inline-panel {

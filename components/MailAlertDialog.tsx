@@ -13,7 +13,7 @@ interface Props {
 type MailWorkspaceMode = "all" | "public-system";
 type CategoryFilter = "all" | RegulatoryCategory;
 type DialogPanel = "subscribe" | "unsubscribe";
-type CopyState = "idle" | "copied" | "saved" | "error";
+type CopyState = "idle" | "requested" | "cancelled" | "found" | "missing" | "error";
 
 interface MailSubscription {
   email: string;
@@ -38,6 +38,8 @@ interface Option {
 }
 
 const storageKey = "kr-reg-mail-alert-draft";
+const customDomainValue = "__custom__";
+const commonEmailDomains = ["gmail.com", "naver.com", "daum.net", "kakao.com", "hanmail.net", "outlook.com", "icloud.com"];
 const sourceOptions = (Object.keys(sourceTypeLabels) as SourceType[]).map((value) => ({
   value,
   label: sourceTypeLabels[value]
@@ -61,7 +63,9 @@ const categoryOptions: Array<{ value: CategoryFilter; label: string }> = [
 export default function MailAlertDialog({ ministries }: Props) {
   const [open, setOpen] = useState(false);
   const [panel, setPanel] = useState<DialogPanel>("subscribe");
-  const [email, setEmail] = useState("");
+  const [emailLocal, setEmailLocal] = useState("");
+  const [emailDomain, setEmailDomain] = useState("gmail.com");
+  const [customEmailDomain, setCustomEmailDomain] = useState("");
   const [mode, setMode] = useState<MailWorkspaceMode>("all");
   const [selectedCategories, setSelectedCategories] = useState<RegulatoryCategory[]>([]);
   const [selectedSystemGroups, setSelectedSystemGroups] = useState<string[]>([]);
@@ -73,6 +77,11 @@ export default function MailAlertDialog({ ministries }: Props) {
   const [advancedOpen, setAdvancedOpen] = useState(false);
   const [copyState, setCopyState] = useState<CopyState>("idle");
 
+  const email = useMemo(() => buildEmailAddress(emailLocal, emailDomain, customEmailDomain), [
+    customEmailDomain,
+    emailDomain,
+    emailLocal
+  ]);
   const ministryOptions = useMemo(() => ministries.map((value) => ({ value, label: value })), [ministries]);
   const subscription = useMemo(
     () =>
@@ -91,21 +100,17 @@ export default function MailAlertDialog({ ministries }: Props) {
   );
   const configJson = useMemo(() => JSON.stringify([subscription], null, 2), [subscription]);
   const unsubscribeValue = email.trim();
-  const canBuild = Boolean(email.trim() && email.includes("@"));
+  const canBuild = isEmailAddress(email);
   const activeAdvancedCount =
     selectedMinistries.length + selectedSources.length + selectedDocuments.length + selectedChanges.length + (query.trim() ? 1 : 0);
 
   useEffect(() => {
     if (!open) return;
     setCopyState("idle");
-
-    const saved = readSavedSubscription();
-    if (!saved) return;
-    applySubscription(saved);
   }, [open]);
 
   function applySubscription(saved: MailSubscription) {
-    setEmail(saved.email || "");
+    setEmailParts(saved.email || "");
     setMode(saved.mode === "public-system" ? "public-system" : "all");
     setSelectedCategories(readCategories(saved));
     setSelectedSystemGroups(readSystemGroups(saved));
@@ -117,48 +122,73 @@ export default function MailAlertDialog({ ministries }: Props) {
     setAdvancedOpen(Boolean(saved.filters && Object.keys(saved.filters).length));
   }
 
+  function setEmailParts(value: string) {
+    const parsed = parseEmailAddress(value);
+    setEmailLocal(parsed.local);
+    if (parsed.domain && commonEmailDomains.includes(parsed.domain)) {
+      setEmailDomain(parsed.domain);
+      setCustomEmailDomain("");
+      return;
+    }
+    if (parsed.domain) {
+      setEmailDomain(customDomainValue);
+      setCustomEmailDomain(parsed.domain);
+    }
+  }
+
+  function updateEmailLocal(value: string) {
+    setCopyState("idle");
+    if (value.includes("@")) {
+      setEmailParts(value);
+      return;
+    }
+    setEmailLocal(value.replace(/\s/g, ""));
+  }
+
+  function updateEmailDomain(value: string) {
+    setCopyState("idle");
+    setEmailDomain(value);
+  }
+
+  function checkEmailRegistration() {
+    if (!canBuild) return;
+    const saved = readSavedSubscription();
+    if (saved && normalizeEmail(saved.email) === normalizeEmail(email)) {
+      applySubscription(saved);
+      setCopyState("found");
+      return;
+    }
+    setCopyState("missing");
+  }
+
   function updateMode(nextMode: MailWorkspaceMode) {
     setMode(nextMode);
     if (nextMode === "all") setSelectedSystemGroups([]);
     if (nextMode === "public-system") setSelectedCategories([]);
   }
 
-  async function copyConfig() {
+  async function requestSubscription() {
     if (!canBuild) return;
-    await copyText(configJson);
+    localStorage.setItem(storageKey, JSON.stringify(subscription));
+    await copyText(configJson, "requested");
   }
 
-  async function copyUnsubscribe() {
+  async function requestUnsubscribe() {
     if (!unsubscribeValue) return;
-    await copyText(unsubscribeValue);
+    const saved = readSavedSubscription();
+    if (saved && normalizeEmail(saved.email) === normalizeEmail(unsubscribeValue)) {
+      localStorage.removeItem(storageKey);
+    }
+    await copyText(unsubscribeValue, "cancelled");
   }
 
-  async function copyText(value: string) {
+  async function copyText(value: string, nextState: CopyState) {
     try {
       await navigator.clipboard.writeText(value);
-      setCopyState("copied");
+      setCopyState(nextState);
     } catch {
       setCopyState("error");
     }
-  }
-
-  function saveDraft() {
-    if (!canBuild) return;
-    localStorage.setItem(storageKey, JSON.stringify(subscription));
-    setCopyState("saved");
-  }
-
-  function clearLocalDraft() {
-    localStorage.removeItem(storageKey);
-    setEmail("");
-    setSelectedMinistries([]);
-    setSelectedSources([]);
-    setSelectedDocuments([]);
-    setSelectedChanges([]);
-    setSelectedCategories([]);
-    setSelectedSystemGroups([]);
-    setQuery("");
-    setCopyState("saved");
   }
 
   function toggleCategory(value: RegulatoryCategory) {
@@ -215,12 +245,43 @@ export default function MailAlertDialog({ ministries }: Props) {
             <>
               <label className="field-label">
                 <span>받을 이메일</span>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="name@example.com"
-                />
+                <div className={emailDomain === customDomainValue ? "mail-email-row custom" : "mail-email-row"}>
+                  <input
+                    aria-label="이메일 아이디"
+                    value={emailLocal}
+                    onChange={(event) => updateEmailLocal(event.target.value)}
+                    placeholder="email"
+                  />
+                  <span className="mail-at" aria-hidden="true">
+                    @
+                  </span>
+                  <select
+                    aria-label="이메일 도메인"
+                    value={emailDomain}
+                    onChange={(event) => updateEmailDomain(event.target.value)}
+                  >
+                    {commonEmailDomains.map((domain) => (
+                      <option key={domain} value={domain}>
+                        {domain}
+                      </option>
+                    ))}
+                    <option value={customDomainValue}>직접 입력</option>
+                  </select>
+                  {emailDomain === customDomainValue ? (
+                    <input
+                      aria-label="이메일 도메인 직접 입력"
+                      value={customEmailDomain}
+                      onChange={(event) => {
+                        setCopyState("idle");
+                        setCustomEmailDomain(event.target.value.replace(/\s/g, ""));
+                      }}
+                      placeholder="company.com"
+                    />
+                  ) : null}
+                  <button className="mail-check-button" disabled={!canBuild} type="button" onClick={checkEmailRegistration}>
+                    아이디 확인
+                  </button>
+                </div>
               </label>
 
               <div className="mail-field-group">
@@ -344,11 +405,8 @@ export default function MailAlertDialog({ ministries }: Props) {
               </div>
 
               <div className="modal-actions">
-                <button disabled={!canBuild} type="button" onClick={copyConfig}>
-                  알림 설정 복사
-                </button>
-                <button className="secondary" disabled={!canBuild} type="button" onClick={saveDraft}>
-                  내 선택 저장
+                <button disabled={!canBuild} type="button" onClick={requestSubscription}>
+                  수신 신청
                 </button>
               </div>
             </>
@@ -356,19 +414,44 @@ export default function MailAlertDialog({ ministries }: Props) {
             <>
               <label className="field-label">
                 <span>중지할 이메일</span>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="name@example.com"
-                />
+                <div className={emailDomain === customDomainValue ? "mail-email-row custom" : "mail-email-row"}>
+                  <input
+                    aria-label="중지할 이메일 아이디"
+                    value={emailLocal}
+                    onChange={(event) => updateEmailLocal(event.target.value)}
+                    placeholder="email"
+                  />
+                  <span className="mail-at" aria-hidden="true">
+                    @
+                  </span>
+                  <select
+                    aria-label="중지할 이메일 도메인"
+                    value={emailDomain}
+                    onChange={(event) => updateEmailDomain(event.target.value)}
+                  >
+                    {commonEmailDomains.map((domain) => (
+                      <option key={domain} value={domain}>
+                        {domain}
+                      </option>
+                    ))}
+                    <option value={customDomainValue}>직접 입력</option>
+                  </select>
+                  {emailDomain === customDomainValue ? (
+                    <input
+                      aria-label="중지할 이메일 도메인 직접 입력"
+                      value={customEmailDomain}
+                      onChange={(event) => {
+                        setCopyState("idle");
+                        setCustomEmailDomain(event.target.value.replace(/\s/g, ""));
+                      }}
+                      placeholder="company.com"
+                    />
+                  ) : null}
+                </div>
               </label>
               <div className="modal-actions">
-                <button disabled={!unsubscribeValue} type="button" onClick={copyUnsubscribe}>
-                  수신 중지 요청 복사
-                </button>
-                <button className="secondary" type="button" onClick={clearLocalDraft}>
-                  저장된 선택 삭제
+                <button disabled={!canBuild} type="button" onClick={requestUnsubscribe}>
+                  수신 중지 요청
                 </button>
               </div>
             </>
@@ -376,11 +459,15 @@ export default function MailAlertDialog({ ministries }: Props) {
 
           {copyState !== "idle" ? (
             <p className={copyState === "error" ? "mail-feedback error" : "mail-feedback"}>
-              {copyState === "copied"
-                ? "복사했습니다."
-                : copyState === "saved"
-                  ? "저장했습니다."
-                  : "브라우저 복사 권한을 확인해 주세요."}
+              {copyState === "requested"
+                ? "수신 신청 정보가 준비되었습니다."
+                : copyState === "cancelled"
+                  ? "수신 중지 요청이 준비되었습니다."
+                  : copyState === "found"
+                    ? "이 브라우저에 저장된 아이디입니다. 필터를 불러왔습니다."
+                    : copyState === "missing"
+                      ? "이 브라우저에 저장된 아이디가 없습니다."
+                      : "브라우저 권한을 확인해 주세요."}
             </p>
           ) : null}
         </section>
@@ -472,6 +559,31 @@ function readSavedSubscription(): MailSubscription | null {
   } catch {
     return null;
   }
+}
+
+function buildEmailAddress(local: string, domain: string, customDomain: string): string {
+  const normalizedLocal = local.trim();
+  const normalizedDomain = (domain === customDomainValue ? customDomain : domain).trim().replace(/^@+/, "");
+  if (!normalizedLocal || !normalizedDomain) return normalizedLocal;
+  return `${normalizedLocal}@${normalizedDomain}`.toLowerCase();
+}
+
+function parseEmailAddress(value: string): { local: string; domain: string } {
+  const normalized = value.trim().replace(/\s/g, "").toLowerCase();
+  const atIndex = normalized.indexOf("@");
+  if (atIndex === -1) return { local: normalized, domain: "" };
+  return {
+    local: normalized.slice(0, atIndex),
+    domain: normalized.slice(atIndex + 1).replace(/^@+/, "")
+  };
+}
+
+function normalizeEmail(value: string): string {
+  return buildEmailAddress(parseEmailAddress(value).local, customDomainValue, parseEmailAddress(value).domain);
+}
+
+function isEmailAddress(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 function readCategories(value: MailSubscription): RegulatoryCategory[] {
