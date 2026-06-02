@@ -11,7 +11,8 @@
     "fetch": "tsx scripts/fetch.ts",
     "diff": "tsx scripts/diff.ts",
     "summarize": "tsx scripts/summarize.ts",
-    "collect": "tsx scripts/collect.ts"
+    "collect": "tsx scripts/collect.ts",
+    "mail:send": "tsx scripts/send-mail-alert.ts"
   },
   "dependencies": {
     "fast-xml-parser": "^4.5.3",

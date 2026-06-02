@@ -1,4 +1,5 @@
 import ItemExplorer from "@/components/ItemExplorer";
+import MailAlertDialog from "@/components/MailAlertDialog";
 import { readAvailableDailyDates, readItems, sortItems, uniqueSorted } from "@/lib/data";
 
 export default async function HomePage() {
@@ -21,6 +22,7 @@ export default async function HomePage() {
             <strong>규제 변경 모니터</strong>
           </div>
         </div>
+        <MailAlertDialog ministries={ministries} />
       </header>
 
       <section className="overview-band" aria-label="서비스 개요">

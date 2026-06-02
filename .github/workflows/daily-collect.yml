@@ -27,6 +27,15 @@ on:
         required: false
         type: boolean
         default: false
+      send_mail:
+        description: "수집 완료 후 메일 알림을 발송합니다."
+        required: false
+        type: boolean
+        default: true
+      mail_to_override:
+        description: "테스트 수신 이메일. 비우면 Secret의 구독 설정을 사용합니다."
+        required: false
+        type: string
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -61,6 +70,14 @@ jobs:
       NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
       NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      MAIL_FROM_EMAIL: ${{ secrets.MAIL_FROM_EMAIL }}
+      MAIL_FROM_NAME: ${{ secrets.MAIL_FROM_NAME }}
+      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+      MAIL_SUBSCRIPTIONS_JSON: ${{ secrets.MAIL_SUBSCRIPTIONS_JSON }}
+      MAIL_TO: ${{ secrets.MAIL_TO }}
+      MAIL_UNSUBSCRIBE_EMAILS: ${{ secrets.MAIL_UNSUBSCRIBE_EMAILS }}
+      MAIL_BASE_URL: https://brightash.github.io/kr-reg-change-watch
+      MAIL_TO_OVERRIDE: ${{ github.event.inputs.mail_to_override }}
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
       FETCH_LOOKBACK_DAYS: 1
       TARGET_DATE: ${{ github.event.inputs.target_date }}
@@ -121,6 +138,22 @@ jobs:
             fi
             git commit -m "Collect regulatory changes for ${DATE_LABEL}"
             git push
+          fi
+
+      - name: Send mail alerts
+        if: github.event_name == 'schedule' || github.event.inputs.send_mail == 'true'
+        run: |
+          if [ -n "$TARGET_DATE_RANGE_START" ] && [ -n "$TARGET_DATE_RANGE_END" ]; then
+            current="$TARGET_DATE_RANGE_START"
+            while [ "$(date -d "$current" +%s)" -le "$(date -d "$TARGET_DATE_RANGE_END" +%s)" ]; do
+              echo "Sending mail alert for $current"
+              npm run mail:send -- --date "$current"
+              current="$(date -I -d "$current + 1 day")"
+            done
+          elif [ -n "$TARGET_DATE" ]; then
+            npm run mail:send -- --date "$TARGET_DATE"
+          else
+            npm run mail:send
           fi
 
       - name: Build static app

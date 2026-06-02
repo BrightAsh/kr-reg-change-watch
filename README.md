@@ -75,6 +75,23 @@ AI 요약은 현재 앱이 이미 수집한 본문, 수집 메타데이터 JSON,
 
 API 키는 사용자의 브라우저에 저장됩니다. 공용 PC에서는 사용 후 앱 화면에서 키를 삭제하는 것이 좋습니다.
 
+## 메일 알림
+
+메인 화면 오른쪽 위의 `일일 알림 받기` 버튼에서 받을 이메일, 탭, 항목, 추가 필터를 고르면 GitHub Actions Secret에 넣을 `MAIL_SUBSCRIPTIONS_JSON` 값을 만들 수 있습니다. GitHub Pages 정적 사이트에서는 구독자 정보를 안전하게 서버에 저장할 수 없기 때문에, 화면은 설정 JSON을 만드는 역할만 하고 실제 발송은 GitHub Actions가 Secret을 읽어서 처리합니다.
+
+Gmail 발송 계정을 사용할 때 필요한 Actions Secret은 다음과 같습니다.
+
+| Secret 이름 | 내용 |
+| --- | --- |
+| `MAIL_FROM_EMAIL` | 발송용 Gmail 주소 |
+| `GMAIL_APP_PASSWORD` | 발송용 Gmail 계정의 앱 비밀번호 |
+| `MAIL_FROM_NAME` | 발신자 표시 이름. 비워도 됩니다. |
+| `MAIL_SUBSCRIPTIONS_JSON` | 화면에서 복사한 구독 설정 JSON |
+| `MAIL_TO` | 구독 JSON 없이 단일 수신 테스트만 할 때 사용할 이메일 |
+| `MAIL_UNSUBSCRIBE_EMAILS` | 수신 중지할 이메일 목록. 쉼표 또는 줄바꿈으로 구분합니다. |
+
+매일 자동 수집이 끝나면 조건에 맞는 항목을 이메일로 보냅니다. 수동 테스트는 GitHub Actions의 `Daily collect and deploy` 워크플로를 `Run workflow`로 실행하면서 `force`와 `send_mail`을 켜면 됩니다. `mail_to_override`를 입력하면 Secret의 구독 설정 대신 해당 이메일로 테스트 발송합니다.
+
 ## 구현에 사용한 도구
 
 | 구분 | 사용 기술 |
