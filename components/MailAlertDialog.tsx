@@ -13,7 +13,7 @@ interface Props {
 type MailWorkspaceMode = "all" | "public-system";
 type CategoryFilter = "all" | RegulatoryCategory;
 type DialogPanel = "subscribe" | "unsubscribe";
-type CopyState = "idle" | "registered" | "unsubscribed" | "found" | "missing" | "error";
+type FeedbackState = "idle" | "working" | "registered" | "unsubscribed" | "found" | "missing" | "not-configured" | "error";
 
 interface MailSubscription {
   email: string;
@@ -37,7 +37,17 @@ interface Option {
   label: string;
 }
 
-const storageKey = "kr-reg-mail-alert-draft";
+interface SubscriptionApiResponse {
+  ok?: boolean;
+  found?: boolean;
+  created?: boolean;
+  unsubscribed?: boolean;
+  subscriber?: unknown;
+  subscribers?: unknown[];
+  error?: string;
+}
+
+const subscriptionApiUrl = process.env.NEXT_PUBLIC_SUBSCRIPTION_API_URL || "";
 const customDomainValue = "__custom__";
 const commonEmailDomains = ["gmail.com", "naver.com", "daum.net", "kakao.com", "hanmail.net", "outlook.com", "icloud.com"];
 const sourceOptions = (Object.keys(sourceTypeLabels) as SourceType[]).map((value) => ({
@@ -75,8 +85,9 @@ export default function MailAlertDialog({ ministries }: Props) {
   const [selectedChanges, setSelectedChanges] = useState<string[]>([]);
   const [query, setQuery] = useState("");
   const [advancedOpen, setAdvancedOpen] = useState(false);
-  const [copyState, setCopyState] = useState<CopyState>("idle");
-  const [verifiedUnsubscribeEmail, setVerifiedUnsubscribeEmail] = useState("");
+  const [feedbackState, setFeedbackState] = useState<FeedbackState>("idle");
+  const [checkedEmail, setCheckedEmail] = useState("");
+  const [checkedEmailFound, setCheckedEmailFound] = useState(false);
 
   const email = useMemo(() => buildEmailAddress(emailLocal, emailDomain, customEmailDomain), [
     customEmailDomain,
@@ -99,20 +110,24 @@ export default function MailAlertDialog({ ministries }: Props) {
       }),
     [email, mode, query, selectedCategories, selectedChanges, selectedDocuments, selectedMinistries, selectedSources, selectedSystemGroups]
   );
-  const configJson = useMemo(() => JSON.stringify([subscription], null, 2), [subscription]);
-  const unsubscribeValue = email.trim();
-  const canBuild = isEmailAddress(email);
-  const canUnsubscribe = canBuild && normalizeEmail(verifiedUnsubscribeEmail) === normalizeEmail(email);
+  const busy = feedbackState === "working";
+  const apiReady = Boolean(subscriptionApiUrl);
+  const validEmail = isEmailAddress(email);
+  const emailChecked = validEmail && normalizeEmail(checkedEmail) === normalizeEmail(email);
+  const canCheck = apiReady && validEmail && !busy;
+  const canSubscribe = apiReady && validEmail && emailChecked && !busy;
+  const canUnsubscribe = canSubscribe && checkedEmailFound;
   const activeAdvancedCount =
     selectedMinistries.length + selectedSources.length + selectedDocuments.length + selectedChanges.length + (query.trim() ? 1 : 0);
 
   useEffect(() => {
     if (!open) return;
-    setCopyState("idle");
+    setFeedbackState("idle");
   }, [open]);
 
   useEffect(() => {
-    if (panel === "unsubscribe") setVerifiedUnsubscribeEmail("");
+    setCheckedEmail("");
+    setCheckedEmailFound(false);
   }, [panel]);
 
   function applySubscription(saved: MailSubscription) {
@@ -143,8 +158,9 @@ export default function MailAlertDialog({ ministries }: Props) {
   }
 
   function updateEmailLocal(value: string) {
-    setCopyState("idle");
-    setVerifiedUnsubscribeEmail("");
+    setFeedbackState("idle");
+    setCheckedEmail("");
+    setCheckedEmailFound(false);
     if (value.includes("@")) {
       setEmailParts(value);
       return;
@@ -153,22 +169,39 @@ export default function MailAlertDialog({ ministries }: Props) {
   }
 
   function updateEmailDomain(value: string) {
-    setCopyState("idle");
-    setVerifiedUnsubscribeEmail("");
+    setFeedbackState("idle");
+    setCheckedEmail("");
+    setCheckedEmailFound(false);
     setEmailDomain(value);
   }
 
-  function checkEmailRegistration() {
-    if (!canBuild) return;
-    const saved = readSavedSubscription();
-    if (saved && normalizeEmail(saved.email) === normalizeEmail(email)) {
-      applySubscription(saved);
-      setVerifiedUnsubscribeEmail(saved.email);
-      setCopyState("found");
+  async function checkEmailRegistration() {
+    if (!apiReady) {
+      setFeedbackState("not-configured");
       return;
     }
-    setVerifiedUnsubscribeEmail("");
-    setCopyState("missing");
+    if (!validEmail || busy) return;
+
+    setFeedbackState("working");
+    try {
+      const response = await callSubscriptionApi("lookup", { email: normalizeEmail(email) });
+      if (!response.ok) throw new Error(response.error || "Lookup failed.");
+      const saved = normalizeApiSubscription(response.subscriber);
+      if (response.found && saved && normalizeEmail(saved.email) === normalizeEmail(email)) {
+        applySubscription(saved);
+        setCheckedEmail(saved.email);
+        setCheckedEmailFound(true);
+        setFeedbackState("found");
+        return;
+      }
+      setCheckedEmail(normalizeEmail(email));
+      setCheckedEmailFound(false);
+      setFeedbackState("missing");
+    } catch {
+      setCheckedEmail("");
+      setCheckedEmailFound(false);
+      setFeedbackState("error");
+    }
   }
 
   function updateMode(nextMode: MailWorkspaceMode) {
@@ -178,27 +211,46 @@ export default function MailAlertDialog({ ministries }: Props) {
   }
 
   async function requestSubscription() {
-    if (!canBuild) return;
-    localStorage.setItem(storageKey, JSON.stringify(subscription));
-    await copyText(configJson, "registered");
+    if (!apiReady) {
+      setFeedbackState("not-configured");
+      return;
+    }
+    if (!validEmail || busy) return;
+
+    setFeedbackState("working");
+    try {
+      const response = await callSubscriptionApi("upsert", {
+        payload: base64UrlEncode(JSON.stringify(subscription))
+      });
+      if (!response.ok) throw new Error(response.error || "Subscription failed.");
+      const saved = normalizeApiSubscription(response.subscriber);
+      if (saved) applySubscription(saved);
+      setCheckedEmail(subscription.email);
+      setCheckedEmailFound(true);
+      setFeedbackState("registered");
+    } catch {
+      setFeedbackState("error");
+    }
   }
 
   async function requestUnsubscribe() {
     if (!canUnsubscribe) return;
-    const saved = readSavedSubscription();
-    if (saved && normalizeEmail(saved.email) === normalizeEmail(unsubscribeValue)) {
-      localStorage.removeItem(storageKey);
-    }
-    setVerifiedUnsubscribeEmail("");
-    await copyText(unsubscribeValue, "unsubscribed");
-  }
 
-  async function copyText(value: string, nextState: CopyState) {
+    setFeedbackState("working");
     try {
-      await navigator.clipboard.writeText(value);
-      setCopyState(nextState);
+      const response = await callSubscriptionApi("unsubscribe", { email: normalizeEmail(email) });
+      if (!response.ok) throw new Error(response.error || "Unsubscribe failed.");
+      if (!response.found || !response.unsubscribed) {
+        setCheckedEmail("");
+        setCheckedEmailFound(false);
+        setFeedbackState("missing");
+        return;
+      }
+      setCheckedEmail("");
+      setCheckedEmailFound(false);
+      setFeedbackState("unsubscribed");
     } catch {
-      setCopyState("error");
+      setFeedbackState("error");
     }
   }
 
@@ -283,17 +335,19 @@ export default function MailAlertDialog({ ministries }: Props) {
                       aria-label="이메일 도메인 직접 입력"
                       value={customEmailDomain}
                       onChange={(event) => {
-                        setCopyState("idle");
-                        setVerifiedUnsubscribeEmail("");
+                        setFeedbackState("idle");
+                        setCheckedEmail("");
+                        setCheckedEmailFound(false);
                         setCustomEmailDomain(event.target.value.replace(/\s/g, ""));
                       }}
                       placeholder="company.com"
                     />
                   ) : null}
-                  <button className="mail-check-button" disabled={!canBuild} type="button" onClick={checkEmailRegistration}>
+                  <button className="mail-check-button" disabled={!canCheck} type="button" onClick={checkEmailRegistration}>
                     아이디 확인
                   </button>
                 </div>
+                <small className="mail-help-text">아이디 확인 후 수신 신청할 수 있습니다.</small>
               </label>
 
               <div className="mail-field-group">
@@ -417,7 +471,7 @@ export default function MailAlertDialog({ ministries }: Props) {
               </div>
 
               <div className="modal-actions">
-                <button disabled={!canBuild} type="button" onClick={requestSubscription}>
+                <button disabled={!canSubscribe} type="button" onClick={requestSubscription}>
                   수신 신청
                 </button>
               </div>
@@ -453,37 +507,47 @@ export default function MailAlertDialog({ ministries }: Props) {
                       aria-label="중지할 이메일 도메인 직접 입력"
                       value={customEmailDomain}
                       onChange={(event) => {
-                        setCopyState("idle");
-                        setVerifiedUnsubscribeEmail("");
+                        setFeedbackState("idle");
+                        setCheckedEmail("");
+                        setCheckedEmailFound(false);
                         setCustomEmailDomain(event.target.value.replace(/\s/g, ""));
                       }}
                       placeholder="company.com"
                     />
                   ) : null}
-                  <button className="mail-check-button" disabled={!canBuild} type="button" onClick={checkEmailRegistration}>
+                  <button className="mail-check-button" disabled={!canCheck} type="button" onClick={checkEmailRegistration}>
                     아이디 확인
                   </button>
                 </div>
+                <small className="mail-help-text">아이디 확인 후 수신 중지할 수 있습니다.</small>
               </label>
               <div className="modal-actions">
                 <button disabled={!canUnsubscribe} type="button" onClick={requestUnsubscribe}>
-                  수신 중지 요청
+                  수신 중지
                 </button>
               </div>
             </>
           )}
 
-          {copyState !== "idle" ? (
-            <p className={copyState === "error" ? "mail-feedback error" : "mail-feedback"}>
-              {copyState === "registered"
+          {!apiReady && feedbackState === "idle" ? (
+            <p className="mail-feedback error">알림 등록 API가 아직 설정되지 않았습니다.</p>
+          ) : null}
+
+          {feedbackState !== "idle" ? (
+            <p className={feedbackState === "error" || feedbackState === "not-configured" ? "mail-feedback error" : "mail-feedback"}>
+              {feedbackState === "registered"
                 ? "등록되었습니다."
-                : copyState === "unsubscribed"
+                : feedbackState === "unsubscribed"
                   ? "수신 거부되었습니다."
-                  : copyState === "found"
+                  : feedbackState === "found"
                     ? "등록된 이력이 있습니다."
-                    : copyState === "missing"
+                    : feedbackState === "missing"
                       ? "등록된 아이디가 없습니다."
-                      : "브라우저 권한을 확인해 주세요."}
+                      : feedbackState === "working"
+                        ? "처리 중입니다."
+                        : feedbackState === "not-configured"
+                          ? "알림 등록 API가 아직 설정되지 않았습니다."
+                          : "요청 처리 중 오류가 발생했습니다."}
             </p>
           ) : null}
         </section>
@@ -565,23 +629,107 @@ function buildSubscription({
   };
 }
 
-function readSavedSubscription(): MailSubscription | null {
-  try {
-    const raw = localStorage.getItem(storageKey);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as unknown;
-    if (!parsed || typeof parsed !== "object") return null;
-    return parsed as MailSubscription;
-  } catch {
-    return null;
-  }
-}
-
 function buildEmailAddress(local: string, domain: string, customDomain: string): string {
   const normalizedLocal = local.trim();
   const normalizedDomain = (domain === customDomainValue ? customDomain : domain).trim().replace(/^@+/, "");
   if (!normalizedLocal || !normalizedDomain) return normalizedLocal;
   return `${normalizedLocal}@${normalizedDomain}`.toLowerCase();
+}
+
+function callSubscriptionApi(action: string, params: Record<string, string>): Promise<SubscriptionApiResponse> {
+  return new Promise((resolve, reject) => {
+    if (!subscriptionApiUrl) {
+      reject(new Error("Subscription API URL is not configured."));
+      return;
+    }
+
+    const callbackName = `krRegMail_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const callbacks = window as unknown as Record<string, (payload: SubscriptionApiResponse) => void>;
+    const script = document.createElement("script");
+    const timeout = window.setTimeout(() => {
+      cleanup();
+      reject(new Error("Subscription API request timed out."));
+    }, 15000);
+
+    function cleanup() {
+      window.clearTimeout(timeout);
+      delete callbacks[callbackName];
+      script.remove();
+    }
+
+    callbacks[callbackName] = (payload: SubscriptionApiResponse) => {
+      cleanup();
+      resolve(payload);
+    };
+
+    try {
+      const url = new URL(subscriptionApiUrl);
+      url.searchParams.set("action", action);
+      url.searchParams.set("callback", callbackName);
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, value);
+      }
+      script.src = url.toString();
+      script.async = true;
+      script.onerror = () => {
+        cleanup();
+        reject(new Error("Subscription API request failed."));
+      };
+      document.head.appendChild(script);
+    } catch (error) {
+      cleanup();
+      reject(error instanceof Error ? error : new Error(String(error)));
+    }
+  });
+}
+
+function normalizeApiSubscription(value: unknown): MailSubscription | null {
+  if (!value || typeof value !== "object") return null;
+  const record = value as Record<string, unknown>;
+  const email = typeof record.email === "string" ? record.email : "";
+  if (!isEmailAddress(email)) return null;
+
+  const mode: MailWorkspaceMode = record.mode === "public-system" ? "public-system" : "all";
+  const filters = normalizeApiFilters(record.filters);
+
+  return {
+    email: normalizeEmail(email),
+    mode,
+    ...(mode === "all" ? { categories: filterStrings(record.categories, categoryOptions.map((option) => option.value)) as RegulatoryCategory[] } : {}),
+    ...(mode === "public-system" ? { systemGroups: filterStrings(record.systemGroups, publicInstitutionSystemGroups.map((group) => group.id)) } : {}),
+    ...(Object.keys(filters).length ? { filters } : {}),
+    active: record.active !== false
+  };
+}
+
+function normalizeApiFilters(value: unknown): NonNullable<MailSubscription["filters"]> {
+  if (!value || typeof value !== "object") return {};
+  const record = value as Record<string, unknown>;
+  const filters: NonNullable<MailSubscription["filters"]> = {};
+
+  const ministries = readStringArray(record.ministries);
+  const sourceTypes = filterStrings(record.sourceTypes, sourceOptions.map((option) => option.value)) as SourceType[];
+  const documentTypes = filterStrings(record.documentTypes, documentOptions.map((option) => option.value)) as DocumentType[];
+  const changeTypes = filterStrings(record.changeTypes, changeOptions.map((option) => option.value)) as ChangeType[];
+  const query = typeof record.query === "string" ? record.query.trim() : "";
+
+  if (ministries.length) filters.ministries = ministries;
+  if (sourceTypes.length) filters.sourceTypes = sourceTypes;
+  if (documentTypes.length) filters.documentTypes = documentTypes;
+  if (changeTypes.length) filters.changeTypes = changeTypes;
+  if (query) filters.query = query;
+
+  return filters;
+}
+
+function base64UrlEncode(value: string): string {
+  const bytes = encodeURIComponent(value).replace(/%([0-9A-F]{2})/g, (_, hex: string) => String.fromCharCode(parseInt(hex, 16)));
+  return btoa(bytes).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
+function readStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.map((entry) => String(entry || "").trim()).filter(Boolean);
 }
 
 function parseEmailAddress(value: string): { local: string; domain: string } {

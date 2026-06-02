@@ -76,9 +76,12 @@ jobs:
       MAIL_SUBSCRIPTIONS_JSON: ${{ secrets.MAIL_SUBSCRIPTIONS_JSON }}
       MAIL_TO: ${{ secrets.MAIL_TO }}
       MAIL_UNSUBSCRIBE_EMAILS: ${{ secrets.MAIL_UNSUBSCRIBE_EMAILS }}
+      SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
+      SUBSCRIBER_READ_TOKEN: ${{ secrets.SUBSCRIBER_READ_TOKEN }}
       MAIL_BASE_URL: https://brightash.github.io/kr-reg-change-watch
       MAIL_TO_OVERRIDE: ${{ github.event.inputs.mail_to_override }}
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
       FETCH_LOOKBACK_DAYS: 1
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       TARGET_DATE_RANGE_START: ${{ github.event.inputs.date_range_start }}

@@ -1091,6 +1091,13 @@ textarea {
   color: var(--muted);
 }
 
+.mail-help-text {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 .mail-choice-grid {
   display: grid;
   gap: 7px;

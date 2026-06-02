@@ -77,7 +77,26 @@ API 키는 사용자의 브라우저에 저장됩니다. 공용 PC에서는 사�
 
 ## 메일 알림
 
-메인 화면 오른쪽 위의 `일일 알림 받기` 버튼에서 받을 이메일, 탭, 항목, 추가 필터를 고르면 GitHub Actions Secret에 넣을 `MAIL_SUBSCRIPTIONS_JSON` 값을 만들 수 있습니다. GitHub Pages 정적 사이트에서는 구독자 정보를 안전하게 서버에 저장할 수 없기 때문에, 화면은 설정 JSON을 만드는 역할만 하고 실제 발송은 GitHub Actions가 Secret을 읽어서 처리합니다.
+메인 화면 오른쪽 위의 `일일 알림 받기` 버튼에서 받을 이메일, 탭, 항목, 추가 필터를 고르면 Google Apps Script Web App이 Google Sheet에 구독 정보를 저장합니다. 매일 자동 수집이 끝나면 GitHub Actions가 같은 구독 목록을 읽어, 사용자별 필터 조건에 맞는 자료만 Gmail SMTP로 발송합니다.
+
+화면에서 `아이디 확인`을 먼저 눌러야 수신 신청 또는 수신 중지를 할 수 있습니다. 이미 등록된 이메일이면 저장된 필터를 불러와 수정할 수 있고, 등록되지 않은 이메일이면 새 수신 신청을 할 수 있습니다.
+
+### Google Apps Script 설정
+
+1. Google Sheet를 하나 만듭니다.
+2. `확장 프로그램` > `Apps Script`를 열고 `google-apps-script/subscriber-api.gs` 내용을 붙여 넣습니다.
+3. Apps Script의 `프로젝트 설정` > `스크립트 속성`에 다음 값을 넣습니다.
+
+| 속성 이름 | 내용 |
+| --- | --- |
+| `SHEET_NAME` | 선택값입니다. 비우면 `subscribers` 시트를 사용합니다. |
+| `SUBSCRIBER_READ_TOKEN` | 필수값입니다. 임의의 긴 문자열이며 GitHub Actions Secret에도 같은 값을 넣습니다. |
+
+4. `배포` > `새 배포` > `웹 앱`으로 배포합니다.
+5. 실행 계정은 본인, 접근 권한은 링크가 있는 누구나 접근 가능하도록 설정합니다.
+6. 배포 후 나온 Web App URL을 GitHub Secret `SUBSCRIPTION_API_URL`에 넣습니다.
+
+Apps Script는 별도 서버 비용 없이 시작할 수 있지만 Google의 일일 실행·요청 쿼터가 있습니다. 이 앱은 구독자 저장과 조회만 수행하므로 소규모 운영과 테스트에는 가벼운 편입니다. 운영 규모가 커지면 Apps Script 쿼터와 Sheet 동시 수정량을 확인해야 합니다.
 
 Gmail 발송 계정을 사용할 때 필요한 Actions Secret은 다음과 같습니다.
 
@@ -86,11 +105,17 @@ Gmail 발송 계정을 사용할 때 필요한 Actions Secret은 다음과 같�
 | `MAIL_FROM_EMAIL` | 발송용 Gmail 주소 |
 | `GMAIL_APP_PASSWORD` | 발송용 Gmail 계정의 앱 비밀번호 |
 | `MAIL_FROM_NAME` | 발신자 표시 이름. 비워도 됩니다. |
-| `MAIL_SUBSCRIPTIONS_JSON` | 화면에서 복사한 구독 설정 JSON |
-| `MAIL_TO` | 구독 JSON 없이 단일 수신 테스트만 할 때 사용할 이메일 |
-| `MAIL_UNSUBSCRIBE_EMAILS` | 수신 중지할 이메일 목록. 쉼표 또는 줄바꿈으로 구분합니다. |
+| `SUBSCRIPTION_API_URL` | Apps Script Web App URL |
+| `SUBSCRIBER_READ_TOKEN` | Apps Script 스크립트 속성과 같은 읽기 토큰 |
+| `MAIL_SUBSCRIPTIONS_JSON` | 선택값입니다. 기존 수동 구독 JSON 호환용입니다. |
+| `MAIL_TO` | 선택값입니다. 구독 저장소 없이 단일 수신 테스트만 할 때 사용합니다. |
+| `MAIL_UNSUBSCRIBE_EMAILS` | 선택값입니다. 강제로 제외할 이메일 목록입니다. |
 
-매일 자동 수집이 끝나면 조건에 맞는 항목을 이메일로 보냅니다. 수동 테스트는 GitHub Actions의 `Daily collect and deploy` 워크플로를 `Run workflow`로 실행하면서 `force`와 `send_mail`을 켜면 됩니다. `mail_to_override`를 입력하면 Secret의 구독 설정 대신 해당 이메일로 테스트 발송합니다.
+발신 이메일과 앱 비밀번호는 GitHub Secrets에만 있고, Google Sheet에는 수신 이메일과 필터 정보만 저장됩니다.
+
+수동 테스트는 GitHub Actions의 `Email alert test` 워크플로를 실행하면 됩니다. 기본 테스트 날짜는 `2026-06-01`이고, `mail_to_override`를 입력하면 구독 저장소 대신 해당 이메일로만 테스트 발송합니다.
+
+현재 구현은 이메일 소유 확인 링크를 보내는 방식은 아닙니다. 즉, 누군가 다른 사람의 이메일을 입력할 수 있습니다. 공개 서비스로 운영할 때는 최초 등록 시 확인 메일 링크를 클릭해야 활성화되는 절차를 추가하는 것이 좋습니다.
 
 ## 구현에 사용한 도구
 

@@ -69,7 +69,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  const subscriptions = readSubscriptions();
+  const subscriptions = await readSubscriptions();
   if (!subscriptions.length) {
     if (env("MAIL_REQUIRE_RECIPIENT") === "1") {
       throw new Error("Mail alert failed: no active subscriptions configured.");
@@ -126,12 +126,17 @@ async function main(): Promise<void> {
   }
 }
 
-function readSubscriptions(): NormalizedSubscription[] {
+async function readSubscriptions(): Promise<NormalizedSubscription[]> {
   const rawSubscriptions = env("MAIL_SUBSCRIPTIONS_JSON");
   let subscriptions: MailSubscription[] = [];
+  const remoteSubscriptions = await readRemoteSubscriptions();
 
   if (rawSubscriptions) {
     subscriptions = parseSubscriptionsJson(rawSubscriptions);
+  }
+
+  if (remoteSubscriptions.length) {
+    subscriptions = mergeSubscriptions([...subscriptions, ...remoteSubscriptions]);
   }
 
   if (!subscriptions.length) {
@@ -171,6 +176,46 @@ function normalizeRawSubscriptionEntry(entry: unknown): MailSubscription[] {
   if (!entry || typeof entry !== "object") return [];
   const record = entry as MailSubscription;
   return [{ ...record, email: String(record.email || "").trim() }];
+}
+
+async function readRemoteSubscriptions(): Promise<MailSubscription[]> {
+  const apiUrl = env("SUBSCRIPTION_API_URL") || env("SUBSCRIBERS_API_URL");
+  if (!apiUrl) return [];
+
+  const token = env("SUBSCRIBER_READ_TOKEN") || env("SUBSCRIPTION_API_TOKEN");
+  const url = new URL(apiUrl);
+  url.searchParams.set("action", "list");
+  if (token) url.searchParams.set("token", token);
+
+  const response = await fetch(url, {
+    headers: {
+      accept: "application/json"
+    }
+  });
+  if (!response.ok) {
+    throw new Error(`Subscription API failed: HTTP ${response.status} ${response.statusText}`);
+  }
+
+  const payload = (await response.json()) as { ok?: boolean; subscribers?: unknown[]; error?: string };
+  if (!payload.ok) {
+    throw new Error(`Subscription API failed: ${payload.error || "unknown error"}`);
+  }
+
+  const subscriptions = Array.isArray(payload.subscribers)
+    ? payload.subscribers.flatMap((entry) => normalizeRawSubscriptionEntry(entry))
+    : [];
+  console.log(`Loaded ${subscriptions.length.toLocaleString("ko-KR")} subscription(s) from subscription API.`);
+  return subscriptions;
+}
+
+function mergeSubscriptions(subscriptions: MailSubscription[]): MailSubscription[] {
+  const byEmail = new Map<string, MailSubscription>();
+  for (const subscription of subscriptions) {
+    const email = String(subscription.email || "").trim().toLowerCase();
+    if (!isEmail(email)) continue;
+    byEmail.set(email, { ...subscription, email });
+  }
+  return [...byEmail.values()];
 }
 
 function normalizeSubscription(subscription: MailSubscription): NormalizedSubscription {
