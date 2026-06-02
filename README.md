@@ -81,39 +81,11 @@ API 키는 사용자의 브라우저에 저장됩니다. 공용 PC에서는 사�
 
 화면에서 `아이디 확인`을 먼저 눌러야 수신 신청 또는 수신 중지를 할 수 있습니다. 이미 등록된 이메일이면 저장된 필터를 불러와 수정할 수 있고, 등록되지 않은 이메일이면 새 수신 신청을 할 수 있습니다.
 
-### Google Apps Script 설정
+구독 저장소에는 수신 이메일, 활성 상태, 선택 탭과 항목, 추가 필터, 등록·수정·수신중지 시간이 저장됩니다. 전체 구독자 목록 조회는 별도 읽기 토큰을 요구하도록 분리해 GitHub Actions만 읽을 수 있게 했고, 홈페이지에서는 개별 이메일 확인, 수신 신청, 수신 중지만 호출합니다.
 
-1. Google Sheet를 하나 만듭니다.
-2. `확장 프로그램` > `Apps Script`를 열고 `google-apps-script/subscriber-api.gs` 내용을 붙여 넣습니다.
-3. Apps Script의 `프로젝트 설정` > `스크립트 속성`에 다음 값을 넣습니다.
+발신 계정 정보와 외부 저장소 연결 정보는 GitHub Actions의 비공개 설정으로 관리합니다. Google Sheet에는 발신 계정이나 앱 비밀번호가 저장되지 않고, 수신 이메일과 필터 정보만 저장됩니다.
 
-| 속성 이름 | 내용 |
-| --- | --- |
-| `SHEET_NAME` | 선택값입니다. 비우면 `subscribers` 시트를 사용합니다. |
-| `SUBSCRIBER_READ_TOKEN` | 필수값입니다. 임의의 긴 문자열이며 GitHub Actions Secret에도 같은 값을 넣습니다. |
-
-4. `배포` > `새 배포` > `웹 앱`으로 배포합니다.
-5. 실행 계정은 본인, 접근 권한은 링크가 있는 누구나 접근 가능하도록 설정합니다.
-6. 배포 후 나온 Web App URL을 GitHub Secret `SUBSCRIPTION_API_URL`에 넣습니다.
-
-Apps Script는 별도 서버 비용 없이 시작할 수 있지만 Google의 일일 실행·요청 쿼터가 있습니다. 이 앱은 구독자 저장과 조회만 수행하므로 소규모 운영과 테스트에는 가벼운 편입니다. 운영 규모가 커지면 Apps Script 쿼터와 Sheet 동시 수정량을 확인해야 합니다.
-
-Gmail 발송 계정을 사용할 때 필요한 Actions Secret은 다음과 같습니다.
-
-| Secret 이름 | 내용 |
-| --- | --- |
-| `MAIL_FROM_EMAIL` | 발송용 Gmail 주소 |
-| `GMAIL_APP_PASSWORD` | 발송용 Gmail 계정의 앱 비밀번호 |
-| `MAIL_FROM_NAME` | 발신자 표시 이름. 비워도 됩니다. |
-| `SUBSCRIPTION_API_URL` | Apps Script Web App URL |
-| `SUBSCRIBER_READ_TOKEN` | Apps Script 스크립트 속성과 같은 읽기 토큰 |
-| `MAIL_SUBSCRIPTIONS_JSON` | 선택값입니다. 기존 수동 구독 JSON 호환용입니다. |
-| `MAIL_TO` | 선택값입니다. 구독 저장소 없이 단일 수신 테스트만 할 때 사용합니다. |
-| `MAIL_UNSUBSCRIBE_EMAILS` | 선택값입니다. 강제로 제외할 이메일 목록입니다. |
-
-발신 이메일과 앱 비밀번호는 GitHub Secrets에만 있고, Google Sheet에는 수신 이메일과 필터 정보만 저장됩니다.
-
-수동 테스트는 GitHub Actions의 `Email alert test` 워크플로를 실행하면 됩니다. 기본 테스트 날짜는 `2026-06-01`이고, `mail_to_override`를 입력하면 구독 저장소 대신 해당 이메일로만 테스트 발송합니다.
+수동 테스트는 GitHub Actions의 `Email alert test` 워크플로로 특정 날짜를 강제 수집한 뒤 실제 메일 발송까지 확인합니다. 평소에는 매일 자동 수집이 끝난 뒤 같은 발송 흐름이 자동으로 실행됩니다.
 
 현재 구현은 이메일 소유 확인 링크를 보내는 방식은 아닙니다. 즉, 누군가 다른 사람의 이메일을 입력할 수 있습니다. 공개 서비스로 운영할 때는 최초 등록 시 확인 메일 링크를 클릭해야 활성화되는 절차를 추가하는 것이 좋습니다.
 
@@ -129,26 +101,3 @@ Gmail 발송 계정을 사용할 때 필요한 Actions Secret은 다음과 같�
 | 배포 | GitHub Pages |
 | 데이터 형식 | JSON |
 | AI 연동 | Gemini API, Groq Chat Completions API, OpenRouter Chat Completions API, OpenAI Responses API |
-
-## chrisryugj/korean-law-mcp 검토 내용
-
-[chrisryugj/korean-law-mcp](https://github.com/chrisryugj/korean-law-mcp)는 국가법령정보센터 등 한국 법령 API를 MCP 서버 형태로 사용할 수 있게 만든 도구입니다. MCP는 ChatGPT나 Claude 같은 AI 도구가 외부 기능을 호출할 수 있도록 연결하는 서버 방식입니다.
-
-이 앱에서는 해당 MCP 서버를 그대로 실행하지 않았습니다. 이유는 다음과 같습니다.
-
-| 항목 | 설명 |
-| --- | --- |
-| GitHub Pages 제약 | GitHub Pages는 정적 웹사이트 배포 환경이라 MCP 서버나 별도 Node 서버를 상시 실행할 수 없습니다. |
-| 비밀키 관리 | 브라우저와 정적 페이지 안에 법령 API 키를 직접 넣으면 노출 위험이 있습니다. |
-| 자동 수집 구조 | 이 앱은 GitHub Actions에서 매일 수집한 결과를 JSON으로 저장하고, 웹사이트는 그 결과를 읽는 구조입니다. MCP 서버 상시 호출 구조와 다릅니다. |
-
-다만 해당 레포를 검토하면서 적용 가능한 방향은 반영했습니다.
-
-| 반영 방향 | 내용 |
-| --- | --- |
-| API 중심 수집 | 브라우저 화면을 무리하게 긁기보다 공식 API 응답을 우선 사용하도록 정리했습니다. |
-| 법령 본문 보강 | 법령 변경이력에서 가능한 경우 개정문, 제개정이유, 법령 본문을 추가로 확보하도록 보강했습니다. |
-| 키 이름 유연화 | 국가법령정보센터 키를 여러 환경변수 이름으로 인식할 수 있게 했습니다. |
-| 상세 데이터 우선 | 목록만 보여주는 것이 아니라 상세 API와 원문 데이터를 함께 저장하는 방향으로 정리했습니다. |
-
-요약하면, `korean-law-mcp`를 그대로 붙인 것은 아니지만, “공식 법령 API를 구조화해서 AI와 앱이 쓰기 좋은 데이터로 바꾼다”는 방향은 현재 수집 로직에 반영했습니다.
