@@ -64,6 +64,8 @@ const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "500")) || 
 const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 12000;
 const lawRevisionTextCache = new Map<string, LawRevisionDetails | null>();
 const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
+const sourceFilter = parseSourceFilter(String(args.sources || env("COLLECT_SOURCES")));
+const partialSourceCollect = sourceFilter.size > 0;
 const itemsPath = path.join(rootDir, "data", "items.json");
 const runPath = path.join(rootDir, "data", "run.json");
 const dailyPath = path.join(dailyDir, `${targetDate}.json`);
@@ -101,6 +103,15 @@ interface ExtractedAttachment {
   message: string;
   text: string;
 }
+
+type SourceGroup =
+  | "official-law"
+  | "lawmaking"
+  | "gazette"
+  | "ministry-board"
+  | "alio"
+  | "policy-rss"
+  | "naver-news";
 
 const ALIO_SOURCES: AlioSource[] = [
   {
@@ -231,24 +242,25 @@ async function main() {
   const logs: CollectionLog[] = [];
   const collected: CollectedItem[] = [];
 
-  await runSource(logs, collected, () => fetchLawChangeHistory(logs));
-  await runSource(logs, collected, () => fetchArticleChanges(logs));
-  await runSource(logs, collected, () => fetchAdministrativeRules(logs));
-  await runSource(logs, collected, () => fetchAdministrativeRuleComparisons(logs));
-  await runSource(logs, collected, () => fetchLawmakingNotices(logs, "입법예고", "ogLmPp"));
-  await runSource(logs, collected, () => fetchLawmakingNotices(logs, "입법예고(수정일 기준)", "ogLmPpMod"));
-  await runSource(logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
-  await runSource(logs, collected, () => fetchGazette(logs));
-  await runSource(logs, collected, () => fetchMinistryRoutes(logs));
-  await runSource(logs, collected, () => fetchAlioPublicMaterials(logs));
-  await runSource(logs, collected, () => fetchPolicyRss(logs));
-  await runSource(logs, collected, () => fetchNaverNews(logs));
+  await runSource("official-law", logs, collected, () => fetchLawChangeHistory(logs));
+  await runSource("official-law", logs, collected, () => fetchArticleChanges(logs));
+  await runSource("official-law", logs, collected, () => fetchAdministrativeRules(logs));
+  await runSource("official-law", logs, collected, () => fetchAdministrativeRuleComparisons(logs));
+  await runSource("lawmaking", logs, collected, () => fetchLawmakingNotices(logs, "입법예고", "ogLmPp"));
+  await runSource("lawmaking", logs, collected, () => fetchLawmakingNotices(logs, "입법예고(수정일 기준)", "ogLmPpMod"));
+  await runSource("lawmaking", logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
+  await runSource("gazette", logs, collected, () => fetchGazette(logs));
+  await runSource("ministry-board", logs, collected, () => fetchMinistryRoutes(logs));
+  await runSource("alio", logs, collected, () => fetchAlioPublicMaterials(logs));
+  await runSource("policy-rss", logs, collected, () => fetchPolicyRss(logs));
+  await runSource("naver-news", logs, collected, () => fetchNaverNews(logs));
 
-  const scoped = normalizeAndFilterByTargetDate(collected);
+  const scopedCollected = normalizeAndFilterByTargetDate(collected);
+  const scoped = await mergePartialSourceItems(scopedCollected);
   const existing = await readJson<CollectedItem[]>(itemsPath, []);
   const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
   const merged = mergeItems(canonicalExisting, scoped);
-  const changedToday = scoped.length;
+  const changedToday = partialSourceCollect ? scopedCollected.length : scoped.length;
   const daily: DailyCollection = {
     date: targetDate,
     collected_at: new Date().toISOString(),
@@ -277,15 +289,49 @@ async function main() {
 }
 
 async function runSource(
+  group: SourceGroup,
   logs: CollectionLog[],
   collected: CollectedItem[],
   fn: () => Promise<CollectedItem[]>
 ) {
+  if (!shouldRunSource(group)) return;
   try {
     collected.push(...(await fn()));
   } catch (error) {
     addLog(logs, "collector", "error", error instanceof Error ? error.message : String(error));
   }
+}
+
+function shouldRunSource(group: SourceGroup): boolean {
+  return !sourceFilter.size || sourceFilter.has(group);
+}
+
+function parseSourceFilter(value: string): Set<SourceGroup> {
+  const aliases: Record<string, SourceGroup> = {
+    law: "official-law",
+    official: "official-law",
+    "official-law": "official-law",
+    lawmaking: "lawmaking",
+    legislation: "lawmaking",
+    "legislation-notice": "lawmaking",
+    gazette: "gazette",
+    gwanbo: "gazette",
+    ministry: "ministry-board",
+    "ministry-board": "ministry-board",
+    alio: "alio",
+    rss: "policy-rss",
+    "policy-rss": "policy-rss",
+    policy: "policy-rss",
+    naver: "naver-news",
+    news: "naver-news",
+    "naver-news": "naver-news"
+  };
+  return new Set(
+    value
+      .split(/[\s,;|]+/)
+      .map((entry) => aliases[entry.trim().toLowerCase()])
+      .filter((entry): entry is SourceGroup => Boolean(entry))
+  );
 }
 
 async function fetchLawChangeHistory(logs: CollectionLog[]): Promise<CollectedItem[]> {
@@ -653,6 +699,7 @@ async function fetchLawmakingNotices(
   const items: CollectedItem[] = [];
   const errors: string[] = [];
   const detailErrors: string[] = [];
+  const responseNotes: string[] = [];
   let detailFetchCount = 0;
   const date = dottedDate(targetDate);
 
@@ -665,10 +712,6 @@ async function fetchLawmakingNotices(
     try {
       const payload = await fetchJsonOrXml(url);
       const retMsg = text(payload, ["retMsg"]);
-      if (retMsg && retMsg !== "00" && retMsg !== "0") {
-        errors.push(`${target.name}: retMsg ${retMsg}`);
-        continue;
-      }
       const rows = findRecordRows(payload, [
         "공고명",
         "법령안명",
@@ -682,6 +725,17 @@ async function fetchLawmakingNotices(
         "pntcDt",
         "stYd"
       ]);
+      if (retMsg === "401") {
+        errors.push(`${target.name}: retMsg ${retMsg}`);
+        continue;
+      }
+      if (retMsg && !isLawmakingOkRetMsg(retMsg)) {
+        if (!rows.length) {
+          responseNotes.push(`${target.name}: retMsg ${retMsg}, 표시할 항목 없음`);
+          continue;
+        }
+        responseNotes.push(`${target.name}: retMsg ${retMsg} 응답에서 ${rows.length}건 파싱`);
+      }
       for (const row of rows) {
         const fetchDetail = detailFetchCount < detailLimit;
         if (fetchDetail) detailFetchCount += 1;
@@ -693,6 +747,7 @@ async function fetchLawmakingNotices(
     }
   }
 
+  const responseMessage = responseNotes.length ? ` 응답 참고: ${responseNotes.slice(0, 3).join("; ")}` : "";
   const detailMessage = detailErrors.length ? ` 상세 일부 실패: ${detailErrors.slice(0, 3).join("; ")}` : "";
   addLog(
     logs,
@@ -700,11 +755,15 @@ async function fetchLawmakingNotices(
     errors.length ? "error" : "ok",
     errors.length
       ? `국민참여입법센터 API 일부 실패: ${errors.join("; ")}`
-      : `국민참여입법센터 공개 XML API 수집 완료.${detailMessage}`,
+      : `국민참여입법센터 공개 XML API 수집 완료.${responseMessage}${detailMessage}`,
     items.length,
     LAWMAKING_GUIDE
   );
   return items;
+}
+
+function isLawmakingOkRetMsg(value: string): boolean {
+  return value === "0" || value === "00" || value === "200";
 }
 
 async function fetchGazette(logs: CollectionLog[]): Promise<CollectedItem[]> {
@@ -1874,6 +1933,42 @@ function normalizeAndFilterByTargetDate(items: CollectedItem[]): CollectedItem[]
     byId.set(key, existing ? mergeEquivalentItems(existing, withSystemMatches) : withSystemMatches);
   }
   return [...byId.values()];
+}
+
+async function mergePartialSourceItems(collectedForDate: CollectedItem[]): Promise<CollectedItem[]> {
+  if (!partialSourceCollect) return collectedForDate;
+
+  const existingDaily = await readJson<DailyCollection | null>(dailyPath, null);
+  const preservedItems = (existingDaily?.items || []).filter((item) => !isSelectedSourceItem(item));
+  return mergeItems(preservedItems, collectedForDate);
+}
+
+function isSelectedSourceItem(item: CollectedItem): boolean {
+  for (const group of sourceFilter) {
+    if (itemBelongsToSourceGroup(item, group)) return true;
+  }
+  return false;
+}
+
+function itemBelongsToSourceGroup(item: CollectedItem, group: SourceGroup): boolean {
+  switch (group) {
+    case "official-law":
+      return item.source_type === "official_law";
+    case "lawmaking":
+      return item.source.startsWith("국민참여입법센터");
+    case "gazette":
+      return item.source_type === "gazette";
+    case "ministry-board":
+      return item.source_type === "ministry_board" || (!item.source.startsWith("국민참여입법센터") && item.source_type === "legislation_notice");
+    case "alio":
+      return item.source.startsWith("ALIO");
+    case "policy-rss":
+      return item.source_type === "press";
+    case "naver-news":
+      return item.source_type === "news";
+    default:
+      return false;
+  }
 }
 
 function attachPublicSystemMatches(item: CollectedItem): CollectedItem {

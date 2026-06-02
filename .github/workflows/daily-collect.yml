@@ -27,6 +27,10 @@ on:
         required: false
         type: boolean
         default: false
+      collect_sources:
+        description: "특정 수집 경로만 다시 수집합니다. 예: lawmaking. 비우면 전체 수집합니다."
+        required: false
+        type: string
       send_mail:
         description: "수집 완료 후 메일 알림을 발송합니다."
         required: false
@@ -86,6 +90,7 @@ jobs:
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       TARGET_DATE_RANGE_START: ${{ github.event.inputs.date_range_start }}
       TARGET_DATE_RANGE_END: ${{ github.event.inputs.date_range_end }}
+      COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
