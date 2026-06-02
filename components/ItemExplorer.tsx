@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import AiInlineResult, { emptyAiRunState } from "@/components/AiInlineResult";
 import AiSummaryDialog from "@/components/AiSummaryDialog";
 import { categoryLabels, itemCategory } from "@/lib/categories";
@@ -68,6 +68,7 @@ const briefingInstructions =
 
 export default function ItemExplorer({ items, ministries, dates, detailHrefPrefix = "/items" }: Props) {
   const initialDate = dates[0] || formatDateString(new Date());
+  const validMinistrySet = useMemo(() => new Set(ministries), [ministries]);
   const [query, setQuery] = useState("");
   const [ministryFilters, setMinistryFilters] = useState<string[]>([]);
   const [sourceTypeFilters, setSourceTypeFilters] = useState<string[]>([]);
@@ -82,6 +83,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   const [draftSelection, setDraftSelection] = useState<string[]>([]);
   const [aiOpen, setAiOpen] = useState(false);
   const [aiRun, setAiRun] = useState(emptyAiRunState);
+  const [urlReady, setUrlReady] = useState(false);
 
   const enrichedItems = useMemo(
     () =>
@@ -178,6 +180,32 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     [filtered, selectedDate]
   );
 
+  const listHref = useMemo(
+    () =>
+      buildListHref({
+        mode: workspaceMode,
+        date: selectedDate,
+        category,
+        system: activeSystemGroup,
+        query,
+        ministries: ministryFilters,
+        sources: sourceTypeFilters,
+        documents: documentTypeFilters,
+        changes: changeTypeFilters
+      }),
+    [
+      activeSystemGroup,
+      category,
+      changeTypeFilters,
+      documentTypeFilters,
+      ministryFilters,
+      query,
+      selectedDate,
+      sourceTypeFilters,
+      workspaceMode
+    ]
+  );
+
   const calendarCells = useMemo(() => buildCalendar(monthCursor), [monthCursor]);
   const collectedDateSet = useMemo(() => new Set(dates), [dates]);
   const dateHasCache = collectedDateSet.has(selectedDate);
@@ -235,6 +263,38 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   ];
 
   const currentFilterConfig = filterConfigs.find((config) => config.key === activeFilter);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode");
+    const date = params.get("date");
+    const nextMode: WorkspaceMode = mode === "public-system" ? "public-system" : "all";
+    const nextCategory = parseCategoryParam(params.get("category"));
+    const nextSystem = parseSystemParam(params.get("system"));
+    const nextQuery = params.get("q") || "";
+    const nextMinistries = parseArrayParams(params, "ministry").filter((value) => validMinistrySet.has(value));
+    const nextSources = parseArrayParams(params, "source").filter(isSourceType);
+    const nextDocuments = parseArrayParams(params, "document").filter(isDocumentType);
+    const nextChanges = parseArrayParams(params, "change").filter(isChangeType);
+    const nextDate = date && /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : initialDate;
+
+    setWorkspaceMode(nextMode);
+    setSelectedDate(nextDate);
+    setMonthCursor(nextDate.slice(0, 7));
+    setCategory(nextCategory);
+    setActiveSystemGroup(nextSystem);
+    setQuery(nextQuery);
+    setMinistryFilters(nextMinistries);
+    setSourceTypeFilters(nextSources);
+    setDocumentTypeFilters(nextDocuments);
+    setChangeTypeFilters(nextChanges);
+    setUrlReady(true);
+  }, [initialDate, validMinistrySet]);
+
+  useEffect(() => {
+    if (!urlReady) return;
+    window.history.replaceState(null, "", toBrowserListHref(listHref));
+  }, [listHref, urlReady]);
 
   function shiftMonth(offset: number) {
     const [year, month] = monthCursor.split("-").map(Number);
@@ -447,7 +507,9 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
 
         <section className="item-list" aria-label="변경 목록">
           {filtered.length ? (
-            filtered.map((item) => <ItemRow key={item.id} item={item} detailHrefPrefix={detailHrefPrefix} />)
+            filtered.map((item) => (
+              <ItemRow key={item.id} item={item} detailHrefPrefix={detailHrefPrefix} listHref={listHref} />
+            ))
           ) : (
             <div className="empty-state">
               <strong>{emptyTitle}</strong>
@@ -475,8 +537,16 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   );
 }
 
-function ItemRow({ item, detailHrefPrefix }: { item: CollectedItem; detailHrefPrefix: string }) {
-  const detailHref = `${detailHrefPrefix.replace(/\/$/, "")}/${encodeURIComponent(item.id)}`;
+function ItemRow({
+  item,
+  detailHrefPrefix,
+  listHref
+}: {
+  item: CollectedItem;
+  detailHrefPrefix: string;
+  listHref: string;
+}) {
+  const detailHref = `${detailHrefPrefix.replace(/\/$/, "")}/${encodeURIComponent(item.id)}?back=${encodeURIComponent(listHref)}`;
   const category = item.category || itemCategory(item);
   const evidenceLines = extractEvidenceLines(item.raw_text).slice(0, 2);
   const systemMatches = item.public_system_matches || [];
@@ -574,6 +644,76 @@ function formatMonthLabel(value: string): string {
 function formatDateLabel(value: string): string {
   const [year, month, day] = value.split("-");
   return `${year}. ${Number(month)}. ${Number(day)}.`;
+}
+
+function buildListHref({
+  mode,
+  date,
+  category,
+  system,
+  query,
+  ministries,
+  sources,
+  documents,
+  changes
+}: {
+  mode: WorkspaceMode;
+  date: string;
+  category: CategoryFilter;
+  system: string;
+  query: string;
+  ministries: string[];
+  sources: string[];
+  documents: string[];
+  changes: string[];
+}): string {
+  const params = new URLSearchParams();
+  if (mode !== "all") params.set("mode", mode);
+  if (date) params.set("date", date);
+  if (mode === "all" && category !== "all") params.set("category", category);
+  if (mode === "public-system" && system !== "all") params.set("system", system);
+  if (query.trim()) params.set("q", query.trim());
+  for (const value of ministries) params.append("ministry", value);
+  for (const value of sources) params.append("source", value);
+  for (const value of documents) params.append("document", value);
+  for (const value of changes) params.append("change", value);
+  const queryString = params.toString();
+  return queryString ? `/?${queryString}` : "/";
+}
+
+function toBrowserListHref(href: string): string {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  if (!basePath) return href;
+  if (href === "/") return `${basePath}/`;
+  return `${basePath}${href}`;
+}
+
+function parseArrayParams(params: URLSearchParams, key: string): string[] {
+  return params
+    .getAll(key)
+    .flatMap((value) => value.split("|"))
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
+function parseCategoryParam(value: string | null): CategoryFilter {
+  return categoryFilters.some((filter) => filter.value === value) ? (value as CategoryFilter) : "all";
+}
+
+function parseSystemParam(value: string | null): string {
+  return publicInstitutionSystemGroups.some((group) => group.id === value) ? String(value) : "all";
+}
+
+function isSourceType(value: string): value is SourceType {
+  return sourceTypes.includes(value as SourceType);
+}
+
+function isDocumentType(value: string): value is DocumentType {
+  return documentTypes.includes(value as DocumentType);
+}
+
+function isChangeType(value: string): value is ChangeType {
+  return changeTypes.includes(value as ChangeType);
 }
 
 function pad(value: number): string {

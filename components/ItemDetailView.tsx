@@ -1,5 +1,5 @@
-import Link from "next/link";
 import DetailAiSummaryButton from "@/components/DetailAiSummaryButton";
+import DetailBackLink from "@/components/DetailBackLink";
 import { categoryLabels, itemCategory } from "@/lib/categories";
 import { changeTypeLabels, confidenceLabels, documentTypeLabels, sourceTypeLabels } from "@/lib/labels";
 import type { CollectedItem } from "@/lib/types";
@@ -52,9 +52,7 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
 
   return (
     <main className="page-shell detail-shell">
-      <Link className="back-link" href={backHref}>
-        {backLabel}
-      </Link>
+      <DetailBackLink fallbackHref={backHref} label={backLabel} />
 
       <article className="detail-panel">
         <header className={`detail-hero category-${category}`}>
