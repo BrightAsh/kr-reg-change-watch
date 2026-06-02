@@ -2117,7 +2117,7 @@ function makeItem(
     original_url: originalUrl,
     verification_required: input.verification_required || !hasOriginalUrl,
     raw_hash: input.raw_hash || hashText(input.raw_text),
-    attachment_urls: [...new Set(input.attachment_urls || [])]
+    attachment_urls: uniqueStrings((input.attachment_urls || []).map(normalizeOriginalUrl))
   };
 }
 
@@ -2232,9 +2232,18 @@ function lawUrl(link: string, fallbackId?: string): string {
 function normalizeOriginalUrl(url: string): string {
   const cleaned = decodeHtml(url).replace(/;jsessionid=[^/?#]+/gi, "");
   try {
-    return new URL(cleaned).toString();
+    const parsed = new URL(cleaned);
+    stripSensitiveQueryParams(parsed);
+    return parsed.toString();
   } catch {
     return cleaned;
+  }
+}
+
+function stripSensitiveQueryParams(url: URL): void {
+  const sensitiveParams = new Set(["oc", "servicekey", "api_key", "apikey", "client_id", "clientid", "client_secret"]);
+  for (const key of [...url.searchParams.keys()]) {
+    if (sensitiveParams.has(key.toLowerCase())) url.searchParams.delete(key);
   }
 }
 
