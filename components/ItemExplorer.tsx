@@ -210,19 +210,10 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   const collectedDateSet = useMemo(() => new Set(dates), [dates]);
   const dateHasCache = collectedDateSet.has(selectedDate);
   const emptyTitle = !dateHasCache
-    ? "아직 수집하지 않은 날짜입니다."
+    ? "자료를 수집하지 않은 날짜입니다. 관리자에게 문의하세요."
     : dateScopedItems.length
       ? "표시할 항목이 없습니다."
-      : workspaceMode === "public-system"
-        ? "수집 완료, 9개 체계 해당 항목은 없습니다."
-        : "수집 완료, 자료는 0건입니다.";
-  const emptyMessage = !dateHasCache
-    ? "해당 날짜는 아직 수집 결과가 없어 캘린더에 수집 전으로 표시됩니다."
-    : dateScopedItems.length
-      ? "검색어나 필터를 조금 넓혀보세요."
-      : workspaceMode === "public-system"
-        ? "전체 수집 탭에는 자료가 있을 수 있지만, 이 체계에 매칭된 항목은 없습니다."
-        : "수집은 정상 완료됐지만 표시할 변경 자료가 없었습니다.";
+      : "수집된 자료는 0건입니다.";
   const resultStatus = !dateHasCache
     ? "수집 전"
     : dateScopedItems.length === 0
@@ -513,7 +504,6 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           ) : (
             <div className="empty-state">
               <strong>{emptyTitle}</strong>
-              <span>{emptyMessage}</span>
             </div>
           )}
         </section>
