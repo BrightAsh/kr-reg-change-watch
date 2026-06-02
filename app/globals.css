@@ -1087,24 +1087,28 @@ textarea {
   overflow: hidden;
 }
 
-.mail-advanced summary {
+.mail-advanced-toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  width: 100%;
   min-height: 44px;
+  border: 0;
+  background: transparent;
   padding: 11px 13px;
   color: var(--ink-soft);
   font-size: 13px;
   font-weight: 850;
-  cursor: pointer;
 }
 
-.mail-advanced summary::marker {
-  color: var(--accent-dark);
+.mail-advanced-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
 }
 
-.mail-advanced summary strong {
+.mail-advanced-status strong {
   display: grid;
   place-items: center;
   min-width: 20px;
@@ -1115,12 +1119,46 @@ textarea {
   font-size: 11px;
 }
 
+.mail-chevron {
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--accent-dark);
+  border-bottom: 2px solid var(--accent-dark);
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.mail-advanced.open .mail-chevron {
+  transform: rotate(225deg);
+}
+
+.mail-advanced-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  border-top: 0 solid transparent;
+  overflow: hidden;
+  transition:
+    grid-template-rows 220ms ease,
+    border-color 220ms ease;
+}
+
+.mail-advanced.open .mail-advanced-body {
+  grid-template-rows: 1fr;
+  border-top: 1px solid var(--line);
+}
+
 .mail-filter-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+  min-height: 0;
+  padding: 0 12px;
+  overflow: hidden;
+  transition: padding 220ms ease;
+}
+
+.mail-advanced.open .mail-filter-grid {
   padding: 12px;
-  border-top: 1px solid var(--line);
 }
 
 .mail-check-group {

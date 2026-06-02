@@ -19,7 +19,9 @@ interface MailSubscription {
   email: string;
   mode: MailWorkspaceMode;
   category?: CategoryFilter;
+  categories?: RegulatoryCategory[];
   systemGroup?: string;
+  systemGroups?: string[];
   filters?: {
     ministries?: string[];
     sourceTypes?: SourceType[];
@@ -61,8 +63,8 @@ export default function MailAlertDialog({ ministries }: Props) {
   const [panel, setPanel] = useState<DialogPanel>("subscribe");
   const [email, setEmail] = useState("");
   const [mode, setMode] = useState<MailWorkspaceMode>("all");
-  const [category, setCategory] = useState<CategoryFilter>("all");
-  const [systemGroup, setSystemGroup] = useState("all");
+  const [selectedCategories, setSelectedCategories] = useState<RegulatoryCategory[]>([]);
+  const [selectedSystemGroups, setSelectedSystemGroups] = useState<string[]>([]);
   const [selectedMinistries, setSelectedMinistries] = useState<string[]>([]);
   const [selectedSources, setSelectedSources] = useState<string[]>([]);
   const [selectedDocuments, setSelectedDocuments] = useState<string[]>([]);
@@ -77,15 +79,15 @@ export default function MailAlertDialog({ ministries }: Props) {
       buildSubscription({
         email,
         mode,
-        category,
-        systemGroup,
+        categories: selectedCategories,
+        systemGroups: selectedSystemGroups,
         ministries: selectedMinistries,
         sources: selectedSources.filter(isSourceType),
         documents: selectedDocuments.filter(isDocumentType),
         changes: selectedChanges.filter(isChangeType),
         query
       }),
-    [category, email, mode, query, selectedChanges, selectedDocuments, selectedMinistries, selectedSources, systemGroup]
+    [email, mode, query, selectedCategories, selectedChanges, selectedDocuments, selectedMinistries, selectedSources, selectedSystemGroups]
   );
   const configJson = useMemo(() => JSON.stringify([subscription], null, 2), [subscription]);
   const unsubscribeValue = email.trim();
@@ -105,8 +107,8 @@ export default function MailAlertDialog({ ministries }: Props) {
   function applySubscription(saved: MailSubscription) {
     setEmail(saved.email || "");
     setMode(saved.mode === "public-system" ? "public-system" : "all");
-    setCategory(readCategory(saved.category));
-    setSystemGroup(readSystemGroup(saved.systemGroup));
+    setSelectedCategories(readCategories(saved));
+    setSelectedSystemGroups(readSystemGroups(saved));
     setSelectedMinistries(filterStrings(saved.filters?.ministries, ministries));
     setSelectedSources(filterStrings(saved.filters?.sourceTypes, sourceOptions.map((option) => option.value)));
     setSelectedDocuments(filterStrings(saved.filters?.documentTypes, documentOptions.map((option) => option.value)));
@@ -117,8 +119,8 @@ export default function MailAlertDialog({ ministries }: Props) {
 
   function updateMode(nextMode: MailWorkspaceMode) {
     setMode(nextMode);
-    if (nextMode === "all") setSystemGroup("all");
-    if (nextMode === "public-system") setCategory("all");
+    if (nextMode === "all") setSelectedSystemGroups([]);
+    if (nextMode === "public-system") setSelectedCategories([]);
   }
 
   async function copyConfig() {
@@ -153,8 +155,18 @@ export default function MailAlertDialog({ ministries }: Props) {
     setSelectedSources([]);
     setSelectedDocuments([]);
     setSelectedChanges([]);
+    setSelectedCategories([]);
+    setSelectedSystemGroups([]);
     setQuery("");
     setCopyState("saved");
+  }
+
+  function toggleCategory(value: RegulatoryCategory) {
+    setSelectedCategories((current) => toggleValue(current, value) as RegulatoryCategory[]);
+  }
+
+  function toggleSystemGroup(value: string) {
+    setSelectedSystemGroups((current) => toggleValue(current, value));
   }
 
   if (!open) {
@@ -232,31 +244,46 @@ export default function MailAlertDialog({ ministries }: Props) {
                 {mode === "all" ? (
                   <div className="mail-choice-grid compact">
                     {categoryOptions.map((option) => (
-                      <button
-                        className={category === option.value ? "active" : ""}
-                        key={option.value}
-                        type="button"
-                        onClick={() => setCategory(option.value)}
-                      >
-                        {option.label}
-                      </button>
+                      option.value === "all" ? (
+                        <button
+                          className={!selectedCategories.length ? "active" : ""}
+                          key={option.value}
+                          type="button"
+                          aria-pressed={!selectedCategories.length}
+                          onClick={() => setSelectedCategories([])}
+                        >
+                          {option.label}
+                        </button>
+                      ) : (
+                        <button
+                          className={selectedCategories.includes(option.value) ? "active" : ""}
+                          key={option.value}
+                          type="button"
+                          aria-pressed={selectedCategories.includes(option.value)}
+                          onClick={() => toggleCategory(option.value)}
+                        >
+                          {option.label}
+                        </button>
+                      )
                     ))}
                   </div>
                 ) : (
                   <div className="mail-choice-grid system">
                     <button
-                      className={systemGroup === "all" ? "active" : ""}
+                      className={!selectedSystemGroups.length ? "active" : ""}
                       type="button"
-                      onClick={() => setSystemGroup("all")}
+                      aria-pressed={!selectedSystemGroups.length}
+                      onClick={() => setSelectedSystemGroups([])}
                     >
                       9개 항목 전체
                     </button>
                     {publicInstitutionSystemGroups.map((group) => (
                       <button
-                        className={systemGroup === group.id ? "active" : ""}
+                        className={selectedSystemGroups.includes(group.id) ? "active" : ""}
                         key={group.id}
                         type="button"
-                        onClick={() => setSystemGroup(group.id)}
+                        aria-pressed={selectedSystemGroups.includes(group.id)}
+                        onClick={() => toggleSystemGroup(group.id)}
                       >
                         {group.order}. {group.shortTitle}
                       </button>
@@ -265,62 +292,63 @@ export default function MailAlertDialog({ ministries }: Props) {
                 )}
               </div>
 
-              <details
-                className="mail-advanced"
-                open={advancedOpen}
-                onToggle={(event) => setAdvancedOpen(event.currentTarget.open)}
-              >
-                <summary>
+              <div className={advancedOpen ? "mail-advanced open" : "mail-advanced"}>
+                <button
+                  className="mail-advanced-toggle"
+                  type="button"
+                  aria-expanded={advancedOpen}
+                  onClick={() => setAdvancedOpen((current) => !current)}
+                >
                   <span>추가 필터</span>
-                  {activeAdvancedCount ? <strong>{activeAdvancedCount.toLocaleString("ko-KR")}</strong> : null}
-                </summary>
-                <div className="mail-filter-grid">
-                  <CheckGroup
-                    label="기관"
-                    options={ministryOptions}
-                    selected={selectedMinistries}
-                    onToggle={(value) => setSelectedMinistries((current) => toggleValue(current, value))}
-                    onClear={() => setSelectedMinistries([])}
-                  />
-                  <CheckGroup
-                    label="출처"
-                    options={sourceOptions}
-                    selected={selectedSources}
-                    onToggle={(value) => setSelectedSources((current) => toggleValue(current, value))}
-                    onClear={() => setSelectedSources([])}
-                  />
-                  <CheckGroup
-                    label="문서"
-                    options={documentOptions}
-                    selected={selectedDocuments}
-                    onToggle={(value) => setSelectedDocuments((current) => toggleValue(current, value))}
-                    onClear={() => setSelectedDocuments([])}
-                  />
-                  <CheckGroup
-                    label="변경"
-                    options={changeOptions}
-                    selected={selectedChanges}
-                    onToggle={(value) => setSelectedChanges((current) => toggleValue(current, value))}
-                    onClear={() => setSelectedChanges([])}
-                  />
-                  <label className="field-label mail-query-field">
-                    <span>검색어</span>
-                    <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="제목, 본문, 기관" />
-                  </label>
+                  <span className="mail-advanced-status">
+                    {activeAdvancedCount ? <strong>{activeAdvancedCount.toLocaleString("ko-KR")}</strong> : null}
+                    <span className="mail-chevron" aria-hidden="true" />
+                  </span>
+                </button>
+                <div className="mail-advanced-body">
+                  <div className="mail-filter-grid">
+                    <CheckGroup
+                      label="기관"
+                      options={ministryOptions}
+                      selected={selectedMinistries}
+                      onToggle={(value) => setSelectedMinistries((current) => toggleValue(current, value))}
+                      onClear={() => setSelectedMinistries([])}
+                    />
+                    <CheckGroup
+                      label="출처"
+                      options={sourceOptions}
+                      selected={selectedSources}
+                      onToggle={(value) => setSelectedSources((current) => toggleValue(current, value))}
+                      onClear={() => setSelectedSources([])}
+                    />
+                    <CheckGroup
+                      label="문서"
+                      options={documentOptions}
+                      selected={selectedDocuments}
+                      onToggle={(value) => setSelectedDocuments((current) => toggleValue(current, value))}
+                      onClear={() => setSelectedDocuments([])}
+                    />
+                    <CheckGroup
+                      label="변경"
+                      options={changeOptions}
+                      selected={selectedChanges}
+                      onToggle={(value) => setSelectedChanges((current) => toggleValue(current, value))}
+                      onClear={() => setSelectedChanges([])}
+                    />
+                    <label className="field-label mail-query-field">
+                      <span>검색어</span>
+                      <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="제목, 본문, 기관" />
+                    </label>
+                  </div>
                 </div>
-              </details>
-
-              <label className="field-label">
-                <span>MAIL_SUBSCRIPTIONS_JSON</span>
-                <textarea readOnly value={configJson} rows={8} />
-              </label>
+              </div>
 
               <div className="modal-actions">
                 <button disabled={!canBuild} type="button" onClick={copyConfig}>
-                  설정 JSON 복사
+                  알림 설정 복사
                 </button>
                 <button className="secondary" disabled={!canBuild} type="button" onClick={saveDraft}>
-                  브라우저에 저장
+                  내 선택 저장
                 </button>
               </div>
             </>
@@ -335,16 +363,12 @@ export default function MailAlertDialog({ ministries }: Props) {
                   placeholder="name@example.com"
                 />
               </label>
-              <label className="field-label">
-                <span>MAIL_UNSUBSCRIBE_EMAILS</span>
-                <textarea readOnly value={unsubscribeValue} rows={3} />
-              </label>
               <div className="modal-actions">
                 <button disabled={!unsubscribeValue} type="button" onClick={copyUnsubscribe}>
-                  중지 값 복사
+                  수신 중지 요청 복사
                 </button>
                 <button className="secondary" type="button" onClick={clearLocalDraft}>
-                  저장값 삭제
+                  저장된 선택 삭제
                 </button>
               </div>
             </>
@@ -403,8 +427,8 @@ function CheckGroup({
 function buildSubscription({
   email,
   mode,
-  category,
-  systemGroup,
+  categories,
+  systemGroups,
   ministries,
   sources,
   documents,
@@ -413,8 +437,8 @@ function buildSubscription({
 }: {
   email: string;
   mode: MailWorkspaceMode;
-  category: CategoryFilter;
-  systemGroup: string;
+  categories: RegulatoryCategory[];
+  systemGroups: string[];
   ministries: string[];
   sources: SourceType[];
   documents: DocumentType[];
@@ -431,7 +455,8 @@ function buildSubscription({
   return {
     email: email.trim(),
     mode,
-    ...(mode === "all" ? { category } : { systemGroup }),
+    ...(mode === "all" ? (categories.length ? { categories } : { category: "all" as const }) : {}),
+    ...(mode === "public-system" ? (systemGroups.length ? { systemGroups } : { systemGroup: "all" }) : {}),
     ...(Object.keys(filters).length ? { filters } : {}),
     active: true
   };
@@ -449,12 +474,20 @@ function readSavedSubscription(): MailSubscription | null {
   }
 }
 
-function readCategory(value: unknown): CategoryFilter {
-  return categoryOptions.some((option) => option.value === value) ? (value as CategoryFilter) : "all";
+function readCategories(value: MailSubscription): RegulatoryCategory[] {
+  const valid = categoryOptions.filter((option) => option.value !== "all").map((option) => option.value);
+  const values = Array.isArray(value.categories) ? value.categories : value.category && value.category !== "all" ? [value.category] : [];
+  return filterStrings(values, valid) as RegulatoryCategory[];
 }
 
-function readSystemGroup(value: unknown): string {
-  return typeof value === "string" && publicInstitutionSystemGroups.some((group) => group.id === value) ? value : "all";
+function readSystemGroups(value: MailSubscription): string[] {
+  const valid = publicInstitutionSystemGroups.map((group) => group.id);
+  const values = Array.isArray(value.systemGroups)
+    ? value.systemGroups
+    : value.systemGroup && value.systemGroup !== "all"
+      ? [value.systemGroup]
+      : [];
+  return filterStrings(values, valid);
 }
 
 function filterStrings(values: unknown, allowed: string[]): string[] {

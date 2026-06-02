@@ -23,7 +23,9 @@ interface MailSubscription {
   email: string;
   mode?: WorkspaceMode;
   category?: CategoryFilter;
+  categories?: RegulatoryCategory[] | string;
   systemGroup?: string;
+  systemGroups?: string[] | string;
   filters?: {
     ministries?: string[] | string;
     sourceTypes?: SourceType[] | string;
@@ -38,8 +40,8 @@ interface MailSubscription {
 interface NormalizedSubscription {
   email: string;
   mode: WorkspaceMode;
-  category: CategoryFilter;
-  systemGroup: string;
+  categories: RegulatoryCategory[];
+  systemGroups: string[];
   filters: {
     ministries: string[];
     sourceTypes: SourceType[];
@@ -173,8 +175,8 @@ function normalizeSubscription(subscription: MailSubscription): NormalizedSubscr
   return {
     email: subscription.email.trim(),
     mode,
-    category: mode === "all" ? readCategory(subscription.category) : "all",
-    systemGroup: mode === "public-system" ? readSystemGroup(subscription.systemGroup) : "all",
+    categories: mode === "all" ? readCategories(subscription) : [],
+    systemGroups: mode === "public-system" ? readSystemGroups(subscription) : [],
     filters: {
       ministries: parseStringArray(subscription.filters?.ministries),
       sourceTypes: parseStringArray(subscription.filters?.sourceTypes).filter(isSourceType),
@@ -222,12 +224,12 @@ function filterItemsForSubscription(items: EnrichedItem[], subscription: Normali
     if (subscription.mode === "public-system") {
       if (!item.public_system_matches.length) return false;
       if (
-        subscription.systemGroup !== "all" &&
-        !item.public_system_matches.some((match) => match.group_id === subscription.systemGroup)
+        subscription.systemGroups.length &&
+        !item.public_system_matches.some((match) => subscription.systemGroups.includes(match.group_id))
       ) {
         return false;
       }
-    } else if (subscription.category !== "all" && item.category !== subscription.category) {
+    } else if (subscription.categories.length && !subscription.categories.includes(item.category)) {
       return false;
     }
 
@@ -280,7 +282,7 @@ function buildMailMessage({
     "",
     ...buildTextSections(subscription, includedItems, baseUrl),
     "",
-    `수신 중지: MAIL_SUBSCRIPTIONS_JSON에서 이 이메일 항목을 제거하거나 MAIL_UNSUBSCRIBE_EMAILS에 ${subscription.email}을 추가하세요.`
+    `수신 중지: 운영자에게 ${subscription.email} 주소의 알림 중지를 요청하세요.`
   ].filter((line) => line !== "");
 
   const html = [
@@ -296,7 +298,7 @@ function buildMailMessage({
       ? `<p style="margin:0 0 16px;color:#758091;font-size:13px;">상위 ${maxItems.toLocaleString("ko-KR")}건만 표시했습니다. 생략 ${omittedCount.toLocaleString("ko-KR")}건.</p>`
       : "",
     includedItems.length ? buildHtmlSections(subscription, includedItems, baseUrl) : buildEmptyHtml(),
-    `<p style="margin:20px 0 0;color:#758091;font-size:12px;line-height:1.6;">수신 중지: MAIL_SUBSCRIPTIONS_JSON에서 이 이메일 항목을 제거하거나 MAIL_UNSUBSCRIBE_EMAILS에 ${escapeHtml(subscription.email)}을 추가하세요.</p>`,
+    `<p style="margin:20px 0 0;color:#758091;font-size:12px;line-height:1.6;">수신 중지: 운영자에게 ${escapeHtml(subscription.email)} 주소의 알림 중지를 요청하세요.</p>`,
     "</section>",
     "</main>",
     "</body>",
@@ -372,12 +374,15 @@ function buildSections(
   items: EnrichedItem[]
 ): Array<{ label: string; items: EnrichedItem[] }> {
   if (subscription.mode === "public-system") {
-    if (subscription.systemGroup !== "all") {
-      const group = publicInstitutionSystemGroups.find((entry) => entry.id === subscription.systemGroup);
+    if (subscription.systemGroups.length === 1) {
+      const group = publicInstitutionSystemGroups.find((entry) => entry.id === subscription.systemGroups[0]);
       return [{ label: group?.title || "공공기관 9개 체계", items }];
     }
 
-    return publicInstitutionSystemGroups
+    const groups = subscription.systemGroups.length
+      ? publicInstitutionSystemGroups.filter((group) => subscription.systemGroups.includes(group.id))
+      : publicInstitutionSystemGroups;
+    return groups
       .map((group) => ({
         label: `${group.order}. ${group.title}`,
         items: items.filter((item) => item.public_system_matches.some((match) => match.group_id === group.id))
@@ -396,12 +401,16 @@ function buildSections(
 function buildScopeLabel(subscription: NormalizedSubscription): string {
   const base =
     subscription.mode === "public-system"
-      ? subscription.systemGroup === "all"
+      ? !subscription.systemGroups.length
         ? "공공기관 운영 법령 및 정부지침 체계 9개 항목 전체"
-        : publicInstitutionSystemGroups.find((group) => group.id === subscription.systemGroup)?.title || "공공기관 9개 체계"
-      : subscription.category === "all"
+        : subscription.systemGroups.length === 1
+          ? publicInstitutionSystemGroups.find((group) => group.id === subscription.systemGroups[0])?.title || "공공기관 9개 체계"
+          : `공공기관 9개 체계 ${subscription.systemGroups.length}개 항목`
+      : !subscription.categories.length
         ? "전체 수집"
-        : categoryLabels[subscription.category];
+        : subscription.categories.length === 1
+          ? categoryLabels[subscription.categories[0]]
+          : subscription.categories.map((category) => categoryLabels[category]).join(", ");
   const extraFilters = [
     subscription.filters.ministries.length ? `기관 ${subscription.filters.ministries.length}개` : "",
     subscription.filters.sourceTypes.length ? `출처 ${subscription.filters.sourceTypes.length}개` : "",
@@ -639,12 +648,16 @@ function isDateString(value: unknown): value is string {
   return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value);
 }
 
-function readCategory(value: unknown): CategoryFilter {
-  return value === "law" || value === "notice" || value === "guideline" || value === "news" ? value : "all";
+function readCategories(subscription: MailSubscription): RegulatoryCategory[] {
+  const values = parseStringArray(subscription.categories);
+  if (values.length) return values.filter(isRegulatoryCategory);
+  return isRegulatoryCategory(String(subscription.category || "")) ? [subscription.category as RegulatoryCategory] : [];
 }
 
-function readSystemGroup(value: unknown): string {
-  return typeof value === "string" && publicInstitutionSystemGroups.some((group) => group.id === value) ? value : "all";
+function readSystemGroups(subscription: MailSubscription): string[] {
+  const values = parseStringArray(subscription.systemGroups);
+  if (values.length) return values.filter(isSystemGroup);
+  return isSystemGroup(String(subscription.systemGroup || "")) ? [String(subscription.systemGroup)] : [];
 }
 
 function isSourceType(value: string): value is SourceType {
@@ -657,6 +670,14 @@ function isDocumentType(value: string): value is DocumentType {
 
 function isChangeType(value: string): value is ChangeType {
   return value in changeTypeLabels;
+}
+
+function isRegulatoryCategory(value: string): value is RegulatoryCategory {
+  return value === "law" || value === "notice" || value === "guideline" || value === "news";
+}
+
+function isSystemGroup(value: string): boolean {
+  return publicInstitutionSystemGroups.some((group) => group.id === value);
 }
 
 function maskEmail(value: string): string {
