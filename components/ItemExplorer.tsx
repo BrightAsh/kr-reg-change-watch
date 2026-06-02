@@ -271,7 +271,10 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   }
 
   return (
-    <section className="app-workspace" aria-label="규제 변경 탐색">
+    <section
+      className={workspaceMode === "public-system" ? "app-workspace system-workspace" : "app-workspace"}
+      aria-label="규제 변경 탐색"
+    >
       <nav className="workspace-tabs" aria-label="수집 범위">
         <button
           className={workspaceMode === "all" ? "active" : ""}
@@ -279,7 +282,6 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           onClick={() => setWorkspaceMode("all")}
         >
           <span>전체 수집</span>
-          <strong>{enrichedItems.length.toLocaleString("ko-KR")}</strong>
         </button>
         <button
           className={workspaceMode === "public-system" ? "active" : ""}
@@ -287,11 +289,6 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           onClick={() => setWorkspaceMode("public-system")}
         >
           <span>공공기관 운영 법령 및 정부지침 체계</span>
-          <strong>
-            {enrichedItems
-              .filter((item) => (item.public_system_matches || []).length > 0)
-              .length.toLocaleString("ko-KR")}
-          </strong>
         </button>
       </nav>
       <aside className={workspaceMode === "public-system" ? "side-panel system-side-panel" : "side-panel"} aria-label="날짜와 분류">

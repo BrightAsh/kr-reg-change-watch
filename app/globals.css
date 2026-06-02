@@ -152,35 +152,41 @@ p {
   align-items: start;
 }
 
+.system-workspace {
+  grid-template-columns: max-content minmax(0, 1fr);
+}
+
 .workspace-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   grid-column: 1 / -1;
   display: flex;
-  gap: 8px;
+  gap: 7px;
   overflow-x: auto;
-  padding: 6px;
-  border: 1px solid rgba(216, 224, 235, 0.92);
-  border-radius: 8px;
-  background: rgba(247, 249, 252, 0.88);
-  box-shadow: var(--shadow-soft), var(--shadow-line);
+  padding: 4px 0 8px;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(180deg, rgba(251, 252, 255, 0.97), rgba(251, 252, 255, 0.9));
+  box-shadow: none;
+  backdrop-filter: blur(18px);
   scrollbar-width: thin;
 }
 
 .workspace-tabs button {
   flex: 0 0 auto;
-  display: flex;
+  display: grid;
+  place-items: center;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  width: min(360px, 64vw);
-  min-width: 178px;
-  min-height: 46px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
+  min-height: 42px;
+  padding: 9px 13px;
+  border: 1px solid rgba(216, 224, 235, 0.95);
   border-radius: 8px;
-  background: transparent;
+  background: var(--surface-raised);
   color: var(--ink-soft);
   font-weight: 850;
   text-align: left;
+  box-shadow: var(--shadow-soft), var(--shadow-line);
 }
 
 .workspace-tabs button.active {
@@ -196,29 +202,13 @@ p {
   white-space: nowrap;
 }
 
-.workspace-tabs strong {
-  display: grid;
-  place-items: center;
-  min-width: 34px;
-  min-height: 26px;
-  padding: 0 8px;
-  border-radius: 999px;
-  background: var(--surface-soft);
-  color: var(--ink-soft);
-  font-size: 13px;
-}
-
-.workspace-tabs button.active strong {
-  background: var(--accent);
-  color: #fff;
-}
-
 .side-panel {
   position: sticky;
-  top: 18px;
+  top: 66px;
   display: grid;
   grid-template-columns: minmax(320px, 1fr) minmax(210px, 0.62fr);
   gap: 14px;
+  align-items: start;
   padding: 14px;
   border: 1px solid rgba(199, 210, 223, 0.9);
   border-radius: 8px;
@@ -228,7 +218,10 @@ p {
 }
 
 .system-side-panel {
-  grid-template-columns: minmax(360px, 0.82fr) minmax(360px, 1fr);
+  grid-template-columns: 360px max-content;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .calendar-card,
@@ -389,22 +382,22 @@ p {
 }
 
 .system-side-panel .system-summary {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  display: grid;
+  grid-auto-rows: minmax(46px, auto);
   max-height: none;
   overflow: visible;
+  width: max-content;
 }
 
 .system-side-panel .system-summary button {
-  flex: 1 1 244px;
-  min-width: 230px;
-  min-height: 58px;
+  width: 100%;
+  min-width: max-content;
+  min-height: 46px;
 }
 
 .system-side-panel .system-summary span {
-  line-height: 1.32;
-  white-space: normal;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .category-summary button {
@@ -437,6 +430,11 @@ p {
 
 .category-summary strong {
   font-size: 18px;
+}
+
+.system-side-panel .system-summary span {
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .content-stage {
@@ -1384,7 +1382,8 @@ select:focus {
 }
 
 @media (max-width: 1220px) {
-  .app-workspace {
+  .app-workspace,
+  .system-workspace {
     grid-template-columns: 1fr;
   }
 
@@ -1392,6 +1391,11 @@ select:focus {
   .system-side-panel {
     position: static;
     grid-template-columns: minmax(310px, 1fr) minmax(210px, 0.62fr);
+  }
+
+  .system-side-panel {
+    grid-template-columns: 360px max-content;
+    width: 100%;
   }
 }
 
@@ -1413,6 +1417,11 @@ select:focus {
 
   .system-side-panel {
     grid-template-columns: 1fr;
+  }
+
+  .system-side-panel .system-summary {
+    width: 100%;
+    overflow-x: auto;
   }
 
   .detail-snapshot {
