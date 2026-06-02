@@ -256,11 +256,11 @@ export default function MailAlertDialog({ ministries }: Props) {
                         </button>
                       ) : (
                         <button
-                          className={selectedCategories.includes(option.value) ? "active" : ""}
+                          className={selectedCategories.includes(option.value as RegulatoryCategory) ? "active" : ""}
                           key={option.value}
                           type="button"
-                          aria-pressed={selectedCategories.includes(option.value)}
-                          onClick={() => toggleCategory(option.value)}
+                          aria-pressed={selectedCategories.includes(option.value as RegulatoryCategory)}
+                          onClick={() => toggleCategory(option.value as RegulatoryCategory)}
                         >
                           {option.label}
                         </button>
