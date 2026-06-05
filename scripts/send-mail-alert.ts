@@ -95,6 +95,11 @@ async function main(): Promise<void> {
 
   for (const subscription of subscriptions) {
     const filtered = filterItemsForSubscription(enrichedItems, subscription);
+    if (!filtered.length) {
+      console.log(`Mail alert skipped for ${maskEmail(subscription.email)}: 0 matched item(s).`);
+      continue;
+    }
+
     const limited = filtered.slice(0, maxItems);
     const message = buildMailMessage({
       date: daily.date,
