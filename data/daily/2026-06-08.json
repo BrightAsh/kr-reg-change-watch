@@ -1,7 +1,10 @@
 {
-  "today": "2026-06-08",
-  "yesterday": "2026-06-07",
-  "added": [
+  "date": "2026-06-08",
+  "collected_at": "2026-06-08T17:44:18.582Z",
+  "item_count": 20,
+  "changed_count": 20,
+  "cache_hit": false,
+  "items": [
     {
       "id": "d6cf2aed2af4fb73",
       "summary": "2026-06-08 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 013980 단위로 묶었습니다. 기간 2026-06-09~2026-06-09, 최신 이력은 2026-06-09 일부개정 제00169호입니다. 최근 이력: 2026-06-09 일부개정 제00169호.",
@@ -269,9 +272,9 @@
     },
     {
       "id": "e6768e0cb03e4f36",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 성평등가족부 · 고시 · 신규 · 공표일 2026-06-08 · 시행일 2026-06-08. 청소년유해매체물(간행물) 고시 1. 청소년유해매체물 목록 : 아래 목록표와 같음 2. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:09.026Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
@@ -297,9 +300,9 @@
     },
     {
       "id": "b44aaed61b168f2c",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 우정사업본부 · 고시 · 폐지 · 공표일 2026-06-08 · 시행일 2026-06-08. (경북지방우정청)국내특급우편물의 취급지역, 취급우체국, 취급시간에 대한 고시 1. 취급지역 및 취급우체국가. 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:09.027Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
@@ -326,9 +329,9 @@
     },
     {
       "id": "e4cc23fb13c2a732",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 기후에너지환경부 · 고시 · 일부개정 · 공표일 2026-06-08 · 시행일 2026-06-08. 온실가스공정시험기준 「온실가스공정시험기준」의 자세한 내용은 상단 메뉴 \" \"버튼을 이용하십시오. --- 추가 근거 --- 온실가스공정시험기준 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:09.027Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
@@ -354,9 +357,9 @@
     },
     {
       "id": "39c262520a30bb62",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 관세청 · 훈령 · 신규 · 공표일 2026-06-08 · 시행일 2026-06-08. 자율기구 첨단산업 원스톱 관세지원팀 설치 및 운영에 관한 규정 부칙 이 훈령은 발령한 날부터 시행한다. --- 추가 근거 --- 자율기구 첨단산업 원스톱 관세지원팀 설치 및 운영에 관한 규정 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:09.027Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
@@ -385,9 +388,9 @@
     },
     {
       "id": "6b4229b384ff396c",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 기후에너지환경부 · 고시 · 일부개정 · 공표일 2026-06-08 · 시행일 2026-06-08. 빛공해공정시험기준 「빛공해공정시험기준」의 자세한 내용은 상단 메뉴 \" \"버튼을 이용하십시오. --- 추가 근거 --- 빛공해공정시험기준 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:09.028Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
@@ -413,9 +416,9 @@
     },
     {
       "id": "6267182163aabc27",
-      "summary": null,
+      "summary": "자동요약: 관세청 · 고시 · 일부개정 · 공표일 2026-06-08 · 시행일 2026-06-08. 환전영업자 관리에 관한 고시 --- 추가 근거 --- 환전영업자 관리에 관한 고시 제4조(환전업무의 등록) ① (생 략) 1 ② 관할세관장은 제1항에 따른 등록을 한 경우 신청인에게 업무 구분에 따라 별지 제1호서식의 등록증을 발급하여야 한다. 다만, 영 제15조제3항 각 호의 어느 하나에 해당하여 등록신청일로부터 20일 이내에 등록을 해주지 않을 경우에는 해당 사유 등 처리결과에 대하여 즉시 신청인에게 통지하여야 한다. 원문 링크를 기준으로 확인하세요.",
       "diff_summary": "구조문 3,640자, 신조문 5,022자 기준으로 신구법 비교 원문이 확인됨",
-      "auto_summary": false,
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:09.029Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
@@ -476,9 +479,9 @@
     },
     {
       "id": "8236a1a78161a99e",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 기후에너지환경부 · 고시 · 일부개정 · 공표일 2026-06-08 · 시행일 2026-06-08. 대기오염공정시험기준 「대기오염공정시험기준」의 자세한 내용은 상단 메뉴 \" \"버튼을 이용하십시오. --- 추가 근거 --- 대기오염공정시험기준 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:09.029Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
@@ -504,9 +507,9 @@
     },
     {
       "id": "c305e54014a6c80b",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 산업통상부 · 훈령 · 일부개정 · 공표일 2026-06-08. 인천항 자유무역지역 변경지정 고시 --> 인천항 자유무역지역 변경지정 고시 보도ㆍ설명자료 팩트체크 정책소통 QNA 이벤트 배너 --> 이 누리집은 대한민국 공식 전자정부 누리집입니다. 국가상징 알아보기 통합검색 검색 ENG 산업통상부 산업통상부 국가지표 국가상징 ENG 정보공개 정보공개 정보공개제도안내 사전정보공표 상품권 구매현황 업무추진비 비공개정보 세부기준 비영리법인 현황 정보공개청구 재정정보공개 정책실명제 협동조합경영공시 공공기관정보 공공데이터제공 공공데이터 제공제도 안내 공공데이터 제공목록 공공데이터 이용신청 공공데이터 오류신고 아이디어 제안 모바일앱 감사결과 감사결과공개 국정감사 정보공개 반부패·청렴 관련 자료 공개 부패행위자 현황 위반사실공표 민원·부패공익신고 민원 민원신청 민원/정책Q&A 나의 민원보기 나의 민원보기 나의 제안보기 국민참여·제안 규제개혁 제안 우수제안사례 정책토론 전자공청회 설문조사 목록공개 규제정보포털 산업융합 규제샌드박스 규제합리화 현황 부패·공익신고 보조금 부정수급 및 공공재정 부정청구등 신고 부패행위 신고 공익신고 안전신문고 갑질피해 익명신고 행동강령위반 신고 청탁금지법위반·채용비리 신고 적극행정 제도소개 국민추천 우수사례(뉴스, 웹툰) 영상 알림/소식 알림·뉴스 보도자료 보도·참고자료 보도설명자료 대변인정례발표 정책뉴스 포토뉴스 카드뉴스 경제뉴스 동영상뉴스 공지사항 사업공고 채용정보 포상공개검증 정책·정보 업무계획 업무계획 국회업무보고 국정과제 정책게시판 전체 산업·기술 무역·투자 통상·FTA 자원 연구자료 국민과 만드는 산업정책 통계정보 일일산업동향 원자재가격정보 외국인 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:44.894Z",
       "source": "산업통상부 고시",
@@ -532,9 +535,9 @@
     },
     {
       "id": "c10dba0816a6744c",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 산업통상부 · 훈령 · 일부개정 · 공표일 2026-06-08. 2026년 1분기 전문양성인 등록 공고 --> 2026년 1분기 전문양성인 등록 공고 보도ㆍ설명자료 팩트체크 정책소통 QNA 이벤트 배너 --> 이 누리집은 대한민국 공식 전자정부 누리집입니다. 국가상징 알아보기 통합검색 검색 ENG 산업통상부 산업통상부 국가지표 국가상징 ENG 정보공개 정보공개 정보공개제도안내 사전정보공표 상품권 구매현황 업무추진비 비공개정보 세부기준 비영리법인 현황 정보공개청구 재정정보공개 정책실명제 협동조합경영공시 공공기관정보 공공데이터제공 공공데이터 제공제도 안내 공공데이터 제공목록 공공데이터 이용신청 공공데이터 오류신고 아이디어 제안 모바일앱 감사결과 감사결과공개 국정감사 정보공개 반부패·청렴 관련 자료 공개 부패행위자 현황 위반사실공표 민원·부패공익신고 민원 민원신청 민원/정책Q&A 나의 민원보기 나의 민원보기 나의 제안보기 국민참여·제안 규제개혁 제안 우수제안사례 정책토론 전자공청회 설문조사 목록공개 규제정보포털 산업융합 규제샌드박스 규제합리화 현황 부패·공익신고 보조금 부정수급 및 공공재정 부정청구등 신고 부패행위 신고 공익신고 안전신문고 갑질피해 익명신고 행동강령위반 신고 청탁금지법위반·채용비리 신고 적극행정 제도소개 국민추천 우수사례(뉴스, 웹툰) 영상 알림/소식 알림·뉴스 보도자료 보도·참고자료 보도설명자료 대변인정례발표 정책뉴스 포토뉴스 카드뉴스 경제뉴스 동영상뉴스 공지사항 사업공고 채용정보 포상공개검증 정책·정보 업무계획 업무계획 국회업무보고 국정과제 정책게시판 전체 산업·기술 무역·투자 통상·FTA 자원 연구자료 국민과 만드는 산업정책 통계정보 일일산업동향 원자재가격 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:48.566Z",
       "source": "산업통상부 공고",
@@ -560,9 +563,9 @@
     },
     {
       "id": "ee18bfce044a6125",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 산업통상부 · 훈령 · 일부개정 · 공표일 2026-06-08. 2026년도 산업통상부 임기제 공무원 경력경쟁채용시험 공고(법무행정) --> 2026년도 산업통상부 임기제 공무원 경력경쟁채용시험 공고(법무행정) 보도ㆍ설명자료 팩트체크 정책소통 QNA 이벤트 배너 --> 이 누리집은 대한민국 공식 전자정부 누리집입니다. 국가상징 알아보기 통합검색 검색 ENG 산업통상부 산업통상부 국가지표 국가상징 ENG 정보공개 정보공개 정보공개제도안내 사전정보공표 상품권 구매현황 업무추진비 비공개정보 세부기준 비영리법인 현황 정보공개청구 재정정보공개 정책실명제 협동조합경영공시 공공기관정보 공공데이터제공 공공데이터 제공제도 안내 공공데이터 제공목록 공공데이터 이용신청 공공데이터 오류신고 아이디어 제안 모바일앱 감사결과 감사결과공개 국정감사 정보공개 반부패·청렴 관련 자료 공개 부패행위자 현황 위반사실공표 민원·부패공익신고 민원 민원신청 민원/정책Q&A 나의 민원보기 나의 민원보기 나의 제안보기 국민참여·제안 규제개혁 제안 우수제안사례 정책토론 전자공청회 설문조사 목록공개 규제정보포털 산업융합 규제샌드박스 규제합리화 현황 부패·공익신고 보조금 부정수급 및 공공재정 부정청구등 신고 부패행위 신고 공익신고 안전신문고 갑질피해 익명신고 행동강령위반 신고 청탁금지법위반·채용비리 신고 적극행정 제도소개 국민추천 우수사례(뉴스, 웹툰) 영상 알림/소식 알림·뉴스 보도자료 보도·참고자료 보도설명자료 대변인정례발표 정책뉴스 포토뉴스 카드뉴스 경제뉴스 동영상뉴스 공지사항 사업공고 채용정보 포상공개검증 정책·정보 업무계획 업무계획 국회업무보고 국정과제 정책게시판 전체 산업·기술 무역·투자 통상·FTA 자원 연 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:47.856Z",
       "source": "산업통상부 공고",
@@ -589,9 +592,9 @@
     },
     {
       "id": "9e41218d07f0fe86",
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
+      "summary": "자동요약: 산업통상부 · 훈령 · 일부개정 · 공표일 2026-06-08. 가스상세기준(KGS Code) 개정사항 공고 --> 가스상세기준(KGS Code) 개정사항 공고 보도ㆍ설명자료 팩트체크 정책소통 QNA 이벤트 배너 --> 이 누리집은 대한민국 공식 전자정부 누리집입니다. 국가상징 알아보기 통합검색 검색 ENG 산업통상부 산업통상부 국가지표 국가상징 ENG 정보공개 정보공개 정보공개제도안내 사전정보공표 상품권 구매현황 업무추진비 비공개정보 세부기준 비영리법인 현황 정보공개청구 재정정보공개 정책실명제 협동조합경영공시 공공기관정보 공공데이터제공 공공데이터 제공제도 안내 공공데이터 제공목록 공공데이터 이용신청 공공데이터 오류신고 아이디어 제안 모바일앱 감사결과 감사결과공개 국정감사 정보공개 반부패·청렴 관련 자료 공개 부패행위자 현황 위반사실공표 민원·부패공익신고 민원 민원신청 민원/정책Q&A 나의 민원보기 나의 민원보기 나의 제안보기 국민참여·제안 규제개혁 제안 우수제안사례 정책토론 전자공청회 설문조사 목록공개 규제정보포털 산업융합 규제샌드박스 규제합리화 현황 부패·공익신고 보조금 부정수급 및 공공재정 부정청구등 신고 부패행위 신고 공익신고 안전신문고 갑질피해 익명신고 행동강령위반 신고 청탁금지법위반·채용비리 신고 적극행정 제도소개 국민추천 우수사례(뉴스, 웹툰) 영상 알림/소식 알림·뉴스 보도자료 보도·참고자료 보도설명자료 대변인정례발표 정책뉴스 포토뉴스 카드뉴스 경제뉴스 동영상뉴스 공지사항 사업공고 채용정보 포상공개검증 정책·정보 업무계획 업무계획 국회업무보고 국정과제 정책게시판 전체 산업·기술 무역·투자 통상·FTA 자원 연구자료 국민과 만드는 산업정책 통계정보 일일산업동향 원문 링크를 기준으로 확인하세요.",
+      "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
+      "auto_summary": true,
       "collection_date": "2026-06-08",
       "collected_at": "2026-06-08T17:43:49.275Z",
       "source": "산업통상부 공고",
@@ -616,6 +619,285 @@
       "public_system_matches": []
     }
   ],
-  "changed": [],
-  "removed": []
+  "logs": [
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 6건을 보강했습니다.",
+      "count": 6,
+      "at": "2026-06-08T17:43:02.340Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 10행을 법령 단위 6건으로 묶었습니다.",
+      "count": 6,
+      "at": "2026-06-08T17:43:02.340Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 3,
+      "at": "2026-06-08T17:43:04.300Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 7,
+      "at": "2026-06-08T17:43:09.029Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 7,
+      "at": "2026-06-08T17:43:13.054Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-08T17:43:14.888Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-08T17:43:15.769Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-08T17:43:16.650Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:17.586Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do"
+    },
+    {
+      "source": "행정안전부 훈령·예규·고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:18.992Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+    },
+    {
+      "source": "행정안전부 입법·행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:20.213Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+    },
+    {
+      "source": "행정안전부 법령자료실",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:21.620Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+    },
+    {
+      "source": "기획재정부 법령자료실",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:24.496Z",
+      "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
+    },
+    {
+      "source": "기획재정부 영문법령정보",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:26.145Z",
+      "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
+    },
+    {
+      "source": "기획재정부 조세조약",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:27.241Z",
+      "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
+    },
+    {
+      "source": "기획재정부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:28.180Z",
+      "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
+    },
+    {
+      "source": "기획재정부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:29.323Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
+    },
+    {
+      "source": "기획재정부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:32.284Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
+    },
+    {
+      "source": "기획재정부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:33.182Z",
+      "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
+    },
+    {
+      "source": "기획재정부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:34.215Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
+    },
+    {
+      "source": "기획재정부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:36.031Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
+    },
+    {
+      "source": "기획재정부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:37.814Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:42.240Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:43.204Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 1,
+      "at": "2026-06-08T17:43:46.345Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 3,
+      "at": "2026-06-08T17:43:50.762Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:51.407Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:52.194Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:52.985Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:53.771Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:54.562Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:43:58.847Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:44:06.657Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "ok",
+      "message": "정책브리핑 RSS 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T17:44:15.099Z",
+      "url": "https://www.korea.kr/etc/rss.do"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-06-08T17:44:18.062Z"
+    }
+  ]
 }
