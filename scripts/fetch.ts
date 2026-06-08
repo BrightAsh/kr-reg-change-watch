@@ -76,6 +76,7 @@ interface MinistryRoute {
   defaultUrl: string;
   ministry: string;
   sourceType?: SourceType;
+  maxPages?: number;
 }
 
 type LawmakingEndpoint = "ogLmPp" | "ogLmPpMod" | "ptcpAdmPp";
@@ -109,6 +110,7 @@ type SourceGroup =
   | "lawmaking"
   | "gazette"
   | "ministry-board"
+  | "motir"
   | "alio"
   | "policy-rss"
   | "naver-news";
@@ -201,6 +203,83 @@ const MINISTRY_ROUTES: MinistryRoute[] = [
   }
 ];
 
+const MOTIR_MAX_PAGES = 20;
+
+const MOTIR_ROUTES: MinistryRoute[] = [
+  {
+    source: "산업통상부 입법예고",
+    envName: "MOTIR_LEGISLATION_NOTICE_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
+    ministry: "산업통상부",
+    sourceType: "legislation_notice",
+    maxPages: MOTIR_MAX_PAGES
+  },
+  {
+    source: "산업통상부 행정예고",
+    envName: "MOTIR_ADMIN_NOTICE_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
+    ministry: "산업통상부",
+    sourceType: "legislation_notice",
+    maxPages: MOTIR_MAX_PAGES
+  },
+  {
+    source: "산업통상부 고시",
+    envName: "MOTIR_NOTICE_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCL0c554f816",
+    ministry: "산업통상부",
+    sourceType: "ministry_board",
+    maxPages: MOTIR_MAX_PAGES
+  },
+  {
+    source: "산업통상부 공고",
+    envName: "MOTIR_ANNOUNCEMENT_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
+    ministry: "산업통상부",
+    sourceType: "legislation_notice",
+    maxPages: MOTIR_MAX_PAGES
+  },
+  {
+    source: "산업통상부 구.정통부고시",
+    envName: "MOTIR_OLD_MIC_NOTICE_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
+    ministry: "산업통상부",
+    sourceType: "ministry_board",
+    maxPages: MOTIR_MAX_PAGES
+  },
+  {
+    source: "산업통상부 구.재경부고시",
+    envName: "MOTIR_OLD_MOFE_NOTICE_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
+    ministry: "산업통상부",
+    sourceType: "ministry_board",
+    maxPages: MOTIR_MAX_PAGES
+  },
+  {
+    source: "산업통상부 훈령",
+    envName: "MOTIR_DIRECTIVE_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
+    ministry: "산업통상부",
+    sourceType: "ministry_board",
+    maxPages: MOTIR_MAX_PAGES
+  },
+  {
+    source: "산업통상부 예규",
+    envName: "MOTIR_ESTABLISHED_RULE_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCL520ce518e",
+    ministry: "산업통상부",
+    sourceType: "ministry_board",
+    maxPages: MOTIR_MAX_PAGES
+  },
+  {
+    source: "산업통상부 지침",
+    envName: "MOTIR_GUIDELINE_URL",
+    defaultUrl: "https://www.motir.go.kr/kor/article/ATCL516d59376",
+    ministry: "산업통상부",
+    sourceType: "ministry_board",
+    maxPages: MOTIR_MAX_PAGES
+  }
+];
+
 async function main() {
   await ensureDataDirs();
 
@@ -251,6 +330,7 @@ async function main() {
   await runSource("lawmaking", logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
   await runSource("gazette", logs, collected, () => fetchGazette(logs));
   await runSource("ministry-board", logs, collected, () => fetchMinistryRoutes(logs));
+  await runSource("motir", logs, collected, () => fetchMotirRoutes(logs));
   await runSource("alio", logs, collected, () => fetchAlioPublicMaterials(logs));
   await runSource("policy-rss", logs, collected, () => fetchPolicyRss(logs));
   await runSource("naver-news", logs, collected, () => fetchNaverNews(logs));
@@ -318,6 +398,11 @@ function parseSourceFilter(value: string): Set<SourceGroup> {
     gwanbo: "gazette",
     ministry: "ministry-board",
     "ministry-board": "ministry-board",
+    motir: "motir",
+    industry: "motir",
+    "industry-board": "motir",
+    "산업부": "motir",
+    "산업통상부": "motir",
     alio: "alio",
     rss: "policy-rss",
     "policy-rss": "policy-rss",
@@ -850,6 +935,18 @@ async function fetchMinistryRoutes(logs: CollectionLog[]): Promise<CollectedItem
   return items;
 }
 
+async function fetchMotirRoutes(logs: CollectionLog[]): Promise<CollectedItem[]> {
+  const items: CollectedItem[] = [];
+  for (const route of MOTIR_ROUTES) {
+    try {
+      items.push(...(await fetchConfiguredMinistryBoard(logs, route)));
+    } catch (error) {
+      addLog(logs, route.source, "error", `산업통상부 게시판 수집 실패: ${messageOf(error)}`, 0, route.defaultUrl);
+    }
+  }
+  return items;
+}
+
 async function fetchConfiguredMinistryBoard(logs: CollectionLog[], route: MinistryRoute): Promise<CollectedItem[]> {
   const configured = env(route.envName);
   const url = configured || route.defaultUrl;
@@ -859,11 +956,13 @@ async function fetchConfiguredMinistryBoard(logs: CollectionLog[], route: Minist
   }
 
   const items: CollectedItem[] = [];
-  for (let page = 1; page <= maxPages; page += 1) {
+  const routeMaxPages = route.maxPages || maxPages;
+  for (let page = 1; page <= routeMaxPages; page += 1) {
     const pageUrl = withPage(url, page);
     const html = await fetchText(pageUrl);
     const rows = await parseBoardRows(html, pageUrl, route, logs);
     items.push(...rows);
+    if (boardPageIsOlderThanTarget(html)) break;
     if (!hasLikelyNextPage(html, page)) break;
   }
 
@@ -1677,6 +1776,12 @@ function boardContextDate(context: string): string | null {
   );
 }
 
+function boardPageIsOlderThanTarget(html: string): boolean {
+  const tbody = html.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/i)?.[1] || html;
+  const dates = extractDateStrings(htmlToText(tbody));
+  return dates.length > 0 && dates.every((date) => date < targetDate);
+}
+
 function containsDateText(value: string, date: string): boolean {
   const [year, month, day] = date.split("-");
   const monthNumber = String(Number(month));
@@ -1712,6 +1817,7 @@ function extractBoardLinkCandidates(html: string, listUrl: string, route: Minist
   }
   candidates.push(...extractMoisOnclickCandidates(html));
   candidates.push(...extractMoefJavascriptCandidates(html, listUrl, route));
+  candidates.push(...extractMotirArticleCandidates(html, listUrl, route));
   return candidates;
 }
 
@@ -1758,6 +1864,35 @@ function extractMoefJavascriptCandidates(html: string, listUrl: string, route: M
     });
   }
   return candidates;
+}
+
+function extractMotirArticleCandidates(html: string, listUrl: string, route: MinistryRoute): BoardLinkCandidate[] {
+  if (!isMotirRoute(route)) return [];
+  const articleCode = motirArticleCode(listUrl) || motirArticleCode(route.defaultUrl);
+  if (!articleCode) return [];
+
+  const candidates: BoardLinkCandidate[] = [];
+  const pattern = /<a\b[^>]*href=['"]javascript:article\.view\(['"]([^'"]+)['"]\);?['"][^>]*>([\s\S]*?)<\/a>/gi;
+  for (const match of html.matchAll(pattern)) {
+    const recordId = match[1];
+    candidates.push({
+      href: `https://www.motir.go.kr/kor/article/${articleCode}/${encodeURIComponent(recordId)}/view`,
+      label: match[2],
+      html: match[0],
+      index: match.index ?? 0,
+      recordId: `${articleCode}:${recordId}`
+    });
+  }
+  return candidates;
+}
+
+function motirArticleCode(url: string): string {
+  try {
+    const parsed = new URL(url);
+    return parsed.pathname.match(/\/kor\/article\/([^/?#]+)/i)?.[1] || "";
+  } catch {
+    return url.match(/\/kor\/article\/([^/?#]+)/i)?.[1] || "";
+  }
 }
 
 function moefDetailPath(route: MinistryRoute): string {
@@ -1808,6 +1943,7 @@ function isLikelyBoardTitle(title: string, href: string): boolean {
 
 function isAllowedBoardHrefForRoute(route: MinistryRoute, href: string): boolean {
   if (isMoisRoute(route)) return /\/frt\/bbs\/type001\/commonSelectBoardArticle\.do/i.test(href);
+  if (isMotirRoute(route)) return /\/kor\/article\/ATCL[^/]+\/\d+\/view/i.test(href);
   if (!isMoefRoute(route)) return true;
   if (route.defaultUrl.includes("/lw/lap/")) return /\/lw\/lap\/detailTbPrvntcView\.do/i.test(href);
   if (route.defaultUrl.includes("/lw/pblanc/")) return /\/lw\/pblanc\/detailTbPblanc/i.test(href);
@@ -1824,6 +1960,10 @@ function isMoefRoute(route: MinistryRoute): boolean {
 
 function isMoisRoute(route: MinistryRoute): boolean {
   return /mois\.go\.kr/i.test(route.defaultUrl);
+}
+
+function isMotirRoute(route: MinistryRoute): boolean {
+  return /motir\.go\.kr/i.test(route.defaultUrl);
 }
 
 function cleanBoardTitle(title: string, route: MinistryRoute): string {
@@ -1894,7 +2034,7 @@ function collectAttachmentUrls(
   title: string
 ): string[] {
   const attachmentUrls: string[] = [];
-  for (const match of html.matchAll(/href=["']([^"']+\.(?:hwp|hwpx|pdf|docx?|xlsx?|zip)[^"']*)["']/gi)) {
+  for (const match of html.matchAll(/href=["']([^"']*(?:\/attach\/down\/[^"']+|\.(?:hwp|hwpx|pdf|docx?|xlsx?|zip)[^"']*))["']/gi)) {
     try {
       attachmentUrls.push(new URL(decodeHtml(match[1]), baseUrl).toString());
     } catch (error) {
@@ -1959,7 +2099,12 @@ function itemBelongsToSourceGroup(item: CollectedItem, group: SourceGroup): bool
     case "gazette":
       return item.source_type === "gazette";
     case "ministry-board":
-      return item.source_type === "ministry_board" || (!item.source.startsWith("국민참여입법센터") && item.source_type === "legislation_notice");
+      return (
+        !item.source.startsWith("산업통상부") &&
+        (item.source_type === "ministry_board" || (!item.source.startsWith("국민참여입법센터") && item.source_type === "legislation_notice"))
+      );
+    case "motir":
+      return item.source.startsWith("산업통상부");
     case "alio":
       return item.source.startsWith("ALIO");
     case "policy-rss":

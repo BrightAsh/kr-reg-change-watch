@@ -28,7 +28,7 @@ on:
         type: boolean
         default: false
       collect_sources:
-        description: "특정 수집 경로만 다시 수집합니다. 예: lawmaking. 비우면 전체 수집합니다."
+        description: "특정 수집 경로만 다시 수집합니다. 예: lawmaking, motir. 비우면 전체 수집합니다."
         required: false
         type: string
       send_mail:
