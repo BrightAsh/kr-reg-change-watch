@@ -153,6 +153,34 @@ const MINISTRY_ROUTES: MinistryRoute[] = [
     sourceType: "legislation_notice"
   },
   {
+    source: "행정안전부 법령자료실",
+    envName: "MOIS_LAW_LIBRARY_URL",
+    defaultUrl: "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018",
+    ministry: "행정안전부",
+    sourceType: "ministry_board"
+  },
+  {
+    source: "기획재정부 법령자료실",
+    envName: "MOEF_LAW_LIBRARY_URL",
+    defaultUrl: "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200",
+    ministry: "기획재정부",
+    sourceType: "ministry_board"
+  },
+  {
+    source: "기획재정부 영문법령정보",
+    envName: "MOEF_ENGLISH_LAW_URL",
+    defaultUrl: "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300",
+    ministry: "기획재정부",
+    sourceType: "ministry_board"
+  },
+  {
+    source: "기획재정부 조세조약",
+    envName: "MOEF_TAX_TREATY_URL",
+    defaultUrl: "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100",
+    ministry: "기획재정부",
+    sourceType: "ministry_board"
+  },
+  {
     source: "기획재정부 훈령",
     envName: "MOEF_DIRECTIVE_URL",
     defaultUrl: "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100",
@@ -1896,6 +1924,7 @@ function motirArticleCode(url: string): string {
 }
 
 function moefDetailPath(route: MinistryRoute): string {
+  if (route.defaultUrl.includes("/com/bbs/")) return "https://mofe.go.kr/com/bbs/detailComtnbbsView.do";
   if (route.defaultUrl.includes("/lw/lap/")) return "https://mofe.go.kr/lw/lap/detailTbPrvntcView.do";
   if (route.defaultUrl.includes("/lw/pblanc/")) return "https://mofe.go.kr/lw/pblanc/detailTbPblancView.do";
   if (route.defaultUrl.includes("/lw/denm/")) return "https://mofe.go.kr/lw/denm/detailTbDenmView.do";
@@ -1945,6 +1974,8 @@ function isAllowedBoardHrefForRoute(route: MinistryRoute, href: string): boolean
   if (isMoisRoute(route)) return /\/frt\/bbs\/type001\/commonSelectBoardArticle\.do/i.test(href);
   if (isMotirRoute(route)) return /\/kor\/article\/ATCL[^/]+\/\d+\/view/i.test(href);
   if (!isMoefRoute(route)) return true;
+  if (route.defaultUrl.includes("/lw/entexlaw") || route.defaultUrl.includes("/lw/taxtrt")) return /law\.go\.kr\/DRF\/lawService\.do/i.test(href);
+  if (route.defaultUrl.includes("/com/bbs/")) return /\/com\/bbs\/detailComtnbbsView\.do/i.test(href);
   if (route.defaultUrl.includes("/lw/lap/")) return /\/lw\/lap\/detailTbPrvntcView\.do/i.test(href);
   if (route.defaultUrl.includes("/lw/pblanc/")) return /\/lw\/pblanc\/detailTbPblanc/i.test(href);
   if (route.defaultUrl.includes("/lw/denm/")) return /\/lw\/denm\/detailTbDenm/i.test(href);
