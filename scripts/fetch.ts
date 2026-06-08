@@ -1756,10 +1756,12 @@ async function parseBoardRows(
     if (contextDate && contextDate !== targetDate && !containsDateText(context, targetDate)) continue;
 
     let detailHtml = "";
-    try {
-      detailHtml = await fetchText(absoluteUrl);
-    } catch {
-      detailHtml = "";
+    if (!isMoefExternalLawListRoute(route)) {
+      try {
+        detailHtml = await fetchText(absoluteUrl);
+      } catch {
+        detailHtml = "";
+      }
     }
 
     const detailText = compactText(detailHtml || context);
@@ -1987,6 +1989,10 @@ function isAllowedBoardHrefForRoute(route: MinistryRoute, href: string): boolean
 
 function isMoefRoute(route: MinistryRoute): boolean {
   return /moef\.go\.kr|mofe\.go\.kr/i.test(route.defaultUrl);
+}
+
+function isMoefExternalLawListRoute(route: MinistryRoute): boolean {
+  return route.defaultUrl.includes("/lw/entexlaw") || route.defaultUrl.includes("/lw/taxtrt");
 }
 
 function isMoisRoute(route: MinistryRoute): boolean {
