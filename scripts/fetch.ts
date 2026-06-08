@@ -2078,7 +2078,20 @@ function collectAttachmentUrls(
 function mergeItems(existing: CollectedItem[], incoming: CollectedItem[]): CollectedItem[] {
   const map = new Map<string, CollectedItem>();
   for (const item of existing) map.set(item.id, attachPublicSystemMatches({ ...item, category: itemCategory(item) }));
-  for (const item of incoming) map.set(item.id, attachPublicSystemMatches({ ...map.get(item.id), ...item, category: itemCategory(item) }));
+  for (const item of incoming) {
+    const previous = map.get(item.id);
+    map.set(
+      item.id,
+      attachPublicSystemMatches({
+        ...previous,
+        ...item,
+        summary: item.summary || previous?.summary || null,
+        diff_summary: item.diff_summary || previous?.diff_summary || null,
+        auto_summary: item.auto_summary || previous?.auto_summary || false,
+        category: itemCategory(item)
+      })
+    );
+  }
   return [...map.values()].sort((a, b) => {
     const dateOrder = (b.publish_date || "").localeCompare(a.publish_date || "");
     if (dateOrder !== 0) return dateOrder;
