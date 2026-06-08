@@ -70,7 +70,6 @@ export default function DetailAiSummaryButton({
         instructions={detailInstructions}
         submitLabel="요약 진행"
         workingLabel="요약 중"
-        maxOutputTokens={2200}
         disabled={!readableText.trim()}
         disabledMessage="수집 본문이 없어 요약할 수 없습니다."
         onRunStateChange={setAiRun}

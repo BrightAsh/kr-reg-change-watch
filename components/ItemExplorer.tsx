@@ -58,7 +58,7 @@ const holidayOverrides = new Set([
 const briefingInstructions =
   [
     "한국 규제·법령 변경 모니터의 업무 브리핑 편집자처럼 작성하세요.",
-    "반드시 제공된 FILTERED_ITEMS_JSON 안의 필드, URL, 수집 본문 발췌만 근거로 판단하세요.",
+    "반드시 제공된 FILTERED_ITEMS_JSON 안의 필드, URL, 수집 본문만 근거로 판단하세요.",
     "URL은 직접 열람한 것처럼 말하지 말고, 사용자가 확인할 공식 원문/참고 링크로만 제시하세요.",
     "출력 형식은 1) 오늘의 핵심 변화 2) 법령 3) 고시/공고 4) 지침/규칙 5) 뉴스/발언 6) 업무 확인 포인트 순서로 고정하세요.",
     "각 항목은 기관, 제목, 무엇이 달라졌는지, 원문 URL을 함께 적으세요.",
@@ -518,7 +518,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         instructions={briefingInstructions}
         submitLabel="브리핑 진행"
         workingLabel="정리 중"
-        maxOutputTokens={1800}
+        reportMode="paged"
         disabled={!filtered.length}
         disabledMessage="현재 화면에 요약할 항목이 없습니다."
         onRunStateChange={setAiRun}
@@ -733,17 +733,12 @@ function extractSectionLines(lines: string[], heading: string): string[] {
 }
 
 function buildBriefingInput(items: Array<CollectedItem & { category?: RegulatoryCategory }>, selectedDate: string): string {
-  const maxItems = 80;
-  const included = items.slice(0, maxItems);
   const payload = {
     selected_date: selectedDate,
     total_filtered_count: items.length,
-    included_count: included.length,
-    note:
-      items.length > maxItems
-        ? `항목이 많아 ${maxItems}개 항목의 구조화 데이터와 본문 발췌를 우선 제공합니다.`
-        : "현재 화면의 모든 항목을 제공합니다.",
-    items: included.map((item) => ({
+    included_count: items.length,
+    note: "현재 화면의 모든 항목을 제공합니다. 모델 한도를 넘으면 항목 단위 페이지 보고서로 나누어 작성합니다.",
+    items: items.map((item) => ({
       id: item.id,
       category: categoryLabels[item.category || itemCategory(item)],
       source: item.source,
@@ -768,24 +763,25 @@ function buildBriefingInput(items: Array<CollectedItem & { category?: Regulatory
         relation: match.relation_label,
         evidence: match.evidence
       })),
-      raw_text_excerpt: compactForAi(item.raw_text, 1200)
+      raw_text_char_count: item.raw_text.length,
+      raw_text: compactForAi(item.raw_text)
     }))
   };
 
   return [
     "FILTERED_ITEMS_JSON",
     JSON.stringify(payload, null, 2),
+    "END_FILTERED_ITEMS_JSON",
     "",
     "주의: URL은 제공된 링크일 뿐이며, AI가 직접 열람한 원문으로 간주하지 마세요."
   ].join("\n");
 }
 
-function compactForAi(value: string, maxLength: number): string {
+function compactForAi(value: string): string {
   const compacted = value
     .replace(/\r/g, "")
     .replace(/[ \t]+/g, " ")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
-  if (compacted.length <= maxLength) return compacted;
-  return `${compacted.slice(0, maxLength)}\n...[${(compacted.length - maxLength).toLocaleString("ko-KR")}자 더 있음]`;
+  return compacted;
 }

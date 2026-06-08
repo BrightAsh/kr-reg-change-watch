@@ -5,6 +5,26 @@ import { useEffect, useMemo, useState } from "react";
 type AiProviderId = "gemini" | "groq" | "openrouter" | "openai";
 export type SummaryStatus = "idle" | "working" | "done" | "error";
 type JsonRecord = Record<string, unknown>;
+type ReportMode = "auto" | "paged";
+
+interface ModelTokenLimit {
+  providerId: AiProviderId;
+  model: string;
+  contextWindow: number;
+  maxInputTokens: number;
+  maxOutputTokens: number;
+  source: string;
+}
+
+interface BriefingPayload extends JsonRecord {
+  selected_date?: string;
+  total_filtered_count?: number;
+  included_count?: number;
+  note?: string;
+  page_number?: number;
+  page_count?: number;
+  items?: JsonRecord[];
+}
 
 export interface AiRunState {
   status: SummaryStatus;
@@ -12,6 +32,9 @@ export interface AiRunState {
   error: string;
   providerLabel: string;
   model: string;
+  progress?: string;
+  pageCount?: number;
+  completedPages?: number;
 }
 
 interface AiModelOption {
@@ -37,7 +60,8 @@ interface Props {
   instructions: string;
   submitLabel: string;
   workingLabel: string;
-  maxOutputTokens: number;
+  maxOutputTokens?: number;
+  reportMode?: ReportMode;
   disabled?: boolean;
   disabledMessage?: string;
   onRunStateChange?: (state: AiRunState) => void;
@@ -46,6 +70,16 @@ interface Props {
 const providerStorageKey = "kr-reg-ai-provider";
 const customModelValue = "__custom__";
 const legacyOpenAiKey = "kr-reg-openai-key";
+const tokenSafetyMargin = 2048;
+const minimumChunkInputTokens = 1800;
+const defaultFallbackLimit: ModelTokenLimit = {
+  providerId: "openrouter",
+  model: "unknown",
+  contextWindow: 32768,
+  maxInputTokens: 24576,
+  maxOutputTokens: 8192,
+  source: "fallback"
+};
 
 const providers: Record<AiProviderId, AiProviderConfig> = {
   gemini: {
@@ -107,7 +141,8 @@ export default function AiSummaryDialog({
   instructions,
   submitLabel,
   workingLabel,
-  maxOutputTokens,
+  maxOutputTokens = 0,
+  reportMode = "auto",
   disabled,
   disabledMessage,
   onRunStateChange
@@ -185,13 +220,27 @@ export default function AiSummaryDialog({
     onClose();
 
     try {
-      const text = await requestAiSummary({
+      const tokenLimit = await resolveModelTokenLimit(nextProvider, nextModel.trim(), nextKey.trim());
+      const text = await requestAiSummaryWithModelLimits({
         providerId: nextProvider,
         model: nextModel.trim(),
         apiKey: nextKey.trim(),
         instructions,
         input,
-        maxOutputTokens
+        requestedOutputTokens: maxOutputTokens,
+        reportMode,
+        tokenLimit,
+        onProgress: (progress, completedPages, pageCount) => {
+          onRunStateChange?.({
+            ...runStateBase,
+            status: "working",
+            result: "",
+            error: "",
+            progress,
+            completedPages,
+            pageCount
+          });
+        }
       });
       const nextResult = text || "요약 결과가 비어 있습니다.";
       setStatus("done");
@@ -333,6 +382,97 @@ export default function AiSummaryDialog({
   );
 }
 
+async function requestAiSummaryWithModelLimits({
+  providerId,
+  model,
+  apiKey,
+  instructions,
+  input,
+  requestedOutputTokens,
+  reportMode,
+  tokenLimit,
+  onProgress
+}: {
+  providerId: AiProviderId;
+  model: string;
+  apiKey: string;
+  instructions: string;
+  input: string;
+  requestedOutputTokens: number;
+  reportMode: ReportMode;
+  tokenLimit: ModelTokenLimit;
+  onProgress?: (progress: string, completedPages?: number, pageCount?: number) => void;
+}): Promise<string> {
+  const outputTokens = outputTokenBudget(tokenLimit, requestedOutputTokens);
+  const inputBudget = effectiveInputBudget(tokenLimit, outputTokens, instructions);
+  const fullInputTokens = estimateTokenCount(input);
+
+  if (fullInputTokens <= inputBudget) {
+    onProgress?.("모델 한도 안에서 한 번에 요약을 작성하고 있습니다.");
+    return requestAiSummary({
+      providerId,
+      model,
+      apiKey,
+      instructions,
+      input,
+      maxOutputTokens: outputTokens
+    });
+  }
+
+  const briefingPayload = parseBriefingPayload(input);
+  if (briefingPayload?.items?.length) {
+    const chunks = buildBriefingChunks(briefingPayload, instructions, inputBudget);
+    if (!chunks.length) throw new Error("청크로 나눌 수 있는 브리핑 항목이 없습니다.");
+
+    const pages: string[] = [];
+    for (let index = 0; index < chunks.length; index += 1) {
+      const pageNumber = index + 1;
+      onProgress?.(
+        `모델 한도를 넘어 ${chunks.length.toLocaleString("ko-KR")}페이지 보고서로 나누어 작성 중입니다. ${pageNumber.toLocaleString(
+          "ko-KR"
+        )}페이지를 생성하고 있습니다.`,
+        index,
+        chunks.length
+      );
+      const pageInput = buildBriefingChunkInput(briefingPayload, chunks[index], pageNumber, chunks.length);
+      const pageText = await requestAiSummary({
+        providerId,
+        model,
+        apiKey,
+        instructions: pageInstructions(instructions, pageNumber, chunks.length, reportMode),
+        input: pageInput,
+        maxOutputTokens: outputTokens
+      });
+      pages.push(formatReportPage(pageText, pageNumber));
+    }
+    onProgress?.("페이지 보고서를 모두 작성했습니다.", chunks.length, chunks.length);
+    return combineReportPages(pages, briefingPayload, tokenLimit, inputBudget, outputTokens);
+  }
+
+  const textChunks = buildTextChunks(input, instructions, inputBudget);
+  const pages: string[] = [];
+  for (let index = 0; index < textChunks.length; index += 1) {
+    const pageNumber = index + 1;
+    onProgress?.(
+      `입력이 길어 ${textChunks.length.toLocaleString("ko-KR")}페이지로 나누어 작성 중입니다. ${pageNumber.toLocaleString(
+        "ko-KR"
+      )}페이지를 생성하고 있습니다.`,
+      index,
+      textChunks.length
+    );
+    const pageText = await requestAiSummary({
+      providerId,
+      model,
+      apiKey,
+      instructions: pageInstructions(instructions, pageNumber, textChunks.length, reportMode),
+      input: textChunks[index],
+      maxOutputTokens: outputTokens
+    });
+    pages.push(formatReportPage(pageText, pageNumber));
+  }
+  return combineReportPages(pages, null, tokenLimit, inputBudget, outputTokens);
+}
+
 async function requestAiSummary({
   providerId,
   model,
@@ -422,18 +562,23 @@ async function requestOpenAiSummary(
   input: string,
   maxOutputTokens: number
 ): Promise<string> {
+  const body: JsonRecord = {
+    model,
+    max_output_tokens: maxOutputTokens,
+    instructions,
+    input
+  };
+  if (model.toLowerCase().startsWith("gpt-5")) {
+    body.reasoning = { effort: "minimal" };
+  }
+
   const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
     headers: {
       authorization: `Bearer ${apiKey}`,
       "content-type": "application/json"
     },
-    body: JSON.stringify({
-      model,
-      max_output_tokens: maxOutputTokens,
-      instructions,
-      input
-    })
+    body: JSON.stringify(body)
   });
 
   const payload = await parseJsonResponse(response, "OpenAI API");
@@ -489,6 +634,317 @@ async function requestChatCompletionSummary(
   const firstChoice = recordValue(arrayValue(payload.choices)[0]);
   const message = recordValue(firstChoice.message);
   return appendFinishWarning(compactOutput(extractOutputText(message.content)), stringValue(firstChoice.finish_reason));
+}
+
+async function resolveModelTokenLimit(
+  providerId: AiProviderId,
+  model: string,
+  apiKey: string
+): Promise<ModelTokenLimit> {
+  if (providerId === "openrouter") {
+    return resolveOpenRouterTokenLimit(model, apiKey);
+  }
+  return staticModelTokenLimit(providerId, model);
+}
+
+async function resolveOpenRouterTokenLimit(model: string, apiKey: string): Promise<ModelTokenLimit> {
+  try {
+    const response = await fetch("https://openrouter.ai/api/v1/models", {
+      headers: {
+        authorization: `Bearer ${apiKey}`,
+        "content-type": "application/json"
+      }
+    });
+    const payload = await parseJsonResponse(response, "OpenRouter Models API");
+    const models = arrayValue(payload.data).map(recordValue);
+    const found = models.find((entry) => stringValue(entry.id) === model);
+    if (!found) return { ...defaultFallbackLimit, providerId: "openrouter", model };
+
+    const topProvider = recordValue(found.top_provider);
+    const contextWindow =
+      numberValue(topProvider.context_length) || numberValue(found.context_length) || defaultFallbackLimit.contextWindow;
+    const maxOutputTokens =
+      numberValue(topProvider.max_completion_tokens) || numberValue(found.max_completion_tokens) || defaultFallbackLimit.maxOutputTokens;
+    return {
+      providerId: "openrouter",
+      model,
+      contextWindow,
+      maxInputTokens: contextWindow,
+      maxOutputTokens,
+      source: "OpenRouter Models API"
+    };
+  } catch {
+    return { ...defaultFallbackLimit, providerId: "openrouter", model };
+  }
+}
+
+function staticModelTokenLimit(providerId: AiProviderId, model: string): ModelTokenLimit {
+  const normalized = model.replace(/^models\//, "").toLowerCase();
+  if (providerId === "gemini") {
+    return {
+      providerId,
+      model,
+      contextWindow: 1_114_112,
+      maxInputTokens: 1_048_576,
+      maxOutputTokens: 65_536,
+      source: "Gemini 2.5 model docs"
+    };
+  }
+  if (providerId === "openai" && normalized.startsWith("gpt-5")) {
+    return {
+      providerId,
+      model,
+      contextWindow: 400_000,
+      maxInputTokens: 272_000,
+      maxOutputTokens: 128_000,
+      source: "OpenAI GPT-5 API docs"
+    };
+  }
+  if (providerId === "openai") {
+    return {
+      providerId,
+      model,
+      contextWindow: 128_000,
+      maxInputTokens: 112_000,
+      maxOutputTokens: 16_384,
+      source: "OpenAI fallback"
+    };
+  }
+  if (providerId === "groq") {
+    if (normalized === "openai/gpt-oss-120b") {
+      return {
+        providerId,
+        model,
+        contextWindow: 131_072,
+        maxInputTokens: 131_072,
+        maxOutputTokens: 65_536,
+        source: "Groq model docs"
+      };
+    }
+    if (normalized === "qwen/qwen3-32b") {
+      return {
+        providerId,
+        model,
+        contextWindow: 131_072,
+        maxInputTokens: 131_072,
+        maxOutputTokens: 40_960,
+        source: "Groq model docs"
+      };
+    }
+    if (normalized === "llama-3.3-70b-versatile") {
+      return {
+        providerId,
+        model,
+        contextWindow: 131_072,
+        maxInputTokens: 131_072,
+        maxOutputTokens: 32_768,
+        source: "Groq model docs"
+      };
+    }
+  }
+  return { ...defaultFallbackLimit, providerId, model };
+}
+
+function outputTokenBudget(tokenLimit: ModelTokenLimit, requestedOutputTokens: number): number {
+  const modelMax = tokenLimit.maxOutputTokens || requestedOutputTokens || defaultFallbackLimit.maxOutputTokens;
+  const contextSafeMax = Math.max(1, tokenLimit.contextWindow - minimumChunkInputTokens - tokenSafetyMargin);
+  return Math.max(1, Math.min(modelMax, contextSafeMax));
+}
+
+function effectiveInputBudget(tokenLimit: ModelTokenLimit, outputTokens: number, instructions: string): number {
+  const instructionTokens = estimateTokenCount(instructions);
+  const byContext = tokenLimit.contextWindow - outputTokens - tokenSafetyMargin - instructionTokens;
+  const byInputLimit = tokenLimit.maxInputTokens - tokenSafetyMargin - instructionTokens;
+  return Math.max(minimumChunkInputTokens, Math.min(byContext, byInputLimit));
+}
+
+function estimateTokenCount(value: string): number {
+  let estimated = 0;
+  for (const char of value) {
+    const code = char.charCodeAt(0);
+    if (/\s/.test(char)) estimated += 0.15;
+    else if (code <= 0x007f) estimated += 0.28;
+    else estimated += 1.05;
+  }
+  return Math.ceil(estimated);
+}
+
+function parseBriefingPayload(input: string): BriefingPayload | null {
+  const marker = "FILTERED_ITEMS_JSON";
+  const start = input.indexOf(marker);
+  if (start === -1) return null;
+
+  const afterMarker = input.slice(start + marker.length).trimStart();
+  const end = afterMarker.indexOf("END_FILTERED_ITEMS_JSON");
+  const rawJson = (end === -1 ? afterMarker.replace(/\n\s*주의:[\s\S]*$/m, "") : afterMarker.slice(0, end)).trim();
+  try {
+    const parsed = JSON.parse(rawJson) as BriefingPayload;
+    return Array.isArray(parsed.items) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function buildBriefingChunks(payload: BriefingPayload, instructions: string, inputBudget: number): JsonRecord[][] {
+  const items = payload.items || [];
+  const chunks: JsonRecord[][] = [];
+  let current: JsonRecord[] = [];
+
+  for (const item of items) {
+    const candidate = [...current, item];
+    const candidateInput = buildBriefingChunkInput(payload, candidate, 1, 1);
+    const candidateTokens = estimateTokenCount(candidateInput) + estimateTokenCount(instructions);
+
+    if (candidateTokens <= inputBudget) {
+      current = candidate;
+      continue;
+    }
+
+    if (current.length) {
+      chunks.push(current);
+      current = [];
+    }
+
+    const singleInput = buildBriefingChunkInput(payload, [item], 1, 1);
+    const singleTokens = estimateTokenCount(singleInput) + estimateTokenCount(instructions);
+    if (singleTokens <= inputBudget) {
+      current = [item];
+      continue;
+    }
+
+    chunks.push([shrinkBriefingItemToBudget(payload, item, instructions, inputBudget)]);
+  }
+
+  if (current.length) chunks.push(current);
+  return chunks;
+}
+
+function shrinkBriefingItemToBudget(
+  payload: BriefingPayload,
+  item: JsonRecord,
+  instructions: string,
+  inputBudget: number
+): JsonRecord {
+  const textKey = typeof item.raw_text === "string" ? "raw_text" : typeof item.raw_text_excerpt === "string" ? "raw_text_excerpt" : "";
+  if (!textKey) return item;
+
+  const original = stringValue(item[textKey]);
+  let low = 0;
+  let high = original.length;
+  let best: JsonRecord = { ...item, [textKey]: "" };
+
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const trimmed = trimWithNotice(original, mid);
+    const candidate = { ...item, [textKey]: trimmed, raw_text_trimmed_for_model_limit: true };
+    const candidateInput = buildBriefingChunkInput(payload, [candidate], 1, 1);
+    const candidateTokens = estimateTokenCount(candidateInput) + estimateTokenCount(instructions);
+    if (candidateTokens <= inputBudget) {
+      best = candidate;
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+
+  return best;
+}
+
+function trimWithNotice(value: string, maxLength: number): string {
+  if (value.length <= maxLength) return value;
+  const omitted = value.length - maxLength;
+  return `${value.slice(0, maxLength)}\n...[모델 입력 한도 때문에 ${omitted.toLocaleString("ko-KR")}자 생략됨]`;
+}
+
+function buildBriefingChunkInput(
+  payload: BriefingPayload,
+  items: JsonRecord[],
+  pageNumber: number,
+  pageCount: number
+): string {
+  const nextPayload: BriefingPayload = {
+    ...payload,
+    page_number: pageNumber,
+    page_count: pageCount,
+    included_count: items.length,
+    note:
+      pageCount > 1
+        ? `전체 항목을 모델 한도에 맞춰 ${pageCount.toLocaleString("ko-KR")}페이지로 나눈 보고서 중 ${pageNumber.toLocaleString(
+            "ko-KR"
+          )}페이지입니다. 이 페이지에 포함된 항목을 빠짐없이 다루세요.`
+        : payload.note,
+    items
+  };
+
+  return [
+    "FILTERED_ITEMS_JSON",
+    JSON.stringify(nextPayload, null, 2),
+    "END_FILTERED_ITEMS_JSON",
+    "",
+    "주의: URL은 제공된 링크일 뿐이며, AI가 직접 열람한 원문으로 간주하지 마세요."
+  ].join("\n");
+}
+
+function buildTextChunks(input: string, instructions: string, inputBudget: number): string[] {
+  const parts = input.split(/\n{2,}/);
+  const chunks: string[] = [];
+  let current = "";
+
+  for (const part of parts) {
+    const candidate = current ? `${current}\n\n${part}` : part;
+    if (estimateTokenCount(candidate) + estimateTokenCount(instructions) <= inputBudget) {
+      current = candidate;
+      continue;
+    }
+    if (current) chunks.push(current);
+    current =
+      estimateTokenCount(part) + estimateTokenCount(instructions) <= inputBudget
+        ? part
+        : trimWithNotice(part, Math.max(500, Math.floor(inputBudget * 1.6)));
+  }
+
+  if (current) chunks.push(current);
+  return chunks.length ? chunks : [input];
+}
+
+function pageInstructions(instructions: string, pageNumber: number, pageCount: number, reportMode: ReportMode): string {
+  if (pageCount <= 1 && reportMode !== "paged") return instructions;
+  return [
+    instructions,
+    "",
+    `이번 출력은 전체 보고서 중 ${pageNumber}/${pageCount}페이지입니다.`,
+    "이 페이지에 제공된 항목은 모두 다루고, 다른 페이지의 항목이 있다고 추정하지 마세요.",
+    "출력 맨 위에 페이지 제목을 쓰고, 기관·제목·핵심 변화·업무 확인 포인트·원문 URL을 유지하세요."
+  ].join("\n");
+}
+
+function formatReportPage(text: string, pageNumber: number): string {
+  const trimmed = compactOutput(text);
+  if (/^#{1,3}\s/.test(trimmed)) return trimmed;
+  return `## ${pageNumber.toLocaleString("ko-KR")}페이지\n\n${trimmed}`;
+}
+
+function combineReportPages(
+  pages: string[],
+  payload: BriefingPayload | null,
+  tokenLimit: ModelTokenLimit,
+  inputBudget: number,
+  outputTokens: number
+): string {
+  if (pages.length === 1) return pages[0];
+
+  const date = payload?.selected_date ? `${payload.selected_date} ` : "";
+  const total = typeof payload?.total_filtered_count === "number" ? payload.total_filtered_count.toLocaleString("ko-KR") : "-";
+  return [
+    `# ${date}AI 브리핑 보고서`,
+    "",
+    `총 ${pages.length.toLocaleString("ko-KR")}페이지 보고서입니다. 전체 필터 결과 ${total}건을 모델 한도에 맞춰 항목 단위로 나누어 작성했습니다.`,
+    `모델 한도 기준: ${tokenLimit.source}, 입력 예산 약 ${inputBudget.toLocaleString("ko-KR")}토큰, 출력 상한 ${outputTokens.toLocaleString(
+      "ko-KR"
+    )}토큰.`,
+    "",
+    ...pages
+  ].join("\n\n");
 }
 
 async function parseJsonResponse(response: Response, label: string): Promise<JsonRecord> {
@@ -569,4 +1025,13 @@ function arrayValue(value: unknown): unknown[] {
 
 function stringValue(value: unknown): string {
   return typeof value === "string" ? value : "";
+}
+
+function numberValue(value: unknown): number {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string") {
+    const parsed = Number(value.replace(/,/g, ""));
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+  return 0;
 }

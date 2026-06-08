@@ -23,7 +23,20 @@ export default function AiInlineResult({ state, title, workingText, errorTitle, 
 
   const isWorking = state.status === "working";
   const isError = state.status === "error";
-  const body = isWorking ? workingText : isError ? state.error : state.result;
+  const body = isWorking ? state.progress || workingText : isError ? state.error : state.result;
+  const canDownload = !isWorking && !isError && Boolean(state.result.trim());
+
+  function downloadResult() {
+    const blob = new Blob([state.result], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `${safeFileName(title)}-${new Date().toISOString().slice(0, 10)}.md`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+  }
 
   return (
     <section className={`ai-inline-panel ${state.status}`} aria-live="polite">
@@ -38,6 +51,12 @@ export default function AiInlineResult({ state, title, workingText, errorTitle, 
         <div className="ai-inline-meta">
           {state.providerLabel ? <span>{state.providerLabel}</span> : null}
           {state.model ? <span>{state.model}</span> : null}
+          {state.pageCount ? <span>{`${state.completedPages || 0}/${state.pageCount}페이지`}</span> : null}
+          {canDownload ? (
+            <button type="button" onClick={downloadResult}>
+              다운로드
+            </button>
+          ) : null}
           {!isWorking ? (
             <button type="button" onClick={onOpenSettings}>
               다시 열기
@@ -48,4 +67,13 @@ export default function AiInlineResult({ state, title, workingText, errorTitle, 
       <p>{body}</p>
     </section>
   );
+}
+
+function safeFileName(value: string): string {
+  return value
+    .replace(/[\\/:*?"<>|]/g, "-")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 40) || "ai-report";
 }
