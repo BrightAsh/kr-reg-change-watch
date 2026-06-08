@@ -1753,6 +1753,7 @@ async function parseBoardRows(
 
     const context = html.slice(Math.max(0, anchor.index - 900), Math.min(html.length, anchor.index + anchor.html.length + 1200));
     const contextDate = boardContextDate(context);
+    if (!contextDate && !containsDateText(context, targetDate)) continue;
     if (contextDate && contextDate !== targetDate && !containsDateText(context, targetDate)) continue;
 
     let detailHtml = "";
