@@ -4,15 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       target_date:
-        description: "수집할 날짜(YYYY-MM-DD). 범위 입력 시 비워둡니다."
+        description: "Target date (YYYY-MM-DD). Leave empty when using a range."
         required: false
         type: string
       date_range_start:
-        description: "수집 시작일(YYYY-MM-DD)"
+        description: "Range start date (YYYY-MM-DD)"
         required: false
         type: string
       date_range_end:
-        description: "수집 종료일(YYYY-MM-DD)"
+        description: "Range end date (YYYY-MM-DD)"
         required: false
         type: string
 
@@ -31,6 +31,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     permissions:
       contents: write
       pages: write
@@ -44,6 +45,11 @@ jobs:
       FORCE_COLLECT: "1"
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Sync latest main
+        run: git pull --ff-only origin main
 
       - uses: actions/setup-node@v4
         with:
@@ -70,12 +76,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin main
           git add data
           if git diff --cached --quiet; then
             echo "No ministry board data changes to commit."
           else
             git commit -m "Fetch ministry board data"
+            git pull --rebase origin main
             git push
           fi
 
