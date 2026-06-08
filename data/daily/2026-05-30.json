@@ -1,6 +1,6 @@
 {
   "date": "2026-05-30",
-  "collected_at": "2026-06-02T07:02:27.736Z",
+  "collected_at": "2026-06-08T05:25:49.404Z",
   "item_count": 13,
   "changed_count": 0,
   "cache_hit": false,
@@ -372,6 +372,78 @@
       "count": 0,
       "at": "2026-06-02T07:02:27.303Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:24:00.665Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:24:09.552Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:24:31.700Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:25:39.968Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:25:40.786Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:25:41.605Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:25:45.761Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:25:48.172Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "ok",
+      "message": "산업통상부 게시판 HTML 범위 수집 완료",
+      "count": 0,
+      "at": "2026-06-08T05:25:48.989Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
     }
   ]
 }
