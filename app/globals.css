@@ -920,7 +920,7 @@ textarea {
 
 .item-card {
   display: grid;
-  grid-template-columns: 7px minmax(0, 1fr);
+  grid-template-columns: 7px minmax(0, 1fr) auto;
   gap: 14px;
   align-items: stretch;
   min-height: 136px;
@@ -960,7 +960,6 @@ textarea {
 
 .item-main {
   min-width: 0;
-  overflow: visible;
 }
 
 .item-meta {
@@ -971,8 +970,6 @@ textarea {
 }
 
 .item-meta span {
-  max-width: 100%;
-  overflow: hidden;
   min-height: 24px;
   padding: 5px 8px;
   border-radius: 999px;
@@ -980,7 +977,6 @@ textarea {
   color: var(--ink-soft);
   font-size: 12px;
   font-weight: 800;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -995,14 +991,12 @@ textarea {
 }
 
 .item-card h2 {
-  display: block;
-  overflow: visible;
   margin-bottom: 8px;
   font-size: 18px;
   line-height: 1.42;
   letter-spacing: 0;
-  overflow-wrap: anywhere;
   word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .item-card h2 a {
@@ -1016,14 +1010,14 @@ textarea {
 }
 
 .item-card p {
-  display: block;
+  display: -webkit-box;
   margin-bottom: 10px;
   color: var(--ink-soft);
   font-size: 14px;
   line-height: 1.58;
-  overflow: visible;
-  overflow-wrap: anywhere;
-  word-break: keep-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .item-evidence {
@@ -1041,10 +1035,9 @@ textarea {
 }
 
 .item-evidence li {
-  overflow: visible;
-  overflow-wrap: anywhere;
-  text-overflow: clip;
-  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .item-foot {
@@ -1055,22 +1048,11 @@ textarea {
   font-size: 12px;
 }
 
-.item-foot span {
-  max-width: 100%;
-  overflow: visible;
-  overflow-wrap: anywhere;
-  text-overflow: clip;
-  white-space: normal;
-}
-
 .item-links {
-  grid-column: 2;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  display: grid;
+  align-content: center;
   gap: 8px;
-  min-width: 0;
-  width: 100%;
+  width: 82px;
 }
 
 .item-links a,
@@ -1078,12 +1060,9 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 auto;
   min-height: 38px;
-  min-width: 64px;
   padding: 9px 12px;
   font-size: 13px;
-  white-space: nowrap;
 }
 
 .item-links a:first-child {
@@ -2319,11 +2298,13 @@ textarea {
 
   .item-links {
     grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
   }
 
   .item-links a {
-    flex: 1 1 0;
+    min-width: 0;
   }
 }
 
