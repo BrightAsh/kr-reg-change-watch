@@ -123,7 +123,10 @@ jobs:
               fi
             }
             range_label="${TARGET_DATE_RANGE_START}_to_${TARGET_DATE_RANGE_END}"
+            run_log="data/collection-runs/${range_label}.log"
             failure_log="data/collection-failures/${range_label}.log"
+            mkdir -p data/collection-runs
+            : > "$run_log"
             current="$TARGET_DATE_RANGE_START"
             while [ "$(date -d "$current" +%s)" -le "$(date -d "$TARGET_DATE_RANGE_END" +%s)" ]; do
               echo "Collecting $current"
@@ -137,17 +140,24 @@ jobs:
               set -e
               if [ "$status" -ne 0 ]; then
                 mkdir -p data/collection-failures
+                echo "$current status=failure exit_code=$status" | tee -a "$run_log"
                 echo "$current exit_code=$status" | tee -a "$failure_log"
                 echo "Collection failed for $current. Continuing with next date."
                 commit_range_progress "failed ${current}"
               else
+                echo "$current status=success exit_code=0" | tee -a "$run_log"
                 commit_range_progress "$current"
               fi
               current="$(date -I -d "$current + 1 day")"
             done
+            success_count="$(grep -c ' status=success ' "$run_log" || true)"
+            failure_count="$(grep -c ' status=failure ' "$run_log" || true)"
             if [ -s "$failure_log" ]; then
               {
-                echo "### Collection failures"
+                echo "### Date range collection result"
+                echo ""
+                echo "- Success: ${success_count}"
+                echo "- Failure: ${failure_count}"
                 echo ""
                 echo "The workflow continued after the following date-level failures:"
                 echo ""
@@ -156,9 +166,10 @@ jobs:
             else
               rm -f "$failure_log"
               {
-                echo "### Collection failures"
+                echo "### Date range collection result"
                 echo ""
-                echo "No date-level collection failures."
+                echo "- Success: ${success_count}"
+                echo "- Failure: 0"
               } >> "$GITHUB_STEP_SUMMARY"
             fi
           elif [ -n "$TARGET_DATE" ]; then
