@@ -368,6 +368,9 @@ p {
 
 .collapse-label-mobile {
   display: none;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
 }
 
 .side-panel.collapsed {
@@ -957,7 +960,7 @@ textarea {
 
 .item-main {
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .item-meta {
@@ -992,16 +995,14 @@ textarea {
 }
 
 .item-card h2 {
-  display: -webkit-box;
-  overflow: hidden;
+  display: block;
+  overflow: visible;
   margin-bottom: 8px;
   font-size: 18px;
   line-height: 1.42;
   letter-spacing: 0;
   overflow-wrap: anywhere;
   word-break: keep-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
 }
 
 .item-card h2 a {
@@ -1015,14 +1016,12 @@ textarea {
 }
 
 .item-card p {
-  display: -webkit-box;
+  display: block;
   margin-bottom: 10px;
   color: var(--ink-soft);
   font-size: 14px;
   line-height: 1.58;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
+  overflow: visible;
   overflow-wrap: anywhere;
   word-break: keep-all;
 }
@@ -1042,9 +1041,10 @@ textarea {
 }
 
 .item-evidence li {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+  white-space: normal;
 }
 
 .item-foot {
@@ -1057,9 +1057,10 @@ textarea {
 
 .item-foot span {
   max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+  white-space: normal;
 }
 
 .item-links {
@@ -2118,6 +2119,7 @@ textarea {
     width: 100%;
     height: 38px;
     min-height: 38px;
+    border-radius: 8px;
   }
 
   .collapse-label-desktop {
@@ -2189,6 +2191,7 @@ textarea {
     width: 100%;
     height: 38px;
     min-height: 38px;
+    border-radius: 8px;
   }
 
   .collapse-label-desktop {

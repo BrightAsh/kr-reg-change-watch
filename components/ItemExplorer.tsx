@@ -364,7 +364,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           onClick={() => setSidebarCollapsed((current) => !current)}
         >
           <span className="collapse-label-desktop">{sidebarCollapsed ? ">>" : "<<"}</span>
-          <span className="collapse-label-mobile">{sidebarCollapsed ? "▼" : "▲"}</span>
+          <span className="collapse-label-mobile">{sidebarCollapsed ? "↓" : "↑"}</span>
         </button>
         <div className="side-panel-inner" aria-hidden={sidebarCollapsed}>
           <section className="calendar-card" aria-label="날짜 선택">
