@@ -359,14 +359,12 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         <button
           className="calendar-collapse-toggle"
           type="button"
+          aria-label={sidebarCollapsed ? "날짜와 분류 펼치기" : "날짜와 분류 접기"}
           aria-expanded={!sidebarCollapsed}
           onClick={() => setSidebarCollapsed((current) => !current)}
         >
-          <span className="collapse-label-desktop">
-            <strong>{sidebarCollapsed ? ">>" : "<<"}</strong>
-            {sidebarCollapsed ? " 날짜 펼치기" : " 날짜 접기"}
-          </span>
-          <span className="collapse-label-mobile">{sidebarCollapsed ? "↓ 날짜/분류 펼치기" : "↑ 날짜/분류 접기"}</span>
+          <span className="collapse-label-desktop">{sidebarCollapsed ? ">>" : "<<"}</span>
+          <span className="collapse-label-mobile">{sidebarCollapsed ? "▼" : "▲"}</span>
         </button>
         <div className="side-panel-inner" aria-hidden={sidebarCollapsed}>
           <section className="calendar-card" aria-label="날짜 선택">

@@ -37,6 +37,7 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 a {
@@ -221,13 +222,13 @@ p {
 .app-workspace {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(610px, 0.86fr) minmax(520px, 1fr);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
   gap: 16px;
   align-items: start;
 }
 
 .system-workspace {
-  grid-template-columns: max-content minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
 }
 
 .workspace-tabs {
@@ -319,23 +320,29 @@ p {
 }
 
 .system-side-panel {
-  width: max-content;
+  width: auto;
   max-width: 100%;
-  overflow-x: auto;
+  overflow: visible;
 }
 
 .system-side-panel .side-panel-inner {
-  grid-template-columns: var(--calendar-card-width) var(--system-filter-width);
+  grid-template-columns: minmax(280px, var(--calendar-card-width)) minmax(0, 1fr);
 }
 
 .calendar-collapse-toggle {
-  justify-self: end;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 8;
+  justify-self: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  min-height: 38px;
-  padding: 8px 12px;
+  width: 34px;
+  min-width: 34px;
+  height: 58px;
+  min-height: 58px;
+  padding: 0;
   border-color: rgba(10, 132, 255, 0.22);
   background: #eaf4ff;
   color: var(--accent-dark);
@@ -343,6 +350,7 @@ p {
   font-weight: 850;
   line-height: 1.1;
   box-shadow: 0 8px 20px rgba(10, 132, 255, 0.1), var(--shadow-line);
+  transform: translate(-50%, -50%);
 }
 
 .calendar-collapse-toggle:hover {
@@ -351,18 +359,9 @@ p {
 }
 
 .collapse-label-desktop {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.collapse-label-desktop strong {
   display: inline-grid;
   place-items: center;
-  min-width: 24px;
-  min-height: 20px;
-  border-radius: 999px;
-  background: #fff;
+  font-weight: 900;
 }
 
 .collapse-label-mobile {
@@ -370,8 +369,7 @@ p {
 }
 
 .side-panel.collapsed {
-  max-height: 48px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .side-panel.collapsed .side-panel-inner {
@@ -569,8 +567,8 @@ p {
   display: grid;
   grid-auto-rows: minmax(46px, auto);
   max-height: none;
-  overflow: hidden;
-  width: var(--system-filter-width);
+  overflow: visible;
+  width: auto;
 }
 
 .system-side-panel .system-summary button {
@@ -2030,8 +2028,7 @@ textarea {
     grid-row: 2;
     align-self: start;
     max-height: 100%;
-    overflow: auto;
-    scrollbar-width: thin;
+    overflow: visible;
   }
 
   .content-stage {
@@ -2051,18 +2048,20 @@ textarea {
     top: 50px;
     left: 0;
     z-index: 25;
-    width: 138px;
-    max-height: 48px;
-    padding: 5px;
-    overflow: hidden;
+    width: 0;
+    height: 460px;
+    max-height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
   }
 
   .sidebar-collapsed .calendar-collapse-toggle {
-    justify-self: stretch;
-    width: 100%;
+    left: 0;
+    width: 34px;
     min-height: 36px;
-    padding-right: 8px;
-    padding-left: 8px;
   }
 
   .sidebar-collapsed .side-panel-inner {
@@ -2095,7 +2094,7 @@ textarea {
   }
 
   .system-side-panel .side-panel-inner {
-    grid-template-columns: var(--calendar-card-width) var(--system-filter-width);
+    grid-template-columns: minmax(280px, var(--calendar-card-width)) minmax(0, 1fr);
   }
 
   .filter-toolbar {
@@ -2111,8 +2110,12 @@ textarea {
 
 @media (orientation: portrait) {
   .calendar-collapse-toggle {
+    position: static;
+    transform: none;
     justify-self: stretch;
     width: 100%;
+    height: 38px;
+    min-height: 38px;
   }
 
   .collapse-label-desktop {
@@ -2172,8 +2175,12 @@ textarea {
   }
 
   .calendar-collapse-toggle {
+    position: static;
+    transform: none;
     justify-self: stretch;
     width: 100%;
+    height: 38px;
+    min-height: 38px;
   }
 
   .collapse-label-desktop {
@@ -2196,6 +2203,12 @@ textarea {
 
   .calendar-card {
     width: 100%;
+    min-width: 0;
+  }
+
+  .calendar-grid,
+  .calendar-day {
+    min-width: 0;
   }
 
   .system-side-panel .side-panel-inner {
