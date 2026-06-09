@@ -94,20 +94,21 @@ p {
 .brand-lockup {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  min-width: 0;
+}
+
+.brand-lockup > div {
   min-width: 0;
 }
 
 .brand-logo {
   display: block;
-  width: 44px;
-  height: 44px;
-  padding: 4px;
-  border: 1px solid rgba(216, 224, 235, 0.9);
-  border-radius: 8px;
-  background: #fff;
+  width: 152px;
+  max-width: 34vw;
+  height: auto;
+  max-height: 48px;
   object-fit: contain;
-  box-shadow: 0 10px 22px rgba(16, 18, 23, 0.12);
 }
 
 .brand-lockup p {
@@ -122,6 +123,7 @@ p {
   color: var(--ink);
   font-size: 18px;
   line-height: 1.2;
+  word-break: keep-all;
 }
 
 .mail-alert-button {
@@ -229,9 +231,9 @@ p {
 }
 
 .workspace-tabs {
-  position: relative;
-  top: auto;
-  z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 35;
   grid-column: 1 / -1;
   justify-self: start;
   display: inline-flex;
@@ -285,10 +287,10 @@ p {
   display: grid;
   gap: 10px;
   min-width: 0;
-  padding: 14px;
-  border: 1px solid rgba(199, 210, 223, 0.9);
+  padding: 12px;
+  border: 1px solid rgba(165, 181, 202, 0.95);
   border-radius: 8px;
-  background: rgba(247, 249, 252, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
   transition:
@@ -328,10 +330,39 @@ p {
 
 .calendar-collapse-toggle {
   justify-self: end;
-  min-height: 30px;
-  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-color: rgba(10, 132, 255, 0.22);
+  background: #eaf4ff;
+  color: var(--accent-dark);
   font-size: 12px;
-  line-height: 1;
+  font-weight: 850;
+  line-height: 1.1;
+  box-shadow: 0 8px 20px rgba(10, 132, 255, 0.1), var(--shadow-line);
+}
+
+.calendar-collapse-toggle:hover {
+  border-color: rgba(10, 132, 255, 0.42);
+  background: #dceeff;
+}
+
+.collapse-label-desktop {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.collapse-label-desktop strong {
+  display: inline-grid;
+  place-items: center;
+  min-width: 24px;
+  min-height: 20px;
+  border-radius: 999px;
+  background: #fff;
 }
 
 .collapse-label-mobile {
@@ -365,7 +396,8 @@ p {
   display: grid;
   gap: 12px;
   width: var(--calendar-card-width);
-  padding: 14px;
+  padding: 16px;
+  border-color: rgba(165, 181, 202, 0.95);
 }
 
 .calendar-toolbar {
@@ -399,6 +431,13 @@ p {
   height: 38px;
   padding: 0;
   color: var(--accent-dark);
+}
+
+.calendar-collapse-toggle {
+  border-color: rgba(10, 132, 255, 0.22);
+  background: #eaf4ff;
+  color: var(--accent-dark);
+  font-weight: 850;
 }
 
 .calendar-toolbar strong {
@@ -438,10 +477,22 @@ p {
   place-items: center;
   gap: 1px;
   padding: 5px 2px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(216, 224, 235, 0.82);
   border-radius: 8px;
-  background: #f7f9fc;
+  background: #fbfcff;
   color: var(--ink-soft);
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.calendar-day:hover {
+  border-color: rgba(10, 132, 255, 0.34);
+  background: #eef7ff;
+  transform: translateY(-1px);
 }
 
 .calendar-day span {
@@ -463,8 +514,13 @@ p {
 }
 
 .calendar-day.has-data {
-  border-color: rgba(10, 132, 255, 0.22);
-  background: var(--surface-blue);
+  border-color: rgba(10, 132, 255, 0.38);
+  background: #eaf4ff;
+  color: var(--accent-dark);
+}
+
+.calendar-day.has-data small {
+  color: var(--accent-dark);
 }
 
 .calendar-day.collected-empty {
@@ -526,7 +582,9 @@ p {
 }
 
 .system-side-panel .system-summary span {
-  line-height: 1;
+  overflow: hidden;
+  line-height: 1.2;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -560,11 +618,6 @@ p {
 
 .category-summary strong {
   font-size: 18px;
-}
-
-.system-side-panel .system-summary span {
-  overflow: visible;
-  text-overflow: clip;
 }
 
 .content-stage {
@@ -864,7 +917,7 @@ textarea {
 
 .item-card {
   display: grid;
-  grid-template-columns: 7px minmax(0, 1fr) auto;
+  grid-template-columns: 7px minmax(0, 1fr);
   gap: 14px;
   align-items: stretch;
   min-height: 136px;
@@ -904,6 +957,7 @@ textarea {
 
 .item-main {
   min-width: 0;
+  overflow: hidden;
 }
 
 .item-meta {
@@ -914,6 +968,8 @@ textarea {
 }
 
 .item-meta span {
+  max-width: 100%;
+  overflow: hidden;
   min-height: 24px;
   padding: 5px 8px;
   border-radius: 999px;
@@ -921,6 +977,7 @@ textarea {
   color: var(--ink-soft);
   font-size: 12px;
   font-weight: 800;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -935,10 +992,16 @@ textarea {
 }
 
 .item-card h2 {
+  display: -webkit-box;
+  overflow: hidden;
   margin-bottom: 8px;
   font-size: 18px;
   line-height: 1.42;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .item-card h2 a {
@@ -960,6 +1023,8 @@ textarea {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
 }
 
 .item-evidence {
@@ -990,11 +1055,21 @@ textarea {
   font-size: 12px;
 }
 
+.item-foot span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .item-links {
-  display: grid;
-  align-content: center;
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 8px;
-  width: 82px;
+  min-width: 0;
+  width: 100%;
 }
 
 .item-links a,
@@ -1002,9 +1077,12 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
   min-height: 38px;
+  min-width: 64px;
   padding: 9px 12px;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 .item-links a:first-child {
@@ -1573,7 +1651,7 @@ textarea {
 .detail-brand-bar {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   width: fit-content;
   max-width: 100%;
   margin-bottom: 14px;
@@ -1586,8 +1664,10 @@ textarea {
 
 .detail-brand-bar img {
   display: block;
-  width: 38px;
-  height: 38px;
+  width: 138px;
+  max-width: 36vw;
+  height: auto;
+  max-height: 44px;
   object-fit: contain;
 }
 
@@ -1920,25 +2000,32 @@ textarea {
 
 @media (min-width: 1221px) {
   .app-shell {
-    display: grid;
-    grid-template-rows: auto auto minmax(0, 1fr);
+    display: block;
     min-height: 100vh;
     padding-bottom: 32px;
   }
 
   .overview-band {
+    position: relative;
+    top: auto;
+    z-index: auto;
+  }
+
+  .workspace-tabs {
     position: sticky;
     top: 0;
-    z-index: 30;
+    z-index: 40;
   }
 
   .app-workspace {
     grid-template-rows: auto minmax(0, 1fr);
-    height: calc(100vh - 196px);
-    min-height: 520px;
+    height: calc(100vh - 78px);
+    min-height: 620px;
   }
 
   .side-panel {
+    position: relative;
+    top: auto;
     grid-column: 1;
     grid-row: 2;
     align-self: start;
@@ -1964,17 +2051,18 @@ textarea {
     top: 50px;
     left: 0;
     z-index: 25;
-    width: 52px;
-    max-height: 42px;
-    padding: 6px;
+    width: 138px;
+    max-height: 48px;
+    padding: 5px;
     overflow: hidden;
   }
 
   .sidebar-collapsed .calendar-collapse-toggle {
     justify-self: stretch;
     width: 100%;
-    padding-right: 0;
-    padding-left: 0;
+    min-height: 36px;
+    padding-right: 8px;
+    padding-left: 8px;
   }
 
   .sidebar-collapsed .side-panel-inner {
@@ -2021,6 +2109,31 @@ textarea {
   }
 }
 
+@media (orientation: portrait) {
+  .calendar-collapse-toggle {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .collapse-label-desktop {
+    display: none;
+  }
+
+  .collapse-label-mobile {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .side-panel.collapsed {
+    max-height: 56px;
+    padding: 8px;
+  }
+
+  .side-panel.collapsed .side-panel-inner {
+    transform: translateY(-28px);
+  }
+}
+
 @media (max-width: 760px) {
   .app-shell,
   .page-shell {
@@ -2031,6 +2144,11 @@ textarea {
   .app-header {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .brand-logo {
+    width: 136px;
+    max-width: 52vw;
   }
 
   .mail-alert-button {
@@ -2055,6 +2173,7 @@ textarea {
 
   .calendar-collapse-toggle {
     justify-self: stretch;
+    width: 100%;
   }
 
   .collapse-label-desktop {
@@ -2062,7 +2181,17 @@ textarea {
   }
 
   .collapse-label-mobile {
-    display: inline;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .side-panel.collapsed {
+    max-height: 56px;
+    padding: 8px;
+  }
+
+  .side-panel.collapsed .side-panel-inner {
+    transform: translateY(-28px);
   }
 
   .calendar-card {
@@ -2080,6 +2209,11 @@ textarea {
 
   .detail-snapshot {
     grid-template-columns: 1fr;
+  }
+
+  .detail-brand-bar img {
+    width: 126px;
+    max-width: 48vw;
   }
 
   .filter-toolbar {
@@ -2152,8 +2286,11 @@ textarea {
 
   .item-links {
     grid-column: 2;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
+  }
+
+  .item-links a {
+    flex: 1 1 0;
   }
 }
 

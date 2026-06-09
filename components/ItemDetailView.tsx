@@ -35,6 +35,7 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
   const aiInput = buildAiInput(item, readableSections);
   const inlineImageUrls = item.attachment_urls.filter(isLikelyInlineImageUrl);
   const fileUrls = item.attachment_urls.filter((url) => !inlineImageUrls.includes(url));
+  const fileLabels = buildAttachmentLabels(fileUrls, item.raw_text);
   const sourceDate = item.collection_date || item.publish_date || "-";
   const systemMatches = item.public_system_matches || [];
   const keyFacts = [
@@ -157,7 +158,7 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
               {fileUrls.map((url, index) => (
                 <li key={url}>
                   <a className="file-link" href={url} target="_blank" rel="noreferrer" title={url}>
-                    <span className="file-link-name">{attachmentFileLabel(url, index)}</span>
+                    <span className="file-link-name">{fileLabels[index]}</span>
                     <span className="file-link-meta">다운로드</span>
                   </a>
                 </li>
@@ -168,6 +169,27 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
       </article>
     </main>
   );
+}
+
+function buildAttachmentLabels(urls: string[], rawText: string): string[] {
+  const textFileNames = extractAttachmentFileNames(rawText);
+  return urls.map((url, index) => textFileNames[index] || attachmentFileLabel(url, index));
+}
+
+function extractAttachmentFileNames(rawText: string): string[] {
+  const fileNamePattern =
+    /([^\\/:*?"<>|\r\n]{1,140}\.(?:hwpx|hwp|docx|doc|xlsx|xls|pptx|ppt|jpeg|jpg|webp|png|gif|pdf|zip|csv|txt))/gi;
+  const names: string[] = [];
+  const seen = new Set<string>();
+  for (const match of rawText.matchAll(fileNamePattern)) {
+    const name = cleanExtractedFileName(match[1]);
+    const key = name.toLowerCase();
+    if (name && !seen.has(key)) {
+      seen.add(key);
+      names.push(name);
+    }
+  }
+  return names;
 }
 
 function attachmentFileLabel(url: string, index: number): string {
@@ -213,6 +235,17 @@ function cleanFileName(value: string): string {
   } catch {
     return normalized;
   }
+}
+
+function cleanExtractedFileName(value: string): string {
+  const markerCleaned = value
+    .split(/(?:첨부파일|파일목록|붙임|다운로드|바로보기|-->|›|»)/)
+    .pop();
+  return cleanFileName(markerCleaned || value)
+    .replace(/\[[^\]]*KB\s*\]$/i, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^[\s,./-]+/, "");
 }
 
 function buildReadableSections(rawText: string): ReadableSection[] {

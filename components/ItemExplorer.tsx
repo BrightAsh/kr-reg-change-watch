@@ -362,8 +362,11 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           aria-expanded={!sidebarCollapsed}
           onClick={() => setSidebarCollapsed((current) => !current)}
         >
-          <span className="collapse-label-desktop">{sidebarCollapsed ? ">>" : "<<"}</span>
-          <span className="collapse-label-mobile">{sidebarCollapsed ? "↓ 아래로 펼치기" : "↑ 위로 접기"}</span>
+          <span className="collapse-label-desktop">
+            <strong>{sidebarCollapsed ? ">>" : "<<"}</strong>
+            {sidebarCollapsed ? " 날짜 펼치기" : " 날짜 접기"}
+          </span>
+          <span className="collapse-label-mobile">{sidebarCollapsed ? "↓ 날짜/분류 펼치기" : "↑ 날짜/분류 접기"}</span>
         </button>
         <div className="side-panel-inner" aria-hidden={sidebarCollapsed}>
           <section className="calendar-card" aria-label="날짜 선택">
