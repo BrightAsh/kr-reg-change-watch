@@ -2054,8 +2054,14 @@ textarea {
     z-index: 18;
   }
 
+  .content-stage {
+    grid-template-rows: auto auto auto;
+  }
+
   .item-list {
-    max-height: min(68vh, 760px);
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
   }
 }
 
