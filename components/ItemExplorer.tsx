@@ -215,17 +215,6 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     : dateScopedItems.length
       ? "표시할 항목이 없습니다."
       : "수집된 자료는 0건입니다.";
-  const resultStatus = !dateHasCache
-    ? "수집 전"
-    : dateScopedItems.length === 0
-      ? workspaceMode === "public-system"
-        ? "수집 완료 · 체계 항목 없음"
-        : "수집 완료 · 자료 0건"
-      : workspaceMode === "public-system"
-        ? "체계 항목 표시 중"
-        : "표시 중";
-  const activeFilterCount =
-    ministryFilters.length + sourceTypeFilters.length + documentTypeFilters.length + changeTypeFilters.length;
 
   const filterConfigs: Array<{
     key: FilterKey;
@@ -491,6 +480,10 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
             </div>
           ))}
 
+          <button className="ai-brief-button" type="button" onClick={() => setAiOpen(true)}>
+            AI 브리핑
+          </button>
+
           <label className="search-field">
             <span className="search-icon" aria-hidden="true" />
             <input
@@ -500,20 +493,6 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
               placeholder="제목, 본문, 기관, 문서번호"
             />
           </label>
-        </section>
-
-        <section className="results-header">
-          <div>
-            <strong>{filtered.length.toLocaleString("ko-KR")}건</strong>
-            <span>{resultStatus}</span>
-            {activeFilterCount ? <small>{activeFilterCount.toLocaleString("ko-KR")}개 필터</small> : null}
-          </div>
-          <div className="ai-action-stack">
-            <button className="ai-brief-button" type="button" onClick={() => setAiOpen(true)}>
-              AI 브리핑
-            </button>
-            <span className="ai-action-note">개인 API KEY 필요(유료)</span>
-          </div>
         </section>
 
         <AiInlineResult

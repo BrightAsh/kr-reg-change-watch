@@ -387,7 +387,6 @@ p {
 .calendar-card,
 .category-summary,
 .filter-toolbar,
-.results-header,
 .detail-panel {
   border: 1px solid rgba(216, 224, 235, 0.92);
   border-radius: 8px;
@@ -625,7 +624,7 @@ p {
 
 .content-stage {
   display: grid;
-  grid-template-rows: auto auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
   gap: 12px;
   min-width: 0;
 }
@@ -634,7 +633,7 @@ p {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: repeat(4, minmax(72px, 92px)) minmax(210px, 1fr);
+  grid-template-columns: repeat(4, minmax(72px, 92px)) max-content minmax(210px, 1fr);
   gap: 9px;
   align-items: center;
   padding: 12px;
@@ -847,49 +846,20 @@ textarea {
   line-height: 1.55;
 }
 
-.results-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
-  color: var(--muted);
-}
-
-.results-header div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  align-items: baseline;
-}
-
-.results-header strong {
-  color: var(--ink);
-  font-size: 20px;
-}
-
-.results-header span,
-.results-header small {
-  font-size: 13px;
-}
-
 .ai-brief-button {
   min-height: 38px;
   padding: 9px 14px;
   white-space: nowrap;
 }
 
+.filter-toolbar > .ai-brief-button {
+  min-height: 42px;
+}
+
 .ai-action-stack {
   display: grid;
   justify-items: end;
   gap: 4px;
-}
-
-.results-header .ai-action-stack {
-  display: grid;
-  gap: 4px;
-  justify-items: end;
-  align-items: center;
 }
 
 .ai-action-note {
@@ -900,7 +870,6 @@ textarea {
   white-space: nowrap;
 }
 
-.results-header .ai-action-note,
 .detail-section-title .ai-action-note {
   color: var(--muted);
   font-size: 11px;
@@ -909,6 +878,7 @@ textarea {
 }
 
 .item-list {
+  grid-row: 3;
   display: grid;
   gap: 10px;
   min-width: 0;
@@ -2204,7 +2174,6 @@ textarea {
   .category-summary,
   .content-stage,
   .filter-toolbar,
-  .results-header,
   .item-list {
     max-width: calc(100vw - 20px);
   }
@@ -2228,7 +2197,7 @@ textarea {
   }
 
   .filter-toolbar {
-    grid-template-columns: repeat(4, minmax(70px, 88px)) minmax(190px, 1fr);
+    grid-template-columns: repeat(4, minmax(70px, 88px)) max-content minmax(190px, 1fr);
     overflow-x: auto;
   }
 
@@ -2282,13 +2251,8 @@ textarea {
     width: auto;
   }
 
-  .results-header {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .ai-brief-button {
-    width: 100%;
+  .filter-toolbar > .ai-brief-button {
+    width: auto;
   }
 
   .item-card {
