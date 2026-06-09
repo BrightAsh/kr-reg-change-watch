@@ -236,20 +236,21 @@ p {
 .workspace-tabs {
   position: sticky;
   top: 0;
-  z-index: 35;
+  z-index: 48;
   grid-column: 1 / -1;
-  justify-self: start;
-  display: inline-flex;
-  gap: 3px;
+  justify-self: stretch;
+  display: flex;
+  gap: 5px;
   align-items: center;
+  width: 100%;
   max-width: 100%;
   overflow-x: auto;
-  margin: -2px 0 0;
-  padding: 4px;
+  margin: -2px 0 2px;
+  padding: 6px;
   border: 1px solid rgba(205, 215, 228, 0.88);
   border-radius: 8px;
-  background: rgba(239, 243, 248, 0.86);
-  box-shadow: 0 8px 22px rgba(33, 43, 58, 0.055), var(--shadow-line);
+  background: rgba(245, 248, 252, 0.94);
+  box-shadow: 0 12px 28px rgba(33, 43, 58, 0.08), var(--shadow-line);
   backdrop-filter: blur(18px);
   scrollbar-width: thin;
 }
@@ -287,6 +288,7 @@ p {
 .side-panel {
   position: sticky;
   top: 58px;
+  z-index: 30;
   display: grid;
   gap: 10px;
   min-width: 0;
@@ -630,13 +632,15 @@ p {
 }
 
 .filter-toolbar {
-  position: relative;
-  z-index: 3;
+  position: sticky;
+  top: 58px;
+  z-index: 42;
   display: grid;
   grid-template-columns: repeat(4, minmax(72px, 92px)) max-content minmax(210px, 1fr);
   gap: 9px;
   align-items: center;
   padding: 12px;
+  backdrop-filter: blur(18px);
 }
 
 .filter-menu {
@@ -1962,7 +1966,7 @@ textarea {
   .workspace-tabs {
     position: sticky;
     top: 0;
-    z-index: 40;
+    z-index: 48;
   }
 
   .app-workspace {
@@ -1972,8 +1976,8 @@ textarea {
   }
 
   .side-panel {
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: 58px;
     grid-column: 1;
     grid-row: 2;
     align-self: start;
@@ -1987,6 +1991,10 @@ textarea {
     align-self: start;
     height: auto;
     overflow: visible;
+  }
+
+  .filter-toolbar {
+    top: 58px;
   }
 
   .item-list {
@@ -2051,8 +2059,8 @@ textarea {
 
   .filter-toolbar {
     position: sticky;
-    top: 0;
-    z-index: 18;
+    top: 58px;
+    z-index: 42;
   }
 
   .content-stage {
