@@ -923,10 +923,9 @@ textarea {
   display: grid;
   grid-template-columns: 7px minmax(0, 1fr) auto;
   gap: 14px;
-  align-items: start;
+  align-items: stretch;
   min-height: 136px;
   padding: 14px;
-  overflow: hidden;
   border: 1px solid rgba(216, 224, 235, 0.95);
   border-radius: 8px;
   background: var(--surface-raised);
@@ -940,7 +939,6 @@ textarea {
 
 .category-rail {
   width: 7px;
-  min-height: 100%;
   border-radius: 8px;
   background: var(--accent);
 }
@@ -963,8 +961,6 @@ textarea {
 
 .item-main {
   min-width: 0;
-  max-width: 100%;
-  overflow: hidden;
 }
 
 .item-meta {
@@ -996,13 +992,10 @@ textarea {
 }
 
 .item-card h2 {
-  max-width: 100%;
-  margin: 0 0 8px;
+  margin-bottom: 8px;
   font-size: 18px;
   line-height: 1.42;
   letter-spacing: 0;
-  word-break: keep-all;
-  overflow-wrap: anywhere;
 }
 
 .item-card h2 a {
@@ -1017,17 +1010,13 @@ textarea {
 
 .item-card p {
   display: -webkit-box;
-  max-width: 100%;
-  max-height: calc(14px * 1.58 * 2);
-  margin: 0 0 10px;
-  overflow: hidden;
+  margin-bottom: 10px;
   color: var(--ink-soft);
   font-size: 14px;
   line-height: 1.58;
-  word-break: keep-all;
-  overflow-wrap: anywhere;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .item-evidence {
