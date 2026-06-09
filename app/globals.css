@@ -83,6 +83,20 @@ p {
   line-height: 1.6;
 }
 
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer p + p {
+  margin-top: 5px;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .app-header {
   display: flex;
   align-items: center;
