@@ -337,7 +337,7 @@ export default function AiSummaryDialog({
             </label>
 
             <p className="modal-note">
-              {`${provider.note} 키는 이 브라우저에 저장됩니다. 실제 API 호출은 아래 진행 버튼을 눌렀을 때만 실행됩니다.`}
+              개인 API KEY 필요(유료). 키는 이 브라우저에 저장되며, 진행 버튼을 누를 때만 사용됩니다.
             </p>
 
             <div className="modal-actions">
@@ -360,7 +360,7 @@ export default function AiSummaryDialog({
             </div>
 
             <p className="modal-note">
-              모델과 키를 확인한 뒤 진행 버튼을 누르면 요약을 시작합니다. 공용 PC에서는 사용 후 키를 삭제하세요.
+              개인 API KEY 필요(유료). 공용 PC에서는 사용 후 키를 삭제하세요.
             </p>
 
             <div className="modal-actions">

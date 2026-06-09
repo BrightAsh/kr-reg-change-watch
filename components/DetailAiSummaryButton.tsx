@@ -52,14 +52,17 @@ export default function DetailAiSummaryButton({
 
   return (
     <>
-      <button
-        className="detail-action-button detail-ai-button"
-        type="button"
-        disabled={!readableText.trim()}
-        onClick={() => setOpen(true)}
-      >
-        AI 요약
-      </button>
+      <div className="ai-action-stack detail-ai-action">
+        <button
+          className="detail-action-button detail-ai-button"
+          type="button"
+          disabled={!readableText.trim()}
+          onClick={() => setOpen(true)}
+        >
+          AI 요약
+        </button>
+        <span className="ai-action-note">개인 API KEY 필요(유료)</span>
+      </div>
 
       <AiSummaryDialog
         open={open}

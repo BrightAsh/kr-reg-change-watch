@@ -84,6 +84,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   const [aiOpen, setAiOpen] = useState(false);
   const [aiRun, setAiRun] = useState(emptyAiRunState);
   const [urlReady, setUrlReady] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const enrichedItems = useMemo(
     () =>
@@ -321,11 +322,23 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     setActiveFilter(null);
   }
 
+  const workspaceClassName = [
+    "app-workspace",
+    workspaceMode === "public-system" ? "system-workspace" : "",
+    sidebarCollapsed ? "sidebar-collapsed" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const sidePanelClassName = [
+    "side-panel",
+    workspaceMode === "public-system" ? "system-side-panel" : "",
+    sidebarCollapsed ? "collapsed" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <section
-      className={workspaceMode === "public-system" ? "app-workspace system-workspace" : "app-workspace"}
-      aria-label="규제 변경 탐색"
-    >
+    <section className={workspaceClassName} aria-label="규제 변경 탐색">
       <nav className="workspace-tabs" aria-label="수집 범위">
         <button
           className={workspaceMode === "all" ? "active" : ""}
@@ -342,83 +355,94 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
           <span>공공기관 운영 법령 및 정부지침 체계</span>
         </button>
       </nav>
-      <aside className={workspaceMode === "public-system" ? "side-panel system-side-panel" : "side-panel"} aria-label="날짜와 분류">
-        <section className="calendar-card" aria-label="날짜 선택">
-          <div className="calendar-toolbar">
-            <button type="button" aria-label="이전 달" onClick={() => shiftMonth(-1)}>
-              &lt;
-            </button>
-            <strong>{formatMonthLabel(monthCursor)}</strong>
-            <button type="button" aria-label="다음 달" onClick={() => shiftMonth(1)}>
-              &gt;
-            </button>
-          </div>
-          <div className="calendar-weekdays" aria-hidden="true">
-            {weekdays.map((day) => (
-              <span key={day}>{day}</span>
-            ))}
-          </div>
-          <div className="calendar-grid">
-            {calendarCells.map((cell, index) => {
-              if (!cell.date) return <div className="calendar-empty" key={`empty-${index}`} />;
-              const date = cell.date;
-              const count = dateCounts.get(date) || 0;
-              const collected = collectedDateSet.has(date);
-              return (
-                <button
-                  className={calendarClassName(date, index, selectedDate, count, collected)}
-                  key={date}
-                  type="button"
-                  aria-label={`${formatDateLabel(date)} ${collected ? `${count}건 수집 완료` : "수집 전"}`}
-                  onClick={() => selectCalendarDate(date)}
-                >
-                  <span>{cell.day}</span>
-                  <small>{collected ? count.toLocaleString("ko-KR") : "-"}</small>
-                </button>
-              );
-            })}
-          </div>
-        </section>
-
-        {workspaceMode === "public-system" ? (
-          <nav className="category-summary system-summary" aria-label="9개 공공기관 운영 체계">
-            <button
-              className={activeSystemGroup === "all" ? "active" : ""}
-              type="button"
-              onClick={() => setActiveSystemGroup("all")}
-            >
-              <span>9개 항목 전체</span>
-              <strong>{dateScopedItems.length.toLocaleString("ko-KR")}</strong>
-            </button>
-            {publicInstitutionSystemGroups.map((group) => (
-              <button
-                className={activeSystemGroup === group.id ? "active" : ""}
-                key={group.id}
-                type="button"
-                onClick={() => setActiveSystemGroup(group.id)}
-              >
-                <span>
-                  {group.order}. {group.title}
-                </span>
-                <strong>{(systemCounts.get(group.id) || 0).toLocaleString("ko-KR")}</strong>
+      <aside className={sidePanelClassName} aria-label="날짜와 분류">
+        <button
+          className="calendar-collapse-toggle"
+          type="button"
+          aria-expanded={!sidebarCollapsed}
+          onClick={() => setSidebarCollapsed((current) => !current)}
+        >
+          <span className="collapse-label-desktop">{sidebarCollapsed ? ">>" : "<<"}</span>
+          <span className="collapse-label-mobile">{sidebarCollapsed ? "↓ 아래로 펼치기" : "↑ 위로 접기"}</span>
+        </button>
+        <div className="side-panel-inner" aria-hidden={sidebarCollapsed}>
+          <section className="calendar-card" aria-label="날짜 선택">
+            <div className="calendar-toolbar">
+              <button type="button" aria-label="이전 달" onClick={() => shiftMonth(-1)}>
+                &lt;
               </button>
-            ))}
-          </nav>
-        ) : (
-          <nav className="category-summary" aria-label="문서 분류">
-            {categoryFilters.map((tab) => (
-            <button
-              className={category === tab.value ? "active" : ""}
-              key={tab.value}
-              type="button"
-              onClick={() => setCategory(tab.value)}
-            >
-              <span>{tab.label}</span>
-              <strong>{counts[tab.value].toLocaleString("ko-KR")}</strong>
-            </button>
-            ))}
-          </nav>
-        )}
+              <strong>{formatMonthLabel(monthCursor)}</strong>
+              <button type="button" aria-label="다음 달" onClick={() => shiftMonth(1)}>
+                &gt;
+              </button>
+            </div>
+            <div className="calendar-weekdays" aria-hidden="true">
+              {weekdays.map((day) => (
+                <span key={day}>{day}</span>
+              ))}
+            </div>
+            <div className="calendar-grid">
+              {calendarCells.map((cell, index) => {
+                if (!cell.date) return <div className="calendar-empty" key={`empty-${index}`} />;
+                const date = cell.date;
+                const count = dateCounts.get(date) || 0;
+                const collected = collectedDateSet.has(date);
+                return (
+                  <button
+                    className={calendarClassName(date, index, selectedDate, count, collected)}
+                    key={date}
+                    type="button"
+                    aria-label={`${formatDateLabel(date)} ${collected ? `${count}건 수집 완료` : "수집 전"}`}
+                    onClick={() => selectCalendarDate(date)}
+                  >
+                    <span>{cell.day}</span>
+                    <small>{collected ? count.toLocaleString("ko-KR") : "-"}</small>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          {workspaceMode === "public-system" ? (
+            <nav className="category-summary system-summary" aria-label="9개 공공기관 운영 체계">
+              <button
+                className={activeSystemGroup === "all" ? "active" : ""}
+                type="button"
+                onClick={() => setActiveSystemGroup("all")}
+              >
+                <span>9개 항목 전체</span>
+                <strong>{dateScopedItems.length.toLocaleString("ko-KR")}</strong>
+              </button>
+              {publicInstitutionSystemGroups.map((group) => (
+                <button
+                  className={activeSystemGroup === group.id ? "active" : ""}
+                  key={group.id}
+                  type="button"
+                  onClick={() => setActiveSystemGroup(group.id)}
+                >
+                  <span>
+                    {group.order}. {group.title}
+                  </span>
+                  <strong>{(systemCounts.get(group.id) || 0).toLocaleString("ko-KR")}</strong>
+                </button>
+              ))}
+            </nav>
+          ) : (
+            <nav className="category-summary" aria-label="문서 분류">
+              {categoryFilters.map((tab) => (
+                <button
+                  className={category === tab.value ? "active" : ""}
+                  key={tab.value}
+                  type="button"
+                  onClick={() => setCategory(tab.value)}
+                >
+                  <span>{tab.label}</span>
+                  <strong>{counts[tab.value].toLocaleString("ko-KR")}</strong>
+                </button>
+              ))}
+            </nav>
+          )}
+        </div>
       </aside>
 
       <div className="content-stage">
@@ -483,9 +507,12 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
             <span>{resultStatus}</span>
             {activeFilterCount ? <small>{activeFilterCount.toLocaleString("ko-KR")}개 필터</small> : null}
           </div>
-          <button className="ai-brief-button" type="button" onClick={() => setAiOpen(true)}>
-            AI 브리핑
-          </button>
+          <div className="ai-action-stack">
+            <button className="ai-brief-button" type="button" onClick={() => setAiOpen(true)}>
+              AI 브리핑
+            </button>
+            <span className="ai-action-note">개인 API KEY 필요(유료)</span>
+          </div>
         </section>
 
         <AiInlineResult

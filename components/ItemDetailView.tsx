@@ -29,6 +29,7 @@ const sectionHeadings = new Set([
 ]);
 
 export default function ItemDetailView({ item, backHref, backLabel = "목록으로" }: Props) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const category = item.category || itemCategory(item);
   const readableSections = buildReadableSections(item.raw_text);
   const aiInput = buildAiInput(item, readableSections);
@@ -52,6 +53,14 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
 
   return (
     <main className="page-shell detail-shell">
+      <div className="detail-brand-bar">
+        <img src={`${basePath}/knoc.png`} alt="한국석유공사 로고" />
+        <div>
+          <p>한국석유공사</p>
+          <strong>법령·고시·지침 모니터링</strong>
+        </div>
+      </div>
+
       <DetailBackLink fallbackHref={backHref} label={backLabel} />
 
       <article className="detail-panel">
@@ -145,10 +154,11 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
               <h2>첨부 파일</h2>
             </div>
             <ul className="link-list">
-              {fileUrls.map((url) => (
+              {fileUrls.map((url, index) => (
                 <li key={url}>
-                  <a href={url} target="_blank" rel="noreferrer">
-                    {url}
+                  <a className="file-link" href={url} target="_blank" rel="noreferrer" title={url}>
+                    <span className="file-link-name">{attachmentFileLabel(url, index)}</span>
+                    <span className="file-link-meta">다운로드</span>
                   </a>
                 </li>
               ))}
@@ -158,6 +168,51 @@ export default function ItemDetailView({ item, backHref, backLabel = "목록으�
       </article>
     </main>
   );
+}
+
+function attachmentFileLabel(url: string, index: number): string {
+  try {
+    const parsed = new URL(url);
+    const fileNameKeys = [
+      "fileName",
+      "filename",
+      "fileNm",
+      "file_nm",
+      "atchFileNm",
+      "orginlFileNm",
+      "originalFileName",
+      "downFileName",
+      "name"
+    ];
+    for (const key of fileNameKeys) {
+      const value = parsed.searchParams.get(key);
+      if (value) return cleanFileName(value);
+    }
+
+    const pathName = parsed.pathname.split("/").filter(Boolean).pop();
+    if (pathName && isLikelyFileName(pathName)) return cleanFileName(pathName);
+    if (parsed.hostname.includes("law.go.kr") && parsed.searchParams.get("flSeq")) {
+      return `법제처 첨부파일 ${index + 1}`;
+    }
+  } catch {
+    const fallbackName = url.split(/[/?#]/).filter(Boolean).pop();
+    if (fallbackName && isLikelyFileName(fallbackName)) return cleanFileName(fallbackName);
+  }
+
+  return `첨부파일 ${index + 1}`;
+}
+
+function isLikelyFileName(value: string): boolean {
+  return /\.[a-z0-9]{2,8}$/i.test(value) && !/\.(?:do|jsp|php|aspx?|cgi)$/i.test(value);
+}
+
+function cleanFileName(value: string): string {
+  const normalized = value.replace(/\+/g, " ");
+  try {
+    return decodeURIComponent(normalized);
+  } catch {
+    return normalized;
+  }
 }
 
 function buildReadableSections(rawText: string): ReadableSection[] {
@@ -275,7 +330,7 @@ function isStandaloneParagraph(line: string): boolean {
 }
 
 function isLikelyInlineImageUrl(url: string): boolean {
-  return /\.(?:png|jpe?g|gif|webp|svg)(?:[?#]|$)/i.test(url) || /\/flDownload\.do\?flSeq=/i.test(url);
+  return /\.(?:png|jpe?g|gif|webp|svg)(?:[?#]|$)/i.test(url);
 }
 
 function tryBuildJsonSections(rawText: string): ReadableSection[] {
