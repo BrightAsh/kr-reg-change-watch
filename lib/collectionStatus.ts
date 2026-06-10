@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import type { CollectionLog, DailyCollection } from "./types";
 
-export type CollectionMethodState = "ok" | "error" | "skipped" | "not_started";
+export type CollectionMethodState = "ok" | "error" | "skipped" | "missing" | "not_started";
 export type CollectionDayState = "complete" | "partial" | "failed" | "not_started";
 
 export interface CollectionMethodStatus {
@@ -147,15 +147,17 @@ function buildDayStatus(date: string, daily: DailyCollection | null, failure: Fa
   const failureTime = timeValue(failure?.collected_at || failure?.attempted_at || null);
   const useFailure = Boolean(failure && (!daily || failureTime >= dailyTime));
   const logs = useFailure ? failure?.logs || [] : daily?.logs || [];
-  const methods = logs.length ? logs.map(methodFromLog) : expectedMethods.map((entry) => ({ ...entry }));
+  const methods = mergeExpectedMethods(logs, Boolean(daily || failure));
   const errorCount = methods.filter((entry) => entry.status === "error").length;
   const skippedCount = methods.filter((entry) => entry.status === "skipped").length;
+  const missingCount = methods.filter((entry) => entry.status === "missing").length;
   const okCount = methods.filter((entry) => entry.status === "ok").length;
 
   let status: CollectionDayState = "complete";
   if (errorCount && okCount) status = "partial";
   else if (errorCount && !okCount) status = "failed";
   else if (skippedCount) status = "partial";
+  else if (missingCount && okCount) status = "partial";
   if (useFailure && !okCount) status = "failed";
 
   return {
@@ -240,6 +242,71 @@ function methodFromLog(log: CollectionLog): CollectionMethodStatus {
     at: log.at || null,
     url: log.url
   };
+}
+
+function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): CollectionMethodStatus[] {
+  if (!attempted) return expectedMethods.map((entry) => ({ ...entry }));
+
+  const used = new Set<number>();
+  const merged = expectedMethods.map((expected) => {
+    const matches = logs
+      .map((log, index) => ({ log, index }))
+      .filter(({ log }) => sameMethod(expected, log));
+
+    for (const match of matches) used.add(match.index);
+
+    if (!matches.length) {
+      return {
+        ...expected,
+        status: "missing" as const,
+        count: null,
+        message: "이 날짜 수집 로그에 해당 수집방법 기록이 없습니다.",
+        at: null
+      };
+    }
+
+    const matchedLogs = matches.map((match) => match.log);
+    const hasError = matchedLogs.some((log) => log.status === "error");
+    const hasSkipped = matchedLogs.some((log) => log.status === "skipped");
+    const status: CollectionMethodState = hasError ? "error" : hasSkipped ? "skipped" : "ok";
+    const count = matchedLogs
+      .filter((log) => log.status === "ok")
+      .reduce((total, log) => total + (Number.isFinite(log.count) ? log.count : 0), 0);
+    const message = matchedLogs
+      .map((log) => log.message)
+      .filter(Boolean)
+      .join("\n");
+    const at = matchedLogs
+      .map((log) => log.at)
+      .filter(Boolean)
+      .sort()
+      .at(-1) || null;
+
+    return {
+      source: expected.source,
+      status,
+      count,
+      message,
+      at,
+      url: matchedLogs.find((log) => log.url)?.url || expected.url
+    };
+  });
+
+  const extraLogs = logs
+    .map((log, index) => ({ log, index }))
+    .filter(({ index }) => !used.has(index))
+    .map(({ log }) => methodFromLog(log));
+
+  return [...merged, ...extraLogs];
+}
+
+function sameMethod(expected: CollectionMethodStatus, log: CollectionLog): boolean {
+  const source = log.source || "";
+  if (!source) return false;
+  if (source === expected.source) return true;
+  if (source.startsWith(`${expected.source} `)) return true;
+  if (source.includes(expected.source) || expected.source.includes(source)) return true;
+  return false;
 }
 
 function enumerateDates(startDate: string, endDate: string): string[] {

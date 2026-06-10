@@ -2055,6 +2055,45 @@ textarea {
   padding: 14px;
 }
 
+.status-calendar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 2px;
+}
+
+.status-calendar-head h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.status-calendar-head button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-raised);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.status-calendar-head button:hover:not(:disabled) {
+  border-color: rgba(10, 132, 255, 0.34);
+  background: #eaf4ff;
+  color: var(--accent-dark);
+}
+
+.status-calendar-head button:disabled {
+  opacity: 0.42;
+}
+
 .status-month-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2073,6 +2112,10 @@ textarea {
   margin-bottom: 10px;
   font-size: 18px;
   line-height: 1.2;
+}
+
+.status-month.single {
+  padding: 16px;
 }
 
 .status-weekdays,
@@ -2261,6 +2304,15 @@ textarea {
   overflow-wrap: anywhere;
 }
 
+.status-detail-hint {
+  margin: -2px 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
 .status-method-list {
   display: grid;
   gap: 8px;
@@ -2290,25 +2342,29 @@ textarea {
   border-left-color: var(--orange);
 }
 
+.status-method.method-missing {
+  border-left-color: var(--muted);
+}
+
 .status-method-main {
   min-width: 0;
 }
 
+.status-method-main a,
 .status-method-main strong {
   display: block;
-  margin-bottom: 4px;
   color: var(--ink);
   font-size: 13px;
+  font-weight: 900;
   line-height: 1.35;
+  text-decoration: none;
   word-break: keep-all;
 }
 
-.status-method-main span {
-  display: block;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.35;
-  overflow-wrap: anywhere;
+.status-method-main a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .status-method-result {
@@ -2343,6 +2399,16 @@ textarea {
   list-style: none;
 }
 
+.status-method summary.method-muted {
+  background: #eef2f6;
+  color: var(--muted);
+}
+
+.status-method summary.method-count {
+  background: #eefaf4;
+  color: #08733f;
+}
+
 .status-method summary::-webkit-details-marker {
   display: none;
 }
@@ -2362,6 +2428,18 @@ textarea {
   font-weight: 800;
   line-height: 1.55;
   overflow-wrap: anywhere;
+}
+
+.status-method.method-ok details p {
+  background: #eefaf4;
+  color: #08733f;
+}
+
+.status-method.method-skipped details p,
+.status-method.method-missing details p,
+.status-method.method-not_started details p {
+  background: #f6f8fb;
+  color: var(--ink-soft);
 }
 
 .status-method details small {

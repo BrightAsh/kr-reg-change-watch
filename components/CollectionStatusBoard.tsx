@@ -18,6 +18,7 @@ const methodLabels = {
   ok: "성공",
   error: "오류",
   skipped: "건너뜀",
+  missing: "기록 없음",
   not_started: "수집 전"
 };
 
@@ -27,8 +28,19 @@ export default function CollectionStatusBoard({ report }: Props) {
   const defaultDate =
     [...report.days].reverse().find((day) => day.status !== "not_started")?.date || report.end_date;
   const [selectedDate, setSelectedDate] = useState(defaultDate);
+  const [monthCursor, setMonthCursor] = useState(defaultDate.slice(0, 7));
   const selected = report.days.find((day) => day.date === selectedDate) || report.days[report.days.length - 1];
-  const months = useMemo(() => groupMonths(report.days), [report.days]);
+  const monthKeys = useMemo(() => uniqueMonths(report.days), [report.days]);
+  const month = useMemo(() => buildMonth(report.days, monthCursor), [monthCursor, report.days]);
+  const monthIndex = monthKeys.indexOf(monthCursor);
+  const canMovePrev = monthIndex > 0;
+  const canMoveNext = monthIndex >= 0 && monthIndex < monthKeys.length - 1;
+
+  function shiftMonth(offset: number) {
+    const nextIndex = monthIndex + offset;
+    const nextMonth = monthKeys[nextIndex];
+    if (nextMonth) setMonthCursor(nextMonth);
+  }
 
   return (
     <section className="status-board" aria-label="수집 현황">
@@ -41,46 +53,50 @@ export default function CollectionStatusBoard({ report }: Props) {
 
       <div className="status-layout">
         <div className="status-calendar-wrap">
-          <div className="status-month-grid">
-            {months.map((month) => (
-              <section className="status-month" key={month.key} aria-label={`${month.label} 수집 현황`}>
-                <h2>{month.label}</h2>
-                <div className="status-weekdays" aria-hidden="true">
-                  {weekdays.map((day) => (
-                    <span key={day}>{day}</span>
-                  ))}
-                </div>
-                <div className="status-days">
-                  {month.cells.map((cell, index) =>
-                    cell ? (
-                      <button
-                        className={[
-                          "status-day",
-                          `status-${cell.status}`,
-                          cell.date === selected.date ? "selected" : ""
-                        ]
-                          .filter(Boolean)
-                          .join(" ")}
-                        key={cell.date}
-                        type="button"
-                        onClick={() => setSelectedDate(cell.date)}
-                      >
-                        <span>{Number(cell.date.slice(8, 10))}</span>
-                        <strong>{stateLabels[cell.status]}</strong>
-                        {cell.status === "complete" || cell.status === "partial" ? (
-                          <small>{cell.item_count.toLocaleString("ko-KR")}건</small>
-                        ) : (
-                          <small>{cell.status === "failed" ? "로그 확인" : "-"}</small>
-                        )}
-                      </button>
-                    ) : (
-                      <div className="status-day-empty" key={`empty-${month.key}-${index}`} />
-                    )
-                  )}
-                </div>
-              </section>
-            ))}
+          <div className="status-calendar-head">
+            <button type="button" onClick={() => shiftMonth(-1)} disabled={!canMovePrev} aria-label="이전 달">
+              &lt;
+            </button>
+            <h2>{formatMonthLabel(monthCursor)}</h2>
+            <button type="button" onClick={() => shiftMonth(1)} disabled={!canMoveNext} aria-label="다음 달">
+              &gt;
+            </button>
           </div>
+          <section className="status-month single" aria-label={`${formatMonthLabel(monthCursor)} 수집 현황`}>
+            <div className="status-weekdays" aria-hidden="true">
+              {weekdays.map((day) => (
+                <span key={day}>{day}</span>
+              ))}
+            </div>
+            <div className="status-days">
+              {month.cells.map((cell, index) =>
+                cell ? (
+                  <button
+                    className={[
+                      "status-day",
+                      `status-${cell.status}`,
+                      cell.date === selected.date ? "selected" : ""
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    key={cell.date}
+                    type="button"
+                    onClick={() => setSelectedDate(cell.date)}
+                  >
+                    <span>{Number(cell.date.slice(8, 10))}</span>
+                    <strong>{stateLabels[cell.status]}</strong>
+                    {cell.status === "complete" || cell.status === "partial" ? (
+                      <small>{cell.item_count.toLocaleString("ko-KR")}건</small>
+                    ) : (
+                      <small>{cell.status === "failed" ? "로그 확인" : "-"}</small>
+                    )}
+                  </button>
+                ) : (
+                  <div className="status-day-empty" key={`empty-${monthCursor}-${index}`} />
+                )
+              )}
+            </div>
+          </section>
         </div>
 
         <aside className="status-detail" aria-label={`${selected.date} 수집 상세`}>
@@ -106,16 +122,29 @@ export default function CollectionStatusBoard({ report }: Props) {
             </div>
           </dl>
 
+          <p className="status-detail-hint">
+            수집방법 이름을 누르면 해당 출처로 이동합니다. 건수 또는 오류를 누르면 수집 로그가 열립니다.
+          </p>
+
           <div className="status-method-list">
             {selected.methods.map((method, index) => (
               <article className={`status-method method-${method.status}`} key={`${method.source}-${index}`}>
                 <div className="status-method-main">
-                  <strong>{method.source}</strong>
-                  <span>{method.url || "URL 없음"}</span>
+                  {method.url ? (
+                    <a href={method.url} target="_blank" rel="noreferrer" title="출처 페이지로 이동">
+                      {method.source}
+                    </a>
+                  ) : (
+                    <strong>{method.source}</strong>
+                  )}
                 </div>
                 <div className="status-method-result">
                   {method.status === "ok" ? (
-                    <span className="method-count">{(method.count || 0).toLocaleString("ko-KR")}건</span>
+                    <details>
+                      <summary className="method-count">{(method.count || 0).toLocaleString("ko-KR")}건</summary>
+                      <p>{method.message || "정상 수집되었습니다."}</p>
+                      {method.at ? <small>{formatDateTime(method.at)}</small> : null}
+                    </details>
                   ) : method.status === "error" ? (
                     <details>
                       <summary>오류</summary>
@@ -123,7 +152,11 @@ export default function CollectionStatusBoard({ report }: Props) {
                       {method.at ? <small>{formatDateTime(method.at)}</small> : null}
                     </details>
                   ) : (
-                    <span>{methodLabels[method.status]}</span>
+                    <details>
+                      <summary className="method-muted">{methodLabels[method.status]}</summary>
+                      <p>{method.message || methodLabels[method.status]}</p>
+                      {method.at ? <small>{formatDateTime(method.at)}</small> : null}
+                    </details>
                   )}
                 </div>
               </article>
@@ -152,25 +185,24 @@ function StatusSummaryItem({
   );
 }
 
-function groupMonths(days: CollectionDayStatus[]) {
-  const grouped = new Map<string, CollectionDayStatus[]>();
-  for (const day of days) {
-    const key = day.date.slice(0, 7);
-    grouped.set(key, [...(grouped.get(key) || []), day]);
-  }
-  return [...grouped.entries()].map(([key, monthDays]) => {
-    const [year, month] = key.split("-").map(Number);
-    const cells: Array<CollectionDayStatus | null> = [];
-    const firstWeekday = new Date(year, month - 1, 1).getDay();
-    for (let index = 0; index < firstWeekday; index += 1) cells.push(null);
-    cells.push(...monthDays);
-    while (cells.length % 7 !== 0) cells.push(null);
-    return {
-      key,
-      label: `${year}년 ${month}월`,
-      cells
-    };
-  });
+function uniqueMonths(days: CollectionDayStatus[]): string[] {
+  return [...new Set(days.map((day) => day.date.slice(0, 7)))].sort();
+}
+
+function buildMonth(days: CollectionDayStatus[], monthKey: string) {
+  const monthDays = days.filter((day) => day.date.startsWith(`${monthKey}-`));
+  const [year, month] = monthKey.split("-").map(Number);
+  const cells: Array<CollectionDayStatus | null> = [];
+  const firstWeekday = new Date(year, month - 1, 1).getDay();
+  for (let index = 0; index < firstWeekday; index += 1) cells.push(null);
+  cells.push(...monthDays);
+  while (cells.length < 42) cells.push(null);
+  return { cells };
+}
+
+function formatMonthLabel(monthKey: string): string {
+  const [year, month] = monthKey.split("-");
+  return `${year}년 ${Number(month)}월`;
 }
 
 function formatDateLabel(date: string): string {
