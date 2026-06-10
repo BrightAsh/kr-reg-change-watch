@@ -101,9 +101,6 @@ jobs:
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
       BACKFILL_MODE: ${{ github.event.inputs.backfill_mode == 'true' && '1' || '0' }}
-      FETCH_RETRIES: ${{ github.event.inputs.backfill_mode == 'true' && '1' || '' }}
-      FETCH_TIMEOUT_MS: ${{ github.event.inputs.backfill_mode == 'true' && '10000' || '' }}
-      FETCH_CURL_FALLBACK: ${{ github.event.inputs.backfill_mode == 'true' && '0' || '' }}
       FETCH_MAX_PAGES: ${{ github.event.inputs.backfill_mode == 'true' && '200' || '' }}
       MOTIR_FETCH_MAX_PAGES: ${{ github.event.inputs.backfill_mode == 'true' && '200' || '' }}
       GITHUB_TOKEN: ${{ github.token }}
@@ -119,6 +116,35 @@ jobs:
       - name: Install ALIO attachment extractor dependencies
         if: github.event_name != 'push'
         run: python3 -m pip install --user olefile pypdf
+
+      - name: Check Korean site connectivity
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.backfill_mode == 'true' }}
+        run: |
+          set +e
+          urls=(
+            "https://www.law.go.kr"
+            "https://www.lawmaking.go.kr"
+            "https://open.gwanbo.go.kr"
+            "https://www.mois.go.kr"
+            "https://mofe.go.kr"
+            "https://www.motir.go.kr"
+            "https://www.alio.go.kr"
+            "https://www.korea.kr"
+          )
+          failed=0
+          for url in "${urls[@]}"; do
+            code="$(curl -L -4 --http1.1 --connect-timeout 8 --max-time 12 -sS -o /dev/null -w "%{http_code}" "$url" 2>/tmp/connectivity-error || true)"
+            if [ "$code" = "000" ] || [ -z "$code" ]; then
+              failed=$((failed + 1))
+              echo "Connectivity failed: $url ($(cat /tmp/connectivity-error))"
+            else
+              echo "Connectivity ok: $url HTTP $code"
+            fi
+          done
+          if [ "$failed" -ge 5 ]; then
+            echo "Too many Korean source sites are unreachable from this runner. Failing fast so another single-date run can be retried."
+            exit 1
+          fi
 
       - name: Collect official changes
         if: github.event_name != 'push'
