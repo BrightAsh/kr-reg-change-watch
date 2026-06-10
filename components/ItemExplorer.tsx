@@ -433,6 +433,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
             </nav>
           )}
         </div>
+        {!sidebarCollapsed ? <WorkspaceFootnote className="workspace-footnote-panel" /> : null}
       </aside>
 
       <div className="content-stage">
@@ -514,7 +515,17 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
             </div>
           )}
         </section>
+        {sidebarCollapsed ? <WorkspaceFootnote className="workspace-footnote-content" /> : null}
       </div>
+
+      <button
+        className="scroll-top-button"
+        type="button"
+        aria-label="페이지 맨 위로 이동"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        TOP
+      </button>
 
       <AiSummaryDialog
         open={aiOpen}
@@ -531,6 +542,19 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         onRunStateChange={setAiRun}
       />
     </section>
+  );
+}
+
+function WorkspaceFootnote({ className }: { className: string }) {
+  return (
+    <footer className={`workspace-footnote ${className}`} aria-label="저작권과 문의">
+      <p>© 한국석유공사(KNOC). 본 웹사이트 및 수집·정리 프로그램의 저작권은 한국석유공사에 있습니다.</p>
+      <p>
+        사용 중 문제나 의견 사항이 있으면 연락해 주세요.{" "}
+        <a href="tel:0522162526">052)216-2526</a> ·{" "}
+        <a href="mailto:myeongjae.song@knoc.co.kr">myeongjae.song@knoc.co.kr</a>
+      </p>
+    </footer>
   );
 }
 

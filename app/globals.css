@@ -97,6 +97,10 @@ p {
   text-underline-offset: 2px;
 }
 
+main.app-shell + .site-footer {
+  display: none;
+}
+
 .app-header {
   display: flex;
   align-items: center;
@@ -411,6 +415,43 @@ p {
   opacity: 0;
   pointer-events: none;
   transform: translateY(-18px);
+}
+
+.workspace-footnote {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid rgba(216, 224, 235, 0.92);
+  border-radius: 8px;
+  background: rgba(248, 250, 252, 0.9);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.55;
+  box-shadow: var(--shadow-line);
+}
+
+.workspace-footnote p {
+  margin: 0;
+}
+
+.workspace-footnote a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.workspace-footnote-panel {
+  width: 100%;
+}
+
+.workspace-footnote-content {
+  grid-row: 4;
+}
+
+.side-panel.collapsed .workspace-footnote-panel {
+  display: none;
 }
 
 .calendar-card,
@@ -917,6 +958,44 @@ textarea {
   max-height: none;
   overflow: visible;
   padding-right: 0;
+}
+
+.scroll-top-button {
+  position: fixed;
+  top: 50%;
+  right: max(18px, calc((100vw - 1440px) / 2 + 18px));
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  min-width: 52px;
+  height: 52px;
+  min-height: 52px;
+  padding: 0;
+  border: 1px solid rgba(10, 132, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0;
+  box-shadow: 0 14px 34px rgba(33, 43, 58, 0.16), var(--shadow-line);
+  transform: translateY(-50%);
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.scroll-top-button:hover {
+  border-color: rgba(10, 132, 255, 0.45);
+  background: #eaf4ff;
+  color: var(--accent-dark);
+  box-shadow: 0 18px 42px rgba(10, 132, 255, 0.18), var(--shadow-line);
+  transform: translateY(-52%);
 }
 
 .item-card {
@@ -2813,6 +2892,21 @@ textarea {
 
   .search-field {
     min-width: 190px;
+  }
+
+  .scroll-top-button {
+    top: auto;
+    right: 14px;
+    bottom: 16px;
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    min-height: 48px;
+    transform: none;
+  }
+
+  .scroll-top-button:hover {
+    transform: translateY(-2px);
   }
 
   .ai-provider-grid {
