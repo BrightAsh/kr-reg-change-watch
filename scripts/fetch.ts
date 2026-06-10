@@ -58,7 +58,7 @@ loadDotEnv();
 const args = parseArgs();
 const lookback = Number(env("FETCH_LOOKBACK_DAYS", "1"));
 const targetDate = String(args.date || dateDaysAgo(Number.isFinite(lookback) ? lookback : 1));
-const maxPages = Number(env("FETCH_MAX_PAGES", "5"));
+const maxPages = Math.max(1, Number(env("FETCH_MAX_PAGES", "50")) || 50);
 const detailLimit = Number(env("FETCH_DETAIL_LIMIT", "30"));
 const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "500")) || 500;
 const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 12000;
@@ -114,6 +114,30 @@ type SourceGroup =
   | "alio"
   | "policy-rss"
   | "naver-news";
+
+const NETWORK_FAILURE_PATTERNS = [
+  /fetch failed/i,
+  /timeout/i,
+  /timed out/i,
+  /failed to connect/i,
+  /curl fallback failed/i,
+  /SIGTERM/i,
+  /ETIMEDOUT/i,
+  /ECONNRESET/i,
+  /ENOTFOUND/i,
+  /EAI_AGAIN/i
+];
+
+const CRITICAL_CONNECTIVITY_GROUPS: { id: string; sourceGroup: SourceGroup; patterns: RegExp[] }[] = [
+  { id: "official-law", sourceGroup: "official-law", patterns: [/law\.go\.kr\/DRF/i, /law\.go\.kr\/LSW/i] },
+  { id: "lawmaking", sourceGroup: "lawmaking", patterns: [/lawmaking\.go\.kr/i] },
+  { id: "gazette", sourceGroup: "gazette", patterns: [/gwanbo\.go\.kr/i] },
+  { id: "mois-board", sourceGroup: "ministry-board", patterns: [/mois\.go\.kr/i] },
+  { id: "moef-board", sourceGroup: "ministry-board", patterns: [/mofe\.go\.kr/i] },
+  { id: "motir-board", sourceGroup: "motir", patterns: [/motir\.go\.kr/i] },
+  { id: "alio", sourceGroup: "alio", patterns: [/alio\.go\.kr/i] },
+  { id: "policy-rss", sourceGroup: "policy-rss", patterns: [/korea\.kr/i] }
+];
 
 const ALIO_SOURCES: AlioSource[] = [
   {
@@ -231,7 +255,7 @@ const MINISTRY_ROUTES: MinistryRoute[] = [
   }
 ];
 
-const MOTIR_MAX_PAGES = 20;
+const MOTIR_MAX_PAGES = Math.max(1, Number(env("MOTIR_FETCH_MAX_PAGES", String(maxPages))) || maxPages);
 
 const MOTIR_ROUTES: MinistryRoute[] = [
   {
@@ -363,6 +387,17 @@ async function main() {
   await runSource("policy-rss", logs, collected, () => fetchPolicyRss(logs));
   await runSource("naver-news", logs, collected, () => fetchNaverNews(logs));
 
+  const healthError = collectionHealthError(logs);
+  if (healthError) {
+    await writeJson(path.join(logsDir, `failed-${targetDate}.json`), {
+      date: targetDate,
+      collected_at: new Date().toISOString(),
+      message: healthError,
+      logs
+    });
+    throw new Error(healthError);
+  }
+
   const scopedCollected = normalizeAndFilterByTargetDate(collected);
   const scoped = await mergePartialSourceItems(scopedCollected);
   const existing = await readJson<CollectedItem[]>(itemsPath, []);
@@ -408,6 +443,24 @@ async function runSource(
   } catch (error) {
     addLog(logs, "collector", "error", error instanceof Error ? error.message : String(error));
   }
+}
+
+function collectionHealthError(logs: CollectionLog[]): string {
+  const expectedGroups = CRITICAL_CONNECTIVITY_GROUPS.filter((group) => shouldRunSource(group.sourceGroup));
+  if (!expectedGroups.length) return "";
+
+  const failedGroups = expectedGroups.filter((group) =>
+    logs.some((log) => {
+      if (log.status !== "error") return false;
+      const textValue = `${log.source || ""} ${log.message || ""} ${log.url || ""}`;
+      return group.patterns.some((pattern) => pattern.test(textValue)) && NETWORK_FAILURE_PATTERNS.some((pattern) => pattern.test(textValue));
+    })
+  );
+
+  const failureThreshold = partialSourceCollect ? expectedGroups.length : Math.min(5, Math.ceil(expectedGroups.length * 0.6));
+  if (failedGroups.length < failureThreshold) return "";
+
+  return `Critical source connectivity failure for ${targetDate}: ${failedGroups.map((group) => group.id).join(", ")}`;
 }
 
 function shouldRunSource(group: SourceGroup): boolean {

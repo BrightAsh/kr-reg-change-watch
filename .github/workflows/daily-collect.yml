@@ -41,11 +41,18 @@ on:
         required: false
         type: string
 
+      backfill_mode:
+        description: "Internal option for date-range child runs."
+        required: false
+        type: boolean
+        default: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
   contents: write
+  actions: write
   pages: write
   id-token: write
 
@@ -58,6 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
       pages: write
       id-token: write
     environment:
@@ -92,6 +100,13 @@ jobs:
       TARGET_DATE_RANGE_END: ${{ github.event.inputs.date_range_end }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
+      BACKFILL_MODE: ${{ github.event.inputs.backfill_mode == 'true' && '1' || '0' }}
+      FETCH_RETRIES: ${{ github.event.inputs.backfill_mode == 'true' && '1' || '' }}
+      FETCH_TIMEOUT_MS: ${{ github.event.inputs.backfill_mode == 'true' && '10000' || '' }}
+      FETCH_CURL_FALLBACK: ${{ github.event.inputs.backfill_mode == 'true' && '0' || '' }}
+      FETCH_MAX_PAGES: ${{ github.event.inputs.backfill_mode == 'true' && '200' || '' }}
+      MOTIR_FETCH_MAX_PAGES: ${{ github.event.inputs.backfill_mode == 'true' && '200' || '' }}
+      GITHUB_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
 
@@ -109,69 +124,38 @@ jobs:
         if: github.event_name != 'push'
         run: |
           if [ -n "$TARGET_DATE_RANGE_START" ] && [ -n "$TARGET_DATE_RANGE_END" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            commit_range_progress() {
-              label="$1"
-              git pull --rebase --autostash origin main
-              git add data
-              if git diff --cached --quiet; then
-                echo "No collected data changes to commit for ${label}."
-              else
-                git commit -m "Collect regulatory changes for ${label}"
-                git push
-              fi
-            }
             range_label="${TARGET_DATE_RANGE_START}_to_${TARGET_DATE_RANGE_END}"
             run_log="data/collection-runs/${range_label}.log"
-            failure_log="data/collection-failures/${range_label}.log"
             mkdir -p data/collection-runs
             : > "$run_log"
             current="$TARGET_DATE_RANGE_START"
             while [ "$(date -d "$current" +%s)" -le "$(date -d "$TARGET_DATE_RANGE_END" +%s)" ]; do
-              echo "Collecting $current"
-              set +e
-              if [ "$FORCE_COLLECT" = "1" ]; then
-                npm run collect -- --date "$current" --force
-              else
-                npm run collect -- --date "$current"
-              fi
-              status=$?
-              set -e
-              if [ "$status" -ne 0 ]; then
-                mkdir -p data/collection-failures
-                echo "$current status=failure exit_code=$status" | tee -a "$run_log"
-                echo "$current exit_code=$status" | tee -a "$failure_log"
-                echo "Collection failed for $current. Continuing with next date."
-                commit_range_progress "failed ${current}"
-              else
-                echo "$current status=success exit_code=0" | tee -a "$run_log"
-                commit_range_progress "$current"
-              fi
+              echo "Dispatching single-date backfill for $current"
+              payload="$(jq -n \
+                --arg ref "${GITHUB_REF_NAME}" \
+                --arg date "$current" \
+                --arg sources "$COLLECT_SOURCES" \
+                --arg mail_to "$MAIL_TO_OVERRIDE" \
+                '{ref: $ref, inputs: {target_date: $date, force: "true", collect_sources: $sources, send_mail: "false", mail_to_override: $mail_to, backfill_mode: "true"}}')"
+              curl --fail-with-body -sS -X POST \
+                -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+                -H "Accept: application/vnd.github+json" \
+                -H "X-GitHub-Api-Version: 2022-11-28" \
+                "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/daily-collect.yml/dispatches" \
+                -d "$payload"
+              echo "$current status=dispatched" | tee -a "$run_log"
               current="$(date -I -d "$current + 1 day")"
+              sleep 2
             done
-            success_count="$(grep -c ' status=success ' "$run_log" || true)"
-            failure_count="$(grep -c ' status=failure ' "$run_log" || true)"
-            if [ -s "$failure_log" ]; then
-              {
-                echo "### Date range collection result"
-                echo ""
-                echo "- Success: ${success_count}"
-                echo "- Failure: ${failure_count}"
-                echo ""
-                echo "The workflow continued after the following date-level failures:"
-                echo ""
-                sed 's/^/- /' "$failure_log"
-              } >> "$GITHUB_STEP_SUMMARY"
-            else
-              rm -f "$failure_log"
-              {
-                echo "### Date range collection result"
-                echo ""
-                echo "- Success: ${success_count}"
-                echo "- Failure: 0"
-              } >> "$GITHUB_STEP_SUMMARY"
-            fi
+            dispatched_count="$(grep -c ' status=dispatched' "$run_log" || true)"
+            {
+              echo "### Date range dispatch result"
+              echo ""
+              echo "- Dispatched single-date backfill runs: ${dispatched_count}"
+              echo "- Range: ${TARGET_DATE_RANGE_START} to ${TARGET_DATE_RANGE_END}"
+              echo ""
+              echo "Each date now runs as its own workflow run with a fresh GitHub runner."
+            } >> "$GITHUB_STEP_SUMMARY"
           elif [ -n "$TARGET_DATE" ]; then
             if [ "$FORCE_COLLECT" = "1" ]; then
               npm run collect -- --date "$TARGET_DATE" --force
@@ -183,7 +167,7 @@ jobs:
           fi
 
       - name: Commit collected data
-        if: github.event_name != 'push'
+        if: ${{ github.event_name != 'push' && !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -202,7 +186,7 @@ jobs:
           fi
 
       - name: Send mail alerts
-        if: github.event_name == 'schedule' || github.event.inputs.send_mail == 'true'
+        if: ${{ (github.event_name == 'schedule' || github.event.inputs.send_mail == 'true') && !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
         run: |
           if [ -n "$TARGET_DATE_RANGE_START" ] && [ -n "$TARGET_DATE_RANGE_END" ]; then
             failure_log="data/collection-failures/${TARGET_DATE_RANGE_START}_to_${TARGET_DATE_RANGE_END}.log"
@@ -224,13 +208,17 @@ jobs:
           fi
 
       - name: Build static app
+        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
         run: npm run build
 
       - uses: actions/configure-pages@v5
+        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
 
       - uses: actions/upload-pages-artifact@v3
+        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
         with:
           path: out
 
       - id: deployment
+        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
         uses: actions/deploy-pages@v4

@@ -128,6 +128,15 @@ export async function fetchText(url: string, init: RequestInit = {}): Promise<st
     }
   }
 
+  const curlFallback = env("FETCH_CURL_FALLBACK", "1").toLowerCase();
+  if (curlFallback === "0" || curlFallback === "false" || curlFallback === "no") {
+    throw new Error(
+      `GET ${url} failed after ${retries} attempt(s): ${
+        lastError instanceof Error ? lastError.message : String(lastError)
+      }`
+    );
+  }
+
   try {
     return await fetchTextWithCurl(url, init, timeoutMs, retries);
   } catch (curlError) {
