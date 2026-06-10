@@ -1,341 +1,274 @@
 [
   {
-    "source": "collector",
-    "status": "error",
-    "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260401 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T00:19:04.377Z"
+    "source": "국가법령정보센터 법령 변경이력 본문 보강",
+    "status": "ok",
+    "message": "법제처 lawService API로 개정문/제개정이유 57건을 보강했습니다.",
+    "count": 57,
+    "at": "2026-06-10T01:32:36.202Z",
+    "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
-    "source": "collector",
-    "status": "error",
-    "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260401 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T00:20:28.116Z"
+    "source": "국가법령정보센터 법령 변경이력",
+    "status": "ok",
+    "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 64행을 법령 단위 57건으로 묶었습니다.",
+    "count": 57,
+    "at": "2026-06-10T01:32:36.202Z",
+    "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
-    "source": "collector",
-    "status": "error",
-    "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260401&sort=ddes failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T00:21:51.856Z"
+    "source": "국가법령정보센터 일자별 조문 개정 이력",
+    "status": "ok",
+    "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+    "count": 2,
+    "at": "2026-06-10T01:32:37.370Z",
+    "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
-    "source": "collector",
-    "status": "error",
-    "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260401&sort=ddes failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T00:23:15.596Z"
+    "source": "국가법령정보센터 행정규칙",
+    "status": "ok",
+    "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+    "count": 71,
+    "at": "2026-06-10T01:33:25.977Z",
+    "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+  },
+  {
+    "source": "국가법령정보센터 행정규칙 신구법 비교",
+    "status": "ok",
+    "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+    "count": 71,
+    "at": "2026-06-10T01:34:42.705Z",
+    "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
   },
   {
     "source": "국민참여입법센터 입법예고",
-    "status": "error",
-    "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "국민참여입법센터 공개 XML API 수집 완료.",
     "count": 0,
-    "at": "2026-06-10T00:27:26.810Z",
+    "at": "2026-06-10T01:34:44.823Z",
     "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
   },
   {
     "source": "국민참여입법센터 입법예고(수정일 기준)",
-    "status": "error",
-    "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "국민참여입법센터 공개 XML API 수집 완료.",
     "count": 0,
-    "at": "2026-06-10T00:31:38.024Z",
+    "at": "2026-06-10T01:34:45.759Z",
     "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
   },
   {
     "source": "국민참여입법센터 행정예고",
-    "status": "error",
-    "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ptcpAdmPp.xml?OC=busisi79&asndOfiNm=%EB%B2%95%EC%A0%9C%EC%B2%98&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ptcpAdmPp.xml?OC=busisi79&asndOfiNm=%ED%96%89%EC%A0%95%EC%95%88%EC%A0%84%EB%B6%80&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ptcpAdmPp.xml?OC=busisi79&asndOfiNm=%EA%B8%B0%ED%9A%8D%EC%9E%AC%EC%A0%95%EB%B6%80&stYdFmt=2026.4.1.&edYdFmt=2026.4.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "국민참여입법센터 공개 XML API 수집 완료.",
     "count": 0,
-    "at": "2026-06-10T00:35:49.240Z",
+    "at": "2026-06-10T01:34:46.696Z",
     "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
   },
   {
-    "source": "collector",
-    "status": "error",
-    "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260401&reqTo=20260401&fromDate=20260401&toDate=20260401&type=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "source": "대한민국 전자관보",
+    "status": "ok",
+    "message": "설정된 관보 API URL 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:37:12.973Z"
+    "at": "2026-06-10T01:34:47.988Z",
+    "url": "https://www.data.go.kr/data/15109157/openapi.do"
   },
   {
     "source": "행정안전부 훈령·예규·고시",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T00:38:36.711Z",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 1,
+    "at": "2026-06-10T01:34:54.303Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
   },
   {
     "source": "행정안전부 입법·행정예고",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:40:00.449Z",
+    "at": "2026-06-10T01:34:54.641Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
   },
   {
     "source": "행정안전부 법령자료실",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:41:24.185Z",
+    "at": "2026-06-10T01:34:55.762Z",
     "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
   },
   {
     "source": "기획재정부 법령자료실",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:42:47.924Z",
+    "at": "2026-06-10T01:35:03.360Z",
     "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
   },
   {
     "source": "기획재정부 영문법령정보",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T00:44:11.661Z",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 2,
+    "at": "2026-06-10T01:35:05.714Z",
     "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
   },
   {
     "source": "기획재정부 조세조약",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:45:35.398Z",
+    "at": "2026-06-10T01:35:06.873Z",
     "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
   },
   {
     "source": "기획재정부 훈령",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:46:59.133Z",
+    "at": "2026-06-10T01:35:11.159Z",
     "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
   },
   {
     "source": "기획재정부 예규",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T00:48:22.870Z",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 1,
+    "at": "2026-06-10T01:35:18.092Z",
     "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
   },
   {
     "source": "기획재정부 고시",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:49:46.607Z",
+    "at": "2026-06-10T01:35:21.774Z",
     "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
   },
   {
     "source": "기획재정부 공고",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:51:10.345Z",
+    "at": "2026-06-10T01:35:22.917Z",
     "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
   },
   {
     "source": "기획재정부 지침",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:52:34.084Z",
+    "at": "2026-06-10T01:35:24.340Z",
     "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
   },
   {
     "source": "기획재정부 입법예고",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:53:57.824Z",
+    "at": "2026-06-10T01:35:29.385Z",
     "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
   },
   {
     "source": "기획재정부 행정예고",
-    "status": "error",
-    "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:55:21.563Z",
+    "at": "2026-06-10T01:35:31.799Z",
     "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
   },
   {
     "source": "산업통상부 입법예고",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T00:56:45.301Z",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 2,
+    "at": "2026-06-10T01:35:40.477Z",
     "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
   },
   {
     "source": "산업통상부 행정예고",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa6723dc7b failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:58:09.039Z",
+    "at": "2026-06-10T01:35:43.200Z",
     "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
   },
   {
     "source": "산업통상부 고시",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL0c554f816 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T00:59:32.777Z",
+    "at": "2026-06-10T01:35:47.665Z",
     "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
   },
   {
     "source": "산업통상부 공고",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:00:56.515Z",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 4,
+    "at": "2026-06-10T01:36:08.508Z",
     "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
   },
   {
     "source": "산업통상부 구.정통부고시",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T01:02:20.253Z",
+    "at": "2026-06-10T01:36:09.526Z",
     "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
   },
   {
     "source": "산업통상부 구.재경부고시",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T01:03:43.988Z",
+    "at": "2026-06-10T01:36:10.380Z",
     "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
   },
   {
     "source": "산업통상부 훈령",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL825d20c7e failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T01:05:07.726Z",
+    "at": "2026-06-10T01:36:12.093Z",
     "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
   },
   {
     "source": "산업통상부 예규",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL520ce518e failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T01:06:31.464Z",
+    "at": "2026-06-10T01:36:14.118Z",
     "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
   },
   {
     "source": "산업통상부 지침",
-    "status": "error",
-    "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL516d59376 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-10T01:07:55.200Z",
+    "at": "2026-06-10T01:36:14.978Z",
     "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
   },
   {
     "source": "ALIO 공공기관 법령/지침",
-    "status": "error",
-    "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "ALIO 법령/지침 원문 수집 완료",
     "count": 0,
-    "at": "2026-06-10T01:09:18.939Z",
+    "at": "2026-06-10T01:36:19.906Z",
     "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
   },
   {
     "source": "ALIO 공공정책자료",
-    "status": "error",
-    "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+    "status": "ok",
+    "message": "ALIO 정책자료/보도자료 수집 완료",
     "count": 0,
-    "at": "2026-06-10T01:10:42.674Z",
+    "at": "2026-06-10T01:36:32.637Z",
     "url": "https://www.alio.go.kr/etc/etcPdsList.do"
-  },
-  {
-    "source": "ALIO 공공정책자료",
-    "status": "error",
-    "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:10:42.674Z",
-    "url": "https://www.alio.go.kr/etc/etcLawList.do"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/pressrelease.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:12:06.411Z",
-    "url": "http://www.korea.kr/rss/pressrelease.xml"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/policy.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:13:30.146Z",
-    "url": "http://www.korea.kr/rss/policy.xml"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_moleg.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:14:53.882Z",
-    "url": "http://www.korea.kr/rss/dept_moleg.xml"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_mois.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:16:17.617Z",
-    "url": "http://www.korea.kr/rss/dept_mois.xml"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_moef.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:17:41.349Z",
-    "url": "http://www.korea.kr/rss/dept_moef.xml"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/president.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:19:05.086Z",
-    "url": "http://www.korea.kr/rss/president.xml"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:20:28.822Z",
-    "url": "http://www.korea.kr/rss/speech.xml"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/cabinet.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:21:52.558Z",
-    "url": "http://www.korea.kr/rss/cabinet.xml"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/ebriefing.xml failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-    "count": 0,
-    "at": "2026-06-10T01:23:16.292Z",
-    "url": "http://www.korea.kr/rss/ebriefing.xml"
   },
   {
     "source": "대한민국 정책브리핑 RSS",
     "status": "ok",
     "message": "정책브리핑 RSS 수집 완료",
     "count": 0,
-    "at": "2026-06-10T01:23:16.292Z",
+    "at": "2026-06-10T01:36:44.249Z",
     "url": "https://www.korea.kr/etc/rss.do"
   },
   {
@@ -343,6 +276,6 @@
     "status": "ok",
     "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
     "count": 0,
-    "at": "2026-06-10T01:23:19.103Z"
+    "at": "2026-06-10T01:36:47.448Z"
   }
 ]
