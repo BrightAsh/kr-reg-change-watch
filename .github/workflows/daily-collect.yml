@@ -150,37 +150,25 @@ jobs:
         if: github.event_name != 'push'
         run: |
           if [ -n "$TARGET_DATE_RANGE_START" ] && [ -n "$TARGET_DATE_RANGE_END" ]; then
-            range_label="${TARGET_DATE_RANGE_START}_to_${TARGET_DATE_RANGE_END}"
-            run_log="data/collection-runs/${range_label}.log"
-            mkdir -p data/collection-runs
-            : > "$run_log"
-            current="$TARGET_DATE_RANGE_START"
-            while [ "$(date -d "$current" +%s)" -le "$(date -d "$TARGET_DATE_RANGE_END" +%s)" ]; do
-              echo "Dispatching single-date backfill for $current"
-              payload="$(jq -n \
-                --arg ref "${GITHUB_REF_NAME}" \
-                --arg date "$current" \
-                --arg sources "$COLLECT_SOURCES" \
-                --arg mail_to "$MAIL_TO_OVERRIDE" \
-                '{ref: $ref, inputs: {target_date: $date, force: "true", collect_sources: $sources, send_mail: "false", mail_to_override: $mail_to, backfill_mode: "true"}}')"
-              curl --fail-with-body -sS -X POST \
-                -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-                -H "Accept: application/vnd.github+json" \
-                -H "X-GitHub-Api-Version: 2022-11-28" \
-                "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/daily-collect.yml/dispatches" \
-                -d "$payload"
-              echo "$current status=dispatched" | tee -a "$run_log"
-              current="$(date -I -d "$current + 1 day")"
-              sleep 2
-            done
-            dispatched_count="$(grep -c ' status=dispatched' "$run_log" || true)"
+            payload="$(jq -n \
+              --arg ref "${GITHUB_REF_NAME}" \
+              --arg start "$TARGET_DATE_RANGE_START" \
+              --arg end "$TARGET_DATE_RANGE_END" \
+              --arg sources "$COLLECT_SOURCES" \
+              '{ref: $ref, inputs: {date_range_start: $start, date_range_end: $end, collect_sources: $sources, deploy_after: "true"}}')"
+            curl --fail-with-body -sS -X POST \
+              -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/backfill-date-range.yml/dispatches" \
+              -d "$payload"
             {
               echo "### Date range dispatch result"
               echo ""
-              echo "- Dispatched single-date backfill runs: ${dispatched_count}"
+              echo "- Dispatched backfill workflow: ${TARGET_DATE_RANGE_START} to ${TARGET_DATE_RANGE_END}"
               echo "- Range: ${TARGET_DATE_RANGE_START} to ${TARGET_DATE_RANGE_END}"
               echo ""
-              echo "Each date now runs as its own workflow run with a fresh GitHub runner."
+              echo "The backfill workflow runs each date as a separate matrix job with max-parallel 1."
             } >> "$GITHUB_STEP_SUMMARY"
           elif [ -n "$TARGET_DATE" ]; then
             if [ "$FORCE_COLLECT" = "1" ]; then

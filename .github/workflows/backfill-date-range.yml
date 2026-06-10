@@ -1,0 +1,189 @@
+name: Backfill date range
+
+on:
+  workflow_dispatch:
+    inputs:
+      date_range_start:
+        description: "Start date in YYYY-MM-DD format."
+        required: true
+        type: string
+      date_range_end:
+        description: "End date in YYYY-MM-DD format."
+        required: true
+        type: string
+      collect_sources:
+        description: "Optional source group filter, for example: lawmaking, motir."
+        required: false
+        type: string
+      deploy_after:
+        description: "Build and deploy the site after the range finishes."
+        required: false
+        type: boolean
+        default: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      dates: ${{ steps.dates.outputs.dates }}
+    steps:
+      - id: dates
+        shell: bash
+        run: |
+          python3 <<'PY' >> "$GITHUB_OUTPUT"
+          import datetime as dt
+          import json
+          import os
+          start = dt.date.fromisoformat("${{ github.event.inputs.date_range_start }}")
+          end = dt.date.fromisoformat("${{ github.event.inputs.date_range_end }}")
+          if start > end:
+              raise SystemExit("date_range_start must be before or equal to date_range_end")
+          dates = []
+          current = start
+          while current <= end:
+              dates.append(current.isoformat())
+              current += dt.timedelta(days=1)
+          print("dates=" + json.dumps(dates))
+          PY
+
+  collect-date:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        target_date: ${{ fromJson(needs.prepare.outputs.dates) }}
+    permissions:
+      contents: write
+    env:
+      LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
+      LAW_OC: ${{ secrets.LAW_OC }}
+      KOREAN_LAW_API_KEY: ${{ secrets.KOREAN_LAW_API_KEY }}
+      LAWMAKING_OC: ${{ secrets.LAWMAKING_OC }}
+      LAWMAKING_BASE: https://www.lawmaking.go.kr/rest
+      GWANBO_LIST_URL: ${{ secrets.GWANBO_LIST_URL }}
+      DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
+      FORCE_COLLECT: "1"
+      FETCH_LOOKBACK_DAYS: 1
+      FETCH_MAX_PAGES: 200
+      MOTIR_FETCH_MAX_PAGES: 200
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Install ALIO attachment extractor dependencies
+        run: python3 -m pip install --user olefile pypdf
+
+      - name: Check Korean site connectivity
+        shell: bash
+        run: |
+          set +e
+          urls=(
+            "https://www.law.go.kr"
+            "https://www.lawmaking.go.kr"
+            "https://open.gwanbo.go.kr"
+            "https://www.mois.go.kr"
+            "https://mofe.go.kr"
+            "https://www.motir.go.kr"
+            "https://www.alio.go.kr"
+            "https://www.korea.kr"
+          )
+          failed=0
+          for url in "${urls[@]}"; do
+            code="$(curl -L -4 --http1.1 --connect-timeout 8 --max-time 12 -sS -o /dev/null -w "%{http_code}" "$url" 2>/tmp/connectivity-error || true)"
+            if [ "$code" = "000" ] || [ -z "$code" ]; then
+              failed=$((failed + 1))
+              echo "Connectivity failed: $url ($(cat /tmp/connectivity-error))"
+            else
+              echo "Connectivity ok: $url HTTP $code"
+            fi
+          done
+          if [ "$failed" -ge 5 ]; then
+            echo "Too many Korean source sites are unreachable from this runner. Failing this date quickly."
+            exit 1
+          fi
+
+      - name: Collect ${{ matrix.target_date }}
+        shell: bash
+        run: |
+          git pull --rebase --autostash origin main
+          npm run collect -- --date "${{ matrix.target_date }}" --force
+
+      - name: Commit ${{ matrix.target_date }}
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main
+            git add data
+            if git diff --cached --quiet; then
+              echo "No collected data changes to commit for ${{ matrix.target_date }}."
+              exit 0
+            fi
+            git commit -m "Collect regulatory changes for ${{ matrix.target_date }}"
+            if git push; then
+              exit 0
+            fi
+            echo "Push failed on attempt ${attempt}; retrying."
+            sleep $((attempt * 5))
+          done
+          exit 1
+
+  deploy:
+    needs: collect-date
+    if: ${{ always() && github.event.inputs.deploy_after != 'false' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Build static app
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
