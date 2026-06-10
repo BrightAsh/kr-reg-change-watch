@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { CollectionDayStatus, CollectionStatusReport } from "@/lib/collectionStatus";
+import type { CollectionDayStatus, CollectionMethodStatus, CollectionStatusReport } from "@/lib/collectionStatus";
 
 interface Props {
   report: CollectionStatusReport;
@@ -29,6 +29,7 @@ export default function CollectionStatusBoard({ report }: Props) {
     [...report.days].reverse().find((day) => day.status !== "not_started")?.date || report.end_date;
   const [selectedDate, setSelectedDate] = useState(defaultDate);
   const [monthCursor, setMonthCursor] = useState(defaultDate.slice(0, 7));
+  const [activeLog, setActiveLog] = useState<CollectionMethodStatus | null>(null);
   const selected = report.days.find((day) => day.date === selectedDate) || report.days[report.days.length - 1];
   const monthKeys = useMemo(() => uniqueMonths(report.days), [report.days]);
   const month = useMemo(() => buildMonth(report.days, monthCursor), [monthCursor, report.days]);
@@ -40,6 +41,11 @@ export default function CollectionStatusBoard({ report }: Props) {
     const nextIndex = monthIndex + offset;
     const nextMonth = monthKeys[nextIndex];
     if (nextMonth) setMonthCursor(nextMonth);
+  }
+
+  function selectDate(date: string) {
+    setSelectedDate(date);
+    setActiveLog(null);
   }
 
   return (
@@ -81,7 +87,7 @@ export default function CollectionStatusBoard({ report }: Props) {
                       .join(" ")}
                     key={cell.date}
                     type="button"
-                    onClick={() => setSelectedDate(cell.date)}
+                    onClick={() => selectDate(cell.date)}
                   >
                     <span>{Number(cell.date.slice(8, 10))}</span>
                     <strong>{stateLabels[cell.status]}</strong>
@@ -140,23 +146,17 @@ export default function CollectionStatusBoard({ report }: Props) {
                 </div>
                 <div className="status-method-result">
                   {method.status === "ok" ? (
-                    <details>
-                      <summary className="method-count">{(method.count || 0).toLocaleString("ko-KR")}건</summary>
-                      <p>{method.message || "정상 수집되었습니다."}</p>
-                      {method.at ? <small>{formatDateTime(method.at)}</small> : null}
-                    </details>
+                    <button className="method-count" type="button" onClick={() => setActiveLog(method)}>
+                      {(method.count || 0).toLocaleString("ko-KR")}건
+                    </button>
                   ) : method.status === "error" ? (
-                    <details>
-                      <summary>오류</summary>
-                      <p>{method.message || "오류 메시지가 기록되지 않았습니다."}</p>
-                      {method.at ? <small>{formatDateTime(method.at)}</small> : null}
-                    </details>
+                    <button className="method-error-button" type="button" onClick={() => setActiveLog(method)}>
+                      오류
+                    </button>
                   ) : (
-                    <details>
-                      <summary className="method-muted">{methodLabels[method.status]}</summary>
-                      <p>{method.message || methodLabels[method.status]}</p>
-                      {method.at ? <small>{formatDateTime(method.at)}</small> : null}
-                    </details>
+                    <button className="method-muted" type="button" onClick={() => setActiveLog(method)}>
+                      {methodLabels[method.status]}
+                    </button>
                   )}
                 </div>
               </article>
@@ -164,6 +164,32 @@ export default function CollectionStatusBoard({ report }: Props) {
           </div>
         </aside>
       </div>
+
+      {activeLog ? (
+        <div className="status-log-backdrop" role="presentation" onClick={() => setActiveLog(null)}>
+          <section className={`status-log-popover method-${activeLog.status}`} role="dialog" aria-modal="true" onClick={(event) => event.stopPropagation()}>
+            <div className="status-log-head">
+              <div>
+                <p>{formatDateLabel(selected.date)}</p>
+                <h2>{activeLog.source}</h2>
+              </div>
+              <button type="button" onClick={() => setActiveLog(null)} aria-label="로그 닫기">
+                닫기
+              </button>
+            </div>
+            <div className="status-log-result">
+              <strong>{activeLog.status === "ok" ? `${(activeLog.count || 0).toLocaleString("ko-KR")}건` : methodLabels[activeLog.status]}</strong>
+              {activeLog.url ? (
+                <a href={activeLog.url} target="_blank" rel="noreferrer">
+                  출처 열기
+                </a>
+              ) : null}
+            </div>
+            <pre>{activeLog.message || "기록된 로그가 없습니다."}</pre>
+            {activeLog.at ? <small>{formatDateTime(activeLog.at)}</small> : null}
+          </section>
+        </div>
+      ) : null}
     </section>
   );
 }

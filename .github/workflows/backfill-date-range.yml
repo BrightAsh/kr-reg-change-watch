@@ -20,50 +20,33 @@ on:
         required: false
         type: boolean
         default: true
+      retry_attempt:
+        description: "Internal preflight retry attempt."
+        required: false
+        type: string
+        default: "0"
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
+  actions: write
   contents: write
   pages: write
   id-token: write
 
 jobs:
-  prepare:
+  collect-range:
     runs-on: ubuntu-latest
-    outputs:
-      dates: ${{ steps.dates.outputs.dates }}
-    steps:
-      - id: dates
-        shell: bash
-        run: |
-          python3 <<'PY' >> "$GITHUB_OUTPUT"
-          import datetime as dt
-          import json
-          import os
-          start = dt.date.fromisoformat("${{ github.event.inputs.date_range_start }}")
-          end = dt.date.fromisoformat("${{ github.event.inputs.date_range_end }}")
-          if start > end:
-              raise SystemExit("date_range_start must be before or equal to date_range_end")
-          dates = []
-          current = start
-          while current <= end:
-              dates.append(current.isoformat())
-              current += dt.timedelta(days=1)
-          print("dates=" + json.dumps(dates))
-          PY
-
-  collect-date:
-    needs: prepare
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        target_date: ${{ fromJson(needs.prepare.outputs.dates) }}
+    timeout-minutes: 360
     permissions:
+      actions: write
       contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     env:
       LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
       LAW_OC: ${{ secrets.LAW_OC }}
@@ -76,11 +59,13 @@ jobs:
       NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: "1"
       FETCH_LOOKBACK_DAYS: 1
       FETCH_MAX_PAGES: 200
       MOTIR_FETCH_MAX_PAGES: 200
+      GITHUB_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -101,142 +86,173 @@ jobs:
         run: |
           set +e
           urls=(
-            "국가법령정보센터 사전 접속 확인|https://www.law.go.kr"
-            "국민참여입법센터 사전 접속 확인|https://www.lawmaking.go.kr"
-            "대한민국 전자관보 사전 접속 확인|https://open.gwanbo.go.kr"
-            "행정안전부 게시판 사전 접속 확인|https://www.mois.go.kr"
-            "기획재정부 게시판 사전 접속 확인|https://mofe.go.kr"
-            "산업통상부 게시판 사전 접속 확인|https://www.motir.go.kr"
-            "ALIO 사전 접속 확인|https://www.alio.go.kr"
-            "정책브리핑 RSS 사전 접속 확인|https://www.korea.kr"
+            "국가법령정보센터|https://www.law.go.kr"
+            "국민참여입법센터|https://www.lawmaking.go.kr"
+            "대한민국 전자관보|https://open.gwanbo.go.kr"
+            "행정안전부 게시판|https://www.mois.go.kr"
+            "기획재정부 게시판|https://mofe.go.kr"
+            "산업통상부 게시판|https://www.motir.go.kr"
+            "ALIO|https://www.alio.go.kr"
+            "정책브리핑 RSS|https://www.korea.kr"
           )
-          failed=0
-          probe_file="${RUNNER_TEMP}/connectivity-${{ matrix.target_date }}.tsv"
-          : > "$probe_file"
-          for entry in "${urls[@]}"; do
-            label="${entry%%|*}"
-            url="${entry#*|}"
-            code="$(curl -L -4 --http1.1 --connect-timeout 8 --max-time 12 -sS -o /dev/null -w "%{http_code}" "$url" 2>/tmp/connectivity-error || true)"
-            if [ "$code" = "000" ] || [ -z "$code" ]; then
-              failed=$((failed + 1))
-              message="GitHub Actions runner에서 ${url} 접속 실패: $(cat /tmp/connectivity-error)"
-              echo "Connectivity failed: $url ($(cat /tmp/connectivity-error))"
-              printf '%s\t%s\t%s\t%s\n' "$label" "$url" "error" "$message" >> "$probe_file"
-            else
-              echo "Connectivity ok: $url HTTP $code"
-              printf '%s\t%s\t%s\t%s\n' "$label" "$url" "ok" "HTTP ${code}" >> "$probe_file"
+          pass=0
+          for round in 1 2 3; do
+            echo "Connectivity preflight round ${round}"
+            failed=0
+            : > "${RUNNER_TEMP}/connectivity-error-summary.txt"
+            for entry in "${urls[@]}"; do
+              label="${entry%%|*}"
+              url="${entry#*|}"
+              code="$(curl -L -4 --http1.1 --connect-timeout 10 --max-time 20 -sS -o /dev/null -w "%{http_code}" "$url" 2>/tmp/connectivity-error || true)"
+              if [ "$code" = "000" ] || [ -z "$code" ]; then
+                failed=$((failed + 1))
+                message="${label} ${url}: $(cat /tmp/connectivity-error)"
+                echo "Connectivity failed: ${message}"
+                echo "${message}" >> "${RUNNER_TEMP}/connectivity-error-summary.txt"
+              else
+                echo "Connectivity ok: ${label} ${url} HTTP ${code}"
+              fi
+            done
+            if [ "$failed" -eq 0 ]; then
+              pass=1
+              break
             fi
+            sleep 20
           done
-          if [ "$failed" -ge 5 ]; then
-            echo "Too many Korean source sites are unreachable from this runner. Failing this date quickly."
-            mkdir -p data/logs
-            PROBE_FILE="$probe_file" TARGET_DATE="${{ matrix.target_date }}" python3 <<'PY'
+
+          if [ "$pass" -ne 1 ]; then
+            echo "preflight_failed=true" >> "$GITHUB_OUTPUT"
+            retry_attempt="${{ github.event.inputs.retry_attempt }}"
+            retry_attempt="${retry_attempt:-0}"
+            if [ "$retry_attempt" -lt 5 ]; then
+              next_attempt=$((retry_attempt + 1))
+              payload="$(jq -n \
+                --arg ref "${GITHUB_REF_NAME}" \
+                --arg start "${{ github.event.inputs.date_range_start }}" \
+                --arg end "${{ github.event.inputs.date_range_end }}" \
+                --arg sources "${{ github.event.inputs.collect_sources }}" \
+                --arg retry "${next_attempt}" \
+                '{ref: $ref, inputs: {date_range_start: $start, date_range_end: $end, collect_sources: $sources, deploy_after: "true", retry_attempt: $retry}}')"
+              curl --fail-with-body -sS -X POST \
+                -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+                -H "Accept: application/vnd.github+json" \
+                -H "X-GitHub-Api-Version: 2022-11-28" \
+                "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/backfill-date-range.yml/dispatches" \
+                -d "$payload"
+              echo "Dispatched retry attempt ${next_attempt} because this runner cannot reach all Korean source sites."
+            fi
+            {
+              echo "### Connectivity preflight failed"
+              echo ""
+              echo "This runner could not reach every required Korean source site."
+              echo ""
+              sed 's/^/- /' "${RUNNER_TEMP}/connectivity-error-summary.txt"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          echo "preflight_failed=false" >> "$GITHUB_OUTPUT"
+
+      - name: Collect date range on verified runner
+        if: steps.connectivity.outputs.preflight_failed != 'true'
+        id: collect
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          start="${{ github.event.inputs.date_range_start }}"
+          end="${{ github.event.inputs.date_range_end }}"
+          failures=0
+          current="$start"
+          failure_file="${RUNNER_TEMP}/backfill-failures.txt"
+          : > "$failure_file"
+
+          while [ "$(date -d "$current" +%s)" -le "$(date -d "$end" +%s)" ]; do
+            echo "=== Collecting ${current} ==="
+            git pull --rebase --autostash origin main
+            rm -f "data/logs/failed-${current}.json"
+            log_file="${RUNNER_TEMP}/collect-${current}.log"
+            npm run collect -- --date "$current" --force 2>&1 | tee "$log_file"
+            collect_status="${PIPESTATUS[0]}"
+            if [ "$collect_status" -ne 0 ]; then
+              failures=$((failures + 1))
+              echo "${current}" >> "$failure_file"
+              mkdir -p data/logs
+              TARGET_DATE="$current" LOG_FILE="$log_file" python3 <<'PY'
           import json
           import os
           from datetime import datetime, timezone
 
-          probe_file = os.environ["PROBE_FILE"]
           target_date = os.environ["TARGET_DATE"]
+          log_file = os.environ["LOG_FILE"]
           now = datetime.now(timezone.utc).isoformat()
-          logs = []
-          with open(probe_file, "r", encoding="utf-8") as handle:
-              for line in handle:
-                  source, url, status, message = line.rstrip("\n").split("\t", 3)
-                  logs.append({
-                      "source": source,
-                      "status": status,
-                      "message": message,
-                      "count": 0,
-                      "at": now,
-                      "url": url
-                  })
+          with open(log_file, "r", encoding="utf-8", errors="replace") as handle:
+              lines = handle.readlines()
+          message = "".join(lines[-80:]).strip() or "수집 실행 중 오류가 발생했습니다."
           payload = {
               "date": target_date,
               "attempted_at": now,
-              "message": "GitHub Actions runner에서 한국 공공 사이트 다수 접속 실패",
-              "logs": logs
+              "message": "수집 실행 실패",
+              "logs": [{
+                  "source": "수집 실행",
+                  "status": "error",
+                  "message": message,
+                  "count": 0,
+                  "at": now
+              }]
           }
           with open(f"data/logs/failed-{target_date}.json", "w", encoding="utf-8") as handle:
               json.dump(payload, handle, ensure_ascii=False, indent=2)
               handle.write("\n")
           PY
-            echo "failed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "failed=false" >> "$GITHUB_OUTPUT"
+            fi
+
+            npm run status:update
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            for attempt in 1 2 3 4 5; do
+              git pull --rebase --autostash origin main
+              git add data
+              if git diff --cached --quiet; then
+                echo "No data changes to commit for ${current}."
+                break
+              fi
+              git commit -m "Collect regulatory changes for ${current}"
+              if git push; then
+                break
+              fi
+              echo "Push failed on attempt ${attempt}; retrying."
+              sleep $((attempt * 5))
+            done
+
+            current="$(date -I -d "$current + 1 day")"
+          done
+
+          if [ "$failures" -gt 0 ]; then
+            {
+              echo "### Backfill completed with failed dates"
+              echo ""
+              sed 's/^/- /' "$failure_file"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
           fi
 
-      - name: Collect ${{ matrix.target_date }}
-        id: collect
-        if: steps.connectivity.outputs.failed != 'true'
-        continue-on-error: true
-        shell: bash
-        run: |
-          git pull --rebase --autostash origin main
-          npm run collect -- --date "${{ matrix.target_date }}" --force
-
-      - name: Update collection status
-        if: always()
-        run: npm run status:update
-
-      - name: Commit ${{ matrix.target_date }}
-        if: always()
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for attempt in 1 2 3 4 5; do
-            git pull --rebase --autostash origin main
-            git add data
-            if git diff --cached --quiet; then
-              echo "No collected data changes to commit for ${{ matrix.target_date }}."
-              exit 0
-            fi
-            git commit -m "Collect regulatory changes for ${{ matrix.target_date }}"
-            if git push; then
-              exit 0
-            fi
-            echo "Push failed on attempt ${attempt}; retrying."
-            sleep $((attempt * 5))
-          done
-          exit 1
-
-      - name: Fail date if collection failed
-        if: steps.connectivity.outputs.failed == 'true' || steps.collect.outcome == 'failure'
-        run: exit 1
-
-  deploy:
-    needs: collect-date
-    if: ${{ always() && github.event.inputs.deploy_after != 'false' }}
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    env:
-      NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
-      NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - run: npm install
-
       - name: Build static app
+        if: ${{ always() && github.event.inputs.deploy_after != 'false' }}
         run: npm run build
 
       - uses: actions/configure-pages@v5
+        if: ${{ always() && github.event.inputs.deploy_after != 'false' }}
 
       - uses: actions/upload-pages-artifact@v3
+        if: ${{ always() && github.event.inputs.deploy_after != 'false' }}
         with:
           path: out
 
       - id: deployment
+        if: ${{ always() && github.event.inputs.deploy_after != 'false' }}
         uses: actions/deploy-pages@v4
+
+      - name: Fail if any date failed
+        if: steps.connectivity.outputs.preflight_failed == 'true' || steps.collect.outcome == 'failure'
+        run: exit 1
