@@ -96,41 +96,90 @@ jobs:
         run: python3 -m pip install --user olefile pypdf
 
       - name: Check Korean site connectivity
+        id: connectivity
         shell: bash
         run: |
           set +e
           urls=(
-            "https://www.law.go.kr"
-            "https://www.lawmaking.go.kr"
-            "https://open.gwanbo.go.kr"
-            "https://www.mois.go.kr"
-            "https://mofe.go.kr"
-            "https://www.motir.go.kr"
-            "https://www.alio.go.kr"
-            "https://www.korea.kr"
+            "국가법령정보센터 사전 접속 확인|https://www.law.go.kr"
+            "국민참여입법센터 사전 접속 확인|https://www.lawmaking.go.kr"
+            "대한민국 전자관보 사전 접속 확인|https://open.gwanbo.go.kr"
+            "행정안전부 게시판 사전 접속 확인|https://www.mois.go.kr"
+            "기획재정부 게시판 사전 접속 확인|https://mofe.go.kr"
+            "산업통상부 게시판 사전 접속 확인|https://www.motir.go.kr"
+            "ALIO 사전 접속 확인|https://www.alio.go.kr"
+            "정책브리핑 RSS 사전 접속 확인|https://www.korea.kr"
           )
           failed=0
-          for url in "${urls[@]}"; do
+          probe_file="${RUNNER_TEMP}/connectivity-${{ matrix.target_date }}.tsv"
+          : > "$probe_file"
+          for entry in "${urls[@]}"; do
+            label="${entry%%|*}"
+            url="${entry#*|}"
             code="$(curl -L -4 --http1.1 --connect-timeout 8 --max-time 12 -sS -o /dev/null -w "%{http_code}" "$url" 2>/tmp/connectivity-error || true)"
             if [ "$code" = "000" ] || [ -z "$code" ]; then
               failed=$((failed + 1))
+              message="GitHub Actions runner에서 ${url} 접속 실패: $(cat /tmp/connectivity-error)"
               echo "Connectivity failed: $url ($(cat /tmp/connectivity-error))"
+              printf '%s\t%s\t%s\t%s\n' "$label" "$url" "error" "$message" >> "$probe_file"
             else
               echo "Connectivity ok: $url HTTP $code"
+              printf '%s\t%s\t%s\t%s\n' "$label" "$url" "ok" "HTTP ${code}" >> "$probe_file"
             fi
           done
           if [ "$failed" -ge 5 ]; then
             echo "Too many Korean source sites are unreachable from this runner. Failing this date quickly."
-            exit 1
+            mkdir -p data/logs
+            PROBE_FILE="$probe_file" TARGET_DATE="${{ matrix.target_date }}" python3 <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+
+          probe_file = os.environ["PROBE_FILE"]
+          target_date = os.environ["TARGET_DATE"]
+          now = datetime.now(timezone.utc).isoformat()
+          logs = []
+          with open(probe_file, "r", encoding="utf-8") as handle:
+              for line in handle:
+                  source, url, status, message = line.rstrip("\n").split("\t", 3)
+                  logs.append({
+                      "source": source,
+                      "status": status,
+                      "message": message,
+                      "count": 0,
+                      "at": now,
+                      "url": url
+                  })
+          payload = {
+              "date": target_date,
+              "attempted_at": now,
+              "message": "GitHub Actions runner에서 한국 공공 사이트 다수 접속 실패",
+              "logs": logs
+          }
+          with open(f"data/logs/failed-{target_date}.json", "w", encoding="utf-8") as handle:
+              json.dump(payload, handle, ensure_ascii=False, indent=2)
+              handle.write("\n")
+          PY
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "failed=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Collect ${{ matrix.target_date }}
+        id: collect
+        if: steps.connectivity.outputs.failed != 'true'
+        continue-on-error: true
         shell: bash
         run: |
           git pull --rebase --autostash origin main
           npm run collect -- --date "${{ matrix.target_date }}" --force
 
+      - name: Update collection status
+        if: always()
+        run: npm run status:update
+
       - name: Commit ${{ matrix.target_date }}
+        if: always()
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -150,6 +199,10 @@ jobs:
             sleep $((attempt * 5))
           done
           exit 1
+
+      - name: Fail date if collection failed
+        if: steps.connectivity.outputs.failed == 'true' || steps.collect.outcome == 'failure'
+        run: exit 1
 
   deploy:
     needs: collect-date

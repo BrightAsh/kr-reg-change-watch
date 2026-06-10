@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ItemExplorer from "@/components/ItemExplorer";
 import MailAlertDialog from "@/components/MailAlertDialog";
 import { readAvailableDailyDates, readItems, sortItems, uniqueSorted } from "@/lib/data";
@@ -21,7 +22,12 @@ export default async function HomePage() {
             <strong>법령·고시·지침 모니터링</strong>
           </div>
         </div>
-        <MailAlertDialog ministries={ministries} />
+        <div className="header-actions">
+          <Link className="header-button" href="/status">
+            수집 현황
+          </Link>
+          <MailAlertDialog ministries={ministries} />
+        </div>
       </header>
 
       <section className="overview-band" aria-label="서비스 개요">

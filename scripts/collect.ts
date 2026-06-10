@@ -7,9 +7,16 @@ const dateArgs = typeof args.date === "string" ? ["--date", args.date] : [];
 const forceArgs = args.force ? ["--force"] : [];
 const tsx = path.join(rootDir, "node_modules", ".bin", process.platform === "win32" ? "tsx.cmd" : "tsx");
 
-run("fetch", ["scripts/fetch.ts", ...dateArgs, ...forceArgs]);
+try {
+  run("fetch", ["scripts/fetch.ts", ...dateArgs, ...forceArgs]);
+} catch (error) {
+  run("status:update", ["scripts/update-collection-status.ts"]);
+  throw error;
+}
+
 run("diff", ["scripts/diff.ts", ...dateArgs]);
 run("summarize", ["scripts/summarize.ts", ...dateArgs]);
+run("status:update", ["scripts/update-collection-status.ts"]);
 
 function run(label: string, commandArgs: string[]): void {
   const result = spawnSync(tsx, commandArgs, {

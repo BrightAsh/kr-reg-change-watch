@@ -12,6 +12,7 @@
     "diff": "tsx scripts/diff.ts",
     "summarize": "tsx scripts/summarize.ts",
     "collect": "tsx scripts/collect.ts",
+    "status:update": "tsx scripts/update-collection-status.ts",
     "mail:send": "tsx scripts/send-mail-alert.ts"
   },
   "dependencies": {
