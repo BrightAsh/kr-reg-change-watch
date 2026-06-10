@@ -1,0 +1,71 @@
+{
+  "date": "2026-04-01",
+  "attempted_at": "2026-06-10T05:10:23.932680+00:00",
+  "message": "GitHub Actions runner에서 한국 공공 사이트 다수 접속 실패",
+  "logs": [
+    {
+      "source": "국가법령정보센터 사전 접속 확인",
+      "status": "error",
+      "message": "GitHub Actions runner에서 https://www.law.go.kr 접속 실패: curl: (28) Failed to connect to www.law.go.kr port 443 after 8000 ms: Timeout was reached",
+      "count": 0,
+      "at": "2026-06-10T05:10:23.932680+00:00",
+      "url": "https://www.law.go.kr"
+    },
+    {
+      "source": "국민참여입법센터 사전 접속 확인",
+      "status": "error",
+      "message": "GitHub Actions runner에서 https://www.lawmaking.go.kr 접속 실패: curl: (28) Failed to connect to www.lawmaking.go.kr port 443 after 8002 ms: Timeout was reached",
+      "count": 0,
+      "at": "2026-06-10T05:10:23.932680+00:00",
+      "url": "https://www.lawmaking.go.kr"
+    },
+    {
+      "source": "대한민국 전자관보 사전 접속 확인",
+      "status": "error",
+      "message": "GitHub Actions runner에서 https://open.gwanbo.go.kr 접속 실패: curl: (28) Failed to connect to open.gwanbo.go.kr port 443 after 8001 ms: Timeout was reached",
+      "count": 0,
+      "at": "2026-06-10T05:10:23.932680+00:00",
+      "url": "https://open.gwanbo.go.kr"
+    },
+    {
+      "source": "행정안전부 게시판 사전 접속 확인",
+      "status": "error",
+      "message": "GitHub Actions runner에서 https://www.mois.go.kr 접속 실패: curl: (28) Failed to connect to www.mois.go.kr port 443 after 8000 ms: Timeout was reached",
+      "count": 0,
+      "at": "2026-06-10T05:10:23.932680+00:00",
+      "url": "https://www.mois.go.kr"
+    },
+    {
+      "source": "기획재정부 게시판 사전 접속 확인",
+      "status": "error",
+      "message": "GitHub Actions runner에서 https://mofe.go.kr 접속 실패: curl: (28) Failed to connect to mofe.go.kr port 443 after 8001 ms: Timeout was reached",
+      "count": 0,
+      "at": "2026-06-10T05:10:23.932680+00:00",
+      "url": "https://mofe.go.kr"
+    },
+    {
+      "source": "산업통상부 게시판 사전 접속 확인",
+      "status": "error",
+      "message": "GitHub Actions runner에서 https://www.motir.go.kr 접속 실패: curl: (28) Failed to connect to www.motir.go.kr port 443 after 8000 ms: Timeout was reached",
+      "count": 0,
+      "at": "2026-06-10T05:10:23.932680+00:00",
+      "url": "https://www.motir.go.kr"
+    },
+    {
+      "source": "ALIO 사전 접속 확인",
+      "status": "error",
+      "message": "GitHub Actions runner에서 https://www.alio.go.kr 접속 실패: curl: (28) Failed to connect to www.alio.go.kr port 443 after 8001 ms: Timeout was reached",
+      "count": 0,
+      "at": "2026-06-10T05:10:23.932680+00:00",
+      "url": "https://www.alio.go.kr"
+    },
+    {
+      "source": "정책브리핑 RSS 사전 접속 확인",
+      "status": "error",
+      "message": "GitHub Actions runner에서 https://www.korea.kr 접속 실패: curl: (28) Failed to connect to www.korea.kr port 443 after 8001 ms: Timeout was reached",
+      "count": 0,
+      "at": "2026-06-10T05:10:23.932680+00:00",
+      "url": "https://www.korea.kr"
+    }
+  ]
+}
