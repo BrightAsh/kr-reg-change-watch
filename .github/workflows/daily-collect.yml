@@ -1,25 +1,10 @@
-name: Daily collect and deploy
+name: Manual daily collect and deploy
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "data/**"
-  schedule:
-    - cron: "0 15 * * *"
   workflow_dispatch:
     inputs:
       target_date:
         description: "수집할 날짜(YYYY-MM-DD). 비우면 한국시간 기준 전일을 수집합니다."
-        required: false
-        type: string
-      date_range_start:
-        description: "여러 날짜를 다시 수집할 때 시작일(YYYY-MM-DD)."
-        required: false
-        type: string
-      date_range_end:
-        description: "여러 날짜를 다시 수집할 때 종료일(YYYY-MM-DD)."
         required: false
         type: string
       force:
@@ -37,22 +22,15 @@ on:
         type: boolean
         default: true
       mail_to_override:
-        description: "테스트 수신 이메일. 비우면 Secret의 구독 설정을 사용합니다."
+        description: "테스트 수신 이메일. 비우면 구독 설정을 사용합니다."
         required: false
         type: string
-
-      backfill_mode:
-        description: "Internal option for date-range child runs."
-        required: false
-        type: boolean
-        default: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
   contents: write
-  actions: write
   pages: write
   id-token: write
 
@@ -65,7 +43,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      actions: write
       pages: write
       id-token: write
     environment:
@@ -96,16 +73,12 @@ jobs:
       NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
       FETCH_LOOKBACK_DAYS: 1
       TARGET_DATE: ${{ github.event.inputs.target_date }}
-      TARGET_DATE_RANGE_START: ${{ github.event.inputs.date_range_start }}
-      TARGET_DATE_RANGE_END: ${{ github.event.inputs.date_range_end }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
-      BACKFILL_MODE: ${{ github.event.inputs.backfill_mode == 'true' && '1' || '0' }}
-      FETCH_MAX_PAGES: ${{ github.event.inputs.backfill_mode == 'true' && '200' || '' }}
-      MOTIR_FETCH_MAX_PAGES: ${{ github.event.inputs.backfill_mode == 'true' && '200' || '' }}
-      GITHUB_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -114,121 +87,32 @@ jobs:
       - run: npm install
 
       - name: Install ALIO attachment extractor dependencies
-        if: github.event_name != 'push'
         run: python3 -m pip install --user olefile pypdf
-
-      - name: Check Korean site connectivity
-        id: connectivity
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.backfill_mode == 'true' }}
-        run: |
-          set +e
-          urls=(
-            "국가법령정보센터 사전 접속 확인|https://www.law.go.kr"
-            "국민참여입법센터 사전 접속 확인|https://www.lawmaking.go.kr"
-            "대한민국 전자관보 사전 접속 확인|https://open.gwanbo.go.kr"
-            "행정안전부 게시판 사전 접속 확인|https://www.mois.go.kr"
-            "기획재정부 게시판 사전 접속 확인|https://mofe.go.kr"
-            "산업통상부 게시판 사전 접속 확인|https://www.motir.go.kr"
-            "ALIO 사전 접속 확인|https://www.alio.go.kr"
-            "정책브리핑 RSS 사전 접속 확인|https://www.korea.kr"
-          )
-          failed=0
-          probe_file="${RUNNER_TEMP}/connectivity-${TARGET_DATE:-manual}.tsv"
-          : > "$probe_file"
-          for entry in "${urls[@]}"; do
-            label="${entry%%|*}"
-            url="${entry#*|}"
-            code="$(curl -L -4 --http1.1 --connect-timeout 8 --max-time 12 -sS -o /dev/null -w "%{http_code}" "$url" 2>/tmp/connectivity-error || true)"
-            if [ "$code" = "000" ] || [ -z "$code" ]; then
-              failed=$((failed + 1))
-              message="GitHub Actions runner에서 ${url} 접속 실패: $(cat /tmp/connectivity-error)"
-              echo "Connectivity failed: $url ($(cat /tmp/connectivity-error))"
-              printf '%s\t%s\t%s\t%s\n' "$label" "$url" "error" "$message" >> "$probe_file"
-            else
-              echo "Connectivity ok: $url HTTP $code"
-              printf '%s\t%s\t%s\t%s\n' "$label" "$url" "ok" "HTTP ${code}" >> "$probe_file"
-            fi
-          done
-          if [ "$failed" -ge 5 ]; then
-            echo "Too many Korean source sites are unreachable from this runner. Failing fast so another single-date run can be retried."
-            mkdir -p data/logs
-            PROBE_FILE="$probe_file" TARGET_DATE="${TARGET_DATE}" python3 <<'PY'
-          import json
-          import os
-          from datetime import datetime, timezone
-
-          probe_file = os.environ["PROBE_FILE"]
-          target_date = os.environ.get("TARGET_DATE") or datetime.now(timezone.utc).date().isoformat()
-          now = datetime.now(timezone.utc).isoformat()
-          logs = []
-          with open(probe_file, "r", encoding="utf-8") as handle:
-              for line in handle:
-                  source, url, status, message = line.rstrip("\n").split("\t", 3)
-                  logs.append({
-                      "source": source,
-                      "status": status,
-                      "message": message,
-                      "count": 0,
-                      "at": now,
-                      "url": url
-                  })
-          payload = {
-              "date": target_date,
-              "attempted_at": now,
-              "message": "GitHub Actions runner에서 한국 공공 사이트 다수 접속 실패",
-              "logs": logs
-          }
-          with open(f"data/logs/failed-{target_date}.json", "w", encoding="utf-8") as handle:
-              json.dump(payload, handle, ensure_ascii=False, indent=2)
-              handle.write("\n")
-          PY
-            echo "failed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "failed=false" >> "$GITHUB_OUTPUT"
-          fi
 
       - name: Collect official changes
         id: collect
-        if: github.event_name != 'push' && steps.connectivity.outputs.failed != 'true'
         continue-on-error: true
         run: |
-          if [ -n "$TARGET_DATE_RANGE_START" ] && [ -n "$TARGET_DATE_RANGE_END" ]; then
-            payload="$(jq -n \
-              --arg ref "${GITHUB_REF_NAME}" \
-              --arg start "$TARGET_DATE_RANGE_START" \
-              --arg end "$TARGET_DATE_RANGE_END" \
-              --arg sources "$COLLECT_SOURCES" \
-              '{ref: $ref, inputs: {date_range_start: $start, date_range_end: $end, collect_sources: $sources, deploy_after: "true"}}')"
-            curl --fail-with-body -sS -X POST \
-              -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2022-11-28" \
-              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/backfill-date-range.yml/dispatches" \
-              -d "$payload"
-            {
-              echo "### Date range dispatch result"
-              echo ""
-              echo "- Dispatched backfill workflow: ${TARGET_DATE_RANGE_START} to ${TARGET_DATE_RANGE_END}"
-              echo "- Range: ${TARGET_DATE_RANGE_START} to ${TARGET_DATE_RANGE_END}"
-              echo ""
-              echo "The backfill workflow runs each date as a separate matrix job with max-parallel 1."
-            } >> "$GITHUB_STEP_SUMMARY"
-          elif [ -n "$TARGET_DATE" ]; then
+          if [ -n "$TARGET_DATE" ]; then
             if [ "$FORCE_COLLECT" = "1" ]; then
               npm run collect -- --date "$TARGET_DATE" --force
             else
               npm run collect -- --date "$TARGET_DATE"
             fi
           else
-            npm run collect
+            if [ "$FORCE_COLLECT" = "1" ]; then
+              npm run collect -- --force
+            else
+              npm run collect
+            fi
           fi
 
       - name: Update collection status
-        if: ${{ always() && github.event_name != 'push' && !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
+        if: always()
         run: npm run status:update
 
       - name: Commit collected data
-        if: ${{ always() && github.event_name != 'push' && !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -237,53 +121,36 @@ jobs:
           if git diff --cached --quiet; then
             echo "No collected data changes to commit."
           else
-            if [ -n "$TARGET_DATE_RANGE_START" ] && [ -n "$TARGET_DATE_RANGE_END" ]; then
-              DATE_LABEL="${TARGET_DATE_RANGE_START}_to_${TARGET_DATE_RANGE_END}"
-            else
-              DATE_LABEL="${TARGET_DATE:-scheduled}"
-            fi
+            DATE_LABEL="${TARGET_DATE:-manual}"
             git commit -m "Collect regulatory changes for ${DATE_LABEL}"
             git push
           fi
 
       - name: Send mail alerts
-        if: ${{ steps.collect.outcome == 'success' && steps.connectivity.outputs.failed != 'true' && (github.event_name == 'schedule' || github.event.inputs.send_mail == 'true') && !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
+        if: ${{ steps.collect.outcome == 'success' && github.event.inputs.send_mail == 'true' }}
         run: |
-          if [ -n "$TARGET_DATE_RANGE_START" ] && [ -n "$TARGET_DATE_RANGE_END" ]; then
-            failure_log="data/collection-failures/${TARGET_DATE_RANGE_START}_to_${TARGET_DATE_RANGE_END}.log"
-            current="$TARGET_DATE_RANGE_START"
-            while [ "$(date -d "$current" +%s)" -le "$(date -d "$TARGET_DATE_RANGE_END" +%s)" ]; do
-              if [ -s "$failure_log" ] && grep -q "^${current} " "$failure_log"; then
-                echo "Skipping mail alert for failed collection date $current"
-                current="$(date -I -d "$current + 1 day")"
-                continue
-              fi
-              echo "Sending mail alert for $current"
-              npm run mail:send -- --date "$current"
-              current="$(date -I -d "$current + 1 day")"
-            done
-          elif [ -n "$TARGET_DATE" ]; then
+          if [ -n "$TARGET_DATE" ]; then
             npm run mail:send -- --date "$TARGET_DATE"
           else
             npm run mail:send
           fi
 
-      - name: Build static app
-        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
+      - name: Build static website
+        if: always()
         run: npm run build
 
       - uses: actions/configure-pages@v5
-        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
+        if: always()
 
       - uses: actions/upload-pages-artifact@v3
-        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
+        if: always()
         with:
           path: out
 
       - id: deployment
-        if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') }}
+        if: always()
         uses: actions/deploy-pages@v4
 
       - name: Fail if collection failed
-        if: ${{ always() && github.event_name != 'push' && !(github.event_name == 'workflow_dispatch' && github.event.inputs.date_range_start != '' && github.event.inputs.date_range_end != '') && (steps.connectivity.outputs.failed == 'true' || steps.collect.outcome == 'failure') }}
+        if: ${{ always() && steps.collect.outcome == 'failure' }}
         run: exit 1

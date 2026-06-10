@@ -2005,37 +2005,6 @@ textarea {
   word-break: keep-all;
 }
 
-.status-summary {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.status-summary-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 70px;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface-raised);
-  box-shadow: var(--shadow-soft), var(--shadow-line);
-}
-
-.status-summary-item span {
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 850;
-}
-
-.status-summary-item strong {
-  color: var(--ink);
-  font-size: 28px;
-  line-height: 1;
-}
-
 .status-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.42fr);
@@ -2198,28 +2167,24 @@ textarea {
 }
 
 .status-day.status-complete,
-.status-summary-item.status-complete,
 .status-badge.status-complete {
   border-color: rgba(33, 163, 102, 0.32);
   background: #eefaf4;
 }
 
 .status-day.status-partial,
-.status-summary-item.status-partial,
 .status-badge.status-partial {
   border-color: rgba(245, 155, 20, 0.34);
   background: #fff7e8;
 }
 
 .status-day.status-failed,
-.status-summary-item.status-failed,
 .status-badge.status-failed {
   border-color: rgba(229, 72, 77, 0.36);
   background: #fff1f1;
 }
 
 .status-day.status-not_started,
-.status-summary-item.status-not_started,
 .status-badge.status-not_started {
   border-color: rgba(117, 128, 145, 0.28);
   background: #f6f8fb;
@@ -2809,7 +2774,6 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .status-summary,
   .status-layout,
   .status-month-grid {
     grid-template-columns: 1fr;

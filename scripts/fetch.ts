@@ -365,6 +365,7 @@ async function main() {
         cache_hit: true,
         logs: cacheLogs
       });
+      await clearFailureLog(targetDate);
       console.log(`Cache hit for ${targetDate}. Reused ${cached.items.length} item(s).`);
       return;
     }
@@ -427,8 +428,13 @@ async function main() {
     cache_hit: false,
     logs
   });
+  await clearFailureLog(targetDate);
 
   console.log(`Collected ${scoped.length} item(s) for ${targetDate}. Total stored: ${merged.length}.`);
+}
+
+async function clearFailureLog(date: string): Promise<void> {
+  await fs.rm(path.join(logsDir, `failed-${date}.json`), { force: true });
 }
 
 async function runSource(

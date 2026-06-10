@@ -50,13 +50,6 @@ export default function CollectionStatusBoard({ report }: Props) {
 
   return (
     <section className="status-board" aria-label="수집 현황">
-      <div className="status-summary" aria-label="수집 상태 요약">
-        <StatusSummaryItem label="완료" value={report.summary.complete} tone="complete" />
-        <StatusSummaryItem label="부분 완료" value={report.summary.partial} tone="partial" />
-        <StatusSummaryItem label="오류" value={report.summary.failed} tone="failed" />
-        <StatusSummaryItem label="수집 전" value={report.summary.not_started} tone="not_started" />
-      </div>
-
       <div className="status-layout">
         <div className="status-calendar-wrap">
           <div className="status-calendar-head">
@@ -191,23 +184,6 @@ export default function CollectionStatusBoard({ report }: Props) {
         </div>
       ) : null}
     </section>
-  );
-}
-
-function StatusSummaryItem({
-  label,
-  value,
-  tone
-}: {
-  label: string;
-  value: number;
-  tone: CollectionDayStatus["status"];
-}) {
-  return (
-    <div className={`status-summary-item status-${tone}`}>
-      <span>{label}</span>
-      <strong>{value.toLocaleString("ko-KR")}</strong>
-    </div>
   );
 }
 
