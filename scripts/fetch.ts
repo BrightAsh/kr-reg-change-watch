@@ -64,11 +64,13 @@ const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "500")) || 
 const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 12000;
 const lawRevisionTextCache = new Map<string, LawRevisionDetails | null>();
 const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
+const retryFailedOnly = Boolean(args["retry-failed"] || env("RETRY_FAILED_ONLY") === "1");
 const sourceFilter = parseSourceFilter(String(args.sources || env("COLLECT_SOURCES")));
 const partialSourceCollect = sourceFilter.size > 0;
 const itemsPath = path.join(rootDir, "data", "items.json");
 const runPath = path.join(rootDir, "data", "run.json");
 const dailyPath = path.join(dailyDir, `${targetDate}.json`);
+let activeSourceGroups: Set<SourceGroup> | null = null;
 
 interface MinistryRoute {
   source: string;
@@ -114,6 +116,41 @@ type SourceGroup =
   | "alio"
   | "policy-rss"
   | "naver-news";
+
+const SOURCE_GROUPS: SourceGroup[] = [
+  "official-law",
+  "lawmaking",
+  "gazette",
+  "ministry-board",
+  "motir",
+  "alio",
+  "policy-rss",
+  "naver-news"
+];
+
+const SOURCE_GROUP_LABELS: Record<SourceGroup, string> = {
+  "official-law": "국가법령정보센터",
+  lawmaking: "국민참여입법센터",
+  gazette: "대한민국 전자관보",
+  "ministry-board": "행정안전부/기획재정부 게시판",
+  motir: "산업통상부 게시판",
+  alio: "ALIO",
+  "policy-rss": "정책브리핑 RSS",
+  "naver-news": "네이버 뉴스 검색"
+};
+
+const SOURCE_GROUP_PROBES: Record<SourceGroup, string[]> = {
+  "official-law": ["https://www.law.go.kr"],
+  lawmaking: ["https://opinion.lawmaking.go.kr"],
+  gazette: ["https://www.gwanbo.go.kr"],
+  "ministry-board": ["https://www.mois.go.kr", "https://www.mofe.go.kr"],
+  motir: ["https://www.motir.go.kr"],
+  alio: ["https://www.alio.go.kr"],
+  "policy-rss": ["https://www.korea.kr/etc/rss.do"],
+  "naver-news": ["https://openapi.naver.com"]
+};
+
+const sourceProbeCache = new Map<SourceGroup, boolean>();
 
 const NETWORK_FAILURE_PATTERNS = [
   /fetch failed/i,
@@ -335,7 +372,14 @@ const MOTIR_ROUTES: MinistryRoute[] = [
 async function main() {
   await ensureDataDirs();
 
-  if (!forceCollect) {
+  const existingDaily = await readJson<DailyCollection | null>(dailyPath, null);
+  const preserveExistingSuccesses = forceCollect || retryFailedOnly;
+  const requestedGroups = selectedSourceGroups();
+  const completedGroups = preserveExistingSuccesses ? successfulSourceGroups(existingDaily) : new Set<SourceGroup>();
+  const runnableGroups = requestedGroups.filter((group) => !(preserveExistingSuccesses && completedGroups.has(group)));
+  activeSourceGroups = new Set(runnableGroups);
+
+  if (!forceCollect && !retryFailedOnly) {
     const cached = await readJson<DailyCollection | null>(dailyPath, null);
     if (cached?.date === targetDate) {
       const existing = await readJson<CollectedItem[]>(itemsPath, []);
@@ -371,6 +415,39 @@ async function main() {
     }
   }
 
+  if (existingDaily?.date === targetDate && preserveExistingSuccesses && runnableGroups.length === 0) {
+    const existing = await readJson<CollectedItem[]>(itemsPath, []);
+    const cachedItems = existingDaily.items.map(attachPublicSystemMatches);
+    const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
+    const merged = mergeItems(canonicalExisting, cachedItems);
+    const cacheLogs: CollectionLog[] = [
+      ...existingDaily.logs,
+      {
+        source: "수집 재시도",
+        status: "ok",
+        message: "선택된 수집 경로가 이미 모두 성공 상태라 재수집하지 않았습니다.",
+        count: cachedItems.length,
+        at: new Date().toISOString()
+      }
+    ];
+    await writeJson(itemsPath, merged);
+    await writeJson(path.join(snapshotsDir, `${targetDate}.json`), cachedItems);
+    await writeJson(dailyPath, { ...existingDaily, items: cachedItems });
+    await writeJson(path.join(logsDir, "last-fetch.json"), cacheLogs);
+    await writeJson(runPath, {
+      last_run_at: new Date().toISOString(),
+      last_target_date: targetDate,
+      item_count: merged.length,
+      changed_count: 0,
+      available_dates: await listDailyDates(),
+      cache_hit: true,
+      logs: cacheLogs
+    });
+    await clearFailureLog(targetDate);
+    console.log(`No failed source group to retry for ${targetDate}.`);
+    return;
+  }
+
   const logs: CollectionLog[] = [];
   const collected: CollectedItem[] = [];
 
@@ -390,21 +467,17 @@ async function main() {
 
   const healthError = collectionHealthError(logs);
   if (healthError) {
-    await writeJson(path.join(logsDir, `failed-${targetDate}.json`), {
-      date: targetDate,
-      collected_at: new Date().toISOString(),
-      message: healthError,
-      logs
-    });
-    throw new Error(healthError);
+    addLog(logs, "수집 상태 점검", "error", healthError, 0);
+    console.warn(healthError);
   }
 
   const scopedCollected = normalizeAndFilterByTargetDate(collected);
-  const scoped = await mergePartialSourceItems(scopedCollected);
+  const scoped = await mergeCollectedSourceItems(scopedCollected, logs);
+  const finalLogs = mergeCollectionLogs(existingDaily, logs);
   const existing = await readJson<CollectedItem[]>(itemsPath, []);
   const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
   const merged = mergeItems(canonicalExisting, scoped);
-  const changedToday = partialSourceCollect ? scopedCollected.length : scoped.length;
+  const changedToday = scopedCollected.length;
   const daily: DailyCollection = {
     date: targetDate,
     collected_at: new Date().toISOString(),
@@ -412,13 +485,13 @@ async function main() {
     changed_count: changedToday,
     cache_hit: false,
     items: scoped,
-    logs
+    logs: finalLogs
   };
 
   await writeJson(itemsPath, merged);
   await writeJson(path.join(snapshotsDir, `${targetDate}.json`), scoped);
   await writeJson(dailyPath, daily);
-  await writeJson(path.join(logsDir, "last-fetch.json"), logs);
+  await writeJson(path.join(logsDir, "last-fetch.json"), finalLogs);
   await writeJson(runPath, {
     last_run_at: new Date().toISOString(),
     last_target_date: targetDate,
@@ -426,7 +499,7 @@ async function main() {
     changed_count: changedToday,
     available_dates: await listDailyDates(),
     cache_hit: false,
-    logs
+    logs: finalLogs
   });
   await clearFailureLog(targetDate);
 
@@ -444,10 +517,137 @@ async function runSource(
   fn: () => Promise<CollectedItem[]>
 ) {
   if (!shouldRunSource(group)) return;
+  if (!(await ensureSourceGroupReachable(group, logs))) return;
+  const logStartIndex = logs.length;
   try {
     collected.push(...(await fn()));
   } catch (error) {
-    addLog(logs, "collector", "error", error instanceof Error ? error.message : String(error));
+    addLog(logs, "collector", "error", error instanceof Error ? error.message : String(error), 0, undefined, group);
+  } finally {
+    tagLogsWithGroup(logs, logStartIndex, group);
+  }
+}
+
+interface SourceProbeResult {
+  ok: boolean;
+  url: string;
+  message: string;
+  elapsedMs: number;
+}
+
+async function ensureSourceGroupReachable(group: SourceGroup, logs: CollectionLog[]): Promise<boolean> {
+  const enabled = env("COLLECT_PREFLIGHT", "1").toLowerCase();
+  if (enabled === "0" || enabled === "false" || enabled === "no") return true;
+  if (sourceProbeCache.has(group)) return sourceProbeCache.get(group) || false;
+
+  const result = await probeSourceGroup(group);
+  sourceProbeCache.set(group, result.ok);
+  if (!result.ok) {
+    addLog(
+      logs,
+      `${SOURCE_GROUP_LABELS[group]} 접속 확인`,
+      "error",
+      `사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. ${result.message}`,
+      0,
+      result.url,
+      group
+    );
+  }
+  return result.ok;
+}
+
+async function probeSourceGroup(group: SourceGroup): Promise<SourceProbeResult> {
+  const timeoutMs = Math.max(1500, Number(env("COLLECT_PREFLIGHT_TIMEOUT_MS", "8000")) || 8000);
+  const urls = SOURCE_GROUP_PROBES[group] || [];
+  const errors: string[] = [];
+  let lastUrl = urls[0] || "";
+
+  for (const url of urls) {
+    lastUrl = url;
+    const startedAt = Date.now();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "user-agent":
+            "Mozilla/5.0 (compatible; kr-reg-change-watch/0.1; +https://github.com/BrightAsh/kr-reg-change-watch)",
+          accept: "text/html, application/xml, application/json;q=0.9, */*;q=0.8",
+          "accept-language": "ko-KR,ko;q=0.9,en;q=0.8"
+        },
+        signal: controller.signal
+      });
+      await response.body?.cancel();
+      const elapsedMs = Date.now() - startedAt;
+      if (response.status < 500) {
+        return { ok: true, url, message: `HTTP ${response.status}, ${elapsedMs}ms`, elapsedMs };
+      }
+      errors.push(`${url}: HTTP ${response.status}, ${elapsedMs}ms`);
+    } catch (error) {
+      const elapsedMs = Date.now() - startedAt;
+      errors.push(`${url}: ${messageOf(error)}, ${elapsedMs}ms`);
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  return {
+    ok: false,
+    url: lastUrl,
+    message: errors.join(" | ") || "접속 확인 대상 URL이 없습니다.",
+    elapsedMs: 0
+  };
+}
+
+function tagLogsWithGroup(logs: CollectionLog[], startIndex: number, group: SourceGroup): void {
+  for (const log of logs.slice(startIndex)) {
+    if (!log.group) log.group = group;
+  }
+}
+
+function selectedSourceGroups(): SourceGroup[] {
+  if (!sourceFilter.size) return SOURCE_GROUPS;
+  return SOURCE_GROUPS.filter((group) => sourceFilter.has(group));
+}
+
+function successfulSourceGroups(daily: DailyCollection | null): Set<SourceGroup> {
+  const successful = new Set<SourceGroup>();
+  if (!daily || daily.date !== targetDate) return successful;
+
+  for (const group of SOURCE_GROUPS) {
+    const groupLogs = daily.logs.filter((log) => logBelongsToSourceGroup(log, group));
+    if (!groupLogs.length) continue;
+    const hasOk = groupLogs.some((log) => log.status === "ok");
+    const hasError = groupLogs.some((log) => log.status === "error");
+    if (hasOk && !hasError) successful.add(group);
+  }
+
+  return successful;
+}
+
+function logBelongsToSourceGroup(log: CollectionLog, group: SourceGroup): boolean {
+  if (log.group === group) return true;
+  const textValue = `${log.source || ""} ${log.message || ""} ${log.url || ""}`.toLowerCase();
+  switch (group) {
+    case "official-law":
+      return /law\.go\.kr|open\.law\.go\.kr|official-law|law api/.test(textValue);
+    case "lawmaking":
+      return /lawmaking\.go\.kr|opinion\.lawmaking\.go\.kr|lawmaking/.test(textValue);
+    case "gazette":
+      return /gwanbo\.go\.kr|data\.go\.kr\/data\/15109157|gazette|gwanbo/.test(textValue);
+    case "ministry-board":
+      return /mois\.go\.kr|mofe\.go\.kr|ministry-board/.test(textValue);
+    case "motir":
+      return /motir\.go\.kr|motir|industry-board/.test(textValue);
+    case "alio":
+      return /alio\.go\.kr|alio/.test(textValue);
+    case "policy-rss":
+      return /korea\.kr|policy-rss|rss/.test(textValue);
+    case "naver-news":
+      return /naver\.com|naver-news|news search/.test(textValue);
+    default:
+      return false;
   }
 }
 
@@ -470,6 +670,7 @@ function collectionHealthError(logs: CollectionLog[]): string {
 }
 
 function shouldRunSource(group: SourceGroup): boolean {
+  if (activeSourceGroups) return activeSourceGroups.has(group);
   return !sourceFilter.size || sourceFilter.has(group);
 }
 
@@ -2185,19 +2386,30 @@ function normalizeAndFilterByTargetDate(items: CollectedItem[]): CollectedItem[]
   return [...byId.values()];
 }
 
-async function mergePartialSourceItems(collectedForDate: CollectedItem[]): Promise<CollectedItem[]> {
-  if (!partialSourceCollect) return collectedForDate;
-
+async function mergeCollectedSourceItems(
+  collectedForDate: CollectedItem[],
+  logs: CollectionLog[]
+): Promise<CollectedItem[]> {
+  const groupsForThisRun = activeSourceGroups ? [...activeSourceGroups] : selectedSourceGroups();
   const existingDaily = await readJson<DailyCollection | null>(dailyPath, null);
-  const preservedItems = (existingDaily?.items || []).filter((item) => !isSelectedSourceItem(item));
-  return mergeItems(preservedItems, collectedForDate);
-}
+  if (!existingDaily?.items?.length || !groupsForThisRun.length) return collectedForDate;
 
-function isSelectedSourceItem(item: CollectedItem): boolean {
-  for (const group of sourceFilter) {
-    if (itemBelongsToSourceGroup(item, group)) return true;
-  }
-  return false;
+  const groupsToReplace = groupsForThisRun.filter((group) => {
+    const groupLogs = logs.filter((log) => logBelongsToSourceGroup(log, group));
+    const hasOk = groupLogs.some((log) => log.status === "ok");
+    const hasError = groupLogs.some((log) => log.status === "error");
+    return hasOk && !hasError;
+  });
+
+  if (!groupsToReplace.length) return existingDaily.items;
+
+  const preservedItems = existingDaily.items.filter(
+    (item) => !groupsToReplace.some((group) => itemBelongsToSourceGroup(item, group))
+  );
+  const acceptedItems = collectedForDate.filter((item) =>
+    groupsToReplace.some((group) => itemBelongsToSourceGroup(item, group))
+  );
+  return mergeItems(preservedItems, acceptedItems);
 }
 
 function itemBelongsToSourceGroup(item: CollectedItem, group: SourceGroup): boolean {
@@ -2232,6 +2444,16 @@ function attachPublicSystemMatches(item: CollectedItem): CollectedItem {
     ...item,
     public_system_matches
   };
+}
+
+function mergeCollectionLogs(existingDaily: DailyCollection | null, newLogs: CollectionLog[]): CollectionLog[] {
+  const groupsForThisRun = activeSourceGroups ? [...activeSourceGroups] : selectedSourceGroups();
+  if (!existingDaily?.logs?.length || !groupsForThisRun.length) return newLogs;
+
+  const preservedLogs = existingDaily.logs.filter(
+    (log) => !groupsForThisRun.some((group) => logBelongsToSourceGroup(log, group))
+  );
+  return [...preservedLogs, ...newLogs];
 }
 
 function canonicalItemKey(item: CollectedItem): string {

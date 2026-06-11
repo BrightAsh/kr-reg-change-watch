@@ -5,10 +5,11 @@ import { parseArgs, rootDir } from "./common";
 const args = parseArgs();
 const dateArgs = typeof args.date === "string" ? ["--date", args.date] : [];
 const forceArgs = args.force ? ["--force"] : [];
+const retryFailedArgs = args["retry-failed"] ? ["--retry-failed"] : [];
 const tsx = path.join(rootDir, "node_modules", ".bin", process.platform === "win32" ? "tsx.cmd" : "tsx");
 
 try {
-  run("fetch", ["scripts/fetch.ts", ...dateArgs, ...forceArgs]);
+  run("fetch", ["scripts/fetch.ts", ...dateArgs, ...forceArgs, ...retryFailedArgs]);
 } catch (error) {
   run("status:update", ["scripts/update-collection-status.ts"]);
   throw error;

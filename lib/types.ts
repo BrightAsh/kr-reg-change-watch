@@ -77,6 +77,7 @@ export interface CollectionLog {
   count: number;
   at: string;
   url?: string;
+  group?: string;
 }
 
 export interface RunMetadata {

@@ -230,16 +230,19 @@ export function addLog(
   status: CollectionLog["status"],
   message: string,
   count = 0,
-  url?: string
+  url?: string,
+  group?: string
 ): void {
-  logs.push({
+  const entry: CollectionLog = {
     source,
     status,
     message,
     count,
     at: new Date().toISOString(),
     url
-  });
+  };
+  if (group) entry.group = group;
+  logs.push(entry);
 }
 
 export function makeUrl(base: string, params: Record<string, string | number | undefined>): string {

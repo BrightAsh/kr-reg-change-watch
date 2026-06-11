@@ -8,6 +8,7 @@ on:
       - "data/**"
   schedule:
     - cron: "0 15 * * *"
+    - cron: "0 23 * * *"
   workflow_dispatch:
     inputs:
       target_date:
@@ -79,9 +80,13 @@ jobs:
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
       NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
       FETCH_LOOKBACK_DAYS: 1
+      FETCH_RETRIES: 1
+      FETCH_TIMEOUT_MS: 15000
+      COLLECT_PREFLIGHT_TIMEOUT_MS: 8000
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
+      RETRY_FAILED_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '0 23 * * *' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -135,7 +140,7 @@ jobs:
           fi
 
       - name: Send mail alerts
-        if: ${{ steps.collect.outcome == 'success' && (github.event_name == 'schedule' || github.event.inputs.send_mail == 'true') }}
+        if: ${{ steps.collect.outcome == 'success' && ((github.event_name == 'schedule' && github.event.schedule == '0 15 * * *') || github.event.inputs.send_mail == 'true') }}
         run: |
           if [ -n "$TARGET_DATE" ]; then
             npm run mail:send -- --date "$TARGET_DATE"
