@@ -1,8 +1,8 @@
 {
   "date": "2026-06-05",
-  "collected_at": "2026-06-08T08:43:17.222Z",
+  "collected_at": "2026-06-11T02:08:46.554Z",
   "item_count": 43,
-  "changed_count": 0,
+  "changed_count": 1,
   "cache_hit": false,
   "items": [
     {
@@ -164,7 +164,7 @@
       "diff_summary": "ALIO 공공정책자료입니다. 공식 변경 원문이 아니라 관련 정책자료 또는 보도자료일 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-06-05",
-      "collected_at": "2026-06-05T17:10:07.507Z",
+      "collected_at": "2026-06-11T02:08:40.748Z",
       "source": "ALIO 공공정책자료",
       "source_type": "alio",
       "ministry": "재정경제부",
@@ -1592,6 +1592,95 @@
       "count": 0,
       "at": "2026-06-08T08:43:16.720Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
+    },
+    {
+      "source": "국가법령정보센터 접속 확인",
+      "status": "error",
+      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: fetch failed, 5729ms",
+      "count": 0,
+      "at": "2026-06-11T02:07:36.124Z",
+      "url": "https://www.law.go.kr",
+      "group": "official-law"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-06-11T02:07:39.158Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-06-11T02:07:41.256Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-11T02:08:13.261Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-11T02:08:14.970Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette"
+    },
+    {
+      "source": "산업통상부 게시판 접속 확인",
+      "status": "error",
+      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 708ms",
+      "count": 0,
+      "at": "2026-06-11T02:08:15.678Z",
+      "url": "https://www.motir.go.kr",
+      "group": "motir"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-06-11T02:08:20.172Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+      "group": "alio"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 1,
+      "at": "2026-06-11T02:08:40.748Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+      "group": "alio"
+    },
+    {
+      "source": "정책브리핑 RSS 접속 확인",
+      "status": "error",
+      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 439ms",
+      "count": 0,
+      "at": "2026-06-11T02:08:41.187Z",
+      "url": "https://www.korea.kr/etc/rss.do",
+      "group": "policy-rss"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-06-11T02:08:45.800Z",
+      "group": "naver-news"
     }
   ]
 }
