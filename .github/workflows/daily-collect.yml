@@ -33,6 +33,11 @@ on:
         description: "테스트 수신 이메일. 비우면 구독 설정을 사용합니다."
         required: false
         type: string
+      deploy_site:
+        description: "수집 후 웹사이트를 빌드/배포합니다. 테스트 수집만 확인할 때는 false로 실행합니다."
+        required: false
+        type: boolean
+        default: true
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -87,6 +92,7 @@ jobs:
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
       RETRY_FAILED_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '0 23 * * *' && '1' || '0' }}
+      DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -149,19 +155,19 @@ jobs:
           fi
 
       - name: Build static website
-        if: always()
+        if: ${{ always() && env.DEPLOY_SITE == '1' }}
         run: npm run build
 
       - uses: actions/configure-pages@v5
-        if: always()
+        if: ${{ always() && env.DEPLOY_SITE == '1' }}
 
       - uses: actions/upload-pages-artifact@v3
-        if: always()
+        if: ${{ always() && env.DEPLOY_SITE == '1' }}
         with:
           path: out
 
       - id: deployment
-        if: always()
+        if: ${{ always() && env.DEPLOY_SITE == '1' }}
         uses: actions/deploy-pages@v4
 
       - name: Fail if collection failed
