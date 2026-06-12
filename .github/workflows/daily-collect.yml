@@ -87,7 +87,7 @@ jobs:
       FETCH_LOOKBACK_DAYS: 1
       FETCH_RETRIES: 1
       FETCH_TIMEOUT_MS: 15000
-      FETCH_CURL_FALLBACK: 1
+      FETCH_CURL_FALLBACK: 0
       COLLECT_PREFLIGHT_TIMEOUT_MS: 8000
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
