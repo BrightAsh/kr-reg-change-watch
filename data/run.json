@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-06-12T05:22:24.893Z",
+  "last_run_at": "2026-06-12T05:36:00.241Z",
   "last_target_date": "2026-05-04",
   "item_count": 3971,
   "changed_count": 0,
@@ -175,16 +175,6 @@
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
     },
     {
-      "source": "ALIO",
-      "status": "error",
-      "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:33:52.167Z",
-      "url": "https://www.alio.go.kr/etc/etcLawList.do",
-      "group": "alio",
-      "route": "ALIO"
-    },
-    {
       "source": "네이버 뉴스 검색 API",
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
@@ -192,47 +182,6 @@
       "at": "2026-06-12T03:35:29.456Z",
       "group": "naver-news",
       "route": "네이버 뉴스 검색 API"
-    },
-    {
-      "source": "수집 상태 점검",
-      "status": "error",
-      "message": "Critical source connectivity failure for 2026-05-04: official-law, lawmaking, gazette, motir-board, alio, policy-rss",
-      "count": 0,
-      "at": "2026-06-12T03:35:29.457Z"
-    },
-    {
-      "source": "ALIO",
-      "status": "error",
-      "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:57:56.696Z",
-      "url": "https://www.alio.go.kr/etc/etcLawList.do",
-      "group": "alio",
-      "route": "ALIO"
-    },
-    {
-      "source": "수집 상태 점검",
-      "status": "error",
-      "message": "Critical source connectivity failure for 2026-05-04: official-law, lawmaking, gazette, motir-board, alio, policy-rss",
-      "count": 0,
-      "at": "2026-06-12T03:59:31.131Z"
-    },
-    {
-      "source": "ALIO",
-      "status": "error",
-      "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-      "count": 0,
-      "at": "2026-06-12T04:28:07.115Z",
-      "url": "https://www.alio.go.kr/etc/etcLawList.do",
-      "group": "alio",
-      "route": "ALIO"
-    },
-    {
-      "source": "수집 상태 점검",
-      "status": "error",
-      "message": "Critical source connectivity failure for 2026-05-04: official-law, lawmaking, gazette, motir-board, alio, policy-rss",
-      "count": 0,
-      "at": "2026-06-12T04:32:41.629Z"
     },
     {
       "source": "국가법령정보센터 법령 변경이력 본문 보강",
@@ -449,7 +398,7 @@
       "status": "ok",
       "message": "선택된 수집 경로가 이미 모두 성공 상태라 재수집하지 않았습니다.",
       "count": 39,
-      "at": "2026-06-12T05:22:24.759Z"
+      "at": "2026-06-12T05:36:00.106Z"
     }
   ]
 }
