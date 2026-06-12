@@ -2546,7 +2546,8 @@ function mergeCollectionLogs(existingDaily: DailyCollection | null, newLogs: Col
   const preservedLogs = existingDaily.logs.filter(
     (log) =>
       !routesForThisRun.some(({ group, route }) => logBelongsToSourceGroup(log, group) && logBelongsToRoute(log, route)) &&
-      !isStaleGroupLevelLog(log, groupsForThisRun)
+      !isStaleGroupLevelLog(log, groupsForThisRun) &&
+      !isStaleAggregateRouteLog(log, groupsForThisRun)
   );
   return [...preservedLogs, ...newLogs];
 }
@@ -2555,6 +2556,14 @@ function isStaleGroupLevelLog(log: CollectionLog, groupsForThisRun: Set<SourceGr
   if (!log.group || log.route || !groupsForThisRun.has(log.group as SourceGroup)) return false;
   const textValue = `${log.source || ""} ${log.message || ""}`;
   return /접속 확인|수집 상태 점검|Critical source|일부 수집 실패/.test(textValue);
+}
+
+function isStaleAggregateRouteLog(log: CollectionLog, groupsForThisRun: Set<SourceGroup>): boolean {
+  const textValue = `${log.source || ""} ${log.message || ""}`;
+  if (/Critical source/.test(textValue) && groupsForThisRun.size) return true;
+  if (!log.group || !log.route || !groupsForThisRun.has(log.group as SourceGroup)) return false;
+  const knownRoutes = sourceRouteKeysForGroup(log.group as SourceGroup);
+  return log.status === "error" && !knownRoutes.includes(log.route);
 }
 
 function canonicalItemKey(item: CollectedItem): string {
