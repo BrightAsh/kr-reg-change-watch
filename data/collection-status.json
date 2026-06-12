@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-12T05:52:20.708Z",
+  "generated_at": "2026-06-12T06:01:10.918Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-12",
   "summary": {
-    "complete": 17,
-    "partial": 46,
+    "complete": 18,
+    "partial": 45,
     "failed": 0,
     "not_started": 100
   },
@@ -32392,19 +32392,19 @@
     },
     {
       "date": "2026-05-01",
-      "status": "partial",
-      "item_count": 25,
-      "changed_count": 24,
-      "collected_at": "2026-06-12T02:12:42.584Z",
+      "status": "complete",
+      "item_count": 24,
+      "changed_count": 13,
+      "collected_at": "2026-06-12T06:01:08.438Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
-          "count": 24,
-          "message": "사건기록 열람ㆍ등사의 방법 및 수수료 등에 관한 규칙 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=230277&efYd=20210315 failed after 1 attempt(s): fetch failed\n자유무역협정의 이행을 위한 관세법의 특례에 관한 법률 시행규칙 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=285001&efYd=20260320 failed after 1 attempt(s): fetch failed\n법제처 lawService API로 개정문/제개정이유 11건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
-          "at": "2026-06-12T02:10:28.689Z",
-          "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=230277&type=HTML&mobileYn=&efYd=20210315"
+          "status": "ok",
+          "count": 26,
+          "message": "법제처 lawService API로 개정문/제개정이유 13건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "at": "2026-06-12T06:01:07.685Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
