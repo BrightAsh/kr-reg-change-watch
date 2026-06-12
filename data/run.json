@@ -1,8 +1,8 @@
 {
-  "last_run_at": "2026-06-11T18:17:40.641Z",
+  "last_run_at": "2026-06-12T00:16:49.953Z",
   "last_target_date": "2026-06-11",
-  "item_count": 3948,
-  "changed_count": 2,
+  "item_count": 3972,
+  "changed_count": 24,
   "available_dates": [
     "2026-06-11",
     "2026-06-10",
@@ -70,15 +70,6 @@
   ],
   "cache_hit": false,
   "logs": [
-    {
-      "source": "국가법령정보센터 접속 확인",
-      "status": "error",
-      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: This operation was aborted, 8000ms",
-      "count": 0,
-      "at": "2026-06-11T18:16:02.108Z",
-      "url": "https://www.law.go.kr",
-      "group": "official-law"
-    },
     {
       "source": "국민참여입법센터 입법예고",
       "status": "ok",
@@ -233,15 +224,6 @@
       "group": "ministry-board"
     },
     {
-      "source": "산업통상부 게시판 접속 확인",
-      "status": "error",
-      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 828ms",
-      "count": 0,
-      "at": "2026-06-11T18:17:11.402Z",
-      "url": "https://www.motir.go.kr",
-      "group": "motir"
-    },
-    {
       "source": "ALIO 공공기관 법령/지침",
       "status": "ok",
       "message": "ALIO 법령/지침 원문 수집 완료",
@@ -260,21 +242,82 @@
       "group": "alio"
     },
     {
-      "source": "정책브리핑 RSS 접속 확인",
-      "status": "error",
-      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 473ms",
-      "count": 0,
-      "at": "2026-06-11T18:17:35.227Z",
-      "url": "https://www.korea.kr/etc/rss.do",
-      "group": "policy-rss"
-    },
-    {
       "source": "네이버 뉴스 검색 API",
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
       "count": 0,
       "at": "2026-06-11T18:17:39.745Z",
       "group": "naver-news"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.",
+      "count": 16,
+      "at": "2026-06-12T00:16:31.234Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 23행을 법령 단위 16건으로 묶었습니다.",
+      "count": 16,
+      "at": "2026-06-12T00:16:31.234Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 3,
+      "at": "2026-06-12T00:16:32.441Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 5,
+      "at": "2026-06-12T00:16:36.635Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 5,
+      "at": "2026-06-12T00:16:47.800Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law"
+    },
+    {
+      "source": "산업통상부 게시판 접속 확인",
+      "status": "error",
+      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 765ms",
+      "count": 0,
+      "at": "2026-06-12T00:16:48.565Z",
+      "url": "https://www.motir.go.kr",
+      "group": "motir"
+    },
+    {
+      "source": "정책브리핑 RSS 접속 확인",
+      "status": "error",
+      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 517ms",
+      "count": 0,
+      "at": "2026-06-12T00:16:49.082Z",
+      "url": "https://www.korea.kr/etc/rss.do",
+      "group": "policy-rss"
+    },
+    {
+      "source": "수집 상태 점검",
+      "status": "error",
+      "message": "Critical source connectivity failure for 2026-06-11: motir-board, policy-rss",
+      "count": 0,
+      "at": "2026-06-12T00:16:49.082Z"
     }
   ]
 }

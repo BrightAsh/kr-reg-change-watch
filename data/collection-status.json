@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T18:17:42.939Z",
+  "generated_at": "2026-06-12T00:16:52.253Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-12",
   "summary": {
@@ -43642,41 +43642,41 @@
     {
       "date": "2026-06-11",
       "status": "partial",
-      "item_count": 2,
-      "changed_count": 2,
-      "collected_at": "2026-06-11T18:17:40.525Z",
+      "item_count": 26,
+      "changed_count": 24,
+      "collected_at": "2026-06-12T00:16:49.835Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜 수집 로그에 해당 수집방법 기록이 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 32,
+          "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 23행을 법령 단위 16건으로 묶었습니다.",
+          "at": "2026-06-12T00:16:31.234Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜 수집 로그에 해당 수집방법 기록이 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 3,
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+          "at": "2026-06-12T00:16:32.441Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜 수집 로그에 해당 수집방법 기록이 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 10,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-12T00:16:47.800Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜 수집 로그에 해당 수집방법 기록이 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 10,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-12T00:16:47.800Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -43903,28 +43903,27 @@
           "at": "2026-06-11T18:17:39.745Z"
         },
         {
-          "source": "국가법령정보센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: This operation was aborted, 8000ms",
-          "at": "2026-06-11T18:16:02.108Z",
-          "url": "https://www.law.go.kr"
-        },
-        {
           "source": "산업통상부 게시판 접속 확인",
           "status": "error",
           "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 828ms",
-          "at": "2026-06-11T18:17:11.402Z",
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 765ms",
+          "at": "2026-06-12T00:16:48.565Z",
           "url": "https://www.motir.go.kr"
         },
         {
           "source": "정책브리핑 RSS 접속 확인",
           "status": "error",
           "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 473ms",
-          "at": "2026-06-11T18:17:35.227Z",
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 517ms",
+          "at": "2026-06-12T00:16:49.082Z",
           "url": "https://www.korea.kr/etc/rss.do"
+        },
+        {
+          "source": "수집 상태 점검",
+          "status": "error",
+          "count": 0,
+          "message": "Critical source connectivity failure for 2026-06-11: motir-board, policy-rss",
+          "at": "2026-06-12T00:16:49.082Z"
         }
       ]
     },
