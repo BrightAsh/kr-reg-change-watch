@@ -1,17 +1,17 @@
 {
   "date": "2026-05-03",
-  "collected_at": "2026-06-12T03:27:23.161Z",
+  "collected_at": "2026-06-12T06:28:48.186Z",
   "item_count": 3,
-  "changed_count": 0,
+  "changed_count": 3,
   "cache_hit": false,
   "items": [
     {
-      "id": "1ec64e23accc08f8",
+      "id": "01fc5b723762d13e",
       "summary": "자동요약: 전남지방우정청 · 고시 · 폐지 · 공표일 2026-05-03 · 시행일 2026-05-06. (전남지방우정청) 국내특급우편물의 취급지역, 취급우체국, 취급시간에 대한 고시 1. 취급지역 및 취급우체국가. 원문 링크를 기준으로 확인하세요.",
       "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
       "auto_summary": true,
       "collection_date": "2026-05-03",
-      "collected_at": "2026-06-01T09:05:47.857Z",
+      "collected_at": "2026-06-12T06:26:50.175Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "전남지방우정청",
@@ -21,7 +21,7 @@
       "publish_date": "2026-05-03",
       "effective_date": "2026-05-06",
       "change_type": "abolished",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000278618&type=HTML&mobileYn=",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000278618&type=HTML&mobileYn=",
       "attachment_urls": [
         "http://law.go.kr/flDownload.do?flSeq=164016805",
         "http://law.go.kr/flDownload.do?flSeq=164016809"
@@ -35,12 +35,12 @@
       "public_system_matches": []
     },
     {
-      "id": "b2b69d0671f5f756",
+      "id": "1b57b21af7a1be2c",
       "summary": "자동요약: 소방청 · 훈령 · 신규 · 공표일 2026-05-03 · 시행일 2026-05-03. 자율기구 소방인공지능융합과 설치 및 운영에 관한 규정 부칙 제1조(시행일) 이 훈령은 발령한 날부터 시행한다.제2조(유효기간) 이 훈령은 2026년 11월 2일까지 효력을 가진다. --- 추가 근거 --- 자율기구 소방인공지능융합과 설치 및 운영에 관한 규정 원문 링크를 기준으로 확인하세요.",
       "diff_summary": "이번 스냅샷에 새로 나타난 항목입니다.",
       "auto_summary": true,
       "collection_date": "2026-05-03",
-      "collected_at": "2026-06-01T09:05:47.857Z",
+      "collected_at": "2026-06-12T06:26:50.174Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "소방청",
@@ -50,7 +50,7 @@
       "publish_date": "2026-05-03",
       "effective_date": "2026-05-03",
       "change_type": "new",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000278986&type=HTML&mobileYn=",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000278986&type=HTML&mobileYn=",
       "attachment_urls": [
         "https://www.law.go.kr/LSW/flDownload.do?flSeq=164150933",
         "https://www.law.go.kr/LSW/flDownload.do?flSeq=164150929",
@@ -71,7 +71,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-03",
-      "collected_at": "2026-06-01T09:05:42.401Z",
+      "collected_at": "2026-06-12T06:26:28.273Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "재정경제부",
@@ -81,7 +81,7 @@
       "publish_date": "2021-12-31",
       "effective_date": "2022-01-01",
       "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&MST=239013&type=HTML&mobileYn=&efYd=20220101",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=239013&type=HTML&mobileYn=&efYd=20220101",
       "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-05-03\n법령ID: 014079\n연혁 행 수: 1\n\n최근 연혁\n공포 2021-12-31 / 시행 2022-01-01 / 타법개정 / 제00882호 / 중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙\n\n전체 연혁\n공포 2021-12-31 / 시행 2022-01-01 / 타법개정 / 제00882호 / 중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙\n\n개정문\n⊙기획재정부령 제882호(2021.12.31)\n관세ㆍ통계통합품목분류표 개정에 따른 덤핑방지관세 부과대상 정비를 위한 4개 법령의 일부개정에 관한 기획재정부령\n제1조 및 제2조 생략\n제3조(「중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙」의 개정) 중국산 인쇄제판용 평면 모양 사진플레이트에 대한 덤핑방지관세 부과에 관한 규칙 일부를 다음과 같이 개정한다.\n제2조 각 호 외의 부분 본문 중 \"제3701.30.9100호\"를 \"제3701.30.2000호\"로 한다.\n제4조 생략\n부칙\n이 규칙은 2022년 1월 1일부터 시행한다.\n\n제개정 이유\n일괄개정 ◇ 개정이유 및 주요내용\n「관세법」에서 정하는 관세율표와 기획재정부장관이 우리나라 상황에 맞게 품목을 세분하여 정하는 「관세ㆍ통계통합품목분류표」가 2022년 1월 1일부터 개정ㆍ시행되는바, 통관(通關)상의 혼란을 방지하기 위해 덤핑방지관세가 부과되는 물품의 품목번호를 달라진 품목분류기준에 맞게 수정하는 등 「중국산 침엽수 합판에 대한 덤핑방지관세 부과에 관한 규칙」 등 4개의 기획재정부령의 품목번호 관련 사항을 정비하려는 것임.",
       "raw_hash": "2eec2b8bbe899a5d5092b57b1005a4500f66ec9adfcfe74205b0908ab7bd6e4a",
       "confidence": "official",
@@ -198,301 +198,6 @@
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
     },
     {
-      "source": "국가법령정보센터 법령 변경이력",
-      "status": "error",
-      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260503 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:21:32.278Z",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
-      "source": "국가법령정보센터 일자별 조문 개정 이력",
-      "status": "error",
-      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260503 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:21:42.771Z",
-      "group": "official-law",
-      "route": "국가법령정보센터 일자별 조문 개정 이력"
-    },
-    {
-      "source": "국가법령정보센터 행정규칙",
-      "status": "error",
-      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260503&sort=ddes failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:21:53.266Z",
-      "group": "official-law",
-      "route": "국가법령정보센터 행정규칙"
-    },
-    {
-      "source": "국가법령정보센터 행정규칙 신구법 비교",
-      "status": "error",
-      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260503&sort=ddes failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:22:03.761Z",
-      "group": "official-law",
-      "route": "국가법령정보센터 행정규칙 신구법 비교"
-    },
-    {
-      "source": "국민참여입법센터 입법예고",
-      "status": "error",
-      "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed; 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed; 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:22:35.243Z",
-      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
-      "group": "lawmaking",
-      "route": "국민참여입법센터 입법예고"
-    },
-    {
-      "source": "국민참여입법센터 입법예고(수정일 기준)",
-      "status": "error",
-      "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed; 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed; 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:23:06.728Z",
-      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
-      "group": "lawmaking",
-      "route": "국민참여입법센터 입법예고(수정일 기준)"
-    },
-    {
-      "source": "국민참여입법센터 행정예고",
-      "status": "error",
-      "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ptcpAdmPp.xml?OC=busisi79&asndOfiNm=%EB%B2%95%EC%A0%9C%EC%B2%98&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed; 행정안전부: GET https://www.lawmaking.go.kr/rest/ptcpAdmPp.xml?OC=busisi79&asndOfiNm=%ED%96%89%EC%A0%95%EC%95%88%EC%A0%84%EB%B6%80&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed; 기획재정부: GET https://www.lawmaking.go.kr/rest/ptcpAdmPp.xml?OC=busisi79&asndOfiNm=%EA%B8%B0%ED%9A%8D%EC%9E%AC%EC%A0%95%EB%B6%80&stYdFmt=2026.5.3.&edYdFmt=2026.5.3. failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:23:38.211Z",
-      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
-      "group": "lawmaking",
-      "route": "국민참여입법센터 행정예고"
-    },
-    {
-      "source": "대한민국 전자관보",
-      "status": "error",
-      "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260503&reqTo=20260503&fromDate=20260503&toDate=20260503&type=1 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:23:48.705Z",
-      "group": "gazette",
-      "route": "대한민국 전자관보"
-    },
-    {
-      "source": "산업통상부 입법예고",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:23:59.199Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
-      "group": "motir",
-      "route": "산업통상부 입법예고"
-    },
-    {
-      "source": "산업통상부 행정예고",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa6723dc7b failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:24:09.694Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
-      "group": "motir",
-      "route": "산업통상부 행정예고"
-    },
-    {
-      "source": "산업통상부 고시",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL0c554f816 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:24:20.186Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
-      "group": "motir",
-      "route": "산업통상부 고시"
-    },
-    {
-      "source": "산업통상부 공고",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:24:30.679Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
-      "group": "motir",
-      "route": "산업통상부 공고"
-    },
-    {
-      "source": "산업통상부 구.정통부고시",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:24:41.173Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
-      "group": "motir",
-      "route": "산업통상부 구.정통부고시"
-    },
-    {
-      "source": "산업통상부 구.재경부고시",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:24:51.667Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
-      "group": "motir",
-      "route": "산업통상부 구.재경부고시"
-    },
-    {
-      "source": "산업통상부 훈령",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL825d20c7e failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:25:02.161Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
-      "group": "motir",
-      "route": "산업통상부 훈령"
-    },
-    {
-      "source": "산업통상부 예규",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL520ce518e failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:25:12.655Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
-      "group": "motir",
-      "route": "산업통상부 예규"
-    },
-    {
-      "source": "산업통상부 지침",
-      "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL516d59376 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:25:23.150Z",
-      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
-      "group": "motir",
-      "route": "산업통상부 지침"
-    },
-    {
-      "source": "ALIO 공공기관 법령/지침",
-      "status": "error",
-      "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:25:33.644Z",
-      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
-      "group": "alio",
-      "route": "ALIO 공공기관 법령/지침"
-    },
-    {
-      "source": "ALIO 공공정책자료",
-      "status": "error",
-      "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:25:44.138Z",
-      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
-      "group": "alio",
-      "route": "ALIO 공공정책자료"
-    },
-    {
-      "source": "ALIO",
-      "status": "error",
-      "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:25:44.139Z",
-      "url": "https://www.alio.go.kr/etc/etcLawList.do",
-      "group": "alio",
-      "route": "ALIO"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/pressrelease.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:25:54.632Z",
-      "url": "http://www.korea.kr/rss/pressrelease.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/policy.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:26:05.126Z",
-      "url": "http://www.korea.kr/rss/policy.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_moleg.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:26:15.618Z",
-      "url": "http://www.korea.kr/rss/dept_moleg.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_mois.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:26:26.111Z",
-      "url": "http://www.korea.kr/rss/dept_mois.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_moef.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:26:36.605Z",
-      "url": "http://www.korea.kr/rss/dept_moef.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/president.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:26:47.099Z",
-      "url": "http://www.korea.kr/rss/president.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:26:57.592Z",
-      "url": "http://www.korea.kr/rss/speech.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/cabinet.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:27:08.086Z",
-      "url": "http://www.korea.kr/rss/cabinet.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "error",
-      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/ebriefing.xml failed after 1 attempt(s): fetch failed",
-      "count": 0,
-      "at": "2026-06-12T03:27:18.580Z",
-      "url": "http://www.korea.kr/rss/ebriefing.xml",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "대한민국 정책브리핑 RSS",
-      "status": "ok",
-      "message": "정책브리핑 RSS 수집 완료",
-      "count": 0,
-      "at": "2026-06-12T03:27:18.580Z",
-      "url": "https://www.korea.kr/etc/rss.do",
-      "group": "policy-rss",
-      "route": "대한민국 정책브리핑 RSS"
-    },
-    {
       "source": "네이버 뉴스 검색 API",
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
@@ -502,11 +207,214 @@
       "route": "네이버 뉴스 검색 API"
     },
     {
-      "source": "수집 상태 점검",
-      "status": "error",
-      "message": "Critical source connectivity failure for 2026-05-03: official-law, lawmaking, gazette, motir-board, alio, policy-rss",
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.",
+      "count": 1,
+      "at": "2026-06-12T06:26:45.623Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+      "count": 1,
+      "at": "2026-06-12T06:26:45.623Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
       "count": 0,
-      "at": "2026-06-12T03:27:22.368Z"
+      "at": "2026-06-12T06:26:47.857Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 2,
+      "at": "2026-06-12T06:26:50.175Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 2,
+      "at": "2026-06-12T06:26:51.692Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-06-12T06:26:56.324Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-06-12T06:26:59.464Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고(수정일 기준)"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-12T06:27:43.682Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 행정예고"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:27:44.915Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:27:48.380Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
+      "group": "motir",
+      "route": "산업통상부 입법예고"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:27:50.443Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
+      "group": "motir",
+      "route": "산업통상부 행정예고"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:27:55.853Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
+      "group": "motir",
+      "route": "산업통상부 고시"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:06.075Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
+      "group": "motir",
+      "route": "산업통상부 공고"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:07.077Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
+      "group": "motir",
+      "route": "산업통상부 구.정통부고시"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:08.129Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
+      "group": "motir",
+      "route": "산업통상부 구.재경부고시"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:10.390Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
+      "group": "motir",
+      "route": "산업통상부 훈령"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:12.449Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
+      "group": "motir",
+      "route": "산업통상부 예규"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:13.454Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
+      "group": "motir",
+      "route": "산업통상부 지침"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:18.821Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+      "group": "alio",
+      "route": "ALIO 공공기관 법령/지침"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:32.913Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+      "group": "alio",
+      "route": "ALIO 공공정책자료"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "ok",
+      "message": "정책브리핑 RSS 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T06:28:47.419Z",
+      "url": "https://www.korea.kr/etc/rss.do",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
     }
   ]
 }
