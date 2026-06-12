@@ -1,17 +1,17 @@
 {
   "date": "2026-05-10",
-  "collected_at": "2026-06-08T08:59:01.298Z",
+  "collected_at": "2026-06-12T07:40:17.940Z",
   "item_count": 3,
-  "changed_count": 0,
+  "changed_count": 2,
   "cache_hit": false,
   "items": [
     {
-      "id": "7c582072a7b93df8",
+      "id": "391741041e85a7a8",
       "summary": "자동요약: 중부지방해양경찰청 · 시행규칙/조례 · 일부개정 · 공표일 2026-05-10 · 시행일 2026-05-10. 중부지방해양경찰청과 그 소속기관 사무분장 규칙 --- 추가 근거 --- 중부지방해양경찰청과 그 소속기관 사무분장 규칙 제9조(종합상황실) 종합상황실은 다음 각 호의 사무에 대하여 안전총괄부장을 보좌한다. 1 1. 원문 링크를 기준으로 확인하세요.",
       "diff_summary": "구조문 2,715자, 신조문 3,098자 기준으로 신구법 비교 원문이 확인됨",
       "auto_summary": true,
       "collection_date": "2026-05-10",
-      "collected_at": "2026-06-01T09:32:24.378Z",
+      "collected_at": "2026-06-12T07:38:37.646Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "중부지방해양경찰청",
@@ -21,7 +21,7 @@
       "publish_date": "2026-05-10",
       "effective_date": "2026-05-10",
       "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000278988&type=HTML&mobileYn=",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000278988&type=HTML&mobileYn=",
       "attachment_urls": [
         "https://www.law.go.kr/LSW/flDownload.do?flSeq=164147917",
         "https://www.law.go.kr/LSW/flDownload.do?flSeq=164147905",
@@ -39,12 +39,12 @@
       "public_system_matches": []
     },
     {
-      "id": "3357b8572209b68e",
+      "id": "90daa6b95e6f23bb",
       "summary": "자동요약: 중부지방해양경찰청 · 시행규칙/조례 · 일부개정 · 공표일 2026-05-10 · 시행일 2026-05-10. 중부지방해양경찰청과 그 소속기관 위임전결 규칙 --- 추가 근거 --- 중부지방해양경찰청과 그 소속기관 위임전결 규칙 N 60798 중부지방해양경찰청과 그 소속기관 위임전결 규칙 20251110 20251110 훈령 60 2100000267890 일부개정 Y 60798 중부지방해양경찰청과 그 소속기관 위임전결 규칙 20260510 20260510 훈령 62 2100000278962 일부개정 원문 링크를 기준으로 확인하세요.",
       "diff_summary": "구조문 76자, 신조문 76자 기준으로 신구법 비교 원문이 확인됨",
       "auto_summary": true,
       "collection_date": "2026-05-10",
-      "collected_at": "2026-06-01T09:32:24.380Z",
+      "collected_at": "2026-06-12T07:38:37.648Z",
       "source": "국가법령정보센터 행정규칙 + 국가법령정보센터 행정규칙 신구법 비교",
       "source_type": "official_law",
       "ministry": "중부지방해양경찰청",
@@ -54,7 +54,7 @@
       "publish_date": "2026-05-10",
       "effective_date": "2026-05-10",
       "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&ID=2100000278962&type=HTML&mobileYn=",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000278962&type=HTML&mobileYn=",
       "attachment_urls": [
         "https://www.law.go.kr/LSW/flDownload.do?flSeq=164144767",
         "https://www.law.go.kr/LSW/flDownload.do?flSeq=164143331",
@@ -216,6 +216,214 @@
       "count": 0,
       "at": "2026-06-08T08:59:00.786Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260510 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+      "count": 0,
+      "at": "2026-06-12T07:38:16.554Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-12T07:38:28.815Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 2,
+      "at": "2026-06-12T07:38:37.648Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 2,
+      "at": "2026-06-12T07:38:40.680Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-06-12T07:38:45.346Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-06-12T07:38:48.742Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고(수정일 기준)"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-12T07:39:30.780Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 행정예고"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:31.791Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:34.244Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
+      "group": "motir",
+      "route": "산업통상부 입법예고"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:35.680Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
+      "group": "motir",
+      "route": "산업통상부 행정예고"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:38.576Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
+      "group": "motir",
+      "route": "산업통상부 고시"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:44.984Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
+      "group": "motir",
+      "route": "산업통상부 공고"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:45.708Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
+      "group": "motir",
+      "route": "산업통상부 구.정통부고시"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:46.531Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
+      "group": "motir",
+      "route": "산업통상부 구.재경부고시"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:47.966Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
+      "group": "motir",
+      "route": "산업통상부 훈령"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:48.685Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
+      "group": "motir",
+      "route": "산업통상부 예규"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:49.405Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
+      "group": "motir",
+      "route": "산업통상부 지침"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:39:54.249Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+      "group": "alio",
+      "route": "ALIO 공공기관 법령/지침"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:40:07.662Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+      "group": "alio",
+      "route": "ALIO 공공정책자료"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "ok",
+      "message": "정책브리핑 RSS 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:40:14.450Z",
+      "url": "https://www.korea.kr/etc/rss.do",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-06-12T07:40:17.311Z",
+      "group": "naver-news",
+      "route": "네이버 뉴스 검색 API"
     }
   ]
 }
