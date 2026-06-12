@@ -404,7 +404,7 @@ async function main() {
       const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
       const merged = mergeItems(canonicalExisting, cachedItems);
       const cacheLogs: CollectionLog[] = [
-        ...cached.logs,
+        ...cleanStaleLogsForSelectedRoutes(cached.logs),
         {
           source: "일자별 캐시",
           status: "ok",
@@ -438,7 +438,7 @@ async function main() {
     const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
     const merged = mergeItems(canonicalExisting, cachedItems);
     const cacheLogs: CollectionLog[] = [
-      ...existingDaily.logs,
+      ...cleanStaleLogsForSelectedRoutes(existingDaily.logs),
       {
         source: "수집 재시도",
         status: "ok",
@@ -2536,6 +2536,12 @@ function attachPublicSystemMatches(item: CollectedItem): CollectedItem {
     ...item,
     public_system_matches
   };
+}
+
+function cleanStaleLogsForSelectedRoutes(logs: CollectionLog[]): CollectionLog[] {
+  const groupsForThisRun = new Set(selectedRouteKeys().filter(({ group }) => shouldRunSource(group)).map(({ group }) => group));
+  if (!groupsForThisRun.size) return logs;
+  return logs.filter((log) => !isStaleGroupLevelLog(log, groupsForThisRun) && !isStaleAggregateRouteLog(log, groupsForThisRun));
 }
 
 function mergeCollectionLogs(existingDaily: DailyCollection | null, newLogs: CollectionLog[]): CollectionLog[] {
