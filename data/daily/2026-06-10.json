@@ -1,8 +1,8 @@
 {
   "date": "2026-06-10",
-  "collected_at": "2026-06-11T02:21:02.016Z",
+  "collected_at": "2026-06-12T01:52:04.366Z",
   "item_count": 1,
-  "changed_count": 1,
+  "changed_count": 0,
   "cache_hit": false,
   "items": [
     {
@@ -33,15 +33,6 @@
     }
   ],
   "logs": [
-    {
-      "source": "국가법령정보센터 접속 확인",
-      "status": "error",
-      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: This operation was aborted, 8001ms",
-      "count": 0,
-      "at": "2026-06-11T02:19:23.533Z",
-      "url": "https://www.law.go.kr",
-      "group": "official-law"
-    },
     {
       "source": "국민참여입법센터 입법예고",
       "status": "ok",
@@ -196,15 +187,6 @@
       "group": "ministry-board"
     },
     {
-      "source": "산업통상부 게시판 접속 확인",
-      "status": "error",
-      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 866ms",
-      "count": 0,
-      "at": "2026-06-11T02:20:30.170Z",
-      "url": "https://www.motir.go.kr",
-      "group": "motir"
-    },
-    {
       "source": "ALIO 공공기관 법령/지침",
       "status": "ok",
       "message": "ALIO 법령/지침 원문 수집 완료",
@@ -238,6 +220,132 @@
       "count": 0,
       "at": "2026-06-11T02:21:01.256Z",
       "group": "naver-news"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260610 failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:49:57.826Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260610 failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:50:08.320Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:50:18.813Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:50:29.306Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:50:39.801Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
+      "group": "motir",
+      "route": "산업통상부 입법예고"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa6723dc7b failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:50:50.294Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
+      "group": "motir",
+      "route": "산업통상부 행정예고"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL0c554f816 failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:51:00.789Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
+      "group": "motir",
+      "route": "산업통상부 고시"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:51:11.282Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
+      "group": "motir",
+      "route": "산업통상부 공고"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:51:21.776Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
+      "group": "motir",
+      "route": "산업통상부 구.정통부고시"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:51:32.268Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
+      "group": "motir",
+      "route": "산업통상부 구.재경부고시"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL825d20c7e failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:51:42.762Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
+      "group": "motir",
+      "route": "산업통상부 훈령"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL520ce518e failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:51:53.254Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
+      "group": "motir",
+      "route": "산업통상부 예규"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "error",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL516d59376 failed after 1 attempt(s): fetch failed",
+      "count": 0,
+      "at": "2026-06-12T01:52:03.748Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
+      "group": "motir",
+      "route": "산업통상부 지침"
     }
   ]
 }
