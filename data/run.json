@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-06-12T01:52:04.625Z",
+  "last_run_at": "2026-06-12T01:54:48.839Z",
   "last_target_date": "2026-06-10",
   "item_count": 3972,
   "changed_count": 0,
@@ -68,7 +68,7 @@
     "2026-01-02",
     "2026-01-01"
   ],
-  "cache_hit": false,
+  "cache_hit": true,
   "logs": [
     {
       "source": "국민참여입법센터 입법예고",
@@ -383,6 +383,13 @@
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
       "group": "motir",
       "route": "산업통상부 지침"
+    },
+    {
+      "source": "일자별 캐시",
+      "status": "ok",
+      "message": "2026-06-10 캐시가 있어 외부 수집을 건너뜁니다.",
+      "count": 1,
+      "at": "2026-06-12T01:54:48.734Z"
     }
   ]
 }
