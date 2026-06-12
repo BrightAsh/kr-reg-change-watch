@@ -1,0 +1,46 @@
+name: Network probe
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - ubuntu-22.04
+          - windows-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Probe regulatory source hosts
+        shell: bash
+        run: |
+          set +e
+          urls=(
+            "https://www.law.go.kr/DRF/lawSearch.do"
+            "https://www.lawmaking.go.kr/rest/ogLmPp.xml"
+            "https://open.gwanbo.go.kr"
+            "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
+            "https://www.motir.go.kr/kor/article/ATCLc01b2a9d8"
+            "https://www.korea.kr/etc/rss.do"
+          )
+          for url in "${urls[@]}"; do
+            echo "::group::$url"
+            curl -4 -L --http1.1 --connect-timeout 10 --max-time 20 -sS \
+              -o /tmp/probe.out \
+              -w "http_code=%{http_code} remote_ip=%{remote_ip} time_total=%{time_total}\n" \
+              "$url"
+            code=$?
+            bytes=0
+            if [ -f /tmp/probe.out ]; then
+              bytes=$(wc -c < /tmp/probe.out | tr -d ' ')
+            fi
+            echo "curl_exit=$code bytes=$bytes"
+            rm -f /tmp/probe.out
+            echo "::endgroup::"
+          done
