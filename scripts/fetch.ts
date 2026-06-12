@@ -415,7 +415,7 @@ async function main() {
       ];
       await writeJson(itemsPath, merged);
       await writeJson(path.join(snapshotsDir, `${targetDate}.json`), cachedItems);
-      await writeJson(dailyPath, { ...cached, items: cachedItems });
+      await writeJson(dailyPath, { ...cached, items: cachedItems, logs: cacheLogs });
       await writeJson(path.join(logsDir, "last-fetch.json"), cacheLogs);
       await writeJson(runPath, {
         last_run_at: new Date().toISOString(),
@@ -449,7 +449,7 @@ async function main() {
     ];
     await writeJson(itemsPath, merged);
     await writeJson(path.join(snapshotsDir, `${targetDate}.json`), cachedItems);
-    await writeJson(dailyPath, { ...existingDaily, items: cachedItems });
+    await writeJson(dailyPath, { ...existingDaily, items: cachedItems, logs: cacheLogs });
     await writeJson(path.join(logsDir, "last-fetch.json"), cacheLogs);
     await writeJson(runPath, {
       last_run_at: new Date().toISOString(),
