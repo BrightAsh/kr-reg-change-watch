@@ -108,6 +108,60 @@ jobs:
       - name: Install ALIO attachment extractor dependencies
         run: python3 -m pip install --user olefile pypdf
 
+      - name: Preflight source connectivity
+        id: preflight
+        if: github.event_name != 'push'
+        shell: bash
+        run: |
+          set +e
+          if [ -n "$TARGET_DATE" ]; then
+            YMD="$(date -u -d "$TARGET_DATE" +%Y%m%d)"
+            DOT_DATE="$(date -u -d "$TARGET_DATE" +%-Y.%-m.%-d.)"
+          else
+            YMD="$(TZ=Asia/Seoul date -d 'yesterday' +%Y%m%d)"
+            DOT_DATE="$(TZ=Asia/Seoul date -d 'yesterday' +%-Y.%-m.%-d.)"
+          fi
+
+          LAW_OC_VALUE="${LAW_OPEN_API_OC:-${LAW_OC:-${KOREAN_LAW_API_KEY:-}}}"
+          LAWMAKING_OC_VALUE="${LAWMAKING_OC:-}"
+          FAIL_COUNT=0
+
+          probe_url() {
+            local label="$1"
+            local url="$2"
+            echo "Checking ${label}"
+            curl -4 -L --http1.1 --connect-timeout 8 --max-time 12 -sS --fail \
+              -o /tmp/preflight.out \
+              -A "Mozilla/5.0 (compatible; kr-reg-change-watch/0.1; +https://github.com/BrightAsh/kr-reg-change-watch)" \
+              -H "accept: application/json, application/xml, text/xml, text/html;q=0.9, */*;q=0.8" \
+              -H "accept-language: ko-KR,ko;q=0.9,en;q=0.8" \
+              "$url"
+            local code=$?
+            local bytes=0
+            if [ -f /tmp/preflight.out ]; then
+              bytes=$(wc -c < /tmp/preflight.out | tr -d ' ')
+            fi
+            rm -f /tmp/preflight.out
+            if [ "$code" -eq 0 ]; then
+              echo "OK ${label} bytes=${bytes}"
+            else
+              echo "FAIL ${label} curl_exit=${code}"
+              FAIL_COUNT=$((FAIL_COUNT + 1))
+            fi
+          }
+
+          probe_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=lsHstInf&type=JSON&display=100&page=1&regDt=${YMD}"
+          probe_url "lawmaking.go.kr" "https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=${LAWMAKING_OC_VALUE}&cptOfiOrgCd=1170000&stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}"
+          probe_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
+          probe_url "motir.go.kr" "https://www.motir.go.kr/kor/article/ATCLc01b2a9d8"
+          probe_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
+
+          if [ "$FAIL_COUNT" -ge 3 ]; then
+            echo "Preflight failed: ${FAIL_COUNT} representative source hosts are unreachable from this GitHub runner."
+            exit 1
+          fi
+          echo "Preflight passed with ${FAIL_COUNT} failure(s)."
+
       - name: Collect official changes
         id: collect
         if: github.event_name != 'push'
@@ -128,11 +182,11 @@ jobs:
           fi
 
       - name: Update collection status
-        if: ${{ always() && github.event_name != 'push' }}
+        if: ${{ always() && github.event_name != 'push' && steps.preflight.outcome == 'success' }}
         run: npm run status:update
 
       - name: Commit collected data
-        if: ${{ always() && github.event_name != 'push' }}
+        if: ${{ always() && github.event_name != 'push' && steps.preflight.outcome == 'success' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
