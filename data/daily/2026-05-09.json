@@ -1,8 +1,8 @@
 {
   "date": "2026-05-09",
-  "collected_at": "2026-06-08T08:58:31.266Z",
+  "collected_at": "2026-06-12T07:28:46.299Z",
   "item_count": 1,
-  "changed_count": 0,
+  "changed_count": 1,
   "cache_hit": false,
   "items": [
     {
@@ -11,7 +11,7 @@
       "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-09",
-      "collected_at": "2026-06-01T09:29:49.310Z",
+      "collected_at": "2026-06-12T07:26:53.884Z",
       "source": "국가법령정보센터 법령 변경이력",
       "source_type": "official_law",
       "ministry": "재정경제부",
@@ -21,7 +21,7 @@
       "publish_date": "2026-05-08",
       "effective_date": "2026-05-08",
       "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&MST=285897&type=HTML&mobileYn=&efYd=20260508",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=285897&type=HTML&mobileYn=&efYd=20260508",
       "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-05-09\n법령ID: 002421\n연혁 행 수: 1\n\n최근 연혁\n공포 2026-05-08 / 시행 2026-05-08 / 일부개정 / 제36316호 / 관세법 시행령\n\n전체 연혁\n공포 2026-05-08 / 시행 2026-05-08 / 일부개정 / 제36316호 / 관세법 시행령\n\n개정문\n국무회의의 심의를 거친 관세법 시행령 일부개정령을 이에 공포한다.\n대통령 이재명 (인)\n2026년 5월 8일\n국무총리 김민석\n국무위원 재정경제부 장관 구윤철\n⊙대통령령 제36316호\n관세법 시행령 일부개정령\n관세법 시행령 일부를 다음과 같이 개정한다.\n제20조제4항 각 호 외의 부분 중 \"다음 각 호의 어느 하나에 해당하는 물품의 운임\"을 \"다음 각 호의 어느 하나에 해당하는 물품의 운임(제4호의 경우에는 보험료를 포함한다. 이하 이 조에서 같다)\"으로 하고, 같은 항 각 호 외의 부분에 후단을 다음과 같이 신설한다.\n이 경우 통상적으로 적용하는 운임의 기준, 적용기한, 그 밖에 필요한 사항은 관세청장이 정한다.\n제20조제4항에 제4호를 다음과 같이 신설하고, 같은 조 제6항 본문 중 \"보험료를\"을 \"보험료 또는 제4항에 따라 통상적으로 적용하는 운임을\"로, \"제3항에 따른 재정경제부령으로 정하는\"을 \"제3항 또는 제4항에 따른\"으로 한다.\n4. 전쟁, 천재지변 등 불가피한 사유가 발생하여 통상적인 운송경로ㆍ운송일정 등과 다르게 운송되는 물품\n부칙\n제1조(시행일) 이 영은 공포한 날부터 시행한다.\n제2조(운임 등의 결정에 관한 적용례) 제20조제4항 및 제6항의 개정규정은 2026년 3월 1일 이후 수입신고를 하는 경우부터 적용한다.\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n최근 중동전쟁으로 수입물품을 선박으로 운송할 때 종전의 운송경로를 이용할 수 없게 되어 우회경로를 이용하게 되는 경우 관세 과세가격에 포함되는 운임이 상승하여 추가적인 관세 부담이 발생하는바,\n전쟁, 천재지변 등 불가피한 사유로 물품 운송경로 등이 변경되어 해당 물품의 운임이 선박회사가 통상적으로 적용하는 운임보다 현저히 상승하는 경우에는 수입물품의 관세 과세가격 결정 시 통상적으로 적용하는 운임을 적용할 수 있도록 함으로써 추가적인 관세 부담을 완화하고 수입물품의 가격 안정을 도모하려는 것임.",
       "raw_hash": "0161ab3bd2e51325686c925337e1838a53f9717d2ae783ef1df372d638562cea",
       "confidence": "official",
@@ -136,6 +136,225 @@
       "count": 0,
       "at": "2026-06-08T08:58:30.770Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.",
+      "count": 1,
+      "at": "2026-06-12T07:27:12.550Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+      "count": 1,
+      "at": "2026-06-12T07:27:12.550Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-12T07:27:14.047Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:27:15.039Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:27:15.472Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-06-12T07:27:19.183Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-06-12T07:27:22.034Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고(수정일 기준)"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-12T07:27:58.931Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 행정예고"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:27:59.821Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:02.502Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
+      "group": "motir",
+      "route": "산업통상부 입법예고"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:04.135Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
+      "group": "motir",
+      "route": "산업통상부 행정예고"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:07.134Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
+      "group": "motir",
+      "route": "산업통상부 고시"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:14.156Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
+      "group": "motir",
+      "route": "산업통상부 공고"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:15.027Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
+      "group": "motir",
+      "route": "산업통상부 구.정통부고시"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:15.779Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
+      "group": "motir",
+      "route": "산업통상부 구.재경부고시"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:17.372Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
+      "group": "motir",
+      "route": "산업통상부 훈령"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:18.112Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
+      "group": "motir",
+      "route": "산업통상부 예규"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:18.863Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
+      "group": "motir",
+      "route": "산업통상부 지침"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:23.564Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+      "group": "alio",
+      "route": "ALIO 공공기관 법령/지침"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:36.189Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+      "group": "alio",
+      "route": "ALIO 공공정책자료"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "ok",
+      "message": "정책브리핑 RSS 수집 완료",
+      "count": 0,
+      "at": "2026-06-12T07:28:42.489Z",
+      "url": "https://www.korea.kr/etc/rss.do",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-06-12T07:28:45.469Z",
+      "group": "naver-news",
+      "route": "네이버 뉴스 검색 API"
     }
   ]
 }
