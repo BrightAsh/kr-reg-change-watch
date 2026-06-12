@@ -78,6 +78,7 @@ export interface CollectionLog {
   at: string;
   url?: string;
   group?: string;
+  route?: string;
 }
 
 export interface RunMetadata {

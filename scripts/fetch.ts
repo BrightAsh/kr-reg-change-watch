@@ -71,6 +71,8 @@ const itemsPath = path.join(rootDir, "data", "items.json");
 const runPath = path.join(rootDir, "data", "run.json");
 const dailyPath = path.join(dailyDir, `${targetDate}.json`);
 let activeSourceGroups: Set<SourceGroup> | null = null;
+let existingDailyForRun: DailyCollection | null = null;
+let preserveSuccessfulRoutes = false;
 
 interface MinistryRoute {
   source: string;
@@ -151,6 +153,23 @@ const SOURCE_GROUP_PROBES: Record<SourceGroup, string[]> = {
 };
 
 const sourceProbeCache = new Map<SourceGroup, boolean>();
+
+const OFFICIAL_LAW_ROUTE_SOURCES = [
+  "국가법령정보센터 법령 변경이력",
+  "국가법령정보센터 일자별 조문 개정 이력",
+  "국가법령정보센터 행정규칙",
+  "국가법령정보센터 행정규칙 신구법 비교"
+];
+
+const LAWMAKING_ROUTE_SOURCES = [
+  "국민참여입법센터 입법예고",
+  "국민참여입법센터 입법예고(수정일 기준)",
+  "국민참여입법센터 행정예고"
+];
+
+const GAZETTE_ROUTE_SOURCE = "대한민국 전자관보";
+const POLICY_RSS_ROUTE_SOURCE = "대한민국 정책브리핑 RSS";
+const NAVER_NEWS_ROUTE_SOURCE = "네이버 뉴스 검색 API";
 
 const NETWORK_FAILURE_PATTERNS = [
   /fetch failed/i,
@@ -373,11 +392,9 @@ async function main() {
   await ensureDataDirs();
 
   const existingDaily = await readJson<DailyCollection | null>(dailyPath, null);
-  const preserveExistingSuccesses = forceCollect || retryFailedOnly;
-  const requestedGroups = selectedSourceGroups();
-  const completedGroups = preserveExistingSuccesses ? successfulSourceGroups(existingDaily) : new Set<SourceGroup>();
-  const runnableGroups = requestedGroups.filter((group) => !(preserveExistingSuccesses && completedGroups.has(group)));
-  activeSourceGroups = new Set(runnableGroups);
+  preserveSuccessfulRoutes = forceCollect || retryFailedOnly;
+  existingDailyForRun = existingDaily?.date === targetDate ? existingDaily : null;
+  activeSourceGroups = new Set(selectedSourceGroups());
 
   if (!forceCollect && !retryFailedOnly) {
     const cached = await readJson<DailyCollection | null>(dailyPath, null);
@@ -415,7 +432,7 @@ async function main() {
     }
   }
 
-  if (existingDaily?.date === targetDate && preserveExistingSuccesses && runnableGroups.length === 0) {
+  if (existingDaily?.date === targetDate && preserveSuccessfulRoutes && allSelectedRoutesSucceeded(existingDaily)) {
     const existing = await readJson<CollectedItem[]>(itemsPath, []);
     const cachedItems = existingDaily.items.map(attachPublicSystemMatches);
     const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
@@ -451,19 +468,19 @@ async function main() {
   const logs: CollectionLog[] = [];
   const collected: CollectedItem[] = [];
 
-  await runSource("official-law", logs, collected, () => fetchLawChangeHistory(logs));
-  await runSource("official-law", logs, collected, () => fetchArticleChanges(logs));
-  await runSource("official-law", logs, collected, () => fetchAdministrativeRules(logs));
-  await runSource("official-law", logs, collected, () => fetchAdministrativeRuleComparisons(logs));
-  await runSource("lawmaking", logs, collected, () => fetchLawmakingNotices(logs, "입법예고", "ogLmPp"));
-  await runSource("lawmaking", logs, collected, () => fetchLawmakingNotices(logs, "입법예고(수정일 기준)", "ogLmPpMod"));
-  await runSource("lawmaking", logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
-  await runSource("gazette", logs, collected, () => fetchGazette(logs));
-  await runSource("ministry-board", logs, collected, () => fetchMinistryRoutes(logs));
-  await runSource("motir", logs, collected, () => fetchMotirRoutes(logs));
-  await runSource("alio", logs, collected, () => fetchAlioPublicMaterials(logs));
-  await runSource("policy-rss", logs, collected, () => fetchPolicyRss(logs));
-  await runSource("naver-news", logs, collected, () => fetchNaverNews(logs));
+  await runSource("official-law", OFFICIAL_LAW_ROUTE_SOURCES[0], logs, collected, () => fetchLawChangeHistory(logs));
+  await runSource("official-law", OFFICIAL_LAW_ROUTE_SOURCES[1], logs, collected, () => fetchArticleChanges(logs));
+  await runSource("official-law", OFFICIAL_LAW_ROUTE_SOURCES[2], logs, collected, () => fetchAdministrativeRules(logs));
+  await runSource("official-law", OFFICIAL_LAW_ROUTE_SOURCES[3], logs, collected, () => fetchAdministrativeRuleComparisons(logs));
+  await runSource("lawmaking", LAWMAKING_ROUTE_SOURCES[0], logs, collected, () => fetchLawmakingNotices(logs, "입법예고", "ogLmPp"));
+  await runSource("lawmaking", LAWMAKING_ROUTE_SOURCES[1], logs, collected, () => fetchLawmakingNotices(logs, "입법예고(수정일 기준)", "ogLmPpMod"));
+  await runSource("lawmaking", LAWMAKING_ROUTE_SOURCES[2], logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
+  await runSource("gazette", GAZETTE_ROUTE_SOURCE, logs, collected, () => fetchGazette(logs));
+  await runSource("ministry-board", "행정안전부/기획재정부 게시판", logs, collected, () => fetchMinistryRoutes(logs));
+  await runSource("motir", "산업통상부 게시판", logs, collected, () => fetchMotirRoutes(logs));
+  await runSource("alio", "ALIO", logs, collected, () => fetchAlioPublicMaterials(logs));
+  await runSource("policy-rss", POLICY_RSS_ROUTE_SOURCE, logs, collected, () => fetchPolicyRss(logs));
+  await runSource("naver-news", NAVER_NEWS_ROUTE_SOURCE, logs, collected, () => fetchNaverNews(logs));
 
   const healthError = collectionHealthError(logs);
   if (healthError) {
@@ -512,19 +529,21 @@ async function clearFailureLog(date: string): Promise<void> {
 
 async function runSource(
   group: SourceGroup,
+  route: string,
   logs: CollectionLog[],
   collected: CollectedItem[],
   fn: () => Promise<CollectedItem[]>
 ) {
   if (!shouldRunSource(group)) return;
+  if (!shouldRunRoute(group, route)) return;
   if (!(await ensureSourceGroupReachable(group, logs))) return;
   const logStartIndex = logs.length;
   try {
     collected.push(...(await fn()));
   } catch (error) {
-    addLog(logs, "collector", "error", error instanceof Error ? error.message : String(error), 0, undefined, group);
+    addLog(logs, route, "error", error instanceof Error ? error.message : String(error), 0, undefined, group);
   } finally {
-    tagLogsWithGroup(logs, logStartIndex, group);
+    tagLogsWithGroup(logs, logStartIndex, group, route);
   }
 }
 
@@ -536,7 +555,7 @@ interface SourceProbeResult {
 }
 
 async function ensureSourceGroupReachable(group: SourceGroup, logs: CollectionLog[]): Promise<boolean> {
-  const enabled = env("COLLECT_PREFLIGHT", "1").toLowerCase();
+  const enabled = env("COLLECT_PREFLIGHT", "0").toLowerCase();
   if (enabled === "0" || enabled === "false" || enabled === "no") return true;
   if (sourceProbeCache.has(group)) return sourceProbeCache.get(group) || false;
 
@@ -600,15 +619,71 @@ async function probeSourceGroup(group: SourceGroup): Promise<SourceProbeResult> 
   };
 }
 
-function tagLogsWithGroup(logs: CollectionLog[], startIndex: number, group: SourceGroup): void {
+function tagLogsWithGroup(logs: CollectionLog[], startIndex: number, group: SourceGroup, route?: string): void {
   for (const log of logs.slice(startIndex)) {
     if (!log.group) log.group = group;
+    if (route && !log.route) log.route = route;
   }
 }
 
 function selectedSourceGroups(): SourceGroup[] {
   if (!sourceFilter.size) return SOURCE_GROUPS;
   return SOURCE_GROUPS.filter((group) => sourceFilter.has(group));
+}
+
+function sourceRouteKeysForGroup(group: SourceGroup): string[] {
+  switch (group) {
+    case "official-law":
+      return OFFICIAL_LAW_ROUTE_SOURCES;
+    case "lawmaking":
+      return LAWMAKING_ROUTE_SOURCES;
+    case "gazette":
+      return [GAZETTE_ROUTE_SOURCE];
+    case "ministry-board":
+      return MINISTRY_ROUTES.map((route) => route.source);
+    case "motir":
+      return MOTIR_ROUTES.map((route) => route.source);
+    case "alio":
+      return ALIO_SOURCES.map((source) => source.source);
+    case "policy-rss":
+      return [POLICY_RSS_ROUTE_SOURCE];
+    case "naver-news":
+      return [NAVER_NEWS_ROUTE_SOURCE];
+    default:
+      return [];
+  }
+}
+
+function selectedRouteKeys(): Array<{ group: SourceGroup; route: string }> {
+  return selectedSourceGroups().flatMap((group) =>
+    sourceRouteKeysForGroup(group).map((route) => ({ group, route }))
+  );
+}
+
+function allSelectedRoutesSucceeded(daily: DailyCollection | null): boolean {
+  const routes = selectedRouteKeys();
+  return Boolean(routes.length && routes.every(({ group, route }) => routeSucceeded(daily, group, route)));
+}
+
+function shouldRunRoute(group: SourceGroup, route: string): boolean {
+  if (!preserveSuccessfulRoutes) return true;
+  return !routeSucceeded(existingDailyForRun, group, route);
+}
+
+function routeSucceeded(daily: DailyCollection | null, group: SourceGroup, route: string): boolean {
+  if (!daily || daily.date !== targetDate) return false;
+  const routeLogs = daily.logs.filter((log) => logBelongsToSourceGroup(log, group) && logBelongsToRoute(log, route));
+  if (!routeLogs.length) return false;
+  const hasOk = routeLogs.some((log) => log.status === "ok");
+  const hasError = routeLogs.some((log) => log.status === "error");
+  const hasSkipped = routeLogs.some((log) => log.status === "skipped");
+  return hasOk && !hasError && !hasSkipped;
+}
+
+function logBelongsToRoute(log: CollectionLog, route: string): boolean {
+  if (log.route === route) return true;
+  const source = log.source || "";
+  return source === route || source.startsWith(`${route} `);
 }
 
 function successfulSourceGroups(daily: DailyCollection | null): Set<SourceGroup> {
@@ -1214,10 +1289,14 @@ async function fetchGazette(logs: CollectionLog[]): Promise<CollectedItem[]> {
 async function fetchMinistryRoutes(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const items: CollectedItem[] = [];
   for (const route of MINISTRY_ROUTES) {
+    if (!shouldRunRoute("ministry-board", route.source)) continue;
+    const logStartIndex = logs.length;
     try {
       items.push(...(await fetchConfiguredMinistryBoard(logs, route)));
     } catch (error) {
-      addLog(logs, route.source, "error", `공식 게시판 수집 실패: ${messageOf(error)}`, 0, route.defaultUrl);
+      addLog(logs, route.source, "error", `공식 게시판 수집 실패: ${messageOf(error)}`, 0, route.defaultUrl, "ministry-board", route.source);
+    } finally {
+      tagLogsWithGroup(logs, logStartIndex, "ministry-board", route.source);
     }
   }
   return items;
@@ -1226,10 +1305,14 @@ async function fetchMinistryRoutes(logs: CollectionLog[]): Promise<CollectedItem
 async function fetchMotirRoutes(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const items: CollectedItem[] = [];
   for (const route of MOTIR_ROUTES) {
+    if (!shouldRunRoute("motir", route.source)) continue;
+    const logStartIndex = logs.length;
     try {
       items.push(...(await fetchConfiguredMinistryBoard(logs, route)));
     } catch (error) {
-      addLog(logs, route.source, "error", `산업통상부 게시판 수집 실패: ${messageOf(error)}`, 0, route.defaultUrl);
+      addLog(logs, route.source, "error", `산업통상부 게시판 수집 실패: ${messageOf(error)}`, 0, route.defaultUrl, "motir", route.source);
+    } finally {
+      tagLogsWithGroup(logs, logStartIndex, "motir", route.source);
     }
   }
   return items;
@@ -1264,6 +1347,8 @@ async function fetchAlioPublicMaterials(logs: CollectionLog[]): Promise<Collecte
   const errors: string[] = [];
 
   for (const source of ALIO_SOURCES) {
+    if (!shouldRunRoute("alio", source.source)) continue;
+    const logStartIndex = logs.length;
     try {
       const rows = await fetchAlioListRows(source);
       const targetRows = rows.filter((row) => normalizeDate(text(row, ["bdate", "idate", "disclosureResnDt"])) === targetDate);
@@ -1274,12 +1359,14 @@ async function fetchAlioPublicMaterials(logs: CollectionLog[]): Promise<Collecte
       addLog(logs, source.source, "ok", `ALIO ${source.documentKind} 수집 완료`, targetRows.length, source.pageUrl);
     } catch (error) {
       errors.push(`${source.source}: ${messageOf(error)}`);
-      addLog(logs, source.source, "error", `ALIO 수집 실패: ${messageOf(error)}`, 0, source.pageUrl);
+      addLog(logs, source.source, "error", `ALIO 수집 실패: ${messageOf(error)}`, 0, source.pageUrl, "alio", source.source);
+    } finally {
+      tagLogsWithGroup(logs, logStartIndex, "alio", source.source);
     }
   }
 
   if (errors.length) {
-    addLog(logs, "ALIO 공공정책자료", "error", `ALIO 일부 수집 실패: ${errors.join("; ")}`, items.length, "https://www.alio.go.kr/etc/etcLawList.do");
+    addLog(logs, "ALIO", "error", `ALIO 일부 수집 실패: ${errors.join("; ")}`, items.length, "https://www.alio.go.kr/etc/etcLawList.do", "alio");
   }
   return mergeItems([], items);
 }
@@ -2390,26 +2477,31 @@ async function mergeCollectedSourceItems(
   collectedForDate: CollectedItem[],
   logs: CollectionLog[]
 ): Promise<CollectedItem[]> {
-  const groupsForThisRun = activeSourceGroups ? [...activeSourceGroups] : selectedSourceGroups();
   const existingDaily = await readJson<DailyCollection | null>(dailyPath, null);
-  if (!existingDaily?.items?.length || !groupsForThisRun.length) return collectedForDate;
+  const routesForThisRun = selectedRouteKeys().filter(({ group }) => shouldRunSource(group));
+  if (!existingDaily?.items?.length || !routesForThisRun.length) return collectedForDate;
 
-  const groupsToReplace = groupsForThisRun.filter((group) => {
-    const groupLogs = logs.filter((log) => logBelongsToSourceGroup(log, group));
-    const hasOk = groupLogs.some((log) => log.status === "ok");
-    const hasError = groupLogs.some((log) => log.status === "error");
-    return hasOk && !hasError;
+  const routesToReplace = routesForThisRun.filter(({ group, route }) => {
+    const routeLogs = logs.filter((log) => logBelongsToSourceGroup(log, group) && logBelongsToRoute(log, route));
+    const hasOk = routeLogs.some((log) => log.status === "ok");
+    const hasError = routeLogs.some((log) => log.status === "error");
+    const hasSkipped = routeLogs.some((log) => log.status === "skipped");
+    return hasOk && !hasError && !hasSkipped;
   });
 
-  if (!groupsToReplace.length) return existingDaily.items;
+  if (!routesToReplace.length) return existingDaily.items;
 
   const preservedItems = existingDaily.items.filter(
-    (item) => !groupsToReplace.some((group) => itemBelongsToSourceGroup(item, group))
+    (item) => !routesToReplace.some(({ group, route }) => itemBelongsToSourceGroup(item, group) && itemBelongsToRoute(item, route))
   );
   const acceptedItems = collectedForDate.filter((item) =>
-    groupsToReplace.some((group) => itemBelongsToSourceGroup(item, group))
+    routesToReplace.some(({ group, route }) => itemBelongsToSourceGroup(item, group) && itemBelongsToRoute(item, route))
   );
   return mergeItems(preservedItems, acceptedItems);
+}
+
+function itemBelongsToRoute(item: CollectedItem, route: string): boolean {
+  return item.source === route || item.source.startsWith(`${route} `);
 }
 
 function itemBelongsToSourceGroup(item: CollectedItem, group: SourceGroup): boolean {
@@ -2447,13 +2539,22 @@ function attachPublicSystemMatches(item: CollectedItem): CollectedItem {
 }
 
 function mergeCollectionLogs(existingDaily: DailyCollection | null, newLogs: CollectionLog[]): CollectionLog[] {
-  const groupsForThisRun = activeSourceGroups ? [...activeSourceGroups] : selectedSourceGroups();
-  if (!existingDaily?.logs?.length || !groupsForThisRun.length) return newLogs;
+  const routesForThisRun = selectedRouteKeys().filter(({ group, route }) => shouldRunSource(group) && shouldRunRoute(group, route));
+  if (!existingDaily?.logs?.length || !routesForThisRun.length) return newLogs;
+  const groupsForThisRun = new Set(routesForThisRun.map(({ group }) => group));
 
   const preservedLogs = existingDaily.logs.filter(
-    (log) => !groupsForThisRun.some((group) => logBelongsToSourceGroup(log, group))
+    (log) =>
+      !routesForThisRun.some(({ group, route }) => logBelongsToSourceGroup(log, group) && logBelongsToRoute(log, route)) &&
+      !isStaleGroupLevelLog(log, groupsForThisRun)
   );
   return [...preservedLogs, ...newLogs];
+}
+
+function isStaleGroupLevelLog(log: CollectionLog, groupsForThisRun: Set<SourceGroup>): boolean {
+  if (!log.group || log.route || !groupsForThisRun.has(log.group as SourceGroup)) return false;
+  const textValue = `${log.source || ""} ${log.message || ""}`;
+  return /접속 확인|수집 상태 점검|Critical source|일부 수집 실패/.test(textValue);
 }
 
 function canonicalItemKey(item: CollectedItem): string {

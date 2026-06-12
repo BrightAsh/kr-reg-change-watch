@@ -18,7 +18,7 @@ const methodLabels = {
   ok: "성공",
   error: "오류",
   skipped: "건너뜀",
-  missing: "기록 없음",
+  missing: "미시도",
   not_started: "수집 전"
 };
 

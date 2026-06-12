@@ -231,7 +231,8 @@ export function addLog(
   message: string,
   count = 0,
   url?: string,
-  group?: string
+  group?: string,
+  route?: string
 ): void {
   const entry: CollectionLog = {
     source,
@@ -242,6 +243,7 @@ export function addLog(
     url
   };
   if (group) entry.group = group;
+  if (route) entry.route = route;
   logs.push(entry);
 }
 

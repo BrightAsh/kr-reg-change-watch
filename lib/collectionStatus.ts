@@ -260,7 +260,7 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
         ...expected,
         status: "missing" as const,
         count: null,
-        message: "이 날짜 수집 로그에 해당 수집방법 기록이 없습니다.",
+        message: "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
         at: null
       };
     }
@@ -302,6 +302,7 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
 
 function sameMethod(expected: CollectionMethodStatus, log: CollectionLog): boolean {
   const source = log.source || "";
+  if (log.route === expected.source) return true;
   if (!source) return false;
   if (source === expected.source) return true;
   if (source.startsWith(`${expected.source} `)) return true;
