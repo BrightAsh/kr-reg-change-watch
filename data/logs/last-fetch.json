@@ -321,5 +321,12 @@
     "url": "https://www.korea.kr/etc/rss.do",
     "group": "policy-rss",
     "route": "대한민국 정책브리핑 RSS"
+  },
+  {
+    "source": "일자별 캐시",
+    "status": "ok",
+    "message": "2026-05-18 캐시가 있어 외부 수집을 건너뜁니다.",
+    "count": 113,
+    "at": "2026-06-15T05:24:21.426Z"
   }
 ]

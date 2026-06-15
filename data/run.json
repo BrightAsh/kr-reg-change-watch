@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-06-15T05:13:54.156Z",
+  "last_run_at": "2026-06-15T05:24:21.573Z",
   "last_target_date": "2026-05-18",
   "item_count": 3958,
   "changed_count": 113,
@@ -69,7 +69,7 @@
     "2026-01-02",
     "2026-01-01"
   ],
-  "cache_hit": false,
+  "cache_hit": true,
   "logs": [
     {
       "source": "행정안전부 훈령·예규·고시",
@@ -393,6 +393,13 @@
       "url": "https://www.korea.kr/etc/rss.do",
       "group": "policy-rss",
       "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "일자별 캐시",
+      "status": "ok",
+      "message": "2026-05-18 캐시가 있어 외부 수집을 건너뜁니다.",
+      "count": 113,
+      "at": "2026-06-15T05:24:21.426Z"
     }
   ]
 }

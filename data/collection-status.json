@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T05:13:56.666Z",
+  "generated_at": "2026-06-15T05:24:23.997Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-15",
   "summary": {
@@ -37389,6 +37389,13 @@
           "message": "공식 게시판 HTML 수집 완료",
           "at": "2026-06-15T05:13:19.843Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
+          "source": "일자별 캐시",
+          "status": "ok",
+          "count": 113,
+          "message": "2026-05-18 캐시가 있어 외부 수집을 건너뜁니다.",
+          "at": "2026-06-15T05:24:21.426Z"
         }
       ]
     },
