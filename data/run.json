@@ -1,8 +1,8 @@
 {
-  "last_run_at": "2026-06-15T05:24:21.573Z",
-  "last_target_date": "2026-05-18",
-  "item_count": 3958,
-  "changed_count": 113,
+  "last_run_at": "2026-06-15T05:30:11.929Z",
+  "last_target_date": "2026-05-20",
+  "item_count": 3955,
+  "changed_count": 50,
   "available_dates": [
     "2026-06-13",
     "2026-06-11",
@@ -69,14 +69,14 @@
     "2026-01-02",
     "2026-01-01"
   ],
-  "cache_hit": true,
+  "cache_hit": false,
   "logs": [
     {
       "source": "행정안전부 훈령·예규·고시",
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:23.620Z",
+      "at": "2026-06-09T00:03:27.662Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
     },
     {
@@ -84,7 +84,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:24.038Z",
+      "at": "2026-06-09T00:03:28.444Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
     },
     {
@@ -92,7 +92,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:24.443Z",
+      "at": "2026-06-09T00:03:29.045Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
     },
     {
@@ -100,7 +100,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:26.873Z",
+      "at": "2026-06-09T00:03:31.884Z",
       "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
     },
     {
@@ -108,7 +108,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:29.216Z",
+      "at": "2026-06-09T00:03:34.733Z",
       "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
     },
     {
@@ -116,7 +116,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:31.305Z",
+      "at": "2026-06-09T00:03:36.493Z",
       "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
     },
     {
@@ -124,7 +124,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:34.553Z",
+      "at": "2026-06-09T00:03:39.763Z",
       "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
     },
     {
@@ -132,7 +132,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:36.073Z",
+      "at": "2026-06-09T00:03:41.588Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
     },
     {
@@ -140,7 +140,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:41.132Z",
+      "at": "2026-06-09T00:03:46.257Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
     },
     {
@@ -148,7 +148,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:42.655Z",
+      "at": "2026-06-09T00:03:47.885Z",
       "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
     },
     {
@@ -156,7 +156,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:44.279Z",
+      "at": "2026-06-09T00:03:49.510Z",
       "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
     },
     {
@@ -164,7 +164,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:47.253Z",
+      "at": "2026-06-09T00:03:52.486Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
     },
     {
@@ -172,24 +172,15 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-09T00:02:50.011Z",
+      "at": "2026-06-09T00:03:55.433Z",
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
-    },
-    {
-      "source": "네이버 뉴스 검색 API",
-      "status": "ok",
-      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
-      "count": 0,
-      "at": "2026-06-15T03:57:26.419Z",
-      "group": "naver-news",
-      "route": "네이버 뉴스 검색 API"
     },
     {
       "source": "국가법령정보센터 법령 변경이력 본문 보강",
       "status": "ok",
-      "message": "법제처 lawService API로 개정문/제개정이유 42건을 보강했습니다.",
-      "count": 42,
-      "at": "2026-06-15T05:10:29.921Z",
+      "message": "법제처 lawService API로 개정문/제개정이유 33건을 보강했습니다.",
+      "count": 33,
+      "at": "2026-06-15T05:27:09.536Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 법령 변경이력"
@@ -197,9 +188,9 @@
     {
       "source": "국가법령정보센터 법령 변경이력",
       "status": "ok",
-      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 231행을 법령 단위 42건으로 묶었습니다.",
-      "count": 42,
-      "at": "2026-06-15T05:10:29.921Z",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 42행을 법령 단위 33건으로 묶었습니다.",
+      "count": 33,
+      "at": "2026-06-15T05:27:09.536Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 법령 변경이력"
@@ -207,9 +198,9 @@
     {
       "source": "국가법령정보센터 일자별 조문 개정 이력",
       "status": "ok",
-      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
-      "count": 0,
-      "at": "2026-06-15T05:10:31.141Z",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료. 원자료 2행을 법령 단위 1건으로 묶었습니다.",
+      "count": 1,
+      "at": "2026-06-15T05:27:10.763Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 일자별 조문 개정 이력"
@@ -218,8 +209,8 @@
       "source": "국가법령정보센터 행정규칙",
       "status": "ok",
       "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
-      "count": 58,
-      "at": "2026-06-15T05:10:56.494Z",
+      "count": 16,
+      "at": "2026-06-15T05:27:23.989Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 행정규칙"
@@ -228,8 +219,8 @@
       "source": "국가법령정보센터 행정규칙 신구법 비교",
       "status": "ok",
       "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-      "count": 58,
-      "at": "2026-06-15T05:11:27.856Z",
+      "count": 16,
+      "at": "2026-06-15T05:27:37.986Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 행정규칙 신구법 비교"
@@ -239,7 +230,7 @@
       "status": "ok",
       "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
       "count": 0,
-      "at": "2026-06-15T05:11:39.239Z",
+      "at": "2026-06-15T05:27:43.206Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
       "group": "lawmaking",
       "route": "국민참여입법센터 입법예고"
@@ -249,7 +240,7 @@
       "status": "ok",
       "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
       "count": 0,
-      "at": "2026-06-15T05:11:45.189Z",
+      "at": "2026-06-15T05:27:58.716Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
       "group": "lawmaking",
       "route": "국민참여입법센터 입법예고(수정일 기준)"
@@ -258,8 +249,8 @@
       "source": "국민참여입법센터 행정예고",
       "status": "ok",
       "message": "국민참여입법센터 공개 XML API 수집 완료.",
-      "count": 1,
-      "at": "2026-06-15T05:12:46.550Z",
+      "count": 0,
+      "at": "2026-06-15T05:29:23.684Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
       "group": "lawmaking",
       "route": "국민참여입법센터 행정예고"
@@ -269,7 +260,7 @@
       "status": "ok",
       "message": "설정된 관보 API URL 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:12:47.932Z",
+      "at": "2026-06-15T05:29:24.534Z",
       "url": "https://www.data.go.kr/data/15109157/openapi.do",
       "group": "gazette",
       "route": "대한민국 전자관보"
@@ -279,7 +270,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:12:51.362Z",
+      "at": "2026-06-15T05:29:27.506Z",
       "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
       "group": "motir",
       "route": "산업통상부 입법예고"
@@ -288,8 +279,8 @@
       "source": "산업통상부 행정예고",
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
-      "count": 2,
-      "at": "2026-06-15T05:12:56.210Z",
+      "count": 0,
+      "at": "2026-06-15T05:29:29.046Z",
       "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
       "group": "motir",
       "route": "산업통상부 행정예고"
@@ -298,8 +289,8 @@
       "source": "산업통상부 고시",
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
-      "count": 1,
-      "at": "2026-06-15T05:13:01.331Z",
+      "count": 0,
+      "at": "2026-06-15T05:29:31.359Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
       "group": "motir",
       "route": "산업통상부 고시"
@@ -308,8 +299,8 @@
       "source": "산업통상부 공고",
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
-      "count": 9,
-      "at": "2026-06-15T05:13:18.224Z",
+      "count": 0,
+      "at": "2026-06-15T05:29:37.111Z",
       "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
       "group": "motir",
       "route": "산업통상부 공고"
@@ -319,7 +310,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:13:19.034Z",
+      "at": "2026-06-15T05:29:37.871Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
       "group": "motir",
       "route": "산업통상부 구.정통부고시"
@@ -329,7 +320,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:13:19.843Z",
+      "at": "2026-06-15T05:29:38.647Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
       "group": "motir",
       "route": "산업통상부 구.재경부고시"
@@ -339,7 +330,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:13:21.618Z",
+      "at": "2026-06-15T05:29:40.296Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
       "group": "motir",
       "route": "산업통상부 훈령"
@@ -349,7 +340,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:13:22.428Z",
+      "at": "2026-06-15T05:29:41.060Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
       "group": "motir",
       "route": "산업통상부 예규"
@@ -359,7 +350,7 @@
       "status": "ok",
       "message": "공식 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:13:24.066Z",
+      "at": "2026-06-15T05:29:42.605Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
       "group": "motir",
       "route": "산업통상부 지침"
@@ -369,7 +360,7 @@
       "status": "ok",
       "message": "ALIO 법령/지침 원문 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:13:28.544Z",
+      "at": "2026-06-15T05:29:47.096Z",
       "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
       "group": "alio",
       "route": "ALIO 공공기관 법령/지침"
@@ -379,7 +370,7 @@
       "status": "ok",
       "message": "ALIO 정책자료/보도자료 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:13:41.907Z",
+      "at": "2026-06-15T05:30:02.242Z",
       "url": "https://www.alio.go.kr/etc/etcPdsList.do",
       "group": "alio",
       "route": "ALIO 공공정책자료"
@@ -389,17 +380,19 @@
       "status": "ok",
       "message": "정책브리핑 RSS 수집 완료",
       "count": 0,
-      "at": "2026-06-15T05:13:53.193Z",
+      "at": "2026-06-15T05:30:08.047Z",
       "url": "https://www.korea.kr/etc/rss.do",
       "group": "policy-rss",
       "route": "대한민국 정책브리핑 RSS"
     },
     {
-      "source": "일자별 캐시",
+      "source": "네이버 뉴스 검색 API",
       "status": "ok",
-      "message": "2026-05-18 캐시가 있어 외부 수집을 건너뜁니다.",
-      "count": 113,
-      "at": "2026-06-15T05:24:21.426Z"
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-06-15T05:30:11.001Z",
+      "group": "naver-news",
+      "route": "네이버 뉴스 검색 API"
     }
   ]
 }
