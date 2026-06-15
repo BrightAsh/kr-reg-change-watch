@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-15T03:57:29.804Z",
+  "generated_at": "2026-06-15T04:07:38.839Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-15",
   "summary": {
-    "complete": 35,
-    "partial": 29,
+    "complete": 36,
+    "partial": 28,
     "failed": 0,
     "not_started": 102
   },
@@ -37408,74 +37408,74 @@
     },
     {
       "date": "2026-05-19",
-      "status": "partial",
-      "item_count": 157,
-      "changed_count": 1,
-      "collected_at": "2026-06-09T00:03:24.519Z",
+      "status": "complete",
+      "item_count": 158,
+      "changed_count": 157,
+      "collected_at": "2026-06-15T04:07:36.129Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 138,
+          "message": "법제처 lawService API로 개정문/제개정이유 69건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 130행을 법령 단위 69건으로 묶었습니다.",
+          "at": "2026-06-15T04:03:07.621Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 61,
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+          "at": "2026-06-15T04:03:10.964Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 40,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-15T04:05:34.861Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 40,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-15T04:05:34.861Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국민참여입법센터 입법예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T04:05:42.824Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T04:05:42.824Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 행정예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-15T04:06:27.634Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "대한민국 전자관보",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "설정된 관보 API URL 수집 완료",
+          "at": "2026-06-15T04:06:28.912Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
@@ -37584,90 +37584,106 @@
         },
         {
           "source": "산업통상부 입법예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 1,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:34.118Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
           "source": "산업통상부 행정예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:36.109Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
           "source": "산업통상부 고시",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:39.114Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
           "source": "산업통상부 공고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 5,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:54.415Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
           "source": "산업통상부 훈령",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:58.399Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:59.391Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:07:01.377Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.alio.go.kr"
+          "status": "ok",
+          "count": 1,
+          "message": "ALIO 법령/지침 원문 수집 완료",
+          "at": "2026-06-15T04:07:08.239Z",
+          "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.alio.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "ALIO 정책자료/보도자료 수집 완료",
+          "at": "2026-06-15T04:07:23.570Z",
+          "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "정책브리핑 RSS 수집 완료",
+          "at": "2026-06-15T04:07:31.649Z",
           "url": "https://www.korea.kr/etc/rss.do"
         },
         {
           "source": "네이버 뉴스 검색 API",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null
+          "status": "ok",
+          "count": 0,
+          "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+          "at": "2026-06-15T04:07:35.311Z"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:55.405Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:56.402Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
