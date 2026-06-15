@@ -157,8 +157,7 @@ jobs:
           probe_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
 
           if [ "$FAIL_COUNT" -ge 3 ]; then
-            echo "Preflight failed: ${FAIL_COUNT} representative source hosts are unreachable from this GitHub runner."
-            exit 1
+            echo "::warning::Preflight failed for ${FAIL_COUNT} representative source hosts. Continuing so route-level retry can preserve completed sources and record only failing paths."
           fi
           echo "Preflight passed with ${FAIL_COUNT} failure(s)."
 
