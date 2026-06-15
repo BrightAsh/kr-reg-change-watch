@@ -145,7 +145,9 @@ function buildDayStatus(date: string, daily: DailyCollection | null, failure: Fa
 
   const dailyTime = timeValue(daily?.collected_at || null);
   const failureTime = timeValue(failure?.collected_at || failure?.attempted_at || null);
-  const useFailure = Boolean(failure && (!daily || failureTime >= dailyTime));
+  const dailyMethods = daily ? mergeExpectedMethods(daily.logs || [], true) : [];
+  const dailyComplete = daily ? methodsAreComplete(dailyMethods) : false;
+  const useFailure = Boolean(failure && !dailyComplete && (!daily || failureTime >= dailyTime));
   const logs = useFailure ? failure?.logs || [] : daily?.logs || [];
   const methods = mergeExpectedMethods(logs, Boolean(daily || failure));
   const errorCount = methods.filter((entry) => entry.status === "error").length;
@@ -171,6 +173,10 @@ function buildDayStatus(date: string, daily: DailyCollection | null, failure: Fa
     source: useFailure ? "failure-log" : "daily",
     methods
   };
+}
+
+function methodsAreComplete(methods: CollectionMethodStatus[]): boolean {
+  return methods.length > 0 && methods.every((entry) => entry.status === "ok");
 }
 
 async function readDailyMap(): Promise<Map<string, DailyCollection>> {

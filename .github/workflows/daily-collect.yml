@@ -85,8 +85,8 @@ jobs:
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
       NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
       FETCH_LOOKBACK_DAYS: 1
-      FETCH_RETRIES: 1
-      FETCH_TIMEOUT_MS: 15000
+      FETCH_RETRIES: 2
+      FETCH_TIMEOUT_MS: 30000
       FETCH_CURL_FALLBACK: 1
       COLLECT_PREFLIGHT_TIMEOUT_MS: 8000
       TARGET_DATE: ${{ github.event.inputs.target_date }}
@@ -130,7 +130,7 @@ jobs:
             local label="$1"
             local url="$2"
             echo "Checking ${label}"
-            curl -4 -L --http1.1 --connect-timeout 8 --max-time 12 -sS --fail \
+            curl -4 -L --http1.1 --connect-timeout 8 --max-time 20 --retry 1 --retry-all-errors -sS --fail \
               -o /tmp/preflight.out \
               -A "Mozilla/5.0 (compatible; kr-reg-change-watch/0.1; +https://github.com/BrightAsh/kr-reg-change-watch)" \
               -H "accept: application/json, application/xml, text/xml, text/html;q=0.9, */*;q=0.8" \

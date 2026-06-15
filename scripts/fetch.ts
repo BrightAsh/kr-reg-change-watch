@@ -392,11 +392,16 @@ async function main() {
   await ensureDataDirs();
 
   const existingDaily = await readJson<DailyCollection | null>(dailyPath, null);
-  preserveSuccessfulRoutes = forceCollect || retryFailedOnly;
   existingDailyForRun = existingDaily?.date === targetDate ? existingDaily : null;
   activeSourceGroups = new Set(selectedSourceGroups());
+  const hasSelectedRoutes = selectedRouteKeys().length > 0;
+  const selectedRoutesAlreadySucceeded = hasSelectedRoutes && allSelectedRoutesSucceeded(existingDailyForRun);
+  const retryIncompleteExistingDaily = Boolean(
+    existingDailyForRun && hasSelectedRoutes && !selectedRoutesAlreadySucceeded
+  );
+  preserveSuccessfulRoutes = forceCollect || retryFailedOnly || retryIncompleteExistingDaily;
 
-  if (!forceCollect && !retryFailedOnly) {
+  if (!forceCollect && !retryFailedOnly && !retryIncompleteExistingDaily) {
     const cached = await readJson<DailyCollection | null>(dailyPath, null);
     if (cached?.date === targetDate) {
       const existing = await readJson<CollectedItem[]>(itemsPath, []);
@@ -432,7 +437,7 @@ async function main() {
     }
   }
 
-  if (existingDaily?.date === targetDate && preserveSuccessfulRoutes && allSelectedRoutesSucceeded(existingDaily)) {
+  if (existingDaily?.date === targetDate && preserveSuccessfulRoutes && selectedRoutesAlreadySucceeded) {
     const existing = await readJson<CollectedItem[]>(itemsPath, []);
     const cachedItems = existingDaily.items.map(attachPublicSystemMatches);
     const canonicalExisting = await readCanonicalItemsExcludingDate(targetDate, existing);
@@ -605,7 +610,13 @@ async function probeSourceGroup(group: SourceGroup): Promise<SourceProbeResult> 
       errors.push(`${url}: HTTP ${response.status}, ${elapsedMs}ms`);
     } catch (error) {
       const elapsedMs = Date.now() - startedAt;
-      errors.push(`${url}: ${messageOf(error)}, ${elapsedMs}ms`);
+      try {
+        clearTimeout(timeout);
+        await fetchText(url);
+        return { ok: true, url, message: `fetchText fallback OK after ${messageOf(error)}, ${elapsedMs}ms`, elapsedMs };
+      } catch (fallbackError) {
+        errors.push(`${url}: ${messageOf(error)}; fallback failed: ${messageOf(fallbackError)}, ${elapsedMs}ms`);
+      }
     } finally {
       clearTimeout(timeout);
     }
