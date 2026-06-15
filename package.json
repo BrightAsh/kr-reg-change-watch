@@ -13,6 +13,7 @@
     "summarize": "tsx scripts/summarize.ts",
     "collect": "tsx scripts/collect.ts",
     "status:update": "tsx scripts/update-collection-status.ts",
+    "status:verify": "tsx scripts/verify-collection-complete.ts",
     "mail:send": "tsx scripts/send-mail-alert.ts"
   },
   "dependencies": {

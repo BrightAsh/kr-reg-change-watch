@@ -199,8 +199,18 @@ jobs:
             git push
           fi
 
+      - name: Verify target date completeness
+        id: verify
+        if: ${{ always() && github.event_name != 'push' && steps.preflight.outcome == 'success' }}
+        run: |
+          if [ -n "$TARGET_DATE" ]; then
+            npm run status:verify -- --date "$TARGET_DATE"
+          else
+            npm run status:verify
+          fi
+
       - name: Send mail alerts
-        if: ${{ steps.collect.outcome == 'success' && ((github.event_name == 'schedule' && github.event.schedule == '0 15 * * *') || github.event.inputs.send_mail == 'true') }}
+        if: ${{ steps.collect.outcome == 'success' && steps.verify.outcome == 'success' && ((github.event_name == 'schedule' && github.event.schedule == '0 15 * * *') || github.event.inputs.send_mail == 'true') }}
         run: |
           if [ -n "$TARGET_DATE" ]; then
             npm run mail:send -- --date "$TARGET_DATE"
@@ -225,5 +235,5 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Fail if collection failed
-        if: ${{ always() && github.event_name != 'push' && steps.collect.outcome == 'failure' }}
+        if: ${{ always() && github.event_name != 'push' && (steps.collect.outcome == 'failure' || steps.verify.outcome == 'failure') }}
         run: exit 1
