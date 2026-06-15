@@ -88,6 +88,8 @@ jobs:
       FETCH_RETRIES: 2
       FETCH_TIMEOUT_MS: 30000
       FETCH_CURL_FALLBACK: 1
+      COLLECT_ATTEMPTS: 2
+      COLLECT_RETRY_DELAY_SECONDS: 120
       COLLECT_PREFLIGHT_TIMEOUT_MS: 8000
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
@@ -166,19 +168,53 @@ jobs:
         if: github.event_name != 'push'
         continue-on-error: true
         run: |
-          if [ -n "$TARGET_DATE" ]; then
-            if [ "$FORCE_COLLECT" = "1" ]; then
-              npm run collect -- --date "$TARGET_DATE" --force
-            else
-              npm run collect -- --date "$TARGET_DATE"
+          build_collect_args() {
+            COLLECT_ARGS=()
+            if [ -n "$TARGET_DATE" ]; then
+              COLLECT_ARGS+=(--date "$TARGET_DATE")
             fi
-          else
             if [ "$FORCE_COLLECT" = "1" ]; then
-              npm run collect -- --force
+              COLLECT_ARGS+=(--force)
+            fi
+          }
+
+          run_collect_once() {
+            build_collect_args
+            if [ "${#COLLECT_ARGS[@]}" -gt 0 ]; then
+              npm run collect -- "${COLLECT_ARGS[@]}"
             else
               npm run collect
             fi
-          fi
+          }
+
+          verify_target_date() {
+            if [ -n "$TARGET_DATE" ]; then
+              npm run status:verify -- --date "$TARGET_DATE"
+            else
+              npm run status:verify
+            fi
+          }
+
+          ATTEMPTS="${COLLECT_ATTEMPTS:-1}"
+          DELAY_SECONDS="${COLLECT_RETRY_DELAY_SECONDS:-60}"
+          for attempt in $(seq 1 "$ATTEMPTS"); do
+            echo "Collection attempt ${attempt}/${ATTEMPTS}"
+            set +e
+            run_collect_once
+            collect_status=$?
+            npm run status:update
+            verify_target_date
+            verify_status=$?
+            set -e
+            if [ "$collect_status" -eq 0 ] && [ "$verify_status" -eq 0 ]; then
+              exit 0
+            fi
+            if [ "$attempt" -lt "$ATTEMPTS" ]; then
+              echo "::warning::Collection attempt ${attempt} left the target incomplete. Retrying unfinished routes after ${DELAY_SECONDS}s."
+              sleep "$DELAY_SECONDS"
+            fi
+          done
+          exit 1
 
       - name: Update collection status
         if: ${{ always() && github.event_name != 'push' && steps.preflight.outcome == 'success' }}
