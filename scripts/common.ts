@@ -178,9 +178,11 @@ async function fetchTextWithCurl(url: string, init: RequestInit, timeoutMs: numb
   args.push(url);
 
   try {
+    const maxTimeSeconds = Math.ceil(timeoutMs / 1000);
+    const curlAttempts = Math.max(1, retries + 1);
     const { stdout } = await execFileAsync(curl, args, {
       encoding: "utf8",
-      timeout: timeoutMs + 5000,
+      timeout: maxTimeSeconds * curlAttempts * 1000 + 5000,
       maxBuffer: 25 * 1024 * 1024
     });
     return stdout;
