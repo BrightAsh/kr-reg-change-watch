@@ -144,7 +144,7 @@ const SOURCE_GROUP_LABELS: Record<SourceGroup, string> = {
 const SOURCE_GROUP_PROBES: Record<SourceGroup, string[]> = {
   "official-law": ["https://www.law.go.kr"],
   lawmaking: ["https://opinion.lawmaking.go.kr"],
-  gazette: ["https://www.gwanbo.go.kr"],
+  gazette: ["https://open.gwanbo.go.kr"],
   "ministry-board": ["https://www.mois.go.kr", "https://www.mofe.go.kr"],
   motir: ["https://www.motir.go.kr"],
   alio: ["https://www.alio.go.kr"],
