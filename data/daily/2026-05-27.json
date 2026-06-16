@@ -1,8 +1,8 @@
 {
   "date": "2026-05-27",
-  "collected_at": "2026-06-16T05:18:31.082Z",
+  "collected_at": "2026-06-16T05:55:58.189Z",
   "item_count": 62,
-  "changed_count": 60,
+  "changed_count": 0,
   "cache_hit": false,
   "items": [
     {
@@ -2447,6 +2447,56 @@
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "error",
+      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/president.xml failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-16T05:54:24.344Z",
+      "url": "http://www.korea.kr/rss/president.xml",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "error",
+      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-16T05:54:55.357Z",
+      "url": "http://www.korea.kr/rss/speech.xml",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "error",
+      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/cabinet.xml failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-16T05:55:26.369Z",
+      "url": "http://www.korea.kr/rss/cabinet.xml",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "error",
+      "message": "RSS 수집 실패: GET http://www.korea.kr/rss/ebriefing.xml failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-16T05:55:57.382Z",
+      "url": "http://www.korea.kr/rss/ebriefing.xml",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "ok",
+      "message": "정책브리핑 RSS 수집 완료",
+      "count": 0,
+      "at": "2026-06-16T05:55:57.382Z",
+      "url": "https://www.korea.kr/etc/rss.do",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
     }
   ]
 }
