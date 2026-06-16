@@ -1,6 +1,6 @@
 {
   "date": "2026-05-29",
-  "collected_at": "2026-06-16T08:14:27.101Z",
+  "collected_at": "2026-06-16T08:28:36.871Z",
   "item_count": 96,
   "changed_count": 0,
   "cache_hit": false,
@@ -3301,6 +3301,16 @@
       "at": "2026-06-16T08:14:26.338Z",
       "group": "naver-news",
       "route": "네이버 뉴스 검색 API"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "ok",
+      "message": "정책브리핑 RSS 수집 완료",
+      "count": 0,
+      "at": "2026-06-16T08:28:36.102Z",
+      "url": "https://www.korea.kr/etc/rss.do",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T08:14:30.740Z",
+  "generated_at": "2026-06-16T08:28:40.430Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -40249,7 +40249,7 @@
       "status": "partial",
       "item_count": 96,
       "changed_count": 0,
-      "collected_at": "2026-06-16T08:14:27.101Z",
+      "collected_at": "2026-06-16T08:28:36.871Z",
       "source": "daily",
       "methods": [
         {
@@ -40494,10 +40494,10 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "정책브리핑 RSS 수집 완료",
+          "at": "2026-06-16T08:28:36.102Z",
           "url": "https://www.korea.kr/etc/rss.do"
         },
         {
