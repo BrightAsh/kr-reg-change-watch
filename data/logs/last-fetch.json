@@ -172,50 +172,10 @@
   },
   {
     "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/president.xml failed with curl-first mode: curl failed with code 28 (null)",
-    "count": 0,
-    "at": "2026-06-16T05:54:24.344Z",
-    "url": "http://www.korea.kr/rss/president.xml",
-    "group": "policy-rss",
-    "route": "대한민국 정책브리핑 RSS"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed with curl-first mode: curl failed with code 28 (null)",
-    "count": 0,
-    "at": "2026-06-16T05:54:55.357Z",
-    "url": "http://www.korea.kr/rss/speech.xml",
-    "group": "policy-rss",
-    "route": "대한민국 정책브리핑 RSS"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/cabinet.xml failed with curl-first mode: curl failed with code 28 (null)",
-    "count": 0,
-    "at": "2026-06-16T05:55:26.369Z",
-    "url": "http://www.korea.kr/rss/cabinet.xml",
-    "group": "policy-rss",
-    "route": "대한민국 정책브리핑 RSS"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
-    "status": "error",
-    "message": "RSS 수집 실패: GET http://www.korea.kr/rss/ebriefing.xml failed with curl-first mode: curl failed with code 28 (null)",
-    "count": 0,
-    "at": "2026-06-16T05:55:57.382Z",
-    "url": "http://www.korea.kr/rss/ebriefing.xml",
-    "group": "policy-rss",
-    "route": "대한민국 정책브리핑 RSS"
-  },
-  {
-    "source": "대한민국 정책브리핑 RSS",
     "status": "ok",
-    "message": "정책브리핑 RSS 수집 완료",
+    "message": "정책브리핑 RSS 수집 완료 (7/10개 피드 성공, 일부 실패: https://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed with curl-first mode: curl failed with code 52 (null) | https://www.korea.kr/rss/dept_motir.xml: GET https://www.korea.kr/rss/dept_motir.xml failed with curl-first mode: curl failed with code 52 (null) | https://www.korea.kr/rss/ebriefing.xml: GET https://www.korea.kr/rss/ebriefing.xml failed with curl-first mode: curl failed with code 52 (null))",
     "count": 0,
-    "at": "2026-06-16T05:55:57.382Z",
+    "at": "2026-06-16T06:02:35.896Z",
     "url": "https://www.korea.kr/etc/rss.do",
     "group": "policy-rss",
     "route": "대한민국 정책브리핑 RSS"

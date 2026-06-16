@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T05:56:02.009Z",
+  "generated_at": "2026-06-16T06:02:40.275Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39715,7 +39715,7 @@
       "status": "partial",
       "item_count": 62,
       "changed_count": 0,
-      "collected_at": "2026-06-16T05:55:58.189Z",
+      "collected_at": "2026-06-16T06:02:36.678Z",
       "source": "daily",
       "methods": [
         {
@@ -39960,11 +39960,11 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "error",
+          "status": "ok",
           "count": 0,
-          "message": "RSS 수집 실패: GET http://www.korea.kr/rss/president.xml failed with curl-first mode: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed with curl-first mode: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/cabinet.xml failed with curl-first mode: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/ebriefing.xml failed with curl-first mode: curl failed with code 28 (null)\n정책브리핑 RSS 수집 완료",
-          "at": "2026-06-16T05:55:57.382Z",
-          "url": "http://www.korea.kr/rss/president.xml"
+          "message": "정책브리핑 RSS 수집 완료 (7/10개 피드 성공, 일부 실패: https://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed with curl-first mode: curl failed with code 52 (null) | https://www.korea.kr/rss/dept_motir.xml: GET https://www.korea.kr/rss/dept_motir.xml failed with curl-first mode: curl failed with code 52 (null) | https://www.korea.kr/rss/ebriefing.xml: GET https://www.korea.kr/rss/ebriefing.xml failed with curl-first mode: curl failed with code 52 (null))",
+          "at": "2026-06-16T06:02:35.896Z",
+          "url": "https://www.korea.kr/etc/rss.do"
         },
         {
           "source": "네이버 뉴스 검색 API",
