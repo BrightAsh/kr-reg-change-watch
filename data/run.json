@@ -1,8 +1,8 @@
 {
-  "last_run_at": "2026-06-16T06:56:47.340Z",
+  "last_run_at": "2026-06-16T06:58:59.141Z",
   "last_target_date": "2026-05-28",
   "item_count": 3974,
-  "changed_count": 71,
+  "changed_count": 0,
   "available_dates": [
     "2026-06-15",
     "2026-06-13",
@@ -217,6 +217,15 @@
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-06-16T06:58:58.195Z",
+      "group": "naver-news",
+      "route": "네이버 뉴스 검색 API"
     }
   ]
 }
