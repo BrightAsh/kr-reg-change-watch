@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T07:01:20.965Z",
+  "generated_at": "2026-06-16T07:13:04.664Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39946,8 +39946,8 @@
       "date": "2026-05-28",
       "status": "partial",
       "item_count": 76,
-      "changed_count": 0,
-      "collected_at": "2026-06-16T07:01:17.520Z",
+      "changed_count": 1,
+      "collected_at": "2026-06-16T07:13:01.091Z",
       "source": "daily",
       "methods": [
         {
@@ -40016,107 +40016,107 @@
         },
         {
           "source": "행정안전부 훈령·예규·고시",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "ok",
+          "count": 1,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:21.402Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
           "source": "행정안전부 입법·행정예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:22.981Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
         },
         {
           "source": "행정안전부 법령자료실",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:26.612Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
           "source": "기획재정부 법령자료실",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:28.557Z",
+          "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
         },
         {
           "source": "기획재정부 영문법령정보",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:30.561Z",
+          "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
         },
         {
           "source": "기획재정부 조세조약",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:32.796Z",
+          "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
         },
         {
           "source": "기획재정부 훈령",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:37.146Z",
+          "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
         },
         {
           "source": "기획재정부 예규",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:38.903Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
         },
         {
           "source": "기획재정부 고시",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:45.344Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
         },
         {
           "source": "기획재정부 공고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:47.142Z",
+          "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
         },
         {
           "source": "기획재정부 지침",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:48.950Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
         },
         {
           "source": "기획재정부 입법예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:12:55.208Z",
+          "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
         },
         {
           "source": "기획재정부 행정예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T07:13:00.316Z",
+          "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
         },
         {
           "source": "산업통상부 입법예고",
