@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T07:17:15.379Z",
+  "generated_at": "2026-06-16T07:47:36.171Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -40247,41 +40247,41 @@
     {
       "date": "2026-05-29",
       "status": "partial",
-      "item_count": 98,
-      "changed_count": 12,
-      "collected_at": "2026-06-08T05:25:49.393Z",
+      "item_count": 96,
+      "changed_count": 105,
+      "collected_at": "2026-06-16T07:47:32.529Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 70,
+          "message": "법제처 lawService API로 개정문/제개정이유 35건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 58행을 법령 단위 35건으로 묶었습니다.",
+          "at": "2026-06-16T07:43:59.939Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 10,
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+          "at": "2026-06-16T07:44:02.444Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 120,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-16T07:47:31.729Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 120,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-16T07:47:31.729Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
