@@ -37,6 +37,58 @@ export interface CollectionStatusReport {
   days: CollectionDayStatus[];
 }
 
+export type CollectionSourceGroup =
+  | "official-law"
+  | "lawmaking"
+  | "gazette"
+  | "ministry-board"
+  | "motir"
+  | "alio"
+  | "policy-rss"
+  | "naver-news";
+
+export const COLLECTION_SOURCE_GROUP_METHODS: Record<CollectionSourceGroup, string[]> = {
+  "official-law": [
+    "국가법령정보센터 법령 변경이력",
+    "국가법령정보센터 일자별 조문 개정 이력",
+    "국가법령정보센터 행정규칙",
+    "국가법령정보센터 행정규칙 신구법 비교"
+  ],
+  lawmaking: [
+    "국민참여입법센터 입법예고",
+    "국민참여입법센터 입법예고(수정일 기준)",
+    "국민참여입법센터 행정예고"
+  ],
+  gazette: ["대한민국 전자관보"],
+  "ministry-board": [
+    "행정안전부 훈령·예규·고시",
+    "행정안전부 입법·행정예고",
+    "행정안전부 법령자료실",
+    "기획재정부 법령자료실",
+    "기획재정부 영문법령정보",
+    "기획재정부 조세조약",
+    "기획재정부 훈령",
+    "기획재정부 예규",
+    "기획재정부 고시",
+    "기획재정부 공고",
+    "기획재정부 지침",
+    "기획재정부 입법예고",
+    "기획재정부 행정예고"
+  ],
+  motir: [
+    "산업통상부 입법예고",
+    "산업통상부 행정예고",
+    "산업통상부 고시",
+    "산업통상부 공고",
+    "산업통상부 훈령",
+    "산업통상부 예규",
+    "산업통상부 지침"
+  ],
+  alio: ["ALIO 공공기관 법령/지침", "ALIO 공공정책자료"],
+  "policy-rss": ["대한민국 정책브리핑 RSS"],
+  "naver-news": ["네이버 뉴스 검색 API"]
+};
+
 interface FailureLog {
   date?: string;
   attempted_at?: string;
