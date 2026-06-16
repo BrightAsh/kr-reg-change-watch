@@ -1,8 +1,8 @@
 {
-  "last_run_at": "2026-06-16T05:01:11.192Z",
+  "last_run_at": "2026-06-16T05:18:31.226Z",
   "last_target_date": "2026-05-27",
-  "item_count": 3956,
-  "changed_count": 0,
+  "item_count": 3958,
+  "changed_count": 60,
   "available_dates": [
     "2026-06-15",
     "2026-06-13",
@@ -70,7 +70,7 @@
     "2026-01-02",
     "2026-01-01"
   ],
-  "cache_hit": true,
+  "cache_hit": false,
   "logs": [
     {
       "source": "국민참여입법센터 입법예고",
@@ -192,6 +192,56 @@
       "message": "2026-05-27 캐시가 있어 외부 수집을 건너뜁니다.",
       "count": 60,
       "at": "2026-06-16T05:01:11.044Z"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 29건을 보강했습니다.",
+      "count": 29,
+      "at": "2026-06-16T05:15:56.437Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 32행을 법령 단위 29건으로 묶었습니다.",
+      "count": 29,
+      "at": "2026-06-16T05:15:56.437Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 3,
+      "at": "2026-06-16T05:15:58.272Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 28,
+      "at": "2026-06-16T05:17:13.383Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 28,
+      "at": "2026-06-16T05:18:30.241Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
     }
   ]
 }
