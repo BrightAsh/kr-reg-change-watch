@@ -1361,6 +1361,17 @@ async function fetchConfiguredMinistryBoard(logs: CollectionLog[], route: Minist
 }
 
 async function fetchAlioPublicMaterials(logs: CollectionLog[]): Promise<CollectedItem[]> {
+  return withTemporaryEnv(
+    {
+      FETCH_TIMEOUT_MS: env("ALIO_FETCH_TIMEOUT_MS", "45000"),
+      FETCH_CURL_FIRST: env("ALIO_FETCH_CURL_FIRST", "0"),
+      FETCH_CURL_ONLY: env("ALIO_FETCH_CURL_ONLY", "0")
+    },
+    () => fetchAlioPublicMaterialsWithBudget(logs)
+  );
+}
+
+async function fetchAlioPublicMaterialsWithBudget(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const items: CollectedItem[] = [];
   const errors: string[] = [];
 
@@ -1387,6 +1398,22 @@ async function fetchAlioPublicMaterials(logs: CollectionLog[]): Promise<Collecte
     addLog(logs, "ALIO", "error", `ALIO 일부 수집 실패: ${errors.join("; ")}`, items.length, "https://www.alio.go.kr/etc/etcLawList.do", "alio");
   }
   return mergeItems([], items);
+}
+
+async function withTemporaryEnv<T>(values: Record<string, string>, fn: () => Promise<T>): Promise<T> {
+  const previous = new Map<string, string | undefined>();
+  for (const [key, value] of Object.entries(values)) {
+    previous.set(key, process.env[key]);
+    process.env[key] = value;
+  }
+  try {
+    return await fn();
+  } finally {
+    for (const [key, value] of previous) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  }
 }
 
 async function fetchAlioListRows(source: AlioSource): Promise<AnyRecord[]> {
