@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T01:43:16.863Z",
+  "generated_at": "2026-06-16T01:55:37.956Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39371,39 +39371,39 @@
       "status": "partial",
       "item_count": 185,
       "changed_count": 0,
-      "collected_at": "2026-06-15T09:52:45.889Z",
+      "collected_at": "2026-06-16T01:50:09.213Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260526 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:20:11.890Z",
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260526 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:21:21.647Z",
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260526&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260526&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:23:41.164Z",
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260526&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260526&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:23:41.164Z",
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -39434,113 +39434,113 @@
           "source": "대한민국 전자관보",
           "status": "error",
           "count": 0,
-          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260526&reqTo=20260526&fromDate=20260526&toDate=20260526&type=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:24:50.923Z",
-          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.gwanbo.go.kr: This operation was aborted; fallback failed: GET https://www.gwanbo.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
+          "at": "2026-06-16T01:47:08.349Z",
+          "url": "https://www.gwanbo.go.kr"
         },
         {
           "source": "행정안전부 훈령·예규·고시",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:26:00.681Z",
-          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://www.mois.go.kr"
         },
         {
           "source": "행정안전부 입법·행정예고",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:27:10.434Z",
-          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://www.mois.go.kr"
         },
         {
           "source": "행정안전부 법령자료실",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:28:20.188Z",
-          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://www.mois.go.kr"
         },
         {
           "source": "기획재정부 법령자료실",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:29:29.946Z",
-          "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 영문법령정보",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:30:39.702Z",
-          "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 조세조약",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:31:49.455Z",
-          "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 훈령",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:32:59.211Z",
-          "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 예규",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:34:08.968Z",
-          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 고시",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:35:18.721Z",
-          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 공고",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:36:28.472Z",
-          "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 지침",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:37:38.227Z",
-          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 입법예고",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:38:47.979Z",
-          "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "기획재정부 행정예고",
-          "status": "error",
-          "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:39:57.735Z",
-          "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://mofe.go.kr"
         },
         {
           "source": "산업통상부 입법예고",
@@ -39600,27 +39600,27 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "error",
-          "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:42:17.246Z",
-          "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://www.alio.go.kr"
         },
         {
           "source": "ALIO 공공정책자료",
-          "status": "error",
-          "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T09:42:17.246Z",
-          "url": "https://www.alio.go.kr/etc/etcPdsList.do"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://www.alio.go.kr"
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "error",
-          "count": 0,
-          "message": "RSS 수집 실패: GET http://www.korea.kr/rss/pressrelease.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/policy.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/dept_moleg.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/dept_mois.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/dept_moef.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/president.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/cabinet.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/ebriefing.xml failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\n정책브리핑 RSS 수집 완료",
-          "at": "2026-06-15T09:52:45.032Z",
-          "url": "http://www.korea.kr/rss/pressrelease.xml"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://www.korea.kr/etc/rss.do"
         },
         {
           "source": "네이버 뉴스 검색 API",
@@ -39646,11 +39646,44 @@
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
-          "source": "수집 상태 점검",
+          "source": "국가법령정보센터 접속 확인",
           "status": "error",
           "count": 0,
-          "message": "Critical source connectivity failure for 2026-05-26: official-law, gazette, mois-board, moef-board, alio, policy-rss",
-          "at": "2026-06-15T09:52:45.033Z"
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: This operation was aborted; fallback failed: GET https://www.law.go.kr failed with curl-first mode: curl failed with code 28 (null), 5002ms",
+          "at": "2026-06-16T01:46:32.336Z",
+          "url": "https://www.law.go.kr"
+        },
+        {
+          "source": "행정안전부/기획재정부 게시판 접속 확인",
+          "status": "error",
+          "count": 0,
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.mois.go.kr: This operation was aborted; fallback failed: GET https://www.mois.go.kr failed with curl-first mode: curl failed with code 28 (null), 4999ms | https://www.mofe.go.kr: This operation was aborted; fallback failed: GET https://www.mofe.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
+          "at": "2026-06-16T01:48:20.375Z",
+          "url": "https://www.mofe.go.kr"
+        },
+        {
+          "source": "산업통상부 게시판 접속 확인",
+          "status": "error",
+          "count": 0,
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
+          "at": "2026-06-16T01:48:56.389Z",
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "ALIO 접속 확인",
+          "status": "error",
+          "count": 0,
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.alio.go.kr: This operation was aborted; fallback failed: GET https://www.alio.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
+          "at": "2026-06-16T01:49:32.402Z",
+          "url": "https://www.alio.go.kr"
+        },
+        {
+          "source": "정책브리핑 RSS 접속 확인",
+          "status": "error",
+          "count": 0,
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: This operation was aborted; fallback failed: GET https://www.korea.kr/etc/rss.do failed with curl-first mode: curl failed with code 28 (null), 5000ms",
+          "at": "2026-06-16T01:50:08.414Z",
+          "url": "https://www.korea.kr/etc/rss.do"
         }
       ]
     },
