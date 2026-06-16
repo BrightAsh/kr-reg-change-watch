@@ -102,12 +102,12 @@ export function selectedCollectionMethodSources(
   sourceFilter: Set<CollectionSourceGroup>,
   routeFilter = new Set<string>()
 ): string[] {
-  if (routeFilter.size && !sourceFilter.size) return [...routeFilter];
-  const groupSources = sourceFilter.size
-    ? [...sourceFilter].flatMap((group) => COLLECTION_SOURCE_GROUP_METHODS[group] || [])
-    : [];
-  if (!routeFilter.size) return groupSources;
-  return groupSources.filter((source) => routeFilter.has(source));
+  const selected = new Set<string>();
+  for (const group of sourceFilter) {
+    for (const source of COLLECTION_SOURCE_GROUP_METHODS[group] || []) selected.add(source);
+  }
+  for (const source of routeFilter) selected.add(source);
+  return [...selected];
 }
 
 function sameCollectionMethod(expected: string, source: string): boolean {

@@ -648,11 +648,13 @@ function tagLogsWithGroup(logs: CollectionLog[], startIndex: number, group: Sour
 }
 
 function selectedSourceGroups(): SourceGroup[] {
-  if (!sourceFilter.size && routeFilter.size) {
-    return SOURCE_GROUPS.filter((group) => sourceRouteKeysForGroup(group).some((route) => routeFilter.has(route)));
+  if (!sourceFilter.size && !routeFilter.size) return SOURCE_GROUPS;
+  const selected = new Set<SourceGroup>();
+  for (const group of SOURCE_GROUPS) {
+    if (sourceFilter.has(group)) selected.add(group);
+    if (sourceRouteKeysForGroup(group).some((route) => routeFilter.has(route))) selected.add(group);
   }
-  if (!sourceFilter.size) return SOURCE_GROUPS;
-  return SOURCE_GROUPS.filter((group) => sourceFilter.has(group));
+  return SOURCE_GROUPS.filter((group) => selected.has(group));
 }
 
 function sourceRouteKeysForGroup(group: SourceGroup): string[] {
@@ -682,8 +684,14 @@ function selectedRouteKeys(): Array<{ group: SourceGroup; route: string }> {
   const routes = selectedSourceGroups().flatMap((group) =>
     sourceRouteKeysForGroup(group).map((route) => ({ group, route }))
   );
-  if (!routeFilter.size) return routes;
-  return routes.filter(({ route }) => routeFilter.has(route));
+  if (!sourceFilter.size && !routeFilter.size) return routes;
+  return routes.filter(({ group, route }) => {
+    const groupExplicitlySelected = sourceFilter.has(group);
+    const groupHasSelectedRoutes = sourceRouteKeysForGroup(group).some((source) => routeFilter.has(source));
+    if (groupExplicitlySelected && !groupHasSelectedRoutes) return true;
+    if (groupHasSelectedRoutes) return routeFilter.has(route);
+    return groupExplicitlySelected;
+  });
 }
 
 function allSelectedRoutesSucceeded(daily: DailyCollection | null): boolean {
