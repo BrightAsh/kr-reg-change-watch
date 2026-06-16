@@ -43,6 +43,14 @@ export function parseCollectionRouteFilter(value: string): Set<string> {
   const moisMethods = ministryMethods.filter((source) => source.startsWith("행정안전부 "));
   const moefMethods = ministryMethods.filter((source) => source.startsWith("기획재정부 "));
   const routeAliases: Record<string, string[]> = {
+    "law-history": ["국가법령정보센터 법령 변경이력"],
+    "law-change-history": ["국가법령정보센터 법령 변경이력"],
+    "law-article": ["국가법령정보센터 일자별 조문 개정 이력"],
+    "law-article-change": ["국가법령정보센터 일자별 조문 개정 이력"],
+    "law-admin-rule": ["국가법령정보센터 행정규칙"],
+    "law-administrative-rule": ["국가법령정보센터 행정규칙"],
+    "law-admin-rule-compare": ["국가법령정보센터 행정규칙 신구법 비교"],
+    "law-administrative-rule-compare": ["국가법령정보센터 행정규칙 신구법 비교"],
     mois: moisMethods,
     "행안부": moisMethods,
     "행정안전부": moisMethods,

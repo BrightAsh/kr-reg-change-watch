@@ -818,6 +818,14 @@ function parseSourceFilter(value: string): Set<SourceGroup> {
 
 function parseRouteFilter(value: string): Set<string> {
   const routeAliases: Record<string, string[]> = {
+    "law-history": ["국가법령정보센터 법령 변경이력"],
+    "law-change-history": ["국가법령정보센터 법령 변경이력"],
+    "law-article": ["국가법령정보센터 일자별 조문 개정 이력"],
+    "law-article-change": ["국가법령정보센터 일자별 조문 개정 이력"],
+    "law-admin-rule": ["국가법령정보센터 행정규칙"],
+    "law-administrative-rule": ["국가법령정보센터 행정규칙"],
+    "law-admin-rule-compare": ["국가법령정보센터 행정규칙 신구법 비교"],
+    "law-administrative-rule-compare": ["국가법령정보센터 행정규칙 신구법 비교"],
     mois: [
       "행정안전부 훈령·예규·고시",
       "행정안전부 입법·행정예고",
