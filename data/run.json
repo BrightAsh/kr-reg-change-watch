@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-06-16T06:58:59.141Z",
+  "last_run_at": "2026-06-16T07:01:17.668Z",
   "last_target_date": "2026-05-28",
   "item_count": 3974,
   "changed_count": 0,
@@ -226,6 +226,16 @@
       "at": "2026-06-16T06:58:58.195Z",
       "group": "naver-news",
       "route": "네이버 뉴스 검색 API"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "ok",
+      "message": "정책브리핑 RSS 수집 완료 (9/10개 피드 성공, 일부 실패: https://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed with curl-first mode: curl failed with code 52 (null))",
+      "count": 0,
+      "at": "2026-06-16T07:01:16.730Z",
+      "url": "https://www.korea.kr/etc/rss.do",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
     }
   ]
 }

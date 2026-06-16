@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T06:59:02.885Z",
+  "generated_at": "2026-06-16T07:01:20.965Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39947,7 +39947,7 @@
       "status": "partial",
       "item_count": 76,
       "changed_count": 0,
-      "collected_at": "2026-06-16T06:58:58.995Z",
+      "collected_at": "2026-06-16T07:01:17.520Z",
       "source": "daily",
       "methods": [
         {
@@ -40192,10 +40192,10 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "정책브리핑 RSS 수집 완료 (9/10개 피드 성공, 일부 실패: https://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed with curl-first mode: curl failed with code 52 (null))",
+          "at": "2026-06-16T07:01:16.730Z",
           "url": "https://www.korea.kr/etc/rss.do"
         },
         {
