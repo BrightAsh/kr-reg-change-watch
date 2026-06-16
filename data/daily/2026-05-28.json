@@ -1,6 +1,6 @@
 {
   "date": "2026-05-28",
-  "collected_at": "2026-06-16T08:53:17.357Z",
+  "collected_at": "2026-06-16T08:56:10.728Z",
   "item_count": 76,
   "changed_count": 0,
   "cache_hit": false,
@@ -2626,11 +2626,21 @@
       "at": "2026-06-16T07:17:11.578Z"
     },
     {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-16T08:53:16.590Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
       "source": "ALIO 공공기관 법령/지침",
       "status": "error",
       "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
       "count": 0,
-      "at": "2026-06-16T08:46:09.570Z",
+      "at": "2026-06-16T08:55:28.426Z",
       "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
       "group": "alio",
       "route": "ALIO 공공기관 법령/지침"
@@ -2640,7 +2650,7 @@
       "status": "error",
       "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
       "count": 0,
-      "at": "2026-06-16T08:46:51.077Z",
+      "at": "2026-06-16T08:56:09.933Z",
       "url": "https://www.alio.go.kr/etc/etcPdsList.do",
       "group": "alio",
       "route": "ALIO 공공정책자료"
@@ -2650,20 +2660,17 @@
       "status": "error",
       "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
       "count": 0,
-      "at": "2026-06-16T08:46:51.077Z",
+      "at": "2026-06-16T08:56:09.933Z",
       "url": "https://www.alio.go.kr/etc/etcLawList.do",
       "group": "alio",
       "route": "ALIO"
     },
     {
-      "source": "대한민국 전자관보",
-      "status": "ok",
-      "message": "설정된 관보 API URL 수집 완료",
+      "source": "수집 상태 점검",
+      "status": "error",
+      "message": "Critical source connectivity failure for 2026-05-28: alio",
       "count": 0,
-      "at": "2026-06-16T08:53:16.590Z",
-      "url": "https://www.data.go.kr/data/15109157/openapi.do",
-      "group": "gazette",
-      "route": "대한민국 전자관보"
+      "at": "2026-06-16T08:56:09.934Z"
     }
   ]
 }
