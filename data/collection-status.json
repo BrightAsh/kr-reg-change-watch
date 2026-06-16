@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T03:08:30.692Z",
+  "generated_at": "2026-06-16T03:14:36.486Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39371,7 +39371,7 @@
       "status": "partial",
       "item_count": 185,
       "changed_count": 0,
-      "collected_at": "2026-06-16T03:08:26.882Z",
+      "collected_at": "2026-06-16T03:12:27.941Z",
       "source": "daily",
       "methods": [
         {
@@ -39432,10 +39432,10 @@
         },
         {
           "source": "대한민국 전자관보",
-          "status": "error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260526&reqTo=20260526&fromDate=20260526&toDate=20260526&type=1 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-16T03:05:26.009Z",
+          "message": "설정된 관보 API URL 수집 완료",
+          "at": "2026-06-16T03:12:27.180Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
@@ -39732,6 +39732,13 @@
           "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: This operation was aborted; fallback failed: GET https://www.korea.kr/etc/rss.do failed with curl-first mode: curl failed with code 28 (null), 5001ms",
           "at": "2026-06-16T03:08:26.074Z",
           "url": "https://www.korea.kr/etc/rss.do"
+        },
+        {
+          "source": "일자별 캐시",
+          "status": "ok",
+          "count": 185,
+          "message": "2026-05-26 캐시가 있어 외부 수집을 건너뜁니다.",
+          "at": "2026-06-16T03:14:32.758Z"
         }
       ]
     },

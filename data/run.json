@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-06-16T03:08:27.023Z",
+  "last_run_at": "2026-06-16T03:14:32.909Z",
   "last_target_date": "2026-05-26",
   "item_count": 3956,
   "changed_count": 0,
@@ -70,7 +70,7 @@
     "2026-01-02",
     "2026-01-01"
   ],
-  "cache_hit": false,
+  "cache_hit": true,
   "logs": [
     {
       "source": "국민참여입법센터 입법예고",
@@ -241,15 +241,6 @@
       "group": "official-law"
     },
     {
-      "source": "대한민국 전자관보",
-      "status": "error",
-      "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260526&reqTo=20260526&fromDate=20260526&toDate=20260526&type=1 failed with curl-first mode: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-16T03:05:26.009Z",
-      "group": "gazette",
-      "route": "대한민국 전자관보"
-    },
-    {
       "source": "행정안전부/기획재정부 게시판 접속 확인",
       "status": "error",
       "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.mois.go.kr: This operation was aborted; fallback failed: GET https://www.mois.go.kr failed with curl-first mode: curl failed with code 28 (null), 5001ms | https://www.mofe.go.kr: This operation was aborted; fallback failed: GET https://www.mofe.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
@@ -284,6 +275,23 @@
       "at": "2026-06-16T03:08:26.074Z",
       "url": "https://www.korea.kr/etc/rss.do",
       "group": "policy-rss"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-16T03:12:27.180Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
+      "source": "일자별 캐시",
+      "status": "ok",
+      "message": "2026-05-26 캐시가 있어 외부 수집을 건너뜁니다.",
+      "count": 185,
+      "at": "2026-06-16T03:14:32.758Z"
     }
   ]
 }
