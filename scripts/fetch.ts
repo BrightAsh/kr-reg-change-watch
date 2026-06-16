@@ -1780,6 +1780,18 @@ async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
 }
 
 async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
+  return withTemporaryEnv(
+    {
+      FETCH_TIMEOUT_MS: env("NAVER_FETCH_TIMEOUT_MS", "10000"),
+      FETCH_CURL_FIRST: env("NAVER_FETCH_CURL_FIRST", "0"),
+      FETCH_CURL_ONLY: env("NAVER_FETCH_CURL_ONLY", "0"),
+      FETCH_CURL_FALLBACK: env("NAVER_FETCH_CURL_FALLBACK", "0")
+    },
+    () => fetchNaverNewsWithBudget(logs)
+  );
+}
+
+async function fetchNaverNewsWithBudget(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const source = "네이버 뉴스 검색 API";
   const clientId = env("NAVER_CLIENT_ID");
   const clientSecret = env("NAVER_CLIENT_SECRET");
@@ -1795,12 +1807,14 @@ async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
     .map((query) => query.trim())
     .filter(Boolean);
   const items: CollectedItem[] = [];
+  const failures: string[] = [];
+  let successCount = 0;
   for (const query of queries) {
-      const url = makeUrl("https://openapi.naver.com/v1/search/news.json", {
-        query,
-        display: 100,
-        sort: "date"
-      });
+    const url = makeUrl("https://openapi.naver.com/v1/search/news.json", {
+      query,
+      display: 100,
+      sort: "date"
+    });
     try {
       const raw = await fetchText(url, {
         headers: {
@@ -1809,6 +1823,7 @@ async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
         }
       });
       const payload = JSON.parse(raw) as { items?: AnyRecord[] };
+      successCount += 1;
       for (const row of payload.items || []) {
         const title = compactText(text(row, ["title"]));
         const body = compactText(text(row, ["description"]));
@@ -1835,10 +1850,13 @@ async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
         );
       }
     } catch (error) {
-      addLog(logs, source, "error", `뉴스 검색 실패(${query}): ${messageOf(error)}`, 0, url);
+      failures.push(`${query}: ${messageOf(error)}`);
     }
   }
-  addLog(logs, source, "ok", "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.", items.length);
+  const message = failures.length
+    ? `뉴스 보조 수집 완료 (${successCount}/${queries.length}개 쿼리 성공, 일부 실패: ${failures.join(" | ")}). 뉴스는 공식 변경으로 표시하지 않습니다.`
+    : "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.";
+  addLog(logs, source, "ok", message, items.length);
   return items;
 }
 
