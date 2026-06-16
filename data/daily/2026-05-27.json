@@ -1,6 +1,6 @@
 {
   "date": "2026-05-27",
-  "collected_at": "2026-06-16T06:43:45.572Z",
+  "collected_at": "2026-06-16T08:38:05.796Z",
   "item_count": 62,
   "changed_count": 0,
   "cache_hit": false,
@@ -2374,15 +2374,6 @@
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
     },
     {
-      "source": "대한민국 전자관보",
-      "status": "error",
-      "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260527&reqTo=20260527&fromDate=20260527&toDate=20260527&type=1 failed with curl-first mode: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-16T04:52:39.471Z",
-      "group": "gazette",
-      "route": "대한민국 전자관보"
-    },
-    {
       "source": "네이버 뉴스 검색 API",
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
@@ -2457,36 +2448,6 @@
       "url": "https://www.korea.kr/etc/rss.do",
       "group": "policy-rss",
       "route": "대한민국 정책브리핑 RSS"
-    },
-    {
-      "source": "ALIO 공공기관 법령/지침",
-      "status": "error",
-      "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-16T06:17:57.903Z",
-      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
-      "group": "alio",
-      "route": "ALIO 공공기관 법령/지침"
-    },
-    {
-      "source": "ALIO 공공정책자료",
-      "status": "error",
-      "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-16T06:18:39.411Z",
-      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
-      "group": "alio",
-      "route": "ALIO 공공정책자료"
-    },
-    {
-      "source": "ALIO",
-      "status": "error",
-      "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-16T06:18:39.411Z",
-      "url": "https://www.alio.go.kr/etc/etcLawList.do",
-      "group": "alio",
-      "route": "ALIO"
     },
     {
       "source": "행정안전부 훈령·예규·고시",
@@ -2617,6 +2578,36 @@
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
       "group": "ministry-board",
       "route": "기획재정부 행정예고"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-16T08:37:43.165Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-06-16T08:37:48.928Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+      "group": "alio",
+      "route": "ALIO 공공기관 법령/지침"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-06-16T08:38:04.997Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+      "group": "alio",
+      "route": "ALIO 공공정책자료"
     }
   ]
 }
