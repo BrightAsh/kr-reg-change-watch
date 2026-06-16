@@ -2603,6 +2603,13 @@
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
       "group": "ministry-board",
       "route": "기획재정부 행정예고"
+    },
+    {
+      "source": "일자별 캐시",
+      "status": "ok",
+      "message": "2026-05-28 캐시가 있어 외부 수집을 건너뜁니다.",
+      "count": 76,
+      "at": "2026-06-16T07:14:30.591Z"
     }
   ]
 }

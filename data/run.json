@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-06-16T07:13:01.238Z",
+  "last_run_at": "2026-06-16T07:14:30.734Z",
   "last_target_date": "2026-05-28",
   "item_count": 3974,
   "changed_count": 1,
@@ -70,7 +70,7 @@
     "2026-01-02",
     "2026-01-01"
   ],
-  "cache_hit": false,
+  "cache_hit": true,
   "logs": [
     {
       "source": "국민참여입법센터 입법예고",
@@ -366,6 +366,13 @@
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
       "group": "ministry-board",
       "route": "기획재정부 행정예고"
+    },
+    {
+      "source": "일자별 캐시",
+      "status": "ok",
+      "message": "2026-05-28 캐시가 있어 외부 수집을 건너뜁니다.",
+      "count": 76,
+      "at": "2026-06-16T07:14:30.591Z"
     }
   ]
 }
