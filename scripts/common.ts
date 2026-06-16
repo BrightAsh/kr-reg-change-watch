@@ -100,7 +100,20 @@ export function env(name: string, fallback = ""): string {
 export async function fetchText(url: string, init: RequestInit = {}): Promise<string> {
   const retries = Math.max(1, Number(env("FETCH_RETRIES", "3")) || 3);
   const timeoutMs = Math.max(5000, Number(env("FETCH_TIMEOUT_MS", "45000")) || 45000);
+  const curlFirst = truthyEnv("FETCH_CURL_FIRST");
+  const curlOnly = truthyEnv("FETCH_CURL_ONLY");
   let lastError: unknown;
+
+  if (curlFirst) {
+    try {
+      return await fetchTextWithCurl(url, init, timeoutMs, retries);
+    } catch (error) {
+      lastError = error;
+      if (curlOnly) {
+        throw new Error(`GET ${url} failed with curl-first mode: ${error instanceof Error ? error.message : String(error)}`);
+      }
+    }
+  }
 
   for (let attempt = 1; attempt <= retries; attempt += 1) {
     const controller = new AbortController();
@@ -129,7 +142,7 @@ export async function fetchText(url: string, init: RequestInit = {}): Promise<st
   }
 
   const curlFallback = env("FETCH_CURL_FALLBACK", "1").toLowerCase();
-  if (curlFallback === "0" || curlFallback === "false" || curlFallback === "no") {
+  if (curlFirst || curlFallback === "0" || curlFallback === "false" || curlFallback === "no") {
     throw new Error(
       `GET ${url} failed after ${retries} attempt(s): ${
         lastError instanceof Error ? lastError.message : String(lastError)
@@ -195,6 +208,11 @@ async function fetchTextWithCurl(url: string, init: RequestInit, timeoutMs: numb
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function truthyEnv(name: string): boolean {
+  const value = env(name).toLowerCase();
+  return value === "1" || value === "true" || value === "yes" || value === "on";
 }
 
 function headersObject(headers?: HeadersInit): Record<string, string> {
