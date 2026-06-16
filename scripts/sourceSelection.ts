@@ -38,18 +38,76 @@ export function parseCollectionSourceFilter(value: string): Set<CollectionSource
   );
 }
 
-export function selectedCollectionMethodSources(sourceFilter: Set<CollectionSourceGroup>): string[] {
-  if (!sourceFilter.size) return [];
-  return [...sourceFilter].flatMap((group) => COLLECTION_SOURCE_GROUP_METHODS[group] || []);
+export function parseCollectionRouteFilter(value: string): Set<string> {
+  const ministryMethods = COLLECTION_SOURCE_GROUP_METHODS["ministry-board"];
+  const moisMethods = ministryMethods.filter((source) => source.startsWith("행정안전부 "));
+  const moefMethods = ministryMethods.filter((source) => source.startsWith("기획재정부 "));
+  const routeAliases: Record<string, string[]> = {
+    mois: moisMethods,
+    "행안부": moisMethods,
+    "행정안전부": moisMethods,
+    moef: moefMethods,
+    mofe: moefMethods,
+    "기재부": moefMethods,
+    "기획재정부": moefMethods,
+    "재정경제부": moefMethods,
+    "mois-directive": ["행정안전부 훈령·예규·고시"],
+    "mois-rule": ["행정안전부 훈령·예규·고시"],
+    "mois-notice": ["행정안전부 훈령·예규·고시"],
+    "mois-legislation": ["행정안전부 입법·행정예고"],
+    "mois-legislation-notice": ["행정안전부 입법·행정예고"],
+    "mois-law": ["행정안전부 법령자료실"],
+    "mois-law-library": ["행정안전부 법령자료실"],
+    "moef-law": ["기획재정부 법령자료실"],
+    "moef-law-library": ["기획재정부 법령자료실"],
+    "moef-english": ["기획재정부 영문법령정보"],
+    "moef-english-law": ["기획재정부 영문법령정보"],
+    "moef-tax": ["기획재정부 조세조약"],
+    "moef-tax-treaty": ["기획재정부 조세조약"],
+    "moef-directive": ["기획재정부 훈령"],
+    "moef-rule": ["기획재정부 예규"],
+    "moef-notice": ["기획재정부 고시"],
+    "moef-announcement": ["기획재정부 공고"],
+    "moef-guideline": ["기획재정부 지침"],
+    "moef-legislation": ["기획재정부 입법예고"],
+    "moef-legislation-notice": ["기획재정부 입법예고"],
+    "moef-admin": ["기획재정부 행정예고"],
+    "moef-admin-notice": ["기획재정부 행정예고"]
+  };
+  const knownMethods = Object.values(COLLECTION_SOURCE_GROUP_METHODS).flat();
+  const selected = new Set<string>();
+
+  for (const token of value.split(/[\s,;|]+/).map((entry) => entry.trim()).filter(Boolean)) {
+    for (const source of routeAliases[token.toLowerCase()] || []) selected.add(source);
+    const normalized = normalizeCollectionRouteToken(token);
+    for (const source of knownMethods) {
+      if (normalizeCollectionRouteToken(source) === normalized) selected.add(source);
+    }
+  }
+
+  return selected;
 }
 
 export function selectedCollectionMethodStatuses(
   methods: CollectionMethodStatus[],
-  sourceFilter: Set<CollectionSourceGroup>
+  sourceFilter: Set<CollectionSourceGroup>,
+  routeFilter = new Set<string>()
 ): CollectionMethodStatus[] {
-  const selectedSources = selectedCollectionMethodSources(sourceFilter);
+  const selectedSources = selectedCollectionMethodSources(sourceFilter, routeFilter);
   if (!selectedSources.length) return methods;
   return methods.filter((method) => selectedSources.some((source) => sameCollectionMethod(source, method.source)));
+}
+
+export function selectedCollectionMethodSources(
+  sourceFilter: Set<CollectionSourceGroup>,
+  routeFilter = new Set<string>()
+): string[] {
+  if (routeFilter.size && !sourceFilter.size) return [...routeFilter];
+  const groupSources = sourceFilter.size
+    ? [...sourceFilter].flatMap((group) => COLLECTION_SOURCE_GROUP_METHODS[group] || [])
+    : [];
+  if (!routeFilter.size) return groupSources;
+  return groupSources.filter((source) => routeFilter.has(source));
 }
 
 function sameCollectionMethod(expected: string, source: string): boolean {
@@ -58,4 +116,11 @@ function sameCollectionMethod(expected: string, source: string): boolean {
   if (source.startsWith(`${expected} `)) return true;
   if (source.includes(expected) || expected.includes(source)) return true;
   return false;
+}
+
+function normalizeCollectionRouteToken(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s·ㆍ.,/()_-]+/g, "");
 }

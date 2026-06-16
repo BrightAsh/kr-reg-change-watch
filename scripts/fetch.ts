@@ -65,8 +65,8 @@ const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 1200
 const lawRevisionTextCache = new Map<string, LawRevisionDetails | null>();
 const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
 const retryFailedOnly = Boolean(args["retry-failed"] || env("RETRY_FAILED_ONLY") === "1");
-const sourceFilter = parseSourceFilter(String(args.sources || env("COLLECT_SOURCES")));
-const partialSourceCollect = sourceFilter.size > 0;
+const sourceFilterInput = String(args.sources || env("COLLECT_SOURCES"));
+const sourceFilter = parseSourceFilter(sourceFilterInput);
 const itemsPath = path.join(rootDir, "data", "items.json");
 const runPath = path.join(rootDir, "data", "run.json");
 const dailyPath = path.join(dailyDir, `${targetDate}.json`);
@@ -388,6 +388,9 @@ const MOTIR_ROUTES: MinistryRoute[] = [
   }
 ];
 
+const routeFilter = parseRouteFilter(String(args.routes || env("COLLECT_ROUTES") || sourceFilterInput));
+const partialSourceCollect = sourceFilter.size > 0 || routeFilter.size > 0;
+
 async function main() {
   await ensureDataDirs();
 
@@ -645,6 +648,9 @@ function tagLogsWithGroup(logs: CollectionLog[], startIndex: number, group: Sour
 }
 
 function selectedSourceGroups(): SourceGroup[] {
+  if (!sourceFilter.size && routeFilter.size) {
+    return SOURCE_GROUPS.filter((group) => sourceRouteKeysForGroup(group).some((route) => routeFilter.has(route)));
+  }
   if (!sourceFilter.size) return SOURCE_GROUPS;
   return SOURCE_GROUPS.filter((group) => sourceFilter.has(group));
 }
@@ -673,9 +679,11 @@ function sourceRouteKeysForGroup(group: SourceGroup): string[] {
 }
 
 function selectedRouteKeys(): Array<{ group: SourceGroup; route: string }> {
-  return selectedSourceGroups().flatMap((group) =>
+  const routes = selectedSourceGroups().flatMap((group) =>
     sourceRouteKeysForGroup(group).map((route) => ({ group, route }))
   );
+  if (!routeFilter.size) return routes;
+  return routes.filter(({ route }) => routeFilter.has(route));
 }
 
 function allSelectedRoutesSucceeded(daily: DailyCollection | null): boolean {
@@ -798,6 +806,72 @@ function parseSourceFilter(value: string): Set<SourceGroup> {
       .map((entry) => aliases[entry.trim().toLowerCase()])
       .filter((entry): entry is SourceGroup => Boolean(entry))
   );
+}
+
+function parseRouteFilter(value: string): Set<string> {
+  const routeAliases: Record<string, string[]> = {
+    mois: [
+      "행정안전부 훈령·예규·고시",
+      "행정안전부 입법·행정예고",
+      "행정안전부 법령자료실"
+    ],
+    "행안부": [
+      "행정안전부 훈령·예규·고시",
+      "행정안전부 입법·행정예고",
+      "행정안전부 법령자료실"
+    ],
+    "행정안전부": [
+      "행정안전부 훈령·예규·고시",
+      "행정안전부 입법·행정예고",
+      "행정안전부 법령자료실"
+    ],
+    moef: MINISTRY_ROUTES.filter((route) => isMoefRoute(route)).map((route) => route.source),
+    mofe: MINISTRY_ROUTES.filter((route) => isMoefRoute(route)).map((route) => route.source),
+    "기재부": MINISTRY_ROUTES.filter((route) => isMoefRoute(route)).map((route) => route.source),
+    "기획재정부": MINISTRY_ROUTES.filter((route) => isMoefRoute(route)).map((route) => route.source),
+    "재정경제부": MINISTRY_ROUTES.filter((route) => isMoefRoute(route)).map((route) => route.source),
+    "mois-directive": ["행정안전부 훈령·예규·고시"],
+    "mois-rule": ["행정안전부 훈령·예규·고시"],
+    "mois-notice": ["행정안전부 훈령·예규·고시"],
+    "mois-legislation": ["행정안전부 입법·행정예고"],
+    "mois-legislation-notice": ["행정안전부 입법·행정예고"],
+    "mois-law": ["행정안전부 법령자료실"],
+    "mois-law-library": ["행정안전부 법령자료실"],
+    "moef-law": ["기획재정부 법령자료실"],
+    "moef-law-library": ["기획재정부 법령자료실"],
+    "moef-english": ["기획재정부 영문법령정보"],
+    "moef-english-law": ["기획재정부 영문법령정보"],
+    "moef-tax": ["기획재정부 조세조약"],
+    "moef-tax-treaty": ["기획재정부 조세조약"],
+    "moef-directive": ["기획재정부 훈령"],
+    "moef-rule": ["기획재정부 예규"],
+    "moef-notice": ["기획재정부 고시"],
+    "moef-announcement": ["기획재정부 공고"],
+    "moef-guideline": ["기획재정부 지침"],
+    "moef-legislation": ["기획재정부 입법예고"],
+    "moef-legislation-notice": ["기획재정부 입법예고"],
+    "moef-admin": ["기획재정부 행정예고"],
+    "moef-admin-notice": ["기획재정부 행정예고"]
+  };
+  const selected = new Set<string>();
+  const knownRoutes = SOURCE_GROUPS.flatMap((group) => sourceRouteKeysForGroup(group));
+
+  for (const token of value.split(/[\s,;|]+/).map((entry) => entry.trim()).filter(Boolean)) {
+    for (const route of routeAliases[token.toLowerCase()] || []) selected.add(route);
+    const normalized = normalizeRouteToken(token);
+    for (const route of knownRoutes) {
+      if (normalizeRouteToken(route) === normalized) selected.add(route);
+    }
+  }
+
+  return selected;
+}
+
+function normalizeRouteToken(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s·ㆍ.,/()_-]+/g, "");
 }
 
 async function fetchLawChangeHistory(logs: CollectionLog[]): Promise<CollectedItem[]> {

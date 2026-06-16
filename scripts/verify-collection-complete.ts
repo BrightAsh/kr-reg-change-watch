@@ -1,6 +1,7 @@
 import { readCollectionStatusReport } from "../lib/collectionStatus";
 import { dateDaysAgo, env, parseArgs } from "./common";
 import {
+  parseCollectionRouteFilter,
   parseCollectionSourceFilter,
   selectedCollectionMethodSources,
   selectedCollectionMethodStatuses
@@ -9,7 +10,9 @@ import {
 const args = parseArgs();
 const lookback = Number(env("FETCH_LOOKBACK_DAYS", "1"));
 const targetDate = String(args.date || env("TARGET_DATE") || dateDaysAgo(Number.isFinite(lookback) ? lookback : 1));
-const sourceFilter = parseCollectionSourceFilter(String(args.sources || env("COLLECT_SOURCES")));
+const sourceFilterInput = String(args.sources || env("COLLECT_SOURCES"));
+const sourceFilter = parseCollectionSourceFilter(sourceFilterInput);
+const routeFilter = parseCollectionRouteFilter(String(args.routes || env("COLLECT_ROUTES") || sourceFilterInput));
 
 main().catch((error) => {
   console.error(error instanceof Error ? error.message : String(error));
@@ -25,9 +28,9 @@ async function main() {
     process.exit(1);
   }
 
-  if (sourceFilter.size) {
-    const selectedSources = selectedCollectionMethodSources(sourceFilter);
-    const selectedMethods = selectedCollectionMethodStatuses(day.methods, sourceFilter);
+  if (sourceFilter.size || routeFilter.size) {
+    const selectedSources = selectedCollectionMethodSources(sourceFilter, routeFilter);
+    const selectedMethods = selectedCollectionMethodStatuses(day.methods, sourceFilter, routeFilter);
 
     if (!selectedMethods.length) {
       console.error(`No selected collection routes were found in status for ${targetDate}: ${selectedSources.join(", ")}`);
