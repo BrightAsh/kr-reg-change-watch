@@ -211,10 +211,133 @@
     "route": "ALIO"
   },
   {
-    "source": "수집 상태 점검",
-    "status": "error",
-    "message": "Critical source connectivity failure for 2026-05-27: alio",
+    "source": "행정안전부 훈령·예규·고시",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
     "count": 0,
-    "at": "2026-06-16T06:18:39.411Z"
+    "at": "2026-06-16T06:43:07.309Z",
+    "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016",
+    "group": "ministry-board",
+    "route": "행정안전부 훈령·예규·고시"
+  },
+  {
+    "source": "행정안전부 입법·행정예고",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:09.042Z",
+    "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017",
+    "group": "ministry-board",
+    "route": "행정안전부 입법·행정예고"
+  },
+  {
+    "source": "행정안전부 법령자료실",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:13.805Z",
+    "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018",
+    "group": "ministry-board",
+    "route": "행정안전부 법령자료실"
+  },
+  {
+    "source": "기획재정부 법령자료실",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:15.959Z",
+    "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200",
+    "group": "ministry-board",
+    "route": "기획재정부 법령자료실"
+  },
+  {
+    "source": "기획재정부 영문법령정보",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:18.181Z",
+    "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300",
+    "group": "ministry-board",
+    "route": "기획재정부 영문법령정보"
+  },
+  {
+    "source": "기획재정부 조세조약",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:20.390Z",
+    "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100",
+    "group": "ministry-board",
+    "route": "기획재정부 조세조약"
+  },
+  {
+    "source": "기획재정부 훈령",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:24.436Z",
+    "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100",
+    "group": "ministry-board",
+    "route": "기획재정부 훈령"
+  },
+  {
+    "source": "기획재정부 예규",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:26.486Z",
+    "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100",
+    "group": "ministry-board",
+    "route": "기획재정부 예규"
+  },
+  {
+    "source": "기획재정부 고시",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:32.428Z",
+    "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200",
+    "group": "ministry-board",
+    "route": "기획재정부 고시"
+  },
+  {
+    "source": "기획재정부 공고",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:34.569Z",
+    "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200",
+    "group": "ministry-board",
+    "route": "기획재정부 공고"
+  },
+  {
+    "source": "기획재정부 지침",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:36.322Z",
+    "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200",
+    "group": "ministry-board",
+    "route": "기획재정부 지침"
+  },
+  {
+    "source": "기획재정부 입법예고",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:41.239Z",
+    "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300",
+    "group": "ministry-board",
+    "route": "기획재정부 입법예고"
+  },
+  {
+    "source": "기획재정부 행정예고",
+    "status": "ok",
+    "message": "공식 게시판 HTML 수집 완료",
+    "count": 0,
+    "at": "2026-06-16T06:43:44.802Z",
+    "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
+    "group": "ministry-board",
+    "route": "기획재정부 행정예고"
   }
 ]
