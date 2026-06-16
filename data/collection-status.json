@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T03:14:36.486Z",
+  "generated_at": "2026-06-16T04:17:59.913Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39370,40 +39370,40 @@
       "date": "2026-05-26",
       "status": "partial",
       "item_count": 185,
-      "changed_count": 0,
-      "collected_at": "2026-06-16T03:12:27.941Z",
+      "changed_count": 303,
+      "collected_at": "2026-06-16T03:57:09.857Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+          "status": "error",
+          "count": 420,
+          "message": "교육환경 보호에 관한 법률 시행령 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286641&efYd=20260602 failed with curl-first mode: curl failed with code 28 (null)\n국가공무원법 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286457&efYd=20261203 failed with curl-first mode: curl failed with code 35 (null)\n법제처 lawService API로 개정문/제개정이유 209건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 314행을 법령 단위 211건으로 묶었습니다.",
+          "at": "2026-06-16T03:50:53.013Z",
+          "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=286641&type=HTML&mobileYn=&efYd=20260602"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 64,
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료. 원자료 65행을 법령 단위 64건으로 묶었습니다.",
+          "at": "2026-06-16T03:50:57.315Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "error",
+          "count": 54,
+          "message": "행정규칙 본문 조회 실패: 2100000279802 - GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&type=JSON&ID=2100000279802 failed with curl-first mode: curl failed with code 35 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-16T03:54:26.637Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "error",
+          "count": 54,
+          "message": "행정규칙 본문 조회 실패: 2100000279802 - GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&type=JSON&ID=2100000279802 failed with curl-first mode: curl failed with code 35 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-16T03:54:26.637Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -39440,107 +39440,107 @@
         },
         {
           "source": "행정안전부 훈령·예규·고시",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:29.058Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
           "source": "행정안전부 입법·행정예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:29.940Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
         },
         {
           "source": "행정안전부 법령자료실",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:33.524Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
           "source": "기획재정부 법령자료실",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:34.940Z",
+          "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
         },
         {
           "source": "기획재정부 영문법령정보",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:36.464Z",
+          "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
         },
         {
           "source": "기획재정부 조세조약",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:37.656Z",
+          "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
         },
         {
           "source": "기획재정부 훈령",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:40.610Z",
+          "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
         },
         {
           "source": "기획재정부 예규",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:41.873Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
         },
         {
           "source": "기획재정부 고시",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:46.191Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
         },
         {
           "source": "기획재정부 공고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:47.314Z",
+          "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
         },
         {
           "source": "기획재정부 지침",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:48.866Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
         },
         {
           "source": "기획재정부 입법예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 1,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:54:59.183Z",
+          "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
         },
         {
           "source": "기획재정부 행정예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-16T03:55:01.584Z",
+          "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
         },
         {
           "source": "산업통상부 입법예고",
@@ -39600,27 +39600,27 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.alio.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "ALIO 법령/지침 원문 수집 완료",
+          "at": "2026-06-16T03:55:09.202Z",
+          "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.alio.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "ALIO 정책자료/보도자료 수집 완료",
+          "at": "2026-06-16T03:55:28.804Z",
+          "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.korea.kr/etc/rss.do"
+          "status": "error",
+          "count": 0,
+          "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_moef.xml failed with curl-first mode: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed with curl-first mode: curl failed with code 52 (null)\n정책브리핑 RSS 수집 완료",
+          "at": "2026-06-16T03:57:09.260Z",
+          "url": "http://www.korea.kr/rss/dept_moef.xml"
         },
         {
           "source": "네이버 뉴스 검색 API",
@@ -39694,44 +39694,12 @@
           "url": "https://www.motir.go.kr"
         },
         {
-          "source": "국가법령정보센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: This operation was aborted; fallback failed: GET https://www.law.go.kr failed with curl-first mode: curl failed with code 28 (null), 5002ms",
-          "at": "2026-06-16T03:04:54.995Z",
-          "url": "https://www.law.go.kr"
-        },
-        {
-          "source": "행정안전부/기획재정부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.mois.go.kr: This operation was aborted; fallback failed: GET https://www.mois.go.kr failed with curl-first mode: curl failed with code 28 (null), 5001ms | https://www.mofe.go.kr: This operation was aborted; fallback failed: GET https://www.mofe.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T03:06:38.036Z",
-          "url": "https://www.mofe.go.kr"
-        },
-        {
           "source": "산업통상부 게시판 접속 확인",
           "status": "error",
           "count": 0,
           "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 4999ms",
           "at": "2026-06-16T03:07:14.048Z",
           "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "ALIO 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.alio.go.kr: This operation was aborted; fallback failed: GET https://www.alio.go.kr failed with curl-first mode: curl failed with code 28 (null), 4999ms",
-          "at": "2026-06-16T03:07:50.060Z",
-          "url": "https://www.alio.go.kr"
-        },
-        {
-          "source": "정책브리핑 RSS 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: This operation was aborted; fallback failed: GET https://www.korea.kr/etc/rss.do failed with curl-first mode: curl failed with code 28 (null), 5001ms",
-          "at": "2026-06-16T03:08:26.074Z",
-          "url": "https://www.korea.kr/etc/rss.do"
         },
         {
           "source": "일자별 캐시",
