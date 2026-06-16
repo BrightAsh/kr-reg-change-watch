@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-06-16T04:52:40.423Z",
+  "last_run_at": "2026-06-16T05:01:11.192Z",
   "last_target_date": "2026-05-27",
   "item_count": 3956,
   "changed_count": 0,
@@ -70,7 +70,7 @@
     "2026-01-02",
     "2026-01-01"
   ],
-  "cache_hit": false,
+  "cache_hit": true,
   "logs": [
     {
       "source": "국민참여입법센터 입법예고",
@@ -176,6 +176,22 @@
       "at": "2026-06-16T04:52:39.471Z",
       "group": "gazette",
       "route": "대한민국 전자관보"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-06-16T04:59:05.181Z",
+      "group": "naver-news",
+      "route": "네이버 뉴스 검색 API"
+    },
+    {
+      "source": "일자별 캐시",
+      "status": "ok",
+      "message": "2026-05-27 캐시가 있어 외부 수집을 건너뜁니다.",
+      "count": 60,
+      "at": "2026-06-16T05:01:11.044Z"
     }
   ]
 }
