@@ -26,8 +26,10 @@ async function main() {
 
   const summarized: CollectedItem[] = [];
   for (const item of items) {
-    const summary = await buildGroundedSummary(item);
-    const summaryWasGenerated = Boolean(openAiKey) || summary !== item.summary;
+    const existingSummary = compactText(item.summary || "");
+    const needsFreshSummary = !existingSummary || changedIds.has(item.id) || addedIds.has(item.id);
+    const summary = needsFreshSummary ? await buildGroundedSummary(item) : item.summary || existingSummary;
+    const summaryWasGenerated = needsFreshSummary ? Boolean(openAiKey) || summary !== item.summary : Boolean(item.auto_summary);
     const diffSummary = changedIds.has(item.id)
       ? item.diff_summary || "이전 스냅샷과 raw_hash가 달라 원문 내용 변경 가능성이 있습니다. 상세 원문을 확인하세요."
       : addedIds.has(item.id)
@@ -107,28 +109,36 @@ async function buildGroundedSummary(item: CollectedItem): Promise<string> {
 }
 
 async function summarizeWithOpenAI(item: CollectedItem, evidence: string, base: string): Promise<string | null> {
-  const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${openAiKey}`,
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({
-      model: openAiModel,
-      max_output_tokens: 220,
-      instructions:
-        "당신은 한국 법령/행정규칙 변경사항 요약 보조자입니다. 제공된 원문 근거와 메타데이터 안에서만 요약하고, 근거가 없으면 단정하지 마세요. 한국어로 한 단락만 작성하고 반드시 '자동요약:'으로 시작하세요.",
-      input: [
-        `제목: ${item.title}`,
-        `메타데이터: ${base}`,
-        `원문 URL: ${item.original_url}`,
-        `원문 근거: ${evidence}`
-      ].join("\n")
-    })
-  });
-  if (!response.ok) throw new Error(`OpenAI Responses API HTTP ${response.status}`);
-  const payload = (await response.json()) as { output_text?: string; output?: unknown };
-  return compactText(payload.output_text || extractOutputText(payload.output));
+  const timeoutMs = Math.max(5000, Number(env("OPENAI_TIMEOUT_MS", env("FETCH_TIMEOUT_MS", "45000"))) || 45000);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${openAiKey}`,
+        "content-type": "application/json"
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model: openAiModel,
+        max_output_tokens: 220,
+        instructions:
+          "당신은 한국 법령/행정규칙 변경사항 요약 보조자입니다. 제공된 원문 근거와 메타데이터 안에서만 요약하고, 근거가 없으면 단정하지 마세요. 한국어로 한 단락만 작성하고 반드시 '자동요약:'으로 시작하세요.",
+        input: [
+          `제목: ${item.title}`,
+          `메타데이터: ${base}`,
+          `원문 URL: ${item.original_url}`,
+          `원문 근거: ${evidence}`
+        ].join("\n")
+      })
+    });
+    if (!response.ok) throw new Error(`OpenAI Responses API HTTP ${response.status}`);
+    const payload = (await response.json()) as { output_text?: string; output?: unknown };
+    return compactText(payload.output_text || extractOutputText(payload.output));
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 function extractOutputText(value: unknown): string {

@@ -72,6 +72,7 @@ jobs:
       NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
       NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_TIMEOUT_MS: 20000
       MAIL_FROM_EMAIL: ${{ secrets.MAIL_FROM_EMAIL }}
       MAIL_FROM_NAME: ${{ secrets.MAIL_FROM_NAME }}
       GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
