@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T08:46:55.668Z",
+  "generated_at": "2026-06-16T08:53:20.965Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39947,7 +39947,7 @@
       "status": "partial",
       "item_count": 76,
       "changed_count": 0,
-      "collected_at": "2026-06-16T08:46:51.880Z",
+      "collected_at": "2026-06-16T08:53:17.357Z",
       "source": "daily",
       "methods": [
         {
@@ -40008,10 +40008,10 @@
         },
         {
           "source": "대한민국 전자관보",
-          "status": "error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260528&reqTo=20260528&fromDate=20260528&toDate=20260528&type=1 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-16T08:45:28.028Z",
+          "message": "설정된 관보 API URL 수집 완료",
+          "at": "2026-06-16T08:53:16.590Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {

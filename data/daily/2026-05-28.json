@@ -1,6 +1,6 @@
 {
   "date": "2026-05-28",
-  "collected_at": "2026-06-16T08:46:51.880Z",
+  "collected_at": "2026-06-16T08:53:17.357Z",
   "item_count": 76,
   "changed_count": 0,
   "cache_hit": false,
@@ -2626,15 +2626,6 @@
       "at": "2026-06-16T07:17:11.578Z"
     },
     {
-      "source": "대한민국 전자관보",
-      "status": "error",
-      "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260528&reqTo=20260528&fromDate=20260528&toDate=20260528&type=1 failed with curl-first mode: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-16T08:45:28.028Z",
-      "group": "gazette",
-      "route": "대한민국 전자관보"
-    },
-    {
       "source": "ALIO 공공기관 법령/지침",
       "status": "error",
       "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
@@ -2663,6 +2654,16 @@
       "url": "https://www.alio.go.kr/etc/etcLawList.do",
       "group": "alio",
       "route": "ALIO"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-06-16T08:53:16.590Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
     }
   ]
 }
