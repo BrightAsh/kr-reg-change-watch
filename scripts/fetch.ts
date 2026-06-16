@@ -566,6 +566,7 @@ interface SourceProbeResult {
 }
 
 async function ensureSourceGroupReachable(group: SourceGroup, logs: CollectionLog[]): Promise<boolean> {
+  if (group === "gazette") return true;
   const enabled = env("COLLECT_PREFLIGHT", "0").toLowerCase();
   if (enabled === "0" || enabled === "false" || enabled === "no") return true;
   if (sourceProbeCache.has(group)) return sourceProbeCache.get(group) || false;
