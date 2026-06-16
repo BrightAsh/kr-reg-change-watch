@@ -121,6 +121,11 @@ jobs:
         shell: bash
         run: |
           set +e
+          if [ -n "$COLLECT_SOURCES" ]; then
+            echo "Skipping broad source preflight for selected collection sources: $COLLECT_SOURCES"
+            exit 0
+          fi
+
           if [ -n "$TARGET_DATE" ]; then
             YMD="$(date -u -d "$TARGET_DATE" +%Y%m%d)"
             DOT_DATE="$(date -u -d "$TARGET_DATE" +%-Y.%-m.%-d.)"
