@@ -1590,15 +1590,16 @@ function buildAlioSummary(source: AlioSource, title: string, postedDate: string,
 
 async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const defaultRss = [
-    "http://www.korea.kr/rss/pressrelease.xml",
-    "http://www.korea.kr/rss/policy.xml",
-    "http://www.korea.kr/rss/dept_moleg.xml",
-    "http://www.korea.kr/rss/dept_mois.xml",
-    "http://www.korea.kr/rss/dept_moef.xml",
-    "http://www.korea.kr/rss/president.xml",
-    "http://www.korea.kr/rss/speech.xml",
-    "http://www.korea.kr/rss/cabinet.xml",
-    "http://www.korea.kr/rss/ebriefing.xml"
+    "https://www.korea.kr/rss/pressrelease.xml",
+    "https://www.korea.kr/rss/policy.xml",
+    "https://www.korea.kr/rss/dept_moleg.xml",
+    "https://www.korea.kr/rss/dept_mois.xml",
+    "https://www.korea.kr/rss/dept_mofe.xml",
+    "https://www.korea.kr/rss/dept_motir.xml",
+    "https://www.korea.kr/rss/president.xml",
+    "https://www.korea.kr/rss/speech.xml",
+    "https://www.korea.kr/rss/cabinet.xml",
+    "https://www.korea.kr/rss/ebriefing.xml"
   ].join(",");
   const urls = env("KOREA_POLICY_RSS", defaultRss)
     .split(",")
@@ -1610,9 +1611,12 @@ async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
     return [];
   }
   const items: CollectedItem[] = [];
+  const failures: string[] = [];
+  let successCount = 0;
   for (const url of urls) {
     try {
       const xml = await fetchText(url);
+      successCount += 1;
       const parsed = parseXml(xml) as AnyRecord;
       const entries = findRecordRows(parsed, ["title", "link", "pubDate", "description"]);
       for (const entry of entries) {
@@ -1644,10 +1648,17 @@ async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
         );
       }
     } catch (error) {
-      addLog(logs, source, "error", `RSS 수집 실패: ${messageOf(error)}`, 0, url);
+      failures.push(`${url}: ${messageOf(error)}`);
     }
   }
-  addLog(logs, source, "ok", "정책브리핑 RSS 수집 완료", items.length, "https://www.korea.kr/etc/rss.do");
+  if (successCount === 0) {
+    addLog(logs, source, "error", `RSS 전체 수집 실패: ${failures.join("\n")}`, 0, urls[0]);
+    return items;
+  }
+  const message = failures.length
+    ? `정책브리핑 RSS 수집 완료 (${successCount}/${urls.length}개 피드 성공, 일부 실패: ${failures.join(" | ")})`
+    : "정책브리핑 RSS 수집 완료";
+  addLog(logs, source, "ok", message, items.length, "https://www.korea.kr/etc/rss.do");
   return items;
 }
 
