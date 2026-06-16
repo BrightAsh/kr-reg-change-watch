@@ -352,10 +352,15 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
 
   const extraLogs = logs
     .map((log, index) => ({ log, index }))
-    .filter(({ index }) => !used.has(index))
+    .filter(({ log, index }) => !used.has(index) && !isDiagnosticLog(log))
     .map(({ log }) => methodFromLog(log));
 
   return [...merged, ...extraLogs];
+}
+
+function isDiagnosticLog(log: CollectionLog): boolean {
+  const source = log.source || "";
+  return source.endsWith("접속 확인") || source === "수집 상태 점검";
 }
 
 function sameMethod(expected: CollectionMethodStatus, log: CollectionLog): boolean {
