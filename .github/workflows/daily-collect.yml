@@ -94,7 +94,7 @@ jobs:
       COLLECT_ATTEMPTS: 2
       COLLECT_RETRY_DELAY_SECONDS: 120
       STOP_ON_CRITICAL_CONNECTIVITY: 1
-      COLLECT_PREFLIGHT: 1
+      COLLECT_PREFLIGHT: 0
       COLLECT_PREFLIGHT_TIMEOUT_MS: 5000
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
