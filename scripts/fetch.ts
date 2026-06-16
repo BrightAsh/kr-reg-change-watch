@@ -543,12 +543,18 @@ async function runSource(
   if (!shouldRunRoute(group, route)) return;
   if (!(await ensureSourceGroupReachable(group, logs))) return;
   const logStartIndex = logs.length;
+  const startedAt = Date.now();
+  console.log(`[collect-route] start ${targetDate} ${group} :: ${route}`);
   try {
     collected.push(...(await fn()));
   } catch (error) {
     addLog(logs, route, "error", error instanceof Error ? error.message : String(error), 0, undefined, group);
   } finally {
     tagLogsWithGroup(logs, logStartIndex, group, route);
+    const elapsedSeconds = ((Date.now() - startedAt) / 1000).toFixed(1);
+    const routeLogs = logs.slice(logStartIndex).filter((log) => logBelongsToRoute(log, route));
+    const statuses = [...new Set(routeLogs.map((log) => log.status))].join(",") || "no-log";
+    console.log(`[collect-route] end ${targetDate} ${group} :: ${route} (${elapsedSeconds}s, ${statuses})`);
   }
 }
 
