@@ -1706,6 +1706,18 @@ function buildAlioSummary(source: AlioSource, title: string, postedDate: string,
 }
 
 async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
+  return withTemporaryEnv(
+    {
+      FETCH_TIMEOUT_MS: env("POLICY_RSS_FETCH_TIMEOUT_MS", "10000"),
+      FETCH_CURL_FIRST: env("POLICY_RSS_FETCH_CURL_FIRST", "0"),
+      FETCH_CURL_ONLY: env("POLICY_RSS_FETCH_CURL_ONLY", "0"),
+      FETCH_CURL_FALLBACK: env("POLICY_RSS_FETCH_CURL_FALLBACK", "0")
+    },
+    () => fetchPolicyRssWithBudget(logs)
+  );
+}
+
+async function fetchPolicyRssWithBudget(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const defaultRss = [
     "https://www.korea.kr/rss/pressrelease.xml",
     "https://www.korea.kr/rss/policy.xml",
