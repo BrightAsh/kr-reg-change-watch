@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T02:38:37.005Z",
+  "generated_at": "2026-06-16T03:08:30.692Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39371,7 +39371,7 @@
       "status": "partial",
       "item_count": 185,
       "changed_count": 0,
-      "collected_at": "2026-06-16T02:38:33.197Z",
+      "collected_at": "2026-06-16T03:08:26.882Z",
       "source": "daily",
       "methods": [
         {
@@ -39434,9 +39434,9 @@
           "source": "대한민국 전자관보",
           "status": "error",
           "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://open.gwanbo.go.kr: This operation was aborted; fallback failed: GET https://open.gwanbo.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T02:35:32.325Z",
-          "url": "https://open.gwanbo.go.kr"
+          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260526&reqTo=20260526&fromDate=20260526&toDate=20260526&type=1 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-16T03:05:26.009Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
           "source": "행정안전부 훈령·예규·고시",
@@ -39678,22 +39678,6 @@
           "url": "https://www.motir.go.kr"
         },
         {
-          "source": "국가법령정보센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: This operation was aborted; fallback failed: GET https://www.law.go.kr failed with curl-first mode: curl failed with code 28 (null), 5001ms",
-          "at": "2026-06-16T02:34:56.312Z",
-          "url": "https://www.law.go.kr"
-        },
-        {
-          "source": "행정안전부/기획재정부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.mois.go.kr: This operation was aborted; fallback failed: GET https://www.mois.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms | https://www.mofe.go.kr: This operation was aborted; fallback failed: GET https://www.mofe.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T02:36:44.353Z",
-          "url": "https://www.mofe.go.kr"
-        },
-        {
           "source": "산업통상부 게시판 접속 확인",
           "status": "error",
           "count": 0,
@@ -39702,19 +39686,51 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 게시판 접속 확인",
+          "status": "error",
+          "count": 0,
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
+          "at": "2026-06-16T03:01:02.095Z",
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "국가법령정보센터 접속 확인",
+          "status": "error",
+          "count": 0,
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: This operation was aborted; fallback failed: GET https://www.law.go.kr failed with curl-first mode: curl failed with code 28 (null), 5002ms",
+          "at": "2026-06-16T03:04:54.995Z",
+          "url": "https://www.law.go.kr"
+        },
+        {
+          "source": "행정안전부/기획재정부 게시판 접속 확인",
+          "status": "error",
+          "count": 0,
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.mois.go.kr: This operation was aborted; fallback failed: GET https://www.mois.go.kr failed with curl-first mode: curl failed with code 28 (null), 5001ms | https://www.mofe.go.kr: This operation was aborted; fallback failed: GET https://www.mofe.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
+          "at": "2026-06-16T03:06:38.036Z",
+          "url": "https://www.mofe.go.kr"
+        },
+        {
+          "source": "산업통상부 게시판 접속 확인",
+          "status": "error",
+          "count": 0,
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 4999ms",
+          "at": "2026-06-16T03:07:14.048Z",
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "ALIO 접속 확인",
           "status": "error",
           "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.alio.go.kr: This operation was aborted; fallback failed: GET https://www.alio.go.kr failed with curl-first mode: curl failed with code 28 (null), 5001ms",
-          "at": "2026-06-16T02:37:56.381Z",
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.alio.go.kr: This operation was aborted; fallback failed: GET https://www.alio.go.kr failed with curl-first mode: curl failed with code 28 (null), 4999ms",
+          "at": "2026-06-16T03:07:50.060Z",
           "url": "https://www.alio.go.kr"
         },
         {
           "source": "정책브리핑 RSS 접속 확인",
           "status": "error",
           "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: This operation was aborted; fallback failed: GET https://www.korea.kr/etc/rss.do failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T02:38:32.394Z",
+          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: This operation was aborted; fallback failed: GET https://www.korea.kr/etc/rss.do failed with curl-first mode: curl failed with code 28 (null), 5001ms",
+          "at": "2026-06-16T03:08:26.074Z",
           "url": "https://www.korea.kr/etc/rss.do"
         }
       ]
