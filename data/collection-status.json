@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T06:43:49.197Z",
+  "generated_at": "2026-06-16T06:56:50.748Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39646,62 +39646,6 @@
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T01:48:56.389Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T02:01:21.859Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 4999ms",
-          "at": "2026-06-16T02:07:38.782Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T02:31:03.322Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T02:37:20.366Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 5000ms",
-          "at": "2026-06-16T03:01:02.095Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: This operation was aborted; fallback failed: GET https://www.motir.go.kr failed with curl-first mode: curl failed with code 28 (null), 4999ms",
-          "at": "2026-06-16T03:07:14.048Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
           "source": "일자별 캐시",
           "status": "ok",
           "count": 185,
@@ -40001,41 +39945,41 @@
     {
       "date": "2026-05-28",
       "status": "partial",
-      "item_count": 60,
-      "changed_count": 3,
-      "collected_at": "2026-06-08T05:25:49.376Z",
+      "item_count": 76,
+      "changed_count": 71,
+      "collected_at": "2026-06-16T06:56:47.201Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 52,
+          "message": "법제처 lawService API로 개정문/제개정이유 26건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 68행을 법령 단위 26건으로 묶었습니다.",
+          "at": "2026-06-16T06:52:12.381Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 3,
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+          "at": "2026-06-16T06:52:14.418Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 84,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-16T06:56:46.415Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 84,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-16T06:56:46.415Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -41400,22 +41344,6 @@
           "message": "산업통상부 게시판 HTML 범위 수집 완료",
           "at": "2026-06-08T05:25:41.605Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
-        },
-        {
-          "source": "국가법령정보센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: fetch failed, 6557ms",
-          "at": "2026-06-11T01:38:19.162Z",
-          "url": "https://www.law.go.kr"
-        },
-        {
-          "source": "정책브리핑 RSS 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 426ms",
-          "at": "2026-06-11T01:39:42.127Z",
-          "url": "https://www.korea.kr/etc/rss.do"
         }
       ]
     },
@@ -41978,46 +41906,6 @@
           "message": "산업통상부 게시판 HTML 범위 수집 완료",
           "at": "2026-06-08T05:25:41.605Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
-        },
-        {
-          "source": "국가법령정보센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: This operation was aborted, 8001ms",
-          "at": "2026-06-11T02:02:16.166Z",
-          "url": "https://www.law.go.kr"
-        },
-        {
-          "source": "국민참여입법센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://opinion.lawmaking.go.kr: This operation was aborted, 8001ms",
-          "at": "2026-06-11T02:02:24.167Z",
-          "url": "https://opinion.lawmaking.go.kr"
-        },
-        {
-          "source": "행정안전부/기획재정부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.mois.go.kr: This operation was aborted, 8000ms | https://www.mofe.go.kr: This operation was aborted, 8000ms",
-          "at": "2026-06-11T02:02:48.167Z",
-          "url": "https://www.mofe.go.kr"
-        },
-        {
-          "source": "ALIO 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.alio.go.kr: This operation was aborted, 8000ms",
-          "at": "2026-06-11T02:02:56.167Z",
-          "url": "https://www.alio.go.kr"
-        },
-        {
-          "source": "정책브리핑 RSS 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: This operation was aborted, 8000ms",
-          "at": "2026-06-11T02:03:04.167Z",
-          "url": "https://www.korea.kr/etc/rss.do"
         }
       ]
     },
@@ -42564,30 +42452,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:08:45.800Z"
-        },
-        {
-          "source": "국가법령정보센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: fetch failed, 5729ms",
-          "at": "2026-06-11T02:07:36.124Z",
-          "url": "https://www.law.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 708ms",
-          "at": "2026-06-11T02:08:15.678Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "정책브리핑 RSS 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 439ms",
-          "at": "2026-06-11T02:08:41.187Z",
-          "url": "https://www.korea.kr/etc/rss.do"
         }
       ]
     },
@@ -42853,30 +42717,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:11:42.065Z"
-        },
-        {
-          "source": "국가법령정보센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: fetch failed, 785ms",
-          "at": "2026-06-11T02:10:35.652Z",
-          "url": "https://www.law.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 695ms",
-          "at": "2026-06-11T02:11:17.909Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "정책브리핑 RSS 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 464ms",
-          "at": "2026-06-11T02:11:37.625Z",
-          "url": "https://www.korea.kr/etc/rss.do"
         }
       ]
     },
@@ -43142,30 +42982,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:14:19.106Z"
-        },
-        {
-          "source": "국가법령정보센터 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: fetch failed, 799ms",
-          "at": "2026-06-11T02:13:17.362Z",
-          "url": "https://www.law.go.kr"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 924ms",
-          "at": "2026-06-11T02:13:57.640Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "정책브리핑 RSS 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 451ms",
-          "at": "2026-06-11T02:14:14.282Z",
-          "url": "https://www.korea.kr/etc/rss.do"
         }
       ]
     },
@@ -44274,29 +44090,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T18:17:39.745Z"
-        },
-        {
-          "source": "산업통상부 게시판 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.motir.go.kr: fetch failed, 765ms",
-          "at": "2026-06-12T00:16:48.565Z",
-          "url": "https://www.motir.go.kr"
-        },
-        {
-          "source": "정책브리핑 RSS 접속 확인",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 517ms",
-          "at": "2026-06-12T00:16:49.082Z",
-          "url": "https://www.korea.kr/etc/rss.do"
-        },
-        {
-          "source": "수집 상태 점검",
-          "status": "error",
-          "count": 0,
-          "message": "Critical source connectivity failure for 2026-06-11: motir-board, policy-rss",
-          "at": "2026-06-12T00:16:49.082Z"
         }
       ]
     },
@@ -45389,13 +45182,6 @@
           "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:41:56.926Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
-        },
-        {
-          "source": "수집 상태 점검",
-          "status": "error",
-          "count": 0,
-          "message": "Critical source connectivity failure for 2026-06-15: official-law, lawmaking, gazette, mois-board, moef-board, motir-board, alio, policy-rss",
-          "at": "2026-06-15T20:58:13.471Z"
         }
       ]
     },
