@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T06:08:39.580Z",
+  "generated_at": "2026-06-16T06:18:43.965Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-16",
   "summary": {
@@ -39715,7 +39715,7 @@
       "status": "partial",
       "item_count": 62,
       "changed_count": 0,
-      "collected_at": "2026-06-16T06:08:35.612Z",
+      "collected_at": "2026-06-16T06:18:40.198Z",
       "source": "daily",
       "methods": [
         {
@@ -39946,16 +39946,16 @@
           "source": "ALIO 공공기관 법령/지침",
           "status": "error",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed with curl-first mode: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed with curl-first mode: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-16T06:08:34.809Z",
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-16T06:18:39.411Z",
           "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
           "status": "error",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed with curl-first mode: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed with curl-first mode: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-16T06:08:34.809Z",
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-16T06:18:39.411Z",
           "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
         {
@@ -39995,6 +39995,13 @@
           "count": 60,
           "message": "2026-05-27 캐시가 있어 외부 수집을 건너뜁니다.",
           "at": "2026-06-16T05:01:11.044Z"
+        },
+        {
+          "source": "수집 상태 점검",
+          "status": "error",
+          "count": 0,
+          "message": "Critical source connectivity failure for 2026-05-27: alio",
+          "at": "2026-06-16T06:18:39.411Z"
         }
       ]
     },
