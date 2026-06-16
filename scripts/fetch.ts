@@ -1543,14 +1543,22 @@ async function extractAlioAttachments(
 }
 
 async function fetchBuffer(url: string): Promise<Buffer> {
-  const response = await fetch(url, {
-    headers: {
-      accept: "application/octet-stream,*/*",
-      "user-agent": "kr-reg-change-watch/0.1"
-    }
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
-  return Buffer.from(await response.arrayBuffer());
+  const timeoutMs = Math.max(5000, Number(env("FETCH_TIMEOUT_MS", "45000")) || 45000);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(url, {
+      headers: {
+        accept: "application/octet-stream,*/*",
+        "user-agent": "kr-reg-change-watch/0.1"
+      },
+      signal: controller.signal
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
+    return Buffer.from(await response.arrayBuffer());
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 async function extractAttachmentText(filePath: string, fileName: string): Promise<ExtractedAttachment> {
