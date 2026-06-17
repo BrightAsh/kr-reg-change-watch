@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T01:45:37.986Z",
+  "generated_at": "2026-06-17T01:52:59.266Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -40642,14 +40642,6 @@
           "message": "산업통상부 게시판 HTML 범위 수집 완료",
           "at": "2026-06-08T05:25:41.605Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
-        },
-        {
-          "source": "ALIO",
-          "status": "error",
-          "count": 0,
-          "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T01:43:03.264Z",
-          "url": "https://www.alio.go.kr/etc/etcLawList.do"
         }
       ]
     },
@@ -41219,40 +41211,40 @@
       "date": "2026-06-01",
       "status": "partial",
       "item_count": 62,
-      "changed_count": 7,
-      "collected_at": "2026-06-11T01:39:49.171Z",
+      "changed_count": 0,
+      "collected_at": "2026-06-17T01:52:55.826Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "error",
+          "count": 0,
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260601 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T01:49:59.609Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "error",
+          "count": 0,
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260601 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T01:50:41.114Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "error",
+          "count": 0,
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260601&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T01:51:22.622Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "error",
+          "count": 0,
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260601&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T01:52:04.131Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -41465,11 +41457,11 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.korea.kr/etc/rss.do"
+          "status": "error",
+          "count": 0,
+          "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed with curl-first mode: curl failed with code 28 (null)\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
+          "at": "2026-06-17T01:52:55.162Z",
+          "url": "https://www.korea.kr/rss/pressrelease.xml"
         },
         {
           "source": "네이버 뉴스 검색 API",
@@ -45371,14 +45363,6 @@
           "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:41:56.926Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
-        },
-        {
-          "source": "ALIO",
-          "status": "error",
-          "count": 0,
-          "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T20:47:45.694Z",
-          "url": "https://www.alio.go.kr/etc/etcLawList.do"
         }
       ]
     },
@@ -45660,14 +45644,6 @@
           "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-16T19:38:00.550Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
-        },
-        {
-          "source": "ALIO",
-          "status": "error",
-          "count": 0,
-          "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-16T19:40:56.630Z",
-          "url": "https://www.alio.go.kr/etc/etcLawList.do"
         }
       ]
     },

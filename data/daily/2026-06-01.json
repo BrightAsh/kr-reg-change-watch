@@ -1,8 +1,8 @@
 {
   "date": "2026-06-01",
-  "collected_at": "2026-06-11T01:39:49.171Z",
+  "collected_at": "2026-06-17T01:52:55.826Z",
   "item_count": 62,
-  "changed_count": 7,
+  "changed_count": 0,
   "cache_hit": false,
   "items": [
     {
@@ -1943,15 +1943,6 @@
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
     },
     {
-      "source": "국가법령정보센터 접속 확인",
-      "status": "error",
-      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.law.go.kr: fetch failed, 6557ms",
-      "count": 0,
-      "at": "2026-06-11T01:38:19.162Z",
-      "url": "https://www.law.go.kr",
-      "group": "official-law"
-    },
-    {
       "source": "대한민국 전자관보",
       "status": "ok",
       "message": "설정된 관보 API URL 수집 완료",
@@ -2096,21 +2087,58 @@
       "group": "alio"
     },
     {
-      "source": "정책브리핑 RSS 접속 확인",
-      "status": "error",
-      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 426ms",
-      "count": 0,
-      "at": "2026-06-11T01:39:42.127Z",
-      "url": "https://www.korea.kr/etc/rss.do",
-      "group": "policy-rss"
-    },
-    {
       "source": "네이버 뉴스 검색 API",
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
       "count": 0,
       "at": "2026-06-11T01:39:48.451Z",
       "group": "naver-news"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260601 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T01:49:59.609Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260601 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T01:50:41.114Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260601&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T01:51:22.622Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260601&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T01:52:04.131Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "대한민국 정책브리핑 RSS",
+      "status": "error",
+      "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed with curl-first mode: curl failed with code 28 (null)\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
+      "count": 0,
+      "at": "2026-06-17T01:52:55.162Z",
+      "url": "https://www.korea.kr/rss/pressrelease.xml",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
     }
   ]
 }
