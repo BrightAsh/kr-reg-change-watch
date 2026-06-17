@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import type { CollectionLog, DailyCollection } from "./types";
 
-export type CollectionMethodState = "ok" | "error" | "skipped" | "missing" | "not_started";
+export type CollectionMethodState = "ok" | "error" | "external_error" | "skipped" | "missing" | "not_started";
 export type CollectionDayState = "complete" | "partial" | "failed" | "not_started";
 
 export interface CollectionMethodStatus {
@@ -203,13 +203,14 @@ function buildDayStatus(date: string, daily: DailyCollection | null, failure: Fa
   const logs = useFailure ? failure?.logs || [] : daily?.logs || [];
   const methods = mergeExpectedMethods(logs, Boolean(daily || failure));
   const errorCount = methods.filter((entry) => entry.status === "error").length;
+  const externalErrorCount = methods.filter((entry) => entry.status === "external_error").length;
   const skippedCount = methods.filter((entry) => entry.status === "skipped").length;
   const missingCount = methods.filter((entry) => entry.status === "missing").length;
   const okCount = methods.filter((entry) => entry.status === "ok").length;
 
   let status: CollectionDayState = "complete";
-  if (errorCount && okCount) status = "partial";
-  else if (errorCount && !okCount) status = "failed";
+  if ((errorCount || externalErrorCount) && okCount) status = "partial";
+  else if ((errorCount || externalErrorCount) && !okCount) status = "failed";
   else if (skippedCount) status = "partial";
   else if (missingCount && okCount) status = "partial";
   if (useFailure && !okCount) status = "failed";
@@ -324,9 +325,16 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
     }
 
     const matchedLogs = matches.map((match) => match.log);
-    const hasError = matchedLogs.some((log) => log.status === "error");
+    const errorLogs = matchedLogs.filter((log) => log.status === "error");
+    const hasError = errorLogs.length > 0;
     const hasSkipped = matchedLogs.some((log) => log.status === "skipped");
-    const status: CollectionMethodState = hasError ? "error" : hasSkipped ? "skipped" : "ok";
+    const status: CollectionMethodState = hasError
+      ? errorLogs.every(isExternalConnectivityLog)
+        ? "external_error"
+        : "error"
+      : hasSkipped
+        ? "skipped"
+        : "ok";
     const count = matchedLogs
       .filter((log) => log.status === "ok")
       .reduce((total, log) => total + (Number.isFinite(log.count) ? log.count : 0), 0);
@@ -362,6 +370,30 @@ function isDiagnosticLog(log: CollectionLog): boolean {
   const source = log.source || "";
   if (log.group && ["ALIO", "행정안전부/기획재정부 게시판", "산업통상부 게시판"].includes(source)) return true;
   return source.endsWith("접속 확인") || source === "수집 상태 점검";
+}
+
+const NETWORK_CONNECTIVITY_PATTERNS = [
+  /curl failed with code 28/i,
+  /code 28/i,
+  /timed out/i,
+  /timeout/i,
+  /failed to connect/i,
+  /network timeout\/fetch failed/i,
+  /critical source connectivity failure/i,
+  /ETIMEDOUT/i,
+  /ECONNRESET/i,
+  /ENOTFOUND/i,
+  /EAI_AGAIN/i
+];
+
+function isExternalConnectivityLog(log: CollectionLog): boolean {
+  const textValue = `${log.source || ""} ${log.message || ""} ${log.url || ""}`;
+  if (isLikelyApplicationError(textValue)) return false;
+  return NETWORK_CONNECTIVITY_PATTERNS.some((pattern) => pattern.test(textValue));
+}
+
+function isLikelyApplicationError(value: string): boolean {
+  return /HTTP 4\d{2}|HTTP 5\d{2}|retMsg|JSON|parse|invalid|required|API key|OC.*required/i.test(value);
 }
 
 function sameMethod(expected: CollectionMethodStatus, log: CollectionLog): boolean {

@@ -2382,6 +2382,10 @@ textarea {
   border-left-color: var(--red);
 }
 
+.status-method.method-external_error {
+  border-left-color: #2563eb;
+}
+
 .status-method.method-skipped {
   border-left-color: var(--orange);
 }
@@ -2420,6 +2424,7 @@ textarea {
 
 .method-count,
 .method-error-button,
+.method-external-button,
 .method-muted {
   display: inline-flex;
   min-width: 58px;
@@ -2439,6 +2444,11 @@ textarea {
 .method-error-button {
   background: #11151c;
   color: #fff;
+}
+
+.method-external-button {
+  background: #e8f1ff;
+  color: #1d4ed8;
 }
 
 .method-muted {
@@ -2476,6 +2486,10 @@ textarea {
 
 .status-log-popover.method-error {
   border-left-color: var(--red);
+}
+
+.status-log-popover.method-external_error {
+  border-left-color: #2563eb;
 }
 
 .status-log-popover.method-skipped {

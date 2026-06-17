@@ -17,6 +17,7 @@ const stateLabels: Record<CollectionDayStatus["status"], string> = {
 const methodLabels = {
   ok: "성공",
   error: "오류",
+  external_error: "외부 접속 장애",
   skipped: "건너뜀",
   missing: "미시도",
   not_started: "수집 전"
@@ -145,6 +146,10 @@ export default function CollectionStatusBoard({ report }: Props) {
                   ) : method.status === "error" ? (
                     <button className="method-error-button" type="button" onClick={() => setActiveLog(method)}>
                       오류
+                    </button>
+                  ) : method.status === "external_error" ? (
+                    <button className="method-external-button" type="button" onClick={() => setActiveLog(method)}>
+                      외부 접속 장애
                     </button>
                   ) : (
                     <button className="method-muted" type="button" onClick={() => setActiveLog(method)}>
