@@ -1,6 +1,6 @@
 {
   "date": "2026-06-11",
-  "collected_at": "2026-06-17T02:19:06.699Z",
+  "collected_at": "2026-06-17T02:23:46.801Z",
   "item_count": 26,
   "changed_count": 0,
   "cache_hit": false,
@@ -987,15 +987,6 @@
       "group": "official-law"
     },
     {
-      "source": "정책브리핑 RSS 접속 확인",
-      "status": "error",
-      "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.korea.kr/etc/rss.do: fetch failed, 517ms",
-      "count": 0,
-      "at": "2026-06-12T00:16:49.082Z",
-      "url": "https://www.korea.kr/etc/rss.do",
-      "group": "policy-rss"
-    },
-    {
       "source": "산업통상부 입법예고",
       "status": "error",
       "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
@@ -1086,11 +1077,14 @@
       "route": "산업통상부 지침"
     },
     {
-      "source": "수집 상태 점검",
+      "source": "대한민국 정책브리핑 RSS",
       "status": "error",
-      "message": "Critical source connectivity failure for 2026-06-11: motir-board",
+      "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed with curl-first mode: curl failed with code 28 (null)\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T02:19:05.865Z"
+      "at": "2026-06-17T02:23:45.998Z",
+      "url": "https://www.korea.kr/rss/pressrelease.xml",
+      "group": "policy-rss",
+      "route": "대한민국 정책브리핑 RSS"
     }
   ]
 }
