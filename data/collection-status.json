@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T05:48:49.919Z",
+  "generated_at": "2026-06-17T05:54:48.825Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
-    "complete": 51,
-    "partial": 17,
+    "complete": 52,
+    "partial": 16,
     "failed": 0,
     "not_started": 100
   },
@@ -218,6 +218,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T09:41:11.703Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T09:42:35.441Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "error",
           "count": 0,
@@ -306,22 +322,6 @@
           "count": 0,
           "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260101&reqTo=20260101&fromDate=20260101&toDate=20260101&type=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T09:16:04.420Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T09:41:11.703Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T09:42:35.441Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -534,6 +534,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T10:46:55.782Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T10:48:19.520Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "error",
           "count": 0,
@@ -622,22 +638,6 @@
           "count": 0,
           "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260102&reqTo=20260102&fromDate=20260102&toDate=20260102&type=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T10:21:48.499Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T10:46:55.782Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T10:48:19.520Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -850,6 +850,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T11:52:39.723Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T11:54:03.462Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "error",
           "count": 0,
@@ -938,22 +954,6 @@
           "count": 0,
           "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260103&reqTo=20260103&fromDate=20260103&toDate=20260103&type=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T11:27:32.443Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T11:52:39.723Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T11:54:03.462Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -1166,6 +1166,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T12:58:24.450Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T12:59:48.186Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "error",
           "count": 0,
@@ -1254,22 +1270,6 @@
           "count": 0,
           "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260104&reqTo=20260104&fromDate=20260104&toDate=20260104&type=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T12:33:17.160Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T12:58:24.450Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T12:59:48.186Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -1482,6 +1482,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T14:04:08.606Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T14:05:32.345Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "error",
           "count": 0,
@@ -1570,22 +1586,6 @@
           "count": 0,
           "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260105&reqTo=20260105&fromDate=20260105&toDate=20260105&type=1 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T13:39:01.314Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T14:04:08.606Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T14:05:32.345Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -1791,6 +1791,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -2063,6 +2079,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -2321,6 +2353,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -2593,6 +2641,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -2851,6 +2915,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -3123,6 +3203,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -3381,6 +3477,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -3653,6 +3765,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -3911,6 +4039,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -4183,6 +4327,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -4441,6 +4601,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -4713,6 +4889,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -4971,6 +5163,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -5243,6 +5451,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -5501,6 +5725,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -5773,6 +6013,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -6031,6 +6287,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -6303,6 +6575,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -6561,6 +6849,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -6833,6 +7137,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -7091,6 +7411,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -7363,6 +7699,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -7621,6 +7973,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -7893,6 +8261,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -8151,6 +8535,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -8423,6 +8823,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -8681,6 +9097,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -8953,6 +9385,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -9211,6 +9659,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -9483,6 +9947,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -9741,6 +10221,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -10013,6 +10509,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -10271,6 +10783,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -10543,6 +11071,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -10801,6 +11345,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -11073,6 +11633,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -11331,6 +11907,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -11603,6 +12195,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -11861,6 +12469,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -12133,6 +12757,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -12391,6 +13031,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -12663,6 +13319,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -12921,6 +13593,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -13193,6 +13881,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -13451,6 +14155,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -13723,6 +14443,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -13981,6 +14717,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -14253,6 +15005,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -14511,6 +15279,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -14783,6 +15567,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -15041,6 +15841,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -15313,6 +16129,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -15571,6 +16403,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -15843,6 +16691,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -16101,6 +16965,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -16373,6 +17253,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -16631,6 +17527,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -16903,6 +17815,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -17161,6 +18089,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -17433,6 +18377,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -17691,6 +18651,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -17963,6 +18939,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -18221,6 +19213,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -18493,6 +19501,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -18751,6 +19775,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -19023,6 +20063,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -19281,6 +20337,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -19553,6 +20625,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -19811,6 +20899,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -20083,6 +21187,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -20341,6 +21461,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -20613,6 +21749,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -20871,6 +22023,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -21143,6 +22311,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -21401,6 +22585,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -21673,6 +22873,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -21931,6 +23147,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -22203,6 +23435,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -22461,6 +23709,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -22733,6 +23997,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -22991,6 +24271,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -23263,6 +24559,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -23521,6 +24833,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -23793,6 +25121,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -24051,6 +25395,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -24323,6 +25683,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T06:21:15.623Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T06:21:16.513Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -24376,22 +25752,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T06:21:54.974Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T06:21:15.623Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T06:21:16.513Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -24604,6 +25964,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T02:48:19.768Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T02:48:20.670Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -24657,22 +26033,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T02:48:58.808Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T02:48:19.768Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T02:48:20.670Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -24885,6 +26245,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T05:16:16.954Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T05:16:17.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -24938,22 +26314,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T05:16:55.395Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T05:16:16.954Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T05:16:17.864Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -25166,6 +26526,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T02:53:10.109Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T02:53:11.005Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -25219,22 +26595,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T02:53:42.746Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T02:53:10.109Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T02:53:11.005Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -25447,6 +26807,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T02:55:27.751Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T02:55:28.535Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -25500,22 +26876,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T02:56:00.399Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T02:55:27.751Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T02:55:28.535Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -25728,6 +27088,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:00:10.802Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:00:11.503Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -25781,22 +27157,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:01:46.551Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:00:10.802Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:00:11.503Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -26009,6 +27369,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:09:23.288Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:09:24.306Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -26062,22 +27438,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:10:03.011Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:09:23.288Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:09:24.306Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -26290,6 +27650,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:14:30.799Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:14:31.523Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 1,
@@ -26343,22 +27719,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:15:03.656Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:14:30.799Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:14:31.523Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -26571,6 +27931,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:19:13.724Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:19:14.702Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -26624,22 +28000,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:19:53.575Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:19:13.724Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:19:14.702Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -26852,6 +28212,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:25:13.829Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:25:14.852Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -26905,22 +28281,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:25:53.906Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:25:13.829Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:25:14.852Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -27126,6 +28486,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -27398,6 +28774,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:29:28.131Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:29:29.018Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -27451,22 +28843,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:30:03.383Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:29:28.131Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:29:29.018Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -27672,6 +29048,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -27944,6 +29336,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -28209,6 +29617,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:37:03.016Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:37:04.044Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -28262,22 +29686,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:37:41.347Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:37:03.016Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:37:04.044Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -28490,6 +29898,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:40:38.690Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:40:39.416Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -28543,22 +29967,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:41:07.992Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:40:38.690Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:40:39.416Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -28764,6 +30172,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -29036,6 +30460,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -29294,6 +30734,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -29566,6 +31022,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -29824,6 +31296,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -30096,6 +31584,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -30361,6 +31865,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:55:59.465Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T03:56:00.192Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -30414,22 +31934,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:56:40.576Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:55:59.465Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T03:56:00.192Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -30635,6 +32139,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -30907,6 +32427,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -31165,6 +32701,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -31437,6 +32989,22 @@
           "url": "https://www.motir.go.kr"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "not_started",
           "count": null,
@@ -31695,6 +33263,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
@@ -31967,6 +33551,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T04:09:40.740Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T04:09:41.540Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 2,
@@ -32020,22 +33620,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T04:10:18.877Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T04:09:40.740Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T04:09:41.540Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -32248,6 +33832,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T04:15:24.746Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-10T04:15:25.707Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -32301,22 +33901,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T04:16:04.397Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T04:15:24.746Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-10T04:15:25.707Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -32529,6 +34113,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T02:12:04.703Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T02:12:05.647Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -32582,22 +34182,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T02:12:41.766Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T02:12:04.703Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T02:12:05.647Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -32810,6 +34394,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:21:30.659Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:21:31.651Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -32863,22 +34463,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T02:24:13.596Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:21:30.659Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:21:31.651Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -33091,6 +34675,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:28:07.077Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:28:08.129Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -33144,22 +34744,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T03:27:22.367Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:28:07.077Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:28:08.129Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -33372,6 +34956,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T05:06:25.366Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T05:06:26.368Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -33425,22 +35025,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T03:35:29.456Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T05:06:25.366Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T05:06:26.368Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "수집 재시도",
@@ -33667,6 +35251,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:33:58.123Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:33:59.107Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -33720,22 +35320,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T06:34:39.833Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:33:58.123Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:33:59.107Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -33948,6 +35532,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:45:11.646Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:45:12.582Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -34001,22 +35601,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T06:46:02.792Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:45:11.646Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:45:12.582Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -34229,6 +35813,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:51:31.947Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T06:51:32.757Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 1,
@@ -34282,22 +35882,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T06:52:18.800Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:51:31.947Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T06:51:32.757Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -34510,6 +36094,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T07:03:44.515Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T07:03:45.521Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -34563,22 +36163,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T07:04:30.150Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T07:03:44.515Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T07:03:45.521Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -34791,6 +36375,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T07:28:15.027Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T07:28:15.779Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -34844,22 +36444,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T07:28:45.469Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T07:28:15.027Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T07:28:15.779Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -35072,6 +36656,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T07:39:45.708Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T07:39:46.531Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -35125,22 +36725,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T07:40:17.311Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T07:39:45.708Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T07:39:46.531Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -35353,6 +36937,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T08:17:39.981Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T08:17:40.707Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -35406,22 +37006,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T08:18:11.254Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T08:17:39.981Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T08:17:40.707Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -35634,6 +37218,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T08:32:53.675Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T08:32:54.495Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -35687,22 +37287,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T08:33:23.838Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T08:32:53.675Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T08:32:54.495Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -35915,6 +37499,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T08:46:20.657Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T08:46:21.385Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -35968,22 +37568,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T08:46:55.123Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T08:46:20.657Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T08:46:21.385Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -36196,6 +37780,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T08:52:02.534Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-12T08:52:03.557Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -36249,22 +37849,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-12T08:52:46.933Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T08:52:02.534Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-12T08:52:03.557Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -36477,6 +38061,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T02:32:55.987Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T02:32:56.802Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -36530,22 +38130,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T02:33:34.832Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T02:32:55.987Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T02:32:56.802Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -36758,6 +38342,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T02:47:41.992Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T02:47:43.013Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -36811,22 +38411,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T02:48:26.227Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T02:47:41.992Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T02:47:43.013Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -37039,6 +38623,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:13:52.454Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:13:53.285Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -37092,22 +38692,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T03:22:55.643Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T04:13:52.454Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T04:13:53.285Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -37320,6 +38904,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T05:13:19.034Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T05:13:19.843Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -37373,22 +38973,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T03:57:26.419Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T05:13:19.034Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T05:13:19.843Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "일자별 캐시",
@@ -37608,6 +39192,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:55.405Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T04:06:56.402Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -37661,22 +39261,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T04:07:35.311Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T04:06:55.405Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T04:06:56.402Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -37889,6 +39473,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T05:29:37.871Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T05:29:38.647Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -37942,22 +39542,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T05:30:11.001Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T05:29:37.871Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T05:29:38.647Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -38170,6 +39754,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T06:23:17.138Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T06:23:18.117Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -38223,22 +39823,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T06:12:00.980Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T06:23:17.138Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T06:23:18.117Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -38451,6 +40035,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T06:31:05.391Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-15T06:31:06.575Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -38504,22 +40104,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T06:31:43.259Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T06:31:05.391Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-15T06:31:06.575Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -38732,6 +40316,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -38785,22 +40385,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T07:08:05.931Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -39013,6 +40597,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -39066,22 +40666,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T07:23:18.503Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -39294,6 +40878,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -39347,22 +40947,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T07:59:23.768Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -39575,6 +41159,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -39616,7 +41216,7 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_moef.xml failed with curl-first mode: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed with curl-first mode: curl failed with code 52 (null)\n정책브리핑 RSS 수집 완료",
           "at": "2026-06-16T03:57:09.260Z",
@@ -39628,22 +41228,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T09:16:57.478Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "일자별 캐시",
@@ -39863,6 +41447,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -39916,22 +41516,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-16T04:59:05.181Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "일자별 캐시",
@@ -40151,6 +41735,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -40204,22 +41804,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-16T06:58:58.195Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "일자별 캐시",
@@ -40453,6 +42037,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 1,
@@ -40506,22 +42106,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-16T08:14:26.338Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -40734,6 +42318,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -40787,22 +42387,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-17T01:21:25.505Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -41015,6 +42599,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -41068,22 +42668,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-17T03:43:13.957Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -41296,6 +42880,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -41349,22 +42949,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T01:39:48.451Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -41577,6 +43161,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -41630,22 +43230,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.\n뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T01:58:07.906Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -41858,6 +43442,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -41911,22 +43511,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.\n뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:03:09.854Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -42139,6 +43723,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:40.786Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "산업통상부 게시판 HTML 범위 수집 완료",
+          "at": "2026-06-08T05:25:41.605Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -42192,22 +43792,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.\n뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:05:58.462Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:40.786Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "산업통상부 게시판 HTML 범위 수집 완료",
-          "at": "2026-06-08T05:25:41.605Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -42420,6 +44004,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:20.623Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:21.330Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 1,
@@ -42473,31 +44073,15 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:08:45.800Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-17T03:17:20.623Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-17T03:17:21.330Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
     {
       "date": "2026-06-06",
-      "status": "partial",
+      "status": "complete",
       "item_count": 27,
-      "changed_count": 25,
-      "collected_at": "2026-06-17T05:48:46.122Z",
+      "changed_count": 0,
+      "collected_at": "2026-06-17T05:54:45.420Z",
       "source": "daily",
       "methods": [
         {
@@ -42694,34 +44278,50 @@
         },
         {
           "source": "산업통상부 공고",
-          "status": "error",
+          "status": "ok",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b?pageIndex=4 failed with curl-first mode: curl failed with code 52 (null)",
-          "at": "2026-06-17T05:48:45.301Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:54:37.876Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
-          "source": "산업통상부 훈령",
-          "status": "external_error",
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T05:48:45.301Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:54:38.791Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:54:39.708Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
+          "source": "산업통상부 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:54:41.547Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T05:48:45.301Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:54:42.639Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T05:48:45.302Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:54:44.579Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
@@ -42754,22 +44354,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:11:42.065Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T05:48:45.301Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T05:48:45.301Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -42982,6 +44566,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:28:40.619Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:28:41.539Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -43035,22 +44635,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:14:19.106Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-17T03:28:40.619Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-17T03:28:41.539Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -43263,6 +44847,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-08T17:43:51.407Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-08T17:43:52.194Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -43316,22 +44916,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.\n뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:16:02.194Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-08T17:43:51.407Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-08T17:43:52.194Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -43544,6 +45128,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-09T17:21:13.796Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-09T17:21:14.690Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -43597,22 +45197,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.\n뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:17:37.697Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-09T17:21:13.796Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-09T17:21:14.690Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -43825,6 +45409,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 1 attempt(s): fetch failed",
+          "at": "2026-06-12T01:51:21.776Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 1 attempt(s): fetch failed",
+          "at": "2026-06-12T01:51:32.268Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "error",
           "count": 0,
@@ -43878,22 +45478,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:21:01.256Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:51:21.776Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:51:32.268Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -44106,6 +45690,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "external_error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "external_error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "external_error",
           "count": 0,
@@ -44159,22 +45759,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T18:17:39.745Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -44387,6 +45971,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "external_error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-17T02:43:48.464Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "external_error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-17T02:44:19.477Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "external_error",
           "count": 0,
@@ -44440,22 +46040,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-17T02:47:28.532Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T02:43:48.464Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T02:44:19.477Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -44668,6 +46252,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-13T16:17:14.452Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-13T16:17:15.256Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "ok",
           "count": 0,
@@ -44721,22 +46321,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-13T16:17:51.615Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-13T16:17:14.452Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-13T16:17:15.256Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -44949,6 +46533,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:03:51.536Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:03:53.048Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "external_error",
           "count": 0,
@@ -45002,22 +46602,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-17T03:01:40.997Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-17T03:03:51.536Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "ok",
-          "count": 0,
-          "message": "공식 게시판 HTML 수집 완료",
-          "at": "2026-06-17T03:03:53.048Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -45230,6 +46814,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "external_error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-15T20:40:47.173Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "external_error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-15T20:41:56.926Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "external_error",
           "count": 0,
@@ -45283,22 +46883,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-15T20:01:30.466Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T20:40:47.173Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T20:41:56.926Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -45511,6 +47095,22 @@
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
+          "source": "산업통상부 구.정통부고시",
+          "status": "external_error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-16T19:37:29.538Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "external_error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-16T19:38:00.550Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
           "source": "산업통상부 훈령",
           "status": "external_error",
           "count": 0,
@@ -45552,7 +47152,7 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_mois.xml: GET https://www.korea.kr/rss/dept_mois.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_motir.xml: GET https://www.korea.kr/rss/dept_motir.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/president.xml: GET https://www.korea.kr/rss/president.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/speech.xml: GET https://www.korea.kr/rss/speech.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/cabinet.xml: GET https://www.korea.kr/rss/cabinet.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/ebriefing.xml: GET https://www.korea.kr/rss/ebriefing.xml failed after 1 attempt(s): This operation was aborted",
           "at": "2026-06-16T19:42:36.635Z",
@@ -45564,22 +47164,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-16T19:18:52.252Z"
-        },
-        {
-          "source": "산업통상부 구.정통부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-16T19:37:29.538Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
-        },
-        {
-          "source": "산업통상부 구.재경부고시",
-          "status": "error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-16T19:38:00.550Z",
-          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
@@ -45785,6 +47369,22 @@
         },
         {
           "source": "산업통상부 공고",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "not_started",
+          "count": null,
+          "message": "수집 전",
+          "at": null,
+          "url": "https://www.motir.go.kr"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
           "status": "not_started",
           "count": null,
           "message": "수집 전",
