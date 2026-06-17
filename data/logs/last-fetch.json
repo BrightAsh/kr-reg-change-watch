@@ -326,16 +326,6 @@
     "route": "대한민국 전자관보"
   },
   {
-    "source": "ALIO 공공기관 법령/지침",
-    "status": "error",
-    "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-    "count": 0,
-    "at": "2026-06-17T00:06:25.470Z",
-    "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
-    "group": "alio",
-    "route": "ALIO 공공기관 법령/지침"
-  },
-  {
     "source": "ALIO 공공정책자료",
     "status": "error",
     "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
@@ -346,20 +336,23 @@
     "route": "ALIO 공공정책자료"
   },
   {
-    "source": "ALIO",
-    "status": "error",
-    "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+    "source": "ALIO 공공기관 법령/지침",
+    "status": "ok",
+    "message": "ALIO 법령/지침 원문 수집 완료",
     "count": 0,
-    "at": "2026-06-17T00:07:06.975Z",
-    "url": "https://www.alio.go.kr/etc/etcLawList.do",
+    "at": "2026-06-17T00:15:19.187Z",
+    "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
     "group": "alio",
-    "route": "ALIO"
+    "route": "ALIO 공공기관 법령/지침"
   },
   {
-    "source": "수집 상태 점검",
-    "status": "error",
-    "message": "Critical source connectivity failure for 2026-05-28: alio",
-    "count": 0,
-    "at": "2026-06-17T00:07:06.976Z"
+    "source": "ALIO 공공정책자료",
+    "status": "ok",
+    "message": "ALIO 정책자료/보도자료 수집 완료",
+    "count": 1,
+    "at": "2026-06-17T00:15:25.756Z",
+    "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+    "group": "alio",
+    "route": "ALIO 공공정책자료"
   }
 ]
