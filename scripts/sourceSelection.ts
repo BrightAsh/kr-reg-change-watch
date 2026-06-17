@@ -126,7 +126,6 @@ function sameCollectionMethod(expected: string, source: string): boolean {
   if (!source) return false;
   if (source === expected) return true;
   if (source.startsWith(`${expected} `)) return true;
-  if (source.includes(expected) || expected.includes(source)) return true;
   return false;
 }
 
