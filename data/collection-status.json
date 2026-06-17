@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T06:03:50.504Z",
+  "generated_at": "2026-06-17T06:12:34.158Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -45486,7 +45486,7 @@
       "status": "partial",
       "item_count": 26,
       "changed_count": 0,
-      "collected_at": "2026-06-17T02:23:46.801Z",
+      "collected_at": "2026-06-17T06:12:30.239Z",
       "source": "daily",
       "methods": [
         {
@@ -45661,8 +45661,8 @@
           "source": "산업통상부 입법예고",
           "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T02:19:05.863Z",
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-17T06:11:38.344Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
@@ -45670,7 +45670,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
+          "at": "2026-06-17T06:11:38.344Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
@@ -45678,7 +45678,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
+          "at": "2026-06-17T06:11:38.344Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
@@ -45686,7 +45686,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
+          "at": "2026-06-17T06:11:38.344Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
@@ -45694,7 +45694,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
+          "at": "2026-06-17T06:11:38.344Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
         },
         {
@@ -45702,7 +45702,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
+          "at": "2026-06-17T06:11:38.344Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
@@ -45710,7 +45710,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
+          "at": "2026-06-17T06:11:38.345Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
@@ -45718,7 +45718,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
+          "at": "2026-06-17T06:11:38.345Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
@@ -45726,7 +45726,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T02:19:05.864Z",
+          "at": "2026-06-17T06:11:38.345Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
@@ -45750,7 +45750,7 @@
           "status": "external_error",
           "count": 0,
           "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed with curl-first mode: curl failed with code 28 (null)\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
-          "at": "2026-06-17T02:23:45.998Z",
+          "at": "2026-06-17T06:12:29.385Z",
           "url": "https://www.korea.kr/rss/pressrelease.xml"
         },
         {
