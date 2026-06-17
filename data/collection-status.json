@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T05:34:59.028Z",
+  "generated_at": "2026-06-17T05:48:49.919Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
-    "complete": 50,
-    "partial": 18,
+    "complete": 51,
+    "partial": 17,
     "failed": 0,
     "not_started": 100
   },
@@ -24378,14 +24378,6 @@
           "at": "2026-06-10T06:21:54.974Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 57,
-          "message": "법제처 lawService API로 개정문/제개정이유 57건을 보강했습니다.",
-          "at": "2026-06-10T06:17:36.519Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -24665,14 +24657,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T02:48:58.808Z"
-        },
-        {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 30,
-          "message": "법제처 lawService API로 개정문/제개정이유 30건을 보강했습니다.",
-          "at": "2026-06-10T02:45:38.419Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -24956,14 +24940,6 @@
           "at": "2026-06-10T05:16:55.395Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 14,
-          "message": "법제처 lawService API로 개정문/제개정이유 14건을 보강했습니다.",
-          "at": "2026-06-10T05:13:27.498Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -25243,14 +25219,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T02:53:42.746Z"
-        },
-        {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 26,
-          "message": "법제처 lawService API로 개정문/제개정이유 26건을 보강했습니다.",
-          "at": "2026-06-10T02:52:00.214Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -25815,14 +25783,6 @@
           "at": "2026-06-10T03:01:46.551Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 12,
-          "message": "법제처 lawService API로 개정문/제개정이유 12건을 보강했습니다.",
-          "at": "2026-06-10T02:57:33.703Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -26102,14 +26062,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:10:03.011Z"
-        },
-        {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 83,
-          "message": "법제처 lawService API로 개정문/제개정이유 83건을 보강했습니다.",
-          "at": "2026-06-10T03:07:21.557Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -26393,14 +26345,6 @@
           "at": "2026-06-10T03:15:03.656Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 25,
-          "message": "법제처 lawService API로 개정문/제개정이유 25건을 보강했습니다.",
-          "at": "2026-06-10T03:11:51.549Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -26682,14 +26626,6 @@
           "at": "2026-06-10T03:19:53.575Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 7,
-          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.",
-          "at": "2026-06-10T03:16:20.599Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -26969,14 +26905,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:25:53.906Z"
-        },
-        {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 7,
-          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.",
-          "at": "2026-06-10T03:21:01.899Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -27523,14 +27451,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:30:03.383Z"
-        },
-        {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 1,
-          "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.",
-          "at": "2026-06-10T03:28:24.513Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -28344,14 +28264,6 @@
           "at": "2026-06-10T03:37:41.347Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 14,
-          "message": "법제처 lawService API로 개정문/제개정이유 14건을 보강했습니다.",
-          "at": "2026-06-10T03:34:53.986Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -28631,14 +28543,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:41:07.992Z"
-        },
-        {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 7,
-          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.",
-          "at": "2026-06-10T03:38:59.414Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -30512,14 +30416,6 @@
           "at": "2026-06-10T03:56:40.576Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 32,
-          "message": "법제처 lawService API로 개정문/제개정이유 32건을 보강했습니다.",
-          "at": "2026-06-10T03:52:57.175Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -32126,14 +32022,6 @@
           "at": "2026-06-10T04:10:18.877Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 30,
-          "message": "법제처 lawService API로 개정문/제개정이유 30건을 보강했습니다.",
-          "at": "2026-06-10T04:06:44.784Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -32415,14 +32303,6 @@
           "at": "2026-06-10T04:16:04.397Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 16,
-          "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.",
-          "at": "2026-06-10T04:12:14.183Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -32451,8 +32331,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 26,
-          "message": "법제처 lawService API로 개정문/제개정이유 13건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 13,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-12T06:01:07.685Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -32732,8 +32612,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 34,
-          "message": "법제처 lawService API로 개정문/제개정이유 17건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 17,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-12T06:20:20.350Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -33013,8 +32893,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 1,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-12T06:26:45.623Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -33294,8 +33174,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 12,
-          "message": "법제처 lawService API로 개정문/제개정이유 6건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 8행을 법령 단위 6건으로 묶었습니다.",
+          "count": 6,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 8행을 법령 단위 6건으로 묶었습니다.",
           "at": "2026-06-12T05:03:10.037Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -33870,8 +33750,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 224,
-          "message": "법제처 lawService API로 개정문/제개정이유 112건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 157행을 법령 단위 112건으로 묶었습니다.",
+          "count": 112,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 157행을 법령 단위 112건으로 묶었습니다.",
           "at": "2026-06-12T06:42:49.733Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -34151,8 +34031,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 56,
-          "message": "법제처 lawService API로 개정문/제개정이유 28건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 40행을 법령 단위 28건으로 묶었습니다.",
+          "count": 28,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 40행을 법령 단위 28건으로 묶었습니다.",
           "at": "2026-06-12T06:49:19.060Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -34432,8 +34312,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 36,
-          "message": "법제처 lawService API로 개정문/제개정이유 18건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 472행을 법령 단위 18건으로 묶었습니다.",
+          "count": 18,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 472행을 법령 단위 18건으로 묶었습니다.",
           "at": "2026-06-15T02:23:11.599Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -34713,8 +34593,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 1,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-12T07:27:12.550Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -34994,8 +34874,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 1,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-15T02:25:15.635Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -35275,8 +35155,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 62,
-          "message": "법제처 lawService API로 개정문/제개정이유 31건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 117행을 법령 단위 31건으로 묶었습니다.",
+          "count": 31,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 117행을 법령 단위 31건으로 묶었습니다.",
           "at": "2026-06-12T08:15:41.543Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -35556,8 +35436,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 318,
-          "message": "법제처 lawService API로 개정문/제개정이유 159건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 230행을 법령 단위 159건으로 묶었습니다.",
+          "count": 159,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 230행을 법령 단위 159건으로 묶었습니다.",
           "at": "2026-06-12T08:30:41.936Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -35837,8 +35717,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 304,
-          "message": "법제처 lawService API로 개정문/제개정이유 152건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 155행을 법령 단위 152건으로 묶었습니다.",
+          "count": 152,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 155행을 법령 단위 152건으로 묶었습니다.",
           "at": "2026-06-12T08:44:24.808Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -36118,8 +35998,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 34,
-          "message": "법제처 lawService API로 개정문/제개정이유 17건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 144행을 법령 단위 17건으로 묶었습니다.",
+          "count": 17,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 144행을 법령 단위 17건으로 묶었습니다.",
           "at": "2026-06-12T08:49:50.831Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -36399,8 +36279,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 22,
-          "message": "법제처 lawService API로 개정문/제개정이유 11건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 17행을 법령 단위 11건으로 묶었습니다.",
+          "count": 11,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 17행을 법령 단위 11건으로 묶었습니다.",
           "at": "2026-06-15T02:29:58.229Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -36680,8 +36560,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 6,
-          "message": "법제처 lawService API로 개정문/제개정이유 3건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 3,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-15T02:46:26.174Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -36961,8 +36841,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 46,
-          "message": "법제처 lawService API로 개정문/제개정이유 23건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 23,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-15T04:11:16.672Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -37242,8 +37122,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 84,
-          "message": "법제처 lawService API로 개정문/제개정이유 42건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 231행을 법령 단위 42건으로 묶었습니다.",
+          "count": 42,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 231행을 법령 단위 42건으로 묶었습니다.",
           "at": "2026-06-15T05:10:29.921Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -37530,8 +37410,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 138,
-          "message": "법제처 lawService API로 개정문/제개정이유 69건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 130행을 법령 단위 69건으로 묶었습니다.",
+          "count": 69,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 130행을 법령 단위 69건으로 묶었습니다.",
           "at": "2026-06-15T04:03:07.621Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -37811,8 +37691,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 66,
-          "message": "법제처 lawService API로 개정문/제개정이유 33건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 42행을 법령 단위 33건으로 묶었습니다.",
+          "count": 33,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 42행을 법령 단위 33건으로 묶었습니다.",
           "at": "2026-06-15T05:27:09.536Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -38092,8 +37972,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 170,
-          "message": "법제처 lawService API로 개정문/제개정이유 85건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 320행을 법령 단위 85건으로 묶었습니다.",
+          "count": 85,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 320행을 법령 단위 85건으로 묶었습니다.",
           "at": "2026-06-15T06:19:46.589Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -38373,8 +38253,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 26,
-          "message": "법제처 lawService API로 개정문/제개정이유 13건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 33행을 법령 단위 13건으로 묶었습니다.",
+          "count": 13,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 33행을 법령 단위 13건으로 묶었습니다.",
           "at": "2026-06-15T06:27:40.098Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -38654,8 +38534,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 8,
-          "message": "법제처 lawService API로 개정문/제개정이유 4건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 4,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-15T07:18:51.127Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -38935,8 +38815,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 4,
-          "message": "법제처 lawService API로 개정문/제개정이유 2건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 117행을 법령 단위 2건으로 묶었습니다.",
+          "count": 2,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 117행을 법령 단위 2건으로 묶었습니다.",
           "at": "2026-06-15T07:22:24.693Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -39496,11 +39376,11 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
-          "count": 420,
-          "message": "교육환경 보호에 관한 법률 시행령 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286641&efYd=20260602 failed with curl-first mode: curl failed with code 28 (null)\n국가공무원법 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286457&efYd=20261203 failed with curl-first mode: curl failed with code 35 (null)\n법제처 lawService API로 개정문/제개정이유 209건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 314행을 법령 단위 211건으로 묶었습니다.",
+          "status": "ok",
+          "count": 211,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 314행을 법령 단위 211건으로 묶었습니다.",
           "at": "2026-06-16T03:50:53.013Z",
-          "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=286641&type=HTML&mobileYn=&efYd=20260602"
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
@@ -39785,8 +39665,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 58,
-          "message": "법제처 lawService API로 개정문/제개정이유 29건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 32행을 법령 단위 29건으로 묶었습니다.",
+          "count": 29,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 32행을 법령 단위 29건으로 묶었습니다.",
           "at": "2026-06-16T05:15:56.437Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -40073,8 +39953,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 52,
-          "message": "법제처 lawService API로 개정문/제개정이유 26건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 68행을 법령 단위 26건으로 묶었습니다.",
+          "count": 26,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 68행을 법령 단위 26건으로 묶었습니다.",
           "at": "2026-06-16T06:52:12.381Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -40375,8 +40255,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 70,
-          "message": "법제처 lawService API로 개정문/제개정이유 35건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 58행을 법령 단위 35건으로 묶었습니다.",
+          "count": 35,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 58행을 법령 단위 35건으로 묶었습니다.",
           "at": "2026-06-16T07:43:59.939Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -40656,8 +40536,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 26,
-          "message": "법제처 lawService API로 개정문/제개정이유 13건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 13,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-17T00:58:10.417Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -41218,8 +41098,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 50,
-          "message": "법제처 lawService API로 개정문/제개정이유 25건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 207행을 법령 단위 25건으로 묶었습니다.",
+          "count": 25,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 207행을 법령 단위 25건으로 묶었습니다.",
           "at": "2026-06-17T04:48:45.798Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -41752,14 +41632,6 @@
           "at": "2026-06-11T01:58:07.906Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 148,
-          "message": "법제처 lawService API로 개정문/제개정이유 148건을 보강했습니다.",
-          "at": "2026-06-02T18:36:07.053Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -41779,7 +41651,7 @@
     },
     {
       "date": "2026-06-03",
-      "status": "partial",
+      "status": "complete",
       "item_count": 139,
       "changed_count": 138,
       "collected_at": "2026-06-17T05:34:55.193Z",
@@ -41787,9 +41659,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "skipped",
-          "count": 147,
-          "message": "법제처 lawService API로 개정문/제개정이유 9건을 보강했습니다.\n본문 보강 시간 예산 120초를 초과해 129건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "status": "ok",
+          "count": 138,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-17T05:34:54.374Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -42322,14 +42194,6 @@
           "at": "2026-06-11T02:05:58.462Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 88,
-          "message": "법제처 lawService API로 개정문/제개정이유 88건을 보강했습니다.",
-          "at": "2026-06-04T17:41:25.233Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -42358,8 +42222,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 38,
-          "message": "법제처 lawService API로 개정문/제개정이유 19건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 353행을 법령 단위 19건으로 묶었습니다.",
+          "count": 19,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 353행을 법령 단위 19건으로 묶었습니다.",
           "at": "2026-06-17T03:15:53.049Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -42631,41 +42495,41 @@
     {
       "date": "2026-06-06",
       "status": "partial",
-      "item_count": 0,
-      "changed_count": 0,
-      "collected_at": "2026-06-17T03:25:34.318Z",
+      "item_count": 27,
+      "changed_count": 25,
+      "collected_at": "2026-06-17T05:48:46.122Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "external_error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260606 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:21:56.464Z",
+          "status": "ok",
+          "count": 25,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+          "at": "2026-06-17T05:48:14.520Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260606 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:22:37.970Z",
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+          "at": "2026-06-17T05:41:13.761Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "external_error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260606&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:23:19.474Z",
+          "status": "ok",
+          "count": 2,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-17T05:41:38.125Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "external_error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260606&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:24:00.978Z",
+          "status": "ok",
+          "count": 2,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-17T05:41:46.359Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -42806,34 +42670,34 @@
         },
         {
           "source": "산업통상부 입법예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:24:42.481Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:41:50.336Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
           "source": "산업통상부 행정예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:24:42.481Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:41:53.484Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
           "source": "산업통상부 고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:24:42.481Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T05:48:17.687Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
           "source": "산업통상부 공고",
-          "status": "external_error",
+          "status": "error",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:24:42.481Z",
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b?pageIndex=4 failed with curl-first mode: curl failed with code 52 (null)",
+          "at": "2026-06-17T05:48:45.301Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
@@ -42841,7 +42705,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:24:42.481Z",
+          "at": "2026-06-17T05:48:45.301Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
@@ -42849,7 +42713,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:24:42.481Z",
+          "at": "2026-06-17T05:48:45.301Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
@@ -42857,7 +42721,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:24:42.481Z",
+          "at": "2026-06-17T05:48:45.302Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
@@ -42878,11 +42742,11 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed with curl-first mode: curl failed with code 28 (null)\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
-          "at": "2026-06-17T03:25:33.511Z",
-          "url": "https://www.korea.kr/rss/pressrelease.xml"
+          "message": "정책브리핑 RSS 수집 완료 (5/10개 피드 성공, 일부 실패: https://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed with curl-first mode: curl failed with code 28 (null) | https://www.korea.kr/rss/president.xml: GET https://www.korea.kr/rss/president.xml failed with curl-first mode: curl failed with code 28 (null) | https://www.korea.kr/rss/speech.xml: GET https://www.korea.kr/rss/speech.xml failed with curl-first mode: curl failed with code 28 (null) | https://www.korea.kr/rss/cabinet.xml: GET https://www.korea.kr/rss/cabinet.xml failed with curl-first mode: curl failed with code 28 (null) | https://www.korea.kr/rss/ebriefing.xml: GET https://www.korea.kr/rss/ebriefing.xml failed with curl-first mode: curl failed with code 28 (null))",
+          "at": "2026-06-17T05:43:57.889Z",
+          "url": "https://www.korea.kr/etc/rss.do"
         },
         {
           "source": "네이버 뉴스 검색 API",
@@ -42896,7 +42760,7 @@
           "status": "error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:24:42.481Z",
+          "at": "2026-06-17T05:48:45.301Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
         },
         {
@@ -42904,7 +42768,7 @@
           "status": "error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:24:42.481Z",
+          "at": "2026-06-17T05:48:45.301Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
@@ -43454,14 +43318,6 @@
           "at": "2026-06-11T02:16:02.194Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 6,
-          "message": "법제처 lawService API로 개정문/제개정이유 6건을 보강했습니다.",
-          "at": "2026-06-08T17:43:02.340Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -43741,14 +43597,6 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.\n뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:17:37.697Z"
-        },
-        {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 79,
-          "message": "법제처 lawService API로 개정문/제개정이유 79건을 보강했습니다.",
-          "at": "2026-06-09T17:19:54.851Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -44313,14 +44161,6 @@
           "at": "2026-06-11T18:17:39.745Z"
         },
         {
-          "source": "국가법령정보센터 법령 변경이력 본문 보강",
-          "status": "ok",
-          "count": 16,
-          "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.",
-          "at": "2026-06-12T00:16:31.234Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
-        },
-        {
           "source": "산업통상부 구.정통부고시",
           "status": "error",
           "count": 0,
@@ -44630,8 +44470,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 4,
-          "message": "법제처 lawService API로 개정문/제개정이유 2건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 2,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-13T16:15:32.452Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
