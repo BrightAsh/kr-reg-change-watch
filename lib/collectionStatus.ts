@@ -310,7 +310,7 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
   const merged = expectedMethods.map((expected) => {
     const matches = logs
       .map((log, index) => ({ log, index }))
-      .filter(({ log }) => sameMethod(expected, log));
+      .filter(({ log }) => sameMethod(expected, log) && !isDiagnosticLog(log));
 
     for (const match of matches) used.add(match.index);
 
@@ -368,6 +368,7 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
 
 function isDiagnosticLog(log: CollectionLog): boolean {
   const source = log.source || "";
+  if (source.endsWith("본문 보강")) return true;
   if (log.group && ["ALIO", "행정안전부/기획재정부 게시판", "산업통상부 게시판"].includes(source)) return true;
   return source.endsWith("접속 확인") || source === "수집 상태 점검";
 }
