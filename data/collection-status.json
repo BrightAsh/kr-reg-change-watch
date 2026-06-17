@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T06:55:33.449Z",
+  "generated_at": "2026-06-17T07:00:22.399Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
-    "complete": 53,
-    "partial": 15,
+    "complete": 54,
+    "partial": 14,
     "failed": 0,
     "not_started": 100
   },
@@ -42673,10 +42673,10 @@
     },
     {
       "date": "2026-06-01",
-      "status": "partial",
-      "item_count": 64,
-      "changed_count": 88,
-      "collected_at": "2026-06-17T04:52:32.274Z",
+      "status": "complete",
+      "item_count": 103,
+      "changed_count": 62,
+      "collected_at": "2026-06-17T07:00:18.762Z",
       "source": "daily",
       "methods": [
         {
@@ -42700,15 +42700,15 @@
           "status": "ok",
           "count": 62,
           "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
-          "at": "2026-06-17T04:49:38.938Z",
+          "at": "2026-06-17T06:59:36.091Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "external_error",
+          "status": "ok",
           "count": 62,
-          "message": "행정규칙 신구법 본문 조회 실패: 2100000279472 - GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrulOldAndNew&type=JSON&ID=2100000279472 failed with curl-first mode: curl failed with code 28 (null)\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-17T04:52:31.653Z",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-17T07:00:17.945Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
