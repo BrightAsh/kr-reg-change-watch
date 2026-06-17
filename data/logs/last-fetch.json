@@ -275,10 +275,29 @@
     "route": "국가법령정보센터 행정규칙 신구법 비교"
   },
   {
+    "source": "대한민국 정책브리핑 RSS",
+    "status": "error",
+    "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_mois.xml: GET https://www.korea.kr/rss/dept_mois.xml failed after 1 attempt(s): fetch failed\nhttps://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_motir.xml: GET https://www.korea.kr/rss/dept_motir.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/president.xml: GET https://www.korea.kr/rss/president.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/speech.xml: GET https://www.korea.kr/rss/speech.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/cabinet.xml: GET https://www.korea.kr/rss/cabinet.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/ebriefing.xml: GET https://www.korea.kr/rss/ebriefing.xml failed after 1 attempt(s): This operation was aborted",
+    "count": 0,
+    "at": "2026-06-17T01:21:22.703Z",
+    "url": "https://www.korea.kr/rss/pressrelease.xml",
+    "group": "policy-rss",
+    "route": "대한민국 정책브리핑 RSS"
+  },
+  {
+    "source": "네이버 뉴스 검색 API",
+    "status": "ok",
+    "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+    "count": 0,
+    "at": "2026-06-17T01:21:25.505Z",
+    "group": "naver-news",
+    "route": "네이버 뉴스 검색 API"
+  },
+  {
     "source": "수집 상태 점검",
     "status": "error",
-    "message": "Critical source connectivity failure for 2026-05-30: official-law",
+    "message": "Critical source connectivity failure for 2026-05-30: policy-rss",
     "count": 0,
-    "at": "2026-06-17T01:17:58.471Z"
+    "at": "2026-06-17T01:21:25.505Z"
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T01:18:03.016Z",
+  "generated_at": "2026-06-17T01:21:30.290Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -40530,7 +40530,7 @@
       "status": "partial",
       "item_count": 13,
       "changed_count": 0,
-      "collected_at": "2026-06-17T01:17:59.283Z",
+      "collected_at": "2026-06-17T01:21:26.282Z",
       "source": "daily",
       "methods": [
         {
@@ -40775,18 +40775,18 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.korea.kr/etc/rss.do"
+          "status": "error",
+          "count": 0,
+          "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_mois.xml: GET https://www.korea.kr/rss/dept_mois.xml failed after 1 attempt(s): fetch failed\nhttps://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/dept_motir.xml: GET https://www.korea.kr/rss/dept_motir.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/president.xml: GET https://www.korea.kr/rss/president.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/speech.xml: GET https://www.korea.kr/rss/speech.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/cabinet.xml: GET https://www.korea.kr/rss/cabinet.xml failed after 1 attempt(s): This operation was aborted\nhttps://www.korea.kr/rss/ebriefing.xml: GET https://www.korea.kr/rss/ebriefing.xml failed after 1 attempt(s): This operation was aborted",
+          "at": "2026-06-17T01:21:22.703Z",
+          "url": "https://www.korea.kr/rss/pressrelease.xml"
         },
         {
           "source": "네이버 뉴스 검색 API",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null
+          "status": "ok",
+          "count": 0,
+          "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+          "at": "2026-06-17T01:21:25.505Z"
         },
         {
           "source": "산업통상부 구.정통부고시",
