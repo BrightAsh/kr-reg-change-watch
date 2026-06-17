@@ -478,13 +478,13 @@ async function main() {
   const logs: CollectionLog[] = [];
   const collected: CollectedItem[] = [];
 
-  await runSource("official-law", OFFICIAL_LAW_ROUTE_SOURCES[0], logs, collected, () => fetchLawChangeHistory(logs));
-  await runSource("official-law", OFFICIAL_LAW_ROUTE_SOURCES[1], logs, collected, () => fetchArticleChanges(logs));
-  await runSource("official-law", OFFICIAL_LAW_ROUTE_SOURCES[2], logs, collected, () => fetchAdministrativeRules(logs));
-  await runSource("official-law", OFFICIAL_LAW_ROUTE_SOURCES[3], logs, collected, () => fetchAdministrativeRuleComparisons(logs));
-  await runSource("lawmaking", LAWMAKING_ROUTE_SOURCES[0], logs, collected, () => fetchLawmakingNotices(logs, "입법예고", "ogLmPp"));
-  await runSource("lawmaking", LAWMAKING_ROUTE_SOURCES[1], logs, collected, () => fetchLawmakingNotices(logs, "입법예고(수정일 기준)", "ogLmPpMod"));
-  await runSource("lawmaking", LAWMAKING_ROUTE_SOURCES[2], logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
+  await runSourceWithHostCircuitBreaker("official-law", OFFICIAL_LAW_ROUTE_SOURCES[0], "law.go.kr", OFFICIAL_LAW_GUIDE, logs, collected, () => fetchLawChangeHistory(logs));
+  await runSourceWithHostCircuitBreaker("official-law", OFFICIAL_LAW_ROUTE_SOURCES[1], "law.go.kr", OFFICIAL_LAW_GUIDE, logs, collected, () => fetchArticleChanges(logs));
+  await runSourceWithHostCircuitBreaker("official-law", OFFICIAL_LAW_ROUTE_SOURCES[2], "law.go.kr", OFFICIAL_LAW_GUIDE, logs, collected, () => fetchAdministrativeRules(logs));
+  await runSourceWithHostCircuitBreaker("official-law", OFFICIAL_LAW_ROUTE_SOURCES[3], "law.go.kr", OFFICIAL_LAW_GUIDE, logs, collected, () => fetchAdministrativeRuleComparisons(logs));
+  await runSourceWithHostCircuitBreaker("lawmaking", LAWMAKING_ROUTE_SOURCES[0], "lawmaking.go.kr", LAWMAKING_GUIDE, logs, collected, () => fetchLawmakingNotices(logs, "입법예고", "ogLmPp"));
+  await runSourceWithHostCircuitBreaker("lawmaking", LAWMAKING_ROUTE_SOURCES[1], "lawmaking.go.kr", LAWMAKING_GUIDE, logs, collected, () => fetchLawmakingNotices(logs, "입법예고(수정일 기준)", "ogLmPpMod"));
+  await runSourceWithHostCircuitBreaker("lawmaking", LAWMAKING_ROUTE_SOURCES[2], "lawmaking.go.kr", LAWMAKING_GUIDE, logs, collected, () => fetchLawmakingNotices(logs, "행정예고", "ptcpAdmPp"));
   await runSource("gazette", GAZETTE_ROUTE_SOURCE, logs, collected, () => fetchGazette(logs));
   await runSource("ministry-board", "행정안전부/기획재정부 게시판", logs, collected, () => fetchMinistryRoutes(logs));
   await runSource("motir", "산업통상부 게시판", logs, collected, () => fetchMotirRoutes(logs));
@@ -561,6 +561,43 @@ async function runSource(
     const statuses = [...new Set(routeLogs.map((log) => log.status))].join(",") || "no-log";
     console.log(`[collect-route] end ${targetDate} ${group} :: ${route} (${elapsedSeconds}s, ${statuses})`);
   }
+}
+
+const failedNetworkHostKeys = new Set<string>();
+
+async function runSourceWithHostCircuitBreaker(
+  group: SourceGroup,
+  route: string,
+  hostKey: string,
+  defaultUrl: string,
+  logs: CollectionLog[],
+  collected: CollectedItem[],
+  fn: () => Promise<CollectedItem[]>
+) {
+  if (!shouldRunSource(group)) return;
+  if (!shouldRunRoute(group, route)) return;
+  if (failedNetworkHostKeys.has(hostKey)) {
+    addLog(
+      logs,
+      route,
+      "error",
+      `${hostKey} network timeout/fetch failed already confirmed; skipping remaining ${group} routes.`,
+      0,
+      defaultUrl,
+      group,
+      route
+    );
+    console.log(`[collect-route] end ${targetDate} ${group} :: ${route} (0.0s, host-failed)`);
+    return;
+  }
+
+  const logStartIndex = logs.length;
+  await runSource(group, route, logs, collected, fn);
+  const hostFailed = logs.slice(logStartIndex).some((log) => {
+    if (log.status !== "error") return false;
+    return isNetworkFailureMessage(`${log.message || ""} ${log.url || ""}`);
+  });
+  if (hostFailed) failedNetworkHostKeys.add(hostKey);
 }
 
 interface SourceProbeResult {
