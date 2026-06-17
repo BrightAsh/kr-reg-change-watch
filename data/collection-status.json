@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T06:36:33.139Z",
+  "generated_at": "2026-06-17T06:39:31.584Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
-    "complete": 52,
-    "partial": 16,
+    "complete": 53,
+    "partial": 15,
     "failed": 0,
     "not_started": 100
   },
@@ -46326,10 +46326,10 @@
     },
     {
       "date": "2026-06-14",
-      "status": "partial",
+      "status": "complete",
       "item_count": 1,
       "changed_count": 0,
-      "collected_at": "2026-06-17T06:36:29.391Z",
+      "collected_at": "2026-06-17T06:39:27.908Z",
       "source": "daily",
       "methods": [
         {
@@ -46550,26 +46550,26 @@
         },
         {
           "source": "산업통상부 훈령",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL825d20c7e failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T06:36:28.536Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T06:39:24.059Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:36:28.537Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T06:39:25.063Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:36:28.537Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T06:39:27.061Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
