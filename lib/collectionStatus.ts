@@ -368,8 +368,6 @@ function sameMethod(expected: CollectionMethodStatus, log: CollectionLog): boole
   if (log.route === expected.source) return true;
   if (!source) return false;
   if (source === expected.source) return true;
-  if (source.startsWith(`${expected.source} `)) return true;
-  if (source.includes(expected.source) || expected.source.includes(source)) return true;
   return false;
 }
 
