@@ -1,5 +1,7 @@
+import path from "node:path";
+import type { DailyCollection } from "../lib/types";
 import { readCollectionStatusReport } from "../lib/collectionStatus";
-import { dateDaysAgo, env, parseArgs } from "./common";
+import { dailyDir, dateDaysAgo, env, parseArgs, readJson } from "./common";
 import {
   parseCollectionRouteFilter,
   parseCollectionSourceFilter,
@@ -19,6 +21,17 @@ main().catch((error) => {
 });
 
 async function main() {
+  const daily = await readJson<DailyCollection | null>(path.join(dailyDir, `${targetDate}.json`), null);
+  const logCritical = daily?.logs?.find(
+    (log) =>
+      log.status !== "ok" &&
+      /Critical source connectivity failure/i.test(`${log.source || ""} ${log.message || ""}`)
+  );
+  if (logCritical) {
+    console.error(`Critical connectivity failure detected for ${targetDate}: ${logCritical.message || logCritical.source}`);
+    process.exit(0);
+  }
+
   const report = await readCollectionStatusReport();
   const day = report.days.find((entry) => entry.date === targetDate);
 

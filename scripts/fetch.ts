@@ -175,6 +175,8 @@ const NETWORK_FAILURE_PATTERNS = [
   /fetch failed/i,
   /timeout/i,
   /timed out/i,
+  /code 28/i,
+  /curl failed/i,
   /failed to connect/i,
   /curl fallback failed/i,
   /SIGTERM/i,
