@@ -1,8 +1,8 @@
 {
   "date": "2026-05-29",
-  "collected_at": "2026-06-16T08:31:12.235Z",
+  "collected_at": "2026-06-17T00:26:43.182Z",
   "item_count": 96,
-  "changed_count": 1,
+  "changed_count": 0,
   "cache_hit": false,
   "items": [
     {
@@ -3441,6 +3441,15 @@
       "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
       "group": "ministry-board",
       "route": "기획재정부 행정예고"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "error",
+      "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260529&reqTo=20260529&fromDate=20260529&toDate=20260529&type=1 failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T00:26:42.387Z",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T00:18:18.629Z",
+  "generated_at": "2026-06-17T00:26:46.930Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -40248,8 +40248,8 @@
       "date": "2026-05-29",
       "status": "partial",
       "item_count": 96,
-      "changed_count": 1,
-      "collected_at": "2026-06-16T08:31:12.235Z",
+      "changed_count": 0,
+      "collected_at": "2026-06-17T00:26:43.182Z",
       "source": "daily",
       "methods": [
         {
@@ -40310,10 +40310,10 @@
         },
         {
           "source": "대한민국 전자관보",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "error",
+          "count": 0,
+          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260529&reqTo=20260529&fromDate=20260529&toDate=20260529&type=1 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-17T00:26:42.387Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
