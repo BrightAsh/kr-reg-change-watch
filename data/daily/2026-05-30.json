@@ -1,6 +1,6 @@
 {
   "date": "2026-05-30",
-  "collected_at": "2026-06-17T01:45:34.024Z",
+  "collected_at": "2026-06-17T04:05:28.353Z",
   "item_count": 13,
   "changed_count": 0,
   "cache_hit": false,
@@ -633,6 +633,15 @@
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016",
       "group": "ministry-board",
       "route": "행정안전부 훈령·예규·고시"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T04:05:27.529Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
     }
   ]
 }
