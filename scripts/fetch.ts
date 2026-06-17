@@ -867,7 +867,11 @@ function parseRouteFilter(value: string): Set<string> {
     "moef-legislation": ["기획재정부 입법예고"],
     "moef-legislation-notice": ["기획재정부 입법예고"],
     "moef-admin": ["기획재정부 행정예고"],
-    "moef-admin-notice": ["기획재정부 행정예고"]
+    "moef-admin-notice": ["기획재정부 행정예고"],
+    "alio-law": ["ALIO 공공기관 법령/지침"],
+    "alio-directive": ["ALIO 공공기관 법령/지침"],
+    "alio-policy": ["ALIO 공공정책자료"],
+    "alio-pds": ["ALIO 공공정책자료"]
   };
   const selected = new Set<string>();
   const knownRoutes = SOURCE_GROUPS.flatMap((group) => sourceRouteKeysForGroup(group));
@@ -1453,7 +1457,7 @@ async function fetchConfiguredMinistryBoard(logs: CollectionLog[], route: Minist
 async function fetchAlioPublicMaterials(logs: CollectionLog[]): Promise<CollectedItem[]> {
   return withTemporaryEnv(
     {
-      FETCH_TIMEOUT_MS: env("ALIO_FETCH_TIMEOUT_MS", "45000"),
+      FETCH_TIMEOUT_MS: env("ALIO_FETCH_TIMEOUT_MS", "15000"),
       FETCH_CURL_FIRST: env("ALIO_FETCH_CURL_FIRST", "0"),
       FETCH_CURL_ONLY: env("ALIO_FETCH_CURL_ONLY", "0")
     },

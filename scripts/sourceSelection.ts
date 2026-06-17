@@ -80,7 +80,11 @@ export function parseCollectionRouteFilter(value: string): Set<string> {
     "moef-legislation": ["기획재정부 입법예고"],
     "moef-legislation-notice": ["기획재정부 입법예고"],
     "moef-admin": ["기획재정부 행정예고"],
-    "moef-admin-notice": ["기획재정부 행정예고"]
+    "moef-admin-notice": ["기획재정부 행정예고"],
+    "alio-law": ["ALIO 공공기관 법령/지침"],
+    "alio-directive": ["ALIO 공공기관 법령/지침"],
+    "alio-policy": ["ALIO 공공정책자료"],
+    "alio-pds": ["ALIO 공공정책자료"]
   };
   const knownMethods = Object.values(COLLECTION_SOURCE_GROUP_METHODS).flat();
   const selected = new Set<string>();
