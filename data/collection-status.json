@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T01:43:08.040Z",
+  "generated_at": "2026-06-17T01:45:37.986Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -40658,7 +40658,7 @@
       "status": "partial",
       "item_count": 13,
       "changed_count": 0,
-      "collected_at": "2026-06-17T01:35:53.224Z",
+      "collected_at": "2026-06-17T01:45:34.024Z",
       "source": "daily",
       "methods": [
         {
@@ -40729,8 +40729,8 @@
           "source": "행정안전부 훈령·예규·고시",
           "status": "error",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:46:49.040Z",
+          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T01:45:33.212Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
