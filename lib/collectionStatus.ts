@@ -393,7 +393,7 @@ function isExternalConnectivityLog(log: CollectionLog): boolean {
 }
 
 function isLikelyApplicationError(value: string): boolean {
-  return /HTTP 4\d{2}|HTTP 5\d{2}|retMsg|JSON|parse|invalid|required|API key|OC.*required/i.test(value);
+  return /HTTP 4\d{2}|HTTP 5\d{2}|retMsg|JSON\s*parse|parse error|unexpected token|invalid|required|API key|OC.*required/i.test(value);
 }
 
 function sameMethod(expected: CollectionMethodStatus, log: CollectionLog): boolean {
