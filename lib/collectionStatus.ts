@@ -80,6 +80,8 @@ export const COLLECTION_SOURCE_GROUP_METHODS: Record<CollectionSourceGroup, stri
     "산업통상부 행정예고",
     "산업통상부 고시",
     "산업통상부 공고",
+    "산업통상부 구.정통부고시",
+    "산업통상부 구.재경부고시",
     "산업통상부 훈령",
     "산업통상부 예규",
     "산업통상부 지침"
@@ -129,6 +131,8 @@ const expectedMethods: CollectionMethodStatus[] = [
   method("산업통상부 행정예고", "https://www.motir.go.kr"),
   method("산업통상부 고시", "https://www.motir.go.kr"),
   method("산업통상부 공고", "https://www.motir.go.kr"),
+  method("산업통상부 구.정통부고시", "https://www.motir.go.kr"),
+  method("산업통상부 구.재경부고시", "https://www.motir.go.kr"),
   method("산업통상부 훈령", "https://www.motir.go.kr"),
   method("산업통상부 예규", "https://www.motir.go.kr"),
   method("산업통상부 지침", "https://www.motir.go.kr"),
@@ -293,9 +297,12 @@ function method(source: string, url?: string): CollectionMethodStatus {
 }
 
 function methodFromLog(log: CollectionLog): CollectionMethodStatus {
+  const status: CollectionMethodState =
+    log.status === "error" && isExternalConnectivityLog(log) ? "external_error" : log.status;
+
   return {
     source: log.source || "알 수 없는 수집 방법",
-    status: log.status,
+    status,
     count: Number.isFinite(log.count) ? log.count : 0,
     message: log.message || "",
     at: log.at || null,
@@ -375,7 +382,12 @@ function isDiagnosticLog(log: CollectionLog): boolean {
 
 const NETWORK_CONNECTIVITY_PATTERNS = [
   /curl failed with code 28/i,
+  /curl failed with code 52/i,
   /code 28/i,
+  /code 52/i,
+  /empty reply from server/i,
+  /operation was aborted/i,
+  /AbortError/i,
   /timed out/i,
   /timeout/i,
   /failed to connect/i,
