@@ -1,6 +1,6 @@
 {
   "date": "2026-06-02",
-  "collected_at": "2026-06-17T05:01:14.936Z",
+  "collected_at": "2026-06-17T07:04:50.698Z",
   "item_count": 278,
   "changed_count": 0,
   "cache_hit": false,
@@ -7654,9 +7654,9 @@
     {
       "source": "행정안전부 법령자료실",
       "status": "error",
-      "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed with curl-first mode: curl failed with code 28 (null)",
+      "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
       "count": 0,
-      "at": "2026-06-17T05:00:43.113Z",
+      "at": "2026-06-17T07:04:08.348Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018",
       "group": "ministry-board",
       "route": "행정안전부 법령자료실"
@@ -7664,9 +7664,9 @@
     {
       "source": "기획재정부 법령자료실",
       "status": "error",
-      "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed with curl-first mode: curl failed with code 28 (null)",
+      "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
       "count": 0,
-      "at": "2026-06-17T05:01:14.126Z",
+      "at": "2026-06-17T07:04:49.856Z",
       "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200",
       "group": "ministry-board",
       "route": "기획재정부 법령자료실"
@@ -7676,7 +7676,7 @@
       "status": "error",
       "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T05:01:14.126Z",
+      "at": "2026-06-17T07:04:49.856Z",
       "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300",
       "group": "ministry-board",
       "route": "기획재정부 영문법령정보"
@@ -7686,10 +7686,17 @@
       "status": "error",
       "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T05:01:14.127Z",
+      "at": "2026-06-17T07:04:49.856Z",
       "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100",
       "group": "ministry-board",
       "route": "기획재정부 조세조약"
+    },
+    {
+      "source": "수집 상태 점검",
+      "status": "error",
+      "message": "Critical source connectivity failure for 2026-06-02: mois-board, moef-board",
+      "count": 0,
+      "at": "2026-06-17T07:04:49.857Z"
     }
   ]
 }
