@@ -1722,10 +1722,10 @@ function buildAlioSummary(source: AlioSource, title: string, postedDate: string,
 async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
   return withTemporaryEnv(
     {
-      FETCH_TIMEOUT_MS: env("POLICY_RSS_FETCH_TIMEOUT_MS", "10000"),
-      FETCH_CURL_FIRST: env("POLICY_RSS_FETCH_CURL_FIRST", "0"),
-      FETCH_CURL_ONLY: env("POLICY_RSS_FETCH_CURL_ONLY", "0"),
-      FETCH_CURL_FALLBACK: env("POLICY_RSS_FETCH_CURL_FALLBACK", "0")
+      FETCH_TIMEOUT_MS: env("POLICY_RSS_FETCH_TIMEOUT_MS", "8000"),
+      FETCH_CURL_FIRST: env("POLICY_RSS_FETCH_CURL_FIRST", "1"),
+      FETCH_CURL_ONLY: env("POLICY_RSS_FETCH_CURL_ONLY", "1"),
+      FETCH_CURL_FALLBACK: env("POLICY_RSS_FETCH_CURL_FALLBACK", "1")
     },
     () => fetchPolicyRssWithBudget(logs)
   );
@@ -1755,6 +1755,7 @@ async function fetchPolicyRssWithBudget(logs: CollectionLog[]): Promise<Collecte
   }
   const items: CollectedItem[] = [];
   const failures: string[] = [];
+  const maxInitialFailures = Math.max(1, Number(env("POLICY_RSS_MAX_INITIAL_FAILURES", "3")) || 3);
   let successCount = 0;
   for (const url of urls) {
     try {
@@ -1792,6 +1793,10 @@ async function fetchPolicyRssWithBudget(logs: CollectionLog[]): Promise<Collecte
       }
     } catch (error) {
       failures.push(`${url}: ${messageOf(error)}`);
+      if (successCount === 0 && failures.length >= maxInitialFailures) {
+        failures.push(`초기 ${maxInitialFailures}개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.`);
+        break;
+      }
     }
   }
   if (successCount === 0) {
