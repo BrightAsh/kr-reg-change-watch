@@ -1,6 +1,6 @@
 {
   "date": "2026-05-30",
-  "collected_at": "2026-06-08T05:25:49.404Z",
+  "collected_at": "2026-06-17T00:42:41.267Z",
   "item_count": 13,
   "changed_count": 0,
   "cache_hit": false,
@@ -444,6 +444,42 @@
       "count": 0,
       "at": "2026-06-08T05:25:48.989Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260530 failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T00:41:07.421Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260530 failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T00:41:38.433Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T00:42:09.445Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-17T00:42:40.456Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
     }
   ]
 }
