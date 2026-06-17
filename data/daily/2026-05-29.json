@@ -1,6 +1,6 @@
 {
   "date": "2026-05-29",
-  "collected_at": "2026-06-17T01:43:04.079Z",
+  "collected_at": "2026-06-17T04:16:35.844Z",
   "item_count": 96,
   "changed_count": 0,
   "cache_hit": false,
@@ -3456,7 +3456,7 @@
       "status": "error",
       "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
       "count": 0,
-      "at": "2026-06-17T01:42:21.757Z",
+      "at": "2026-06-17T04:16:35.037Z",
       "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
       "group": "alio",
       "route": "ALIO 공공기관 법령/지침"
@@ -3464,9 +3464,9 @@
     {
       "source": "ALIO 공공정책자료",
       "status": "error",
-      "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+      "message": "ALIO 수집 실패: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T01:43:03.264Z",
+      "at": "2026-06-17T04:16:35.037Z",
       "url": "https://www.alio.go.kr/etc/etcPdsList.do",
       "group": "alio",
       "route": "ALIO 공공정책자료"
@@ -3474,9 +3474,9 @@
     {
       "source": "ALIO",
       "status": "error",
-      "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+      "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T01:43:03.264Z",
+      "at": "2026-06-17T04:16:35.037Z",
       "url": "https://www.alio.go.kr/etc/etcLawList.do",
       "group": "alio",
       "route": "ALIO"
@@ -3486,7 +3486,7 @@
       "status": "error",
       "message": "Critical source connectivity failure for 2026-05-29: alio",
       "count": 0,
-      "at": "2026-06-17T01:43:03.264Z"
+      "at": "2026-06-17T04:16:35.038Z"
     }
   ]
 }
