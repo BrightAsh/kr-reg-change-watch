@@ -784,6 +784,22 @@ function collectionHealthError(logs: CollectionLog[]): string {
   return `Critical source connectivity failure for ${targetDate}: ${failedGroups.map((group) => group.id).join(", ")}`;
 }
 
+function isNetworkFailureMessage(message: string): boolean {
+  return NETWORK_FAILURE_PATTERNS.some((pattern) => pattern.test(message));
+}
+
+function envFlag(name: string, fallback = "0"): boolean {
+  const value = env(name, fallback).toLowerCase();
+  return value === "1" || value === "true" || value === "yes" || value === "on";
+}
+
+function ministryRouteHostKey(route: MinistryRoute): string {
+  if (isMoisRoute(route)) return "mois.go.kr";
+  if (isMoefRoute(route)) return "mofe.go.kr";
+  if (isMotirRoute(route)) return "motir.go.kr";
+  return "";
+}
+
 function shouldRunSource(group: SourceGroup): boolean {
   if (activeSourceGroups) return activeSourceGroups.has(group);
   return !sourceFilter.size || sourceFilter.has(group);
@@ -1416,13 +1432,22 @@ async function fetchGazette(logs: CollectionLog[]): Promise<CollectedItem[]> {
 
 async function fetchMinistryRoutes(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const items: CollectedItem[] = [];
+  const failedHosts = new Set<string>();
+  const failFast = envFlag("MINISTRY_BOARD_FAIL_FAST_ON_NETWORK_ERROR", "1");
   for (const route of MINISTRY_ROUTES) {
     if (!shouldRunRoute("ministry-board", route.source)) continue;
+    const hostKey = ministryRouteHostKey(route);
+    if (failFast && hostKey && failedHosts.has(hostKey)) {
+      addLog(logs, route.source, "error", `${hostKey} network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.`, 0, route.defaultUrl, "ministry-board", route.source);
+      continue;
+    }
     const logStartIndex = logs.length;
     try {
       items.push(...(await fetchConfiguredMinistryBoard(logs, route)));
     } catch (error) {
-      addLog(logs, route.source, "error", `공식 게시판 수집 실패: ${messageOf(error)}`, 0, route.defaultUrl, "ministry-board", route.source);
+      const message = messageOf(error);
+      addLog(logs, route.source, "error", `공식 게시판 수집 실패: ${message}`, 0, route.defaultUrl, "ministry-board", route.source);
+      if (failFast && hostKey && isNetworkFailureMessage(message)) failedHosts.add(hostKey);
     } finally {
       tagLogsWithGroup(logs, logStartIndex, "ministry-board", route.source);
     }
@@ -1432,13 +1457,22 @@ async function fetchMinistryRoutes(logs: CollectionLog[]): Promise<CollectedItem
 
 async function fetchMotirRoutes(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const items: CollectedItem[] = [];
+  const failedHosts = new Set<string>();
+  const failFast = envFlag("MOTIR_BOARD_FAIL_FAST_ON_NETWORK_ERROR", "1");
   for (const route of MOTIR_ROUTES) {
     if (!shouldRunRoute("motir", route.source)) continue;
+    const hostKey = ministryRouteHostKey(route);
+    if (failFast && hostKey && failedHosts.has(hostKey)) {
+      addLog(logs, route.source, "error", `${hostKey} network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.`, 0, route.defaultUrl, "motir", route.source);
+      continue;
+    }
     const logStartIndex = logs.length;
     try {
       items.push(...(await fetchConfiguredMinistryBoard(logs, route)));
     } catch (error) {
-      addLog(logs, route.source, "error", `산업통상부 게시판 수집 실패: ${messageOf(error)}`, 0, route.defaultUrl, "motir", route.source);
+      const message = messageOf(error);
+      addLog(logs, route.source, "error", `산업통상부 게시판 수집 실패: ${message}`, 0, route.defaultUrl, "motir", route.source);
+      if (failFast && hostKey && isNetworkFailureMessage(message)) failedHosts.add(hostKey);
     } finally {
       tagLogsWithGroup(logs, logStartIndex, "motir", route.source);
     }
@@ -1484,9 +1518,17 @@ async function fetchAlioPublicMaterials(logs: CollectionLog[]): Promise<Collecte
 async function fetchAlioPublicMaterialsWithBudget(logs: CollectionLog[]): Promise<CollectedItem[]> {
   const items: CollectedItem[] = [];
   const errors: string[] = [];
+  const failFast = envFlag("ALIO_FAIL_FAST_ON_NETWORK_ERROR", "1");
+  let hostNetworkFailed = false;
 
   for (const source of ALIO_SOURCES) {
     if (!shouldRunRoute("alio", source.source)) continue;
+    if (failFast && hostNetworkFailed) {
+      const message = "alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.";
+      errors.push(`${source.source}: ${message}`);
+      addLog(logs, source.source, "error", `ALIO 수집 실패: ${message}`, 0, source.pageUrl, "alio", source.source);
+      continue;
+    }
     const logStartIndex = logs.length;
     try {
       const rows = await fetchAlioListRows(source);
@@ -1497,8 +1539,10 @@ async function fetchAlioPublicMaterialsWithBudget(logs: CollectionLog[]): Promis
       }
       addLog(logs, source.source, "ok", `ALIO ${source.documentKind} 수집 완료`, targetRows.length, source.pageUrl);
     } catch (error) {
-      errors.push(`${source.source}: ${messageOf(error)}`);
-      addLog(logs, source.source, "error", `ALIO 수집 실패: ${messageOf(error)}`, 0, source.pageUrl, "alio", source.source);
+      const message = messageOf(error);
+      errors.push(`${source.source}: ${message}`);
+      addLog(logs, source.source, "error", `ALIO 수집 실패: ${message}`, 0, source.pageUrl, "alio", source.source);
+      if (failFast && isNetworkFailureMessage(message)) hostNetworkFailed = true;
     } finally {
       tagLogsWithGroup(logs, logStartIndex, "alio", source.source);
     }
