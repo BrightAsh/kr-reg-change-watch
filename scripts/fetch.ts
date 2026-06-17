@@ -1266,6 +1266,8 @@ async function fetchLawmakingNotices(
   const errors: string[] = [];
   const detailErrors: string[] = [];
   const responseNotes: string[] = [];
+  const maxInitialNetworkFailures = Math.max(1, Number(env("LAWMAKING_MAX_INITIAL_NETWORK_FAILURES", "1")) || 1);
+  let initialNetworkFailures = 0;
   let detailFetchCount = 0;
   const date = dottedDate(targetDate);
 
@@ -1309,7 +1311,15 @@ async function fetchLawmakingNotices(
         if (item?.publish_date === targetDate) items.push(item);
       }
     } catch (error) {
-      errors.push(`${target.name}: ${messageOf(error)}`);
+      const message = messageOf(error);
+      errors.push(`${target.name}: ${message}`);
+      if (!items.length && NETWORK_FAILURE_PATTERNS.some((pattern) => pattern.test(message))) {
+        initialNetworkFailures += 1;
+        if (initialNetworkFailures >= maxInitialNetworkFailures) {
+          errors.push(`초기 ${initialNetworkFailures}개 대상기관 네트워크 실패로 ${endpoint} 나머지 대상기관 수집을 중단했습니다.`);
+          break;
+        }
+      }
     }
   }
 
