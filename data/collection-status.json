@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T03:53:28.853Z",
+  "generated_at": "2026-06-17T04:02:10.938Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -41782,7 +41782,7 @@
       "status": "partial",
       "item_count": 0,
       "changed_count": 0,
-      "collected_at": "2026-06-17T03:53:25.549Z",
+      "collected_at": "2026-06-17T04:02:06.607Z",
       "source": "daily",
       "methods": [
         {
@@ -41790,31 +41790,31 @@
           "status": "error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260603 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:45:38.825Z",
+          "at": "2026-06-17T04:01:24.201Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260603 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:46:20.329Z",
+          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
+          "at": "2026-06-17T04:01:24.201Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260603&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:47:01.836Z",
+          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
+          "at": "2026-06-17T04:01:24.202Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260603&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:47:43.340Z",
+          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
+          "at": "2026-06-17T04:01:24.202Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -41822,23 +41822,23 @@
           "status": "error",
           "count": 0,
           "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.3.&edYdFmt=2026.6.3. failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 초기 1개 대상기관 네트워크 실패로 ogLmPp 나머지 대상기관 수집을 중단했습니다.",
-          "at": "2026-06-17T03:48:24.847Z",
+          "at": "2026-06-17T04:02:05.711Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.3.&edYdFmt=2026.6.3. failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 초기 1개 대상기관 네트워크 실패로 ogLmPpMod 나머지 대상기관 수집을 중단했습니다.",
-          "at": "2026-06-17T03:49:06.350Z",
+          "message": "lawmaking.go.kr network timeout/fetch failed already confirmed; skipping remaining lawmaking routes.",
+          "at": "2026-06-17T04:02:05.711Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 행정예고",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ptcpAdmPp.xml?OC=busisi79&asndOfiNm=%EB%B2%95%EC%A0%9C%EC%B2%98&stYdFmt=2026.6.3.&edYdFmt=2026.6.3. failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 초기 1개 대상기관 네트워크 실패로 ptcpAdmPp 나머지 대상기관 수집을 중단했습니다.",
-          "at": "2026-06-17T03:49:47.856Z",
+          "message": "lawmaking.go.kr network timeout/fetch failed already confirmed; skipping remaining lawmaking routes.",
+          "at": "2026-06-17T04:02:05.711Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
