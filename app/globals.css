@@ -2382,16 +2382,17 @@ textarea {
   border-left-color: var(--red);
 }
 
+.status-method.method-missing,
+.status-method.method-not_started {
+  border-left-color: var(--red);
+}
+
 .status-method.method-external_error {
   border-left-color: #2563eb;
 }
 
 .status-method.method-skipped {
   border-left-color: var(--orange);
-}
-
-.status-method.method-missing {
-  border-left-color: var(--muted);
 }
 
 .status-method-main {
@@ -2485,6 +2486,11 @@ textarea {
 }
 
 .status-log-popover.method-error {
+  border-left-color: var(--red);
+}
+
+.status-log-popover.method-missing,
+.status-log-popover.method-not_started {
   border-left-color: var(--red);
 }
 
