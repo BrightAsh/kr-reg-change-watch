@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T04:52:35.564Z",
+  "generated_at": "2026-06-17T05:01:18.741Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -40598,7 +40598,7 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T04:16:35.037Z",
@@ -40679,7 +40679,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T04:05:27.529Z",
@@ -40879,7 +40879,7 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T04:09:14.924Z",
@@ -41241,7 +41241,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
+          "status": "external_error",
           "count": 62,
           "message": "행정규칙 신구법 본문 조회 실패: 2100000279472 - GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrulOldAndNew&type=JSON&ID=2100000279472 failed with curl-first mode: curl failed with code 28 (null)\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-17T04:52:31.653Z",
@@ -41493,7 +41493,7 @@
       "status": "partial",
       "item_count": 278,
       "changed_count": 0,
-      "collected_at": "2026-06-17T03:34:13.862Z",
+      "collected_at": "2026-06-17T05:01:14.936Z",
       "source": "daily",
       "methods": [
         {
@@ -41580,16 +41580,16 @@
           "source": "행정안전부 법령자료실",
           "status": "external_error",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:33:31.542Z",
+          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-17T05:00:43.113Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
           "source": "기획재정부 법령자료실",
           "status": "external_error",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T03:34:13.051Z",
+          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-17T05:01:14.126Z",
           "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
         },
         {
@@ -41597,7 +41597,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:34:13.051Z",
+          "at": "2026-06-17T05:01:14.126Z",
           "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
         },
         {
@@ -41605,7 +41605,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T03:34:13.051Z",
+          "at": "2026-06-17T05:01:14.127Z",
           "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
         },
         {
@@ -41787,7 +41787,7 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260603 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T04:01:24.201Z",
@@ -42011,7 +42011,7 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T03:52:33.872Z",
@@ -42638,7 +42638,7 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260606 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T03:21:56.464Z",
@@ -42646,7 +42646,7 @@
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260606 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T03:22:37.970Z",
@@ -42654,7 +42654,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260606&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T03:23:19.474Z",
@@ -42662,7 +42662,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260606&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T03:24:00.978Z",
@@ -44348,7 +44348,7 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260612 failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-17T02:27:47.090Z",
@@ -44356,7 +44356,7 @@
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260612 failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-17T02:28:18.103Z",
@@ -44364,7 +44364,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260612&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-17T02:28:49.115Z",
@@ -44372,7 +44372,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260612&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-17T02:29:20.127Z",
@@ -44572,7 +44572,7 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T02:46:34.051Z",
@@ -45191,7 +45191,7 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260615 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:04:44.790Z",
@@ -45199,7 +45199,7 @@
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260615 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:05:54.545Z",
@@ -45207,7 +45207,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260615&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:07:04.300Z",
@@ -45215,7 +45215,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260615&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:08:14.055Z",
@@ -45415,7 +45415,7 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:46:35.941Z",
@@ -45423,7 +45423,7 @@
         },
         {
           "source": "ALIO 공공정책자료",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:47:45.694Z",
@@ -45472,7 +45472,7 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260616 failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-16T19:21:28.146Z",
@@ -45480,7 +45480,7 @@
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260616 failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-16T19:21:59.160Z",
@@ -45488,7 +45488,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260616&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-16T19:22:30.174Z",
@@ -45496,7 +45496,7 @@
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260616&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-16T19:23:01.187Z",
@@ -45696,7 +45696,7 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-16T19:40:15.125Z",
@@ -45704,7 +45704,7 @@
         },
         {
           "source": "ALIO 공공정책자료",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-16T19:40:56.630Z",
