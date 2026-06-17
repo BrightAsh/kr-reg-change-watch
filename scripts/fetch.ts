@@ -1519,13 +1519,22 @@ async function fetchAlioListRows(source: AlioSource): Promise<AnyRecord[]> {
     });
     const payload = await fetchJsonOrXml(url);
     const data: AnyRecord = isRecord(payload) && isRecord(payload.data) ? payload.data : {};
-    rows.push(...asArray(data.result).filter(isRecord));
+    const pageRows = asArray(data.result).filter(isRecord);
+    rows.push(...pageRows);
     const page = isRecord(data.page) ? data.page : {};
     totalPage = Number(page.totalPage || 1);
+    if (alioPageIsOlderThanTarget(pageRows)) break;
     pageNo += 1;
   } while (pageNo <= totalPage);
 
   return rows;
+}
+
+function alioPageIsOlderThanTarget(rows: AnyRecord[]): boolean {
+  const dates = rows
+    .map((row) => normalizeDate(text(row, ["bdate", "idate", "disclosureResnDt"])))
+    .filter(Boolean);
+  return dates.length > 0 && dates.every((date) => date < targetDate);
 }
 
 async function normalizeAlioRow(source: AlioSource, row: AnyRecord, logs: CollectionLog[]): Promise<CollectedItem | null> {
