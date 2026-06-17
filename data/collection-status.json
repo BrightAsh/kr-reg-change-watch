@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T02:09:54.025Z",
+  "generated_at": "2026-06-17T02:19:10.837Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -44005,8 +44005,8 @@
       "date": "2026-06-11",
       "status": "partial",
       "item_count": 26,
-      "changed_count": 24,
-      "collected_at": "2026-06-12T00:16:49.835Z",
+      "changed_count": 0,
+      "collected_at": "2026-06-17T02:19:06.699Z",
       "source": "daily",
       "methods": [
         {
@@ -44179,59 +44179,59 @@
         },
         {
           "source": "산업통상부 입법예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T02:19:05.863Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
           "source": "산업통상부 행정예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
           "source": "산업통상부 고시",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
           "source": "산업통상부 공고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
           "source": "산업통상부 훈령",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
           "source": "ALIO 공공기관 법령/지침",
@@ -44271,6 +44271,22 @@
           "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.",
           "at": "2026-06-12T00:16:31.234Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "error",
+          "count": 0,
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T02:19:05.864Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
