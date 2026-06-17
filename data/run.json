@@ -1,7 +1,7 @@
 {
-  "last_run_at": "2026-06-17T05:21:34.235Z",
+  "last_run_at": "2026-06-17T05:34:55.332Z",
   "last_target_date": "2026-06-03",
-  "item_count": 4137,
+  "item_count": 4138,
   "changed_count": 138,
   "available_dates": [
     "2026-06-16",
@@ -161,86 +161,6 @@
       "count": 0,
       "at": "2026-06-11T02:03:09.854Z",
       "group": "naver-news"
-    },
-    {
-      "source": "국가법령정보센터 법령 변경이력 본문 보강",
-      "status": "error",
-      "message": "국유재산법 시행령 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286639&efYd=20260602 failed with curl-first mode: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-17T05:06:10.694Z",
-      "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=286639&type=HTML&mobileYn=&efYd=20260602",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
-      "source": "국가법령정보센터 법령 변경이력 본문 보강",
-      "status": "error",
-      "message": "국토의 계획 및 이용에 관한 법률 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=285657&efYd=20260517 failed with curl-first mode: curl failed with code 35 (null)",
-      "count": 0,
-      "at": "2026-06-17T05:07:14.779Z",
-      "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=285657&type=HTML&mobileYn=&efYd=20260517",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
-      "source": "국가법령정보센터 법령 변경이력 본문 보강",
-      "status": "error",
-      "message": "엔지니어링산업 진흥법 시행령 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=281131&efYd=20260102 failed with curl-first mode: curl failed with code 35 (null)",
-      "count": 0,
-      "at": "2026-06-17T05:11:34.489Z",
-      "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=281131&type=HTML&mobileYn=&efYd=20260102",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
-      "source": "국가법령정보센터 법령 변경이력 본문 보강",
-      "status": "ok",
-      "message": "법제처 lawService API로 개정문/제개정이유 135건을 보강했습니다.",
-      "count": 135,
-      "at": "2026-06-17T05:18:55.387Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
-      "source": "국가법령정보센터 법령 변경이력",
-      "status": "ok",
-      "message": "법제처 공식 법령 변경이력 API 수집 완료.",
-      "count": 138,
-      "at": "2026-06-17T05:18:55.387Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
-      "source": "국가법령정보센터 일자별 조문 개정 이력",
-      "status": "error",
-      "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-      "count": 0,
-      "at": "2026-06-17T05:18:55.387Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 일자별 조문 개정 이력"
-    },
-    {
-      "source": "국가법령정보센터 행정규칙",
-      "status": "error",
-      "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-      "count": 0,
-      "at": "2026-06-17T05:18:55.387Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 행정규칙"
-    },
-    {
-      "source": "국가법령정보센터 행정규칙 신구법 비교",
-      "status": "error",
-      "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-      "count": 0,
-      "at": "2026-06-17T05:18:55.388Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 행정규칙 신구법 비교"
     },
     {
       "source": "국민참여입법센터 입법예고",
@@ -441,6 +361,66 @@
       "url": "https://www.korea.kr/etc/rss.do",
       "group": "policy-rss",
       "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 0,
+      "at": "2026-06-17T05:29:32.786Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 1,
+      "at": "2026-06-17T05:29:46.424Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 1,
+      "at": "2026-06-17T05:29:54.352Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 9건을 보강했습니다.",
+      "count": 9,
+      "at": "2026-06-17T05:34:54.374Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "skipped",
+      "message": "본문 보강 시간 예산 120초를 초과해 129건은 원문 링크 기준으로 저장했습니다.",
+      "count": 129,
+      "at": "2026-06-17T05:34:54.374Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+      "count": 138,
+      "at": "2026-06-17T05:34:54.374Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
     }
   ]
 }

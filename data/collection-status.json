@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T05:23:54.901Z",
+  "generated_at": "2026-06-17T05:34:59.028Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -41780,41 +41780,41 @@
     {
       "date": "2026-06-03",
       "status": "partial",
-      "item_count": 138,
+      "item_count": 139,
       "changed_count": 138,
-      "collected_at": "2026-06-17T05:21:34.079Z",
+      "collected_at": "2026-06-17T05:34:55.193Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
-          "count": 273,
-          "message": "국유재산법 시행령 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286639&efYd=20260602 failed with curl-first mode: curl failed with code 28 (null)\n국토의 계획 및 이용에 관한 법률 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=285657&efYd=20260517 failed with curl-first mode: curl failed with code 35 (null)\n엔지니어링산업 진흥법 시행령 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=281131&efYd=20260102 failed with curl-first mode: curl failed with code 35 (null)\n법제처 lawService API로 개정문/제개정이유 135건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
-          "at": "2026-06-17T05:18:55.387Z",
-          "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=286639&type=HTML&mobileYn=&efYd=20260602"
+          "status": "skipped",
+          "count": 147,
+          "message": "법제처 lawService API로 개정문/제개정이유 9건을 보강했습니다.\n본문 보강 시간 예산 120초를 초과해 129건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "at": "2026-06-17T05:34:54.374Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-17T05:18:55.387Z",
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+          "at": "2026-06-17T05:29:32.786Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "external_error",
-          "count": 0,
-          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-17T05:18:55.387Z",
+          "status": "ok",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-17T05:29:46.424Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "external_error",
-          "count": 0,
-          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-17T05:18:55.388Z",
+          "status": "ok",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-17T05:29:54.352Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
