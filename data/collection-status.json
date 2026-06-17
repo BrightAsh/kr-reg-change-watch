@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T01:04:11.036Z",
+  "generated_at": "2026-06-17T01:10:26.792Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -40530,7 +40530,7 @@
       "status": "partial",
       "item_count": 13,
       "changed_count": 0,
-      "collected_at": "2026-06-17T01:04:06.315Z",
+      "collected_at": "2026-06-17T01:10:22.657Z",
       "source": "daily",
       "methods": [
         {
@@ -40553,16 +40553,16 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T01:04:05.429Z",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T01:10:21.839Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T01:04:05.429Z",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T01:10:21.839Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
