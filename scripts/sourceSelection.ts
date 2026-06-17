@@ -125,7 +125,6 @@ export function selectedCollectionMethodSources(
 function sameCollectionMethod(expected: string, source: string): boolean {
   if (!source) return false;
   if (source === expected) return true;
-  if (source.startsWith(`${expected} `)) return true;
   return false;
 }
 
