@@ -700,7 +700,12 @@ function allSelectedRoutesSucceeded(daily: DailyCollection | null): boolean {
 }
 
 function shouldRunRoute(group: SourceGroup, route: string): boolean {
-  if (routeFilter.size && !routeFilter.has(route)) return false;
+  if (routeFilter.size && !routeFilter.has(route)) {
+    const groupRoutes = sourceRouteKeysForGroup(group);
+    const isAggregateRoute = !groupRoutes.includes(route);
+    const hasSelectedChildRoute = groupRoutes.some((source) => routeFilter.has(source));
+    if (!isAggregateRoute || !hasSelectedChildRoute) return false;
+  }
   if (!preserveSuccessfulRoutes) return true;
   return !routeSucceeded(existingDailyForRun, group, route);
 }
