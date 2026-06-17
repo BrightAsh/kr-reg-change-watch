@@ -178,6 +178,12 @@ jobs:
         if: github.event_name != 'push'
         continue-on-error: true
         run: |
+          if [ -n "$COLLECT_SOURCES" ]; then
+            export FETCH_CURL_FIRST="${SELECTED_FETCH_CURL_FIRST:-0}"
+            export FETCH_CURL_ONLY="${SELECTED_FETCH_CURL_ONLY:-0}"
+            export FETCH_CURL_FALLBACK="${SELECTED_FETCH_CURL_FALLBACK:-1}"
+          fi
+
           build_collect_args() {
             COLLECT_ARGS=()
             if [ -n "$TARGET_DATE" ]; then
