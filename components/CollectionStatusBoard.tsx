@@ -19,23 +19,21 @@ const methodLabels = {
   error: "오류",
   external_error: "외부 접속 장애",
   skipped: "건너뜀",
-  missing: "오류",
-  not_started: "오류"
+  missing: "미시도",
+  not_started: "수집 전"
 };
 
 const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
 export default function CollectionStatusBoard({ report }: Props) {
-  const visibleDays = useMemo(() => report.days.filter((day) => day.status !== "not_started"), [report.days]);
   const defaultDate =
-    [...visibleDays].reverse().find((day) => day.status !== "not_started")?.date || report.end_date;
+    [...report.days].reverse().find((day) => day.status !== "not_started")?.date || report.end_date;
   const [selectedDate, setSelectedDate] = useState(defaultDate);
   const [monthCursor, setMonthCursor] = useState(defaultDate.slice(0, 7));
   const [activeLog, setActiveLog] = useState<CollectionMethodStatus | null>(null);
-  const selected =
-    visibleDays.find((day) => day.date === selectedDate) || visibleDays[visibleDays.length - 1] || report.days[report.days.length - 1];
-  const monthKeys = useMemo(() => uniqueMonths(visibleDays), [visibleDays]);
-  const month = useMemo(() => buildMonth(visibleDays, monthCursor), [monthCursor, visibleDays]);
+  const selected = report.days.find((day) => day.date === selectedDate) || report.days[report.days.length - 1];
+  const monthKeys = useMemo(() => uniqueMonths(report.days), [report.days]);
+  const month = useMemo(() => buildMonth(report.days, monthCursor), [monthCursor, report.days]);
   const monthIndex = monthKeys.indexOf(monthCursor);
   const canMovePrev = monthIndex > 0;
   const canMoveNext = monthIndex >= 0 && monthIndex < monthKeys.length - 1;
@@ -145,7 +143,7 @@ export default function CollectionStatusBoard({ report }: Props) {
                     <button className="method-count" type="button" onClick={() => setActiveLog(method)}>
                       {(method.count || 0).toLocaleString("ko-KR")}건
                     </button>
-                  ) : method.status === "error" || method.status === "missing" || method.status === "not_started" ? (
+                  ) : method.status === "error" ? (
                     <button className="method-error-button" type="button" onClick={() => setActiveLog(method)}>
                       오류
                     </button>
