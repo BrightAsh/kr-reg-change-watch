@@ -61,6 +61,7 @@ const targetDate = String(args.date || dateDaysAgo(Number.isFinite(lookback) ? l
 const maxPages = Math.max(1, Number(env("FETCH_MAX_PAGES", "50")) || 50);
 const detailLimit = Number(env("FETCH_DETAIL_LIMIT", "30"));
 const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "500")) || 500;
+const lawTextDetailBudgetMs = Math.max(0, Number(env("FETCH_LAW_TEXT_DETAIL_BUDGET_MS", "120000")) || 0);
 const lawTextMaxChars = Number(env("FETCH_LAW_TEXT_MAX_CHARS", "12000")) || 12000;
 const lawRevisionTextCache = new Map<string, LawRevisionDetails | null>();
 const forceCollect = Boolean(args.force || env("FORCE_COLLECT") === "1");
@@ -1999,11 +2000,19 @@ async function enrichLawItemsWithRevisionText(
   const output: CollectedItem[] = [];
   let enrichedCount = 0;
   let failedCount = 0;
+  let budgetSkippedCount = 0;
+  const startedAt = Date.now();
 
   for (const [index, item] of items.entries()) {
     if (index >= lawTextDetailLimit) {
       output.push(item);
       continue;
+    }
+    if (lawTextDetailBudgetMs > 0 && Date.now() - startedAt >= lawTextDetailBudgetMs) {
+      const remaining = items.length - index;
+      budgetSkippedCount += remaining;
+      output.push(...items.slice(index));
+      break;
     }
 
     try {
@@ -2046,6 +2055,16 @@ async function enrichLawItemsWithRevisionText(
   }
   if (failedCount > 3) {
     addLog(logs, `${source} 본문 보강`, "error", `본문 보강 실패 ${failedCount.toLocaleString("ko-KR")}건`, failedCount);
+  }
+  if (budgetSkippedCount) {
+    addLog(
+      logs,
+      `${source} 본문 보강`,
+      "skipped",
+      `본문 보강 시간 예산 ${Math.round(lawTextDetailBudgetMs / 1000).toLocaleString("ko-KR")}초를 초과해 ${budgetSkippedCount.toLocaleString("ko-KR")}건은 원문 링크 기준으로 저장했습니다.`,
+      budgetSkippedCount,
+      OFFICIAL_LAW_GUIDE
+    );
   }
   return output;
 }
