@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T01:52:59.266Z",
+  "generated_at": "2026-06-17T01:56:11.940Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -41212,7 +41212,7 @@
       "status": "partial",
       "item_count": 62,
       "changed_count": 0,
-      "collected_at": "2026-06-17T01:52:55.826Z",
+      "collected_at": "2026-06-17T01:56:07.956Z",
       "source": "daily",
       "methods": [
         {
@@ -41220,7 +41220,7 @@
           "status": "error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260601 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T01:49:59.609Z",
+          "at": "2026-06-17T01:56:07.142Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {

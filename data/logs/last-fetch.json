@@ -248,15 +248,6 @@
     "group": "naver-news"
   },
   {
-    "source": "국가법령정보센터 법령 변경이력",
-    "status": "error",
-    "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260601 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-    "count": 0,
-    "at": "2026-06-17T01:49:59.609Z",
-    "group": "official-law",
-    "route": "국가법령정보센터 법령 변경이력"
-  },
-  {
     "source": "국가법령정보센터 일자별 조문 개정 이력",
     "status": "error",
     "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260601 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
@@ -292,5 +283,21 @@
     "url": "https://www.korea.kr/rss/pressrelease.xml",
     "group": "policy-rss",
     "route": "대한민국 정책브리핑 RSS"
+  },
+  {
+    "source": "국가법령정보센터 법령 변경이력",
+    "status": "error",
+    "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260601 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+    "count": 0,
+    "at": "2026-06-17T01:56:07.142Z",
+    "group": "official-law",
+    "route": "국가법령정보센터 법령 변경이력"
+  },
+  {
+    "source": "수집 상태 점검",
+    "status": "error",
+    "message": "Critical source connectivity failure for 2026-06-01: official-law",
+    "count": 0,
+    "at": "2026-06-17T01:56:07.143Z"
   }
 ]
