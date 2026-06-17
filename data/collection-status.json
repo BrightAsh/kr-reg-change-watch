@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T04:05:32.319Z",
+  "generated_at": "2026-06-17T04:09:18.779Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -40650,7 +40650,7 @@
       "status": "partial",
       "item_count": 13,
       "changed_count": 0,
-      "collected_at": "2026-06-17T04:05:28.353Z",
+      "collected_at": "2026-06-17T04:09:15.552Z",
       "source": "daily",
       "methods": [
         {
@@ -40711,10 +40711,10 @@
         },
         {
           "source": "대한민국 전자관보",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "error",
+          "count": 0,
+          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260530&reqTo=20260530&fromDate=20260530&toDate=20260530&type=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T04:08:33.418Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
@@ -40879,19 +40879,19 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.alio.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T04:09:14.924Z",
+          "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.alio.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "ALIO 수집 실패: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
+          "at": "2026-06-17T04:09:14.924Z",
+          "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
         {
           "source": "대한민국 정책브리핑 RSS",
