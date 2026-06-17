@@ -727,9 +727,9 @@ function selectedRouteKeys(): Array<{ group: SourceGroup; route: string }> {
   return routes.filter(({ group, route }) => {
     const groupExplicitlySelected = sourceFilter.has(group);
     const groupHasSelectedRoutes = sourceRouteKeysForGroup(group).some((source) => routeFilter.has(source));
-    if (groupExplicitlySelected && !groupHasSelectedRoutes) return true;
+    if (groupExplicitlySelected) return true;
     if (groupHasSelectedRoutes) return routeFilter.has(route);
-    return groupExplicitlySelected;
+    return false;
   });
 }
 
@@ -739,7 +739,7 @@ function allSelectedRoutesSucceeded(daily: DailyCollection | null): boolean {
 }
 
 function shouldRunRoute(group: SourceGroup, route: string): boolean {
-  if (routeFilter.size && !routeFilter.has(route)) {
+  if (routeFilter.size && !sourceFilter.has(group) && !routeFilter.has(route)) {
     const groupRoutes = sourceRouteKeysForGroup(group);
     const isAggregateRoute = !groupRoutes.includes(route);
     const hasSelectedChildRoute = groupRoutes.some((source) => routeFilter.has(source));
