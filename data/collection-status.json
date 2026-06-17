@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T00:58:19.245Z",
+  "generated_at": "2026-06-17T01:00:21.323Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -40529,8 +40529,8 @@
       "date": "2026-05-30",
       "status": "partial",
       "item_count": 13,
-      "changed_count": 13,
-      "collected_at": "2026-06-17T00:58:15.724Z",
+      "changed_count": 0,
+      "collected_at": "2026-06-17T01:00:19.244Z",
       "source": "daily",
       "methods": [
         {
@@ -40543,26 +40543,26 @@
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260530 failed with curl-first mode: curl failed with code 28 (null)\n법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
-          "at": "2026-06-17T00:58:12.197Z",
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+          "at": "2026-06-17T01:00:17.019Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-17T00:58:14.933Z",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-17T01:00:18.823Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-17T00:58:14.933Z",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-17T01:00:18.823Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
