@@ -1637,7 +1637,7 @@ async function fetchAlioListRows(source: AlioSource): Promise<AnyRecord[]> {
 function alioPageIsOlderThanTarget(rows: AnyRecord[]): boolean {
   const dates = rows
     .map((row) => normalizeDate(text(row, ["bdate", "idate", "disclosureResnDt"])))
-    .filter(Boolean);
+    .filter((date): date is string => Boolean(date));
   return dates.length > 0 && dates.every((date) => date < targetDate);
 }
 
