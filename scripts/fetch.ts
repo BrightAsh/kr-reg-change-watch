@@ -700,6 +700,7 @@ function allSelectedRoutesSucceeded(daily: DailyCollection | null): boolean {
 }
 
 function shouldRunRoute(group: SourceGroup, route: string): boolean {
+  if (routeFilter.size && !routeFilter.has(route)) return false;
   if (!preserveSuccessfulRoutes) return true;
   return !routeSucceeded(existingDailyForRun, group, route);
 }
