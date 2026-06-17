@@ -1,6 +1,6 @@
 {
   "date": "2026-05-28",
-  "collected_at": "2026-06-17T00:15:26.556Z",
+  "collected_at": "2026-06-17T00:18:15.038Z",
   "item_count": 76,
   "changed_count": 1,
   "cache_hit": false,
@@ -309,7 +309,7 @@
       "diff_summary": "ALIO 공공정책자료입니다. 공식 변경 원문이 아니라 관련 정책자료 또는 보도자료일 수 있습니다.",
       "auto_summary": false,
       "collection_date": "2026-05-28",
-      "collected_at": "2026-06-01T08:29:34.002Z",
+      "collected_at": "2026-06-17T00:18:14.257Z",
       "source": "ALIO 공공정책자료",
       "source_type": "alio",
       "ministry": "재정경제부",
@@ -2636,16 +2636,6 @@
       "route": "대한민국 전자관보"
     },
     {
-      "source": "ALIO 공공정책자료",
-      "status": "error",
-      "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-17T00:07:06.975Z",
-      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
-      "group": "alio",
-      "route": "ALIO 공공정책자료"
-    },
-    {
       "source": "ALIO 공공기관 법령/지침",
       "status": "ok",
       "message": "ALIO 법령/지침 원문 수집 완료",
@@ -2660,7 +2650,7 @@
       "status": "ok",
       "message": "ALIO 정책자료/보도자료 수집 완료",
       "count": 1,
-      "at": "2026-06-17T00:15:25.756Z",
+      "at": "2026-06-17T00:18:14.257Z",
       "url": "https://www.alio.go.kr/etc/etcPdsList.do",
       "group": "alio",
       "route": "ALIO 공공정책자료"
