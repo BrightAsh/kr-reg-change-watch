@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T05:54:48.825Z",
+  "generated_at": "2026-06-17T06:03:50.504Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -45205,39 +45205,39 @@
       "status": "partial",
       "item_count": 1,
       "changed_count": 0,
-      "collected_at": "2026-06-12T01:52:04.366Z",
+      "collected_at": "2026-06-17T06:03:46.724Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260610 failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:49:57.826Z",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260610 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-17T06:03:14.863Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsJoHstInf&type=JSON&display=100&page=1&regDt=20260610 failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:50:08.320Z",
+          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
+          "at": "2026-06-17T06:03:14.864Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:50:18.813Z",
+          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
+          "at": "2026-06-17T06:03:14.864Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:50:29.306Z",
+          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
+          "at": "2026-06-17T06:03:14.864Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -45378,74 +45378,74 @@
         },
         {
           "source": "산업통상부 입법예고",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:50:39.801Z",
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
           "source": "산업통상부 행정예고",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa6723dc7b failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:50:50.294Z",
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
           "source": "산업통상부 고시",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL0c554f816 failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:51:00.789Z",
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
           "source": "산업통상부 공고",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:51:11.282Z",
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
           "source": "산업통상부 구.정통부고시",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL6c89ac4d8 failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:51:21.776Z",
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
         },
         {
           "source": "산업통상부 구.재경부고시",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:51:32.268Z",
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "산업통상부 훈령",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL825d20c7e failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:51:42.762Z",
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL520ce518e failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:51:53.254Z",
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "error",
+          "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL516d59376 failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:52:03.748Z",
+          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T06:03:45.878Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
