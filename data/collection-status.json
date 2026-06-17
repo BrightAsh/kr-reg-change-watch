@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T03:30:41.081Z",
+  "generated_at": "2026-06-17T03:34:17.957Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -41493,7 +41493,7 @@
       "status": "partial",
       "item_count": 278,
       "changed_count": 0,
-      "collected_at": "2026-06-11T01:58:08.665Z",
+      "collected_at": "2026-06-17T03:34:13.862Z",
       "source": "daily",
       "methods": [
         {
@@ -41578,35 +41578,35 @@
         },
         {
           "source": "행정안전부 법령자료실",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T03:33:31.542Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
           "source": "기획재정부 법령자료실",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T03:34:13.051Z",
+          "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
         },
         {
           "source": "기획재정부 영문법령정보",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T03:34:13.051Z",
+          "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
         },
         {
           "source": "기획재정부 조세조약",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://mofe.go.kr"
+          "status": "error",
+          "count": 0,
+          "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
+          "at": "2026-06-17T03:34:13.051Z",
+          "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
         },
         {
           "source": "기획재정부 훈령",
