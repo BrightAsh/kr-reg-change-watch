@@ -360,6 +360,7 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
 
 function isDiagnosticLog(log: CollectionLog): boolean {
   const source = log.source || "";
+  if (log.group && ["ALIO", "행정안전부/기획재정부 게시판", "산업통상부 게시판"].includes(source)) return true;
   return source.endsWith("접속 확인") || source === "수집 상태 점검";
 }
 
