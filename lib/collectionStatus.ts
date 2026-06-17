@@ -382,9 +382,13 @@ function isDiagnosticLog(log: CollectionLog): boolean {
 
 const NETWORK_CONNECTIVITY_PATTERNS = [
   /curl failed with code 28/i,
+  /curl failed with code 35/i,
   /curl failed with code 52/i,
   /code 28/i,
+  /code 35/i,
   /code 52/i,
+  /SSL connect error/i,
+  /TLS/i,
   /empty reply from server/i,
   /operation was aborted/i,
   /AbortError/i,
