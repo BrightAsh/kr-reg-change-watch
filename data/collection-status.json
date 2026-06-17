@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T19:42:41.216Z",
+  "generated_at": "2026-06-17T00:07:11.293Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -39947,7 +39947,7 @@
       "status": "partial",
       "item_count": 76,
       "changed_count": 0,
-      "collected_at": "2026-06-16T08:56:10.728Z",
+      "collected_at": "2026-06-17T00:07:07.781Z",
       "source": "daily",
       "methods": [
         {
@@ -40179,7 +40179,7 @@
           "status": "error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-16T08:56:09.933Z",
+          "at": "2026-06-17T00:07:06.975Z",
           "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
@@ -40187,7 +40187,7 @@
           "status": "error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-16T08:56:09.933Z",
+          "at": "2026-06-17T00:07:06.975Z",
           "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
         {
