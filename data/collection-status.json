@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-17T03:11:00.736Z",
+  "generated_at": "2026-06-17T03:19:06.691Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
-    "complete": 46,
-    "partial": 22,
+    "complete": 47,
+    "partial": 21,
     "failed": 0,
     "not_started": 100
   },
@@ -42349,42 +42349,42 @@
     },
     {
       "date": "2026-06-05",
-      "status": "partial",
-      "item_count": 43,
-      "changed_count": 1,
-      "collected_at": "2026-06-11T02:08:46.554Z",
+      "status": "complete",
+      "item_count": 65,
+      "changed_count": 64,
+      "collected_at": "2026-06-17T03:19:03.091Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 38,
+          "message": "법제처 lawService API로 개정문/제개정이유 19건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 353행을 법령 단위 19건으로 묶었습니다.",
+          "at": "2026-06-17T03:15:53.049Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 5,
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료. 원자료 6행을 법령 단위 5건으로 묶었습니다.",
+          "at": "2026-06-17T03:15:54.377Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 27,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-17T03:16:19.399Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 27,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-17T03:16:58.618Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -42525,59 +42525,59 @@
         },
         {
           "source": "산업통상부 입법예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:01.806Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
           "source": "산업통상부 행정예고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 2,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:05.304Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
           "source": "산업통상부 고시",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 4,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:10.955Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
           "source": "산업통상부 공고",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 6,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:19.911Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
           "source": "산업통상부 훈령",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 1,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:23.986Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:24.705Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
-          "url": "https://www.motir.go.kr"
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:26.132Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
           "source": "ALIO 공공기관 법령/지침",
@@ -42597,10 +42597,10 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "missing",
-          "count": null,
-          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "정책브리핑 RSS 수집 완료 (5/10개 피드 성공, 일부 실패: https://www.korea.kr/rss/dept_mofe.xml: GET https://www.korea.kr/rss/dept_mofe.xml failed with curl-first mode: curl failed with code 28 (null) | https://www.korea.kr/rss/dept_motir.xml: GET https://www.korea.kr/rss/dept_motir.xml failed with curl-first mode: curl failed with code 28 (null) | https://www.korea.kr/rss/president.xml: GET https://www.korea.kr/rss/president.xml failed with curl-first mode: curl failed with code 28 (null) | https://www.korea.kr/rss/cabinet.xml: GET https://www.korea.kr/rss/cabinet.xml failed with curl-first mode: curl failed with code 28 (null) | https://www.korea.kr/rss/ebriefing.xml: GET https://www.korea.kr/rss/ebriefing.xml failed with curl-first mode: curl failed with code 28 (null))",
+          "at": "2026-06-17T03:19:02.298Z",
           "url": "https://www.korea.kr/etc/rss.do"
         },
         {
@@ -42609,6 +42609,22 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T02:08:45.800Z"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:20.623Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-17T03:17:21.330Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         }
       ]
     },
