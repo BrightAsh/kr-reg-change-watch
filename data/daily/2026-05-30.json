@@ -1,6 +1,6 @@
 {
   "date": "2026-05-30",
-  "collected_at": "2026-06-17T01:28:42.230Z",
+  "collected_at": "2026-06-17T01:35:53.224Z",
   "item_count": 13,
   "changed_count": 0,
   "cache_hit": false,
@@ -606,25 +606,6 @@
       "route": "국가법령정보센터 일자별 조문 개정 이력"
     },
     {
-      "source": "국가법령정보센터 행정규칙",
-      "status": "ok",
-      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
-      "count": 0,
-      "at": "2026-06-17T01:15:47.321Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 행정규칙"
-    },
-    {
-      "source": "국가법령정보센터 행정규칙 신구법 비교",
-      "status": "error",
-      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-      "count": 0,
-      "at": "2026-06-17T01:17:58.470Z",
-      "group": "official-law",
-      "route": "국가법령정보센터 행정규칙 신구법 비교"
-    },
-    {
       "source": "네이버 뉴스 검색 API",
       "status": "ok",
       "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
@@ -642,6 +623,16 @@
       "url": "https://www.korea.kr/etc/rss.do",
       "group": "policy-rss",
       "route": "대한민국 정책브리핑 RSS"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 0,
+      "at": "2026-06-17T01:35:52.587Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
     }
   ]
 }

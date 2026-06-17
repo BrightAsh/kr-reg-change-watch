@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T01:28:46.000Z",
+  "generated_at": "2026-06-17T01:35:56.116Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-17",
   "summary": {
@@ -53,15 +53,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T09:10:29.466Z",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T09:06:18.250Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.1.&edYdFmt=2026.1.1. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T09:10:29.466Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -369,15 +369,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T10:16:13.546Z",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T10:12:02.330Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.2.&edYdFmt=2026.1.2. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T10:16:13.546Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -685,15 +685,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T11:21:57.490Z",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T11:17:46.279Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.3.&edYdFmt=2026.1.3. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T11:21:57.490Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -1001,15 +1001,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T12:27:42.206Z",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T12:23:30.994Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.4.&edYdFmt=2026.1.4. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T12:27:42.206Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -1317,15 +1317,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
-          "at": "2026-06-09T13:33:26.358Z",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "at": "2026-06-09T13:29:15.142Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.1.5.&edYdFmt=2026.1.5. failed after 3 attempt(s): fetch failed; curl fallback failed: curl failed with code null (SIGTERM)",
           "at": "2026-06-09T13:33:26.358Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -24125,8 +24125,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 114,
-          "message": "법제처 lawService API로 개정문/제개정이유 57건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 64행을 법령 단위 57건으로 묶었습니다.",
+          "count": 57,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 64행을 법령 단위 57건으로 묶었습니다.",
           "at": "2026-06-10T06:17:36.519Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -24141,16 +24141,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 142,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T06:19:04.176Z",
+          "count": 71,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T06:18:08.953Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 142,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 71,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T06:19:04.176Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -24158,15 +24158,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T06:19:11.069Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T06:19:08.470Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T06:19:11.069Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -24378,6 +24378,14 @@
           "at": "2026-06-10T06:21:54.974Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 57,
+          "message": "법제처 lawService API로 개정문/제개정이유 57건을 보강했습니다.",
+          "at": "2026-06-10T06:17:36.519Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -24406,8 +24414,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 60,
-          "message": "법제처 lawService API로 개정문/제개정이유 30건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 34행을 법령 단위 30건으로 묶었습니다.",
+          "count": 30,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 34행을 법령 단위 30건으로 묶었습니다.",
           "at": "2026-06-10T02:45:38.419Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -24422,16 +24430,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 56,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T02:47:06.999Z",
+          "count": 28,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T02:46:16.740Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 56,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 28,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T02:47:06.999Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -24439,15 +24447,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-10T02:47:10.128Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-10T02:47:09.120Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-10T02:47:10.128Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -24659,6 +24667,14 @@
           "at": "2026-06-10T02:48:58.808Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 30,
+          "message": "법제처 lawService API로 개정문/제개정이유 30건을 보강했습니다.",
+          "at": "2026-06-10T02:45:38.419Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -24687,8 +24703,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 28,
-          "message": "법제처 lawService API로 개정문/제개정이유 14건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 18행을 법령 단위 14건으로 묶었습니다.",
+          "count": 14,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 18행을 법령 단위 14건으로 묶었습니다.",
           "at": "2026-06-10T05:13:27.498Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -24703,16 +24719,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 36,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T05:14:39.995Z",
+          "count": 18,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T05:13:53.192Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 36,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 18,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T05:14:39.995Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -24720,15 +24736,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T05:14:45.639Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T05:14:42.834Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T05:14:45.639Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -24940,6 +24956,14 @@
           "at": "2026-06-10T05:16:55.395Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 14,
+          "message": "법제처 lawService API로 개정문/제개정이유 14건을 보강했습니다.",
+          "at": "2026-06-10T05:13:27.498Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -24968,8 +24992,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 52,
-          "message": "법제처 lawService API로 개정문/제개정이유 26건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 26,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-10T02:52:00.214Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -24984,16 +25008,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T02:52:05.598Z",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T02:52:03.616Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T02:52:05.598Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -25001,15 +25025,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-10T02:52:08.581Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-10T02:52:07.540Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-10T02:52:08.581Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -25221,6 +25245,14 @@
           "at": "2026-06-10T02:53:42.746Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 26,
+          "message": "법제처 lawService API로 개정문/제개정이유 26건을 보강했습니다.",
+          "at": "2026-06-10T02:52:00.214Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -25266,15 +25298,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T02:54:29.517Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T02:54:29.077Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T02:54:29.517Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -25282,15 +25314,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T02:54:34.869Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T02:54:32.945Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T02:54:34.869Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -25530,8 +25562,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 24,
-          "message": "법제처 lawService API로 개정문/제개정이유 12건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 40행을 법령 단위 12건으로 묶었습니다.",
+          "count": 12,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 40행을 법령 단위 12건으로 묶었습니다.",
           "at": "2026-06-10T02:57:33.703Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -25546,16 +25578,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 62,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T02:58:54.857Z",
+          "count": 31,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T02:58:09.789Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 62,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 31,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T02:58:54.857Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -25563,15 +25595,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T02:59:01.324Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T02:58:58.855Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T02:59:01.324Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -25783,6 +25815,14 @@
           "at": "2026-06-10T03:01:46.551Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 12,
+          "message": "법제처 lawService API로 개정문/제개정이유 12건을 보강했습니다.",
+          "at": "2026-06-10T02:57:33.703Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -25811,8 +25851,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 166,
-          "message": "법제처 lawService API로 개정문/제개정이유 83건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 304행을 법령 단위 83건으로 묶었습니다.",
+          "count": 83,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 304행을 법령 단위 83건으로 묶었습니다.",
           "at": "2026-06-10T03:07:21.557Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -25827,16 +25867,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 22,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T03:07:51.901Z",
+          "count": 11,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T03:07:37.769Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 22,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 11,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T03:07:51.901Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -25844,15 +25884,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-10T03:07:55.982Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T03:07:54.849Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-10T03:07:55.982Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -26064,6 +26104,14 @@
           "at": "2026-06-10T03:10:03.011Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 83,
+          "message": "법제처 lawService API로 개정문/제개정이유 83건을 보강했습니다.",
+          "at": "2026-06-10T03:07:21.557Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -26092,8 +26140,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 50,
-          "message": "법제처 lawService API로 개정문/제개정이유 25건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 29행을 법령 단위 25건으로 묶었습니다.",
+          "count": 25,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 29행을 법령 단위 25건으로 묶었습니다.",
           "at": "2026-06-10T03:11:51.549Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -26108,16 +26156,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 64,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T03:13:11.290Z",
+          "count": 32,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T03:12:39.799Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 64,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 32,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T03:13:11.290Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -26125,15 +26173,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T03:13:17.811Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T03:13:14.766Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T03:13:17.811Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -26345,6 +26393,14 @@
           "at": "2026-06-10T03:15:03.656Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 25,
+          "message": "법제처 lawService API로 개정문/제개정이유 25건을 보강했습니다.",
+          "at": "2026-06-10T03:11:51.549Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -26373,8 +26429,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 14,
-          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 12행을 법령 단위 7건으로 묶었습니다.",
+          "count": 7,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 12행을 법령 단위 7건으로 묶었습니다.",
           "at": "2026-06-10T03:16:20.599Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -26389,16 +26445,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 68,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T03:17:43.919Z",
+          "count": 34,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T03:16:52.684Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 68,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 34,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T03:17:43.919Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -26406,15 +26462,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T03:17:49.963Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T03:17:46.717Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T03:17:49.963Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -26626,6 +26682,14 @@
           "at": "2026-06-10T03:19:53.575Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 7,
+          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.",
+          "at": "2026-06-10T03:16:20.599Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -26654,8 +26718,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 14,
-          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 7,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-10T03:21:01.899Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -26670,16 +26734,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 76,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T03:23:01.065Z",
+          "count": 38,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T03:22:00.350Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 76,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 38,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T03:23:01.065Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -26687,15 +26751,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T03:23:09.140Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T03:23:05.847Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T03:23:09.140Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -26905,6 +26969,14 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:25:53.906Z"
+        },
+        {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 7,
+          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.",
+          "at": "2026-06-10T03:21:01.899Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -27200,8 +27272,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
+          "count": 1,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-10T03:28:24.513Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -27217,15 +27289,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T03:28:26.745Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T03:28:26.261Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T03:28:26.745Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -27233,15 +27305,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-10T03:28:30.489Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-10T03:28:29.486Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-10T03:28:30.489Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -27451,6 +27523,14 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:30:03.383Z"
+        },
+        {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 1,
+          "message": "법제처 lawService API로 개정문/제개정이유 1건을 보강했습니다.",
+          "at": "2026-06-10T03:28:24.513Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -28011,8 +28091,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 28,
-          "message": "법제처 lawService API로 개정문/제개정이유 14건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 15행을 법령 단위 14건으로 묶었습니다.",
+          "count": 14,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 15행을 법령 단위 14건으로 묶었습니다.",
           "at": "2026-06-10T03:34:53.986Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -28027,16 +28107,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 44,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T03:35:43.854Z",
+          "count": 22,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T03:35:20.907Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 44,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 22,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T03:35:43.854Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -28044,15 +28124,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-10T03:35:47.151Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-10T03:35:46.011Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-10T03:35:47.151Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -28264,6 +28344,14 @@
           "at": "2026-06-10T03:37:41.347Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 14,
+          "message": "법제처 lawService API로 개정문/제개정이유 14건을 보강했습니다.",
+          "at": "2026-06-10T03:34:53.986Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -28292,8 +28380,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 14,
-          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 10행을 법령 단위 7건으로 묶었습니다.",
+          "count": 7,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 10행을 법령 단위 7건으로 묶었습니다.",
           "at": "2026-06-10T03:38:59.414Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -28308,16 +28396,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 40,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T03:39:27.572Z",
+          "count": 20,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T03:39:12.083Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 40,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 20,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T03:39:27.572Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -28325,15 +28413,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T03:39:32.022Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T03:39:30.248Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T03:39:32.022Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -28543,6 +28631,14 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:41:07.992Z"
+        },
+        {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 7,
+          "message": "법제처 lawService API로 개정문/제개정이유 7건을 보강했습니다.",
+          "at": "2026-06-10T03:38:59.414Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -30163,8 +30259,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 64,
-          "message": "법제처 lawService API로 개정문/제개정이유 32건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 40행을 법령 단위 32건으로 묶었습니다.",
+          "count": 32,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 40행을 법령 단위 32건으로 묶었습니다.",
           "at": "2026-06-10T03:52:57.175Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -30179,16 +30275,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 66,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T03:54:33.703Z",
+          "count": 33,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T03:53:36.925Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 66,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 33,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T03:54:33.703Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -30196,15 +30292,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T03:54:37.930Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T03:54:36.013Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T03:54:37.930Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -30414,6 +30510,14 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-10T03:56:40.576Z"
+        },
+        {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 32,
+          "message": "법제처 lawService API로 개정문/제개정이유 32건을 보강했습니다.",
+          "at": "2026-06-10T03:52:57.175Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "산업통상부 구.정통부고시",
@@ -31769,8 +31873,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 60,
-          "message": "법제처 lawService API로 개정문/제개정이유 30건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 155행을 법령 단위 30건으로 묶었습니다.",
+          "count": 30,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 155행을 법령 단위 30건으로 묶었습니다.",
           "at": "2026-06-10T04:06:44.784Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -31785,16 +31889,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 52,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T04:08:09.738Z",
+          "count": 26,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T04:07:24.639Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 52,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 26,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T04:08:09.738Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -31802,15 +31906,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T04:08:16.775Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T04:08:13.656Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T04:08:16.775Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -32022,6 +32126,14 @@
           "at": "2026-06-10T04:10:18.877Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 30,
+          "message": "법제처 lawService API로 개정문/제개정이유 30건을 보강했습니다.",
+          "at": "2026-06-10T04:06:44.784Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -32050,8 +32162,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 32,
-          "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 24행을 법령 단위 16건으로 묶었습니다.",
+          "count": 16,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 24행을 법령 단위 16건으로 묶었습니다.",
           "at": "2026-06-10T04:12:14.183Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -32066,16 +32178,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 218,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-10T04:13:43.961Z",
+          "count": 109,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-10T04:12:55.801Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 218,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 109,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-10T04:13:43.961Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -32083,15 +32195,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-10T04:13:49.143Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-10T04:13:46.580Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-10T04:13:49.143Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -32303,6 +32415,14 @@
           "at": "2026-06-10T04:16:04.397Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 16,
+          "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.",
+          "at": "2026-06-10T04:12:14.183Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -32347,16 +32467,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 22,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T02:10:52.895Z",
+          "count": 11,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T02:10:40.959Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 22,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 11,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T02:10:52.895Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -32364,15 +32484,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T02:11:00.284Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T02:10:57.033Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T02:11:00.284Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -32629,15 +32749,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T06:20:23.468Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T06:20:22.968Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T06:20:23.468Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -32645,15 +32765,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T06:20:30.600Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T06:20:27.546Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T06:20:30.600Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -32909,16 +33029,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 4,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T06:26:51.692Z",
+          "count": 2,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T06:26:50.175Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 4,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 2,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T06:26:51.692Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -32926,15 +33046,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T06:26:59.464Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T06:26:56.324Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T06:26:59.464Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -33190,16 +33310,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 50,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T05:05:06.056Z",
+          "count": 25,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T05:04:27.632Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 50,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 25,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T05:05:06.056Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -33207,15 +33327,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T05:05:14.246Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T05:05:10.343Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T05:05:14.246Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -33485,16 +33605,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T06:32:48.875Z",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T06:32:46.420Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T06:32:48.875Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -33502,15 +33622,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T06:32:56.565Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T06:32:53.357Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T06:32:56.565Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -33766,16 +33886,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 36,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T06:43:57.164Z",
+          "count": 18,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T06:43:36.706Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 36,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 18,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T06:43:57.164Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -33783,15 +33903,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T06:44:04.963Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T06:44:01.657Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T06:44:04.963Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -34047,16 +34167,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 124,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T06:50:17.114Z",
+          "count": 62,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T06:49:45.049Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 124,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 62,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T06:50:17.114Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -34064,15 +34184,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T06:50:24.903Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T06:50:21.457Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T06:50:24.903Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -34328,16 +34448,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 58,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T07:02:21.209Z",
+          "count": 29,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T07:01:38.618Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 58,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 29,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T07:02:21.209Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -34345,15 +34465,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T07:02:30.943Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T07:02:25.641Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T07:02:30.943Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -34610,15 +34730,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T07:27:15.472Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T07:27:15.039Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T07:27:15.472Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -34626,15 +34746,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T07:27:22.034Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T07:27:19.183Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T07:27:22.034Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -34890,16 +35010,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 4,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T07:38:40.680Z",
+          "count": 2,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T07:38:37.648Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 4,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 2,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T07:38:40.680Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -34907,15 +35027,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T07:38:48.742Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T07:38:45.346Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T07:38:48.742Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -35171,16 +35291,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 54,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T08:16:42.719Z",
+          "count": 27,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T08:16:11.462Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 54,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 27,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T08:16:42.719Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -35188,15 +35308,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T08:16:49.178Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T08:16:46.445Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T08:16:49.178Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -35452,16 +35572,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 50,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T08:31:45.143Z",
+          "count": 25,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T08:31:17.814Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 50,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 25,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T08:31:45.143Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -35469,15 +35589,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T08:31:52.242Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T08:31:49.438Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T08:31:52.242Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -35733,16 +35853,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 66,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T08:45:15.476Z",
+          "count": 33,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T08:44:50.621Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 66,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 33,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T08:45:15.476Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -35750,15 +35870,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T08:45:22.774Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T08:45:19.724Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T08:45:22.774Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -36014,16 +36134,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 48,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T08:50:35.629Z",
+          "count": 24,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T08:50:17.768Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 48,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 24,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T08:50:35.629Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -36031,15 +36151,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-12T08:50:43.231Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-12T08:50:40.126Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-12T08:50:43.231Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -36295,16 +36415,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 76,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T02:31:01.212Z",
+          "count": 38,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T02:30:25.447Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 76,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 38,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T02:31:01.212Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -36312,15 +36432,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-15T02:31:15.382Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T02:31:09.181Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-15T02:31:15.382Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -36577,15 +36697,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T02:46:28.359Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T02:46:27.853Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T02:46:28.359Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -36593,15 +36713,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-15T02:46:36.829Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T02:46:32.891Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-15T02:46:36.829Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -36857,16 +36977,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 74,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T04:12:27.502Z",
+          "count": 37,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T04:11:49.783Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 74,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 37,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T04:12:27.502Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -36874,15 +36994,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-15T04:12:35.851Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T04:12:32.210Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-15T04:12:35.851Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -37138,16 +37258,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 116,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T05:11:27.856Z",
+          "count": 58,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T05:10:56.494Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 116,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 58,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T05:11:27.856Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -37155,15 +37275,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-15T05:11:45.189Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T05:11:39.239Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-15T05:11:45.189Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -37426,16 +37546,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 40,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T04:05:34.861Z",
+          "count": 20,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T04:03:57.868Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 40,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 20,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T04:05:34.861Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -37443,15 +37563,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-15T04:05:42.824Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T04:05:39.475Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-15T04:05:42.824Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -37707,16 +37827,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 32,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T05:27:37.986Z",
+          "count": 16,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T05:27:23.989Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 32,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 16,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T05:27:37.986Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -37724,15 +37844,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-15T05:27:58.716Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T05:27:43.206Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-15T05:27:58.716Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -37988,16 +38108,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 84,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T06:21:22.563Z",
+          "count": 42,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T06:20:14.550Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 84,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 42,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T06:21:22.563Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -38005,15 +38125,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-15T06:21:35.706Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T06:21:31.397Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-15T06:21:35.706Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -38269,16 +38389,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 40,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T06:28:39.869Z",
+          "count": 20,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T06:28:23.455Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 40,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 20,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T06:28:39.869Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -38286,15 +38406,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-15T06:28:53.397Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-15T06:28:46.166Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-15T06:28:53.397Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -38551,15 +38671,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T07:18:59.563Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T07:18:59.073Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T07:18:59.563Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -38567,15 +38687,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:01:32.878Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:01:31.746Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:01:32.878Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -38832,15 +38952,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T07:22:27.083Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T07:22:26.662Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T07:22:27.083Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -38848,15 +38968,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:01:40.868Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:01:39.114Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:01:40.868Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -39112,16 +39232,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-15T08:37:48.140Z",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-15T08:37:46.433Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-15T08:37:48.140Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -39129,15 +39249,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:01:47.734Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:01:46.603Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:01:47.734Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -39393,16 +39513,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "error",
-          "count": 54,
-          "message": "행정규칙 본문 조회 실패: 2100000279802 - GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&type=JSON&ID=2100000279802 failed with curl-first mode: curl failed with code 35 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-16T03:54:26.637Z",
+          "count": 27,
+          "message": "행정규칙 본문 조회 실패: 2100000279802 - GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&type=JSON&ID=2100000279802 failed with curl-first mode: curl failed with code 35 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-16T03:52:18.031Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
-          "count": 54,
-          "message": "행정규칙 본문 조회 실패: 2100000279802 - GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&type=JSON&ID=2100000279802 failed with curl-first mode: curl failed with code 35 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "status": "ok",
+          "count": 27,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-16T03:54:26.637Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -39410,15 +39530,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:01:55.596Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:01:53.840Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:01:55.596Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -39681,16 +39801,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 56,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-16T05:18:30.241Z",
+          "count": 28,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-16T05:17:13.383Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 56,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 28,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-16T05:18:30.241Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -39698,15 +39818,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:02:02.490Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:02:01.358Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:02:02.490Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -39969,16 +40089,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 84,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-16T06:56:46.415Z",
+          "count": 42,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-16T06:54:36.010Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 84,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 42,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-16T06:56:46.415Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -39986,15 +40106,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:02:10.509Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:02:08.750Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:02:10.509Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -40271,16 +40391,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 120,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-16T07:47:31.729Z",
+          "count": 60,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-16T07:45:29.402Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 120,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 60,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-16T07:47:31.729Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -40288,15 +40408,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:02:17.415Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:02:16.280Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:02:17.415Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -40480,15 +40600,15 @@
           "source": "ALIO 공공기관 법령/지침",
           "status": "error",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:37:42.394Z",
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T00:37:00.888Z",
           "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
           "status": "error",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-17T00:37:42.394Z",
           "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
@@ -40522,6 +40642,14 @@
           "message": "산업통상부 게시판 HTML 범위 수집 완료",
           "at": "2026-06-08T05:25:41.605Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
+          "source": "ALIO",
+          "status": "error",
+          "count": 0,
+          "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-17T00:37:42.394Z",
+          "url": "https://www.alio.go.kr/etc/etcLawList.do"
         }
       ]
     },
@@ -40530,7 +40658,7 @@
       "status": "partial",
       "item_count": 13,
       "changed_count": 0,
-      "collected_at": "2026-06-17T01:28:42.230Z",
+      "collected_at": "2026-06-17T01:35:53.224Z",
       "source": "daily",
       "methods": [
         {
@@ -40551,33 +40679,33 @@
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "error",
+          "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T01:17:58.470Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-17T01:35:52.587Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "error",
-          "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T01:17:58.470Z",
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:02:25.544Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:02:23.789Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:02:25.544Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -40850,15 +40978,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:02:32.513Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:02:31.381Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:02:32.513Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -41131,15 +41259,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-02T07:02:40.477Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-02T07:02:38.717Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-02T07:02:40.477Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -41379,8 +41507,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 296,
-          "message": "법제처 lawService API로 개정문/제개정이유 148건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 438행을 법령 단위 148건으로 묶었습니다.",
+          "count": 148,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 438행을 법령 단위 148건으로 묶었습니다.",
           "at": "2026-06-02T18:36:07.053Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -41395,16 +41523,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 8,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-02T18:36:22.344Z",
+          "count": 4,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-02T18:36:15.293Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 8,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 4,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-02T18:36:22.344Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -41412,15 +41540,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-02T18:36:28.508Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-02T18:36:25.924Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-02T18:36:28.508Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -41632,6 +41760,14 @@
           "at": "2026-06-11T01:58:07.906Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 148,
+          "message": "법제처 lawService API로 개정문/제개정이유 148건을 보강했습니다.",
+          "at": "2026-06-02T18:36:07.053Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -41715,11 +41851,11 @@
         },
         {
           "source": "대한민국 전자관보",
-          "status": "error",
-          "count": 0,
-          "message": "사전 접속 확인 실패로 이 수집 경로를 건너뜁니다. https://www.gwanbo.go.kr: This operation was aborted, 8000ms",
-          "at": "2026-06-11T02:02:32.167Z",
-          "url": "https://www.gwanbo.go.kr"
+          "status": "missing",
+          "count": null,
+          "message": "이 날짜에는 해당 수집경로를 실행한 로그가 없습니다.",
+          "at": null,
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
           "source": "행정안전부 훈령·예규·고시",
@@ -41941,8 +42077,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 176,
-          "message": "법제처 lawService API로 개정문/제개정이유 88건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 162행을 법령 단위 88건으로 묶었습니다.",
+          "count": 88,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 162행을 법령 단위 88건으로 묶었습니다.",
           "at": "2026-06-04T17:41:25.233Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -41958,15 +42094,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-04T17:41:27.335Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-04T17:41:26.875Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
           "count": 0,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-04T17:41:27.335Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -41974,15 +42110,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-04T17:41:34.615Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-04T17:41:31.600Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-04T17:41:34.615Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -42194,6 +42330,14 @@
           "at": "2026-06-11T02:05:58.462Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 88,
+          "message": "법제처 lawService API로 개정문/제개정이유 88건을 보강했습니다.",
+          "at": "2026-06-04T17:41:25.233Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -42255,15 +42399,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-11T02:07:41.256Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-11T02:07:39.158Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-11T02:07:41.256Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -42520,15 +42664,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-11T02:10:40.899Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-11T02:10:38.452Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-11T02:10:40.899Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -42785,15 +42929,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-11T02:13:24.098Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-11T02:13:20.750Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-11T02:13:24.098Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -43017,8 +43161,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 12,
-          "message": "법제처 lawService API로 개정문/제개정이유 6건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 10행을 법령 단위 6건으로 묶었습니다.",
+          "count": 6,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 10행을 법령 단위 6건으로 묶었습니다.",
           "at": "2026-06-08T17:43:02.340Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -43033,16 +43177,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 14,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-08T17:43:13.054Z",
+          "count": 7,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-08T17:43:09.029Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 14,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 7,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-08T17:43:13.054Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -43050,15 +43194,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
-          "at": "2026-06-08T17:43:15.769Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-06-08T17:43:14.888Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료.\n국민참여입법센터 공개 XML API 수집 완료.",
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
           "at": "2026-06-08T17:43:15.769Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -43270,6 +43414,14 @@
           "at": "2026-06-11T02:16:02.194Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 6,
+          "message": "법제처 lawService API로 개정문/제개정이유 6건을 보강했습니다.",
+          "at": "2026-06-08T17:43:02.340Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -43298,8 +43450,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 158,
-          "message": "법제처 lawService API로 개정문/제개정이유 79건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 166행을 법령 단위 79건으로 묶었습니다.",
+          "count": 79,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 166행을 법령 단위 79건으로 묶었습니다.",
           "at": "2026-06-09T17:19:54.851Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -43314,16 +43466,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 10,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-09T17:20:06.651Z",
+          "count": 5,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-09T17:20:02.305Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 10,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 5,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-09T17:20:06.651Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -43331,15 +43483,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-09T17:20:11.674Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-09T17:20:09.212Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-09T17:20:11.674Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -43551,6 +43703,14 @@
           "at": "2026-06-11T02:17:37.697Z"
         },
         {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 79,
+          "message": "법제처 lawService API로 개정문/제개정이유 79건을 보강했습니다.",
+          "at": "2026-06-09T17:19:54.851Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
           "source": "산업통상부 구.정통부고시",
           "status": "ok",
           "count": 0,
@@ -43596,15 +43756,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed",
-          "at": "2026-06-12T01:50:29.306Z",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed",
+          "at": "2026-06-12T01:50:18.813Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260610&sort=ddes failed after 1 attempt(s): fetch failed",
           "at": "2026-06-12T01:50:29.306Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -43612,15 +43772,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-11T02:19:29.297Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-11T02:19:26.470Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-11T02:19:29.297Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -43860,8 +44020,8 @@
         {
           "source": "국가법령정보센터 법령 변경이력",
           "status": "ok",
-          "count": 32,
-          "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 23행을 법령 단위 16건으로 묶었습니다.",
+          "count": 16,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 23행을 법령 단위 16건으로 묶었습니다.",
           "at": "2026-06-12T00:16:31.234Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -43876,16 +44036,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 10,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-12T00:16:47.800Z",
+          "count": 5,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-12T00:16:36.635Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 10,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 5,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-12T00:16:47.800Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -43893,15 +44053,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-11T18:16:08.967Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-11T18:16:05.999Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-11T18:16:08.967Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -44111,6 +44271,14 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-11T18:17:39.745Z"
+        },
+        {
+          "source": "국가법령정보센터 법령 변경이력 본문 보강",
+          "status": "ok",
+          "count": 16,
+          "message": "법제처 lawService API로 개정문/제개정이유 16건을 보강했습니다.",
+          "at": "2026-06-12T00:16:31.234Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         }
       ]
     },
@@ -44406,16 +44574,16 @@
         {
           "source": "국가법령정보센터 행정규칙",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-13T16:15:48.976Z",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-13T16:15:47.689Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "ok",
-          "count": 2,
-          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료\n법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "count": 1,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
           "at": "2026-06-13T16:15:48.976Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -44423,15 +44591,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
-          "at": "2026-06-13T16:15:57.071Z",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-06-13T16:15:53.661Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "ok",
           "count": 0,
-          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음\n국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
           "at": "2026-06-13T16:15:57.071Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -44953,15 +45121,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260615&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260615&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T20:08:14.055Z",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260615&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-15T20:07:04.300Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260615&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260615&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260615&sort=ddes failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:08:14.055Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -44969,15 +45137,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T20:15:12.587Z",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-15T20:11:43.320Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.15.&edYdFmt=2026.6.15. failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:15:12.587Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -45161,15 +45329,15 @@
           "source": "ALIO 공공기관 법령/지침",
           "status": "error",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-15T20:47:45.694Z",
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-15T20:46:35.941Z",
           "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
           "status": "error",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:47:45.694Z",
           "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
@@ -45203,6 +45371,14 @@
           "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-15T20:41:56.926Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
+          "source": "ALIO",
+          "status": "error",
+          "count": 0,
+          "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-15T20:47:45.694Z",
+          "url": "https://www.alio.go.kr/etc/etcLawList.do"
         }
       ]
     },
@@ -45234,15 +45410,15 @@
           "source": "국가법령정보센터 행정규칙",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260616&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260616&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-16T19:23:01.187Z",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260616&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-16T19:22:30.174Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
           "status": "error",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260616&sort=ddes failed with curl-first mode: curl failed with code 28 (null)\nGET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260616&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260616&sort=ddes failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-16T19:23:01.187Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -45250,15 +45426,15 @@
           "source": "국민참여입법센터 입법예고",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-16T19:26:07.269Z",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-16T19:24:34.228Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 입법예고(수정일 기준)",
           "status": "error",
           "count": 0,
-          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null)\n국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null)",
+          "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 행정안전부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1741000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null); 기획재정부: GET https://www.lawmaking.go.kr/rest/ogLmPpMod.xml?OC=busisi79&cptOfiOrgCd=1051000&stYdFmt=2026.6.16.&edYdFmt=2026.6.16. failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-16T19:26:07.269Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
@@ -45442,15 +45618,15 @@
           "source": "ALIO 공공기관 법령/지침",
           "status": "error",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-16T19:40:56.630Z",
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-16T19:40:15.125Z",
           "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
           "status": "error",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)\nALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
           "at": "2026-06-16T19:40:56.630Z",
           "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
@@ -45484,6 +45660,14 @@
           "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL32ba1ce4a failed with curl-first mode: curl failed with code 28 (null)",
           "at": "2026-06-16T19:38:00.550Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
+          "source": "ALIO",
+          "status": "error",
+          "count": 0,
+          "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: GET https://www.alio.go.kr/etc/findEtcPdsList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+          "at": "2026-06-16T19:40:56.630Z",
+          "url": "https://www.alio.go.kr/etc/etcLawList.do"
         }
       ]
     },
