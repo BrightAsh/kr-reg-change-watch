@@ -1,6 +1,6 @@
 {
   "date": "2026-06-14",
-  "collected_at": "2026-06-17T03:04:15.768Z",
+  "collected_at": "2026-06-17T03:10:56.793Z",
   "item_count": 1,
   "changed_count": 0,
   "cache_hit": false,
@@ -355,9 +355,9 @@
     {
       "source": "산업통상부 훈령",
       "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL825d20c7e failed with curl-first mode: curl failed with code 52 (null)",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL825d20c7e failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
       "count": 0,
-      "at": "2026-06-17T03:04:14.964Z",
+      "at": "2026-06-17T03:10:55.989Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
       "group": "motir",
       "route": "산업통상부 훈령"
@@ -367,7 +367,7 @@
       "status": "error",
       "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T03:04:14.964Z",
+      "at": "2026-06-17T03:10:55.989Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
       "group": "motir",
       "route": "산업통상부 예규"
@@ -377,10 +377,17 @@
       "status": "error",
       "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T03:04:14.964Z",
+      "at": "2026-06-17T03:10:55.989Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
       "group": "motir",
       "route": "산업통상부 지침"
+    },
+    {
+      "source": "수집 상태 점검",
+      "status": "error",
+      "message": "Critical source connectivity failure for 2026-06-14: motir-board",
+      "count": 0,
+      "at": "2026-06-17T03:10:55.989Z"
     }
   ]
 }
