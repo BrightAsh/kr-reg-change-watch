@@ -262,6 +262,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase --autostash origin main
+          npm run status:update
+          if grep -R -n -E '^(<<<<<<<|=======|>>>>>>>)' data; then
+            echo "::error::Conflict markers found in generated data files."
+            exit 1
+          fi
           git add data
           if git diff --cached --quiet; then
             echo "No collected data changes to commit."
