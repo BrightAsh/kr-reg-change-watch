@@ -38,6 +38,11 @@ on:
         required: false
         type: boolean
         default: true
+      deploy_only:
+        description: "수집/상태 갱신 없이 현재 data로 웹사이트만 빌드/배포합니다."
+        required: false
+        type: boolean
+        default: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -101,6 +106,7 @@ jobs:
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
       RETRY_FAILED_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '0 23 * * *' && '1' || '0' }}
       DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
+      DEPLOY_ONLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_only == 'true' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -117,7 +123,7 @@ jobs:
 
       - name: Preflight source connectivity
         id: preflight
-        if: github.event_name != 'push'
+        if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' }}
         shell: bash
         run: |
           set +e
@@ -175,7 +181,7 @@ jobs:
 
       - name: Collect official changes
         id: collect
-        if: github.event_name != 'push'
+        if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' }}
         continue-on-error: true
         run: |
           if [ -n "$COLLECT_SOURCES" ]; then
@@ -253,11 +259,11 @@ jobs:
           exit 1
 
       - name: Update collection status
-        if: ${{ always() && github.event_name != 'push' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.preflight.outcome == 'success' }}
         run: npm run status:update
 
       - name: Commit collected data
-        if: ${{ always() && github.event_name != 'push' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.preflight.outcome == 'success' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -278,7 +284,7 @@ jobs:
 
       - name: Verify target date completeness
         id: verify
-        if: ${{ always() && github.event_name != 'push' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.preflight.outcome == 'success' }}
         run: |
           if [ -n "$TARGET_DATE" ]; then
             npm run status:verify -- --date "$TARGET_DATE"
@@ -312,5 +318,5 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Fail if collection failed
-        if: ${{ always() && github.event_name != 'push' && (steps.collect.outcome == 'failure' || steps.verify.outcome == 'failure') }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && (steps.collect.outcome == 'failure' || steps.verify.outcome == 'failure') }}
         run: exit 1
