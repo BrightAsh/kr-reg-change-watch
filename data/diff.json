@@ -1,7 +1,64 @@
 {
-  "today": "2026-03-13",
-  "yesterday": "2026-03-12",
-  "added": [],
+  "today": "2026-03-14",
+  "yesterday": "2026-03-13",
+  "added": [
+    {
+      "id": "70d5eb6f996a1153",
+      "summary": "2026-03-14 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 006079 단위로 묶었습니다. 기간 2026-03-13~2026-03-13, 최신 이력은 2026-03-13 일부개정 제00491호입니다. 최근 이력: 2026-03-13 일부개정 제00491호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-03-14",
+      "collected_at": "2026-06-18T06:38:28.462Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "헌법재판소",
+      "document_type": "ordinance",
+      "title": "헌법재판소공무원 수당 등에 관한 규칙 변경이력 갱신 1건",
+      "issue_number": "00491",
+      "publish_date": "2026-03-13",
+      "effective_date": "2026-03-13",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=284561&type=HTML&mobileYn=&efYd=20260313",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-03-14\n법령ID: 006079\n연혁 행 수: 1\n\n최근 연혁\n공포 2026-03-13 / 시행 2026-03-13 / 일부개정 / 제00491호 / 헌법재판소공무원 수당 등에 관한 규칙\n\n전체 연혁\n공포 2026-03-13 / 시행 2026-03-13 / 일부개정 / 제00491호 / 헌법재판소공무원 수당 등에 관한 규칙\n\n개정문\n⊙헌법재판소규칙 제491호\n헌법재판소 재판관회의에서 의결된 헌법재판소공무원 수당 등에 관한 규칙을 이에 공포한다.\n2026년 3월 13일\n헌법재판소장 김상환 (인)\n헌법재판소공무원 수당 등에 관한 규칙\n헌법재판소공무원 수당 등에 관한 규칙 일부를 다음과 같이 개정한다.\n별표2 중 3. 민원업무수당의 지급액란을 다음과 같이 한다.\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=162349137\n부칙\n이 규칙은 공포한 날부터 시행하되, 2026년 1월 1일 이후 지급하는 수당부터 적용한다.\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n공무원수당 등에 관한 규정(대통령령 제36015호, 2026. 1. 2. 일부개정, 2026. 1. 2. 시행)과의 형평을 기하기 위하여 민원업무수당 지급액을 인상 반영하려는 것임.",
+      "raw_hash": "95ae3e31073aa758ef6cf358568439e3e57755148dedc64e9486ba5b26f19b85",
+      "confidence": "official",
+      "source_record_id": "006079",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [
+        "https://www.law.go.kr/flDownload.do?flSeq=162349137"
+      ],
+      "public_system_matches": []
+    },
+    {
+      "id": "9fff2ccd7127ac66",
+      "summary": "2026-03-14 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 006098 단위로 묶었습니다. 기간 2026-03-13~2026-03-13, 최신 이력은 2026-03-13 일부개정 제00490호입니다. 최근 이력: 2026-03-13 일부개정 제00490호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-03-14",
+      "collected_at": "2026-06-18T06:38:28.462Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "헌법재판소",
+      "document_type": "ordinance",
+      "title": "헌법재판소장 등의 보수에 관한 규칙 변경이력 갱신 1건",
+      "issue_number": "00490",
+      "publish_date": "2026-03-13",
+      "effective_date": "2026-03-13",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=284563&type=HTML&mobileYn=&efYd=20260313",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-03-14\n법령ID: 006098\n연혁 행 수: 1\n\n최근 연혁\n공포 2026-03-13 / 시행 2026-03-13 / 일부개정 / 제00490호 / 헌법재판소장 등의 보수에 관한 규칙\n\n전체 연혁\n공포 2026-03-13 / 시행 2026-03-13 / 일부개정 / 제00490호 / 헌법재판소장 등의 보수에 관한 규칙\n\n개정문\n⊙헌법재판소규칙 제490호\n헌법재판소 재판관회의에서 의결된 헌법재판소장 등의 보수에 관한 규칙을 이에 공포한다.\n2026년 3월 13일\n헌법재판소장 김상환 (인)\n헌법재판소장 등의 보수에 관한 규칙\n헌법재판소장 등의 보수에 관한 규칙 일부를 다음과 같이 개정한다.\n별표 1을 다음과 같이 한다.\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=162348237\n［별표 1］헌법재판소장 및 헌법재판소재판관 봉급표(제2조 관련)\n(월지급액, 단위: 원)\n부칙\n이 규칙은 공포한 날부터 시행하되, 2026년 1월 1일 이후 지급하는 보수부터 적용한다.\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n공무원보수규정(대통령령 제36013호, 2026. 1. 2. 일부개정, 2026. 1. 2. 시행) 및 법관의 보수에 관한 규칙(대법원규칙 제3249호, 2026. 3. 3. 일부개정, 2026. 3. 3. 시행)과의 형평을 기하기 위하여 헌법재판소장과 헌법재판소재판관의 봉급을 인상ㆍ조정하려는 것임.",
+      "raw_hash": "8a87e1317dbc7a4c70753657f0ab38ccf9ff0dc9c9a48c40379030d4ca0578f6",
+      "confidence": "official",
+      "source_record_id": "006098",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [
+        "https://www.law.go.kr/flDownload.do?flSeq=162348237"
+      ],
+      "public_system_matches": []
+    }
+  ],
   "changed": [],
   "removed": []
 }
