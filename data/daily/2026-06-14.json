@@ -381,6 +381,13 @@
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
       "group": "motir",
       "route": "산업통상부 지침"
+    },
+    {
+      "source": "일자별 캐시",
+      "status": "ok",
+      "message": "2026-06-14 캐시가 있어 외부 수집을 건너뜁니다.",
+      "count": 1,
+      "at": "2026-06-18T02:36:10.681Z"
     }
   ]
 }
