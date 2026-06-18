@@ -1,8 +1,8 @@
 {
   "date": "2026-06-17",
-  "collected_at": "2026-06-17T18:02:18.595Z",
+  "collected_at": "2026-06-18T00:16:21.484Z",
   "item_count": 57,
-  "changed_count": 51,
+  "changed_count": 0,
   "cache_hit": false,
   "items": [
     {
@@ -1880,36 +1880,6 @@
       "route": "네이버 뉴스 검색 API"
     },
     {
-      "source": "국가법령정보센터 법령 변경이력 본문 보강",
-      "status": "ok",
-      "message": "법제처 lawService API로 개정문/제개정이유 30건을 보강했습니다.",
-      "count": 30,
-      "at": "2026-06-17T18:01:30.851Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
-      "source": "국가법령정보센터 법령 변경이력 본문 보강",
-      "status": "skipped",
-      "message": "본문 보강 시간 예산 120초를 초과해 12건은 원문 링크 기준으로 저장했습니다.",
-      "count": 12,
-      "at": "2026-06-17T18:01:30.851Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
-      "source": "국가법령정보센터 법령 변경이력",
-      "status": "ok",
-      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 303행을 법령 단위 42건으로 묶었습니다.",
-      "count": 42,
-      "at": "2026-06-17T18:01:30.851Z",
-      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
-      "group": "official-law",
-      "route": "국가법령정보센터 법령 변경이력"
-    },
-    {
       "source": "국가법령정보센터 행정규칙",
       "status": "ok",
       "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
@@ -1940,11 +1910,20 @@
       "route": "산업통상부 고시"
     },
     {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "error",
+      "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260617 failed with curl-first mode: curl failed with code 28 (null)",
+      "count": 0,
+      "at": "2026-06-18T00:15:49.618Z",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
       "source": "산업통상부 공고",
       "status": "error",
-      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b failed with curl-first mode: curl failed with code 52 (null)",
+      "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b failed with curl-first mode: curl failed with code 28 (null)",
       "count": 0,
-      "at": "2026-06-17T18:02:17.753Z",
+      "at": "2026-06-18T00:16:20.632Z",
       "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
       "group": "motir",
       "route": "산업통상부 공고"
@@ -1954,7 +1933,7 @@
       "status": "error",
       "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T18:02:17.753Z",
+      "at": "2026-06-18T00:16:20.632Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
       "group": "motir",
       "route": "산업통상부 구.정통부고시"
@@ -1964,7 +1943,7 @@
       "status": "error",
       "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T18:02:17.753Z",
+      "at": "2026-06-18T00:16:20.632Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
       "group": "motir",
       "route": "산업통상부 구.재경부고시"
@@ -1974,7 +1953,7 @@
       "status": "error",
       "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T18:02:17.753Z",
+      "at": "2026-06-18T00:16:20.632Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
       "group": "motir",
       "route": "산업통상부 훈령"
@@ -1984,7 +1963,7 @@
       "status": "error",
       "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T18:02:17.753Z",
+      "at": "2026-06-18T00:16:20.632Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
       "group": "motir",
       "route": "산업통상부 예규"
@@ -1994,7 +1973,7 @@
       "status": "error",
       "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-06-17T18:02:17.753Z",
+      "at": "2026-06-18T00:16:20.633Z",
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
       "group": "motir",
       "route": "산업통상부 지침"

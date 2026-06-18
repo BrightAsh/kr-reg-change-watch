@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "generated_at": "2026-06-18T00:10:09.269Z",
+=======
+  "generated_at": "2026-06-18T00:16:25.330Z",
+>>>>>>> Stashed changes
   "start_date": "2026-01-01",
   "end_date": "2026-06-18",
   "summary": {
@@ -47171,16 +47175,16 @@
       "date": "2026-06-17",
       "status": "partial",
       "item_count": 57,
-      "changed_count": 51,
-      "collected_at": "2026-06-17T18:02:18.595Z",
+      "changed_count": 0,
+      "collected_at": "2026-06-18T00:16:21.484Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
-          "count": 42,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 303행을 법령 단위 42건으로 묶었습니다.",
-          "at": "2026-06-17T18:01:30.851Z",
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260617 failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-18T00:15:49.618Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -47371,8 +47375,8 @@
           "source": "산업통상부 공고",
           "status": "external_error",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b failed with curl-first mode: curl failed with code 52 (null)",
-          "at": "2026-06-17T18:02:17.753Z",
+          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b failed with curl-first mode: curl failed with code 28 (null)",
+          "at": "2026-06-18T00:16:20.632Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
@@ -47380,7 +47384,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T18:02:17.753Z",
+          "at": "2026-06-18T00:16:20.632Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
         },
         {
@@ -47388,7 +47392,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T18:02:17.753Z",
+          "at": "2026-06-18T00:16:20.632Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
@@ -47396,7 +47400,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T18:02:17.753Z",
+          "at": "2026-06-18T00:16:20.632Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
@@ -47404,7 +47408,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T18:02:17.753Z",
+          "at": "2026-06-18T00:16:20.632Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
@@ -47412,7 +47416,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T18:02:17.753Z",
+          "at": "2026-06-18T00:16:20.633Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
