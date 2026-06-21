@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:26:15.759Z",
+  "generated_at": "2026-06-21T00:06:48.654Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-21",
   "summary": {
@@ -48015,7 +48015,7 @@
       "status": "partial",
       "item_count": 0,
       "changed_count": 0,
-      "collected_at": "2026-06-20T16:26:10.961Z",
+      "collected_at": "2026-06-21T00:06:43.539Z",
       "source": "daily",
       "methods": [
         {
@@ -48023,7 +48023,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260620 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-20T16:21:59.705Z",
+          "at": "2026-06-21T00:02:34.810Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -48031,7 +48031,7 @@
           "status": "external_error",
           "count": 0,
           "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-20T16:21:59.705Z",
+          "at": "2026-06-21T00:02:34.811Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -48039,7 +48039,7 @@
           "status": "external_error",
           "count": 0,
           "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-20T16:21:59.705Z",
+          "at": "2026-06-21T00:02:34.811Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -48047,7 +48047,7 @@
           "status": "external_error",
           "count": 0,
           "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-20T16:21:59.705Z",
+          "at": "2026-06-21T00:02:34.811Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -48055,7 +48055,7 @@
           "status": "external_error",
           "count": 0,
           "message": "국민참여입법센터 API 일부 실패: 법제처: GET https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=busisi79&cptOfiOrgCd=1170000&stYdFmt=2026.6.20.&edYdFmt=2026.6.20. failed with curl-first mode: curl failed with code 28 (null); 초기 1개 대상기관 네트워크 실패로 ogLmPp 나머지 대상기관 수집을 중단했습니다.",
-          "at": "2026-06-20T16:22:30.717Z",
+          "at": "2026-06-21T00:03:05.822Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
@@ -48063,7 +48063,7 @@
           "status": "external_error",
           "count": 0,
           "message": "lawmaking.go.kr network timeout/fetch failed already confirmed; skipping remaining lawmaking routes.",
-          "at": "2026-06-20T16:22:30.717Z",
+          "at": "2026-06-21T00:03:05.822Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
@@ -48071,7 +48071,7 @@
           "status": "external_error",
           "count": 0,
           "message": "lawmaking.go.kr network timeout/fetch failed already confirmed; skipping remaining lawmaking routes.",
-          "at": "2026-06-20T16:22:30.717Z",
+          "at": "2026-06-21T00:03:05.822Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
@@ -48079,7 +48079,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260620&reqTo=20260620&fromDate=20260620&toDate=20260620&type=1 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-20T16:23:01.729Z",
+          "at": "2026-06-21T00:03:36.832Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
@@ -48087,7 +48087,7 @@
           "status": "external_error",
           "count": 0,
           "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-20T16:23:32.740Z",
+          "at": "2026-06-21T00:04:07.841Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
@@ -48095,7 +48095,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mois.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:23:32.740Z",
+          "at": "2026-06-21T00:04:07.841Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
         },
         {
@@ -48103,7 +48103,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mois.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:23:32.740Z",
+          "at": "2026-06-21T00:04:07.841Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
@@ -48111,7 +48111,7 @@
           "status": "external_error",
           "count": 0,
           "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.850Z",
           "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
         },
         {
@@ -48119,7 +48119,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.850Z",
           "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
         },
         {
@@ -48127,7 +48127,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.850Z",
           "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
         },
         {
@@ -48135,7 +48135,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.850Z",
           "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
         },
         {
@@ -48143,7 +48143,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.850Z",
           "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
         },
         {
@@ -48151,7 +48151,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.850Z",
           "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
         },
         {
@@ -48159,7 +48159,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.850Z",
           "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
         },
         {
@@ -48167,7 +48167,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.851Z",
           "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
         },
         {
@@ -48175,7 +48175,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.851Z",
           "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
         },
         {
@@ -48183,7 +48183,7 @@
           "status": "external_error",
           "count": 0,
           "message": "mofe.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:03.752Z",
+          "at": "2026-06-21T00:04:38.851Z",
           "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
         },
         {
@@ -48191,7 +48191,7 @@
           "status": "external_error",
           "count": 0,
           "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.863Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
@@ -48199,7 +48199,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.863Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
@@ -48207,7 +48207,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.863Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
@@ -48215,7 +48215,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.863Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
@@ -48223,7 +48223,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.863Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
         },
         {
@@ -48231,7 +48231,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.863Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
@@ -48239,7 +48239,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.863Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
@@ -48247,7 +48247,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.863Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
@@ -48255,7 +48255,7 @@
           "status": "external_error",
           "count": 0,
           "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-20T16:24:34.763Z",
+          "at": "2026-06-21T00:05:09.864Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
@@ -48263,7 +48263,7 @@
           "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-20T16:25:16.295Z",
+          "at": "2026-06-21T00:05:51.434Z",
           "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
@@ -48271,7 +48271,7 @@
           "status": "external_error",
           "count": 0,
           "message": "ALIO 수집 실패: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
-          "at": "2026-06-20T16:25:16.295Z",
+          "at": "2026-06-21T00:05:51.434Z",
           "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
         {
@@ -48279,7 +48279,7 @@
           "status": "external_error",
           "count": 0,
           "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed with curl-first mode: curl failed with code 28 (null)\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
-          "at": "2026-06-20T16:26:07.329Z",
+          "at": "2026-06-21T00:06:42.469Z",
           "url": "https://www.korea.kr/rss/pressrelease.xml"
         },
         {
