@@ -110,6 +110,8 @@ jobs:
       BOARD_PAGE_FETCH_ATTEMPTS: 3
       BOARD_FETCH_CURL_ONLY: 0
       BOARD_FETCH_CURL_FALLBACK: 1
+      PREFLIGHT_ATTEMPTS: 3
+      PREFLIGHT_RETRY_DELAY_SECONDS: 120
       COLLECT_ATTEMPTS: 2
       COLLECT_RETRY_DELAY_SECONDS: 120
       STOP_ON_CRITICAL_CONNECTIVITY: 1
@@ -169,6 +171,14 @@ jobs:
           LAW_OC_VALUE="${LAW_OPEN_API_OC:-${LAW_OC:-${KOREAN_LAW_API_KEY:-}}}"
           LAWMAKING_OC_VALUE="${LAWMAKING_OC:-}"
           FAIL_COUNT=0
+          PREFLIGHT_ATTEMPTS="${PREFLIGHT_ATTEMPTS:-3}"
+          PREFLIGHT_RETRY_DELAY_SECONDS="${PREFLIGHT_RETRY_DELAY_SECONDS:-120}"
+          if ! [[ "$PREFLIGHT_ATTEMPTS" =~ ^[0-9]+$ ]] || [ "$PREFLIGHT_ATTEMPTS" -lt 1 ]; then
+            PREFLIGHT_ATTEMPTS=1
+          fi
+          if ! [[ "$PREFLIGHT_RETRY_DELAY_SECONDS" =~ ^[0-9]+$ ]]; then
+            PREFLIGHT_RETRY_DELAY_SECONDS=120
+          fi
 
           probe_url() {
             local label="$1"
@@ -216,55 +226,83 @@ jobs:
               probe_url "$1" "$2"
             }
 
-            echo "Checking selected source connectivity for: $COLLECT_SOURCES"
-            if selected_any law official official-law; then
-              probe_selected_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=lsHstInf&type=JSON&display=100&page=1&regDt=${YMD}"
-            fi
-            if selected_any lawmaking legislation legislation-notice; then
-              probe_selected_url "lawmaking.go.kr" "https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=${LAWMAKING_OC_VALUE}&cptOfiOrgCd=1170000&stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}"
-            fi
-            if selected_any ministry ministry-board mois; then
-              probe_selected_url "mois.go.kr" "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
-            fi
-            if selected_any ministry ministry-board moef mofe; then
-              probe_selected_url "mofe.go.kr" "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
-            fi
-            if selected_any motir industry industry-board; then
-              probe_selected_url "motir.go.kr" "https://www.motir.go.kr/kor/article/ATCL516d59376"
-            fi
-            if selected_any alio; then
-              probe_selected_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
-            fi
-            if selected_any rss policy policy-rss; then
-              probe_selected_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
-            fi
-            if selected_any gazette gwanbo && [ -n "$GWANBO_LIST_URL" ]; then
-              probe_selected_url "gwanbo.go.kr" "$GWANBO_LIST_URL"
-            fi
+            run_selected_preflight_round() {
+              FAIL_COUNT=0
+              SELECTED_PROBE_COUNT=0
+              echo "Checking selected source connectivity for: $COLLECT_SOURCES"
+              if selected_any law official official-law; then
+                probe_selected_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=lsHstInf&type=JSON&display=100&page=1&regDt=${YMD}"
+              fi
+              if selected_any lawmaking legislation legislation-notice; then
+                probe_selected_url "lawmaking.go.kr" "https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=${LAWMAKING_OC_VALUE}&cptOfiOrgCd=1170000&stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}"
+              fi
+              if selected_any ministry ministry-board mois; then
+                probe_selected_url "mois.go.kr" "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+              fi
+              if selected_any ministry ministry-board moef mofe; then
+                probe_selected_url "mofe.go.kr" "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
+              fi
+              if selected_any motir industry industry-board; then
+                probe_selected_url "motir.go.kr" "https://www.motir.go.kr/kor/article/ATCL516d59376"
+              fi
+              if selected_any alio; then
+                probe_selected_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
+              fi
+              if selected_any rss policy policy-rss; then
+                probe_selected_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
+              fi
+              if selected_any gazette gwanbo && [ -n "$GWANBO_LIST_URL" ]; then
+                probe_selected_url "gwanbo.go.kr" "$GWANBO_LIST_URL"
+              fi
+            }
 
-            if [ "$SELECTED_PROBE_COUNT" -eq 0 ]; then
-              echo "No selected source preflight probe matched; continuing collection."
-              exit 0
-            fi
-            if [ "$FAIL_COUNT" -ge 1 ]; then
-              echo "::error::Selected source preflight failed for ${FAIL_COUNT}/${SELECTED_PROBE_COUNT} representative URL(s). Aborting before long route-level timeouts."
-              exit 1
-            fi
-            echo "Selected source preflight passed for ${SELECTED_PROBE_COUNT} URL(s)."
-            exit 0
-          fi
-
-          probe_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=lsHstInf&type=JSON&display=100&page=1&regDt=${YMD}"
-          probe_url "lawmaking.go.kr" "https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=${LAWMAKING_OC_VALUE}&cptOfiOrgCd=1170000&stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}"
-          probe_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
-          probe_url "motir.go.kr" "https://www.motir.go.kr/kor/article/ATCLc01b2a9d8"
-          probe_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
-
-          if [ "$FAIL_COUNT" -ge 3 ]; then
-            echo "::error::Preflight failed for ${FAIL_COUNT} representative source hosts. This runner cannot reach core public sources; aborting before writing partial collection data."
+            PREFLIGHT_ROUND=1
+            while [ "$PREFLIGHT_ROUND" -le "$PREFLIGHT_ATTEMPTS" ]; do
+              echo "Selected source preflight attempt ${PREFLIGHT_ROUND}/${PREFLIGHT_ATTEMPTS}"
+              run_selected_preflight_round
+              if [ "$SELECTED_PROBE_COUNT" -eq 0 ]; then
+                echo "No selected source preflight probe matched; continuing collection."
+                exit 0
+              fi
+              if [ "$FAIL_COUNT" -eq 0 ]; then
+                echo "Selected source preflight passed for ${SELECTED_PROBE_COUNT} URL(s)."
+                exit 0
+              fi
+              if [ "$PREFLIGHT_ROUND" -lt "$PREFLIGHT_ATTEMPTS" ]; then
+                echo "::warning::Selected source preflight failed for ${FAIL_COUNT}/${SELECTED_PROBE_COUNT} representative URL(s); retrying in ${PREFLIGHT_RETRY_DELAY_SECONDS}s."
+                sleep "$PREFLIGHT_RETRY_DELAY_SECONDS"
+              fi
+              PREFLIGHT_ROUND=$((PREFLIGHT_ROUND + 1))
+            done
+            echo "::error::Selected source preflight failed for ${FAIL_COUNT}/${SELECTED_PROBE_COUNT} representative URL(s) after ${PREFLIGHT_ATTEMPTS} attempt(s). Aborting before long route-level timeouts."
             exit 1
           fi
-          echo "Preflight passed with ${FAIL_COUNT} failure(s)."
+
+          run_full_preflight_round() {
+            FAIL_COUNT=0
+            probe_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=lsHstInf&type=JSON&display=100&page=1&regDt=${YMD}"
+            probe_url "lawmaking.go.kr" "https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=${LAWMAKING_OC_VALUE}&cptOfiOrgCd=1170000&stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}"
+            probe_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
+            probe_url "motir.go.kr" "https://www.motir.go.kr/kor/article/ATCLc01b2a9d8"
+            probe_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
+          }
+
+          PREFLIGHT_ROUND=1
+          while [ "$PREFLIGHT_ROUND" -le "$PREFLIGHT_ATTEMPTS" ]; do
+            echo "Preflight attempt ${PREFLIGHT_ROUND}/${PREFLIGHT_ATTEMPTS}"
+            run_full_preflight_round
+            if [ "$FAIL_COUNT" -lt 3 ]; then
+              echo "Preflight passed with ${FAIL_COUNT} failure(s)."
+              exit 0
+            fi
+            if [ "$PREFLIGHT_ROUND" -lt "$PREFLIGHT_ATTEMPTS" ]; then
+              echo "::warning::Preflight failed for ${FAIL_COUNT} representative source hosts; retrying in ${PREFLIGHT_RETRY_DELAY_SECONDS}s."
+              sleep "$PREFLIGHT_RETRY_DELAY_SECONDS"
+            fi
+            PREFLIGHT_ROUND=$((PREFLIGHT_ROUND + 1))
+          done
+          echo "::error::Preflight failed for ${FAIL_COUNT} representative source hosts after ${PREFLIGHT_ATTEMPTS} attempt(s). This runner cannot reach core public sources; aborting before writing partial collection data."
+          exit 1
 
       - name: Collect official changes
         id: collect
