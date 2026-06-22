@@ -1115,6 +1115,13 @@
       "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
       "group": "motir",
       "route": "산업통상부 지침"
+    },
+    {
+      "source": "수집 재시도",
+      "status": "ok",
+      "message": "선택된 수집 경로가 이미 모두 성공 상태라 재수집하지 않았습니다.",
+      "count": 27,
+      "at": "2026-06-22T04:36:04.873Z"
     }
   ]
 }
