@@ -64,7 +64,7 @@ jobs:
       pages: write
       id-token: write
     environment:
-      name: github-pages
+      name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && 'collection-test' || 'github-pages' }}
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
