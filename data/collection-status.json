@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-22T04:38:56.621Z",
+  "generated_at": "2026-06-22T05:18:14.157Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-22",
   "summary": {
-    "complete": 55,
-    "partial": 63,
+    "complete": 54,
+    "partial": 64,
     "failed": 0,
     "not_started": 55
   },
@@ -16773,9 +16773,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 36,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+          "message": "본문 보강 시간 예산 120초를 초과해 12건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-18T04:22:24.408Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -17616,9 +17616,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 123,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 150행을 법령 단위 123건으로 묶었습니다.",
+          "message": "본문 보강 시간 예산 120초를 초과해 93건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 150행을 법령 단위 123건으로 묶었습니다.",
           "at": "2026-06-18T04:57:42.397Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -17897,9 +17897,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 65,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 102행을 법령 단위 65건으로 묶었습니다.",
+          "message": "본문 보강 시간 예산 120초를 초과해 27건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 102행을 법령 단위 65건으로 묶었습니다.",
           "at": "2026-06-18T05:17:19.109Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -19583,9 +19583,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 48,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 50행을 법령 단위 48건으로 묶었습니다.",
+          "message": "본문 보강 시간 예산 120초를 초과해 12건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 50행을 법령 단위 48건으로 묶었습니다.",
           "at": "2026-06-18T06:15:49.573Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -21831,9 +21831,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 44,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 52행을 법령 단위 44건으로 묶었습니다.",
+          "message": "본문 보강 시간 예산 120초를 초과해 17건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 52행을 법령 단위 44건으로 묶었습니다.",
           "at": "2026-06-18T07:35:42.429Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -22112,9 +22112,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 44,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 65행을 법령 단위 44건으로 묶었습니다.",
+          "message": "본문 보강 시간 예산 120초를 초과해 30건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 65행을 법령 단위 44건으로 묶었습니다.",
           "at": "2026-06-18T07:56:42.336Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -23798,9 +23798,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 109,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 111행을 법령 단위 109건으로 묶었습니다.",
+          "message": "본문 보강 시간 예산 120초를 초과해 78건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 111행을 법령 단위 109건으로 묶었습니다.",
           "at": "2026-06-18T08:51:15.947Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -25203,9 +25203,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 144,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 192행을 법령 단위 144건으로 묶었습니다.",
+          "message": "본문 보강 시간 예산 120초를 초과해 124건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 192행을 법령 단위 144건으로 묶었습니다.",
           "at": "2026-06-19T00:31:46.097Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -29137,9 +29137,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 67,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 84행을 법령 단위 67건으로 묶었습니다.",
+          "message": "본문 보강 시간 예산 120초를 초과해 49건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 84행을 법령 단위 67건으로 묶었습니다.",
           "at": "2026-06-18T00:57:58.841Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -40960,11 +40960,11 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "external_error",
           "count": 211,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 314행을 법령 단위 211건으로 묶었습니다.",
+          "message": "교육환경 보호에 관한 법률 시행령 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286641&efYd=20260602 failed with curl-first mode: curl failed with code 28 (null)\n국가공무원법 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286457&efYd=20261203 failed with curl-first mode: curl failed with code 35 (null)\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 314행을 법령 단위 211건으로 묶었습니다.",
           "at": "2026-06-16T03:50:53.013Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+          "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=286641&type=HTML&mobileYn=&efYd=20260602"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
@@ -43235,7 +43235,7 @@
     },
     {
       "date": "2026-06-03",
-      "status": "complete",
+      "status": "partial",
       "item_count": 139,
       "changed_count": 138,
       "collected_at": "2026-06-17T05:34:55.193Z",
@@ -43243,9 +43243,9 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "skipped",
           "count": 138,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+          "message": "본문 보강 시간 예산 120초를 초과해 129건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-17T05:34:54.374Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
@@ -44078,7 +44078,7 @@
     },
     {
       "date": "2026-06-06",
-      "status": "complete",
+      "status": "partial",
       "item_count": 27,
       "changed_count": 0,
       "collected_at": "2026-06-17T05:54:45.420Z",
@@ -44086,11 +44086,11 @@
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "ok",
+          "status": "external_error",
           "count": 25,
-          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+          "message": "국민생명안전위원회의 설치 및 운영에 관한 규정 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=285981&efYd=20260512 failed with curl-first mode: curl failed with code 28 (null)\n본문 보강 시간 예산 120초를 초과해 10건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
           "at": "2026-06-17T05:48:14.520Z",
-          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+          "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=285981&type=HTML&mobileYn=&efYd=20260512"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
@@ -45223,42 +45223,42 @@
     },
     {
       "date": "2026-06-10",
-      "status": "partial",
-      "item_count": 1,
-      "changed_count": 0,
-      "collected_at": "2026-06-17T06:03:46.724Z",
+      "status": "complete",
+      "item_count": 109,
+      "changed_count": 108,
+      "collected_at": "2026-06-22T05:18:09.071Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "external_error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=lsHstInf&type=JSON&display=100&page=1&regDt=20260610 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T06:03:14.863Z",
+          "status": "ok",
+          "count": 91,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 97행을 법령 단위 91건으로 묶었습니다.",
+          "at": "2026-06-22T05:17:12.156Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
-          "status": "external_error",
-          "count": 0,
-          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-17T06:03:14.864Z",
+          "status": "ok",
+          "count": 1,
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료. 원자료 2행을 법령 단위 1건으로 묶었습니다.",
+          "at": "2026-06-22T05:17:13.417Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "external_error",
-          "count": 0,
-          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-17T06:03:14.864Z",
+          "status": "ok",
+          "count": 13,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-22T05:17:26.326Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "external_error",
-          "count": 0,
-          "message": "law.go.kr network timeout/fetch failed already confirmed; skipping remaining official-law routes.",
-          "at": "2026-06-17T06:03:14.864Z",
+          "status": "ok",
+          "count": 13,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-22T05:17:40.636Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -45399,74 +45399,74 @@
         },
         {
           "source": "산업통상부 입법예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T06:03:45.878Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:17:44.342Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
           "source": "산업통상부 행정예고",
-          "status": "external_error",
-          "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:03:45.878Z",
+          "status": "ok",
+          "count": 1,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:17:48.305Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
           "source": "산업통상부 고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:03:45.878Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:17:50.617Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
           "source": "산업통상부 공고",
-          "status": "external_error",
-          "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:03:45.878Z",
+          "status": "ok",
+          "count": 2,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:18:00.751Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
           "source": "산업통상부 구.정통부고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:03:45.878Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:18:01.770Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
         },
         {
           "source": "산업통상부 구.재경부고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:03:45.878Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:18:02.835Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "산업통상부 훈령",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:03:45.878Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:18:04.923Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:03:45.878Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:18:05.949Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:03:45.878Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:18:08.035Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
