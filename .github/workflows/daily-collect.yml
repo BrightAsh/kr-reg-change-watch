@@ -1,5 +1,7 @@
 name: Daily collect and deploy
 
+run-name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.target_date != '' && format('Daily collect {0}', github.event.inputs.target_date) || 'Daily collect and deploy' }}
+
 on:
   push:
     branches:
@@ -53,7 +55,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && format('collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || 'pages' }}
   cancel-in-progress: false
 
 jobs:
@@ -292,7 +294,17 @@ jobs:
           else
             DATE_LABEL="${TARGET_DATE:-manual}"
             git commit -m "Collect regulatory changes for ${DATE_LABEL}"
-            git push
+            for push_attempt in 1 2 3; do
+              git pull --rebase --autostash origin "${GITHUB_REF_NAME:-main}"
+              if git push; then
+                break
+              fi
+              if [ "$push_attempt" -eq 3 ]; then
+                echo "::error::Failed to push collected data after ${push_attempt} attempts."
+                exit 1
+              fi
+              sleep $((push_attempt * 10))
+            done
           fi
 
       - name: Verify target date completeness
