@@ -1,5 +1,9 @@
+import path from "node:path";
+
+import type { CollectionSourceGroup } from "../lib/collectionStatus";
 import { readCollectionStatusReport } from "../lib/collectionStatus";
-import { dateDaysAgo, env, parseArgs } from "./common";
+import type { CollectionLog, DailyCollection } from "../lib/types";
+import { dailyDir, dateDaysAgo, env, parseArgs, readJson } from "./common";
 import {
   parseCollectionRouteFilter,
   parseCollectionSourceFilter,
@@ -48,6 +52,13 @@ async function main() {
       process.exit(1);
     }
 
+    const rawProblems = await selectedRawLogProblems(selectedSources);
+    if (rawProblems.length) {
+      console.error(`Selected collection routes for ${targetDate} still have raw error/skipped logs.`);
+      for (const problem of rawProblems) console.error(`- ${problem}`);
+      process.exit(1);
+    }
+
     console.log(`Selected collection routes for ${targetDate} are complete: ${selectedSources.join(", ")}`);
     return;
   }
@@ -64,4 +75,27 @@ async function main() {
   }
 
   console.log(`Collection for ${targetDate} is complete.`);
+}
+
+async function selectedRawLogProblems(selectedSources: string[]): Promise<string[]> {
+  const daily = await readJson<DailyCollection | null>(path.join(dailyDir, `${targetDate}.json`), null);
+  if (!daily || daily.date !== targetDate || !Array.isArray(daily.logs)) return [];
+
+  const selectedSourceSet = new Set(selectedSources);
+  return daily.logs
+    .filter((log) => (log.status === "error" || log.status === "skipped") && logMatchesSelectedScope(log, selectedSourceSet))
+    .slice(0, 20)
+    .map(formatRawProblem);
+}
+
+function logMatchesSelectedScope(log: CollectionLog, selectedSourceSet: Set<string>): boolean {
+  if (log.group && sourceFilter.has(log.group as CollectionSourceGroup)) return true;
+  if (log.route && routeFilter.has(log.route)) return true;
+  return selectedSourceSet.has(log.source);
+}
+
+function formatRawProblem(log: CollectionLog): string {
+  const parts = [log.group, log.route, log.source].filter(Boolean).join(" / ");
+  const label = parts || "unknown";
+  return `${label}: ${log.status}${log.message ? ` - ${log.message}` : ""}`;
 }

@@ -2941,9 +2941,9 @@ function cleanStaleLogsForSelectedRoutes(logs: CollectionLog[]): CollectionLog[]
 }
 
 function mergeCollectionLogs(existingDaily: DailyCollection | null, newLogs: CollectionLog[]): CollectionLog[] {
+  const groupsForThisRun = new Set(selectedRouteKeys().filter(({ group }) => shouldRunSource(group)).map(({ group }) => group));
   const routesForThisRun = selectedRouteKeys().filter(({ group, route }) => shouldRunSource(group) && shouldRunRoute(group, route));
-  if (!existingDaily?.logs?.length || !routesForThisRun.length) return newLogs;
-  const groupsForThisRun = new Set(routesForThisRun.map(({ group }) => group));
+  if (!existingDaily?.logs?.length || (!routesForThisRun.length && !groupsForThisRun.size)) return newLogs;
 
   const preservedLogs = existingDaily.logs.filter(
     (log) =>
