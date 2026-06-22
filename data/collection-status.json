@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-22T07:50:12.602Z",
+  "generated_at": "2026-06-22T08:30:35.147Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-22",
   "summary": {
-    "complete": 61,
-    "partial": 57,
+    "complete": 62,
+    "partial": 56,
     "failed": 0,
     "not_started": 55
   },
@@ -42111,10 +42111,10 @@
     },
     {
       "date": "2026-05-30",
-      "status": "partial",
+      "status": "complete",
       "item_count": 13,
       "changed_count": 0,
-      "collected_at": "2026-06-17T04:09:15.552Z",
+      "collected_at": "2026-06-22T08:30:29.687Z",
       "source": "daily",
       "methods": [
         {
@@ -42138,15 +42138,15 @@
           "status": "ok",
           "count": 0,
           "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
-          "at": "2026-06-17T01:35:52.587Z",
+          "at": "2026-06-22T08:29:45.967Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 행정규칙 신구법 비교",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrulOldAndNew&type=JSON&display=100&page=1&date=20260530&sort=ddes failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T04:05:27.529Z",
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-06-22T08:29:51.760Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -42175,114 +42175,114 @@
         },
         {
           "source": "대한민국 전자관보",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260530&reqTo=20260530&fromDate=20260530&toDate=20260530&type=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T04:08:33.418Z",
+          "message": "설정된 관보 API URL 수집 완료",
+          "at": "2026-06-22T08:30:03.514Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
           "source": "행정안전부 훈령·예규·고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T01:45:33.212Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:05.902Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
           "source": "행정안전부 입법·행정예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:47:20.053Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:06.475Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
         },
         {
           "source": "행정안전부 법령자료실",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:47:51.065Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:07.378Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
           "source": "기획재정부 법령자료실",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:48:22.076Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:08.901Z",
           "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
         },
         {
           "source": "기획재정부 영문법령정보",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:48:53.089Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:10.320Z",
           "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
         },
         {
           "source": "기획재정부 조세조약",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:49:24.102Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:11.601Z",
           "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
         },
         {
           "source": "기획재정부 훈령",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:49:55.115Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:14.025Z",
           "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
         },
         {
           "source": "기획재정부 예규",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:50:26.128Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:14.969Z",
           "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
         },
         {
           "source": "기획재정부 고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:50:57.140Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:18.368Z",
           "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
         },
         {
           "source": "기획재정부 공고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:51:28.154Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:19.314Z",
           "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
         },
         {
           "source": "기획재정부 지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:51:59.166Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:20.541Z",
           "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
         },
         {
           "source": "기획재정부 입법예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:52:30.178Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:23.714Z",
           "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
         },
         {
           "source": "기획재정부 행정예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "공식 게시판 수집 실패: GET https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T00:53:01.190Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T08:30:25.755Z",
           "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
         },
         {
@@ -42359,18 +42359,18 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T04:09:14.924Z",
+          "message": "ALIO 법령/지침 원문 수집 완료",
+          "at": "2026-06-22T08:30:26.637Z",
           "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "ALIO 수집 실패: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
-          "at": "2026-06-17T04:09:14.924Z",
+          "message": "ALIO 정책자료/보도자료 수집 완료",
+          "at": "2026-06-22T08:30:28.593Z",
           "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
         {
