@@ -1,5 +1,7 @@
 name: Daily collect and deploy
 
+run-name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.target_date != '' && format('Daily collect {0}', github.event.inputs.target_date) || 'Daily collect and deploy' }}
+
 on:
   push:
     branches:
@@ -43,6 +45,11 @@ on:
         required: false
         type: boolean
         default: false
+      commit_data:
+        description: "Commit collected data changes. Set false for parallel dry-run collection tests."
+        required: false
+        type: boolean
+        default: true
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -53,7 +60,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && github.event.inputs.commit_data == 'false' && format('collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || 'pages' }}
   cancel-in-progress: false
 
 jobs:
@@ -64,7 +71,7 @@ jobs:
       pages: write
       id-token: write
     environment:
-      name: github-pages
+      name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && 'collection-test' || 'github-pages' }}
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
@@ -91,22 +98,32 @@ jobs:
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
       NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
       FETCH_LOOKBACK_DAYS: 1
-      FETCH_RETRIES: 1
-      FETCH_TIMEOUT_MS: 20000
+      FETCH_RETRIES: 2
+      FETCH_TIMEOUT_MS: 30000
       FETCH_CURL_FALLBACK: 1
       FETCH_CURL_FIRST: 1
-      FETCH_CURL_ONLY: 1
+      FETCH_CURL_ONLY: 0
+      FETCH_MAX_PAGES: 200
+      MOTIR_FETCH_MAX_PAGES: 200
+      BOARD_PAGE_FETCH_ATTEMPTS: 3
+      BOARD_FETCH_CURL_ONLY: 0
+      BOARD_FETCH_CURL_FALLBACK: 1
       COLLECT_ATTEMPTS: 2
       COLLECT_RETRY_DELAY_SECONDS: 120
       STOP_ON_CRITICAL_CONNECTIVITY: 1
       COLLECT_PREFLIGHT: 0
       COLLECT_PREFLIGHT_TIMEOUT_MS: 5000
+      SELECTED_COLLECT_ATTEMPTS: 2
+      SELECTED_FETCH_CURL_FIRST: 0
+      SELECTED_FETCH_CURL_ONLY: 0
+      SELECTED_FETCH_CURL_FALLBACK: 1
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
-      RETRY_FAILED_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '0 23 * * *' && '1' || '0' }}
+      RETRY_FAILED_ONLY: ${{ github.event.inputs.force == 'true' && '0' || '1' }}
       DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
       DEPLOY_ONLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_only == 'true' && '1' || '0' }}
+      COMMIT_DATA: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.commit_data == 'false' && '0' || '1' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -127,11 +144,6 @@ jobs:
         shell: bash
         run: |
           set +e
-          if [ -n "$COLLECT_SOURCES" ]; then
-            echo "Skipping broad source preflight for selected collection sources: $COLLECT_SOURCES"
-            exit 0
-          fi
-
           if [ -n "$TARGET_DATE" ]; then
             YMD="$(date -u -d "$TARGET_DATE" +%Y%m%d)"
             DOT_DATE="$(date -u -d "$TARGET_DATE" +%-Y.%-m.%-d.)"
@@ -168,6 +180,66 @@ jobs:
             fi
           }
 
+          if [ -n "$COLLECT_SOURCES" ]; then
+            SOURCE_FILTER="$(echo "$COLLECT_SOURCES" | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]')"
+            SELECTED_PROBE_COUNT=0
+            source_selected() {
+              case ",${SOURCE_FILTER}," in
+                *",$1,"*) return 0 ;;
+                *) return 1 ;;
+              esac
+            }
+            selected_any() {
+              for key in "$@"; do
+                if source_selected "$key"; then
+                  return 0
+                fi
+              done
+              return 1
+            }
+            probe_selected_url() {
+              SELECTED_PROBE_COUNT=$((SELECTED_PROBE_COUNT + 1))
+              probe_url "$1" "$2"
+            }
+
+            echo "Checking selected source connectivity for: $COLLECT_SOURCES"
+            if selected_any law official official-law; then
+              probe_selected_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=lsHstInf&type=JSON&display=100&page=1&regDt=${YMD}"
+            fi
+            if selected_any lawmaking legislation legislation-notice; then
+              probe_selected_url "lawmaking.go.kr" "https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=${LAWMAKING_OC_VALUE}&cptOfiOrgCd=1170000&stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}"
+            fi
+            if selected_any ministry ministry-board mois; then
+              probe_selected_url "mois.go.kr" "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+            fi
+            if selected_any ministry ministry-board moef mofe; then
+              probe_selected_url "mofe.go.kr" "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
+            fi
+            if selected_any motir industry industry-board; then
+              probe_selected_url "motir.go.kr" "https://www.motir.go.kr/kor/article/ATCL516d59376"
+            fi
+            if selected_any alio; then
+              probe_selected_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
+            fi
+            if selected_any rss policy policy-rss; then
+              probe_selected_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
+            fi
+            if selected_any gazette gwanbo && [ -n "$GWANBO_LIST_URL" ]; then
+              probe_selected_url "gwanbo.go.kr" "$GWANBO_LIST_URL"
+            fi
+
+            if [ "$SELECTED_PROBE_COUNT" -eq 0 ]; then
+              echo "No selected source preflight probe matched; continuing collection."
+              exit 0
+            fi
+            if [ "$FAIL_COUNT" -ge 1 ]; then
+              echo "::error::Selected source preflight failed for ${FAIL_COUNT}/${SELECTED_PROBE_COUNT} representative URL(s). Aborting before long route-level timeouts."
+              exit 1
+            fi
+            echo "Selected source preflight passed for ${SELECTED_PROBE_COUNT} URL(s)."
+            exit 0
+          fi
+
           probe_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=lsHstInf&type=JSON&display=100&page=1&regDt=${YMD}"
           probe_url "lawmaking.go.kr" "https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=${LAWMAKING_OC_VALUE}&cptOfiOrgCd=1170000&stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}"
           probe_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
@@ -175,7 +247,8 @@ jobs:
           probe_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
 
           if [ "$FAIL_COUNT" -ge 3 ]; then
-            echo "::warning::Preflight failed for ${FAIL_COUNT} representative source hosts. Continuing so route-level retry can preserve completed sources and record only failing paths."
+            echo "::error::Preflight failed for ${FAIL_COUNT} representative source hosts. This runner cannot reach core public sources; aborting before writing partial collection data."
+            exit 1
           fi
           echo "Preflight passed with ${FAIL_COUNT} failure(s)."
 
@@ -197,6 +270,9 @@ jobs:
             fi
             if [ "$FORCE_COLLECT" = "1" ]; then
               COLLECT_ARGS+=(--force)
+            fi
+            if [ "$RETRY_FAILED_ONLY" = "1" ]; then
+              COLLECT_ARGS+=(--retry-failed)
             fi
           }
 
@@ -263,11 +339,11 @@ jobs:
         run: npm run status:update
 
       - name: Commit collected data
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.COMMIT_DATA == '1' && steps.preflight.outcome == 'success' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin main
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME:-main}"
           npm run status:update
           if grep -R -n -E '^(<<<<<<<|=======|>>>>>>>)' data; then
             echo "::error::Conflict markers found in generated data files."
@@ -279,7 +355,17 @@ jobs:
           else
             DATE_LABEL="${TARGET_DATE:-manual}"
             git commit -m "Collect regulatory changes for ${DATE_LABEL}"
-            git push
+            for push_attempt in 1 2 3; do
+              git pull --rebase --autostash origin "${GITHUB_REF_NAME:-main}"
+              if git push; then
+                break
+              fi
+              if [ "$push_attempt" -eq 3 ]; then
+                echo "::error::Failed to push collected data after ${push_attempt} attempts."
+                exit 1
+              fi
+              sleep $((push_attempt * 10))
+            done
           fi
 
       - name: Verify target date completeness
