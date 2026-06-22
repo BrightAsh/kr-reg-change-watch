@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-22T05:52:42.781Z",
+  "generated_at": "2026-06-22T05:58:03.572Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-22",
   "summary": {
-    "complete": 56,
-    "partial": 62,
+    "complete": 57,
+    "partial": 61,
     "failed": 0,
     "not_started": 55
   },
@@ -45504,10 +45504,10 @@
     },
     {
       "date": "2026-06-11",
-      "status": "partial",
-      "item_count": 26,
-      "changed_count": 0,
-      "collected_at": "2026-06-17T06:12:30.239Z",
+      "status": "complete",
+      "item_count": 31,
+      "changed_count": 5,
+      "collected_at": "2026-06-22T05:57:58.609Z",
       "source": "daily",
       "methods": [
         {
@@ -45680,74 +45680,74 @@
         },
         {
           "source": "산업통상부 입법예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLa1cb24c71 failed with curl-first mode: curl failed with code 28 (null)",
-          "at": "2026-06-17T06:11:38.344Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:34.041Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
         },
         {
           "source": "산업통상부 행정예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:11:38.344Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:35.696Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
         },
         {
           "source": "산업통상부 고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:11:38.344Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:37.509Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
         },
         {
           "source": "산업통상부 공고",
-          "status": "external_error",
-          "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:11:38.344Z",
+          "status": "ok",
+          "count": 5,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:47.975Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
           "source": "산업통상부 구.정통부고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:11:38.344Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:48.805Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
         },
         {
           "source": "산업통상부 구.재경부고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:11:38.344Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:49.621Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "산업통상부 훈령",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:11:38.345Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:51.276Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:11:38.345Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:52.109Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-17T06:11:38.345Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T05:53:53.764Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
@@ -45768,11 +45768,11 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed with curl-first mode: curl failed with code 28 (null)\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed with curl-first mode: curl failed with code 28 (null)\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
-          "at": "2026-06-17T06:12:29.385Z",
-          "url": "https://www.korea.kr/rss/pressrelease.xml"
+          "message": "정책브리핑 RSS 수집 완료 (8/10개 피드 성공, 일부 실패: https://www.korea.kr/rss/dept_motir.xml: GET https://www.korea.kr/rss/dept_motir.xml failed after 2 attempt(s): This operation was aborted | https://www.korea.kr/rss/president.xml: GET https://www.korea.kr/rss/president.xml failed after 2 attempt(s): This operation was aborted)",
+          "at": "2026-06-22T05:57:57.555Z",
+          "url": "https://www.korea.kr/etc/rss.do"
         },
         {
           "source": "네이버 뉴스 검색 API",
