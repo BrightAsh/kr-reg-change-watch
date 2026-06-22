@@ -37,6 +37,7 @@ const args = parseArgs();
 const lookback = Number(env("FETCH_LOOKBACK_DAYS", "1"));
 const targetDate = String(args.date || env("TARGET_DATE") || dateDaysAgo(Number.isFinite(lookback) ? lookback : 1));
 const githubEnvPath = String(args["github-env"] || env("GITHUB_ENV") || "");
+const githubOutputPath = String(args["github-output"] || env("GITHUB_OUTPUT") || "");
 
 main().catch((error) => {
   console.error(error instanceof Error ? error.message : String(error));
@@ -110,5 +111,8 @@ async function emit(name: string, value: string) {
   console.log(line);
   if (githubEnvPath) {
     await fs.appendFile(githubEnvPath, `${line}\n`, "utf8");
+  }
+  if (githubOutputPath) {
+    await fs.appendFile(githubOutputPath, `${name.toLowerCase()}=${value}\n`, "utf8");
   }
 }

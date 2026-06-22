@@ -60,7 +60,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && github.event.inputs.commit_data == 'false' && format('collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || 'pages' }}
+  group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && github.event.inputs.commit_data == 'false' && format('collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && format('collection-data-{0}', github.ref) || 'pages' }}
   cancel-in-progress: false
 
 jobs:
@@ -141,18 +141,20 @@ jobs:
         run: python3 -m pip install --user olefile pypdf
 
       - name: Resolve failed-only source filter
+        id: resolve_retry
         if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' }}
         run: |
           if [ "$RETRY_FAILED_ONLY" = "1" ] && [ "$FORCE_COLLECT" != "1" ] && [ -z "$COLLECT_SOURCES" ]; then
-            npm run retry:sources -- --date "$TARGET_DATE" --github-env "$GITHUB_ENV"
+            npm run retry:sources -- --date "$TARGET_DATE" --github-env "$GITHUB_ENV" --github-output "$GITHUB_OUTPUT"
           else
             echo "Retry source resolution skipped."
             echo "SKIP_COLLECTION=0" >> "$GITHUB_ENV"
+            echo "skip_collection=0" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Preflight source connectivity
         id: preflight
-        if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.SKIP_COLLECTION != '1' }}
+        if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' }}
         shell: bash
         run: |
           set +e
@@ -266,7 +268,7 @@ jobs:
 
       - name: Collect official changes
         id: collect
-        if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.SKIP_COLLECTION != '1' }}
+        if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' }}
         continue-on-error: true
         run: |
           if [ -n "$COLLECT_SOURCES" ]; then
@@ -347,11 +349,11 @@ jobs:
           exit 1
 
       - name: Update collection status
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.SKIP_COLLECTION != '1' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && steps.preflight.outcome == 'success' }}
         run: npm run status:update
 
       - name: Commit collected data
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.SKIP_COLLECTION != '1' && env.COMMIT_DATA == '1' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && env.COMMIT_DATA == '1' && steps.preflight.outcome == 'success' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -382,7 +384,7 @@ jobs:
 
       - name: Verify target date completeness
         id: verify
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.SKIP_COLLECTION != '1' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && steps.preflight.outcome == 'success' }}
         run: |
           if [ -n "$TARGET_DATE" ]; then
             npm run status:verify -- --date "$TARGET_DATE"
