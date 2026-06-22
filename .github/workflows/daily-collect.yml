@@ -151,12 +151,13 @@ jobs:
           else
             echo "Retry source resolution skipped."
             echo "SKIP_COLLECTION=0" >> "$GITHUB_ENV"
+            echo "SKIP_PREFLIGHT=0" >> "$GITHUB_ENV"
             echo "skip_collection=0" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Preflight source connectivity
         id: preflight
-        if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' }}
+        if: ${{ github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && env.SKIP_PREFLIGHT != '1' }}
         shell: bash
         run: |
           set +e
@@ -387,11 +388,11 @@ jobs:
           exit 1
 
       - name: Update collection status
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && (steps.preflight.outcome == 'success' || env.SKIP_PREFLIGHT == '1') }}
         run: npm run status:update
 
       - name: Commit collected data
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && env.COMMIT_DATA == '1' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && env.COMMIT_DATA == '1' && (steps.preflight.outcome == 'success' || env.SKIP_PREFLIGHT == '1') }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -422,7 +423,7 @@ jobs:
 
       - name: Verify target date completeness
         id: verify
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && (steps.preflight.outcome == 'success' || env.SKIP_PREFLIGHT == '1') }}
         run: |
           if [ -n "$TARGET_DATE" ]; then
             npm run status:verify -- --date "$TARGET_DATE"
