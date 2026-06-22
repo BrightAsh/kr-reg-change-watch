@@ -58,7 +58,7 @@ loadDotEnv();
 const args = parseArgs();
 const lookback = Number(env("FETCH_LOOKBACK_DAYS", "1"));
 const targetDate = String(args.date || dateDaysAgo(Number.isFinite(lookback) ? lookback : 1));
-const maxPages = Math.max(1, Number(env("FETCH_MAX_PAGES", "50")) || 50);
+const maxPages = Math.max(1, Number(env("FETCH_MAX_PAGES", "200")) || 200);
 const detailLimit = Number(env("FETCH_DETAIL_LIMIT", "30"));
 const lawTextDetailLimit = Number(env("FETCH_LAW_TEXT_DETAIL_LIMIT", "500")) || 500;
 const lawTextDetailBudgetMs = Math.max(0, Number(env("FETCH_LAW_TEXT_DETAIL_BUDGET_MS", "120000")) || 0);
@@ -74,6 +74,18 @@ const dailyPath = path.join(dailyDir, `${targetDate}.json`);
 let activeSourceGroups: Set<SourceGroup> | null = null;
 let existingDailyForRun: DailyCollection | null = null;
 let preserveSuccessfulRoutes = false;
+
+class BoardPageFetchError extends Error {
+  page: number;
+  url: string;
+
+  constructor(route: string, page: number, url: string, cause: unknown) {
+    super(`${route} page ${page} fetch failed: ${messageOf(cause)}`);
+    this.name = "BoardPageFetchError";
+    this.page = page;
+    this.url = url;
+  }
+}
 
 interface MinistryRoute {
   source: string;
@@ -755,12 +767,24 @@ function shouldRunRoute(group: SourceGroup, route: string): boolean {
 
 function routeSucceeded(daily: DailyCollection | null, group: SourceGroup, route: string): boolean {
   if (!daily || daily.date !== targetDate) return false;
-  const routeLogs = daily.logs.filter((log) => logBelongsToSourceGroup(log, group) && logBelongsToRoute(log, route));
+  const routeLogs = daily.logs.filter(
+    (log) => logBelongsToSourceGroup(log, group) && logBelongsToRoute(log, route) && !isRetryDiagnosticLog(log)
+  );
   if (!routeLogs.length) return false;
   const hasOk = routeLogs.some((log) => log.status === "ok");
   const hasError = routeLogs.some((log) => log.status === "error");
   const hasSkipped = routeLogs.some((log) => log.status === "skipped");
   return hasOk && !hasError && !hasSkipped;
+}
+
+function isRetryDiagnosticLog(log: CollectionLog): boolean {
+  const source = log.source || "";
+  const textValue = `${source} ${log.message || ""}`;
+  return (
+    source.endsWith("본문 보강") ||
+    source === "수집 상태 점검" ||
+    /Critical source connectivity failure/i.test(textValue)
+  );
 }
 
 function logBelongsToRoute(log: CollectionLog, route: string): boolean {
@@ -841,6 +865,12 @@ function ministryRouteHostKey(route: MinistryRoute): string {
   if (isMoefRoute(route)) return "mofe.go.kr";
   if (isMotirRoute(route)) return "motir.go.kr";
   return "";
+}
+
+function shouldTripBoardHostFailFast(error: unknown, message: string): boolean {
+  if (!isNetworkFailureMessage(message)) return false;
+  if (error instanceof BoardPageFetchError && error.page > 1) return false;
+  return true;
 }
 
 function shouldRunSource(group: SourceGroup): boolean {
@@ -1490,7 +1520,7 @@ async function fetchMinistryRoutes(logs: CollectionLog[]): Promise<CollectedItem
     } catch (error) {
       const message = messageOf(error);
       addLog(logs, route.source, "error", `공식 게시판 수집 실패: ${message}`, 0, route.defaultUrl, "ministry-board", route.source);
-      if (failFast && hostKey && isNetworkFailureMessage(message)) failedHosts.add(hostKey);
+      if (failFast && hostKey && shouldTripBoardHostFailFast(error, message)) failedHosts.add(hostKey);
     } finally {
       tagLogsWithGroup(logs, logStartIndex, "ministry-board", route.source);
     }
@@ -1515,7 +1545,7 @@ async function fetchMotirRoutes(logs: CollectionLog[]): Promise<CollectedItem[]>
     } catch (error) {
       const message = messageOf(error);
       addLog(logs, route.source, "error", `산업통상부 게시판 수집 실패: ${message}`, 0, route.defaultUrl, "motir", route.source);
-      if (failFast && hostKey && isNetworkFailureMessage(message)) failedHosts.add(hostKey);
+      if (failFast && hostKey && shouldTripBoardHostFailFast(error, message)) failedHosts.add(hostKey);
     } finally {
       tagLogsWithGroup(logs, logStartIndex, "motir", route.source);
     }
@@ -1533,18 +1563,48 @@ async function fetchConfiguredMinistryBoard(logs: CollectionLog[], route: Minist
 
   const items: CollectedItem[] = [];
   const routeMaxPages = route.maxPages || maxPages;
+  const seenPageHashes = new Set<string>();
   for (let page = 1; page <= routeMaxPages; page += 1) {
     const pageUrl = withPage(url, page);
-    const html = await fetchText(pageUrl);
+    const html = await fetchBoardPageHtml(route, pageUrl, page);
+    const pageHash = hashText(html);
+    if (seenPageHashes.has(pageHash)) {
+      if (page > 1) {
+        addLog(logs, route.source, "ok", `게시판 ${page}페이지가 이전 페이지와 같아 페이지 탐색을 중단했습니다.`, 0, pageUrl);
+      }
+      break;
+    }
+    seenPageHashes.add(pageHash);
     const rows = await parseBoardRows(html, pageUrl, route, logs);
     items.push(...rows);
     if (boardPageIsOlderThanTarget(html)) break;
-    if (!hasLikelyNextPage(html, page)) break;
+    if (!boardPageHasAnyDate(html) && !hasLikelyNextPage(html, page)) break;
   }
 
   const unique = mergeItems([], items);
   addLog(logs, route.source, "ok", "공식 게시판 HTML 수집 완료", unique.length, url);
   return unique;
+}
+
+async function fetchBoardPageHtml(route: MinistryRoute, pageUrl: string, page: number): Promise<string> {
+  const attempts = Math.max(1, Number(env("BOARD_PAGE_FETCH_ATTEMPTS", "3")) || 3);
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await withTemporaryEnv(
+        {
+          FETCH_TIMEOUT_MS: env("BOARD_FETCH_TIMEOUT_MS", env("FETCH_TIMEOUT_MS", "30000")),
+          FETCH_CURL_ONLY: env("BOARD_FETCH_CURL_ONLY", "0"),
+          FETCH_CURL_FALLBACK: env("BOARD_FETCH_CURL_FALLBACK", "1")
+        },
+        () => fetchText(pageUrl)
+      );
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) await wait(1000 * attempt);
+    }
+  }
+  throw new BoardPageFetchError(route.source, page, pageUrl, lastError);
 }
 
 async function fetchAlioPublicMaterials(logs: CollectionLog[]): Promise<CollectedItem[]> {
@@ -1611,6 +1671,10 @@ async function withTemporaryEnv<T>(values: Record<string, string>, fn: () => Pro
       else process.env[key] = value;
     }
   }
+}
+
+function wait(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function fetchAlioListRows(source: AlioSource): Promise<AnyRecord[]> {
@@ -1826,7 +1890,7 @@ async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
     {
       FETCH_TIMEOUT_MS: env("POLICY_RSS_FETCH_TIMEOUT_MS", "8000"),
       FETCH_CURL_FIRST: env("POLICY_RSS_FETCH_CURL_FIRST", "1"),
-      FETCH_CURL_ONLY: env("POLICY_RSS_FETCH_CURL_ONLY", "1"),
+      FETCH_CURL_ONLY: env("POLICY_RSS_FETCH_CURL_ONLY", "0"),
       FETCH_CURL_FALLBACK: env("POLICY_RSS_FETCH_CURL_FALLBACK", "1")
     },
     () => fetchPolicyRssWithBudget(logs)
@@ -2478,9 +2542,17 @@ function boardContextDate(context: string): string | null {
 }
 
 function boardPageIsOlderThanTarget(html: string): boolean {
-  const tbody = html.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/i)?.[1] || html;
-  const dates = extractDateStrings(htmlToText(tbody));
+  const dates = boardPageDateStrings(html);
   return dates.length > 0 && dates.every((date) => date < targetDate);
+}
+
+function boardPageHasAnyDate(html: string): boolean {
+  return boardPageDateStrings(html).length > 0;
+}
+
+function boardPageDateStrings(html: string): string[] {
+  const tbody = html.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/i)?.[1] || html;
+  return extractDateStrings(htmlToText(tbody));
 }
 
 function containsDateText(value: string, date: string): boolean {
