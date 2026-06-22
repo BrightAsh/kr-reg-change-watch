@@ -280,7 +280,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin main
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME:-main}"
           npm run status:update
           if grep -R -n -E '^(<<<<<<<|=======|>>>>>>>)' data; then
             echo "::error::Conflict markers found in generated data files."
