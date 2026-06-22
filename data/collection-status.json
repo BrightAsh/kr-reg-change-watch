@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-22T05:34:37.270Z",
+  "generated_at": "2026-06-22T05:52:42.781Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-22",
   "summary": {
-    "complete": 55,
-    "partial": 63,
+    "complete": 56,
+    "partial": 62,
     "failed": 0,
     "not_started": 55
   },
@@ -44078,19 +44078,19 @@
     },
     {
       "date": "2026-06-06",
-      "status": "partial",
-      "item_count": 27,
-      "changed_count": 0,
-      "collected_at": "2026-06-17T05:54:45.420Z",
+      "status": "complete",
+      "item_count": 26,
+      "changed_count": 24,
+      "collected_at": "2026-06-22T05:52:37.865Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "external_error",
-          "count": 25,
-          "message": "국민생명안전위원회의 설치 및 운영에 관한 규정 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=285981&efYd=20260512 failed with curl-first mode: curl failed with code 28 (null)\n본문 보강 시간 예산 120초를 초과해 10건은 원문 링크 기준으로 저장했습니다.\n법제처 공식 법령 변경이력 API 수집 완료.",
-          "at": "2026-06-17T05:48:14.520Z",
-          "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=285981&type=HTML&mobileYn=&efYd=20260512"
+          "status": "ok",
+          "count": 24,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+          "at": "2026-06-22T05:52:36.765Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
