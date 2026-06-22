@@ -45,6 +45,11 @@ on:
         required: false
         type: boolean
         default: false
+      commit_data:
+        description: "Commit collected data changes. Set false for parallel dry-run collection tests."
+        required: false
+        type: boolean
+        default: true
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -55,7 +60,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && format('collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || 'pages' }}
+  group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && github.event.inputs.commit_data == 'false' && format('collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || 'pages' }}
   cancel-in-progress: false
 
 jobs:
@@ -118,6 +123,7 @@ jobs:
       RETRY_FAILED_ONLY: ${{ github.event.inputs.force == 'true' && '0' || '1' }}
       DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
       DEPLOY_ONLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_only == 'true' && '1' || '0' }}
+      COMMIT_DATA: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.commit_data == 'false' && '0' || '1' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -278,7 +284,7 @@ jobs:
         run: npm run status:update
 
       - name: Commit collected data
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.preflight.outcome == 'success' }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.COMMIT_DATA == '1' && steps.preflight.outcome == 'success' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
