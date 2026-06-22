@@ -12,6 +12,7 @@
     "diff": "tsx scripts/diff.ts",
     "summarize": "tsx scripts/summarize.ts",
     "collect": "tsx scripts/collect.ts",
+    "retry:sources": "tsx scripts/resolve-retry-sources.ts",
     "status:critical": "tsx scripts/check-critical-connectivity.ts",
     "status:update": "tsx scripts/update-collection-status.ts",
     "status:verify": "tsx scripts/verify-collection-complete.ts",

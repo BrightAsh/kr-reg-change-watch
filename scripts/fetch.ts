@@ -420,7 +420,7 @@ async function main() {
   const retryIncompleteExistingDaily = Boolean(
     existingDailyForRun && hasSelectedRoutes && !selectedRoutesAlreadySucceeded
   );
-  preserveSuccessfulRoutes = forceCollect || retryFailedOnly || retryIncompleteExistingDaily;
+  preserveSuccessfulRoutes = retryFailedOnly || retryIncompleteExistingDaily;
 
   if (!forceCollect && !retryFailedOnly && !retryIncompleteExistingDaily) {
     const cached = await readJson<DailyCollection | null>(dailyPath, null);
@@ -780,6 +780,7 @@ function routeSucceeded(daily: DailyCollection | null, group: SourceGroup, route
 function isRetryDiagnosticLog(log: CollectionLog): boolean {
   const source = log.source || "";
   const textValue = `${source} ${log.message || ""}`;
+  if (log.status !== "ok" && source.endsWith("\uBCF8\uBB38 \uBCF4\uAC15")) return false;
   return (
     source.endsWith("본문 보강") ||
     source === "수집 상태 점검" ||
