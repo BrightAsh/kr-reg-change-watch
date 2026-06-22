@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-22T06:10:52.186Z",
+  "generated_at": "2026-06-22T06:28:49.329Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-22",
   "summary": {
-    "complete": 58,
-    "partial": 60,
+    "complete": 59,
+    "partial": 59,
     "failed": 0,
     "not_started": 55
   },
@@ -45785,10 +45785,10 @@
     },
     {
       "date": "2026-06-12",
-      "status": "partial",
+      "status": "complete",
       "item_count": 27,
       "changed_count": 0,
-      "collected_at": "2026-06-17T06:29:01.333Z",
+      "collected_at": "2026-06-22T06:28:44.928Z",
       "source": "daily",
       "methods": [
         {
@@ -46025,10 +46025,10 @@
         },
         {
           "source": "산업통상부 지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCL516d59376 failed after 1 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-06-17T06:29:00.487Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-22T06:28:44.105Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
