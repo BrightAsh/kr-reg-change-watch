@@ -91,20 +91,29 @@ jobs:
       NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
       NEXT_PUBLIC_SUBSCRIPTION_API_URL: ${{ secrets.SUBSCRIPTION_API_URL }}
       FETCH_LOOKBACK_DAYS: 1
-      FETCH_RETRIES: 1
-      FETCH_TIMEOUT_MS: 20000
+      FETCH_RETRIES: 2
+      FETCH_TIMEOUT_MS: 30000
       FETCH_CURL_FALLBACK: 1
       FETCH_CURL_FIRST: 1
-      FETCH_CURL_ONLY: 1
+      FETCH_CURL_ONLY: 0
+      FETCH_MAX_PAGES: 200
+      MOTIR_FETCH_MAX_PAGES: 200
+      BOARD_PAGE_FETCH_ATTEMPTS: 3
+      BOARD_FETCH_CURL_ONLY: 0
+      BOARD_FETCH_CURL_FALLBACK: 1
       COLLECT_ATTEMPTS: 2
       COLLECT_RETRY_DELAY_SECONDS: 120
       STOP_ON_CRITICAL_CONNECTIVITY: 1
       COLLECT_PREFLIGHT: 0
       COLLECT_PREFLIGHT_TIMEOUT_MS: 5000
+      SELECTED_COLLECT_ATTEMPTS: 2
+      SELECTED_FETCH_CURL_FIRST: 0
+      SELECTED_FETCH_CURL_ONLY: 0
+      SELECTED_FETCH_CURL_FALLBACK: 1
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       COLLECT_SOURCES: ${{ github.event.inputs.collect_sources }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
-      RETRY_FAILED_ONLY: ${{ github.event_name == 'schedule' && github.event.schedule == '0 23 * * *' && '1' || '0' }}
+      RETRY_FAILED_ONLY: ${{ github.event.inputs.force == 'true' && '0' || '1' }}
       DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
       DEPLOY_ONLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_only == 'true' && '1' || '0' }}
     steps:
@@ -175,7 +184,8 @@ jobs:
           probe_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
 
           if [ "$FAIL_COUNT" -ge 3 ]; then
-            echo "::warning::Preflight failed for ${FAIL_COUNT} representative source hosts. Continuing so route-level retry can preserve completed sources and record only failing paths."
+            echo "::error::Preflight failed for ${FAIL_COUNT} representative source hosts. This runner cannot reach core public sources; aborting before writing partial collection data."
+            exit 1
           fi
           echo "Preflight passed with ${FAIL_COUNT} failure(s)."
 
@@ -197,6 +207,9 @@ jobs:
             fi
             if [ "$FORCE_COLLECT" = "1" ]; then
               COLLECT_ARGS+=(--force)
+            fi
+            if [ "$RETRY_FAILED_ONLY" = "1" ]; then
+              COLLECT_ARGS+=(--retry-failed)
             fi
           }
 
