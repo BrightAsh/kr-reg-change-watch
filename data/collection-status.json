@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-22T07:18:13.971Z",
+  "generated_at": "2026-06-22T07:50:12.602Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-22",
   "summary": {
-    "complete": 60,
-    "partial": 58,
+    "complete": 61,
+    "partial": 57,
     "failed": 0,
     "not_started": 55
   },
@@ -40952,19 +40952,19 @@
     },
     {
       "date": "2026-05-26",
-      "status": "partial",
-      "item_count": 185,
-      "changed_count": 303,
-      "collected_at": "2026-06-16T03:57:09.857Z",
+      "status": "complete",
+      "item_count": 307,
+      "changed_count": 27,
+      "collected_at": "2026-06-22T07:50:07.462Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 법령 변경이력",
-          "status": "external_error",
+          "status": "ok",
           "count": 211,
-          "message": "교육환경 보호에 관한 법률 시행령 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286641&efYd=20260602 failed with curl-first mode: curl failed with code 28 (null)\n국가공무원법 변경이력 갱신 1건 본문 보강 실패: GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=law&type=JSON&MST=286457&efYd=20261203 failed with curl-first mode: curl failed with code 35 (null)\n법제처 공식 법령 변경이력 API 수집 완료. 원자료 314행을 법령 단위 211건으로 묶었습니다.",
-          "at": "2026-06-16T03:50:53.013Z",
-          "url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=286641&type=HTML&mobileYn=&efYd=20260602"
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 313행을 법령 단위 211건으로 묶었습니다.",
+          "at": "2026-06-22T07:43:27.332Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 일자별 조문 개정 이력",
@@ -40976,10 +40976,10 @@
         },
         {
           "source": "국가법령정보센터 행정규칙",
-          "status": "external_error",
+          "status": "ok",
           "count": 27,
-          "message": "행정규칙 본문 조회 실패: 2100000279802 - GET https://www.law.go.kr/DRF/lawService.do?OC=knoc&target=admrul&type=JSON&ID=2100000279802 failed with curl-first mode: curl failed with code 35 (null)\n법제처 공식 행정규칙 목록/본문 API 수집 완료",
-          "at": "2026-06-16T03:52:18.031Z",
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-06-22T07:43:53.456Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -40987,7 +40987,7 @@
           "status": "ok",
           "count": 27,
           "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
-          "at": "2026-06-16T03:54:26.637Z",
+          "at": "2026-06-22T07:50:06.398Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -41216,11 +41216,11 @@
         },
         {
           "source": "대한민국 정책브리핑 RSS",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "RSS 수집 실패: GET http://www.korea.kr/rss/dept_moef.xml failed with curl-first mode: curl failed with code 28 (null)\nRSS 수집 실패: GET http://www.korea.kr/rss/speech.xml failed with curl-first mode: curl failed with code 52 (null)\n정책브리핑 RSS 수집 완료",
-          "at": "2026-06-16T03:57:09.260Z",
-          "url": "http://www.korea.kr/rss/dept_moef.xml"
+          "message": "정책브리핑 RSS 수집 완료 (9/10개 피드 성공, 일부 실패: https://www.korea.kr/rss/dept_motir.xml: GET https://www.korea.kr/rss/dept_motir.xml failed after 2 attempt(s): This operation was aborted)",
+          "at": "2026-06-22T07:47:14.113Z",
+          "url": "https://www.korea.kr/etc/rss.do"
         },
         {
           "source": "네이버 뉴스 검색 API",
