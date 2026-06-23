@@ -285,7 +285,7 @@ jobs:
               PREFLIGHT_ROUND=$((PREFLIGHT_ROUND + 1))
             done
             echo "::error::Selected source preflight failed for ${FAIL_COUNT}/${SELECTED_PROBE_COUNT} representative URL(s) after ${PREFLIGHT_ATTEMPTS} attempt(s). Aborting before long route-level timeouts."
-            if [ "$SELECTED_PROBE_COUNT" -ge 3 ] && [ "$FAIL_COUNT" -eq "$SELECTED_PROBE_COUNT" ]; then
+            if [ "$SELECTED_PROBE_COUNT" -gt 0 ] && [ "$FAIL_COUNT" -eq "$SELECTED_PROBE_COUNT" ]; then
               echo "network_blocked=1" >> "$GITHUB_OUTPUT"
             fi
             exit 1
