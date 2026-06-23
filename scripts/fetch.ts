@@ -780,7 +780,6 @@ function routeSucceeded(daily: DailyCollection | null, group: SourceGroup, route
 function isRetryDiagnosticLog(log: CollectionLog): boolean {
   const source = log.source || "";
   const textValue = `${source} ${log.message || ""}`;
-  if (log.status !== "ok" && source.endsWith("\uBCF8\uBB38 \uBCF4\uAC15")) return false;
   return (
     source.endsWith("본문 보강") ||
     source === "수집 상태 점검" ||
