@@ -370,22 +370,22 @@ jobs:
           export RETRY_DEPLOY_SITE="$deploy_site_value"
           export RETRY_COMMIT_DATA="$commit_data_value"
           python3 - <<'PY' > /tmp/fresh-run-retry.json
-import json
-import os
+          import json
+          import os
 
-inputs = {
-    "target_date": os.environ["RETRY_TARGET"],
-    "force": os.environ["RETRY_FORCE"],
-    "collect_sources": os.environ.get("ORIGINAL_COLLECT_SOURCES", ""),
-    "send_mail": os.environ["RETRY_SEND_MAIL"],
-    "mail_to_override": os.environ.get("ORIGINAL_MAIL_TO_OVERRIDE", ""),
-    "deploy_site": os.environ["RETRY_DEPLOY_SITE"],
-    "deploy_only": "false",
-    "commit_data": os.environ["RETRY_COMMIT_DATA"],
-    "network_retry_count": os.environ["NEXT_RETRY_COUNT"],
-}
-print(json.dumps({"ref": os.environ["GITHUB_REF_NAME"], "inputs": inputs}, separators=(",", ":")))
-PY
+          inputs = {
+              "target_date": os.environ["RETRY_TARGET"],
+              "force": os.environ["RETRY_FORCE"],
+              "collect_sources": os.environ.get("ORIGINAL_COLLECT_SOURCES", ""),
+              "send_mail": os.environ["RETRY_SEND_MAIL"],
+              "mail_to_override": os.environ.get("ORIGINAL_MAIL_TO_OVERRIDE", ""),
+              "deploy_site": os.environ["RETRY_DEPLOY_SITE"],
+              "deploy_only": "false",
+              "commit_data": os.environ["RETRY_COMMIT_DATA"],
+              "network_retry_count": os.environ["NEXT_RETRY_COUNT"],
+          }
+          print(json.dumps({"ref": os.environ["GITHUB_REF_NAME"], "inputs": inputs}, separators=(",", ":")))
+          PY
 
           echo "Queueing fresh-run retry ${next_retry_count}/${max_retries} for ${retry_target}."
           curl -sS -X POST \
