@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-06-23T11:23:46.661Z",
+  "last_run_at": "2026-06-23T11:31:00.007Z",
   "last_target_date": "2026-03-07",
   "item_count": 5938,
   "changed_count": 0,
@@ -428,33 +428,23 @@
     },
     {
       "source": "ALIO 공공기관 법령/지침",
-      "status": "error",
-      "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
       "count": 0,
-      "at": "2026-06-23T11:23:45.199Z",
+      "at": "2026-06-23T11:30:56.342Z",
       "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
       "group": "alio",
       "route": "ALIO 공공기관 법령/지침"
     },
     {
       "source": "ALIO 공공정책자료",
-      "status": "error",
-      "message": "ALIO 수집 실패: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
       "count": 0,
-      "at": "2026-06-23T11:23:45.200Z",
+      "at": "2026-06-23T11:30:58.496Z",
       "url": "https://www.alio.go.kr/etc/etcPdsList.do",
       "group": "alio",
       "route": "ALIO 공공정책자료"
-    },
-    {
-      "source": "ALIO",
-      "status": "error",
-      "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
-      "count": 0,
-      "at": "2026-06-23T11:23:45.200Z",
-      "url": "https://www.alio.go.kr/etc/etcLawList.do",
-      "group": "alio",
-      "route": "ALIO"
     }
   ]
 }
