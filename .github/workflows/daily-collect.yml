@@ -50,11 +50,17 @@ on:
         required: false
         type: boolean
         default: true
+      network_retry_count:
+        description: "Internal fresh-run retry count for full preflight network blocks."
+        required: false
+        type: string
+        default: "0"
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
+  actions: write
   contents: write
   pages: write
   id-token: write
@@ -67,6 +73,7 @@ jobs:
   collect-build-deploy:
     runs-on: ubuntu-22.04
     permissions:
+      actions: write
       contents: write
       pages: write
       id-token: write
@@ -112,6 +119,7 @@ jobs:
       BOARD_FETCH_CURL_FALLBACK: 1
       PREFLIGHT_ATTEMPTS: 3
       PREFLIGHT_RETRY_DELAY_SECONDS: 120
+      MAX_NETWORK_PREFLIGHT_RETRIES: 3
       COLLECT_ATTEMPTS: 2
       COLLECT_RETRY_DELAY_SECONDS: 120
       STOP_ON_CRITICAL_CONNECTIVITY: 1
@@ -128,6 +136,7 @@ jobs:
       DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
       DEPLOY_ONLY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_only == 'true' && '1' || '0' }}
       COMMIT_DATA: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.commit_data == 'false' && '0' || '1' }}
+      NETWORK_RETRY_COUNT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.network_retry_count || '0' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -276,6 +285,9 @@ jobs:
               PREFLIGHT_ROUND=$((PREFLIGHT_ROUND + 1))
             done
             echo "::error::Selected source preflight failed for ${FAIL_COUNT}/${SELECTED_PROBE_COUNT} representative URL(s) after ${PREFLIGHT_ATTEMPTS} attempt(s). Aborting before long route-level timeouts."
+            if [ "$SELECTED_PROBE_COUNT" -ge 3 ] && [ "$FAIL_COUNT" -eq "$SELECTED_PROBE_COUNT" ]; then
+              echo "network_blocked=1" >> "$GITHUB_OUTPUT"
+            fi
             exit 1
           fi
 
@@ -303,7 +315,85 @@ jobs:
             PREFLIGHT_ROUND=$((PREFLIGHT_ROUND + 1))
           done
           echo "::error::Preflight failed for ${FAIL_COUNT} representative source hosts after ${PREFLIGHT_ATTEMPTS} attempt(s). This runner cannot reach core public sources; aborting before writing partial collection data."
+          if [ "$FAIL_COUNT" -ge 4 ]; then
+            echo "network_blocked=1" >> "$GITHUB_OUTPUT"
+          fi
           exit 1
+
+      - name: Queue fresh runner retry after preflight network block
+        if: ${{ failure() && github.event_name != 'push' && steps.preflight.outputs.network_blocked == '1' }}
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ORIGINAL_COLLECT_SOURCES: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.collect_sources || '' }}
+          ORIGINAL_MAIL_TO_OVERRIDE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.mail_to_override || '' }}
+          ORIGINAL_SEND_MAIL: ${{ (github.event_name == 'schedule' && github.event.schedule == '0 15 * * *') || (github.event_name == 'workflow_dispatch' && github.event.inputs.send_mail == 'true') }}
+        run: |
+          set -euo pipefail
+
+          retry_count="${NETWORK_RETRY_COUNT:-0}"
+          if ! [[ "$retry_count" =~ ^[0-9]+$ ]]; then
+            retry_count=0
+          fi
+          max_retries="${MAX_NETWORK_PREFLIGHT_RETRIES:-3}"
+          if ! [[ "$max_retries" =~ ^[0-9]+$ ]]; then
+            max_retries=3
+          fi
+          if [ "$retry_count" -ge "$max_retries" ]; then
+            echo "::warning::Preflight network block persisted after ${retry_count} fresh-run retry attempt(s). Not queueing another run."
+            exit 0
+          fi
+
+          retry_target="${TARGET_DATE:-}"
+          if [ -z "$retry_target" ]; then
+            retry_target="$(TZ=Asia/Seoul date -d 'yesterday' +%Y-%m-%d)"
+          fi
+          next_retry_count=$((retry_count + 1))
+
+          force_value="false"
+          if [ "${FORCE_COLLECT:-0}" = "1" ]; then
+            force_value="true"
+          fi
+          deploy_site_value="false"
+          if [ "${DEPLOY_SITE:-0}" = "1" ]; then
+            deploy_site_value="true"
+          fi
+          commit_data_value="false"
+          if [ "${COMMIT_DATA:-0}" = "1" ]; then
+            commit_data_value="true"
+          fi
+
+          export RETRY_TARGET="$retry_target"
+          export NEXT_RETRY_COUNT="$next_retry_count"
+          export RETRY_FORCE="$force_value"
+          export RETRY_SEND_MAIL="${ORIGINAL_SEND_MAIL:-false}"
+          export RETRY_DEPLOY_SITE="$deploy_site_value"
+          export RETRY_COMMIT_DATA="$commit_data_value"
+          python3 - <<'PY' > /tmp/fresh-run-retry.json
+import json
+import os
+
+inputs = {
+    "target_date": os.environ["RETRY_TARGET"],
+    "force": os.environ["RETRY_FORCE"],
+    "collect_sources": os.environ.get("ORIGINAL_COLLECT_SOURCES", ""),
+    "send_mail": os.environ["RETRY_SEND_MAIL"],
+    "mail_to_override": os.environ.get("ORIGINAL_MAIL_TO_OVERRIDE", ""),
+    "deploy_site": os.environ["RETRY_DEPLOY_SITE"],
+    "deploy_only": "false",
+    "commit_data": os.environ["RETRY_COMMIT_DATA"],
+    "network_retry_count": os.environ["NEXT_RETRY_COUNT"],
+}
+print(json.dumps({"ref": os.environ["GITHUB_REF_NAME"], "inputs": inputs}, separators=(",", ":")))
+PY
+
+          echo "Queueing fresh-run retry ${next_retry_count}/${max_retries} for ${retry_target}."
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/daily-collect.yml/dispatches" \
+            --data @/tmp/fresh-run-retry.json
 
       - name: Collect official changes
         id: collect
