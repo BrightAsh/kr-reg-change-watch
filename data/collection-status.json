@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-23T01:36:09.146Z",
+  "generated_at": "2026-06-23T01:41:58.144Z",
   "start_date": "2026-01-01",
   "end_date": "2026-06-23",
   "summary": {
-    "complete": 66,
-    "partial": 53,
+    "complete": 67,
+    "partial": 52,
     "failed": 0,
     "not_started": 55
   },
@@ -29129,10 +29129,10 @@
     },
     {
       "date": "2026-04-14",
-      "status": "partial",
-      "item_count": 105,
-      "changed_count": 67,
-      "collected_at": "2026-06-18T00:58:43.224Z",
+      "status": "complete",
+      "item_count": 108,
+      "changed_count": 3,
+      "collected_at": "2026-06-23T01:39:47.028Z",
       "source": "daily",
       "methods": [
         {
@@ -29329,50 +29329,50 @@
         },
         {
           "source": "산업통상부 공고",
-          "status": "external_error",
-          "count": 0,
-          "message": "산업통상부 게시판 수집 실패: GET https://www.motir.go.kr/kor/article/ATCLc01b2801b?pageIndex=4 failed with curl-first mode: curl failed with code 52 (null)",
-          "at": "2026-06-18T00:58:42.337Z",
+          "status": "ok",
+          "count": 3,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-23T01:39:40.004Z",
           "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
         },
         {
           "source": "산업통상부 구.정통부고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-18T00:58:42.337Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-23T01:39:40.737Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
         },
         {
           "source": "산업통상부 구.재경부고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-18T00:58:42.337Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-23T01:39:41.588Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
         },
         {
           "source": "산업통상부 훈령",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-18T00:58:42.337Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-23T01:39:43.039Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
         },
         {
           "source": "산업통상부 예규",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-18T00:58:42.337Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-23T01:39:44.491Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
         },
         {
           "source": "산업통상부 지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "motir.go.kr network timeout/fetch failed가 이미 확인되어 같은 기관 게시판 수집을 중단했습니다.",
-          "at": "2026-06-18T00:58:42.337Z",
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-06-23T01:39:45.942Z",
           "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
         },
         {
@@ -29405,6 +29405,13 @@
           "count": 0,
           "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
           "at": "2026-06-18T00:53:27.863Z"
+        },
+        {
+          "source": "수집 재시도",
+          "status": "ok",
+          "count": 108,
+          "message": "선택된 수집 경로가 이미 모두 성공 상태라 재수집하지 않았습니다.",
+          "at": "2026-06-23T01:41:52.683Z"
         }
       ]
     },
