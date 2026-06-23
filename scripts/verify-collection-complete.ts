@@ -83,9 +83,26 @@ async function selectedRawLogProblems(selectedSources: string[]): Promise<string
 
   const selectedSourceSet = new Set(selectedSources);
   return daily.logs
-    .filter((log) => (log.status === "error" || log.status === "skipped") && logMatchesSelectedScope(log, selectedSourceSet))
+    .filter(
+      (log) =>
+        (log.status === "error" || log.status === "skipped") &&
+        logMatchesSelectedScope(log, selectedSourceSet) &&
+        !isRawDiagnosticLog(log)
+    )
     .slice(0, 20)
     .map(formatRawProblem);
+}
+
+function isRawDiagnosticLog(log: CollectionLog): boolean {
+  const source = log.source || "";
+  const textValue = `${source} ${log.message || ""}`;
+  return (
+    source.endsWith("\ubcf8\ubb38 \ubcf4\uac15") ||
+    source.endsWith("\uc811\uc18d \ud655\uc778") ||
+    source === "\uc218\uc9d1 \uc0c1\ud0dc \uc810\uac80" ||
+    /Critical source connectivity failure/i.test(textValue) ||
+    /\uc811\uc18d \ud655\uc778|\uc218\uc9d1 \uc0c1\ud0dc \uc810\uac80|\uc77c\ubd80 \uc218\uc9d1 \uc2e4\ud328/.test(textValue)
+  );
 }
 
 function logMatchesSelectedScope(log: CollectionLog, selectedSourceSet: Set<string>): boolean {
