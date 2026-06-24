@@ -8,11 +8,20 @@ const itemsPath = path.join(dataDir, "items.json");
 const runPath = path.join(dataDir, "run.json");
 const dailyDir = path.join(dataDir, "daily");
 
+let itemsCache: { mtimeMs: number; items: CollectedItem[] } | null = null;
+
 export async function readItems(): Promise<CollectedItem[]> {
   try {
+    const stat = await fs.stat(itemsPath);
+    if (itemsCache && itemsCache.mtimeMs === stat.mtimeMs) {
+      return itemsCache.items;
+    }
     const raw = await fs.readFile(itemsPath, "utf8");
-    return JSON.parse(raw) as CollectedItem[];
+    const items = JSON.parse(raw) as CollectedItem[];
+    itemsCache = { mtimeMs: stat.mtimeMs, items };
+    return items;
   } catch {
+    itemsCache = null;
     return [];
   }
 }
