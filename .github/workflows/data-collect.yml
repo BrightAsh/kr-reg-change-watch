@@ -135,11 +135,15 @@ jobs:
           resolved_target="${TARGET_DATE:-}"
           resolved_start="${START_DATE:-}"
           resolved_end="${END_DATE:-}"
+          resolved_force="${FORCE_COLLECT:-0}"
+          resolved_backfill=0
 
           if [ "${GITHUB_EVENT_NAME:-}" = "push" ] && [ -z "$resolved_target" ] && [ -z "$resolved_start" ] && [ -z "$resolved_end" ]; then
             if [[ "${PUSH_COMMIT_MESSAGE:-}" =~ \[data-backfill[[:space:]]+([0-9]{4}-[0-9]{2}-[0-9]{2})\.\.([0-9]{4}-[0-9]{2}-[0-9]{2})\] ]]; then
               resolved_start="${BASH_REMATCH[1]}"
               resolved_end="${BASH_REMATCH[2]}"
+              resolved_force=0
+              resolved_backfill=1
               echo "Resolved data backfill range from push commit message: ${resolved_start}..${resolved_end}"
             fi
           fi
@@ -170,6 +174,8 @@ jobs:
             echo "RESOLVED_TARGET_DATE=$resolved_target"
             echo "RESOLVED_START_DATE=$resolved_start"
             echo "RESOLVED_END_DATE=$resolved_end"
+            echo "RESOLVED_FORCE_COLLECT=$resolved_force"
+            echo "RESOLVED_BACKFILL=$resolved_backfill"
           } >> "$GITHUB_ENV"
 
       - name: Preflight data source connectivity
@@ -300,6 +306,7 @@ jobs:
           export RETRY_START="${RESOLVED_START_DATE:-}"
           export RETRY_END="${RESOLVED_END_DATE:-}"
           export NEXT_RETRY_COUNT="$next_retry_count"
+          export RETRY_FORCE_COLLECT="$([ "${RESOLVED_FORCE_COLLECT:-0}" = "1" ] && echo true || echo false)"
           export RETRY_DEPLOY_SITE="$([ "${DEPLOY_SITE:-0}" = "1" ] && echo true || echo false)"
           export RETRY_COMMIT_DATA="$([ "${COMMIT_DATA:-0}" = "1" ] && echo true || echo false)"
           python3 - <<'PY' > /tmp/data-fresh-run-retry.json
@@ -310,7 +317,7 @@ jobs:
               "target_date": os.environ.get("RETRY_TARGET", ""),
               "start_date": os.environ.get("RETRY_START", ""),
               "end_date": os.environ.get("RETRY_END", ""),
-              "force": "true",
+              "force": os.environ["RETRY_FORCE_COLLECT"],
               "deploy_site": os.environ["RETRY_DEPLOY_SITE"],
               "commit_data": os.environ["RETRY_COMMIT_DATA"],
               "network_retry_count": os.environ["NEXT_RETRY_COUNT"],
@@ -337,7 +344,7 @@ jobs:
           collect_one_date() {
             local date_value="$1"
             local args=(--date "$date_value")
-            if [ "$FORCE_COLLECT" = "1" ]; then
+            if [ "${RESOLVED_FORCE_COLLECT:-0}" = "1" ]; then
               args+=(--force)
             fi
             npm run data:collect -- "${args[@]}"
@@ -351,15 +358,50 @@ jobs:
             fi
             cursor="$RESOLVED_START_DATE"
             end_epoch="$(date -u -d "$RESOLVED_END_DATE" +%s)"
+            failures=()
+            mkdir -p data/data/logs/backfill
             while [ "$(date -u -d "$cursor" +%s)" -le "$end_epoch" ]; do
-              collect_one_date "$cursor"
+              if collect_one_date "$cursor"; then
+                echo "Data collection complete for ${cursor}."
+              else
+                echo "::error::Data collection failed for ${cursor}. Continuing range collection so diagnostics can be committed."
+                failures+=("$cursor")
+                if [ -f data/data/logs/last-fetch.json ]; then
+                  cp data/data/logs/last-fetch.json "data/data/logs/backfill/${cursor}.json"
+                fi
+                npm run data:status || true
+              fi
               cursor="$(date -u -d "$cursor + 1 day" +%F)"
             done
+            if [ "${#failures[@]}" -gt 0 ]; then
+              printf '%s\n' "${failures[@]}" > data/data/logs/backfill-failed-dates.txt
+              python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          failed_dates = Path("data/data/logs/backfill-failed-dates.txt").read_text(encoding="utf-8").splitlines()
+          payload = {
+              "failed_dates": failed_dates,
+              "failed_count": len(failed_dates),
+              "start_date": os.environ.get("RESOLVED_START_DATE", ""),
+              "end_date": os.environ.get("RESOLVED_END_DATE", ""),
+          }
+          Path("data/data/logs/backfill-failures.json").write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+              echo "DATA_RANGE_FAILED=1" >> "$GITHUB_ENV"
+              echo "::error::Data range collection failed for ${#failures[@]} date(s): ${failures[*]}"
+            else
+              rm -f data/data/logs/backfill-failed-dates.txt data/data/logs/backfill-failures.json
+            fi
           elif [ -n "${RESOLVED_TARGET_DATE:-}" ]; then
             collect_one_date "$RESOLVED_TARGET_DATE"
           else
             COLLECT_ARGS=()
-            if [ "$FORCE_COLLECT" = "1" ]; then
+            if [ "${RESOLVED_FORCE_COLLECT:-0}" = "1" ]; then
               COLLECT_ARGS+=(--force)
             fi
             if [ "${#COLLECT_ARGS[@]}" -gt 0 ]; then
@@ -422,3 +464,7 @@ jobs:
       - id: deployment
         if: ${{ env.DEPLOY_SITE == '1' }}
         uses: actions/deploy-pages@v4
+
+      - name: Fail if data range collection failed
+        if: ${{ env.DATA_RANGE_FAILED == '1' }}
+        run: exit 1
