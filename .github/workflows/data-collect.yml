@@ -174,6 +174,7 @@ jobs:
 
       - name: Preflight data source connectivity
         id: data_preflight
+        continue-on-error: true
         shell: bash
         run: |
           set +e
@@ -263,13 +264,14 @@ jobs:
           done
 
           echo "::error::Data source preflight failed for ${FAIL_COUNT}/${PROBE_COUNT} URL(s). Aborting before writing partial data collection."
+          echo "failed=1" >> "$GITHUB_OUTPUT"
           if [ "$FAIL_COUNT" -ge 3 ]; then
             echo "network_blocked=1" >> "$GITHUB_OUTPUT"
           fi
           exit 1
 
       - name: Queue fresh runner retry after data preflight network block
-        if: ${{ failure() && steps.data_preflight.outputs.network_blocked == '1' }}
+        if: ${{ steps.data_preflight.outputs.network_blocked == '1' }}
         shell: bash
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -317,12 +319,16 @@ jobs:
           PY
 
           echo "Queueing data fresh-run retry ${next_retry_count}/${max_retries}."
-          curl -sS -X POST \
+          curl --fail-with-body -sS -X POST \
             -H "Authorization: Bearer ${GITHUB_TOKEN}" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/data-collect.yml/dispatches" \
             --data @/tmp/data-fresh-run-retry.json
+
+      - name: Stop after failed data preflight
+        if: ${{ steps.data_preflight.outputs.failed == '1' }}
+        run: exit 1
 
       - name: Collect data-specific changes
         id: data_collect
