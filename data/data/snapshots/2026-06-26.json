@@ -1,0 +1,27 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-26T17:35:08.824Z",
+    "collection_date": "2026-06-26",
+    "source": "공공데이터포털 공지사항",
+    "source_type": "ministry_board",
+    "ministry": "공공데이터포털",
+    "document_type": "guideline",
+    "title": "기업 공공데이터 문제해결 지원센터 운영 지침 개정('26.6.16.) 안내",
+    "issue_number": null,
+    "publish_date": "2026-06-26",
+    "effective_date": null,
+    "change_type": "partial_revision",
+    "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000004799&atchFileId=FILE_000000003664231",
+    "attachment_urls": [],
+    "raw_text": "공공데이터포털 공지사항 기업 공공데이터 문제해결 지원센터 운영 지침 개정('26.6.16.) 안내 공지 제목 : 기업 공공데이터 문제해결 지원센터 운영 지침 개정('26.6.16.) 안내 파일첨부 등록일 : 2026-06-26 조회수 : 39",
+    "raw_hash": "01492049922b2a47dfa704c810ec394bce3e090b5da8896774ba0fdb85273d07",
+    "confidence": "official_notice",
+    "verification_required": false,
+    "source_record_id": null,
+    "id": "bd9687c545259764",
+    "category": "guideline"
+  }
+]
