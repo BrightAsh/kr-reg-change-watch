@@ -307,6 +307,22 @@ jobs:
           fi
           next_retry_count=$((retry_count + 1))
 
+          if [ -n "$retry_target" ] && [ -f "data/data/daily/${retry_target}.json" ]; then
+            export RETRY_TARGET_FOR_CACHE="$retry_target"
+            if node <<'JS'
+          const fs = require("node:fs");
+          const path = require("node:path");
+          const date = process.env.RETRY_TARGET_FOR_CACHE;
+          const dailyPath = path.join("data", "data", "daily", `${date}.json`);
+          const daily = JSON.parse(fs.readFileSync(dailyPath, "utf8"));
+          process.exit(daily?.date === date && Array.isArray(daily.logs) && daily.logs.length > 0 && daily.logs.every((log) => log.status === "ok") ? 0 : 1);
+          JS
+            then
+              echo "Data collection cache for ${retry_target} is already complete. Not queueing another fresh-run retry."
+              exit 0
+            fi
+          fi
+
           export RETRY_TARGET="$retry_target"
           export RETRY_START="${RESOLVED_START_DATE:-}"
           export RETRY_END="${RESOLVED_END_DATE:-}"
