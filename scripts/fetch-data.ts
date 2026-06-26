@@ -884,18 +884,24 @@ async function fetchGenericGovernmentBoard(logs: CollectionLog[], route: BoardRo
 
 function parseGenericGovernmentRows(html: string, listUrl: string, route: BoardRoute): CollectedItem[] {
   const rows: CollectedItem[] = [];
-  const anchors = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)];
+  const anchors = [...html.matchAll(/<a\b[^>]*href=(["'])([\s\S]*?)\1[^>]*>([\s\S]*?)<\/a>/gi)];
   for (const match of anchors) {
-    const href = decodeHtml(match[1]);
-    const title = cleanTitle(htmlToText(match[2]));
+    const href = decodeHtml(match[2]);
+    const title = cleanTitle(htmlToText(match[3]));
     if (!isLikelyBoardTitle(title, href) || !isRelevantDataText(`${title} ${route.source}`)) continue;
     const index = match.index || 0;
-    const context = surroundingText(html, index, 1500);
-    const publishDate = normalizeDate(findLabelDate(htmlToText(context), ["게시일", "등록일", "작성일", "공고일", "발령일자"])) ||
-      normalizeDate(htmlToText(context).match(/20\d{2}[./-]\d{1,2}[./-]\d{1,2}/)?.[0]);
-    if (publishDate !== targetDate && !containsDateText(context, targetDate)) continue;
-    const originalUrl = normalizeOriginalUrl(new URL(href, listUrl).toString());
-    const rawText = compactText([route.source, title, htmlToText(context)].join(" "));
+    const context = enclosingTagBlock(html, index, "tr") || surroundingText(html, index, 1000);
+    const contextText = htmlToText(context);
+    const publishDate =
+      normalizeDate(findLabelDate(contextText, ["게시일", "등록일", "작성일", "공고일", "발령일자"])) ||
+      normalizeDate(contextText.match(/20\d{2}[./-]\d{1,2}[./-]\d{1,2}/)?.[0]);
+    if (publishDate) {
+      if (publishDate !== targetDate) continue;
+    } else if (!containsDateText(context, targetDate)) {
+      continue;
+    }
+    const originalUrl = normalizeBoardHref(href, listUrl);
+    const rawText = compactText([route.source, title, contextText].join(" "));
     rows.push(
       makeDataItem({
         source: route.source,
@@ -918,6 +924,20 @@ function parseGenericGovernmentRows(html: string, listUrl: string, route: BoardR
     );
   }
   return rows;
+}
+
+function normalizeBoardHref(href: string, listUrl: string): string {
+  const dataGoMatch = href.match(/fn_view\(["']([^"']+)["']\s*,\s*["']([^"']*)["']\)/i);
+  if (dataGoMatch && /data\.go\.kr/i.test(listUrl)) {
+    return normalizeOriginalUrl(
+      makeUrl(new URL("/bbs/ntc/selectNotice.do", listUrl).toString(), {
+        originId: dataGoMatch[1],
+        atchFileId: dataGoMatch[2]
+      })
+    );
+  }
+  if (/^javascript:/i.test(href)) return normalizeOriginalUrl(listUrl);
+  return normalizeOriginalUrl(new URL(href, listUrl).toString());
 }
 
 async function fetchModsRoute(logs: CollectionLog[], route: BoardRoute): Promise<CollectedItem[]> {
@@ -1226,6 +1246,7 @@ function cleanTitle(value: string): string {
     .replace(/^새글\s*/g, "")
     .replace(/^제목\s*/g, "")
     .replace(/^[:：]\s*/g, "")
+    .replace(/\s*파일첨부\s*$/g, "")
     .replace(/\s*게시일\s*(?:19|20)\d{2}[.\-/]\d{1,2}[.\-/]\d{1,2}[\s\S]*$/g, "")
     .replace(/\s*(?:hwp|hwpx|pdf|docx?|xlsx?|zip)파일[\s\S]*$/gi, "")
     .replace(/\s+/g, " ")
@@ -1256,6 +1277,22 @@ function decodeHtml(value: string): string {
 
 function surroundingText(value: string, index: number, radius: number): string {
   return value.slice(Math.max(0, index - radius), Math.min(value.length, index + radius));
+}
+
+function enclosingTagBlock(html: string, index: number, tagName: string): string | null {
+  const tag = tagName.replace(/[^\w:-]/g, "");
+  if (!tag) return null;
+  const openPattern = new RegExp(`<${tag}\\b`, "gi");
+  let start = -1;
+  for (const match of html.matchAll(openPattern)) {
+    const matchIndex = match.index || 0;
+    if (matchIndex > index) break;
+    start = matchIndex;
+  }
+  if (start < 0) return null;
+  const close = html.toLowerCase().indexOf(`</${tag.toLowerCase()}>`, index);
+  if (close < 0) return null;
+  return html.slice(start, close + tag.length + 3);
 }
 
 function isRelevantDataText(value: string): boolean {
