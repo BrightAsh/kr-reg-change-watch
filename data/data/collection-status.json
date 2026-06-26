@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-26T09:17:46.704Z",
+  "generated_at": "2026-06-26T13:28:02.921Z",
   "start_date": "2026-06-01",
   "end_date": "2026-06-26",
   "summary": {
-    "complete": 0,
-    "partial": 1,
+    "complete": 1,
+    "partial": 0,
     "failed": 0,
     "not_started": 25
   },
@@ -5819,90 +5819,90 @@
     },
     {
       "date": "2026-06-25",
-      "status": "partial",
-      "item_count": 1,
-      "changed_count": 1,
-      "collected_at": "2026-06-26T08:51:21.416Z",
+      "status": "complete",
+      "item_count": 34,
+      "changed_count": 34,
+      "collected_at": "2026-06-26T13:28:01.242Z",
       "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 데이터 법령",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=law&type=JSON&display=100&page=1&query=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:25:37.010Z",
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-26T13:22:30.354Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 데이터 행정규칙",
-          "status": "external_error",
-          "count": 0,
-          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&query=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%B0%EC%97%85%EC%A7%84%ED%9D%A5 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:26:46.764Z",
+          "status": "ok",
+          "count": 22,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-26T13:24:47.687Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국민참여입법센터 데이터 입법예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://opinion.lawmaking.go.kr/gcom/ogLmPp?stYdFmt=2026.6.25.&edYdFmt=2026.6.25.&lsNm=%EB%8D%B0%EC%9D%B4%ED%84%B0&isOgYn=Y&opYn=Y failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:27:56.521Z",
-          "url": "https://opinion.lawmaking.go.kr/gcom/ogLmPp"
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-26T13:24:58.551Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 데이터 행정예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://opinion.lawmaking.go.kr/gcom/admpp/list?stYdFmt=2026.6.25.&edYdFmt=2026.6.25.&admRulNm=%EB%8D%B0%EC%9D%B4%ED%84%B0 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:29:06.275Z",
-          "url": "https://opinion.lawmaking.go.kr/gcom/admpp"
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-26T13:25:20.310Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "국민참여입법센터 국회입법현황",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out?stYdFmt=2026.6.25.&edYdFmt=2026.6.25.&lsNm=%EB%8D%B0%EC%9D%B4%ED%84%B0 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:30:16.032Z",
-          "url": "https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out"
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-26T13:25:35.839Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
           "source": "대한민국 전자관보 데이터 검색",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260625&reqTo=20260625 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:31:25.783Z",
+          "message": "전자관보 API 데이터 키워드 필터 수집 완료",
+          "at": "2026-06-26T13:25:36.600Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
           "source": "과학기술정보통신부 훈령예규고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:32:35.536Z",
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-26T13:25:38.116Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
         },
         {
           "source": "과학기술정보통신부 입법행정예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:33:45.294Z",
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-26T13:25:39.995Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
         },
         {
           "source": "과학기술정보통신부 공지사항",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:34:55.049Z",
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-26T13:25:41.564Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
         },
         {
           "source": "과학기술정보통신부 사업공고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:36:04.803Z",
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-26T13:25:43.038Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
         },
         {
@@ -5910,7 +5910,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-06-26T08:36:06.183Z",
+          "at": "2026-06-26T13:25:44.452Z",
           "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
         },
         {
@@ -5918,7 +5918,7 @@
           "status": "ok",
           "count": 1,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-06-26T08:36:10.452Z",
+          "at": "2026-06-26T13:25:48.659Z",
           "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
         },
         {
@@ -5926,7 +5926,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-06-26T08:36:11.740Z",
+          "at": "2026-06-26T13:25:49.959Z",
           "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
         },
         {
@@ -5934,7 +5934,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-06-26T08:36:12.909Z",
+          "at": "2026-06-26T13:25:51.301Z",
           "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
         },
         {
@@ -5942,7 +5942,7 @@
           "status": "ok",
           "count": 0,
           "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
-          "at": "2026-06-26T08:36:13.799Z",
+          "at": "2026-06-26T13:25:52.154Z",
           "url": "https://www.data1window.kr/dbPcyEvlSys/list"
         },
         {
@@ -5950,111 +5950,111 @@
           "status": "ok",
           "count": 0,
           "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
-          "at": "2026-06-26T08:36:14.613Z",
+          "at": "2026-06-26T13:25:53.035Z",
           "url": "https://www.data1window.kr/ntcMttr/list"
         },
         {
           "source": "행정안전부 훈령예규고시",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:37:24.366Z",
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:25:59.188Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
           "source": "행정안전부 입법행정예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:38:34.120Z",
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:04.550Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
         },
         {
           "source": "행정안전부 법령자료실",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:39:43.871Z",
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:05.481Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
           "source": "행정안전부 알립니다",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:40:53.626Z",
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:07.558Z",
           "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
         },
         {
           "source": "국가데이터처 법령",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://mods.go.kr/menu.es?mid=a10403010000 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:42:03.380Z",
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:09.803Z",
           "url": "https://mods.go.kr/menu.es?mid=a10403010000"
         },
         {
           "source": "국가데이터처 입법예고",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://mods.go.kr/menu.es?mid=a10403020000 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:43:13.136Z",
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:12.338Z",
           "url": "https://mods.go.kr/menu.es?mid=a10403020000"
         },
         {
           "source": "국가데이터처 훈령",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://mods.go.kr/menu.es?mid=a10403030000 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:44:22.889Z",
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:14.968Z",
           "url": "https://mods.go.kr/menu.es?mid=a10403030000"
         },
         {
           "source": "국가데이터처 고시",
-          "status": "external_error",
-          "count": 0,
-          "message": "GET https://mods.go.kr/menu.es?mid=a10403040000 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:45:32.643Z",
+          "status": "ok",
+          "count": 10,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:49.934Z",
           "url": "https://mods.go.kr/menu.es?mid=a10403040000"
         },
         {
           "source": "국가데이터처 예규",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://mods.go.kr/menu.es?mid=a10403050000 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:46:42.399Z",
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:52.054Z",
           "url": "https://mods.go.kr/menu.es?mid=a10403050000"
         },
         {
           "source": "국가데이터처 기타 법령자료",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://mods.go.kr/menu.es?mid=a10403060000 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:47:52.153Z",
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:26:54.028Z",
           "url": "https://mods.go.kr/menu.es?mid=a10403060000"
         },
         {
           "source": "국가데이터처 통계기반정책평가 관련자료",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://mods.go.kr/menu.es?mid=a10407040100 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:49:01.905Z",
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:27:54.820Z",
           "url": "https://mods.go.kr/menu.es?mid=a10407040100"
         },
         {
           "source": "국가데이터처 통계품질관리 자료실",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://mods.go.kr/menu.es?mid=a10409060100 failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:50:11.660Z",
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:27:57.355Z",
           "url": "https://mods.go.kr/menu.es?mid=a10409060100"
         },
         {
           "source": "공공데이터포털 공지사항",
-          "status": "external_error",
-          "count": 0,
-          "message": "GET https://www.data.go.kr/bbs/ntc/selectNoticeListView.do failed after 2 attempt(s): fetch failed",
-          "at": "2026-06-26T08:51:21.414Z",
+          "status": "ok",
+          "count": 1,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-26T13:28:01.238Z",
           "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
         }
       ]
