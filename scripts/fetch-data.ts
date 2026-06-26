@@ -937,11 +937,13 @@ async function fetchModsRoute(logs: CollectionLog[], route: BoardRoute): Promise
 function parseModsRows(html: string, listUrl: string, route: BoardRoute): CollectedItem[] {
   const rows: CollectedItem[] = [];
   const pattern =
-    /<a\b[^>]*class=["'][^"']*board_link[^"']*["'][^>]*href=["']javascript:addSearchParam\('([^']+)'[\s\S]*?<\/a>([\s\S]*?)(?=<a\b[^>]*class=["'][^"']*board_link|<div class=["']board_pager|<\/form>)/gi;
+    /<a\b(?=[^>]*class=["'][^"']*board_link[^"']*["'])([^>]*)>([\s\S]*?)<\/a>([\s\S]*?)(?=<a\b[^>]*class=["'][^"']*board_link|<div class=["']board_pager|<\/form>)/gi;
   for (const match of html.matchAll(pattern)) {
-    const href = decodeHtml(match[1]);
-    const block = match[0] + match[2];
-    const title = cleanTitle(htmlToText(match[0]));
+    const attrs = match[1];
+    const href = decodeHtml(attrs.match(/href=["']javascript:addSearchParam\('([^']+)'/i)?.[1] || "");
+    if (!href) continue;
+    const block = match[0];
+    const title = cleanTitle(htmlToText(match[2]));
     const publishDate = normalizeDate(htmlToText(block.match(/<strong>게시일<\/strong>\s*<span>([^<]+)<\/span>/i)?.[1] || ""));
     if (!title || publishDate !== targetDate || !isRelevantDataText(`${title} ${route.source}`)) continue;
     const originalUrl = normalizeOriginalUrl(new URL(href.replace(/&amp;/g, "&"), listUrl).toString());
@@ -1039,7 +1041,7 @@ function makeDataItem(
 }
 
 function normalizeForTargetDate(items: CollectedItem[]): CollectedItem[] {
-  return items
+  const normalized = items
     .map((item) => ({
       ...item,
       publish_date: normalizeDate(item.publish_date) || item.publish_date,
@@ -1047,6 +1049,7 @@ function normalizeForTargetDate(items: CollectedItem[]): CollectedItem[] {
       category: itemCategory(item)
     }))
     .filter((item) => item.collection_date === targetDate || item.publish_date === targetDate);
+  return dedupeBySourceTitleDate(normalized);
 }
 
 async function readDataItemsExcludingDate(date: string): Promise<CollectedItem[]> {
@@ -1093,6 +1096,24 @@ function mergeItems(existing: CollectedItem[], incoming: CollectedItem[]): Colle
     if (dateOrder !== 0) return dateOrder;
     return a.title.localeCompare(b.title, "ko");
   });
+}
+
+function dedupeBySourceTitleDate(items: CollectedItem[]): CollectedItem[] {
+  const seen = new Set<string>();
+  const output: CollectedItem[] = [];
+  for (const item of items) {
+    const key = [item.source, comparableTitle(item.title), item.publish_date || item.collection_date || ""].join("|");
+    if (seen.has(key)) continue;
+    seen.add(key);
+    output.push(item);
+  }
+  return output;
+}
+
+function comparableTitle(value: string): string {
+  return cleanTitle(value)
+    .replace(/\s+/g, "")
+    .toLowerCase();
 }
 
 function findRecordRows(payload: unknown, keyHints: string[]): AnyRecord[] {
