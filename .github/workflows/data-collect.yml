@@ -53,8 +53,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && github.event.inputs.commit_data == 'false' && format('data-collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || 'data-pages' }}
-  cancel-in-progress: true
+  group: data-collect-${{ github.run_id }}
+  cancel-in-progress: false
 
 jobs:
   data-collect-build-deploy:
