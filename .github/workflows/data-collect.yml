@@ -3,6 +3,11 @@ name: Data collect and deploy
 run-name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.target_date != '' && format('Data collect {0}', github.event.inputs.target_date) || 'Data collect and deploy' }}
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/data-collect.yml"
   workflow_run:
     workflows:
       - Daily collect and deploy
@@ -52,7 +57,7 @@ concurrency:
 
 jobs:
   data-collect-build-deploy:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-22.04
     permissions:
       contents: write
@@ -83,7 +88,7 @@ jobs:
       START_DATE: ${{ github.event.inputs.start_date }}
       END_DATE: ${{ github.event.inputs.end_date }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
-      DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
+      DEPLOY_SITE: ${{ github.event_name == 'push' && '0' || github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
       COMMIT_DATA: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.commit_data == 'false' && '0' || '1' }}
     steps:
       - uses: actions/checkout@v4
