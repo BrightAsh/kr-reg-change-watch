@@ -54,7 +54,7 @@ permissions:
 
 concurrency:
   group: data-collect-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   data-collect-build-deploy:
