@@ -283,7 +283,7 @@ async function main() {
 
   const dailyPath = path.join(DATA_DAILY_DIR, `${targetDate}.json`);
   const cached = await readJson<DailyCollection | null>(dailyPath, null);
-  if (cached?.date === targetDate && !forceCollect) {
+  if (cached?.date === targetDate && !forceCollect && canReuseDataCache(cached)) {
     const merged = mergeItems(await readDataItemsExcludingDate(targetDate), cached.items);
     const cacheLogs: CollectionLog[] = [
       ...cached.logs,
@@ -300,6 +300,9 @@ async function main() {
     await writeJson(path.join(DATA_LOGS_DIR, "last-fetch.json"), cacheLogs);
     console.log(`Data collection cache hit for ${targetDate}. Reused ${cached.items.length} item(s).`);
     return;
+  }
+  if (cached?.date === targetDate && !forceCollect) {
+    console.warn(`Data collection cache for ${targetDate} has non-ok route logs. Recollecting instead of reusing it.`);
   }
 
   const logs: CollectionLog[] = [];
@@ -423,6 +426,10 @@ async function main() {
   await writeJson(path.join(DATA_LOGS_DIR, "last-fetch.json"), logs);
   await writeDataRun(merged, changedCount, false, logs);
   console.log(`Data collection complete for ${targetDate}. ${itemsForDate.length} item(s), ${changedCount} changed/new.`);
+}
+
+function canReuseDataCache(daily: DailyCollection): boolean {
+  return daily.logs.length > 0 && daily.logs.every((log) => log.status === "ok");
 }
 
 async function ensureDataCollectionDirs(): Promise<void> {
@@ -581,11 +588,14 @@ function parseLawmakingAnchors(
 
     const index = match.index || 0;
     const context = html.slice(Math.max(0, index - 900), Math.min(html.length, index + match[0].length + 900));
-    const publishDate = normalizeDate(findLabelDate(compactText(context), ["공고일자", "예고기간", "제안일", "처리일", "등록일"])) || targetDate;
-    if (publishDate !== targetDate && !containsDateText(context, targetDate)) continue;
+    const contextText = compactText(htmlToText(context));
+    const publishDate =
+      findDateAfterLabel(contextText, ["공고일자", "공고일", "등록일", "제안일", "처리일"]) ||
+      findDateAfterLabel(contextText, ["접수기간", "예고기간", "입법의견 접수기간"]);
+    if (publishDate !== targetDate) continue;
 
     const originalUrl = normalizeOriginalUrl(new URL(href, listUrl).toString());
-    const rawText = compactText([label, context].join(" "));
+    const rawText = compactText([label, contextText].join(" "));
     items.push(
       makeDataItem({
         source,
@@ -1329,6 +1339,18 @@ function findLabelDate(value: string, labels: string[]): string {
     const pattern = new RegExp(`${escapeRegExp(label)}\\s*[:：]?\\s*((?:19|20)\\d{2}[.\\-/년\\s]*\\d{1,2}[.\\-/월\\s]*\\d{1,2})`);
     const match = value.match(pattern);
     if (match) return match[1];
+  }
+  return "";
+}
+
+function findDateAfterLabel(value: string, labels: string[]): string {
+  for (const label of labels) {
+    const index = value.indexOf(label);
+    if (index === -1) continue;
+    const nearby = value.slice(index + label.length, index + label.length + 160);
+    const match = nearby.match(/(?:19|20)\d{2}\s*[.년/-]\s*\d{1,2}\s*[.월/-]\s*\d{1,2}\s*\.?/);
+    const date = match ? normalizeDate(match[0]) : null;
+    if (date) return date;
   }
   return "";
 }

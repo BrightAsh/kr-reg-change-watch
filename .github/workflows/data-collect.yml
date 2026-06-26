@@ -8,7 +8,16 @@ on:
       - main
     paths:
       - ".github/workflows/data-collect.yml"
+      - "app/**"
+      - "components/**"
+      - "lib/**"
+      - "scripts/common.ts"
+      - "scripts/collect-data.ts"
+      - "scripts/diff-data.ts"
       - "scripts/fetch-data.ts"
+      - "scripts/update-data-collection-status.ts"
+      - "scripts/verify-data-collection-complete.ts"
+      - "package.json"
   workflow_run:
     workflows:
       - Daily collect and deploy
@@ -43,11 +52,17 @@ on:
         required: false
         type: boolean
         default: true
+      network_retry_count:
+        description: "Internal fresh-run retry count for data source network blocks."
+        required: false
+        type: string
+        default: "0"
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
+  actions: write
   contents: write
   pages: write
   id-token: write
@@ -61,6 +76,7 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-22.04
     permissions:
+      actions: write
       contents: write
       pages: write
       id-token: write
@@ -85,12 +101,16 @@ jobs:
       FETCH_CURL_ONLY: 0
       DATA_FETCH_MAX_PAGES: 20
       DATA_FETCH_DETAIL_LIMIT: 40
+      DATA_PREFLIGHT_ATTEMPTS: 2
+      DATA_PREFLIGHT_RETRY_DELAY_SECONDS: 60
+      MAX_DATA_NETWORK_PREFLIGHT_RETRIES: 3
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       START_DATE: ${{ github.event.inputs.start_date }}
       END_DATE: ${{ github.event.inputs.end_date }}
       FORCE_COLLECT: ${{ github.event_name == 'push' && '1' || github.event.inputs.force == 'true' && '1' || '0' }}
-      DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site != 'false' && '1' || '0' }}
+      DEPLOY_SITE: ${{ github.event_name != 'workflow_dispatch' && '1' || github.event.inputs.deploy_site != 'false' && '1' || '0' }}
       COMMIT_DATA: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.commit_data == 'false' && '0' || '1' }}
+      NETWORK_RETRY_COUNT: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.network_retry_count || '0' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -105,6 +125,157 @@ jobs:
 
       - name: Sync latest branch before collection
         run: git pull --ff-only origin "${GITHUB_REF_NAME:-main}"
+
+      - name: Preflight data source connectivity
+        id: data_preflight
+        shell: bash
+        run: |
+          set +e
+          if [ -n "$TARGET_DATE" ]; then
+            YMD="$(date -u -d "$TARGET_DATE" +%Y%m%d)"
+            DOT_DATE="$(date -u -d "$TARGET_DATE" +%-Y.%-m.%-d.)"
+          else
+            YMD="$(TZ=Asia/Seoul date -d 'yesterday' +%Y%m%d)"
+            DOT_DATE="$(TZ=Asia/Seoul date -d 'yesterday' +%-Y.%-m.%-d.)"
+          fi
+
+          LAW_OC_VALUE="${LAW_OPEN_API_OC:-${LAW_OC:-${KOREAN_LAW_API_KEY:-}}}"
+          PREFLIGHT_ATTEMPTS="${DATA_PREFLIGHT_ATTEMPTS:-2}"
+          PREFLIGHT_RETRY_DELAY_SECONDS="${DATA_PREFLIGHT_RETRY_DELAY_SECONDS:-60}"
+          if ! [[ "$PREFLIGHT_ATTEMPTS" =~ ^[0-9]+$ ]] || [ "$PREFLIGHT_ATTEMPTS" -lt 1 ]; then
+            PREFLIGHT_ATTEMPTS=1
+          fi
+          if ! [[ "$PREFLIGHT_RETRY_DELAY_SECONDS" =~ ^[0-9]+$ ]]; then
+            PREFLIGHT_RETRY_DELAY_SECONDS=60
+          fi
+
+          probe_url() {
+            local label="$1"
+            local url="$2"
+            PROBE_COUNT=$((PROBE_COUNT + 1))
+            echo "Checking ${label}"
+            curl -4 -L --http1.1 --connect-timeout 8 --max-time 25 --retry 1 --retry-all-errors -sS --fail \
+              -o /tmp/data-preflight.out \
+              -A "Mozilla/5.0 (compatible; kr-reg-change-watch/0.1; +https://github.com/BrightAsh/kr-reg-change-watch)" \
+              -H "accept: application/json, application/xml, text/xml, text/html;q=0.9, */*;q=0.8" \
+              -H "accept-language: ko-KR,ko;q=0.9,en;q=0.8" \
+              "$url"
+            local code=$?
+            local bytes=0
+            if [ -f /tmp/data-preflight.out ]; then
+              bytes=$(wc -c < /tmp/data-preflight.out | tr -d ' ')
+            fi
+            rm -f /tmp/data-preflight.out
+            if [ "$code" -eq 0 ]; then
+              echo "OK ${label} bytes=${bytes}"
+            else
+              echo "FAIL ${label} curl_exit=${code}"
+              FAIL_COUNT=$((FAIL_COUNT + 1))
+            fi
+          }
+
+          run_preflight_round() {
+            FAIL_COUNT=0
+            PROBE_COUNT=0
+            if [ -n "$LAW_OC_VALUE" ]; then
+              probe_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=law&type=JSON&display=1&page=1&query=%EB%8D%B0%EC%9D%B4%ED%84%B0"
+            else
+              echo "::warning::LAW_OPEN_API_OC/LAW_OC/KOREAN_LAW_API_KEY is not configured; law.go.kr preflight skipped."
+            fi
+            probe_url "opinion.lawmaking.go.kr" "https://opinion.lawmaking.go.kr/gcom/ogLmPp?stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}&lsNm=%EB%8D%B0%EC%9D%B4%ED%84%B0&isOgYn=Y&opYn=Y"
+            if [ -n "$GWANBO_LIST_URL" ] && [ -n "$DATA_GO_KR_SERVICE_KEY" ]; then
+              GWANBO_SEPARATOR="?"
+              case "$GWANBO_LIST_URL" in
+                *\?*) GWANBO_SEPARATOR="&" ;;
+              esac
+              probe_url "open.gwanbo.go.kr" "${GWANBO_LIST_URL}${GWANBO_SEPARATOR}serviceKey=${DATA_GO_KR_SERVICE_KEY}&pageNo=1&pageSize=1&numOfRows=1&reqFrom=${YMD}&reqTo=${YMD}"
+            else
+              echo "::warning::GWANBO_LIST_URL/DATA_GO_KR_SERVICE_KEY is not configured; gwanbo preflight skipped."
+            fi
+            probe_url "msit.go.kr" "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
+            probe_url "kdata.or.kr" "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
+            probe_url "data1window.kr" "https://www.data1window.kr/vrest/api/v1/resource/post/list?limit=1&offset=0&bbsTypeCd=001&searchValue="
+            probe_url "mois.go.kr" "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+            probe_url "mods.go.kr" "https://mods.go.kr/menu.es?mid=a10403040000"
+            probe_url "data.go.kr" "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
+          }
+
+          round=1
+          while [ "$round" -le "$PREFLIGHT_ATTEMPTS" ]; do
+            echo "Data source preflight attempt ${round}/${PREFLIGHT_ATTEMPTS}"
+            run_preflight_round
+            if [ "$FAIL_COUNT" -eq 0 ]; then
+              echo "Data source preflight passed for ${PROBE_COUNT} URL(s)."
+              exit 0
+            fi
+            if [ "$round" -lt "$PREFLIGHT_ATTEMPTS" ]; then
+              echo "::warning::Data source preflight failed for ${FAIL_COUNT}/${PROBE_COUNT} URL(s); retrying in ${PREFLIGHT_RETRY_DELAY_SECONDS}s."
+              sleep "$PREFLIGHT_RETRY_DELAY_SECONDS"
+            fi
+            round=$((round + 1))
+          done
+
+          echo "::error::Data source preflight failed for ${FAIL_COUNT}/${PROBE_COUNT} URL(s). Aborting before writing partial data collection."
+          if [ "$FAIL_COUNT" -ge 3 ]; then
+            echo "network_blocked=1" >> "$GITHUB_OUTPUT"
+          fi
+          exit 1
+
+      - name: Queue fresh runner retry after data preflight network block
+        if: ${{ failure() && steps.data_preflight.outputs.network_blocked == '1' }}
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          retry_count="${NETWORK_RETRY_COUNT:-0}"
+          if ! [[ "$retry_count" =~ ^[0-9]+$ ]]; then
+            retry_count=0
+          fi
+          max_retries="${MAX_DATA_NETWORK_PREFLIGHT_RETRIES:-3}"
+          if ! [[ "$max_retries" =~ ^[0-9]+$ ]]; then
+            max_retries=3
+          fi
+          if [ "$retry_count" -ge "$max_retries" ]; then
+            echo "::warning::Data preflight network block persisted after ${retry_count} fresh-run retry attempt(s). Not queueing another run."
+            exit 0
+          fi
+
+          retry_target="${TARGET_DATE:-}"
+          if [ -z "$retry_target" ] && [ -z "${START_DATE:-}" ]; then
+            retry_target="$(TZ=Asia/Seoul date -d 'yesterday' +%Y-%m-%d)"
+          fi
+          next_retry_count=$((retry_count + 1))
+
+          export RETRY_TARGET="$retry_target"
+          export RETRY_START="${START_DATE:-}"
+          export RETRY_END="${END_DATE:-}"
+          export NEXT_RETRY_COUNT="$next_retry_count"
+          export RETRY_DEPLOY_SITE="$([ "${DEPLOY_SITE:-0}" = "1" ] && echo true || echo false)"
+          export RETRY_COMMIT_DATA="$([ "${COMMIT_DATA:-0}" = "1" ] && echo true || echo false)"
+          python3 - <<'PY' > /tmp/data-fresh-run-retry.json
+          import json
+          import os
+
+          inputs = {
+              "target_date": os.environ.get("RETRY_TARGET", ""),
+              "start_date": os.environ.get("RETRY_START", ""),
+              "end_date": os.environ.get("RETRY_END", ""),
+              "force": "true",
+              "deploy_site": os.environ["RETRY_DEPLOY_SITE"],
+              "commit_data": os.environ["RETRY_COMMIT_DATA"],
+              "network_retry_count": os.environ["NEXT_RETRY_COUNT"],
+          }
+          print(json.dumps({"ref": os.environ.get("GITHUB_REF_NAME", "main"), "inputs": inputs}, separators=(",", ":")))
+          PY
+
+          echo "Queueing data fresh-run retry ${next_retry_count}/${max_retries}."
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/data-collect.yml/dispatches" \
+            --data @/tmp/data-fresh-run-retry.json
 
       - name: Collect data-specific changes
         id: data_collect

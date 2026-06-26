@@ -11,20 +11,37 @@ const dataWatchDir = path.join(dataDir, "data");
 const dataWatchItemsPath = path.join(dataWatchDir, "items.json");
 const dataWatchDailyDir = path.join(dataWatchDir, "daily");
 
+let itemsCache: { mtimeMs: number; items: CollectedItem[] } | null = null;
+let dataItemsCache: { mtimeMs: number; items: CollectedItem[] } | null = null;
+
 export async function readItems(): Promise<CollectedItem[]> {
   try {
+    const stat = await fs.stat(itemsPath);
+    if (itemsCache && itemsCache.mtimeMs === stat.mtimeMs) {
+      return itemsCache.items;
+    }
     const raw = await fs.readFile(itemsPath, "utf8");
-    return JSON.parse(raw) as CollectedItem[];
+    const items = JSON.parse(raw) as CollectedItem[];
+    itemsCache = { mtimeMs: stat.mtimeMs, items };
+    return items;
   } catch {
+    itemsCache = null;
     return [];
   }
 }
 
 export async function readDataItems(): Promise<CollectedItem[]> {
   try {
+    const stat = await fs.stat(dataWatchItemsPath);
+    if (dataItemsCache && dataItemsCache.mtimeMs === stat.mtimeMs) {
+      return dataItemsCache.items;
+    }
     const raw = await fs.readFile(dataWatchItemsPath, "utf8");
-    return JSON.parse(raw) as CollectedItem[];
+    const items = JSON.parse(raw) as CollectedItem[];
+    dataItemsCache = { mtimeMs: stat.mtimeMs, items };
+    return items;
   } catch {
+    dataItemsCache = null;
     return [];
   }
 }

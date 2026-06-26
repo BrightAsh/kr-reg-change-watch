@@ -103,11 +103,13 @@ export async function fetchText(url: string, init: RequestInit = {}): Promise<st
   const curlFirst = truthyEnv("FETCH_CURL_FIRST");
   const curlOnly = truthyEnv("FETCH_CURL_ONLY");
   let lastError: unknown;
+  let curlFirstError: unknown;
 
   if (curlFirst) {
     try {
       return await fetchTextWithCurl(url, init, timeoutMs, retries);
     } catch (error) {
+      curlFirstError = error;
       lastError = error;
       if (curlOnly) {
         throw new Error(`GET ${url} failed with curl-first mode: ${error instanceof Error ? error.message : String(error)}`);
@@ -143,8 +145,11 @@ export async function fetchText(url: string, init: RequestInit = {}): Promise<st
 
   const curlFallback = env("FETCH_CURL_FALLBACK", "1").toLowerCase();
   if (curlFirst || curlFallback === "0" || curlFallback === "false" || curlFallback === "no") {
+    const curlMessage = curlFirstError
+      ? `curl-first failed: ${curlFirstError instanceof Error ? curlFirstError.message : String(curlFirstError)}; `
+      : "";
     throw new Error(
-      `GET ${url} failed after ${retries} attempt(s): ${
+      `GET ${url} failed after ${retries} attempt(s): ${curlMessage}${
         lastError instanceof Error ? lastError.message : String(lastError)
       }`
     );

@@ -18,11 +18,11 @@ async function main() {
   if (!day) {
     throw new Error(`Data collection status for ${targetDate} was not found.`);
   }
-  if (day.status === "failed") {
+  if (day.status !== "complete") {
     const failures = day.methods
-      .filter((method) => method.status === "error" || method.status === "external_error")
+      .filter((method) => method.status !== "ok")
       .map((method) => `${method.source}: ${method.status}${method.message ? ` - ${method.message}` : ""}`);
-    throw new Error(`Data collection for ${targetDate} failed.\n${failures.join("\n")}`);
+    throw new Error(`Data collection for ${targetDate} is ${day.status}.\n${failures.join("\n")}`);
   }
   const daily = await readJson<DailyCollection | null>(
     path.join(rootDir, "data", "data", "daily", `${targetDate}.json`),
