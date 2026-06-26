@@ -103,7 +103,7 @@ jobs:
       DATA_FETCH_DETAIL_LIMIT: 40
       DATA_PREFLIGHT_ATTEMPTS: 2
       DATA_PREFLIGHT_RETRY_DELAY_SECONDS: 60
-      MAX_DATA_NETWORK_PREFLIGHT_RETRIES: 3
+      MAX_DATA_NETWORK_PREFLIGHT_RETRIES: 10
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       START_DATE: ${{ github.event.inputs.start_date }}
       END_DATE: ${{ github.event.inputs.end_date }}
@@ -225,12 +225,14 @@ jobs:
             else
               echo "FAIL ${label} curl_exit=${code}"
               FAIL_COUNT=$((FAIL_COUNT + 1))
+              FAILED_LABELS+=("${label}")
             fi
           }
 
           run_preflight_round() {
             FAIL_COUNT=0
             PROBE_COUNT=0
+            FAILED_LABELS=()
             if [ -n "$LAW_OC_VALUE" ]; then
               probe_url "law.go.kr" "https://www.law.go.kr/DRF/lawSearch.do?OC=${LAW_OC_VALUE}&target=law&type=JSON&display=1&page=1&query=%EB%8D%B0%EC%9D%B4%ED%84%B0"
             else
@@ -269,8 +271,10 @@ jobs:
             round=$((round + 1))
           done
 
-          echo "::error::Data source preflight failed for ${FAIL_COUNT}/${PROBE_COUNT} URL(s). Aborting before writing partial data collection."
+          failed_labels="$(IFS=,; echo "${FAILED_LABELS[*]}")"
+          echo "::error::Data source preflight failed for ${FAIL_COUNT}/${PROBE_COUNT} URL(s): ${failed_labels}. Aborting before writing partial data collection."
           echo "failed=1" >> "$GITHUB_OUTPUT"
+          echo "failed_labels=${failed_labels}" >> "$GITHUB_OUTPUT"
           if [ "$FAIL_COUNT" -ge 3 ]; then
             echo "network_blocked=1" >> "$GITHUB_OUTPUT"
           fi
