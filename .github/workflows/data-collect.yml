@@ -54,7 +54,7 @@ permissions:
 
 concurrency:
   group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && github.event.inputs.commit_data == 'false' && format('data-collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || 'data-pages' }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   data-collect-build-deploy:
@@ -89,7 +89,7 @@ jobs:
       START_DATE: ${{ github.event.inputs.start_date }}
       END_DATE: ${{ github.event.inputs.end_date }}
       FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
-      DEPLOY_SITE: ${{ github.event_name == 'push' && '0' || github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
+      DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site != 'false' && '1' || '0' }}
       COMMIT_DATA: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.commit_data == 'false' && '0' || '1' }}
     steps:
       - uses: actions/checkout@v4
