@@ -8,6 +8,7 @@ on:
       - main
     paths:
       - ".github/workflows/data-collect.yml"
+      - "scripts/fetch-data.ts"
   workflow_run:
     workflows:
       - Daily collect and deploy

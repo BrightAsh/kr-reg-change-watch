@@ -1201,8 +1201,12 @@ function withPage(url: string, page: number): string {
 
 function cleanTitle(value: string): string {
   return compactText(value)
+    .replace(/(?:-->\s*)+/g, "")
     .replace(/^새글\s*/g, "")
     .replace(/^제목\s*/g, "")
+    .replace(/^[:：]\s*/g, "")
+    .replace(/\s*게시일\s*(?:19|20)\d{2}[.\-/]\d{1,2}[.\-/]\d{1,2}[\s\S]*$/g, "")
+    .replace(/\s*(?:hwp|hwpx|pdf|docx?|xlsx?|zip)파일[\s\S]*$/gi, "")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -1222,6 +1226,7 @@ function decodeHtml(value: string): string {
     .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
+    .replace(/&middot;/g, "·")
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
