@@ -8,6 +8,7 @@ on:
       - main
     paths:
       - ".github/workflows/data-collect.yml"
+      - ".github/data-backfill-trigger.txt"
       - "app/**"
       - "components/**"
       - "lib/**"
