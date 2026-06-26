@@ -1,0 +1,62 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-26T16:17:39.145Z",
+    "collection_date": "2026-06-13",
+    "source": "국가법령정보센터 데이터 행정규칙",
+    "source_type": "official_law",
+    "ministry": "국가데이터처",
+    "document_type": "established_rule",
+    "title": "국가데이터처 통계자료제공심의회 규정",
+    "issue_number": "8",
+    "publish_date": "2026-06-13",
+    "effective_date": "2026-06-13",
+    "change_type": "partial_revision",
+    "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000281046&type=HTML&mobileYn=",
+    "attachment_urls": [
+      "http://law.go.kr/flDownload.do?flSeq=166155025%20http://law.go.kr/flDownload.do?flSeq=166155029%20%EA%B5%AD%EA%B0%80%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%B2%98%20%ED%86%B5%EA%B3%84%EC%9E%90%EB%A3%8C%EC%A0%9C%EA%B3%B5%EC%8B%AC%EC%9D%98%ED%9A%8C%20%EA%B7%9C%EC%A0%95(%EC%98%88%EA%B7%9C)%20%EA%B0%9C%EC%A0%95.hwpx%20%EA%B5%AD%EA%B0%80%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%B2%98%20%ED%86%B5%EA%B3%84%EC%9E%90%EB%A3%8C%EC%A0%9C%EA%B3%B5%EC%8B%AC%EC%9D%98%ED%9A%8C%20%EA%B7%9C%EC%A0%95(%EC%98%88%EA%B7%9C)%20%EA%B0%9C%EC%A0%95.pdf",
+      "http://law.go.kr/flDownload.do?flSeq=166155025",
+      "http://law.go.kr/flDownload.do?flSeq=166155029"
+    ],
+    "raw_text": "국가데이터처 통계자료제공심의회 규정 일부개정 국가데이터처",
+    "raw_hash": "c077d09e08a550381674a9829ee42c48dc90be57b1acdde71dbdb1df692a7fba",
+    "confidence": "official",
+    "verification_required": false,
+    "source_record_id": "2100000281046",
+    "id": "7b0af2d6382b68d3",
+    "category": "guideline"
+  },
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-26T16:17:40.723Z",
+    "collection_date": "2026-06-13",
+    "source": "국가법령정보센터 데이터 행정규칙",
+    "source_type": "official_law",
+    "ministry": "국가데이터처",
+    "document_type": "established_rule",
+    "title": "국가통계 자료제공 및 이용에 관한 규정",
+    "issue_number": "9",
+    "publish_date": "2026-06-13",
+    "effective_date": "2026-06-13",
+    "change_type": "partial_revision",
+    "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000281048&type=HTML&mobileYn=",
+    "attachment_urls": [
+      "http://law.go.kr/flDownload.do?flSeq=166155293%20http://law.go.kr/flDownload.do?flSeq=166155297%20%EA%B5%AD%EA%B0%80%ED%86%B5%EA%B3%84%20%EC%9E%90%EB%A3%8C%EC%A0%9C%EA%B3%B5%20%EB%B0%8F%20%EC%9D%B4%EC%9A%A9%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95(%EC%98%88%EA%B7%9C)%20%EA%B0%9C%EC%A0%95%20(1).hwpx%20%EA%B5%AD%EA%B0%80%ED%86%B5%EA%B3%84%20%EC%9E%90%EB%A3%8C%EC%A0%9C%EA%B3%B5%20%EB%B0%8F%20%EC%9D%B4%EC%9A%A9%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95(%EC%98%88%EA%B7%9C)%20%EA%B0%9C%EC%A0%95%20(1).pdf",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=166155405",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=166155401",
+      "http://law.go.kr/flDownload.do?flSeq=166155293",
+      "http://law.go.kr/flDownload.do?flSeq=166155297"
+    ],
+    "raw_text": "국가통계 자료제공 및 이용에 관한 규정 일부개정 국가데이터처",
+    "raw_hash": "7a960290534490971dd3c70900a9c2f3b8cf7de2e0a477acaa820ce8924562ab",
+    "confidence": "official",
+    "verification_required": false,
+    "source_record_id": "2100000281048",
+    "id": "f3e44ddb8bd5f37d",
+    "category": "guideline"
+  }
+]

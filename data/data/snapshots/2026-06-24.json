@@ -1,0 +1,27 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-26T17:07:21.885Z",
+    "collection_date": "2026-06-24",
+    "source": "공공데이터포털 공지사항",
+    "source_type": "ministry_board",
+    "ministry": "공공데이터포털",
+    "document_type": "law",
+    "title": "2026년 공공데이터포털 이용자 만족도 조사",
+    "issue_number": null,
+    "publish_date": "2026-06-24",
+    "effective_date": null,
+    "change_type": "unknown",
+    "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000004793",
+    "attachment_urls": [],
+    "raw_text": "공공데이터포털 공지사항 2026년 공공데이터포털 이용자 만족도 조사 공지 제목 : 2026년 공공데이터포털 이용자 만족도 조사 등록일 : 2026-06-24 조회수 : 337",
+    "raw_hash": "1262ada3484edae19378ea8fc441f731fb2dedecb3b2514345de993a1cdf8065",
+    "confidence": "official_notice",
+    "verification_required": false,
+    "source_record_id": null,
+    "id": "544038e918540eea",
+    "category": "law"
+  }
+]

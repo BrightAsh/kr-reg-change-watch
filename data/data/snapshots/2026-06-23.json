@@ -1,0 +1,27 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-26T17:03:36.492Z",
+    "collection_date": "2026-06-23",
+    "source": "공공데이터포털 공지사항",
+    "source_type": "ministry_board",
+    "ministry": "공공데이터포털",
+    "document_type": "law",
+    "title": "[한국수력원자력] 2026년 공공데이터 개방·활용을 위한 대국민 설문조사",
+    "issue_number": null,
+    "publish_date": "2026-06-23",
+    "effective_date": null,
+    "change_type": "unknown",
+    "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000004790",
+    "attachment_urls": [],
+    "raw_text": "공공데이터포털 공지사항 [한국수력원자력] 2026년 공공데이터 개방·활용을 위한 대국민 설문조사 4790 제목 : [한국수력원자력] 2026년 공공데이터 개방·활용을 위한 대국민 설문조사 등록일 : 2026-06-23 조회수 : 140",
+    "raw_hash": "92e5a0198b4fd755a58f8d9247bd4cee443b0a4ef60e8ef32bd20d7574bb27fa",
+    "confidence": "official_notice",
+    "verification_required": false,
+    "source_record_id": null,
+    "id": "9a6174141af63135",
+    "category": "law"
+  }
+]
