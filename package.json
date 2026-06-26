@@ -16,7 +16,12 @@
     "status:critical": "tsx scripts/check-critical-connectivity.ts",
     "status:update": "tsx scripts/update-collection-status.ts",
     "status:verify": "tsx scripts/verify-collection-complete.ts",
-    "mail:send": "tsx scripts/send-mail-alert.ts"
+    "mail:send": "tsx scripts/send-mail-alert.ts",
+    "data:fetch": "tsx scripts/fetch-data.ts",
+    "data:diff": "tsx scripts/diff-data.ts",
+    "data:collect": "tsx scripts/collect-data.ts",
+    "data:status": "tsx scripts/update-data-collection-status.ts",
+    "data:verify": "tsx scripts/verify-data-collection-complete.ts"
   },
   "dependencies": {
     "fast-xml-parser": "^4.5.3",

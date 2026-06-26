@@ -1,15 +1,28 @@
 import Link from "next/link";
 import ItemExplorer from "@/components/ItemExplorer";
 import MailAlertDialog from "@/components/MailAlertDialog";
-import { readAvailableDailyDates, readItems, sortItems, uniqueSorted } from "@/lib/data";
+import {
+  readAvailableDailyDates,
+  readAvailableDataDailyDates,
+  readDataItems,
+  readItems,
+  sortItems,
+  uniqueSorted
+} from "@/lib/data";
 
 export default async function HomePage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const items = sortItems(await readItems());
+  const dataItems = sortItems(await readDataItems());
   const ministries = uniqueSorted(items.map((item) => item.ministry));
+  const dataMinistries = uniqueSorted(dataItems.map((item) => item.ministry));
   const dates = uniqueSorted([
     ...(await readAvailableDailyDates()),
     ...items.map((item) => item.collection_date || item.publish_date)
+  ]).reverse();
+  const dataDates = uniqueSorted([
+    ...(await readAvailableDataDailyDates()),
+    ...dataItems.map((item) => item.collection_date || item.publish_date)
   ]).reverse();
 
   return (
@@ -41,7 +54,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <ItemExplorer items={items} ministries={ministries} dates={dates} />
+      <ItemExplorer
+        items={items}
+        ministries={ministries}
+        dates={dates}
+        dataItems={dataItems}
+        dataMinistries={dataMinistries}
+        dataDates={dataDates}
+      />
     </main>
   );
 }

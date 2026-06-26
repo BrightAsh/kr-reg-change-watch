@@ -7,21 +7,24 @@ const dataDir = path.join(root, "data");
 const itemsPath = path.join(dataDir, "items.json");
 const runPath = path.join(dataDir, "run.json");
 const dailyDir = path.join(dataDir, "daily");
-
-let itemsCache: { mtimeMs: number; items: CollectedItem[] } | null = null;
+const dataWatchDir = path.join(dataDir, "data");
+const dataWatchItemsPath = path.join(dataWatchDir, "items.json");
+const dataWatchDailyDir = path.join(dataWatchDir, "daily");
 
 export async function readItems(): Promise<CollectedItem[]> {
   try {
-    const stat = await fs.stat(itemsPath);
-    if (itemsCache && itemsCache.mtimeMs === stat.mtimeMs) {
-      return itemsCache.items;
-    }
     const raw = await fs.readFile(itemsPath, "utf8");
-    const items = JSON.parse(raw) as CollectedItem[];
-    itemsCache = { mtimeMs: stat.mtimeMs, items };
-    return items;
+    return JSON.parse(raw) as CollectedItem[];
   } catch {
-    itemsCache = null;
+    return [];
+  }
+}
+
+export async function readDataItems(): Promise<CollectedItem[]> {
+  try {
+    const raw = await fs.readFile(dataWatchItemsPath, "utf8");
+    return JSON.parse(raw) as CollectedItem[];
+  } catch {
     return [];
   }
 }
@@ -46,6 +49,18 @@ export async function readRunMetadata(): Promise<RunMetadata> {
 export async function readAvailableDailyDates(): Promise<string[]> {
   try {
     const files = await fs.readdir(dailyDir);
+    return files
+      .filter((file) => /^\d{4}-\d{2}-\d{2}\.json$/.test(file))
+      .map((file) => file.replace(".json", ""))
+      .sort((a, b) => b.localeCompare(a));
+  } catch {
+    return [];
+  }
+}
+
+export async function readAvailableDataDailyDates(): Promise<string[]> {
+  try {
+    const files = await fs.readdir(dataWatchDailyDir);
     return files
       .filter((file) => /^\d{4}-\d{2}-\d{2}\.json$/.test(file))
       .map((file) => file.replace(".json", ""))

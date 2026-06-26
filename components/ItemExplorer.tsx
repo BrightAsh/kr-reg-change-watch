@@ -19,11 +19,14 @@ interface Props {
   items: CollectedItem[];
   ministries: string[];
   dates: string[];
+  dataItems?: CollectedItem[];
+  dataMinistries?: string[];
+  dataDates?: string[];
   detailHrefPrefix?: string;
 }
 
 type CategoryFilter = "all" | RegulatoryCategory;
-type WorkspaceMode = "all" | "public-system";
+type WorkspaceMode = "all" | "public-system" | "data";
 type FilterKey = "ministry" | "source" | "document" | "change";
 
 interface FilterOption {
@@ -66,9 +69,18 @@ const briefingInstructions =
     "근거가 부족한 항목은 추정하지 말고 원문 확인 필요라고 적으세요."
   ].join("\n");
 
-export default function ItemExplorer({ items, ministries, dates, detailHrefPrefix = "/items" }: Props) {
+export default function ItemExplorer({
+  items,
+  ministries,
+  dates,
+  dataItems = [],
+  dataMinistries = [],
+  dataDates = [],
+  detailHrefPrefix = "/items"
+}: Props) {
   const initialDate = dates[0] || formatDateString(new Date());
-  const validMinistrySet = useMemo(() => new Set(ministries), [ministries]);
+  const initialDataDate = dataDates[0] || initialDate;
+  const validMinistrySet = useMemo(() => new Set([...ministries, ...dataMinistries]), [dataMinistries, ministries]);
   const [query, setQuery] = useState("");
   const [ministryFilters, setMinistryFilters] = useState<string[]>([]);
   const [sourceTypeFilters, setSourceTypeFilters] = useState<string[]>([]);
@@ -98,12 +110,28 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     [items]
   );
 
-  const modeScopedItems = useMemo(
+  const enrichedDataItems = useMemo(
     () =>
-      workspaceMode === "public-system"
-        ? enrichedItems.filter((item) => (item.public_system_matches || []).length > 0)
-        : enrichedItems,
-    [enrichedItems, workspaceMode]
+      dataItems.map((item) => ({
+        ...item,
+        category: itemCategory(item),
+        public_system_matches: item.public_system_matches || []
+      })),
+    [dataItems]
+  );
+
+  const activeDates = workspaceMode === "data" ? dataDates : dates;
+  const activeMinistries = workspaceMode === "data" ? dataMinistries : ministries;
+
+  const modeScopedItems = useMemo(
+    () => {
+      if (workspaceMode === "data") return enrichedDataItems;
+      if (workspaceMode === "public-system") {
+        return enrichedItems.filter((item) => (item.public_system_matches || []).length > 0);
+      }
+      return enrichedItems;
+    },
+    [enrichedDataItems, enrichedItems, workspaceMode]
   );
 
   const dateCounts = useMemo(() => {
@@ -145,7 +173,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return dateScopedItems.filter((item) => {
-      if (workspaceMode === "all" && category !== "all" && item.category !== category) return false;
+      if (workspaceMode !== "public-system" && category !== "all" && item.category !== category) return false;
       if (
         workspaceMode === "public-system" &&
         activeSystemGroup !== "all" &&
@@ -208,7 +236,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   );
 
   const calendarCells = useMemo(() => buildCalendar(monthCursor), [monthCursor]);
-  const collectedDateSet = useMemo(() => new Set(dates), [dates]);
+  const collectedDateSet = useMemo(() => new Set(activeDates), [activeDates]);
   const dateHasCache = collectedDateSet.has(selectedDate);
   const emptyTitle = !dateHasCache
     ? "자료를 수집하지 않은 날짜입니다. 관리자에게 문의하세요."
@@ -222,7 +250,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     selected: string[];
     options: FilterOption[];
   }> = [
-    { key: "ministry", label: "기관", selected: ministryFilters, options: ministries.map((value) => ({ value, label: value })) },
+    { key: "ministry", label: "기관", selected: ministryFilters, options: activeMinistries.map((value) => ({ value, label: value })) },
     {
       key: "source",
       label: "출처",
@@ -249,7 +277,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     const params = new URLSearchParams(window.location.search);
     const mode = params.get("mode");
     const date = params.get("date");
-    const nextMode: WorkspaceMode = mode === "public-system" ? "public-system" : "all";
+    const nextMode: WorkspaceMode = mode === "public-system" ? "public-system" : mode === "data" ? "data" : "all";
     const nextCategory = parseCategoryParam(params.get("category"));
     const nextSystem = parseSystemParam(params.get("system"));
     const nextQuery = params.get("q") || "";
@@ -257,7 +285,8 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     const nextSources = parseArrayParams(params, "source").filter(isSourceType);
     const nextDocuments = parseArrayParams(params, "document").filter(isDocumentType);
     const nextChanges = parseArrayParams(params, "change").filter(isChangeType);
-    const nextDate = date && /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : initialDate;
+    const defaultDate = nextMode === "data" ? initialDataDate : initialDate;
+    const nextDate = date && /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : defaultDate;
 
     setWorkspaceMode(nextMode);
     setSelectedDate(nextDate);
@@ -270,7 +299,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
     setDocumentTypeFilters(nextDocuments);
     setChangeTypeFilters(nextChanges);
     setUrlReady(true);
-  }, [initialDate, validMinistrySet]);
+  }, [initialDataDate, initialDate, validMinistrySet]);
 
   useEffect(() => {
     if (!urlReady) return;
@@ -286,6 +315,21 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   function selectCalendarDate(date: string) {
     setSelectedDate(date);
     setMonthCursor(date.slice(0, 7));
+  }
+
+  function changeWorkspaceMode(mode: WorkspaceMode) {
+    setWorkspaceMode(mode);
+    setCategory("all");
+    setActiveSystemGroup("all");
+    setActiveFilter(null);
+    setDraftSelection([]);
+    setMinistryFilters([]);
+    setSourceTypeFilters([]);
+    setDocumentTypeFilters([]);
+    setChangeTypeFilters([]);
+    const nextDate = mode === "data" ? initialDataDate : initialDate;
+    setSelectedDate(nextDate);
+    setMonthCursor(nextDate.slice(0, 7));
   }
 
   function openFilterMenu(key: FilterKey, selected: string[]) {
@@ -314,6 +358,7 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
   const workspaceClassName = [
     "app-workspace",
     workspaceMode === "public-system" ? "system-workspace" : "",
+    workspaceMode === "data" ? "data-workspace" : "",
     sidebarCollapsed ? "sidebar-collapsed" : ""
   ]
     .filter(Boolean)
@@ -332,16 +377,23 @@ export default function ItemExplorer({ items, ministries, dates, detailHrefPrefi
         <button
           className={workspaceMode === "all" ? "active" : ""}
           type="button"
-          onClick={() => setWorkspaceMode("all")}
+          onClick={() => changeWorkspaceMode("all")}
         >
           <span>전체 수집</span>
         </button>
         <button
           className={workspaceMode === "public-system" ? "active" : ""}
           type="button"
-          onClick={() => setWorkspaceMode("public-system")}
+          onClick={() => changeWorkspaceMode("public-system")}
         >
           <span>공공기관 운영 법령 및 정부지침 체계</span>
+        </button>
+        <button
+          className={workspaceMode === "data" ? "active" : ""}
+          type="button"
+          onClick={() => changeWorkspaceMode("data")}
+        >
+          <span>데이터</span>
         </button>
       </nav>
       <aside className={sidePanelClassName} aria-label="날짜와 분류">
@@ -691,7 +743,7 @@ function buildListHref({
   const params = new URLSearchParams();
   if (mode !== "all") params.set("mode", mode);
   if (date) params.set("date", date);
-  if (mode === "all" && category !== "all") params.set("category", category);
+  if (mode !== "public-system" && category !== "all") params.set("category", category);
   if (mode === "public-system" && system !== "all") params.set("system", system);
   if (query.trim()) params.set("q", query.trim());
   for (const value of ministries) params.append("ministry", value);

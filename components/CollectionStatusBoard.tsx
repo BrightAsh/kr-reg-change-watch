@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { CollectionDayStatus, CollectionMethodStatus, CollectionStatusReport } from "@/lib/collectionStatus";
 
 interface Props {
   report: CollectionStatusReport;
+  dataReport?: CollectionStatusReport;
 }
 
 const stateLabels: Record<CollectionDayStatus["status"], string> = {
@@ -25,18 +26,28 @@ const methodLabels = {
 
 const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
-export default function CollectionStatusBoard({ report }: Props) {
+type StatusScope = "all" | "data";
+
+export default function CollectionStatusBoard({ report, dataReport }: Props) {
+  const [scope, setScope] = useState<StatusScope>("all");
+  const activeReport = scope === "data" && dataReport ? dataReport : report;
   const defaultDate =
-    [...report.days].reverse().find((day) => day.status !== "not_started")?.date || report.end_date;
+    [...activeReport.days].reverse().find((day) => day.status !== "not_started")?.date || activeReport.end_date;
   const [selectedDate, setSelectedDate] = useState(defaultDate);
   const [monthCursor, setMonthCursor] = useState(defaultDate.slice(0, 7));
   const [activeLog, setActiveLog] = useState<CollectionMethodStatus | null>(null);
-  const selected = report.days.find((day) => day.date === selectedDate) || report.days[report.days.length - 1];
-  const monthKeys = useMemo(() => uniqueMonths(report.days), [report.days]);
-  const month = useMemo(() => buildMonth(report.days, monthCursor), [monthCursor, report.days]);
+  const selected = activeReport.days.find((day) => day.date === selectedDate) || activeReport.days[activeReport.days.length - 1];
+  const monthKeys = useMemo(() => uniqueMonths(activeReport.days), [activeReport.days]);
+  const month = useMemo(() => buildMonth(activeReport.days, monthCursor), [activeReport.days, monthCursor]);
   const monthIndex = monthKeys.indexOf(monthCursor);
   const canMovePrev = monthIndex > 0;
   const canMoveNext = monthIndex >= 0 && monthIndex < monthKeys.length - 1;
+
+  useEffect(() => {
+    setSelectedDate(defaultDate);
+    setMonthCursor(defaultDate.slice(0, 7));
+    setActiveLog(null);
+  }, [defaultDate, scope]);
 
   function shiftMonth(offset: number) {
     const nextIndex = monthIndex + offset;
@@ -51,6 +62,19 @@ export default function CollectionStatusBoard({ report }: Props) {
 
   return (
     <section className="status-board" aria-label="수집 현황">
+      <nav className="status-scope-tabs" aria-label="수집 현황 범위">
+        <button className={scope === "all" ? "active" : ""} type="button" onClick={() => setScope("all")}>
+          전체
+        </button>
+        <button
+          className={scope === "data" ? "active" : ""}
+          type="button"
+          onClick={() => setScope("data")}
+          disabled={!dataReport}
+        >
+          데이터
+        </button>
+      </nav>
       <div className="status-layout">
         <div className="status-calendar-wrap">
           <div className="status-calendar-head">

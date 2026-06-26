@@ -1,0 +1,192 @@
+name: Data collect and deploy
+
+run-name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.target_date != '' && format('Data collect {0}', github.event.inputs.target_date) || 'Data collect and deploy' }}
+
+on:
+  workflow_run:
+    workflows:
+      - Daily collect and deploy
+    types:
+      - completed
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "데이터 전용 수집 날짜(YYYY-MM-DD). 비우면 한국시간 기준 전일을 수집합니다."
+        required: false
+        type: string
+      start_date:
+        description: "데이터 전용 백필 시작일(YYYY-MM-DD). end_date와 함께 입력하면 날짜 범위로 수집합니다."
+        required: false
+        type: string
+      end_date:
+        description: "데이터 전용 백필 종료일(YYYY-MM-DD). start_date와 함께 입력하면 날짜 범위로 수집합니다."
+        required: false
+        type: string
+      force:
+        description: "이미 일자별 데이터 캐시가 있어도 다시 수집합니다."
+        required: false
+        type: boolean
+        default: false
+      deploy_site:
+        description: "수집 후 웹사이트를 빌드/배포합니다. 테스트 수집만 확인할 때는 false로 실행합니다."
+        required: false
+        type: boolean
+        default: true
+      commit_data:
+        description: "수집된 data/data 변경분을 커밋합니다."
+        required: false
+        type: boolean
+        default: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && github.event.inputs.commit_data == 'false' && format('data-collection-test-{0}-{1}', github.ref, github.event.inputs.target_date || github.run_id) || 'data-pages' }}
+  cancel-in-progress: false
+
+jobs:
+  data-collect-build-deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && 'collection-test' || 'github-pages' }}
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      LAW_OPEN_API_OC: ${{ secrets.LAW_OPEN_API_OC }}
+      LAW_OC: ${{ secrets.LAW_OC }}
+      KOREAN_LAW_API_KEY: ${{ secrets.KOREAN_LAW_API_KEY }}
+      LAWMAKING_OC: ${{ secrets.LAWMAKING_OC }}
+      LAWMAKING_BASE: https://www.lawmaking.go.kr/rest
+      GWANBO_LIST_URL: ${{ secrets.GWANBO_LIST_URL }}
+      DATA_GO_KR_SERVICE_KEY: ${{ secrets.DATA_GO_KR_SERVICE_KEY }}
+      NEXT_PUBLIC_BASE_PATH: /kr-reg-change-watch
+      FETCH_LOOKBACK_DAYS: 1
+      DATA_FETCH_LOOKBACK_DAYS: 1
+      FETCH_RETRIES: 2
+      FETCH_TIMEOUT_MS: 30000
+      FETCH_CURL_FALLBACK: 1
+      FETCH_CURL_FIRST: 1
+      FETCH_CURL_ONLY: 0
+      DATA_FETCH_MAX_PAGES: 20
+      DATA_FETCH_DETAIL_LIMIT: 40
+      TARGET_DATE: ${{ github.event.inputs.target_date }}
+      START_DATE: ${{ github.event.inputs.start_date }}
+      END_DATE: ${{ github.event.inputs.end_date }}
+      FORCE_COLLECT: ${{ github.event.inputs.force == 'true' && '1' || '0' }}
+      DEPLOY_SITE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_site == 'false' && '0' || '1' }}
+      COMMIT_DATA: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.commit_data == 'false' && '0' || '1' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Collect data-specific changes
+        id: data_collect
+        run: |
+          set -e
+          collect_one_date() {
+            local date_value="$1"
+            local args=(--date "$date_value")
+            if [ "$FORCE_COLLECT" = "1" ]; then
+              args+=(--force)
+            fi
+            npm run data:collect -- "${args[@]}"
+            npm run data:verify -- --date "$date_value"
+          }
+
+          if [ -n "$START_DATE" ] || [ -n "$END_DATE" ]; then
+            if [ -z "$START_DATE" ] || [ -z "$END_DATE" ]; then
+              echo "::error::start_date and end_date must be provided together."
+              exit 1
+            fi
+            cursor="$START_DATE"
+            end_epoch="$(date -u -d "$END_DATE" +%s)"
+            while [ "$(date -u -d "$cursor" +%s)" -le "$end_epoch" ]; do
+              collect_one_date "$cursor"
+              cursor="$(date -u -d "$cursor + 1 day" +%F)"
+            done
+          elif [ -n "$TARGET_DATE" ]; then
+            collect_one_date "$TARGET_DATE"
+          else
+            COLLECT_ARGS=()
+            if [ "$FORCE_COLLECT" = "1" ]; then
+              COLLECT_ARGS+=(--force)
+            fi
+            if [ "${#COLLECT_ARGS[@]}" -gt 0 ]; then
+              npm run data:collect -- "${COLLECT_ARGS[@]}"
+            else
+              npm run data:collect
+            fi
+            npm run data:verify
+          fi
+
+      - name: Update data collection status
+        if: ${{ always() }}
+        run: npm run data:status
+
+      - name: Commit data-specific collection
+        if: ${{ env.COMMIT_DATA == '1' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME:-main}"
+          npm run data:status
+          if grep -R -n -E '^(<<<<<<<|=======|>>>>>>>)' data/data 2>/dev/null; then
+            echo "::error::Conflict markers found in generated data files."
+            exit 1
+          fi
+          git add data/data
+          if git diff --cached --quiet; then
+            echo "No data-specific collection changes to commit."
+          else
+            if [ -n "$START_DATE" ]; then
+              DATE_LABEL="${START_DATE}_to_${END_DATE}"
+            else
+              DATE_LABEL="${TARGET_DATE:-auto}"
+            fi
+            git commit -m "Collect data regulatory changes for ${DATE_LABEL}"
+            for push_attempt in 1 2 3; do
+              git pull --rebase --autostash origin "${GITHUB_REF_NAME:-main}"
+              if git push; then
+                break
+              fi
+              if [ "$push_attempt" -eq 3 ]; then
+                echo "::error::Failed to push data-specific collection after ${push_attempt} attempts."
+                exit 1
+              fi
+              sleep $((push_attempt * 10))
+            done
+          fi
+
+      - name: Build static website
+        if: ${{ env.DEPLOY_SITE == '1' }}
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+        if: ${{ env.DEPLOY_SITE == '1' }}
+
+      - uses: actions/upload-pages-artifact@v3
+        if: ${{ env.DEPLOY_SITE == '1' }}
+        with:
+          path: out
+
+      - id: deployment
+        if: ${{ env.DEPLOY_SITE == '1' }}
+        uses: actions/deploy-pages@v4
