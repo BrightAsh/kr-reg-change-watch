@@ -99,19 +99,6 @@ const DATA_KEYWORDS = [
   "원윈도우"
 ];
 
-const LAW_QUERIES = [
-  "데이터 산업진흥",
-  "데이터 가치평가",
-  "데이터 가치평가기관",
-  "데이터 품질인증",
-  "데이터안심구역",
-  "데이터산업 기반",
-  "공공데이터",
-  "데이터기반행정",
-  "통계품질",
-  "통계기반정책평가"
-];
-
 const LAWMAKING_KEYWORDS = [
   "데이터",
   "데이터 가치평가",
@@ -405,6 +392,7 @@ async function main() {
   for (const route of routes) {
     const startedAt = logs.length;
     try {
+      console.log(`[data-collect] ${targetDate} ${route.source}: start`);
       const items = await route.run(logs);
       collected.push(...items);
       tagLogs(logs, startedAt, route.group, route.source);
@@ -472,8 +460,8 @@ async function fetchLawSearchRoute(logs: CollectionLog[], target: "law" | "admru
   }
 
   const rowsByKey = new Map<string, AnyRecord>();
-  for (const query of LAW_QUERIES) {
-    const rows = await lawSearch(target, { query });
+  for (const params of lawDateSearchParams(target)) {
+    const rows = await lawSearch(target, params);
     for (const row of rows) {
       const textValue = compactText(JSON.stringify(row));
       if (!isRelevantDataText(textValue)) continue;
@@ -535,6 +523,17 @@ async function fetchLawSearchRoute(logs: CollectionLog[], target: "law" | "admru
   }
   addLog(logs, source, "ok", "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료", items.length, LAW_GUIDE);
   return items;
+}
+
+function lawDateSearchParams(target: "law" | "admrul"): Array<Record<string, string | number>> {
+  const dateValue = yyyymmdd(targetDate);
+  if (target === "law") {
+    return [
+      { date: dateValue, sort: "ddes" },
+      { efYd: `${dateValue}~${dateValue}`, sort: "efdes" }
+    ];
+  }
+  return [{ date: dateValue, sort: "ddes" }];
 }
 
 async function fetchLawmakingWebRoute(
