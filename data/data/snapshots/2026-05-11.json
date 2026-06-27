@@ -1,0 +1,60 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-27T14:47:15.620Z",
+    "collection_date": "2026-05-11",
+    "source": "국가데이터처 예규",
+    "source_type": "ministry_board",
+    "ministry": "국가데이터처",
+    "document_type": "established_rule",
+    "title": "국가데이터처 청렴마일리지 관리지침(예규 제3호 2026. 4.13.)",
+    "issue_number": "제3호",
+    "publish_date": "2026-05-11",
+    "effective_date": null,
+    "change_type": "unknown",
+    "original_url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&act=view&list_no=445061&tag=&nPage=1&ref_bid=",
+    "attachment_urls": [
+      "https://mods.go.kr/boardDownload.es?bid=1404&list_no=445061&seq=1",
+      "https://mods.go.kr/attachPreview.es?bid=1404&list_no=445061&seq=1"
+    ],
+    "raw_text": "국가데이터처 예규 국가데이터처 청렴마일리지 관리지침(예규 제3호 2026. 4.13.) --> --> --> 국가데이터처 청렴마일리지 관리지침(예규 제3호 2026. 4.13.) 게시일 2026-05-11 조회 60 국가데이터처 청렴마일리지 관리지침(예규 제3호 2026. 4.13.)의 hwpx파일 미리보기 202 KOSTAT 통계플러스 > 통계플러스 : A32 11918 발간자료 > KOSTAT 통계플러스 > 데이터리서치브리프: A32 12047 학술행사 > 국가통계방법론심포지엄 > 발표자료 : A36 11891 학술행사 > 국민삶의질측정포럼 > 발표자료 : A36 12292 학술행사 > 연구성과포럼 > 발표자료 : A31 12068 학술행사 > SDG데이터혁신포럼 > 발표자료 : A36 12301 학술행사 > 사회동향포럼 > 발표자료 : A36 0050 // 20240312 주무관님 요청으로인하여 게시글 클릭 시 다운로드 해제, 게시글 상세페이지로 이동 -->",
+    "raw_hash": "9b2cf564b4a48fc671b1ad95c78aeb9d4485ad13cae6b81f574edbaa26b85f14",
+    "confidence": "official_notice",
+    "verification_required": false,
+    "source_record_id": "445061",
+    "id": "52849823e52fd0fa",
+    "category": "guideline"
+  },
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-27T14:44:15.603Z",
+    "collection_date": "2026-05-11",
+    "source": "국가법령정보센터 데이터 행정규칙",
+    "source_type": "official_law",
+    "ministry": "기상청",
+    "document_type": "notice",
+    "title": "기상기후데이터 융합분석 특성화대학원 지정 및 운영에 관한 규정",
+    "issue_number": "2026-4",
+    "publish_date": "2026-05-11",
+    "effective_date": "2026-05-11",
+    "change_type": "partial_revision",
+    "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000279122&type=HTML&mobileYn=",
+    "attachment_urls": [
+      "http://law.go.kr/flDownload.do?flSeq=164195207%20%E3%80%8C%EA%B8%B0%EC%83%81%EA%B8%B0%ED%9B%84%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9C%B5%ED%95%A9%EB%B6%84%EC%84%9D%20%ED%8A%B9%EC%84%B1%ED%99%94%EB%8C%80%ED%95%99%EC%9B%90%20%EC%A7%80%EC%A0%95%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95%E3%80%8D%20%EC%9D%BC%EB%B6%80%EA%B0%9C%EC%A0%95%20%EC%A0%84%EB%AC%B8(%EA%B8%B0%EC%83%81%EC%B2%AD%20%EA%B3%A0%EC%8B%9C%20%EC%A0%9C2026-04%ED%98%B8,%202026.5.11.).hwpx",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=164200641",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=164200637",
+      "http://law.go.kr/flDownload.do?flSeq=164195207"
+    ],
+    "raw_text": "기상기후데이터 융합분석 특성화대학원 지정 및 운영에 관한 규정 일부개정 기상청",
+    "raw_hash": "444c2aee282654ec8f099d07f364636e9036baddf5e73275b9df01176f1ee65a",
+    "confidence": "official",
+    "verification_required": false,
+    "source_record_id": "2100000279122",
+    "id": "029de6c28c64f097",
+    "category": "notice"
+  }
+]
