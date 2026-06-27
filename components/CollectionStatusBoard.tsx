@@ -26,11 +26,13 @@ const methodLabels = {
 
 const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
-type StatusScope = "all" | "data";
+type StatusScope = "all" | "regulatory" | "data";
 
 export default function CollectionStatusBoard({ report, dataReport }: Props) {
   const [scope, setScope] = useState<StatusScope>("all");
-  const activeReport = scope === "data" && dataReport ? dataReport : report;
+  const aggregateReport = useMemo(() => (dataReport ? mergeStatusReports(report, dataReport) : report), [dataReport, report]);
+  const activeReport =
+    scope === "all" ? aggregateReport : scope === "data" && dataReport ? dataReport : report;
   const defaultDate =
     [...activeReport.days].reverse().find((day) => day.status !== "not_started")?.date || activeReport.end_date;
   const [selectedDate, setSelectedDate] = useState(defaultDate);
@@ -65,6 +67,13 @@ export default function CollectionStatusBoard({ report, dataReport }: Props) {
       <nav className="status-scope-tabs" aria-label="수집 현황 범위">
         <button className={scope === "all" ? "active" : ""} type="button" onClick={() => setScope("all")}>
           전체
+        </button>
+        <button
+          className={scope === "regulatory" ? "active" : ""}
+          type="button"
+          onClick={() => setScope("regulatory")}
+        >
+          법령·고시·지침
         </button>
         <button
           className={scope === "data" ? "active" : ""}
@@ -256,4 +265,107 @@ function formatDateTime(value: string): string {
   } catch {
     return value;
   }
+}
+
+function mergeStatusReports(regulatoryReport: CollectionStatusReport, dataReport: CollectionStatusReport): CollectionStatusReport {
+  const scopedReports = [
+    { label: "법령·고시·지침", report: regulatoryReport },
+    { label: "데이터", report: dataReport }
+  ];
+  const startDate = [regulatoryReport.start_date, dataReport.start_date].sort()[0];
+  const endDate = [regulatoryReport.end_date, dataReport.end_date].sort().at(-1) || regulatoryReport.end_date;
+  const days = enumerateDates(startDate, endDate).map((date) => mergeStatusDay(date, scopedReports));
+  return {
+    generated_at: [regulatoryReport.generated_at, dataReport.generated_at].sort().at(-1) || regulatoryReport.generated_at,
+    start_date: startDate,
+    end_date: endDate,
+    summary: {
+      complete: days.filter((day) => day.status === "complete").length,
+      partial: days.filter((day) => day.status === "partial").length,
+      failed: days.filter((day) => day.status === "failed").length,
+      not_started: days.filter((day) => day.status === "not_started").length
+    },
+    days
+  };
+}
+
+function mergeStatusDay(
+  date: string,
+  scopedReports: Array<{ label: string; report: CollectionStatusReport }>
+): CollectionDayStatus {
+  const activeDays = scopedReports
+    .filter(({ report }) => date >= report.start_date && date <= report.end_date)
+    .map(({ label, report }) => ({
+      label,
+      day: report.days.find((entry) => entry.date === date) || emptyStatusDay(date)
+    }));
+
+  if (!activeDays.length) return emptyStatusDay(date);
+
+  const statuses = activeDays.map(({ day }) => day.status);
+  const status = aggregateDayStatus(statuses);
+  const collectedAt = activeDays
+    .map(({ day }) => day.collected_at)
+    .filter((value): value is string => Boolean(value))
+    .sort()
+    .at(-1) || null;
+
+  return {
+    date,
+    status,
+    item_count: activeDays.reduce((sum, { day }) => sum + day.item_count, 0),
+    changed_count: activeDays.reduce((sum, { day }) => sum + day.changed_count, 0),
+    collected_at: collectedAt,
+    source: activeDays.some(({ day }) => day.source === "failure-log")
+      ? "failure-log"
+      : activeDays.some(({ day }) => day.source === "daily")
+        ? "daily"
+        : "none",
+    methods: activeDays.flatMap(({ label, day }) =>
+      day.methods.map((method) => ({
+        ...method,
+        source: `${label} / ${method.source}`
+      }))
+    )
+  };
+}
+
+function aggregateDayStatus(statuses: CollectionDayStatus["status"][]): CollectionDayStatus["status"] {
+  if (!statuses.length || statuses.every((status) => status === "not_started")) return "not_started";
+  if (statuses.every((status) => status === "complete")) return "complete";
+  if (statuses.some((status) => status === "complete" || status === "partial")) return "partial";
+  if (statuses.some((status) => status === "failed")) return "failed";
+  return "partial";
+}
+
+function emptyStatusDay(date: string): CollectionDayStatus {
+  return {
+    date,
+    status: "not_started",
+    item_count: 0,
+    changed_count: 0,
+    collected_at: null,
+    source: "none",
+    methods: []
+  };
+}
+
+function enumerateDates(startDate: string, endDate: string): string[] {
+  const output: string[] = [];
+  const cursor = new Date(`${startDate}T00:00:00+09:00`);
+  const end = new Date(`${endDate}T00:00:00+09:00`);
+  while (cursor <= end) {
+    output.push(formatDateKey(cursor));
+    cursor.setUTCDate(cursor.getUTCDate() + 1);
+  }
+  return output;
+}
+
+function formatDateKey(date: Date): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(date);
 }

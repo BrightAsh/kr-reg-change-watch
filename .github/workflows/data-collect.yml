@@ -38,6 +38,14 @@ on:
         description: "데이터 전용 백필 종료일(YYYY-MM-DD). start_date와 함께 입력하면 날짜 범위로 수집합니다."
         required: false
         type: string
+      collection_order:
+        description: "날짜 범위 수집 순서입니다. asc 또는 reverse."
+        required: false
+        type: choice
+        options:
+          - asc
+          - reverse
+        default: asc
       force:
         description: "이미 일자별 데이터 캐시가 있어도 다시 수집합니다."
         required: false
@@ -108,6 +116,7 @@ jobs:
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       START_DATE: ${{ github.event.inputs.start_date }}
       END_DATE: ${{ github.event.inputs.end_date }}
+      COLLECTION_ORDER: ${{ github.event.inputs.collection_order }}
       PUSH_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
       FORCE_COLLECT: ${{ github.event_name == 'push' && '1' || github.event.inputs.force == 'true' && '1' || '0' }}
       DEPLOY_SITE: ${{ github.event_name != 'workflow_dispatch' && '1' || github.event.inputs.deploy_site != 'false' && '1' || '0' }}
@@ -138,6 +147,7 @@ jobs:
           resolved_end="${END_DATE:-}"
           resolved_force="${FORCE_COLLECT:-0}"
           resolved_backfill=0
+          resolved_collection_order="${COLLECTION_ORDER:-asc}"
 
           if [ "${GITHUB_EVENT_NAME:-}" = "push" ] && [ -z "$resolved_target" ] && [ -z "$resolved_start" ] && [ -z "$resolved_end" ]; then
             if [[ "${PUSH_COMMIT_MESSAGE:-}" =~ \[data-backfill[[:space:]]+([0-9]{4}-[0-9]{2}-[0-9]{2})\.\.([0-9]{4}-[0-9]{2}-[0-9]{2})\] ]]; then
@@ -145,8 +155,13 @@ jobs:
               resolved_end="${BASH_REMATCH[2]}"
               resolved_force=0
               resolved_backfill=1
+              resolved_collection_order=asc
               echo "Resolved data backfill range from push commit message: ${resolved_start}..${resolved_end}"
             fi
+          fi
+
+          if [ "$resolved_collection_order" != "reverse" ]; then
+            resolved_collection_order=asc
           fi
 
           if [ -n "$resolved_target" ] && { [ -n "$resolved_start" ] || [ -n "$resolved_end" ]; }; then
@@ -177,6 +192,7 @@ jobs:
             echo "RESOLVED_END_DATE=$resolved_end"
             echo "RESOLVED_FORCE_COLLECT=$resolved_force"
             echo "RESOLVED_BACKFILL=$resolved_backfill"
+            echo "RESOLVED_COLLECTION_ORDER=$resolved_collection_order"
           } >> "$GITHUB_ENV"
 
       - name: Preflight data source connectivity
@@ -326,6 +342,7 @@ jobs:
           export RETRY_TARGET="$retry_target"
           export RETRY_START="${RESOLVED_START_DATE:-}"
           export RETRY_END="${RESOLVED_END_DATE:-}"
+          export RETRY_COLLECTION_ORDER="${RESOLVED_COLLECTION_ORDER:-asc}"
           export NEXT_RETRY_COUNT="$next_retry_count"
           export RETRY_FORCE_COLLECT="$([ "${RESOLVED_FORCE_COLLECT:-0}" = "1" ] && echo true || echo false)"
           export RETRY_DEPLOY_SITE="$([ "${DEPLOY_SITE:-0}" = "1" ] && echo true || echo false)"
@@ -338,6 +355,7 @@ jobs:
               "target_date": os.environ.get("RETRY_TARGET", ""),
               "start_date": os.environ.get("RETRY_START", ""),
               "end_date": os.environ.get("RETRY_END", ""),
+              "collection_order": os.environ.get("RETRY_COLLECTION_ORDER", "asc"),
               "force": os.environ["RETRY_FORCE_COLLECT"],
               "deploy_site": os.environ["RETRY_DEPLOY_SITE"],
               "commit_data": os.environ["RETRY_COMMIT_DATA"],
@@ -377,11 +395,22 @@ jobs:
               echo "::error::start_date and end_date must be provided together."
               exit 1
             fi
-            cursor="$RESOLVED_START_DATE"
-            end_epoch="$(date -u -d "$RESOLVED_END_DATE" +%s)"
+            if [ "${RESOLVED_COLLECTION_ORDER:-asc}" = "reverse" ]; then
+              cursor="$RESOLVED_END_DATE"
+              stop_epoch="$(date -u -d "$RESOLVED_START_DATE" +%s)"
+              step="- 1 day"
+              compare_epoch() { [ "$1" -ge "$2" ]; }
+              echo "Collecting data range in reverse order: ${RESOLVED_END_DATE}..${RESOLVED_START_DATE}"
+            else
+              cursor="$RESOLVED_START_DATE"
+              stop_epoch="$(date -u -d "$RESOLVED_END_DATE" +%s)"
+              step="+ 1 day"
+              compare_epoch() { [ "$1" -le "$2" ]; }
+              echo "Collecting data range in ascending order: ${RESOLVED_START_DATE}..${RESOLVED_END_DATE}"
+            fi
             failures=()
             mkdir -p data/data/logs/backfill
-            while [ "$(date -u -d "$cursor" +%s)" -le "$end_epoch" ]; do
+            while compare_epoch "$(date -u -d "$cursor" +%s)" "$stop_epoch"; do
               if collect_one_date "$cursor"; then
                 echo "Data collection complete for ${cursor}."
               else
@@ -392,7 +421,7 @@ jobs:
                 fi
                 npm run data:status || true
               fi
-              cursor="$(date -u -d "$cursor + 1 day" +%F)"
+              cursor="$(date -u -d "$cursor $step" +%F)"
             done
             if [ "${#failures[@]}" -gt 0 ]; then
               printf '%s\n' "${failures[@]}" > data/data/logs/backfill-failed-dates.txt

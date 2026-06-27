@@ -14,7 +14,7 @@ const dataRoot = path.join(root, "data", "data");
 const dailyDir = path.join(dataRoot, "daily");
 const logsDir = path.join(dataRoot, "logs");
 const statusPath = path.join(dataRoot, "collection-status.json");
-const startDate = "2026-06-01";
+const defaultStartDate = "2026-06-01";
 
 const expectedMethods: CollectionMethodStatus[] = [
   method("국가법령정보센터 데이터 법령", "https://open.law.go.kr/LSO/openApi/guideList.do"),
@@ -75,6 +75,7 @@ export async function writeDataCollectionStatusReport(): Promise<CollectionStatu
 export async function buildDataCollectionStatusReport(): Promise<CollectionStatusReport> {
   const endDate = kstToday();
   const [dailyMap, failureMap] = await Promise.all([readDailyMap(), readFailureMap()]);
+  const startDate = earliestDate([defaultStartDate, ...dailyMap.keys(), ...failureMap.keys()]);
   const days: CollectionDayStatus[] = [];
   for (const date of enumerateDates(startDate, endDate)) {
     const daily = dailyMap.get(date) || null;
@@ -291,4 +292,8 @@ function formatDate(date: Date): string {
     month: "2-digit",
     day: "2-digit"
   }).format(date);
+}
+
+function earliestDate(values: Iterable<string>): string {
+  return [...values].filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(value)).sort()[0] || defaultStartDate;
 }

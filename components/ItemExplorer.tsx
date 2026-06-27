@@ -26,8 +26,12 @@ interface Props {
 }
 
 type CategoryFilter = "all" | RegulatoryCategory;
-type WorkspaceMode = "all" | "public-system" | "data";
+type WorkspaceMode = "all" | "regulatory" | "public-system" | "data";
 type FilterKey = "ministry" | "source" | "document" | "change";
+type EnrichedItem = CollectedItem & {
+  category: RegulatoryCategory;
+  public_system_matches: NonNullable<CollectedItem["public_system_matches"]>;
+};
 
 interface FilterOption {
   value: string;
@@ -78,16 +82,29 @@ export default function ItemExplorer({
   dataDates = [],
   detailHrefPrefix = "/items"
 }: Props) {
-  const initialDate = dates[0] || formatDateString(new Date());
-  const initialDataDate = dataDates[0] || initialDate;
-  const validMinistrySet = useMemo(() => new Set([...ministries, ...dataMinistries]), [dataMinistries, ministries]);
+  const today = formatDateString(new Date());
+  const combinedDates = useMemo(() => uniqueStrings([...dates, ...dataDates]).sort((a, b) => b.localeCompare(a)), [dataDates, dates]);
+  const combinedMinistries = useMemo(() => uniqueKorean([...ministries, ...dataMinistries]), [dataMinistries, ministries]);
+  const initialRegulatoryDate = dates[0] || today;
+  const initialAllDate = combinedDates[0] || initialRegulatoryDate;
+  const initialDataDate = dataDates[0] || initialAllDate;
+  const defaultDatesByMode = useMemo<Record<WorkspaceMode, string>>(
+    () => ({
+      all: initialAllDate,
+      regulatory: initialRegulatoryDate,
+      "public-system": initialRegulatoryDate,
+      data: initialDataDate
+    }),
+    [initialAllDate, initialDataDate, initialRegulatoryDate]
+  );
+  const validMinistrySet = useMemo(() => new Set(combinedMinistries), [combinedMinistries]);
   const [query, setQuery] = useState("");
   const [ministryFilters, setMinistryFilters] = useState<string[]>([]);
   const [sourceTypeFilters, setSourceTypeFilters] = useState<string[]>([]);
   const [documentTypeFilters, setDocumentTypeFilters] = useState<string[]>([]);
   const [changeTypeFilters, setChangeTypeFilters] = useState<string[]>([]);
-  const [selectedDate, setSelectedDate] = useState(initialDate);
-  const [monthCursor, setMonthCursor] = useState(initialDate.slice(0, 7));
+  const [selectedDate, setSelectedDate] = useState(initialAllDate);
+  const [monthCursor, setMonthCursor] = useState(initialAllDate.slice(0, 7));
   const [category, setCategory] = useState<CategoryFilter>("all");
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>("all");
   const [activeSystemGroup, setActiveSystemGroup] = useState("all");
@@ -98,7 +115,7 @@ export default function ItemExplorer({
   const [urlReady, setUrlReady] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-  const enrichedItems = useMemo(
+  const enrichedItems = useMemo<EnrichedItem[]>(
     () =>
       items.map((item) => ({
         ...item,
@@ -110,7 +127,7 @@ export default function ItemExplorer({
     [items]
   );
 
-  const enrichedDataItems = useMemo(
+  const enrichedDataItems = useMemo<EnrichedItem[]>(
     () =>
       dataItems.map((item) => ({
         ...item,
@@ -120,18 +137,27 @@ export default function ItemExplorer({
     [dataItems]
   );
 
-  const activeDates = workspaceMode === "data" ? dataDates : dates;
-  const activeMinistries = workspaceMode === "data" ? dataMinistries : ministries;
+  const combinedItems = useMemo(
+    () => mergeDisplayItems([...enrichedItems, ...enrichedDataItems]),
+    [enrichedDataItems, enrichedItems]
+  );
+
+  const activeDates =
+    workspaceMode === "all" ? combinedDates : workspaceMode === "data" ? dataDates : dates;
+  const activeMinistries =
+    workspaceMode === "all" ? combinedMinistries : workspaceMode === "data" ? dataMinistries : ministries;
 
   const modeScopedItems = useMemo(
     () => {
+      if (workspaceMode === "all") return combinedItems;
+      if (workspaceMode === "regulatory") return enrichedItems;
       if (workspaceMode === "data") return enrichedDataItems;
       if (workspaceMode === "public-system") {
         return enrichedItems.filter((item) => (item.public_system_matches || []).length > 0);
       }
-      return enrichedItems;
+      return combinedItems;
     },
-    [enrichedDataItems, enrichedItems, workspaceMode]
+    [combinedItems, enrichedDataItems, enrichedItems, workspaceMode]
   );
 
   const dateCounts = useMemo(() => {
@@ -277,7 +303,7 @@ export default function ItemExplorer({
     const params = new URLSearchParams(window.location.search);
     const mode = params.get("mode");
     const date = params.get("date");
-    const nextMode: WorkspaceMode = mode === "public-system" ? "public-system" : mode === "data" ? "data" : "all";
+    const nextMode = parseWorkspaceMode(mode);
     const nextCategory = parseCategoryParam(params.get("category"));
     const nextSystem = parseSystemParam(params.get("system"));
     const nextQuery = params.get("q") || "";
@@ -285,7 +311,7 @@ export default function ItemExplorer({
     const nextSources = parseArrayParams(params, "source").filter(isSourceType);
     const nextDocuments = parseArrayParams(params, "document").filter(isDocumentType);
     const nextChanges = parseArrayParams(params, "change").filter(isChangeType);
-    const defaultDate = nextMode === "data" ? initialDataDate : initialDate;
+    const defaultDate = defaultDatesByMode[nextMode];
     const nextDate = date && /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : defaultDate;
 
     setWorkspaceMode(nextMode);
@@ -299,7 +325,7 @@ export default function ItemExplorer({
     setDocumentTypeFilters(nextDocuments);
     setChangeTypeFilters(nextChanges);
     setUrlReady(true);
-  }, [initialDataDate, initialDate, validMinistrySet]);
+  }, [defaultDatesByMode, validMinistrySet]);
 
   useEffect(() => {
     if (!urlReady) return;
@@ -327,7 +353,7 @@ export default function ItemExplorer({
     setSourceTypeFilters([]);
     setDocumentTypeFilters([]);
     setChangeTypeFilters([]);
-    const nextDate = mode === "data" ? initialDataDate : initialDate;
+    const nextDate = defaultDatesByMode[mode];
     setSelectedDate(nextDate);
     setMonthCursor(nextDate.slice(0, 7));
   }
@@ -379,14 +405,21 @@ export default function ItemExplorer({
           type="button"
           onClick={() => changeWorkspaceMode("all")}
         >
-          <span>전체 수집</span>
+          <span>전체</span>
+        </button>
+        <button
+          className={workspaceMode === "regulatory" ? "active" : ""}
+          type="button"
+          onClick={() => changeWorkspaceMode("regulatory")}
+        >
+          <span>법령·고시·지침</span>
         </button>
         <button
           className={workspaceMode === "public-system" ? "active" : ""}
           type="button"
           onClick={() => changeWorkspaceMode("public-system")}
         >
-          <span>공공기관 운영 법령 및 정부지침 체계</span>
+          <span>공공기관 9개 체계</span>
         </button>
         <button
           className={workspaceMode === "data" ? "active" : ""}
@@ -773,6 +806,11 @@ function parseCategoryParam(value: string | null): CategoryFilter {
   return categoryFilters.some((filter) => filter.value === value) ? (value as CategoryFilter) : "all";
 }
 
+function parseWorkspaceMode(value: string | null): WorkspaceMode {
+  if (value === "regulatory" || value === "public-system" || value === "data") return value;
+  return "all";
+}
+
 function parseSystemParam(value: string | null): string {
   return publicInstitutionSystemGroups.some((group) => group.id === value) ? String(value) : "all";
 }
@@ -867,4 +905,93 @@ function compactForAi(value: string): string {
     .replace(/\n{3,}/g, "\n\n")
     .trim();
   return compacted;
+}
+
+function mergeDisplayItems(items: EnrichedItem[]): EnrichedItem[] {
+  const map = new Map<string, EnrichedItem>();
+  for (const item of items) {
+    const key = displayItemKey(item);
+    const previous = map.get(key);
+    map.set(key, previous ? mergeDisplayItem(previous, item) : item);
+  }
+  return [...map.values()].sort((a, b) => {
+    const dateOrder = (b.collection_date || b.publish_date || "").localeCompare(a.collection_date || a.publish_date || "");
+    if (dateOrder !== 0) return dateOrder;
+    return a.title.localeCompare(b.title, "ko");
+  });
+}
+
+function mergeDisplayItem(first: EnrichedItem, second: EnrichedItem): EnrichedItem {
+  const primary = displayItemScore(second) > displayItemScore(first) ? second : first;
+  const secondary = primary === first ? second : first;
+  return {
+    ...primary,
+    summary: primary.summary || secondary.summary,
+    diff_summary: primary.diff_summary || secondary.diff_summary,
+    auto_summary: primary.auto_summary || secondary.auto_summary,
+    attachment_urls: uniqueStrings([...(primary.attachment_urls || []), ...(secondary.attachment_urls || [])]),
+    public_system_matches: mergeSystemMatches(primary.public_system_matches, secondary.public_system_matches)
+  };
+}
+
+function displayItemScore(item: EnrichedItem): number {
+  return (
+    (item.summary ? 500 : 0) +
+    (item.diff_summary ? 250 : 0) +
+    Math.min(item.raw_text.length, 1000) +
+    (item.attachment_urls || []).length * 25 +
+    item.public_system_matches.length * 20
+  );
+}
+
+function displayItemKey(item: CollectedItem): string {
+  const date = item.collection_date || item.publish_date || "";
+  const normalizedUrl = normalizeDisplayUrl(item.original_url);
+  if (normalizedUrl) return `url:${date}:${normalizedUrl}`;
+  if (item.source_record_id) return `record:${date}:${item.source_type}:${normalizeDisplayText(item.source_record_id)}`;
+  return `title:${date}:${normalizeDisplayText(item.ministry)}:${normalizeDisplayText(item.title)}`;
+}
+
+function normalizeDisplayUrl(value: string | null | undefined): string {
+  if (!value) return "";
+  try {
+    const url = new URL(value);
+    url.hash = "";
+    for (const key of [...url.searchParams.keys()]) {
+      if (/^utm_/i.test(key)) url.searchParams.delete(key);
+    }
+    const sortedParams = [...url.searchParams.entries()].sort(([left], [right]) => left.localeCompare(right));
+    url.search = "";
+    for (const [key, paramValue] of sortedParams) url.searchParams.append(key, paramValue);
+    return url.toString().replace(/\/$/, "").toLowerCase();
+  } catch {
+    return value.trim().replace(/\/$/, "").toLowerCase();
+  }
+}
+
+function normalizeDisplayText(value: string | null | undefined): string {
+  return String(value || "")
+    .replace(/\s+/g, "")
+    .toLowerCase();
+}
+
+function mergeSystemMatches(
+  first: EnrichedItem["public_system_matches"],
+  second: EnrichedItem["public_system_matches"]
+): EnrichedItem["public_system_matches"] {
+  const map = new Map<string, EnrichedItem["public_system_matches"][number]>();
+  for (const match of [...first, ...second]) {
+    const key = `${match.group_id}:${match.relation}`;
+    const previous = map.get(key);
+    if (!previous || match.score > previous.score) map.set(key, match);
+  }
+  return [...map.values()].sort((a, b) => b.score - a.score || a.group_order - b.group_order);
+}
+
+function uniqueStrings(values: string[]): string[] {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function uniqueKorean(values: string[]): string[] {
+  return uniqueStrings(values).sort((a, b) => a.localeCompare(b, "ko"));
 }
