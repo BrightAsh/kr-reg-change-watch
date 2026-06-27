@@ -1,0 +1,35 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-27T22:47:44.613Z",
+    "collection_date": "2026-03-02",
+    "source": "국가법령정보센터 데이터 행정규칙",
+    "source_type": "official_law",
+    "ministry": "조달청",
+    "document_type": "directive",
+    "title": "조달청 데이터품질관리 규정",
+    "issue_number": "2366",
+    "publish_date": "2026-03-02",
+    "effective_date": "2026-02-27",
+    "change_type": "partial_revision",
+    "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000275362&type=HTML&mobileYn=",
+    "attachment_urls": [
+      "http://law.go.kr/flDownload.do?flSeq=162093999%20http://law.go.kr/flDownload.do?flSeq=162094003%20%EC%A1%B0%EB%8B%AC%EC%B2%AD%20%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%A0%95(%EC%A1%B0%EB%8B%AC%EC%B2%AD%ED%9B%88%EB%A0%B9%20%EC%A0%9C2366%ED%98%B8%C2%B8%2020260227).hwpx%20%EC%A1%B0%EB%8B%AC%EC%B2%AD%20%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%92%88%EC%A7%88%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%A0%95(%EC%A1%B0%EB%8B%AC%EC%B2%AD%ED%9B%88%EB%A0%B9%20%EC%A0%9C2366%ED%98%B8%C2%B8%2020260227).pdf",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=162094205",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=162094201",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=162094211",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=162094207",
+      "http://law.go.kr/flDownload.do?flSeq=162093999",
+      "http://law.go.kr/flDownload.do?flSeq=162094003"
+    ],
+    "raw_text": "조달청 데이터품질관리 규정 일부개정 조달청",
+    "raw_hash": "fbc158083369085292e00d461b568ed5da96015dce2f33c0330a743f6d602759",
+    "confidence": "official",
+    "verification_required": false,
+    "source_record_id": "2100000275362",
+    "id": "497900052e2fc261",
+    "category": "guideline"
+  }
+]
