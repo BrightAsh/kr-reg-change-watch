@@ -259,6 +259,17 @@ const MOIS_ROUTES: BoardRoute[] = [
   }
 ];
 
+const MODS_BID_BY_MID: Record<string, string> = {
+  a10403010000: "1401",
+  a10403020000: "1402",
+  a10403030000: "1403",
+  a10403040000: "107",
+  a10403050000: "1404",
+  a10403060000: "10620",
+  a10407040100: "8705",
+  a10409060100: "67"
+};
+
 const MODS_ROUTES: BoardRoute[] = [
   ["국가데이터처 법령", "a10403010000"],
   ["국가데이터처 입법예고", "a10403020000"],
@@ -271,7 +282,7 @@ const MODS_ROUTES: BoardRoute[] = [
 ].map(([source, mid]) => ({
   source,
   group: "mods",
-  url: `https://mods.go.kr/menu.es?mid=${mid}`,
+  url: `https://mods.go.kr/board.es?mid=${mid}&bid=${MODS_BID_BY_MID[mid] || ""}&nPage=1`,
   ministry: "국가데이터처",
   sourceType: source.includes("입법예고") ? "legislation_notice" : "ministry_board",
   documentHint: source,
@@ -1240,7 +1251,11 @@ function dottedDate(date: string): string {
 function withPage(url: string, page: number): string {
   try {
     const parsed = new URL(url);
-    if (page > 1 || parsed.searchParams.has("pageIndex")) parsed.searchParams.set("pageIndex", String(page));
+    const hasKnownPageParam =
+      parsed.searchParams.has("pageIndex") || parsed.searchParams.has("pageNo") || parsed.searchParams.has("nPage");
+    if (parsed.searchParams.has("pageIndex") || (page > 1 && !hasKnownPageParam)) {
+      parsed.searchParams.set("pageIndex", String(page));
+    }
     if (parsed.searchParams.has("pageNo")) parsed.searchParams.set("pageNo", String(page));
     if (parsed.searchParams.has("nPage")) parsed.searchParams.set("nPage", String(page));
     return parsed.toString();
