@@ -1,14 +1,1708 @@
 {
-  "generated_at": "2026-06-27T19:14:40.611Z",
-  "start_date": "2026-04-01",
+  "generated_at": "2026-06-27T20:08:31.156Z",
+  "start_date": "2026-03-25",
   "end_date": "2026-06-28",
   "summary": {
-    "complete": 87,
+    "complete": 94,
     "partial": 0,
     "failed": 0,
     "not_started": 2
   },
   "days": [
+    {
+      "date": "2026-03-25",
+      "status": "complete",
+      "item_count": 0,
+      "changed_count": 0,
+      "collected_at": "2026-06-27T20:08:29.271Z",
+      "source": "daily",
+      "methods": [
+        {
+          "source": "국가법령정보센터 데이터 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T20:05:04.970Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 데이터 행정규칙",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T20:05:06.182Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국민참여입법센터 데이터 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T20:05:17.054Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 데이터 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T20:05:35.960Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 국회입법현황",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T20:05:49.728Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "대한민국 전자관보 데이터 검색",
+          "status": "ok",
+          "count": 0,
+          "message": "전자관보 API 데이터 키워드 필터 수집 완료",
+          "at": "2026-06-27T20:05:50.610Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+        },
+        {
+          "source": "과학기술정보통신부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T20:05:52.129Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
+        },
+        {
+          "source": "과학기술정보통신부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T20:05:53.580Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
+        },
+        {
+          "source": "과학기술정보통신부 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T20:05:55.140Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
+        },
+        {
+          "source": "과학기술정보통신부 사업공고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T20:05:56.663Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
+        },
+        {
+          "source": "한국데이터산업진흥원 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T20:06:01.522Z",
+          "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 보도자료",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T20:06:04.083Z",
+          "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 조사연구보고서",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T20:06:06.109Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 데이터 산업 동향",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T20:06:08.152Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
+        },
+        {
+          "source": "데이터 원윈도우 정책지침",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T20:06:08.903Z",
+          "url": "https://www.data1window.kr/dbPcyEvlSys/list"
+        },
+        {
+          "source": "데이터 원윈도우 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T20:06:09.709Z",
+          "url": "https://www.data1window.kr/ntcMttr/list"
+        },
+        {
+          "source": "행정안전부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:06:15.375Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+        },
+        {
+          "source": "행정안전부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:06:20.253Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+        },
+        {
+          "source": "행정안전부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:06:21.933Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+        },
+        {
+          "source": "행정안전부 알립니다",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:06:24.947Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
+        },
+        {
+          "source": "국가데이터처 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:06:29.197Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
+        },
+        {
+          "source": "국가데이터처 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:06:31.249Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
+        },
+        {
+          "source": "국가데이터처 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:06:59.346Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
+        },
+        {
+          "source": "국가데이터처 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:07:32.566Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
+        },
+        {
+          "source": "국가데이터처 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:07:36.775Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
+        },
+        {
+          "source": "국가데이터처 기타 법령자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:07:38.578Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계기반정책평가 관련자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:08:22.477Z",
+          "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계품질관리 자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:08:24.274Z",
+          "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
+        },
+        {
+          "source": "공공데이터포털 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:08:29.215Z",
+          "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "status": "complete",
+      "item_count": 12,
+      "changed_count": 12,
+      "collected_at": "2026-06-27T20:04:44.743Z",
+      "source": "daily",
+      "methods": [
+        {
+          "source": "국가법령정보센터 데이터 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T20:00:33.712Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 데이터 행정규칙",
+          "status": "ok",
+          "count": 9,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T20:01:04.154Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국민참여입법센터 데이터 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T20:01:15.029Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 데이터 행정예고",
+          "status": "ok",
+          "count": 1,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T20:01:33.918Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 국회입법현황",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T20:01:47.778Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "대한민국 전자관보 데이터 검색",
+          "status": "ok",
+          "count": 0,
+          "message": "전자관보 API 데이터 키워드 필터 수집 완료",
+          "at": "2026-06-27T20:01:48.503Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+        },
+        {
+          "source": "과학기술정보통신부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T20:01:50.437Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
+        },
+        {
+          "source": "과학기술정보통신부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T20:01:52.403Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
+        },
+        {
+          "source": "과학기술정보통신부 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T20:01:54.095Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
+        },
+        {
+          "source": "과학기술정보통신부 사업공고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T20:01:55.759Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
+        },
+        {
+          "source": "한국데이터산업진흥원 공지사항",
+          "status": "ok",
+          "count": 2,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T20:02:03.198Z",
+          "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 보도자료",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T20:02:05.133Z",
+          "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 조사연구보고서",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T20:02:07.206Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 데이터 산업 동향",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T20:02:09.594Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
+        },
+        {
+          "source": "데이터 원윈도우 정책지침",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T20:02:10.343Z",
+          "url": "https://www.data1window.kr/dbPcyEvlSys/list"
+        },
+        {
+          "source": "데이터 원윈도우 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T20:02:11.033Z",
+          "url": "https://www.data1window.kr/ntcMttr/list"
+        },
+        {
+          "source": "행정안전부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:02:16.669Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+        },
+        {
+          "source": "행정안전부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:02:21.702Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+        },
+        {
+          "source": "행정안전부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:02:23.598Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+        },
+        {
+          "source": "행정안전부 알립니다",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:02:26.466Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
+        },
+        {
+          "source": "국가데이터처 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:02:30.853Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
+        },
+        {
+          "source": "국가데이터처 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:02:33.067Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
+        },
+        {
+          "source": "국가데이터처 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:03:00.799Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
+        },
+        {
+          "source": "국가데이터처 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:03:34.341Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
+        },
+        {
+          "source": "국가데이터처 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:03:38.276Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
+        },
+        {
+          "source": "국가데이터처 기타 법령자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:03:39.939Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계기반정책평가 관련자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:04:13.616Z",
+          "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계품질관리 자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:04:39.580Z",
+          "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
+        },
+        {
+          "source": "공공데이터포털 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T20:04:44.706Z",
+          "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "status": "complete",
+      "item_count": 0,
+      "changed_count": 0,
+      "collected_at": "2026-06-27T19:59:46.711Z",
+      "source": "daily",
+      "methods": [
+        {
+          "source": "국가법령정보센터 데이터 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:56:12.106Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 데이터 행정규칙",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:56:13.278Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국민참여입법센터 데이터 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:56:23.256Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 데이터 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:56:39.850Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 국회입법현황",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:56:53.947Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "대한민국 전자관보 데이터 검색",
+          "status": "ok",
+          "count": 0,
+          "message": "전자관보 API 데이터 키워드 필터 수집 완료",
+          "at": "2026-06-27T19:56:54.675Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+        },
+        {
+          "source": "과학기술정보통신부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:56:56.225Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
+        },
+        {
+          "source": "과학기술정보통신부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:56:57.621Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
+        },
+        {
+          "source": "과학기술정보통신부 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:56:59.185Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
+        },
+        {
+          "source": "과학기술정보통신부 사업공고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:57:00.908Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
+        },
+        {
+          "source": "한국데이터산업진흥원 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:57:05.580Z",
+          "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 보도자료",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:57:07.870Z",
+          "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 조사연구보고서",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:57:09.845Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 데이터 산업 동향",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:57:11.496Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
+        },
+        {
+          "source": "데이터 원윈도우 정책지침",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:57:12.288Z",
+          "url": "https://www.data1window.kr/dbPcyEvlSys/list"
+        },
+        {
+          "source": "데이터 원윈도우 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:57:13.250Z",
+          "url": "https://www.data1window.kr/ntcMttr/list"
+        },
+        {
+          "source": "행정안전부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:57:19.018Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+        },
+        {
+          "source": "행정안전부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:57:24.280Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+        },
+        {
+          "source": "행정안전부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:57:26.441Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+        },
+        {
+          "source": "행정안전부 알립니다",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:57:29.690Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
+        },
+        {
+          "source": "국가데이터처 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:57:33.716Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
+        },
+        {
+          "source": "국가데이터처 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:57:35.441Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
+        },
+        {
+          "source": "국가데이터처 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:58:03.200Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
+        },
+        {
+          "source": "국가데이터처 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:58:36.610Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
+        },
+        {
+          "source": "국가데이터처 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:58:40.713Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
+        },
+        {
+          "source": "국가데이터처 기타 법령자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:58:42.405Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계기반정책평가 관련자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:59:39.932Z",
+          "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계품질관리 자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:59:41.890Z",
+          "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
+        },
+        {
+          "source": "공공데이터포털 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:59:46.666Z",
+          "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-28",
+      "status": "complete",
+      "item_count": 0,
+      "changed_count": 0,
+      "collected_at": "2026-06-27T19:56:03.181Z",
+      "source": "daily",
+      "methods": [
+        {
+          "source": "국가법령정보센터 데이터 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:52:17.158Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 데이터 행정규칙",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:52:18.165Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국민참여입법센터 데이터 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:52:28.386Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 데이터 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:52:46.099Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 국회입법현황",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:53:00.135Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "대한민국 전자관보 데이터 검색",
+          "status": "ok",
+          "count": 0,
+          "message": "전자관보 API 데이터 키워드 필터 수집 완료",
+          "at": "2026-06-27T19:53:00.847Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+        },
+        {
+          "source": "과학기술정보통신부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:53:02.500Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
+        },
+        {
+          "source": "과학기술정보통신부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:53:04.330Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
+        },
+        {
+          "source": "과학기술정보통신부 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:53:05.874Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
+        },
+        {
+          "source": "과학기술정보통신부 사업공고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:53:07.645Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
+        },
+        {
+          "source": "한국데이터산업진흥원 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:53:12.748Z",
+          "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 보도자료",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:53:15.127Z",
+          "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 조사연구보고서",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:53:16.734Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 데이터 산업 동향",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:53:18.808Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
+        },
+        {
+          "source": "데이터 원윈도우 정책지침",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:53:19.589Z",
+          "url": "https://www.data1window.kr/dbPcyEvlSys/list"
+        },
+        {
+          "source": "데이터 원윈도우 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:53:20.313Z",
+          "url": "https://www.data1window.kr/ntcMttr/list"
+        },
+        {
+          "source": "행정안전부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:53:25.937Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+        },
+        {
+          "source": "행정안전부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:53:31.319Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+        },
+        {
+          "source": "행정안전부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:53:33.486Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+        },
+        {
+          "source": "행정안전부 알립니다",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:53:36.622Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
+        },
+        {
+          "source": "국가데이터처 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:53:40.448Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
+        },
+        {
+          "source": "국가데이터처 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:53:42.027Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
+        },
+        {
+          "source": "국가데이터처 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:53:57.396Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
+        },
+        {
+          "source": "국가데이터처 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:54:54.409Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
+        },
+        {
+          "source": "국가데이터처 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:54:58.074Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
+        },
+        {
+          "source": "국가데이터처 기타 법령자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:54:59.542Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계기반정책평가 관련자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:55:32.197Z",
+          "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계품질관리 자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:55:58.169Z",
+          "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
+        },
+        {
+          "source": "공공데이터포털 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:56:03.130Z",
+          "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-29",
+      "status": "complete",
+      "item_count": 0,
+      "changed_count": 0,
+      "collected_at": "2026-06-27T19:52:03.382Z",
+      "source": "daily",
+      "methods": [
+        {
+          "source": "국가법령정보센터 데이터 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:48:43.943Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 데이터 행정규칙",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:48:45.129Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국민참여입법센터 데이터 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:48:54.336Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 데이터 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:49:11.836Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 국회입법현황",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:49:26.150Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "대한민국 전자관보 데이터 검색",
+          "status": "ok",
+          "count": 0,
+          "message": "전자관보 API 데이터 키워드 필터 수집 완료",
+          "at": "2026-06-27T19:49:26.876Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+        },
+        {
+          "source": "과학기술정보통신부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:49:28.423Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
+        },
+        {
+          "source": "과학기술정보통신부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:49:29.897Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
+        },
+        {
+          "source": "과학기술정보통신부 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:49:31.440Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
+        },
+        {
+          "source": "과학기술정보통신부 사업공고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:49:33.110Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
+        },
+        {
+          "source": "한국데이터산업진흥원 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:49:37.955Z",
+          "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 보도자료",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:49:40.001Z",
+          "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 조사연구보고서",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:49:41.995Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 데이터 산업 동향",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:49:44.097Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
+        },
+        {
+          "source": "데이터 원윈도우 정책지침",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:49:44.845Z",
+          "url": "https://www.data1window.kr/dbPcyEvlSys/list"
+        },
+        {
+          "source": "데이터 원윈도우 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:49:45.659Z",
+          "url": "https://www.data1window.kr/ntcMttr/list"
+        },
+        {
+          "source": "행정안전부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:49:51.105Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+        },
+        {
+          "source": "행정안전부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:49:55.285Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+        },
+        {
+          "source": "행정안전부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:49:57.547Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+        },
+        {
+          "source": "행정안전부 알립니다",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:50:01.244Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
+        },
+        {
+          "source": "국가데이터처 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:50:05.522Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
+        },
+        {
+          "source": "국가데이터처 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:50:07.458Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
+        },
+        {
+          "source": "국가데이터처 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:50:45.634Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
+        },
+        {
+          "source": "국가데이터처 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:50:54.906Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
+        },
+        {
+          "source": "국가데이터처 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:51:22.297Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
+        },
+        {
+          "source": "국가데이터처 기타 법령자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:51:23.918Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계기반정책평가 관련자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:51:56.606Z",
+          "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계품질관리 자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:51:58.626Z",
+          "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
+        },
+        {
+          "source": "공공데이터포털 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:52:03.330Z",
+          "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "status": "complete",
+      "item_count": 18,
+      "changed_count": 18,
+      "collected_at": "2026-06-27T19:48:40.217Z",
+      "source": "daily",
+      "methods": [
+        {
+          "source": "국가법령정보센터 데이터 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:44:21.878Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 데이터 행정규칙",
+          "status": "ok",
+          "count": 15,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:44:55.676Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국민참여입법센터 데이터 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:45:06.779Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 데이터 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:45:25.122Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 국회입법현황",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:45:39.222Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "대한민국 전자관보 데이터 검색",
+          "status": "ok",
+          "count": 0,
+          "message": "전자관보 API 데이터 키워드 필터 수집 완료",
+          "at": "2026-06-27T19:45:40.076Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+        },
+        {
+          "source": "과학기술정보통신부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:45:41.596Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
+        },
+        {
+          "source": "과학기술정보통신부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:45:43.131Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
+        },
+        {
+          "source": "과학기술정보통신부 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:45:44.893Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
+        },
+        {
+          "source": "과학기술정보통신부 사업공고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:45:46.435Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
+        },
+        {
+          "source": "한국데이터산업진흥원 공지사항",
+          "status": "ok",
+          "count": 2,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:45:55.213Z",
+          "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 보도자료",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:45:57.399Z",
+          "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 조사연구보고서",
+          "status": "ok",
+          "count": 1,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:46:01.157Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 데이터 산업 동향",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:46:03.247Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
+        },
+        {
+          "source": "데이터 원윈도우 정책지침",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:46:04.024Z",
+          "url": "https://www.data1window.kr/dbPcyEvlSys/list"
+        },
+        {
+          "source": "데이터 원윈도우 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:46:04.798Z",
+          "url": "https://www.data1window.kr/ntcMttr/list"
+        },
+        {
+          "source": "행정안전부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:46:10.321Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+        },
+        {
+          "source": "행정안전부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:46:15.597Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+        },
+        {
+          "source": "행정안전부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:46:17.504Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+        },
+        {
+          "source": "행정안전부 알립니다",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:46:21.368Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
+        },
+        {
+          "source": "국가데이터처 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:46:25.728Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
+        },
+        {
+          "source": "국가데이터처 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:46:27.918Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
+        },
+        {
+          "source": "국가데이터처 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:46:55.777Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
+        },
+        {
+          "source": "국가데이터처 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:47:29.494Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
+        },
+        {
+          "source": "국가데이터처 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:47:33.534Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
+        },
+        {
+          "source": "국가데이터처 기타 법령자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:47:58.913Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계기반정책평가 관련자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:48:32.126Z",
+          "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계품질관리 자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:48:34.715Z",
+          "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
+        },
+        {
+          "source": "공공데이터포털 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:48:40.177Z",
+          "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "status": "complete",
+      "item_count": 1,
+      "changed_count": 1,
+      "collected_at": "2026-06-27T19:44:12.984Z",
+      "source": "daily",
+      "methods": [
+        {
+          "source": "국가법령정보센터 데이터 법령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:40:36.044Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 데이터 행정규칙",
+          "status": "ok",
+          "count": 0,
+          "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
+          "at": "2026-06-27T19:40:37.552Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국민참여입법센터 데이터 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:40:48.221Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 데이터 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:41:05.882Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 국회입법현황",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
+          "at": "2026-06-27T19:41:20.170Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "대한민국 전자관보 데이터 검색",
+          "status": "ok",
+          "count": 0,
+          "message": "전자관보 API 데이터 키워드 필터 수집 완료",
+          "at": "2026-06-27T19:41:20.886Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+        },
+        {
+          "source": "과학기술정보통신부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:41:22.303Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
+        },
+        {
+          "source": "과학기술정보통신부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:41:23.965Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
+        },
+        {
+          "source": "과학기술정보통신부 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:41:25.377Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
+        },
+        {
+          "source": "과학기술정보통신부 사업공고",
+          "status": "ok",
+          "count": 0,
+          "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
+          "at": "2026-06-27T19:41:26.930Z",
+          "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
+        },
+        {
+          "source": "한국데이터산업진흥원 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:41:31.851Z",
+          "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 보도자료",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:41:33.928Z",
+          "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 조사연구보고서",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:41:35.127Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
+        },
+        {
+          "source": "한국데이터산업진흥원 데이터 산업 동향",
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-06-27T19:41:37.612Z",
+          "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
+        },
+        {
+          "source": "데이터 원윈도우 정책지침",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:41:38.367Z",
+          "url": "https://www.data1window.kr/dbPcyEvlSys/list"
+        },
+        {
+          "source": "데이터 원윈도우 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-06-27T19:41:39.020Z",
+          "url": "https://www.data1window.kr/ntcMttr/list"
+        },
+        {
+          "source": "행정안전부 훈령예규고시",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:41:44.728Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+        },
+        {
+          "source": "행정안전부 입법행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:41:49.747Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+        },
+        {
+          "source": "행정안전부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:41:51.910Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+        },
+        {
+          "source": "행정안전부 알립니다",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:41:55.407Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
+        },
+        {
+          "source": "국가데이터처 법령",
+          "status": "ok",
+          "count": 1,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:41:59.222Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
+        },
+        {
+          "source": "국가데이터처 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:42:01.424Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
+        },
+        {
+          "source": "국가데이터처 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:42:28.900Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
+        },
+        {
+          "source": "국가데이터처 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:43:02.336Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
+        },
+        {
+          "source": "국가데이터처 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:43:06.654Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
+        },
+        {
+          "source": "국가데이터처 기타 법령자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:43:32.154Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계기반정책평가 관련자료",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:44:06.098Z",
+          "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
+        },
+        {
+          "source": "국가데이터처 통계품질관리 자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:44:07.984Z",
+          "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
+        },
+        {
+          "source": "공공데이터포털 공지사항",
+          "status": "ok",
+          "count": 0,
+          "message": "정부/공공 게시판 HTML 수집 완료",
+          "at": "2026-06-27T19:44:12.938Z",
+          "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
+        }
+      ]
+    },
     {
       "date": "2026-04-01",
       "status": "complete",

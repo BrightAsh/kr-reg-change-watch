@@ -1,39 +1,7 @@
 {
-  "today": "2026-04-01",
+  "today": "2026-03-25",
   "yesterday": null,
-  "added": [
-    {
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
-      "collected_at": "2026-06-27T19:10:39.040Z",
-      "collection_date": "2026-04-01",
-      "source": "국가법령정보센터 데이터 행정규칙",
-      "source_type": "official_law",
-      "ministry": "국가데이터처",
-      "document_type": "directive",
-      "title": "자율기구 \"국가데이터혁신과\" 설치 및 운영에 관한 규정",
-      "issue_number": "10",
-      "publish_date": "2026-04-01",
-      "effective_date": "2026-04-01",
-      "change_type": "partial_revision",
-      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000276738&type=HTML&mobileYn=",
-      "attachment_urls": [
-        "http://law.go.kr/flDownload.do?flSeq=163009411%20http://law.go.kr/flDownload.do?flSeq=163009415%20%E3%80%8C%EC%9E%90%EC%9C%A8%EA%B8%B0%EA%B5%AC%20%E2%80%9C%EA%B5%AD%EA%B0%80%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%98%81%EC%8B%A0%EA%B3%BC%E2%80%9D%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95%E3%80%8D%20%EC%9D%BC%EB%B6%80%EA%B0%9C%EC%A0%95%EC%95%88%20%EC%A0%84%EB%AC%B8.hwpx%20%E3%80%8C%EC%9E%90%EC%9C%A8%EA%B8%B0%EA%B5%AC%20%E2%80%9C%EA%B5%AD%EA%B0%80%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%98%81%EC%8B%A0%EA%B3%BC%E2%80%9D%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95%E3%80%8D%20%EC%9D%BC%EB%B6%80%EA%B0%9C%EC%A0%95%EC%95%88%20%EC%A0%84%EB%AC%B8.pdf",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=163009597",
-        "https://www.law.go.kr/LSW/flDownload.do?flSeq=163009593",
-        "http://law.go.kr/flDownload.do?flSeq=163009411",
-        "http://law.go.kr/flDownload.do?flSeq=163009415"
-      ],
-      "raw_text": "자율기구 \"국가데이터혁신과\" 설치 및 운영에 관한 규정 일부개정 국가데이터처",
-      "raw_hash": "7cda980e30b26fb5e8341592867c1ea07cd0dd8848ebd1adf599a90f6a7faf03",
-      "confidence": "official",
-      "verification_required": false,
-      "source_record_id": "2100000276738",
-      "id": "4cfb51b2de205160",
-      "category": "guideline"
-    }
-  ],
+  "added": [],
   "changed": [],
   "removed": []
 }
