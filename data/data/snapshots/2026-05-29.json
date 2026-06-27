@@ -1,0 +1,31 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-27T13:13:24.492Z",
+    "collection_date": "2026-05-29",
+    "source": "국가법령정보센터 데이터 행정규칙",
+    "source_type": "official_law",
+    "ministry": "법제처",
+    "document_type": "directive",
+    "title": "법제처 데이터 관리 규정",
+    "issue_number": "500",
+    "publish_date": "2026-05-29",
+    "effective_date": "2026-05-29",
+    "change_type": "partial_revision",
+    "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000280124&type=HTML&mobileYn=",
+    "attachment_urls": [
+      "http://law.go.kr/flDownload.do?flSeq=164655243%20http://law.go.kr/flDownload.do?flSeq=164655247%2010.%20%EB%B2%95%EC%A0%9C%EC%B2%98%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%A0%95(%ED%9B%88%EB%A0%B9).hwpx%2010.%20%EB%B2%95%EC%A0%9C%EC%B2%98%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%A0%95(%ED%9B%88%EB%A0%B9).pdf",
+      "http://law.go.kr/flDownload.do?flSeq=164655243",
+      "http://law.go.kr/flDownload.do?flSeq=164655247"
+    ],
+    "raw_text": "법제처 데이터 관리 규정 타법개정 법제처",
+    "raw_hash": "b19898a447015fc94f216a609353a00052ac14d124a017e3a59cad3dfaf63277",
+    "confidence": "official",
+    "verification_required": false,
+    "source_record_id": "2100000280124",
+    "id": "9a2ce74451757d41",
+    "category": "guideline"
+  }
+]
