@@ -1,0 +1,32 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-27T21:48:01.100Z",
+    "collection_date": "2026-03-13",
+    "source": "국가법령정보센터 데이터 행정규칙",
+    "source_type": "official_law",
+    "ministry": "국민권익위원회",
+    "document_type": "directive",
+    "title": "자율기구 지능데이터담당관 설치 및 운영에 관한 규정",
+    "issue_number": "382",
+    "publish_date": "2026-03-13",
+    "effective_date": "2026-03-24",
+    "change_type": "new",
+    "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000275750&type=HTML&mobileYn=",
+    "attachment_urls": [
+      "http://law.go.kr/flDownload.do?flSeq=162316811%20(%ED%9B%88%EB%A0%B9%20%EC%A0%9C382%ED%98%B8)%20%EC%9E%90%EC%9C%A8%EA%B8%B0%EA%B5%AC%20%EC%A7%80%EB%8A%A5%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%B4%EB%8B%B9%EA%B4%80%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95.hwpx",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=162318359",
+      "https://www.law.go.kr/LSW/flDownload.do?flSeq=162318355",
+      "http://law.go.kr/flDownload.do?flSeq=162316811"
+    ],
+    "raw_text": "자율기구 지능데이터담당관 설치 및 운영에 관한 규정 제정 국민권익위원회 부칙 이 훈령은 2026년 3월 24일부터 시행한다.",
+    "raw_hash": "1473c642698f3a36afa49042306a327ef1c6e02f17cafec922d2f5d216b617a8",
+    "confidence": "official",
+    "verification_required": false,
+    "source_record_id": "2100000275750",
+    "id": "0b9b56aee3724f70",
+    "category": "guideline"
+  }
+]
