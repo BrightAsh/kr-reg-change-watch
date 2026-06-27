@@ -1,0 +1,31 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-06-27T18:36:08.063Z",
+    "collection_date": "2026-04-08",
+    "source": "국가법령정보센터 데이터 행정규칙",
+    "source_type": "official_law",
+    "ministry": "국민권익위원회",
+    "document_type": "directive",
+    "title": "국민권익위원회 데이터 관리 규정",
+    "issue_number": "385",
+    "publish_date": "2026-04-08",
+    "effective_date": "2026-04-08",
+    "change_type": "partial_revision",
+    "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000277148&type=HTML&mobileYn=",
+    "attachment_urls": [
+      "http://law.go.kr/flDownload.do?flSeq=163352339%20http://law.go.kr/flDownload.do?flSeq=163350335%20(%ED%9B%88%EB%A0%B9%20%EC%A0%9C385%ED%98%B8)%EA%B5%AD%EB%AF%BC%EA%B6%8C%EC%9D%B5%EC%9C%84%EC%9B%90%ED%9A%8C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%A0%95.pdf%20(%ED%9B%88%EB%A0%B9%20%EC%A0%9C385%ED%98%B8)%EA%B5%AD%EB%AF%BC%EA%B6%8C%EC%9D%B5%EC%9C%84%EC%9B%90%ED%9A%8C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%A0%95.hwpx",
+      "http://law.go.kr/flDownload.do?flSeq=163352339",
+      "http://law.go.kr/flDownload.do?flSeq=163350335"
+    ],
+    "raw_text": "국민권익위원회 데이터 관리 규정 일부개정 국민권익위원회",
+    "raw_hash": "0eaa6485f325a2ff209a3a42aed366acfdee4f40b995f6a25c52b7504c572db5",
+    "confidence": "official",
+    "verification_required": false,
+    "source_record_id": "2100000277148",
+    "id": "a4bab8c70561e640",
+    "category": "guideline"
+  }
+]
