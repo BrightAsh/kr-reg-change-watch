@@ -546,6 +546,78 @@ jobs:
         if: ${{ always() && env.DEPLOY_SITE == '1' }}
         uses: actions/deploy-pages@v4
 
+      - name: Queue data collect after successful fresh-run retry
+        if: ${{ success() && github.event_name == 'workflow_dispatch' && env.NETWORK_RETRY_COUNT != '0' && env.DEPLOY_ONLY != '1' && env.COMMIT_DATA == '1' }}
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          data_target="${TARGET_DATE:-}"
+          if [ -z "$data_target" ]; then
+            data_target="$(TZ=Asia/Seoul date -d 'yesterday' +%Y-%m-%d)"
+          fi
+
+          if [ "${FORCE_COLLECT:-0}" != "1" ] && [ -f "data/data/daily/${data_target}.json" ]; then
+            export DATA_TARGET_FOR_CACHE="$data_target"
+            if node <<'JS'
+          const fs = require("node:fs");
+          const path = require("node:path");
+
+          const date = process.env.DATA_TARGET_FOR_CACHE;
+          const dailyPath = path.join("data", "data", "daily", `${date}.json`);
+          const daily = JSON.parse(fs.readFileSync(dailyPath, "utf8"));
+          process.exit(daily?.date === date && Array.isArray(daily.logs) && daily.logs.length > 0 && daily.logs.every((log) => log.status === "ok") ? 0 : 1);
+          JS
+            then
+              echo "Data collection cache for ${data_target} is already complete. Not queueing data collect."
+              exit 0
+            fi
+          fi
+
+          data_force="false"
+          if [ "${FORCE_COLLECT:-0}" = "1" ]; then
+            data_force="true"
+          fi
+          data_deploy_site="false"
+          if [ "${DEPLOY_SITE:-0}" = "1" ]; then
+            data_deploy_site="true"
+          fi
+          data_commit="false"
+          if [ "${COMMIT_DATA:-0}" = "1" ]; then
+            data_commit="true"
+          fi
+
+          export DATA_TARGET="$data_target"
+          export DATA_FORCE="$data_force"
+          export DATA_DEPLOY_SITE="$data_deploy_site"
+          export DATA_COMMIT="$data_commit"
+          python3 - <<'PY' > /tmp/data-collect-after-daily-retry.json
+          import json
+          import os
+
+          inputs = {
+              "target_date": os.environ["DATA_TARGET"],
+              "start_date": "",
+              "end_date": "",
+              "collection_order": "asc",
+              "force": os.environ["DATA_FORCE"],
+              "deploy_site": os.environ["DATA_DEPLOY_SITE"],
+              "commit_data": os.environ["DATA_COMMIT"],
+              "network_retry_count": "0",
+          }
+          print(json.dumps({"ref": os.environ.get("GITHUB_REF_NAME", "main"), "inputs": inputs}, separators=(",", ":")))
+          PY
+
+          echo "Queueing data collect for ${data_target} after successful daily fresh-run retry."
+          curl --fail-with-body -sS -X POST \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/data-collect.yml/dispatches" \
+            --data @/tmp/data-collect-after-daily-retry.json
+
       - name: Fail if collection failed
         if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && (steps.collect.outcome == 'failure' || steps.verify.outcome == 'failure') }}
         run: exit 1
