@@ -26,7 +26,7 @@ interface Props {
 }
 
 type CategoryFilter = "all" | RegulatoryCategory;
-type WorkspaceMode = "all" | "regulatory" | "public-system" | "data";
+type WorkspaceMode = "all" | "public-system" | "data";
 type FilterKey = "ministry" | "source" | "document" | "change";
 type EnrichedItem = CollectedItem & {
   category: RegulatoryCategory;
@@ -85,17 +85,16 @@ export default function ItemExplorer({
   const today = formatDateString(new Date());
   const combinedDates = useMemo(() => uniqueStrings([...dates, ...dataDates]).sort((a, b) => b.localeCompare(a)), [dataDates, dates]);
   const combinedMinistries = useMemo(() => uniqueKorean([...ministries, ...dataMinistries]), [dataMinistries, ministries]);
-  const initialRegulatoryDate = dates[0] || today;
-  const initialAllDate = combinedDates[0] || initialRegulatoryDate;
+  const initialDefaultDate = dates[0] || today;
+  const initialAllDate = combinedDates[0] || initialDefaultDate;
   const initialDataDate = dataDates[0] || initialAllDate;
   const defaultDatesByMode = useMemo<Record<WorkspaceMode, string>>(
     () => ({
       all: initialAllDate,
-      regulatory: initialRegulatoryDate,
-      "public-system": initialRegulatoryDate,
+      "public-system": initialDefaultDate,
       data: initialDataDate
     }),
-    [initialAllDate, initialDataDate, initialRegulatoryDate]
+    [initialAllDate, initialDataDate, initialDefaultDate]
   );
   const validMinistrySet = useMemo(() => new Set(combinedMinistries), [combinedMinistries]);
   const [query, setQuery] = useState("");
@@ -150,7 +149,6 @@ export default function ItemExplorer({
   const modeScopedItems = useMemo(
     () => {
       if (workspaceMode === "all") return combinedItems;
-      if (workspaceMode === "regulatory") return enrichedItems;
       if (workspaceMode === "data") return enrichedDataItems;
       if (workspaceMode === "public-system") {
         return enrichedItems.filter((item) => (item.public_system_matches || []).length > 0);
@@ -406,13 +404,6 @@ export default function ItemExplorer({
           onClick={() => changeWorkspaceMode("all")}
         >
           <span>전체</span>
-        </button>
-        <button
-          className={workspaceMode === "regulatory" ? "active" : ""}
-          type="button"
-          onClick={() => changeWorkspaceMode("regulatory")}
-        >
-          <span>법령·고시·지침</span>
         </button>
         <button
           className={workspaceMode === "public-system" ? "active" : ""}
@@ -807,7 +798,7 @@ function parseCategoryParam(value: string | null): CategoryFilter {
 }
 
 function parseWorkspaceMode(value: string | null): WorkspaceMode {
-  if (value === "regulatory" || value === "public-system" || value === "data") return value;
+  if (value === "public-system" || value === "data") return value;
   return "all";
 }
 

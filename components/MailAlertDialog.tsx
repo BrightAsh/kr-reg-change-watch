@@ -8,9 +8,10 @@ import type { ChangeType, DocumentType, RegulatoryCategory, SourceType } from "@
 
 interface Props {
   ministries: string[];
+  dataMinistries?: string[];
 }
 
-type MailWorkspaceMode = "all" | "public-system";
+type MailWorkspaceMode = "all" | "public-system" | "data";
 type CategoryFilter = "all" | RegulatoryCategory;
 type DialogPanel = "subscribe" | "unsubscribe";
 type FeedbackState = "idle" | "working" | "registered" | "unsubscribed" | "found" | "missing" | "not-configured" | "error";
@@ -70,7 +71,7 @@ const categoryOptions: Array<{ value: CategoryFilter; label: string }> = [
   { value: "news", label: categoryLabels.news }
 ];
 
-export default function MailAlertDialog({ ministries }: Props) {
+export default function MailAlertDialog({ ministries, dataMinistries = [] }: Props) {
   const [open, setOpen] = useState(false);
   const [panel, setPanel] = useState<DialogPanel>("subscribe");
   const [emailLocal, setEmailLocal] = useState("");
@@ -94,7 +95,10 @@ export default function MailAlertDialog({ ministries }: Props) {
     emailDomain,
     emailLocal
   ]);
-  const ministryOptions = useMemo(() => ministries.map((value) => ({ value, label: value })), [ministries]);
+  const ministryOptions = useMemo(() => {
+    const values = mode === "data" ? dataMinistries : ministries;
+    return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b, "ko")).map((value) => ({ value, label: value }));
+  }, [dataMinistries, ministries, mode]);
   const subscription = useMemo(
     () =>
       buildSubscription({
@@ -131,11 +135,13 @@ export default function MailAlertDialog({ ministries }: Props) {
   }, [panel]);
 
   function applySubscription(saved: MailSubscription) {
+    const savedMode = parseMailWorkspaceMode(saved.mode);
+    const validMinistries = savedMode === "data" ? dataMinistries : ministries;
     setEmailParts(saved.email || "");
-    setMode(saved.mode === "public-system" ? "public-system" : "all");
+    setMode(savedMode);
     setSelectedCategories(readCategories(saved));
     setSelectedSystemGroups(readSystemGroups(saved));
-    setSelectedMinistries(filterStrings(saved.filters?.ministries, ministries));
+    setSelectedMinistries(filterStrings(saved.filters?.ministries, validMinistries));
     setSelectedSources(filterStrings(saved.filters?.sourceTypes, sourceOptions.map((option) => option.value)));
     setSelectedDocuments(filterStrings(saved.filters?.documentTypes, documentOptions.map((option) => option.value)));
     setSelectedChanges(filterStrings(saved.filters?.changeTypes, changeOptions.map((option) => option.value)));
@@ -206,8 +212,9 @@ export default function MailAlertDialog({ ministries }: Props) {
 
   function updateMode(nextMode: MailWorkspaceMode) {
     setMode(nextMode);
-    if (nextMode === "all") setSelectedSystemGroups([]);
-    if (nextMode === "public-system") setSelectedCategories([]);
+    if (nextMode !== "public-system") setSelectedSystemGroups([]);
+    if (nextMode !== "all") setSelectedCategories([]);
+    setSelectedMinistries([]);
   }
 
   async function requestSubscription() {
@@ -363,6 +370,9 @@ export default function MailAlertDialog({ ministries }: Props) {
                   >
                     공공기관 9개 체계
                   </button>
+                  <button className={mode === "data" ? "active" : ""} type="button" onClick={() => updateMode("data")}>
+                    데이터
+                  </button>
                 </div>
               </div>
 
@@ -394,7 +404,7 @@ export default function MailAlertDialog({ ministries }: Props) {
                       )
                     ))}
                   </div>
-                ) : (
+                ) : mode === "public-system" ? (
                   <div className="mail-choice-grid system">
                     <button
                       className={!selectedSystemGroups.length ? "active" : ""}
@@ -415,6 +425,12 @@ export default function MailAlertDialog({ ministries }: Props) {
                         {group.order}. {group.shortTitle}
                       </button>
                     ))}
+                  </div>
+                ) : (
+                  <div className="mail-choice-grid compact">
+                    <button className="active" type="button" aria-pressed="true">
+                      데이터 전체
+                    </button>
                   </div>
                 )}
               </div>
@@ -689,7 +705,7 @@ function normalizeApiSubscription(value: unknown): MailSubscription | null {
   const email = typeof record.email === "string" ? record.email : "";
   if (!isEmailAddress(email)) return null;
 
-  const mode: MailWorkspaceMode = record.mode === "public-system" ? "public-system" : "all";
+  const mode = parseMailWorkspaceMode(record.mode);
   const filters = normalizeApiFilters(record.filters);
 
   return {
@@ -700,6 +716,10 @@ function normalizeApiSubscription(value: unknown): MailSubscription | null {
     ...(Object.keys(filters).length ? { filters } : {}),
     active: record.active !== false
   };
+}
+
+function parseMailWorkspaceMode(value: unknown): MailWorkspaceMode {
+  return value === "public-system" || value === "data" ? value : "all";
 }
 
 function normalizeApiFilters(value: unknown): NonNullable<MailSubscription["filters"]> {

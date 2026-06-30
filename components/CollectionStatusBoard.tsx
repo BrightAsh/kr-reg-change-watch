@@ -26,13 +26,9 @@ const methodLabels = {
 
 const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
 
-type StatusScope = "all" | "regulatory" | "data";
-
 export default function CollectionStatusBoard({ report, dataReport }: Props) {
-  const [scope, setScope] = useState<StatusScope>("all");
   const aggregateReport = useMemo(() => (dataReport ? mergeStatusReports(report, dataReport) : report), [dataReport, report]);
-  const activeReport =
-    scope === "all" ? aggregateReport : scope === "data" && dataReport ? dataReport : report;
+  const activeReport = aggregateReport;
   const defaultDate =
     [...activeReport.days].reverse().find((day) => day.status !== "not_started")?.date || activeReport.end_date;
   const [selectedDate, setSelectedDate] = useState(defaultDate);
@@ -49,7 +45,7 @@ export default function CollectionStatusBoard({ report, dataReport }: Props) {
     setSelectedDate(defaultDate);
     setMonthCursor(defaultDate.slice(0, 7));
     setActiveLog(null);
-  }, [defaultDate, scope]);
+  }, [defaultDate]);
 
   function shiftMonth(offset: number) {
     const nextIndex = monthIndex + offset;
@@ -64,26 +60,6 @@ export default function CollectionStatusBoard({ report, dataReport }: Props) {
 
   return (
     <section className="status-board" aria-label="수집 현황">
-      <nav className="status-scope-tabs" aria-label="수집 현황 범위">
-        <button className={scope === "all" ? "active" : ""} type="button" onClick={() => setScope("all")}>
-          전체
-        </button>
-        <button
-          className={scope === "regulatory" ? "active" : ""}
-          type="button"
-          onClick={() => setScope("regulatory")}
-        >
-          법령·고시·지침
-        </button>
-        <button
-          className={scope === "data" ? "active" : ""}
-          type="button"
-          onClick={() => setScope("data")}
-          disabled={!dataReport}
-        >
-          데이터
-        </button>
-      </nav>
       <div className="status-layout">
         <div className="status-calendar-wrap">
           <div className="status-calendar-head">
@@ -269,7 +245,7 @@ function formatDateTime(value: string): string {
 
 function mergeStatusReports(regulatoryReport: CollectionStatusReport, dataReport: CollectionStatusReport): CollectionStatusReport {
   const scopedReports = [
-    { label: "법령·고시·지침", report: regulatoryReport },
+    { label: "기본 수집", report: regulatoryReport },
     { label: "데이터", report: dataReport }
   ];
   const startDate = [regulatoryReport.start_date, dataReport.start_date].sort()[0];

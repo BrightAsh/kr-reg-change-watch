@@ -39,7 +39,7 @@ export default async function HomePage() {
           <Link className="header-button" href="/status">
             수집 현황
           </Link>
-          <MailAlertDialog ministries={ministries} />
+          <MailAlertDialog ministries={ministries} dataMinistries={dataMinistries} />
         </div>
       </header>
 

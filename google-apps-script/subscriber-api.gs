@@ -220,7 +220,7 @@ function rowToRecord_(row) {
   return {
     email: normalizeEmail_(row[0]),
     active: row[1] === true || String(row[1]).toLowerCase() === "true",
-    mode: row[2] === "public-system" ? "public-system" : "all",
+    mode: normalizeMode_(row[2]),
     categories: readJsonArray_(row[3]),
     systemGroups: readJsonArray_(row[4]),
     filters: readJsonObject_(row[5]),
@@ -255,7 +255,7 @@ function publicSubscriber_(record) {
   return {
     email: record.email,
     active: Boolean(record.active),
-    mode: record.mode === "public-system" ? "public-system" : "all",
+    mode: normalizeMode_(record.mode),
     categories: Array.isArray(record.categories) ? record.categories : [],
     systemGroups: Array.isArray(record.systemGroups) ? record.systemGroups : [],
     filters: record.filters && typeof record.filters === "object" ? record.filters : {},
@@ -269,7 +269,7 @@ function sanitizeSubscription_(payload) {
   const email = normalizeEmail_(payload.email || "");
   if (!email) throw new Error("Valid email is required.");
 
-  const mode = payload.mode === "public-system" ? "public-system" : "all";
+  const mode = normalizeMode_(payload.mode);
   return {
     email,
     mode,
@@ -277,6 +277,10 @@ function sanitizeSubscription_(payload) {
     systemGroups: mode === "public-system" ? sanitizeStringArray_(payload.systemGroups || payload.systemGroup, 100) : [],
     filters: sanitizeFilters_(payload.filters)
   };
+}
+
+function normalizeMode_(mode) {
+  return mode === "public-system" || mode === "data" ? mode : "all";
 }
 
 function sanitizeCategories_(categories, category) {

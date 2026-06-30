@@ -14,9 +14,9 @@ import type {
   RunMetadata,
   SourceType
 } from "../lib/types";
-import { dailyDir, env, loadDotEnv, parseArgs, readJson, rootDir } from "./common";
+import { dailyDir, dataDir, env, loadDotEnv, parseArgs, readJson, rootDir } from "./common";
 
-type WorkspaceMode = "all" | "public-system";
+type WorkspaceMode = "all" | "public-system" | "data";
 type CategoryFilter = "all" | RegulatoryCategory;
 
 interface MailSubscription {
@@ -59,6 +59,7 @@ type EnrichedItem = CollectedItem & {
 
 const categoryOrder: RegulatoryCategory[] = ["law", "notice", "guideline", "news"];
 const defaultSubjectPrefix = "[Reg Watch]";
+const dataDailyDir = path.join(dataDir, "data", "daily");
 
 async function main(): Promise<void> {
   loadDotEnv();
@@ -81,7 +82,8 @@ async function main(): Promise<void> {
   const args = parseArgs();
   const targetDate = await resolveTargetDate(typeof args.date === "string" ? args.date : "");
   const daily = await readJson<DailyCollection | null>(path.join(dailyDir, `${targetDate}.json`), null);
-  if (!daily) {
+  const dataDaily = await readJson<DailyCollection | null>(path.join(dataDailyDir, `${targetDate}.json`), null);
+  if (!daily && !dataDaily) {
     throw new Error(`No daily collection data found for ${targetDate}.`);
   }
 
@@ -91,10 +93,18 @@ async function main(): Promise<void> {
   const smtpHost = env("SMTP_HOST", "smtp.gmail.com");
   const smtpPort = Math.max(1, Number(env("SMTP_PORT", "465")) || 465);
   const dryRun = env("MAIL_DRY_RUN") === "1";
-  const enrichedItems = daily.items.map(enrichItem);
+  const enrichedItems = daily?.items.map(enrichItem) || [];
+  const enrichedDataItems = dataDaily?.items.map(enrichDataItem) || [];
 
   for (const subscription of subscriptions) {
-    const filtered = filterItemsForSubscription(enrichedItems, subscription);
+    const sourceDaily = subscription.mode === "data" ? dataDaily : daily;
+    if (!sourceDaily) {
+      console.log(`Mail alert skipped for ${maskEmail(subscription.email)}: no ${subscription.mode} collection data for ${targetDate}.`);
+      continue;
+    }
+
+    const sourceItems = subscription.mode === "data" ? enrichedDataItems : enrichedItems;
+    const filtered = filterItemsForSubscription(sourceItems, subscription);
     if (!filtered.length) {
       console.log(`Mail alert skipped for ${maskEmail(subscription.email)}: 0 matched item(s).`);
       continue;
@@ -102,7 +112,7 @@ async function main(): Promise<void> {
 
     const limited = filtered.slice(0, maxItems);
     const message = buildMailMessage({
-      date: daily.date,
+      date: sourceDaily.date,
       subscription,
       items: filtered,
       includedItems: limited,
@@ -224,7 +234,7 @@ function mergeSubscriptions(subscriptions: MailSubscription[]): MailSubscription
 }
 
 function normalizeSubscription(subscription: MailSubscription): NormalizedSubscription {
-  const mode: WorkspaceMode = subscription.mode === "public-system" ? "public-system" : "all";
+  const mode: WorkspaceMode = subscription.mode === "public-system" || subscription.mode === "data" ? subscription.mode : "all";
   return {
     email: subscription.email.trim(),
     mode,
@@ -252,8 +262,10 @@ async function resolveTargetDate(cliDate: string): Promise<string> {
   const lastTargetDate = run?.last_target_date;
   if (isDateString(lastTargetDate)) return lastTargetDate;
 
-  const files = await fs.readdir(dailyDir);
+  const files: string[] = await fs.readdir(dailyDir).catch(() => []);
+  const dataFiles: string[] = await fs.readdir(dataDailyDir).catch(() => []);
   const latest = files
+    .concat(dataFiles)
     .map((file) => file.replace(/\.json$/, ""))
     .filter(isDateString)
     .sort((a, b) => b.localeCompare(a))[0];
@@ -271,10 +283,20 @@ function enrichItem(item: CollectedItem): EnrichedItem {
   };
 }
 
+function enrichDataItem(item: CollectedItem): EnrichedItem {
+  return {
+    ...item,
+    category: item.category || itemCategory(item),
+    public_system_matches: item.public_system_matches || []
+  };
+}
+
 function filterItemsForSubscription(items: EnrichedItem[], subscription: NormalizedSubscription): EnrichedItem[] {
   const normalizedQuery = subscription.filters.query.toLowerCase();
   return items.filter((item) => {
-    if (subscription.mode === "public-system") {
+    if (subscription.mode === "data") {
+      // Data alerts use the data-only daily collection and then apply the common advanced filters below.
+    } else if (subscription.mode === "public-system") {
       if (!item.public_system_matches.length) return false;
       if (
         subscription.systemGroups.length &&
@@ -324,7 +346,8 @@ function buildMailMessage({
   baseUrl: string;
 }): { subject: string; text: string; html: string } {
   const scopeLabel = buildScopeLabel(subscription);
-  const subject = `${subscription.subjectPrefix} ${date} 규제 변경 ${items.length.toLocaleString("ko-KR")}건`;
+  const topicLabel = subscription.mode === "data" ? "데이터 변경" : "규제 변경";
+  const subject = `${subscription.subjectPrefix} ${date} ${topicLabel} ${items.length.toLocaleString("ko-KR")}건`;
   const omittedCount = Math.max(0, items.length - includedItems.length);
   const textLines = [
     `Reg Watch 일일 알림`,
@@ -345,7 +368,7 @@ function buildMailMessage({
     '<main style="max-width:760px;margin:0 auto;padding:24px;">',
     '<section style="border:1px solid #d8e0eb;border-radius:8px;background:#fff;padding:20px;">',
     `<p style="margin:0 0 7px;color:#0064d2;font-size:12px;font-weight:800;">Reg Watch 일일 알림</p>`,
-    `<h1 style="margin:0 0 10px;font-size:24px;line-height:1.25;">${escapeHtml(date)} 규제 변경 ${items.length.toLocaleString("ko-KR")}건</h1>`,
+    `<h1 style="margin:0 0 10px;font-size:24px;line-height:1.25;">${escapeHtml(date)} ${escapeHtml(topicLabel)} ${items.length.toLocaleString("ko-KR")}건</h1>`,
     `<p style="margin:0 0 16px;color:#313845;line-height:1.6;">${escapeHtml(scopeLabel)}</p>`,
     omittedCount
       ? `<p style="margin:0 0 16px;color:#758091;font-size:13px;">상위 ${maxItems.toLocaleString("ko-KR")}건만 표시했습니다. 생략 ${omittedCount.toLocaleString("ko-KR")}건.</p>`
@@ -426,6 +449,10 @@ function buildSections(
   subscription: NormalizedSubscription,
   items: EnrichedItem[]
 ): Array<{ label: string; items: EnrichedItem[] }> {
+  if (subscription.mode === "data") {
+    return [{ label: "데이터", items }];
+  }
+
   if (subscription.mode === "public-system") {
     if (subscription.systemGroups.length === 1) {
       const group = publicInstitutionSystemGroups.find((entry) => entry.id === subscription.systemGroups[0]);
@@ -453,7 +480,9 @@ function buildSections(
 
 function buildScopeLabel(subscription: NormalizedSubscription): string {
   const base =
-    subscription.mode === "public-system"
+    subscription.mode === "data"
+      ? "데이터"
+      : subscription.mode === "public-system"
       ? !subscription.systemGroups.length
         ? "공공기관 운영 법령 및 정부지침 체계 9개 항목 전체"
         : subscription.systemGroups.length === 1
