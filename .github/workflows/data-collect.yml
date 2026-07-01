@@ -3,27 +3,6 @@ name: Data collect and deploy
 run-name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.target_date != '' && format('Data collect {0}', github.event.inputs.target_date) || 'Data collect and deploy' }}
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/data-collect.yml"
-      - ".github/data-backfill-trigger.txt"
-      - "app/**"
-      - "components/**"
-      - "lib/**"
-      - "scripts/common.ts"
-      - "scripts/collect-data.ts"
-      - "scripts/diff-data.ts"
-      - "scripts/fetch-data.ts"
-      - "scripts/update-data-collection-status.ts"
-      - "scripts/verify-data-collection-complete.ts"
-      - "package.json"
-  workflow_run:
-    workflows:
-      - Daily collect and deploy
-    types:
-      - completed
   workflow_dispatch:
     inputs:
       target_date:
@@ -82,7 +61,6 @@ concurrency:
 
 jobs:
   data-collect-build-deploy:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-22.04
     permissions:
       actions: write
@@ -126,7 +104,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-node@v4
         with:
