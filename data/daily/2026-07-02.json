@@ -1,6 +1,6 @@
 {
   "date": "2026-07-02",
-  "collected_at": "2026-07-02T17:36:16.560Z",
+  "collected_at": "2026-07-02T23:59:54.530Z",
   "item_count": 414,
   "changed_count": 0,
   "cache_hit": false,
@@ -11461,9 +11461,9 @@
     {
       "source": "대한민국 정책브리핑 RSS",
       "status": "error",
-      "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed after 2 attempt(s): curl-first failed: curl failed with code 22 (null); HTTP 404 Not Found\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed after 2 attempt(s): curl-first failed: curl failed with code 28 (null); HTTP 404 Not Found\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed after 2 attempt(s): curl-first failed: curl failed with code 22 (null); HTTP 404 Not Found\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
+      "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed after 2 attempt(s): curl-first failed: curl failed with code 22 (null); HTTP 404 Not Found\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed after 2 attempt(s): curl-first failed: curl failed with code 28 (null); HTTP 404 Not Found\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed after 2 attempt(s): curl-first failed: curl failed with code 28 (null); HTTP 404 Not Found\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
       "count": 0,
-      "at": "2026-07-02T17:36:14.669Z",
+      "at": "2026-07-02T23:59:52.622Z",
       "url": "https://www.korea.kr/rss/pressrelease.xml",
       "group": "policy-rss",
       "route": "대한민국 정책브리핑 RSS"
