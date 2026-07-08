@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-08T00:51:21.910Z",
+  "generated_at": "2026-07-08T01:10:20.701Z",
   "start_date": "2026-03-01",
   "end_date": "2026-07-08",
   "summary": {
-    "complete": 122,
-    "partial": 1,
+    "complete": 123,
+    "partial": 0,
     "failed": 0,
     "not_started": 7
   },
@@ -30987,10 +30987,10 @@
     },
     {
       "date": "2026-07-07",
-      "status": "partial",
+      "status": "complete",
       "item_count": 2,
       "changed_count": 2,
-      "collected_at": "2026-07-08T00:51:19.470Z",
+      "collected_at": "2026-07-08T01:10:18.036Z",
       "source": "daily",
       "methods": [
         {
@@ -30998,7 +30998,7 @@
           "status": "ok",
           "count": 0,
           "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
-          "at": "2026-07-08T00:47:07.467Z",
+          "at": "2026-07-08T01:07:34.602Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -31006,7 +31006,7 @@
           "status": "ok",
           "count": 0,
           "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
-          "at": "2026-07-08T00:47:14.249Z",
+          "at": "2026-07-08T01:07:35.773Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -31014,7 +31014,7 @@
           "status": "ok",
           "count": 0,
           "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
-          "at": "2026-07-08T00:47:28.557Z",
+          "at": "2026-07-08T01:07:46.604Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
@@ -31022,7 +31022,7 @@
           "status": "ok",
           "count": 0,
           "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
-          "at": "2026-07-08T00:47:56.042Z",
+          "at": "2026-07-08T01:08:07.002Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
@@ -31030,7 +31030,7 @@
           "status": "ok",
           "count": 0,
           "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
-          "at": "2026-07-08T00:48:18.097Z",
+          "at": "2026-07-08T01:08:24.641Z",
           "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
         },
         {
@@ -31038,7 +31038,7 @@
           "status": "ok",
           "count": 0,
           "message": "전자관보 API 데이터 키워드 필터 수집 완료",
-          "at": "2026-07-08T00:48:19.161Z",
+          "at": "2026-07-08T01:08:25.947Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
@@ -31046,7 +31046,7 @@
           "status": "ok",
           "count": 0,
           "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
-          "at": "2026-07-08T00:48:21.160Z",
+          "at": "2026-07-08T01:08:27.702Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
         },
         {
@@ -31054,7 +31054,7 @@
           "status": "ok",
           "count": 0,
           "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
-          "at": "2026-07-08T00:48:23.045Z",
+          "at": "2026-07-08T01:08:29.534Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
         },
         {
@@ -31062,7 +31062,7 @@
           "status": "ok",
           "count": 0,
           "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
-          "at": "2026-07-08T00:48:25.202Z",
+          "at": "2026-07-08T01:08:31.317Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
         },
         {
@@ -31070,7 +31070,7 @@
           "status": "ok",
           "count": 0,
           "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
-          "at": "2026-07-08T00:48:27.382Z",
+          "at": "2026-07-08T01:08:33.185Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
         },
         {
@@ -31078,7 +31078,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-07-08T00:48:29.160Z",
+          "at": "2026-07-08T01:08:34.479Z",
           "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
         },
         {
@@ -31086,7 +31086,7 @@
           "status": "ok",
           "count": 1,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-07-08T00:48:34.737Z",
+          "at": "2026-07-08T01:08:38.351Z",
           "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
         },
         {
@@ -31094,7 +31094,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-07-08T00:48:36.469Z",
+          "at": "2026-07-08T01:08:39.656Z",
           "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
         },
         {
@@ -31102,7 +31102,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-07-08T00:48:38.422Z",
+          "at": "2026-07-08T01:08:40.553Z",
           "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
         },
         {
@@ -31110,7 +31110,7 @@
           "status": "ok",
           "count": 0,
           "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
-          "at": "2026-07-08T00:48:39.406Z",
+          "at": "2026-07-08T01:08:41.387Z",
           "url": "https://www.data1window.kr/dbPcyEvlSys/list"
         },
         {
@@ -31118,7 +31118,7 @@
           "status": "ok",
           "count": 0,
           "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
-          "at": "2026-07-08T00:48:40.542Z",
+          "at": "2026-07-08T01:08:42.071Z",
           "url": "https://www.data1window.kr/ntcMttr/list"
         },
         {
@@ -31126,7 +31126,7 @@
           "status": "ok",
           "count": 0,
           "message": "정부/공공 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:48:48.411Z",
+          "at": "2026-07-08T01:08:47.863Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
@@ -31134,7 +31134,7 @@
           "status": "ok",
           "count": 0,
           "message": "정부/공공 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:48:56.008Z",
+          "at": "2026-07-08T01:08:53.635Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
         },
         {
@@ -31142,7 +31142,7 @@
           "status": "ok",
           "count": 0,
           "message": "정부/공공 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:48:57.237Z",
+          "at": "2026-07-08T01:08:54.804Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
@@ -31150,7 +31150,7 @@
           "status": "ok",
           "count": 0,
           "message": "정부/공공 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:49:00.633Z",
+          "at": "2026-07-08T01:08:57.670Z",
           "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
         },
         {
@@ -31158,7 +31158,7 @@
           "status": "ok",
           "count": 0,
           "message": "국가데이터처 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:49:03.432Z",
+          "at": "2026-07-08T01:08:59.891Z",
           "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
         },
         {
@@ -31166,7 +31166,7 @@
           "status": "ok",
           "count": 0,
           "message": "국가데이터처 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:49:05.903Z",
+          "at": "2026-07-08T01:09:01.922Z",
           "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
         },
         {
@@ -31174,7 +31174,7 @@
           "status": "ok",
           "count": 0,
           "message": "국가데이터처 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:49:08.673Z",
+          "at": "2026-07-08T01:09:03.927Z",
           "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
         },
         {
@@ -31182,7 +31182,7 @@
           "status": "ok",
           "count": 1,
           "message": "국가데이터처 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:49:44.384Z",
+          "at": "2026-07-08T01:09:37.912Z",
           "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
         },
         {
@@ -31190,7 +31190,7 @@
           "status": "ok",
           "count": 0,
           "message": "국가데이터처 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:50:10.396Z",
+          "at": "2026-07-08T01:09:39.980Z",
           "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
         },
         {
@@ -31198,15 +31198,15 @@
           "status": "ok",
           "count": 0,
           "message": "국가데이터처 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:50:12.689Z",
+          "at": "2026-07-08T01:09:41.470Z",
           "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
         },
         {
           "source": "국가데이터처 통계기반정책평가 관련자료",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "GET https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=3 failed after 2 attempt(s): curl-first failed: curl failed with code 52 (null); fetch failed",
-          "at": "2026-07-08T00:51:14.363Z",
+          "message": "국가데이터처 게시판 HTML 수집 완료",
+          "at": "2026-07-08T01:10:14.118Z",
           "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
         },
         {
@@ -31214,7 +31214,7 @@
           "status": "ok",
           "count": 0,
           "message": "국가데이터처 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:51:17.057Z",
+          "at": "2026-07-08T01:10:16.234Z",
           "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
         },
         {
@@ -31222,7 +31222,7 @@
           "status": "ok",
           "count": 0,
           "message": "정부/공공 게시판 HTML 수집 완료",
-          "at": "2026-07-08T00:51:19.415Z",
+          "at": "2026-07-08T01:10:17.916Z",
           "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
         }
       ]
