@@ -261,9 +261,6 @@ jobs:
               if selected_any alio; then
                 probe_selected_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
               fi
-              if selected_any rss policy policy-rss; then
-                probe_selected_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
-              fi
               if selected_any gazette gwanbo && [ -n "$GWANBO_LIST_URL" ]; then
                 probe_selected_url "gwanbo.go.kr" "$GWANBO_LIST_URL"
               fi
@@ -300,7 +297,6 @@ jobs:
             probe_url "lawmaking.go.kr" "https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=${LAWMAKING_OC_VALUE}&cptOfiOrgCd=1170000&stYdFmt=${DOT_DATE}&edYdFmt=${DOT_DATE}"
             probe_url "alio.go.kr" "https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1"
             probe_url "motir.go.kr" "https://www.motir.go.kr/kor/article/ATCLc01b2a9d8"
-            probe_url "korea.kr" "http://www.korea.kr/rss/pressrelease.xml"
           }
 
           PREFLIGHT_ROUND=1

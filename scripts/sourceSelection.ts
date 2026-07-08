@@ -106,7 +106,7 @@ export function selectedCollectionMethodStatuses(
   routeFilter = new Set<string>()
 ): CollectionMethodStatus[] {
   const selectedSources = selectedCollectionMethodSources(sourceFilter, routeFilter);
-  if (!selectedSources.length) return methods;
+  if (!selectedSources.length) return sourceFilter.size || routeFilter.size ? [] : methods;
   return methods.filter((method) => selectedSources.some((source) => sameCollectionMethod(source, method.source)));
 }
 

@@ -87,7 +87,7 @@ export const COLLECTION_SOURCE_GROUP_METHODS: Record<CollectionSourceGroup, stri
     "산업통상부 지침"
   ],
   alio: ["ALIO 공공기관 법령/지침", "ALIO 공공정책자료"],
-  "policy-rss": ["대한민국 정책브리핑 RSS"],
+  "policy-rss": [],
   "naver-news": ["네이버 뉴스 검색 API"]
 };
 
@@ -138,7 +138,6 @@ const expectedMethods: CollectionMethodStatus[] = [
   method("산업통상부 지침", "https://www.motir.go.kr"),
   method("ALIO 공공기관 법령/지침", "https://www.alio.go.kr"),
   method("ALIO 공공정책자료", "https://www.alio.go.kr"),
-  method("대한민국 정책브리핑 RSS", "https://www.korea.kr/etc/rss.do"),
   method("네이버 뉴스 검색 API")
 ];
 

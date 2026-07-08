@@ -28,7 +28,6 @@ const sourceGroups: SourceGroup[] = [
   "ministry-board",
   "motir",
   "alio",
-  "policy-rss",
   "naver-news"
 ];
 
@@ -141,7 +140,7 @@ function inferGroup(log: CollectionLog): SourceGroup | "" {
   if (/mois\.go\.kr|mofe\.go\.kr|ministry-board/.test(value)) return "ministry-board";
   if (/motir\.go\.kr|motir|industry-board/.test(value)) return "motir";
   if (/alio\.go\.kr|alio/.test(value)) return "alio";
-  if (/korea\.kr|policy-rss|rss/.test(value)) return "policy-rss";
+  if (/korea\.kr|policy-rss|rss/.test(value)) return "";
   if (/naver\.com|naver-news|news search/.test(value)) return "naver-news";
   return "";
 }

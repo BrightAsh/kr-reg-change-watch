@@ -1898,6 +1898,18 @@ async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
 }
 
 async function fetchPolicyRssWithBudget(logs: CollectionLog[]): Promise<CollectedItem[]> {
+  if (env("ENABLE_KOREA_POLICY_RSS", "0") !== "1") {
+    addLog(
+      logs,
+      "대한민국 정책브리핑 RSS",
+      "ok",
+      "정책브리핑 RSS 서비스 제공 중단(2026-07-01)에 따라 RSS 수집을 비활성화했습니다.",
+      0,
+      "https://www.korea.kr/etc/noticeView.do?newsId=132038885"
+    );
+    return [];
+  }
+
   const defaultRss = [
     "https://www.korea.kr/rss/pressrelease.xml",
     "https://www.korea.kr/rss/policy.xml",
