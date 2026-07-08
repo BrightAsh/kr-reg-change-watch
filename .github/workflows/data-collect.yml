@@ -83,6 +83,8 @@ jobs:
       DATA_FETCH_LOOKBACK_DAYS: 1
       FETCH_RETRIES: 2
       FETCH_TIMEOUT_MS: 60000
+      DATA_PREFLIGHT_FAILED_FETCH_RETRIES: 1
+      DATA_PREFLIGHT_FAILED_FETCH_TIMEOUT_MS: 15000
       FETCH_CURL_FALLBACK: 1
       FETCH_CURL_FIRST: 1
       FETCH_CURL_ONLY: 0
@@ -269,6 +271,8 @@ jobs:
           failed_labels="$(IFS=,; echo "${FAILED_LABELS[*]}")"
           echo "::warning::Data source preflight failed for ${FAIL_COUNT}/${PROBE_COUNT} URL(s): ${failed_labels}. Continuing so reachable sources can still be collected and route-level errors can be logged."
           echo "failed_labels=${failed_labels}" >> "$GITHUB_OUTPUT"
+          echo "FETCH_RETRIES=${DATA_PREFLIGHT_FAILED_FETCH_RETRIES:-1}" >> "$GITHUB_ENV"
+          echo "FETCH_TIMEOUT_MS=${DATA_PREFLIGHT_FAILED_FETCH_TIMEOUT_MS:-15000}" >> "$GITHUB_ENV"
           exit 0
 
       - name: Queue fresh runner retry after data preflight network block
