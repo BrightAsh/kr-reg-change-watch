@@ -319,36 +319,6 @@
     "route": "네이버 뉴스 검색 API"
   },
   {
-    "source": "ALIO 공공기관 법령/지침",
-    "status": "error",
-    "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-    "count": 0,
-    "at": "2026-07-07T18:15:18.033Z",
-    "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
-    "group": "alio",
-    "route": "ALIO 공공기관 법령/지침"
-  },
-  {
-    "source": "ALIO 공공정책자료",
-    "status": "error",
-    "message": "ALIO 수집 실패: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
-    "count": 0,
-    "at": "2026-07-07T18:15:18.034Z",
-    "url": "https://www.alio.go.kr/etc/etcPdsList.do",
-    "group": "alio",
-    "route": "ALIO 공공정책자료"
-  },
-  {
-    "source": "ALIO",
-    "status": "error",
-    "message": "ALIO 일부 수집 실패: ALIO 공공기관 법령/지침: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null); ALIO 공공정책자료: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
-    "count": 0,
-    "at": "2026-07-07T18:15:18.034Z",
-    "url": "https://www.alio.go.kr/etc/etcLawList.do",
-    "group": "alio",
-    "route": "ALIO"
-  },
-  {
     "source": "대한민국 정책브리핑 RSS",
     "status": "error",
     "message": "RSS 전체 수집 실패: https://www.korea.kr/rss/pressrelease.xml: GET https://www.korea.kr/rss/pressrelease.xml failed after 2 attempt(s): curl-first failed: curl failed with code 22 (null); HTTP 404 Not Found\nhttps://www.korea.kr/rss/policy.xml: GET https://www.korea.kr/rss/policy.xml failed after 2 attempt(s): curl-first failed: curl failed with code 28 (null); This operation was aborted\nhttps://www.korea.kr/rss/dept_moleg.xml: GET https://www.korea.kr/rss/dept_moleg.xml failed after 2 attempt(s): curl-first failed: curl failed with code 22 (null); HTTP 404 Not Found\n초기 3개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.",
@@ -357,5 +327,25 @@
     "url": "https://www.korea.kr/rss/pressrelease.xml",
     "group": "policy-rss",
     "route": "대한민국 정책브리핑 RSS"
+  },
+  {
+    "source": "ALIO 공공기관 법령/지침",
+    "status": "ok",
+    "message": "ALIO 법령/지침 원문 수집 완료",
+    "count": 0,
+    "at": "2026-07-08T00:32:52.475Z",
+    "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+    "group": "alio",
+    "route": "ALIO 공공기관 법령/지침"
+  },
+  {
+    "source": "ALIO 공공정책자료",
+    "status": "ok",
+    "message": "ALIO 정책자료/보도자료 수집 완료",
+    "count": 0,
+    "at": "2026-07-08T00:32:53.925Z",
+    "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+    "group": "alio",
+    "route": "ALIO 공공정책자료"
   }
 ]
