@@ -267,13 +267,9 @@ jobs:
           done
 
           failed_labels="$(IFS=,; echo "${FAILED_LABELS[*]}")"
-          echo "::error::Data source preflight failed for ${FAIL_COUNT}/${PROBE_COUNT} URL(s): ${failed_labels}. Aborting before writing partial data collection."
-          echo "failed=1" >> "$GITHUB_OUTPUT"
+          echo "::warning::Data source preflight failed for ${FAIL_COUNT}/${PROBE_COUNT} URL(s): ${failed_labels}. Continuing so reachable sources can still be collected and route-level errors can be logged."
           echo "failed_labels=${failed_labels}" >> "$GITHUB_OUTPUT"
-          if [ "$FAIL_COUNT" -ge 3 ]; then
-            echo "network_blocked=1" >> "$GITHUB_OUTPUT"
-          fi
-          exit 1
+          exit 0
 
       - name: Queue fresh runner retry after data preflight network block
         if: ${{ steps.data_preflight.outputs.network_blocked == '1' }}
@@ -426,18 +422,55 @@ jobs:
               rm -f data/data/logs/backfill-failed-dates.txt data/data/logs/backfill-failures.json
             fi
           elif [ -n "${RESOLVED_TARGET_DATE:-}" ]; then
-            collect_one_date "$RESOLVED_TARGET_DATE"
+            if collect_one_date "$RESOLVED_TARGET_DATE"; then
+              echo "Data collection complete for ${RESOLVED_TARGET_DATE}."
+            else
+              echo "::error::Data collection failed for ${RESOLVED_TARGET_DATE}. Continuing so collected data and diagnostics can be committed."
+              mkdir -p data/data/logs/backfill
+              if [ -f data/data/logs/last-fetch.json ]; then
+                cp data/data/logs/last-fetch.json "data/data/logs/backfill/${RESOLVED_TARGET_DATE}.json"
+              fi
+              printf '%s\n' "$RESOLVED_TARGET_DATE" > data/data/logs/backfill-failed-dates.txt
+              python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          target_date = os.environ.get("RESOLVED_TARGET_DATE", "")
+          payload = {
+              "failed_dates": [target_date] if target_date else [],
+              "failed_count": 1 if target_date else 0,
+              "target_date": target_date,
+          }
+          Path("data/data/logs/backfill-failures.json").write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+              npm run data:status || true
+              echo "DATA_TARGET_FAILED=1" >> "$GITHUB_ENV"
+            fi
           else
             COLLECT_ARGS=()
             if [ "${RESOLVED_FORCE_COLLECT:-0}" = "1" ]; then
               COLLECT_ARGS+=(--force)
             fi
+            auto_failed=0
             if [ "${#COLLECT_ARGS[@]}" -gt 0 ]; then
-              npm run data:collect -- "${COLLECT_ARGS[@]}"
+              npm run data:collect -- "${COLLECT_ARGS[@]}" || auto_failed=1
             else
-              npm run data:collect
+              npm run data:collect || auto_failed=1
             fi
-            npm run data:verify
+            if [ "$auto_failed" -eq 0 ]; then
+              npm run data:verify || auto_failed=1
+            fi
+            if [ "$auto_failed" -eq 0 ]; then
+              echo "Data collection complete for auto target."
+            else
+              echo "::error::Data collection failed for auto target. Continuing so collected data and diagnostics can be committed."
+              npm run data:status || true
+              echo "DATA_TARGET_FAILED=1" >> "$GITHUB_ENV"
+            fi
           fi
 
       - name: Update data collection status
@@ -493,6 +526,7 @@ jobs:
         if: ${{ env.DEPLOY_SITE == '1' }}
         uses: actions/deploy-pages@v4
 
-      - name: Fail if data range collection failed
-        if: ${{ env.DATA_RANGE_FAILED == '1' }}
+      - name: Fail if data collection failed
+        if: ${{ env.DATA_RANGE_FAILED == '1' || env.DATA_TARGET_FAILED == '1' }}
         run: exit 1
+
