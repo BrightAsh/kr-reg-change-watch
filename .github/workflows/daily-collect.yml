@@ -522,7 +522,7 @@ jobs:
 
       - name: Collect data-specific changes
         id: data_collect
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.COLLECT_SOURCES == '' && (steps.preflight.outcome == 'success' || steps.preflight.outcome == 'skipped' || env.SKIP_PREFLIGHT == '1') }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && env.COLLECT_SOURCES == '' }}
         continue-on-error: true
         run: |
           DATA_ARGS=()
