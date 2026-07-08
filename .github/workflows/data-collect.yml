@@ -90,8 +90,8 @@ jobs:
       FETCH_CURL_ONLY: 0
       DATA_FETCH_MAX_PAGES: 20
       DATA_FETCH_DETAIL_LIMIT: 40
-      DATA_PREFLIGHT_ATTEMPTS: 2
-      DATA_PREFLIGHT_RETRY_DELAY_SECONDS: 60
+      DATA_PREFLIGHT_ATTEMPTS: 1
+      DATA_PREFLIGHT_RETRY_DELAY_SECONDS: 0
       MAX_DATA_NETWORK_PREFLIGHT_RETRIES: 10
       TARGET_DATE: ${{ github.event.inputs.target_date }}
       START_DATE: ${{ github.event.inputs.start_date }}
