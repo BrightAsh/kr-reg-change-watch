@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-08T04:44:20.711Z",
+  "generated_at": "2026-07-08T05:03:29.953Z",
   "start_date": "2026-03-01",
   "end_date": "2026-07-08",
   "summary": {
     "complete": 125,
-    "partial": 3,
+    "partial": 4,
     "failed": 0,
-    "not_started": 2
+    "not_started": 1
   },
   "days": [
     {
@@ -29777,242 +29777,242 @@
     },
     {
       "date": "2026-07-02",
-      "status": "not_started",
+      "status": "partial",
       "item_count": 0,
       "changed_count": 0,
-      "collected_at": null,
-      "source": "none",
+      "collected_at": "2026-07-08T05:03:27.698Z",
+      "source": "daily",
       "methods": [
         {
           "source": "국가법령정보센터 데이터 법령",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=law&type=JSON&display=100&page=1&date=20260702&sort=ddes failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:48:01.310Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국가법령정보센터 데이터 행정규칙",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260702&sort=ddes failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:48:42.817Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
           "source": "국민참여입법센터 데이터 입법예고",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://opinion.lawmaking.go.kr/gcom/ogLmPp?stYdFmt=2026.7.2.&edYdFmt=2026.7.2.&lsNm=%EB%8D%B0%EC%9D%B4%ED%84%B0&isOgYn=Y&opYn=Y failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:49:24.326Z",
           "url": "https://opinion.lawmaking.go.kr/gcom/ogLmPp"
         },
         {
           "source": "국민참여입법센터 데이터 행정예고",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://opinion.lawmaking.go.kr/gcom/admpp/list?stYdFmt=2026.7.2.&edYdFmt=2026.7.2.&admRulNm=%EB%8D%B0%EC%9D%B4%ED%84%B0 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:50:05.832Z",
           "url": "https://opinion.lawmaking.go.kr/gcom/admpp"
         },
         {
           "source": "국민참여입법센터 국회입법현황",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out?stYdFmt=2026.7.2.&edYdFmt=2026.7.2.&lsNm=%EB%8D%B0%EC%9D%B4%ED%84%B0 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:50:47.340Z",
           "url": "https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out"
         },
         {
           "source": "대한민국 전자관보 데이터 검색",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://www.gwanbo.go.kr"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260702&reqTo=20260702 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:51:28.846Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
           "source": "과학기술정보통신부 훈령예규고시",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:52:10.354Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
         },
         {
           "source": "과학기술정보통신부 입법행정예고",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:52:51.859Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
         },
         {
           "source": "과학기술정보통신부 공지사항",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:53:33.368Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
         },
         {
           "source": "과학기술정보통신부 사업공고",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:54:14.872Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
         },
         {
           "source": "한국데이터산업진흥원 공지사항",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-07-08T04:54:18.475Z",
           "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
         },
         {
           "source": "한국데이터산업진흥원 보도자료",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-07-08T04:54:22.219Z",
           "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
         },
         {
           "source": "한국데이터산업진흥원 조사연구보고서",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-07-08T04:54:23.926Z",
           "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
         },
         {
           "source": "한국데이터산업진흥원 데이터 산업 동향",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "K-DATA 게시판 목록/본문 수집 완료",
+          "at": "2026-07-08T04:54:25.615Z",
           "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
         },
         {
           "source": "데이터 원윈도우 정책지침",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-07-08T04:54:26.678Z",
           "url": "https://www.data1window.kr/dbPcyEvlSys/list"
         },
         {
           "source": "데이터 원윈도우 공지사항",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "ok",
+          "count": 0,
+          "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
+          "at": "2026-07-08T04:54:28.077Z",
           "url": "https://www.data1window.kr/ntcMttr/list"
         },
         {
           "source": "행정안전부 훈령예규고시",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:55:09.581Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
           "source": "행정안전부 입법행정예고",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:55:51.084Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
         },
         {
           "source": "행정안전부 법령자료실",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:56:32.589Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
           "source": "행정안전부 알립니다",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://www.mois.go.kr"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:57:14.093Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
         },
         {
           "source": "국가데이터처 법령",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://mods.go.kr/menu.es?mid=a10403010000"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:57:55.598Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
         },
         {
           "source": "국가데이터처 입법예고",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://mods.go.kr/menu.es?mid=a10403020000"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:58:37.102Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
         },
         {
           "source": "국가데이터처 훈령",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://mods.go.kr/menu.es?mid=a10403030000"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T04:59:18.607Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
         },
         {
           "source": "국가데이터처 고시",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://mods.go.kr/menu.es?mid=a10403040000"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T05:00:00.111Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
         },
         {
           "source": "국가데이터처 예규",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://mods.go.kr/menu.es?mid=a10403050000"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T05:00:41.615Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
         },
         {
           "source": "국가데이터처 기타 법령자료",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://mods.go.kr/menu.es?mid=a10403060000"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T05:01:23.119Z",
+          "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
         },
         {
           "source": "국가데이터처 통계기반정책평가 관련자료",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://mods.go.kr/menu.es?mid=a10407040100"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T05:02:04.623Z",
+          "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
         },
         {
           "source": "국가데이터처 통계품질관리 자료실",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
-          "url": "https://mods.go.kr/menu.es?mid=a10409060100"
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T05:02:46.130Z",
+          "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
         },
         {
           "source": "공공데이터포털 공지사항",
-          "status": "not_started",
-          "count": null,
-          "message": "수집 전",
-          "at": null,
+          "status": "external_error",
+          "count": 0,
+          "message": "GET https://www.data.go.kr/bbs/ntc/selectNoticeListView.do failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
+          "at": "2026-07-08T05:03:27.635Z",
           "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
         }
       ]
