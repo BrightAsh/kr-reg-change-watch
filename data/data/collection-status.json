@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T08:34:08.555Z",
+  "generated_at": "2026-07-08T08:53:40.752Z",
   "start_date": "2026-03-01",
   "end_date": "2026-07-08",
   "summary": {
@@ -30022,7 +30022,7 @@
       "status": "partial",
       "item_count": 2,
       "changed_count": 2,
-      "collected_at": "2026-07-08T06:25:06.346Z",
+      "collected_at": "2026-07-08T08:53:38.375Z",
       "source": "daily",
       "methods": [
         {
@@ -30030,7 +30030,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=law&type=JSON&display=100&page=1&date=20260703&sort=ddes failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:09:36.475Z",
+          "at": "2026-07-08T08:38:11.019Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -30038,7 +30038,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.law.go.kr/DRF/lawSearch.do?OC=knoc&target=admrul&type=JSON&display=100&page=1&date=20260703&sort=ddes failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:10:17.979Z",
+          "at": "2026-07-08T08:38:52.526Z",
           "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
         },
         {
@@ -30046,7 +30046,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://opinion.lawmaking.go.kr/gcom/ogLmPp?stYdFmt=2026.7.3.&edYdFmt=2026.7.3.&lsNm=%EB%8D%B0%EC%9D%B4%ED%84%B0&isOgYn=Y&opYn=Y failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:10:59.487Z",
+          "at": "2026-07-08T08:39:34.033Z",
           "url": "https://opinion.lawmaking.go.kr/gcom/ogLmPp"
         },
         {
@@ -30054,7 +30054,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://opinion.lawmaking.go.kr/gcom/admpp/list?stYdFmt=2026.7.3.&edYdFmt=2026.7.3.&admRulNm=%EB%8D%B0%EC%9D%B4%ED%84%B0 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:11:40.994Z",
+          "at": "2026-07-08T08:40:15.541Z",
           "url": "https://opinion.lawmaking.go.kr/gcom/admpp"
         },
         {
@@ -30062,7 +30062,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out?stYdFmt=2026.7.3.&edYdFmt=2026.7.3.&lsNm=%EB%8D%B0%EC%9D%B4%ED%84%B0 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:12:22.502Z",
+          "at": "2026-07-08T08:40:57.048Z",
           "url": "https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out"
         },
         {
@@ -30070,7 +30070,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://open.gwanbo.go.kr/OpenApi/ApiTotalService/getApiTotalList?serviceKey=b0d884742baa438f15cf7814a6eb22fc5de90ba312146e385fe083da45185707&pageNo=1&pageSize=100&numOfRows=100&reqFrom=20260703&reqTo=20260703 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:13:04.008Z",
+          "at": "2026-07-08T08:41:38.552Z",
           "url": "https://www.data.go.kr/data/15109157/openapi.do"
         },
         {
@@ -30078,7 +30078,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:13:45.514Z",
+          "at": "2026-07-08T08:42:20.060Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108"
         },
         {
@@ -30086,7 +30086,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:14:27.021Z",
+          "at": "2026-07-08T08:43:01.565Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109"
         },
         {
@@ -30094,7 +30094,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:15:08.528Z",
+          "at": "2026-07-08T08:43:43.072Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310"
         },
         {
@@ -30102,7 +30102,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:15:50.034Z",
+          "at": "2026-07-08T08:44:24.577Z",
           "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311"
         },
         {
@@ -30110,7 +30110,7 @@
           "status": "ok",
           "count": 2,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-07-08T06:15:57.706Z",
+          "at": "2026-07-08T08:44:31.405Z",
           "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do"
         },
         {
@@ -30118,7 +30118,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-07-08T06:16:01.169Z",
+          "at": "2026-07-08T08:44:34.769Z",
           "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do"
         },
         {
@@ -30126,7 +30126,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-07-08T06:16:02.923Z",
+          "at": "2026-07-08T08:44:35.862Z",
           "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do"
         },
         {
@@ -30134,7 +30134,7 @@
           "status": "ok",
           "count": 0,
           "message": "K-DATA 게시판 목록/본문 수집 완료",
-          "at": "2026-07-08T06:16:04.635Z",
+          "at": "2026-07-08T08:44:36.993Z",
           "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do"
         },
         {
@@ -30142,7 +30142,7 @@
           "status": "ok",
           "count": 0,
           "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
-          "at": "2026-07-08T06:16:05.753Z",
+          "at": "2026-07-08T08:44:37.860Z",
           "url": "https://www.data1window.kr/dbPcyEvlSys/list"
         },
         {
@@ -30150,7 +30150,7 @@
           "status": "ok",
           "count": 0,
           "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
-          "at": "2026-07-08T06:16:06.718Z",
+          "at": "2026-07-08T08:44:38.742Z",
           "url": "https://www.data1window.kr/ntcMttr/list"
         },
         {
@@ -30158,7 +30158,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:16:48.223Z",
+          "at": "2026-07-08T08:45:20.246Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
         },
         {
@@ -30166,7 +30166,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:17:29.729Z",
+          "at": "2026-07-08T08:46:01.750Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
         },
         {
@@ -30174,7 +30174,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:18:11.233Z",
+          "at": "2026-07-08T08:46:43.255Z",
           "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
         },
         {
@@ -30182,7 +30182,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:18:52.739Z",
+          "at": "2026-07-08T08:47:24.762Z",
           "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006"
         },
         {
@@ -30190,7 +30190,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:19:34.244Z",
+          "at": "2026-07-08T08:48:06.274Z",
           "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1"
         },
         {
@@ -30198,7 +30198,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:20:15.750Z",
+          "at": "2026-07-08T08:48:47.781Z",
           "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1"
         },
         {
@@ -30206,7 +30206,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:20:57.256Z",
+          "at": "2026-07-08T08:49:29.285Z",
           "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1"
         },
         {
@@ -30214,7 +30214,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:21:38.762Z",
+          "at": "2026-07-08T08:50:10.790Z",
           "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1"
         },
         {
@@ -30222,7 +30222,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:22:20.267Z",
+          "at": "2026-07-08T08:50:52.296Z",
           "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1"
         },
         {
@@ -30230,7 +30230,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:23:01.773Z",
+          "at": "2026-07-08T08:51:33.801Z",
           "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1"
         },
         {
@@ -30238,7 +30238,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:23:43.278Z",
+          "at": "2026-07-08T08:52:15.307Z",
           "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1"
         },
         {
@@ -30246,7 +30246,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1 failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:24:24.785Z",
+          "at": "2026-07-08T08:52:56.811Z",
           "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1"
         },
         {
@@ -30254,7 +30254,7 @@
           "status": "external_error",
           "count": 0,
           "message": "GET https://www.data.go.kr/bbs/ntc/selectNoticeListView.do failed after 1 attempt(s): curl-first failed: curl failed with code 28 (null); fetch failed",
-          "at": "2026-07-08T06:25:06.289Z",
+          "at": "2026-07-08T08:53:38.314Z",
           "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do"
         }
       ]
