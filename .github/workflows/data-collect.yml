@@ -361,7 +361,7 @@ jobs:
               args+=(--force)
             fi
             npm run data:collect -- "${args[@]}"
-            npm run data:verify -- --date "$date_value"
+            npm run data:verify -- --date "$date_value" --allow-external-errors
           }
 
           if [ -n "${RESOLVED_START_DATE:-}" ] || [ -n "${RESOLVED_END_DATE:-}" ]; then
@@ -462,7 +462,7 @@ jobs:
               npm run data:collect || auto_failed=1
             fi
             if [ "$auto_failed" -eq 0 ]; then
-              npm run data:verify || auto_failed=1
+              npm run data:verify -- --allow-external-errors || auto_failed=1
             fi
             if [ "$auto_failed" -eq 0 ]; then
               echo "Data collection complete for auto target."

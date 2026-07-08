@@ -4,6 +4,7 @@ import { parseArgs, readJson, rootDir } from "./common";
 import { readDataCollectionStatusReport } from "../lib/dataCollectionStatus";
 
 const args = parseArgs();
+const allowExternalErrors = Boolean(args["allow-external-errors"]);
 
 async function main() {
   const report = await readDataCollectionStatusReport();
@@ -19,10 +20,17 @@ async function main() {
     throw new Error(`Data collection status for ${targetDate} was not found.`);
   }
   if (day.status !== "complete") {
-    const failures = day.methods
-      .filter((method) => method.status !== "ok")
-      .map((method) => `${method.source}: ${method.status}${method.message ? ` - ${method.message}` : ""}`);
-    throw new Error(`Data collection for ${targetDate} is ${day.status}.\n${failures.join("\n")}`);
+    const failedMethods = day.methods.filter((method) => method.status !== "ok");
+    const nonExternalFailures = failedMethods.filter((method) => method.status !== "external_error");
+    const failures = failedMethods.map(
+      (method) => `${method.source}: ${method.status}${method.message ? ` - ${method.message}` : ""}`
+    );
+    if (!allowExternalErrors || nonExternalFailures.length > 0) {
+      throw new Error(`Data collection for ${targetDate} is ${day.status}.\n${failures.join("\n")}`);
+    }
+    console.warn(
+      `Data collection for ${targetDate} is ${day.status}, but only external connectivity errors were found.\n${failures.join("\n")}`
+    );
   }
   const daily = await readJson<DailyCollection | null>(
     path.join(rootDir, "data", "data", "daily", `${targetDate}.json`),
