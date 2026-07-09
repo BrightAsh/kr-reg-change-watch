@@ -310,9 +310,10 @@ function methodFromLog(log: CollectionLog): CollectionMethodStatus {
 function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): CollectionMethodStatus[] {
   if (!attempted) return expectedMethods.map((entry) => ({ ...entry }));
 
+  const statusLogs = logs.filter((log) => !isDiscontinuedCollectionLog(log));
   const used = new Set<number>();
   const merged = expectedMethods.map((expected) => {
-    const matches = logs
+    const matches = statusLogs
       .map((log, index) => ({ log, index }))
       .filter(({ log }) => sameMethod(expected, log) && !isDiagnosticLog(log));
 
@@ -362,7 +363,7 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
     };
   });
 
-  const extraLogs = logs
+  const extraLogs = statusLogs
     .map((log, index) => ({ log, index }))
     .filter(({ log, index }) => !used.has(index) && !isDiagnosticLog(log))
     .map(({ log }) => methodFromLog(log));
@@ -371,10 +372,16 @@ function mergeExpectedMethods(logs: CollectionLog[], attempted: boolean): Collec
 }
 
 function isDiagnosticLog(log: CollectionLog): boolean {
+  if (isDiscontinuedCollectionLog(log)) return true;
   const source = log.source || "";
   if (source.endsWith("본문 보강")) return true;
   if (log.group && ["ALIO", "행정안전부/기획재정부 게시판", "산업통상부 게시판"].includes(source)) return true;
   return source.endsWith("접속 확인") || source === "수집 상태 점검";
+}
+
+function isDiscontinuedCollectionLog(log: CollectionLog): boolean {
+  const textValue = `${log.source || ""} ${log.message || ""} ${log.url || ""} ${log.group || ""} ${log.route || ""}`;
+  return /대한민국 정책브리핑 RSS|정책브리핑 RSS|policy-rss|korea\.kr\/rss|korea\.kr\/etc\/rss\.do/i.test(textValue);
 }
 
 const NETWORK_CONNECTIVITY_PATTERNS = [

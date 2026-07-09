@@ -2827,23 +2827,35 @@ function attachPublicSystemMatches(item: CollectedItem): CollectedItem {
 }
 
 function cleanStaleLogsForSelectedRoutes(logs: CollectionLog[]): CollectionLog[] {
+  const activeLogs = filterDiscontinuedCollectionLogs(logs);
   const groupsForThisRun = new Set(selectedRouteKeys().filter(({ group }) => shouldRunSource(group)).map(({ group }) => group));
-  if (!groupsForThisRun.size) return logs;
-  return logs.filter((log) => !isStaleGroupLevelLog(log, groupsForThisRun) && !isStaleAggregateRouteLog(log, groupsForThisRun));
+  if (!groupsForThisRun.size) return activeLogs;
+  return activeLogs.filter((log) => !isStaleGroupLevelLog(log, groupsForThisRun) && !isStaleAggregateRouteLog(log, groupsForThisRun));
 }
 
 function mergeCollectionLogs(existingDaily: DailyCollection | null, newLogs: CollectionLog[]): CollectionLog[] {
+  const activeNewLogs = filterDiscontinuedCollectionLogs(newLogs);
   const groupsForThisRun = new Set(selectedRouteKeys().filter(({ group }) => shouldRunSource(group)).map(({ group }) => group));
   const routesForThisRun = selectedRouteKeys().filter(({ group, route }) => shouldRunSource(group) && shouldRunRoute(group, route));
-  if (!existingDaily?.logs?.length || (!routesForThisRun.length && !groupsForThisRun.size)) return newLogs;
+  if (!existingDaily?.logs?.length || (!routesForThisRun.length && !groupsForThisRun.size)) return activeNewLogs;
 
   const preservedLogs = existingDaily.logs.filter(
     (log) =>
+      !isDiscontinuedCollectionLog(log) &&
       !routesForThisRun.some(({ group, route }) => logBelongsToSourceGroup(log, group) && logBelongsToRoute(log, route)) &&
       !isStaleGroupLevelLog(log, groupsForThisRun) &&
       !isStaleAggregateRouteLog(log, groupsForThisRun)
   );
-  return [...preservedLogs, ...newLogs];
+  return [...preservedLogs, ...activeNewLogs];
+}
+
+function filterDiscontinuedCollectionLogs(logs: CollectionLog[]): CollectionLog[] {
+  return logs.filter((log) => !isDiscontinuedCollectionLog(log));
+}
+
+function isDiscontinuedCollectionLog(log: CollectionLog): boolean {
+  const textValue = `${log.source || ""} ${log.message || ""} ${log.url || ""} ${log.group || ""} ${log.route || ""}`;
+  return /대한민국 정책브리핑 RSS|정책브리핑 RSS|policy-rss|korea\.kr\/rss|korea\.kr\/etc\/rss\.do/i.test(textValue);
 }
 
 function isStaleGroupLevelLog(log: CollectionLog, groupsForThisRun: Set<SourceGroup>): boolean {
