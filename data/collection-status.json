@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-08T16:57:28.939Z",
+  "generated_at": "2026-07-09T00:00:01.660Z",
   "start_date": "2026-01-01",
   "end_date": "2026-07-09",
   "summary": {
-    "complete": 122,
-    "partial": 8,
+    "complete": 123,
+    "partial": 7,
     "failed": 0,
     "not_started": 60
   },
@@ -52465,10 +52465,10 @@
     },
     {
       "date": "2026-07-08",
-      "status": "partial",
-      "item_count": 44,
-      "changed_count": 0,
-      "collected_at": "2026-07-08T16:57:22.004Z",
+      "status": "complete",
+      "item_count": 45,
+      "changed_count": 1,
+      "collected_at": "2026-07-08T23:59:54.855Z",
       "source": "daily",
       "methods": [
         {
@@ -52713,18 +52713,18 @@
         },
         {
           "source": "ALIO 공공기관 법령/지침",
-          "status": "external_error",
+          "status": "ok",
           "count": 0,
-          "message": "ALIO 수집 실패: GET https://www.alio.go.kr/etc/findEtcLawList.json?type=title&pageNo=1 failed after 2 attempt(s): fetch failed; curl fallback failed: curl failed with code 28 (null)",
-          "at": "2026-07-08T16:57:20.049Z",
+          "message": "ALIO 법령/지침 원문 수집 완료",
+          "at": "2026-07-08T23:59:47.218Z",
           "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
         },
         {
           "source": "ALIO 공공정책자료",
-          "status": "external_error",
-          "count": 0,
-          "message": "ALIO 수집 실패: alio.go.kr network timeout/fetch failed가 이미 확인되어 나머지 ALIO 수집을 중단했습니다.",
-          "at": "2026-07-08T16:57:20.049Z",
+          "status": "ok",
+          "count": 1,
+          "message": "ALIO 정책자료/보도자료 수집 완료",
+          "at": "2026-07-08T23:59:52.920Z",
           "url": "https://www.alio.go.kr/etc/etcPdsList.do"
         },
         {
