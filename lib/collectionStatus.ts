@@ -44,7 +44,6 @@ export type CollectionSourceGroup =
   | "ministry-board"
   | "motir"
   | "alio"
-  | "policy-rss"
   | "naver-news";
 
 export const COLLECTION_SOURCE_GROUP_METHODS: Record<CollectionSourceGroup, string[]> = {
@@ -87,7 +86,6 @@ export const COLLECTION_SOURCE_GROUP_METHODS: Record<CollectionSourceGroup, stri
     "산업통상부 지침"
   ],
   alio: ["ALIO 공공기관 법령/지침", "ALIO 공공정책자료"],
-  "policy-rss": [],
   "naver-news": ["네이버 뉴스 검색 API"]
 };
 

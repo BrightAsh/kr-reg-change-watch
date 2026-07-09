@@ -129,7 +129,6 @@ type SourceGroup =
   | "ministry-board"
   | "motir"
   | "alio"
-  | "policy-rss"
   | "naver-news";
 
 const SOURCE_GROUPS: SourceGroup[] = [
@@ -139,7 +138,6 @@ const SOURCE_GROUPS: SourceGroup[] = [
   "ministry-board",
   "motir",
   "alio",
-  "policy-rss",
   "naver-news"
 ];
 
@@ -150,7 +148,6 @@ const SOURCE_GROUP_LABELS: Record<SourceGroup, string> = {
   "ministry-board": "행정안전부/기획재정부 게시판",
   motir: "산업통상부 게시판",
   alio: "ALIO",
-  "policy-rss": "정책브리핑 RSS",
   "naver-news": "네이버 뉴스 검색"
 };
 
@@ -161,7 +158,6 @@ const SOURCE_GROUP_PROBES: Record<SourceGroup, string[]> = {
   "ministry-board": ["https://www.mois.go.kr", "https://www.mofe.go.kr"],
   motir: ["https://www.motir.go.kr"],
   alio: ["https://www.alio.go.kr"],
-  "policy-rss": ["https://www.korea.kr/etc/rss.do"],
   "naver-news": ["https://openapi.naver.com"]
 };
 
@@ -181,7 +177,6 @@ const LAWMAKING_ROUTE_SOURCES = [
 ];
 
 const GAZETTE_ROUTE_SOURCE = "대한민국 전자관보";
-const POLICY_RSS_ROUTE_SOURCE = "대한민국 정책브리핑 RSS";
 const NAVER_NEWS_ROUTE_SOURCE = "네이버 뉴스 검색 API";
 
 const NETWORK_FAILURE_PATTERNS = [
@@ -209,8 +204,7 @@ const CRITICAL_CONNECTIVITY_GROUPS: { id: string; sourceGroup: SourceGroup; patt
   { id: "mois-board", sourceGroup: "ministry-board", patterns: [/mois\.go\.kr/i] },
   { id: "moef-board", sourceGroup: "ministry-board", patterns: [/mofe\.go\.kr/i] },
   { id: "motir-board", sourceGroup: "motir", patterns: [/motir\.go\.kr/i] },
-  { id: "alio", sourceGroup: "alio", patterns: [/alio\.go\.kr/i] },
-  { id: "policy-rss", sourceGroup: "policy-rss", patterns: [/korea\.kr/i] }
+  { id: "alio", sourceGroup: "alio", patterns: [/alio\.go\.kr/i] }
 ];
 
 const ALIO_SOURCES: AlioSource[] = [
@@ -505,7 +499,6 @@ async function main() {
   await runSource("ministry-board", "행정안전부/기획재정부 게시판", logs, collected, () => fetchMinistryRoutes(logs));
   await runSource("motir", "산업통상부 게시판", logs, collected, () => fetchMotirRoutes(logs));
   await runSource("alio", "ALIO", logs, collected, () => fetchAlioPublicMaterials(logs));
-  await runSource("policy-rss", POLICY_RSS_ROUTE_SOURCE, logs, collected, () => fetchPolicyRss(logs));
   await runSource("naver-news", NAVER_NEWS_ROUTE_SOURCE, logs, collected, () => fetchNaverNews(logs));
 
   const healthError = collectionHealthError(logs);
@@ -726,8 +719,6 @@ function sourceRouteKeysForGroup(group: SourceGroup): string[] {
       return MOTIR_ROUTES.map((route) => route.source);
     case "alio":
       return ALIO_SOURCES.map((source) => source.source);
-    case "policy-rss":
-      return [POLICY_RSS_ROUTE_SOURCE];
     case "naver-news":
       return [NAVER_NEWS_ROUTE_SOURCE];
     default:
@@ -824,8 +815,6 @@ function logBelongsToSourceGroup(log: CollectionLog, group: SourceGroup): boolea
       return /motir\.go\.kr|motir|industry-board/.test(textValue);
     case "alio":
       return /alio\.go\.kr|alio/.test(textValue);
-    case "policy-rss":
-      return /korea\.kr|policy-rss|rss/.test(textValue);
     case "naver-news":
       return /naver\.com|naver-news|news search/.test(textValue);
     default:
@@ -896,9 +885,6 @@ function parseSourceFilter(value: string): Set<SourceGroup> {
     "산업부": "motir",
     "산업통상부": "motir",
     alio: "alio",
-    rss: "policy-rss",
-    "policy-rss": "policy-rss",
-    policy: "policy-rss",
     naver: "naver-news",
     news: "naver-news",
     "naver-news": "naver-news"
@@ -1885,109 +1871,6 @@ function buildAlioSummary(source: AlioSource, title: string, postedDate: string,
   return `${postedDate} ALIO에 등록된 ${source.documentKind}입니다.${dateText} 제목: ${title}`;
 }
 
-async function fetchPolicyRss(logs: CollectionLog[]): Promise<CollectedItem[]> {
-  return withTemporaryEnv(
-    {
-      FETCH_TIMEOUT_MS: env("POLICY_RSS_FETCH_TIMEOUT_MS", "8000"),
-      FETCH_CURL_FIRST: env("POLICY_RSS_FETCH_CURL_FIRST", "1"),
-      FETCH_CURL_ONLY: env("POLICY_RSS_FETCH_CURL_ONLY", "0"),
-      FETCH_CURL_FALLBACK: env("POLICY_RSS_FETCH_CURL_FALLBACK", "1")
-    },
-    () => fetchPolicyRssWithBudget(logs)
-  );
-}
-
-async function fetchPolicyRssWithBudget(logs: CollectionLog[]): Promise<CollectedItem[]> {
-  if (env("ENABLE_KOREA_POLICY_RSS", "0") !== "1") {
-    addLog(
-      logs,
-      "대한민국 정책브리핑 RSS",
-      "ok",
-      "정책브리핑 RSS 서비스 제공 중단(2026-07-01)에 따라 RSS 수집을 비활성화했습니다.",
-      0,
-      "https://www.korea.kr/etc/noticeView.do?newsId=132038885"
-    );
-    return [];
-  }
-
-  const defaultRss = [
-    "https://www.korea.kr/rss/pressrelease.xml",
-    "https://www.korea.kr/rss/policy.xml",
-    "https://www.korea.kr/rss/dept_moleg.xml",
-    "https://www.korea.kr/rss/dept_mois.xml",
-    "https://www.korea.kr/rss/dept_mofe.xml",
-    "https://www.korea.kr/rss/dept_motir.xml",
-    "https://www.korea.kr/rss/president.xml",
-    "https://www.korea.kr/rss/speech.xml",
-    "https://www.korea.kr/rss/cabinet.xml",
-    "https://www.korea.kr/rss/ebriefing.xml"
-  ].join(",");
-  const urls = env("KOREA_POLICY_RSS", defaultRss)
-    .split(",")
-    .map((url) => url.trim())
-    .filter(Boolean);
-  const source = "대한민국 정책브리핑 RSS";
-  if (urls.length === 0) {
-    addLog(logs, source, "skipped", "KOREA_POLICY_RSS 미설정", 0);
-    return [];
-  }
-  const items: CollectedItem[] = [];
-  const failures: string[] = [];
-  const maxInitialFailures = Math.max(1, Number(env("POLICY_RSS_MAX_INITIAL_FAILURES", "3")) || 3);
-  let successCount = 0;
-  for (const url of urls) {
-    try {
-      const xml = await fetchText(url);
-      successCount += 1;
-      const parsed = parseXml(xml) as AnyRecord;
-      const entries = findRecordRows(parsed, ["title", "link", "pubDate", "description"]);
-      for (const entry of entries) {
-        const title = compactText(text(entry, ["title"]));
-        const body = compactText(text(entry, ["description", "content:encoded"]));
-        const publishDate = normalizeDate(text(entry, ["pubDate", "dc:date"])) || targetDate;
-        if (publishDate !== targetDate) continue;
-        if (!/(법령|개정|제정|폐지|고시|공고|훈령|예규|지침|입법예고|행정예고)/.test(`${title} ${body}`)) {
-          continue;
-        }
-        const rawText = compactText(`${title} ${body}`);
-        items.push(
-          makeItem({
-            source,
-            source_type: "press",
-            ministry: inferMinistryFromText(`${title} ${body}`),
-            document_type: "news",
-            title,
-            issue_number: null,
-            publish_date: publishDate,
-            effective_date: null,
-            change_type: inferChangeType(`${title} ${body}`),
-            original_url: text(entry, ["link"]) || url,
-            raw_text: rawText,
-            raw_hash: hashText(rawText),
-            confidence: "press",
-            verification_required: true
-          })
-        );
-      }
-    } catch (error) {
-      failures.push(`${url}: ${messageOf(error)}`);
-      if (successCount === 0 && failures.length >= maxInitialFailures) {
-        failures.push(`초기 ${maxInitialFailures}개 RSS 피드가 모두 실패해 같은 호스트의 나머지 피드 수집을 중단했습니다.`);
-        break;
-      }
-    }
-  }
-  if (successCount === 0) {
-    addLog(logs, source, "error", `RSS 전체 수집 실패: ${failures.join("\n")}`, 0, urls[0]);
-    return items;
-  }
-  const message = failures.length
-    ? `정책브리핑 RSS 수집 완료 (${successCount}/${urls.length}개 피드 성공, 일부 실패: ${failures.join(" | ")})`
-    : "정책브리핑 RSS 수집 완료";
-  addLog(logs, source, "ok", message, items.length, "https://www.korea.kr/etc/rss.do");
-  return items;
-}
-
 async function fetchNaverNews(logs: CollectionLog[]): Promise<CollectedItem[]> {
   return withTemporaryEnv(
     {
@@ -2928,8 +2811,6 @@ function itemBelongsToSourceGroup(item: CollectedItem, group: SourceGroup): bool
       return item.source.startsWith("산업통상부");
     case "alio":
       return item.source.startsWith("ALIO");
-    case "policy-rss":
-      return item.source_type === "press";
     case "naver-news":
       return item.source_type === "news";
     default:

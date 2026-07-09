@@ -22,9 +22,6 @@ export function parseCollectionSourceFilter(value: string): Set<CollectionSource
     "산업부": "motir",
     "산업통상부": "motir",
     alio: "alio",
-    rss: "policy-rss",
-    "policy-rss": "policy-rss",
-    policy: "policy-rss",
     naver: "naver-news",
     news: "naver-news",
     "naver-news": "naver-news"
