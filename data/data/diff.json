@@ -1,7 +1,33 @@
 {
   "today": "2026-07-10",
   "yesterday": "2026-07-09",
-  "added": [],
+  "added": [
+    {
+      "summary": null,
+      "diff_summary": null,
+      "auto_summary": false,
+      "collected_at": "2026-07-10T18:25:41.148Z",
+      "collection_date": "2026-07-10",
+      "source": "과학기술정보통신부 공지사항",
+      "source_type": "ministry_board",
+      "ministry": "과학기술정보통신부",
+      "document_type": "law",
+      "title": "2026년도 데이터거래사 교육 18·19기 대상자 선정 결과",
+      "issue_number": null,
+      "publish_date": "2026-07-10",
+      "effective_date": null,
+      "change_type": "unknown",
+      "original_url": "https://www.msit.go.kr/bbs/view.do?sCode=user&mPid=121&mId=310&bbsSeqNo=96&nttSeqNo=3186552",
+      "attachment_urls": [],
+      "raw_text": "과학기술정보통신부 공지사항 2026년도 데이터거래사 교육 18·19기 대상자 선정 결과 lect> 검색어 입력 초기화 검색 번호 제목 첨부 등록일",
+      "raw_hash": "c06251e2dde2d6257ba8f86249a2af50fc7632f1b49c97dd58e8c32f236ae5dd",
+      "confidence": "official_notice",
+      "verification_required": false,
+      "source_record_id": "3186552",
+      "id": "e12b23e422cfb56b",
+      "category": "law"
+    }
+  ],
   "changed": [],
   "removed": [
     {
