@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-07-13T18:05:18.898Z",
+    "collection_date": "2026-07-13",
+    "source": "행정안전부 알립니다",
+    "source_type": "ministry_board",
+    "ministry": "행정안전부",
+    "document_type": "announcement",
+    "title": "제14회 범정부 공공데이터 AI 활용 창업경진대회 수정 통합공고",
+    "issue_number": null,
+    "publish_date": "2026-07-13",
+    "effective_date": null,
+    "change_type": "notice",
+    "original_url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000006&nttId=127805",
+    "attachment_urls": [],
+    "raw_text": "행정안전부 알립니다 제14회 범정부 공공데이터 AI 활용 창업경진대회 수정 통합공고 6844 제14회 범정부 공공데이터 AI 활용 창업경진대회 수정 통합공고 공공데이터정책과 2026.07.13. 99",
+    "raw_hash": "719f57e72d402915119db7bc238c4cb70bf7eb6a82e5d683fd5228125e4e52ee",
+    "confidence": "official_notice",
+    "verification_required": false,
+    "source_record_id": "BBSMSTR_000000000006",
+    "id": "b25bff8d017eec25",
+    "category": "notice"
+  }
+]
