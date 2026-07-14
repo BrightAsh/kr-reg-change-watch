@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-07-14T17:05:20.665Z",
+  "last_run_at": "2026-07-14T23:49:14.882Z",
   "last_target_date": "2026-07-14",
   "item_count": 519,
   "changed_count": 3,
@@ -143,7 +143,7 @@
     "2026-02-02",
     "2026-02-01"
   ],
-  "cache_hit": false,
+  "cache_hit": true,
   "logs": [
     {
       "source": "국가법령정보센터 데이터 법령",
@@ -434,6 +434,13 @@
       "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do",
       "group": "data-go-kr",
       "route": "공공데이터포털 공지사항"
+    },
+    {
+      "source": "데이터 수집 캐시",
+      "status": "ok",
+      "message": "2026-07-14 데이터 전용 수집 캐시를 재사용했습니다.",
+      "count": 3,
+      "at": "2026-07-14T23:49:14.882Z"
     }
   ]
 }
