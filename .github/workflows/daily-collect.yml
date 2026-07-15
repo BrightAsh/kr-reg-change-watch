@@ -522,7 +522,7 @@ jobs:
 
       - name: Collect data-specific changes
         id: data_collect
-        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && (github.event_name != 'workflow_dispatch' || github.event.inputs.collect_sources == '') }}
+        if: ${{ always() && github.event_name != 'push' && env.DEPLOY_ONLY != '1' && steps.resolve_retry.outputs.skip_collection != '1' && (github.event_name != 'workflow_dispatch' || github.event.inputs.collect_sources == '') }}
         continue-on-error: true
         run: |
           DATA_ARGS=()
