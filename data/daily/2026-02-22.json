@@ -1,0 +1,402 @@
+{
+  "date": "2026-02-22",
+  "collected_at": "2026-07-15T01:51:31.560Z",
+  "item_count": 2,
+  "changed_count": 2,
+  "cache_hit": false,
+  "items": [
+    {
+      "id": "c6fd11fb3c502690",
+      "summary": "2026-02-22 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 012413 단위로 묶었습니다. 기간 2024-02-20~2024-02-20, 최신 이력은 2024-02-20 일부개정 제20330호입니다. 최근 이력: 2024-02-20 일부개정 제20330호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-02-22",
+      "collected_at": "2026-07-15T01:50:03.195Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "보건복지부",
+      "document_type": "law",
+      "title": "전공의의 수련환경 개선 및 지위 향상을 위한 법률 변경이력 갱신 1건",
+      "issue_number": "20330",
+      "publish_date": "2024-02-20",
+      "effective_date": "2026-02-21",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=260571&type=HTML&mobileYn=&efYd=20260221",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-02-22\n법령ID: 012413\n연혁 행 수: 1\n\n최근 연혁\n공포 2024-02-20 / 시행 2026-02-21 / 일부개정 / 제20330호 / 전공의의 수련환경 개선 및 지위 향상을 위한 법률\n\n전체 연혁\n공포 2024-02-20 / 시행 2026-02-21 / 일부개정 / 제20330호 / 전공의의 수련환경 개선 및 지위 향상을 위한 법률\n\n개정문\n국회에서 의결된 전공의의 수련환경 개선 및 지위 향상을 위한 법률 일부개정법률을 이에 공포한다.\n대통령 윤석열 (인)\n2024년 2월 20일\n국무총리 한덕수\n국무위원 보건복지부 장관 조규홍\n⊙법률 제20330호\n전공의의 수련환경 개선 및 지위 향상을 위한 법률 일부개정법률\n전공의의 수련환경 개선 및 지위 향상을 위한 법률 일부를 다음과 같이 개정한다.\n제3조제2항에 후단을 다음과 같이 신설한다.\n이 경우 제13조에 따른 수련전문과목 중 특히 수련환경 개선이 필요하다고 인정하여 대통령령으로 정하는 수련전문과목의 육성에 우선적으로 지원하여야 한다.\n제7조제1항 본문 중 \"80시간\"을 \"80시간 이내의 범위에서 보건복지부령으로 정하는 시간\"으로 하고, 같은 조 제2항 본문 중 \"36시간\"을 \"36시간 이내의 범위에서 보건복지부령으로 정하는 시간\"으로 하며, 같은 항 단서 중 \"40시간\"을 \"40시간 이내의 범위에서 보건복지부령으로 정하는 시간\"으로 한다.\n부칙\n제1조(시행일) 이 법은 공포 후 2년이 경과한 날부터 시행한다. 다만, 제3조제2항의 개정규정은 공포 후 6개월이 경과한 날부터 시행한다.\n제2조(수련규칙에 관한 경과조치) 수련병원등의 장은 이 법 시행일부터 6개월 이내에 이 법에 적합하도록 수련규칙을 변경하고 변경한 수련규칙을 보건복지부장관에게 제출하여야 한다.\n제3조(수련계약에 관한 경과조치) 수련병원등의 장과 전공의는 이 법 시행일부터 6개월 이내에 이 법 및 부칙 제2조에 따라 제출한 수련규칙에 적합하도록 수련계약을 변경하여야 한다.\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n국가가 전공의 육성, 수련환경 평가 등에 필요한 행정적ㆍ재정적 지원을 하는 경우 특히 수련환경 개선이 필요하다고 인정하여 대통령령으로 정하는 수련전문과목의 육성에 우선적으로 지원하도록 하고, 전공의의 주당 수련시간 및 연속수련 시간의 상한을 보건복지부령으로 위임하여 종전보다 낮게 정할 수 있도록 함.",
+      "raw_hash": "09654a3ccec97f3005fef11d7148a48803a103911dca440dea0ed381564c76f9",
+      "confidence": "official",
+      "source_record_id": "012413",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [],
+      "public_system_matches": []
+    },
+    {
+      "id": "cbf9d352fa08fab3",
+      "summary": "2026-02-22 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 012715 단위로 묶었습니다. 기간 2026-02-20~2026-02-20, 최신 이력은 2026-02-20 일부개정 제01158호입니다. 최근 이력: 2026-02-20 일부개정 제01158호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-02-22",
+      "collected_at": "2026-07-15T01:50:03.195Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "보건복지부",
+      "document_type": "ordinance",
+      "title": "전공의의 수련환경 개선 및 지위 향상을 위한 법률 시행규칙 변경이력 갱신 1건",
+      "issue_number": "01158",
+      "publish_date": "2026-02-20",
+      "effective_date": "2026-02-21",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=283603&type=HTML&mobileYn=&efYd=20260221",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-02-22\n법령ID: 012715\n연혁 행 수: 1\n\n최근 연혁\n공포 2026-02-20 / 시행 2026-02-21 / 일부개정 / 제01158호 / 전공의의 수련환경 개선 및 지위 향상을 위한 법률 시행규칙\n\n전체 연혁\n공포 2026-02-20 / 시행 2026-02-21 / 일부개정 / 제01158호 / 전공의의 수련환경 개선 및 지위 향상을 위한 법률 시행규칙\n\n개정문\n⊙보건복지부령 제1158호\n전공의의 수련환경 개선 및 지위 향상을 위한 법률 시행규칙 일부개정령을 다음과 같이 공포한다.\n2026년 2월 20일\n보건복지부장관 (인)\n전공의의 수련환경 개선 및 지위 향상을 위한 법률 시행규칙 일부개정령\n전공의의 수련환경 개선 및 지위 향상을 위한 법률 시행규칙 일부를 다음과 같이 개정한다.\n제4조부터 제10조까지를 각각 제6조부터 제12조까지로 하고, 제2조를 제4조로 하며, 제3조, 제3조의2 및 제3조의3을 각각 제5조, 제5조의2 및 제5조의3으로 한다.\n제2조 및 제3조를 각각 다음과 같이 신설한다.\n제2조(수련시간) ① 「전공의의 수련환경 개선 및 지위 향상을 위한 법률」(이하 \"법\"이라 한다) 제7조제1항 본문에 따라 수련병원등의 장은 전공의에게 4주의 기간(휴가ㆍ휴직 기간을 산입하지 아니한다)을 평균하여 1주일에 80시간을 초과하여 수련하게 해서는 안 된다.\n② 법 제7조제2항 본문에 따라 수련병원등의 장은 전공의에게 연속하여 24시간을 초과하여 수련하게 해서는 안 된다. 다만, 법 제7조제2항 단서에 따라 응급상황이 발생한 경우에는 연속하여 28시간까지 수련하도록 할 수 있다.\n제3조(휴직의 절차 및 기간) ① 법 제8조의2제1항 전단에 따른 사유로 휴직을 하려는 전공의는 다음 각 호의 서류를 갖추어 소속 수련병원등의 장에게 휴직을 신청해야 한다.\n1. 휴직신청서\n2. 휴직사유를 증명할 수 있는 서류\n② 법 제8조의2제1항 후단에 따른 휴직 기간은 다음 각 호의 구분과 같다.\n1. 육아휴직: 「남녀고용평등과 일ㆍ가정 양립지원에 관한 법률」 제19조제2항에 따른 육아휴직 기간\n2. 질병휴직: 질병의 치료에 필요한 기간\n3. 입영휴직: 다음 각 목의 구분에 따른 기간\n가. 「병역법」 제5조제1항제1호나목에 따른 장교: 「군인사법」 제7조제1항제4호 본문에 따른 의무복무기간에 「병역법」 제58조제4항에 따른 군사교육 기간을 더한 기간\n나. 「병역법」 제5조제1항제3호나목에 따른 공중보건의사 또는 병역판정검사전담의사: 「병역법」 제34조제2항에 따른 복무기간에 같은 조 제3항에 따른 군사교육 기간을 더한 기간\n제4조(종전의 제2조)제1항 각 호 외의 부분 중 \"「전공의의 수련환경 개선 및 지위 향상을 위한 법률」(이하 \"법\"이라 한다) 제9조제1항제9호\"를 \"법 제9조제1항제9호\"로 한다.\n제12조(종전의 제10조) 중 \"제5조 및 제6조\"를 \"제7조 및 제8조\"로, \"하여야\"를 \"해야\"로 한다.\n별표 1 중 \"(제5조제1항 관련)\"을 \"(제7조제1항 관련)\"으로 한다.\n별표 2 중 \"(제6조제2항 관련)\"을 \"(제8조제2항 관련)\"으로 한다.\n별표 3 중 \"(제6조제3항부터 제6항까지 관련)\"을 \"(제8조제3항부터 제6항까지 관련)\"으로 한다.\n별지 제1호서식 중 \"시행규칙 제4조제1항\"을 \"시행규칙 제6조제1항\"으로 한다.\n별지 제5호서식 중 \"시행규칙 제4조제2항\"을 \"시행규칙 제6조제2항\"으로 한다.\n부칙\n이 규칙은 2026년 2월 21일부터 시행한다.\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n전공의의 주당 수련시간 및 연속수련 시간의 상한을 보건복지부령으로 위임하고, 수련병원등의 장이 소속 전공의가 육아ㆍ질병ㆍ입영 등의 사유로 휴직을 신청하는 경우 허용하도록 하는 등의 내용으로 「전공의의 수련환경 개선 및 지위 향상을 위한 법률」이 개정(법률 제20330호, 2024. 2. 20. 공포, 2026. 2. 21. 시행 및 법률 제21267호, 2025. 12. 30. 공포, 2026. 2. 21. 시행)됨에 따라, 수련병원등의 장은 전공의의 수련시간을 휴가ㆍ휴직기간을 산입하지 아니한 4주의 기간을 평균하여 1주일에 80시간을 초과하지 않도록 하고, 전공의의 연속 수련시간은 24시간을 초과하지 않도록 하되 응급상황이 발생한 경우에는 28시간까지 수련할 수 있도록 하는 한편, 휴직을 신청하려는 전공의는 휴직신청서, 휴직사유를 증명할 수 있는 서류를 수련병원등의 장에게 제출하도록 하고, 육아휴직의 기간은 「남녀고용평등과 일ㆍ가정 양립지원에 관한 법률」에 따른 육아휴직 기간, 입영휴직은 「병역법」 등에 따른 군복무기간으로 하는 등 법률에서 위임된 사항과 그 시행에 필요한 사항을 정하려는 것임.",
+      "raw_hash": "c1566e341b9bb7c5dfeabaa7661dfb3a940186b3cedb05a9611103590fa736f9",
+      "confidence": "official",
+      "source_record_id": "012715",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [],
+      "public_system_matches": []
+    }
+  ],
+  "logs": [
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 2건을 보강했습니다.",
+      "count": 2,
+      "at": "2026-07-15T01:50:06.792Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+      "count": 2,
+      "at": "2026-07-15T01:50:06.792Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 0,
+      "at": "2026-07-15T01:50:08.320Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:09.122Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:09.924Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-07-15T01:50:12.166Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-07-15T01:50:13.500Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고(수정일 기준)"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-07-15T01:50:32.538Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 행정예고"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:33.396Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
+      "source": "행정안전부 훈령·예규·고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:37.434Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016",
+      "group": "ministry-board",
+      "route": "행정안전부 훈령·예규·고시"
+    },
+    {
+      "source": "행정안전부 입법·행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:37.735Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017",
+      "group": "ministry-board",
+      "route": "행정안전부 입법·행정예고"
+    },
+    {
+      "source": "행정안전부 법령자료실",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:38.625Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018",
+      "group": "ministry-board",
+      "route": "행정안전부 법령자료실"
+    },
+    {
+      "source": "기획재정부 법령자료실",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:41.597Z",
+      "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200",
+      "group": "ministry-board",
+      "route": "기획재정부 법령자료실"
+    },
+    {
+      "source": "기획재정부 영문법령정보",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:43.779Z",
+      "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300",
+      "group": "ministry-board",
+      "route": "기획재정부 영문법령정보"
+    },
+    {
+      "source": "기획재정부 조세조약",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:44.791Z",
+      "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100",
+      "group": "ministry-board",
+      "route": "기획재정부 조세조약"
+    },
+    {
+      "source": "기획재정부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:48.870Z",
+      "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100",
+      "group": "ministry-board",
+      "route": "기획재정부 훈령"
+    },
+    {
+      "source": "기획재정부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:50.796Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100",
+      "group": "ministry-board",
+      "route": "기획재정부 예규"
+    },
+    {
+      "source": "기획재정부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:54.771Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 고시"
+    },
+    {
+      "source": "기획재정부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:56.699Z",
+      "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 공고"
+    },
+    {
+      "source": "기획재정부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:50:58.613Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 지침"
+    },
+    {
+      "source": "기획재정부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:04.451Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300",
+      "group": "ministry-board",
+      "route": "기획재정부 입법예고"
+    },
+    {
+      "source": "기획재정부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:07.331Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
+      "group": "ministry-board",
+      "route": "기획재정부 행정예고"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:09.151Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
+      "group": "motir",
+      "route": "산업통상부 입법예고"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:10.348Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
+      "group": "motir",
+      "route": "산업통상부 행정예고"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:12.412Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
+      "group": "motir",
+      "route": "산업통상부 고시"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:21.413Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
+      "group": "motir",
+      "route": "산업통상부 공고"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:21.665Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
+      "group": "motir",
+      "route": "산업통상부 구.정통부고시"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:21.910Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
+      "group": "motir",
+      "route": "산업통상부 구.재경부고시"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:22.637Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
+      "group": "motir",
+      "route": "산업통상부 훈령"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:23.126Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
+      "group": "motir",
+      "route": "산업통상부 예규"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:23.614Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
+      "group": "motir",
+      "route": "산업통상부 지침"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:25.437Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+      "group": "alio",
+      "route": "ALIO 공공기관 법령/지침"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T01:51:26.664Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+      "group": "alio",
+      "route": "ALIO 공공정책자료"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-07-15T01:51:29.351Z",
+      "group": "naver-news",
+      "route": "네이버 뉴스 검색 API"
+    }
+  ]
+}
