@@ -1,0 +1,407 @@
+{
+  "date": "2026-02-14",
+  "collected_at": "2026-07-15T04:28:02.415Z",
+  "item_count": 2,
+  "changed_count": 2,
+  "cache_hit": false,
+  "items": [
+    {
+      "id": "b434bcdbe22dcade",
+      "summary": "2026-02-14 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 006803 단위로 묶었습니다. 기간 2026-02-13~2026-02-13, 최신 이력은 2026-02-13 일부개정 제01204호입니다. 최근 이력: 2026-02-13 일부개정 제01204호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-02-14",
+      "collected_at": "2026-07-15T04:26:11.493Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "국방부",
+      "document_type": "ordinance",
+      "title": "군무원인사법 시행규칙 변경이력 갱신 1건",
+      "issue_number": "01204",
+      "publish_date": "2026-02-13",
+      "effective_date": "2026-02-13",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=283559&type=HTML&mobileYn=&efYd=20260213",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-02-14\n법령ID: 006803\n연혁 행 수: 1\n\n최근 연혁\n공포 2026-02-13 / 시행 2026-02-13 / 일부개정 / 제01204호 / 군무원인사법 시행규칙\n\n전체 연혁\n공포 2026-02-13 / 시행 2026-02-13 / 일부개정 / 제01204호 / 군무원인사법 시행규칙\n\n개정문\n⊙국방부령 제1204호\n군무원인사법 시행규칙 일부개정령을 다음과 같이 공포한다.\n2026년 2월 13일\n국방부장관 (인)\n군무원인사법 시행규칙 일부개정령\n군무원인사법 시행규칙 일부를 다음과 같이 개정한다.\n제21조의2의 제목 \"(시험위원의 임명등)\"을 \"(시험위원의 임명 등)\"으로 하고, 같은 조 제1항 각 호 외의 부분 중 \"출제, 면접시험ㆍ실기시험ㆍ서류전형\"을 \"필기시험위원, 실기시험위원, 면접시험위원, 서류전형위원\"으로 하며, 같은 조 제2항 중 \"시험위원 중 면접위원은 2명 이상(5급 이상 또는 이에 상당하는 일반군무원의 경우에는 3명 이상으로 한다)\"을 \"필기시험의 과목별 출제ㆍ채점위원, 실기시험위원, 면접시험위원, 서류전형위원은 각각 2명 이상(5급 이상 또는 이에 상당하는 일반군무원 채용시험의 면접시험위원은 3명 이상으로 한다)\"으로 하고, 같은 조 제5항 중 \"채용시험\"을 \"임용시험\"으로 한다.\n부칙\n제1조(시행일) 이 영은 공포한 날부터 시행한다.\n제2조(시험위원의 임명 등에 관한 적용례) 제21조의2제2항의 개정규정은 이 규칙 시행 이후 최초로 공고하는 임용시험부터 적용한다.\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n기술ㆍ연구ㆍ예비전력관리 또는 행정관리 분야에 대한 업무를 수행하는 군무원의 임용시험을 보다 공정하고 투명하게 운영하기 위하여 종전에는 면접시험위원의 경우에만 2명 이상으로 임명 또는 위촉하던 것을, 앞으로는 필기시험의 과목별 출제ㆍ채점위원, 실기시험위원, 면접시험위원, 서류전형위원까지 각각 2명 이상으로 임명 또는 위촉하도록 하는 등 현행 제도의 운영상 나타난 일부 미비점을 개선ㆍ보완하려는 것임.",
+      "raw_hash": "dc8f6cbdc57d2025c0fd42954d1213c9bb1164f89ba284ca8b8005dfca98918e",
+      "confidence": "official",
+      "source_record_id": "006803",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [],
+      "public_system_matches": []
+    },
+    {
+      "id": "2b0abc2f47aff049",
+      "summary": "2026-02-14 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 007086 단위로 묶었습니다. 기간 2026-02-13~2026-02-13, 최신 이력은 2026-02-13 일부개정 제01560호입니다. 최근 이력: 2026-02-13 일부개정 제01560호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-02-14",
+      "collected_at": "2026-07-15T04:26:11.494Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "국토교통부",
+      "document_type": "ordinance",
+      "title": "도로표지규칙 변경이력 갱신 1건",
+      "issue_number": "01560",
+      "publish_date": "2026-02-13",
+      "effective_date": "2026-02-13",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=283563&type=HTML&mobileYn=&efYd=20260213",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-02-14\n법령ID: 007086\n연혁 행 수: 1\n\n최근 연혁\n공포 2026-02-13 / 시행 2026-02-13 / 일부개정 / 제01560호 / 도로표지규칙\n\n전체 연혁\n공포 2026-02-13 / 시행 2026-02-13 / 일부개정 / 제01560호 / 도로표지규칙\n\n개정문\n⊙국토교통부령 제1560호\n도로표지규칙 일부개정령을 다음과 같이 공포한다.\n2026년 2월 13일\n국토교통부장관 (인)\n도로표지규칙 일부개정령\n도로표지규칙 일부를 다음과 같이 개정한다.\n제3조제5호다목 중 \"아시안하이웨이안내표지\"를 \"관광도로표지, 아시안 하이웨이 안내표지\"로 한다.\n제8조제1항제2호 중 \"관광지표지\"를 \"관광지표지 및 관광도로표지\"로 하고, 같은 조 제2항제1호라목 중 \"아시안하이웨이\"를 \"아시안 하이웨이\"로 한다.\n별표 2 제2호 표의 관광지표지란 다음에 관광도로표지란을 다음과 같이 신설한다.\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=161607365\n별표 2 제5호 표의 아시안 하이웨이의 종별란 중 \"아시안하이웨이안내표지\"를 \"아시안 하이웨이 안내표지\"로 한다.\n별표 3 제1호마목의 제목 \"아시안하이웨이\"를 \"아시안 하이웨이\"로 한다.\n별표 3 제5호가목 표의 406 관광지표지란 다음에 406-1(A) 관광도로예고표지(해안도로)란, 406-1(B) 관광도로예고표지(호수ㆍ강변도로)란, 406-1(C) 관광도로예고표지(산길)란, 406-1(D) 관광도로예고표지(가로수길)란, 406-2 관광도로노선표지란 및 406-3 관광도로시종점표지란을 각각 다음과 같이 신설한다.\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=161607657\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=161607659\n별표 3 제5호다목 표의 436 아시안 하이웨이 안내표지의 도로표지 규격 상세란을 다음과 같이 한다.\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=161607367\n별표 3 제5호다목 표의 436 아시안 하이웨이 안내표지의 설치방법 및 장소란 중 \"아시안하이웨이\"를 \"아시안 하이웨이\"로 한다.\n부칙\n제1조(시행일) 이 규칙은 공포한 날부터 시행한다.\n제2조(이미 설치된 도로표지에 관한 경과조치) 이 규칙 시행 당시 종전의 규정에 따라 설치된 도로표지는 별표 3 제5호다목의 개정규정에 따른 도로표지로 바뀌어 설치될 때까지는 이 규칙에 따른 도로표지와 함께 사용할 수 있다.\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n도로 또는 도로 주변의 자연경관 등이 우수한 도로 등을 관광도로로 지정할 수 있도록 하는 등의 내용으로 「도로법」이 개정된 것에 맞추어, 관광도로에 대한 효율적인 안내를 통해 이용 편의성을 확보하기 위하여 도로표지의 종류에 관광도로표지를 추가하고 그 세부 규격과 설치 방법 등을 정하는 한편,\n‘터키’의 국호가 ‘튀르키예’로 변경된 것을 반영하여 아시안 하이웨이 안내표지의 표기를 정비하는 등 현행 제도의 운영 과정에서 나타난 일부 미비점을 개선ㆍ보완하려는 것임.",
+      "raw_hash": "592240d815d7f7ec3404dee27601fd0affa598aa2e4e1927281ce3b91eda0cb8",
+      "confidence": "official",
+      "source_record_id": "007086",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [
+        "https://www.law.go.kr/flDownload.do?flSeq=161607365",
+        "https://www.law.go.kr/flDownload.do?flSeq=161607657",
+        "https://www.law.go.kr/flDownload.do?flSeq=161607659",
+        "https://www.law.go.kr/flDownload.do?flSeq=161607367"
+      ],
+      "public_system_matches": []
+    }
+  ],
+  "logs": [
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 2건을 보강했습니다.",
+      "count": 2,
+      "at": "2026-07-15T04:26:18.388Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료.",
+      "count": 2,
+      "at": "2026-07-15T04:26:18.388Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 0,
+      "at": "2026-07-15T04:26:20.678Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:26:21.495Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:26:22.279Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-07-15T04:26:24.523Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-07-15T04:26:25.998Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고(수정일 기준)"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-07-15T04:26:47.022Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 행정예고"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:26:47.748Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
+      "source": "행정안전부 훈령·예규·고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:26:53.430Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016",
+      "group": "ministry-board",
+      "route": "행정안전부 훈령·예규·고시"
+    },
+    {
+      "source": "행정안전부 입법·행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:26:53.981Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017",
+      "group": "ministry-board",
+      "route": "행정안전부 입법·행정예고"
+    },
+    {
+      "source": "행정안전부 법령자료실",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:26:55.120Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018",
+      "group": "ministry-board",
+      "route": "행정안전부 법령자료실"
+    },
+    {
+      "source": "기획재정부 법령자료실",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:26:58.958Z",
+      "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200",
+      "group": "ministry-board",
+      "route": "기획재정부 법령자료실"
+    },
+    {
+      "source": "기획재정부 영문법령정보",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:01.673Z",
+      "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300",
+      "group": "ministry-board",
+      "route": "기획재정부 영문법령정보"
+    },
+    {
+      "source": "기획재정부 조세조약",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:03.129Z",
+      "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100",
+      "group": "ministry-board",
+      "route": "기획재정부 조세조약"
+    },
+    {
+      "source": "기획재정부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:08.445Z",
+      "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100",
+      "group": "ministry-board",
+      "route": "기획재정부 훈령"
+    },
+    {
+      "source": "기획재정부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:10.887Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100",
+      "group": "ministry-board",
+      "route": "기획재정부 예규"
+    },
+    {
+      "source": "기획재정부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:16.289Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 고시"
+    },
+    {
+      "source": "기획재정부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:18.734Z",
+      "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 공고"
+    },
+    {
+      "source": "기획재정부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:21.175Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 지침"
+    },
+    {
+      "source": "기획재정부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:30.520Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300",
+      "group": "ministry-board",
+      "route": "기획재정부 입법예고"
+    },
+    {
+      "source": "기획재정부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:34.359Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
+      "group": "ministry-board",
+      "route": "기획재정부 행정예고"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:36.270Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
+      "group": "motir",
+      "route": "산업통상부 입법예고"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:37.698Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
+      "group": "motir",
+      "route": "산업통상부 행정예고"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:40.102Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
+      "group": "motir",
+      "route": "산업통상부 고시"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:50.732Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
+      "group": "motir",
+      "route": "산업통상부 공고"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:51.007Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
+      "group": "motir",
+      "route": "산업통상부 구.정통부고시"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:51.284Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
+      "group": "motir",
+      "route": "산업통상부 구.재경부고시"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:52.113Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
+      "group": "motir",
+      "route": "산업통상부 훈령"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:52.664Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
+      "group": "motir",
+      "route": "산업통상부 예규"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:53.316Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
+      "group": "motir",
+      "route": "산업통상부 지침"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:55.465Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+      "group": "alio",
+      "route": "ALIO 공공기관 법령/지침"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-07-15T04:27:56.838Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+      "group": "alio",
+      "route": "ALIO 공공정책자료"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-07-15T04:28:00.120Z",
+      "group": "naver-news",
+      "route": "네이버 뉴스 검색 API"
+    }
+  ]
+}
