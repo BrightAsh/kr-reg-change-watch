@@ -1,0 +1,407 @@
+{
+  "date": "2026-07-26",
+  "collected_at": "2026-07-26T17:23:40.019Z",
+  "item_count": 2,
+  "changed_count": 2,
+  "cache_hit": false,
+  "items": [
+    {
+      "id": "4396fee88229756d",
+      "summary": "2026-07-26 기준 법제처 변경이력 API가 반환한 1개 연혁 행을 법령ID 014478 단위로 묶었습니다. 기간 2023-07-25~2023-07-25, 최신 이력은 2023-07-25 제정 제19568호입니다. 최근 이력: 2023-07-25 제정 제19568호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-07-26",
+      "collected_at": "2026-07-26T17:20:44.379Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "문화체육관광부",
+      "document_type": "law",
+      "title": "미술진흥법 변경이력 갱신 1건",
+      "issue_number": "19568",
+      "publish_date": "2023-07-25",
+      "effective_date": "2024-07-26",
+      "change_type": "new",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=252829&type=HTML&mobileYn=&efYd=20240726",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-07-26\n법령ID: 014478\n연혁 행 수: 1\n\n최근 연혁\n공포 2023-07-25 / 시행 2024-07-26 / 제정 / 제19568호 / 미술진흥법\n\n전체 연혁\n공포 2023-07-25 / 시행 2024-07-26 / 제정 / 제19568호 / 미술진흥법\n\n개정문\n국회에서 의결된 미술진흥법을 이에 공포한다.\n대통령 윤석열 (인)\n2023년 7월 25일\n국무총리 한덕수\n국무위원 문화체육관광부 장관 박보균\n⊙법률 제19568호\n미술진흥법 본문과 동일하여 생략 부칙\n이 법은 공포 후 1년이 경과한 날부터 시행한다. 다만, 제18조부터 제20조까지 및 제33조는 공포 후 3년이 경과한 날부터 시행하고, 제24조부터 제26조까지는 공포 후 4년이 경과한 날부터 시행한다.\n\n제개정 이유\n제정 ◇ 제정이유\n미술진흥에 필요한 사항을 규정함으로써 미술의 창작과 유통 및 향유를 촉진하고 이로써 국민의 문화적 삶의 질을 향상시키고 문화국가를 실현하도록 함.\n◇ 주요내용\n가. 미술, 미술품, 미술기록물, 미술전시, 미술 서비스업 등 미술진흥에 필요한 법적 용어를 규정함(제2조).\n나. 문화체육관광부장관은 미술진흥을 위한 기본계획을 수립ㆍ시행하고, 기본계획에 따라 세부 시행계획을 수립ㆍ시행하도록 함(제5조).\n다. 문화체육관광부장관은 미술진흥 정책의 수립ㆍ시행에 필요한 경우 기초 자료로 활용하기 위하여 창작 및 유통 환경 등에 관한 실태조사를 매년 실시하도록 함(제6조).\n라. 미술진흥을 위한 창작 지원 및 전시 지원, 창작공간의 확충, 지역미술 활성화, 국제교류 및 해외진출 지원, 전문인력의 양성, 미술 서비스업 활성화 등 미술생태계의 전반적인 지원 규정을 마련함(제7조부터 제14조까지).\n마. 누구든지 미술 용역 관련 계약을 체결하는 당사자는 미술 관련 용역의 품질 및 품격 보장을 위하여 적정한 용역 대가를 지급하여야 함(제15조제4항).\n바. 국가와 지방자치단체는 미술 서비스업과 관련되는 소비자의 권익 보호에 필요한 시책을 수립하여야 하고, 작가 또는 미술 서비스업자로부터 미술품을 구매한 자는 진품증명서 등의 발행을 해당 작가 또는 미술 서비스업자에게 요구할 수 있도록 함(제16조).\n사. 문화체육관광부장관은 미술 창작, 기획, 전시, 유통 등과 관련된 표준계약서를 마련하여 고시하도록 하고, 표준계약서 사용 시 문화예술 재정 지원에 있어 우대할 수 있도록 함(제17조).\n아. 법률에 따라 고시된 표준계약서가 아닌 다른 계약서에 표준계약서 또는 이와 유사한 명칭의 사용을 금지함(제17조제4항).\n자. 미술 서비스업에 대한 신고의무를 부여하고, 신고 등을 하지 아니하고 미술 서비스업을 하는 경우 등에 대해 영업정지를 명하거나, 영업폐쇄를 명할 수 있도록 함(제18조 및 제19조).\n차. 문화체육관광부장관은 모든 국민이 미술 관련 정보에 원활하게 접근하고 미술 관련 정보를 유익하게 활용할 수 있도록 필요한 시책을 마련하여야 하고, 미술 관련 정보를 종합적으로 관리하고 이해관계자에게 미술 관련 정보를 제공하기 위해 통합미술정보시스템을 구축ㆍ운영할 수 있도록 함(제23조).\n카. 작가에게 미술품의 재판매 시 일정 금액을 청구할 수 있는 재판매보상청구권을 부여함(제24조).\n타. 문화체육관광부장관은 미술진흥을 위한 사업을 효율적으로 수행하기 위하여 미술진흥 전담기관을 지정할 수 있도록 함(제27조).\n파. 문화체육관광부장관은 정부미술품의 구매ㆍ처분에 관한 업무 지원 등을 수행하는 공공미술품 관리 전문기관을 지정하고, 공공미술품 관리 전문기관 내에 공공미술은행을 설치함(제30조).",
+      "raw_hash": "9d84d04b3474f35ddaecbf5419034cb59425693dcd50dfc65738a7d8324c64e9",
+      "confidence": "official",
+      "source_record_id": "014478",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [],
+      "public_system_matches": []
+    },
+    {
+      "id": "46263448967e0bcf",
+      "summary": "2026-07-26 기준 법제처 변경이력 API가 반환한 2개 연혁 행을 법령ID 014694 단위로 묶었습니다. 기간 2026-01-02~2026-07-24, 최신 이력은 2026-07-24 일부개정 제36524호입니다. 최근 이력: 2026-07-24 일부개정 제36524호; 2026-01-02 타법개정 제35998호.",
+      "diff_summary": "이 출처는 개정문 전문이 아니라 법령별 연혁 메타데이터를 제공합니다. 아래 개정문과 원문 링크에서 세부 내용을 확인할 수 있습니다.",
+      "auto_summary": false,
+      "collection_date": "2026-07-26",
+      "collected_at": "2026-07-26T17:20:44.381Z",
+      "source": "국가법령정보센터 법령 변경이력",
+      "source_type": "official_law",
+      "ministry": "문화체육관광부",
+      "document_type": "decree",
+      "title": "미술진흥법 시행령 변경이력 갱신 2건",
+      "issue_number": "36524",
+      "publish_date": "2026-07-24",
+      "effective_date": "2026-07-26",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=law&MST=288287&type=HTML&mobileYn=&efYd=20260726",
+      "raw_text": "법령 변경이력 갱신\n\n수집 기준일: 2026-07-26\n법령ID: 014694\n연혁 행 수: 2\n\n최근 연혁\n공포 2026-07-24 / 시행 2026-07-26 / 일부개정 / 제36524호 / 미술진흥법 시행령\n공포 2026-01-02 / 시행 2026-01-02 / 타법개정 / 제35998호 / 미술진흥법 시행령\n\n전체 연혁\n공포 2026-07-24 / 시행 2026-07-26 / 일부개정 / 제36524호 / 미술진흥법 시행령\n공포 2026-01-02 / 시행 2026-01-02 / 타법개정 / 제35998호 / 미술진흥법 시행령\n\n개정문\n국무회의의 심의를 거친 미술진흥법 시행령 일부개정령을 이에 공포한다.\n대통령 이재명 (인)\n2026년 7월 24일\n국무총리 한성숙\n국무위원 문화체육관광부 장관 최휘영\n⊙대통령령 제36524호\n미술진흥법 시행령 일부개정령\n미술진흥법 시행령 일부를 다음과 같이 개정한다.\n제10조의2부터 제10조의5까지를 각각 다음과 같이 신설한다.\n제10조의2(미술 서비스업의 신고) ① 법 제18조제1항에 따라 미술 서비스업의 신고 또는 변경신고를 하려는 자는 다음 각 호의 사항을 기재한 신고서에 임대차계약서 사본 등 영업장(주된 영업장으로 한정한다)의 사용권을 증명할 수 있는 서류(타인 소유의 부동산인 경우만 해당한다)를 첨부하여 특별자치시장ㆍ특별자치도지사(특별자치도의 관할구역 안에 지방자치단체인 시ㆍ군ㆍ구가 있는 경우 시장ㆍ군수 또는 구청장을 말한다. 이하 같다)ㆍ시장ㆍ군수 또는 구청장(자치구의 구청장을 말한다. 이하 같다)에게 제출해야 한다.\n1. 상호 또는 명칭\n2. 주된 영업장의 소재지\n3. 성명(법인인 경우 대표자 성명)\n4. 세부 신고업종\n② 제1항에 따라 신고서를 제출받은 특별자치시장ㆍ특별자치도지사ㆍ시장ㆍ군수 또는 구청장은 「전자정부법」 제36조제1항에 따른 행정정보의 공동이용을 통해 다음 각 호의 사항을 확인해야 한다. 다만, 신고인이 제2호의 정보 확인에 동의하지 않는 경우에는 해당 서류를 첨부하게 해야 한다.\n1. 법인 등기사항증명서(법인인 경우만 해당한다)\n2. 사업자등록증명(주민등록번호가 제외된 사업자등록증명을 말한다. 이하 같다)\n3. 건물 등기사항증명서\n제10조의3(폐업신고 및 직권말소) ① 법 제18조제5항에 따라 미술 서비스업의 폐업을 신고하려는 자는 문화체육관광부령으로 정하는 신고서에 같은 조 제3항에 따라 발급받은 신고증을 첨부하여 특별자치시장ㆍ특별자치도지사ㆍ시장ㆍ군수 또는 구청장에게 제출해야 한다. 다만, 신고증을 분실한 경우에는 신고서에 분실사유를 적고 신고증을 첨부하지 않을 수 있다.\n② 특별자치시장ㆍ특별자치도지사ㆍ시장ㆍ군수 또는 구청장은 법 제18조제6항 단서에 따라 미술 서비스업자의 폐업 사실을 확인하려는 경우 다음 각 호의 사항을 확인해야 한다.\n1. 임대차계약의 종료 여부(임차한 경우만 해당한다)\n2. 관할 세무서에의 폐업신고 등 영업의 폐지 여부\n③ 특별자치시장ㆍ특별자치도지사ㆍ시장ㆍ군수 또는 구청장은 법 제18조제6항 단서에 따라 직권으로 신고사항을 말소하려는 경우 미리 미술 서비스업자에게 통지해야 하고, 말소예정사실을 해당 기관의 인터넷 홈페이지에 20일 이상 게시해야 한다.\n제10조의4(행정처분의 기준) 법 제19조제1항에 따른 행정처분의 세부기준은 별표 1과 같다.\n제10조의5(영업의 승계) ① 법 제20조제1항에 따라 미술 서비스업자의 지위를 승계하려는 자는 문화체육관광부령으로 정하는 신고서에 지위승계의 근거가 되는 사실을 증명하는 서류를 첨부하여 특별자치시장ㆍ특별자치도지사ㆍ시장ㆍ군수 또는 구청장에게 제출해야 한다.\n② 제1항에 따른 신고서를 제출받은 특별자치시장ㆍ특별자치도지사ㆍ시장ㆍ군수 또는 구청장은 「전자정부법」 제36조제1항에 따른 행정정보의 공동이용을 통해 다음 각 호의 사항을 확인해야 한다. 다만, 신고인이 제2호 또는 제3호의 정보 확인에 동의하지 않는 경우에는 해당 서류를 첨부하게 해야 한다.\n2. 사업자등록증명\n3. 가족관계등록전산정보(승계의 사유가 상속인 경우로서 가족관계증명서에 기록된 등록사항에 관한 정보로 한정한다)\n제16조의2를 다음과 같이 신설한다.\n제16조의2(권한의 위임) 문화체육관광부장관은 법 제32조제1항에 따라 법 제33조에 따른 과태료의 부과ㆍ징수에 관한 권한을 특별자치시장ㆍ특별자치도지사ㆍ시장ㆍ군수 또는 구청장에게 위임한다.\n제18조 및 제19조를 각각 다음과 같이 신설한다.\n제18조(규제의 재검토) 문화체육관광부장관은 다음 각 호의 사항에 대하여 다음 각 호의 기준일을 기준으로 3년마다(매 3년이 되는 해의 기준일과 같은 날 전까지를 말한다) 그 타당성을 검토하여 개선 등의 조치를 해야 한다.\n1. 제10조의2에 따른 미술 서비스업 신고서 제출: 2027년 1월 1일\n2. 제10조의3에 따른 미술 서비스업 폐업신고서 제출: 2027년 1월 1일\n3. 제10조의5에 따른 지위승계 신고서 제출: 2027년 1월 1일\n제19조(과태료의 부과기준) 법 제33조제1항에 따른 과태료의 부과기준은 별표 2와 같다.\n별표 1 및 별표 2를 각각 별지와 같이 신설한다.\n부칙\n이 영은 2026년 7월 26일부터 시행한다.\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=167370191\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=167370193\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=167370195\n첨부 이미지: https://www.law.go.kr/flDownload.do?flSeq=167370197\n\n제개정 이유\n일부개정 ◇ 개정이유 및 주요내용\n미술의 창작과 유통 및 향유를 촉진함으로써 국민의 문화적 삶의 질을 향상시키고 문화국가를 실현하기 위하여 미술 서비스업에 신고 제도를 도입하는 등의 내용으로 「미술진흥법」이 제정(법률 제19568호, 2023. 7. 25. 공포, 2026. 7. 26. 시행)됨에 따라, 미술 서비스업의 신고, 폐업신고 및 영업 승계 절차와 미술 서비스업자의 위반행위에 대한 행정처분의 세부기준 및 과태료 부과기준 등 법률에서 위임된 사항과 그 시행에 필요한 사항을 정하려는 것임.",
+      "raw_hash": "81bbd47bc758e5ae3083a37138b2a2cb9c08214fdc24a9dc402f8404702086ba",
+      "confidence": "official",
+      "source_record_id": "014694",
+      "category": "law",
+      "verification_required": false,
+      "attachment_urls": [
+        "https://www.law.go.kr/flDownload.do?flSeq=167370191",
+        "https://www.law.go.kr/flDownload.do?flSeq=167370193",
+        "https://www.law.go.kr/flDownload.do?flSeq=167370195",
+        "https://www.law.go.kr/flDownload.do?flSeq=167370197"
+      ],
+      "public_system_matches": []
+    }
+  ],
+  "logs": [
+    {
+      "source": "국가법령정보센터 법령 변경이력 본문 보강",
+      "status": "ok",
+      "message": "법제처 lawService API로 개정문/제개정이유 2건을 보강했습니다.",
+      "count": 2,
+      "at": "2026-07-26T17:20:47.859Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 법령 변경이력",
+      "status": "ok",
+      "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 3행을 법령 단위 2건으로 묶었습니다.",
+      "count": 2,
+      "at": "2026-07-26T17:20:47.860Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 법령 변경이력"
+    },
+    {
+      "source": "국가법령정보센터 일자별 조문 개정 이력",
+      "status": "ok",
+      "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+      "count": 0,
+      "at": "2026-07-26T17:20:50.360Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 일자별 조문 개정 이력"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:21:07.652Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙"
+    },
+    {
+      "source": "국가법령정보센터 행정규칙 신구법 비교",
+      "status": "ok",
+      "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:21:08.810Z",
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "group": "official-law",
+      "route": "국가법령정보센터 행정규칙 신구법 비교"
+    },
+    {
+      "source": "국민참여입법센터 입법예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-07-26T17:21:12.358Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고"
+    },
+    {
+      "source": "국민참여입법센터 입법예고(수정일 기준)",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+      "count": 0,
+      "at": "2026-07-26T17:21:16.054Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 입법예고(수정일 기준)"
+    },
+    {
+      "source": "국민참여입법센터 행정예고",
+      "status": "ok",
+      "message": "국민참여입법센터 공개 XML API 수집 완료.",
+      "count": 0,
+      "at": "2026-07-26T17:21:55.594Z",
+      "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
+      "group": "lawmaking",
+      "route": "국민참여입법센터 행정예고"
+    },
+    {
+      "source": "대한민국 전자관보",
+      "status": "ok",
+      "message": "설정된 관보 API URL 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:21:56.447Z",
+      "url": "https://www.data.go.kr/data/15109157/openapi.do",
+      "group": "gazette",
+      "route": "대한민국 전자관보"
+    },
+    {
+      "source": "행정안전부 훈령·예규·고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:21:57.579Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016",
+      "group": "ministry-board",
+      "route": "행정안전부 훈령·예규·고시"
+    },
+    {
+      "source": "행정안전부 입법·행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:21:58.670Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017",
+      "group": "ministry-board",
+      "route": "행정안전부 입법·행정예고"
+    },
+    {
+      "source": "행정안전부 법령자료실",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:02.092Z",
+      "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018",
+      "group": "ministry-board",
+      "route": "행정안전부 법령자료실"
+    },
+    {
+      "source": "기획재정부 법령자료실",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:03.547Z",
+      "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200",
+      "group": "ministry-board",
+      "route": "기획재정부 법령자료실"
+    },
+    {
+      "source": "기획재정부 영문법령정보",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:04.694Z",
+      "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300",
+      "group": "ministry-board",
+      "route": "기획재정부 영문법령정보"
+    },
+    {
+      "source": "기획재정부 조세조약",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:06.094Z",
+      "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100",
+      "group": "ministry-board",
+      "route": "기획재정부 조세조약"
+    },
+    {
+      "source": "기획재정부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:07.576Z",
+      "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100",
+      "group": "ministry-board",
+      "route": "기획재정부 훈령"
+    },
+    {
+      "source": "기획재정부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:09.934Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100",
+      "group": "ministry-board",
+      "route": "기획재정부 예규"
+    },
+    {
+      "source": "기획재정부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:17.098Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 고시"
+    },
+    {
+      "source": "기획재정부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:18.950Z",
+      "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 공고"
+    },
+    {
+      "source": "기획재정부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:20.811Z",
+      "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200",
+      "group": "ministry-board",
+      "route": "기획재정부 지침"
+    },
+    {
+      "source": "기획재정부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:24.439Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300",
+      "group": "ministry-board",
+      "route": "기획재정부 입법예고"
+    },
+    {
+      "source": "기획재정부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:58.592Z",
+      "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300",
+      "group": "ministry-board",
+      "route": "기획재정부 행정예고"
+    },
+    {
+      "source": "산업통상부 입법예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:22:59.644Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71",
+      "group": "motir",
+      "route": "산업통상부 입법예고"
+    },
+    {
+      "source": "산업통상부 행정예고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:00.697Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b",
+      "group": "motir",
+      "route": "산업통상부 행정예고"
+    },
+    {
+      "source": "산업통상부 고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:01.664Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816",
+      "group": "motir",
+      "route": "산업통상부 고시"
+    },
+    {
+      "source": "산업통상부 공고",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:02.800Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b",
+      "group": "motir",
+      "route": "산업통상부 공고"
+    },
+    {
+      "source": "산업통상부 구.정통부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:04.059Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8",
+      "group": "motir",
+      "route": "산업통상부 구.정통부고시"
+    },
+    {
+      "source": "산업통상부 구.재경부고시",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:05.318Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a",
+      "group": "motir",
+      "route": "산업통상부 구.재경부고시"
+    },
+    {
+      "source": "산업통상부 훈령",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:06.594Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e",
+      "group": "motir",
+      "route": "산업통상부 훈령"
+    },
+    {
+      "source": "산업통상부 예규",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:07.842Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e",
+      "group": "motir",
+      "route": "산업통상부 예규"
+    },
+    {
+      "source": "산업통상부 지침",
+      "status": "ok",
+      "message": "공식 게시판 HTML 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:33.036Z",
+      "url": "https://www.motir.go.kr/kor/article/ATCL516d59376",
+      "group": "motir",
+      "route": "산업통상부 지침"
+    },
+    {
+      "source": "ALIO 공공기관 법령/지침",
+      "status": "ok",
+      "message": "ALIO 법령/지침 원문 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:33.934Z",
+      "url": "https://www.alio.go.kr/etc/etcLawDtl.do",
+      "group": "alio",
+      "route": "ALIO 공공기관 법령/지침"
+    },
+    {
+      "source": "ALIO 공공정책자료",
+      "status": "ok",
+      "message": "ALIO 정책자료/보도자료 수집 완료",
+      "count": 0,
+      "at": "2026-07-26T17:23:35.004Z",
+      "url": "https://www.alio.go.kr/etc/etcPdsList.do",
+      "group": "alio",
+      "route": "ALIO 공공정책자료"
+    },
+    {
+      "source": "네이버 뉴스 검색 API",
+      "status": "ok",
+      "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+      "count": 0,
+      "at": "2026-07-26T17:23:37.674Z",
+      "group": "naver-news",
+      "route": "네이버 뉴스 검색 API"
+    }
+  ]
+}
