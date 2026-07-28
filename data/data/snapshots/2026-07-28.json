@@ -1,0 +1,27 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-07-28T16:55:27.601Z",
+    "collection_date": "2026-07-28",
+    "source": "공공데이터포털 공지사항",
+    "source_type": "ministry_board",
+    "ministry": "공공데이터포털",
+    "document_type": "law",
+    "title": "[한국해양진흥공사] KOBC 공공데이터 대국민 수요조사",
+    "issue_number": null,
+    "publish_date": "2026-07-28",
+    "effective_date": null,
+    "change_type": "unknown",
+    "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000004898",
+    "attachment_urls": [],
+    "raw_text": "공공데이터포털 공지사항 [한국해양진흥공사] KOBC 공공데이터 대국민 수요조사 4898 제목 : [한국해양진흥공사] KOBC 공공데이터 대국민 수요조사 등록일 : 2026-07-28 조회수 : 37",
+    "raw_hash": "32e4d21989c71f4d1a4dde6789f40aa77fea2567f7ca1ac4128477a0a2bf4785",
+    "confidence": "official_notice",
+    "verification_required": false,
+    "source_record_id": null,
+    "id": "a83481915a5af937",
+    "category": "law"
+  }
+]
