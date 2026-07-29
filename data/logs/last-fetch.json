@@ -347,5 +347,12 @@
     "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
     "group": "official-law",
     "route": "국가법령정보센터 행정규칙 신구법 비교"
+  },
+  {
+    "source": "수집 재시도",
+    "status": "ok",
+    "message": "선택된 수집 경로가 이미 모두 성공 상태라 재수집하지 않았습니다.",
+    "count": 73,
+    "at": "2026-07-29T23:53:42.580Z"
   }
 ]
