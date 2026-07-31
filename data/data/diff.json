@@ -1,7 +1,9 @@
 {
-  "today": "2026-07-30",
-  "yesterday": "2026-07-29",
-  "added": [
+  "today": "2026-07-31",
+  "yesterday": "2026-07-30",
+  "added": [],
+  "changed": [],
+  "removed": [
     {
       "summary": null,
       "diff_summary": null,
@@ -581,59 +583,6 @@
       "source_record_id": "446270",
       "id": "8580e740cf04fa8e",
       "category": "notice"
-    }
-  ],
-  "changed": [],
-  "removed": [
-    {
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
-      "collected_at": "2026-07-29T17:29:14.287Z",
-      "collection_date": "2026-07-29",
-      "source": "공공데이터포털 공지사항",
-      "source_type": "ministry_board",
-      "ministry": "공공데이터포털",
-      "document_type": "law",
-      "title": "[국립박물관문화재단] 2026년 공공데이터 만족도 조사",
-      "issue_number": null,
-      "publish_date": "2026-07-29",
-      "effective_date": null,
-      "change_type": "unknown",
-      "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000004900",
-      "attachment_urls": [],
-      "raw_text": "공공데이터포털 공지사항 [국립박물관문화재단] 2026년 공공데이터 만족도 조사 4900 제목 : [국립박물관문화재단] 2026년 공공데이터 만족도 조사 등록일 : 2026-07-29 조회수 : 60",
-      "raw_hash": "24d5a6233e874026f97813eb4249fc779de4b450a1985100b4a4b8927105b669",
-      "confidence": "official_notice",
-      "verification_required": false,
-      "source_record_id": null,
-      "id": "459260e302f3536c",
-      "category": "law"
-    },
-    {
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
-      "collected_at": "2026-07-29T17:29:14.286Z",
-      "collection_date": "2026-07-29",
-      "source": "공공데이터포털 공지사항",
-      "source_type": "ministry_board",
-      "ministry": "공공데이터포털",
-      "document_type": "law",
-      "title": "[한국등산트레킹지원센터] 2026년 공공데이터 대국민 설문조사",
-      "issue_number": null,
-      "publish_date": "2026-07-29",
-      "effective_date": null,
-      "change_type": "unknown",
-      "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000004902",
-      "attachment_urls": [],
-      "raw_text": "공공데이터포털 공지사항 [한국등산트레킹지원센터] 2026년 공공데이터 대국민 설문조사 4902 제목 : [한국등산트레킹지원센터] 2026년 공공데이터 대국민 설문조사 등록일 : 2026-07-29 조회수 : 37",
-      "raw_hash": "3ef067e71ec2b6735ed6ffec3e7fe5fd8eed167f2c8ef7394bcfac223d16ba3c",
-      "confidence": "official_notice",
-      "verification_required": false,
-      "source_record_id": null,
-      "id": "3c0dcf6274a69201",
-      "category": "law"
     }
   ]
 }
