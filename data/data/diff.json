@@ -1,7 +1,9 @@
 {
-  "today": "2026-08-03",
-  "yesterday": "2026-08-02",
-  "added": [
+  "today": "2026-08-04",
+  "yesterday": "2026-08-03",
+  "added": [],
+  "changed": [],
+  "removed": [
     {
       "summary": null,
       "diff_summary": null,
@@ -52,7 +54,5 @@
       "id": "88a61ffa075e172c",
       "category": "law"
     }
-  ],
-  "changed": [],
-  "removed": []
+  ]
 }
