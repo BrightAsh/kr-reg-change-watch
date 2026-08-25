@@ -288,5 +288,12 @@
     "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do",
     "group": "data-go-kr",
     "route": "공공데이터포털 공지사항"
+  },
+  {
+    "source": "데이터 수집 캐시",
+    "status": "ok",
+    "message": "2026-08-25 데이터 전용 수집 캐시를 재사용했습니다.",
+    "count": 1,
+    "at": "2026-08-25T23:23:47.113Z"
   }
 ]
