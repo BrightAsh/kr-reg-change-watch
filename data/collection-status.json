@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-29T03:58:01.226Z",
+  "generated_at": "2026-08-29T18:28:53.008Z",
   "start_date": "2026-01-01",
-  "end_date": "2026-08-29",
+  "end_date": "2026-08-30",
   "summary": {
-    "complete": 205,
+    "complete": 206,
     "partial": 0,
     "failed": 0,
     "not_started": 36
@@ -65825,6 +65825,279 @@
     },
     {
       "date": "2026-08-29",
+      "status": "complete",
+      "item_count": 124,
+      "changed_count": 124,
+      "collected_at": "2026-08-29T18:28:44.645Z",
+      "source": "daily",
+      "methods": [
+        {
+          "source": "국가법령정보센터 법령 변경이력",
+          "status": "ok",
+          "count": 124,
+          "message": "법제처 공식 법령 변경이력 API 수집 완료. 원자료 125행을 법령 단위 124건으로 묶었습니다.",
+          "at": "2026-08-29T18:24:40.409Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 일자별 조문 개정 이력",
+          "status": "ok",
+          "count": 0,
+          "message": "법제처 공식 일자별 조문 개정 이력 API 수집 완료.",
+          "at": "2026-08-29T18:24:42.649Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 행정규칙",
+          "status": "ok",
+          "count": 0,
+          "message": "법제처 공식 행정규칙 목록/본문 API 수집 완료",
+          "at": "2026-08-29T18:24:43.582Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국가법령정보센터 행정규칙 신구법 비교",
+          "status": "ok",
+          "count": 0,
+          "message": "법제처 공식 행정규칙 신구법 비교 API 수집 완료",
+          "at": "2026-08-29T18:24:44.755Z",
+          "url": "https://open.law.go.kr/LSO/openApi/guideList.do"
+        },
+        {
+          "source": "국민참여입법센터 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-08-29T18:24:49.584Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 입법예고(수정일 기준)",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 공개 XML API 수집 완료. 응답 참고: 법제처: retMsg 500, 표시할 항목 없음; 행정안전부: retMsg 500, 표시할 항목 없음; 기획재정부: retMsg 500, 표시할 항목 없음",
+          "at": "2026-08-29T18:24:54.008Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "국민참여입법센터 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "국민참여입법센터 공개 XML API 수집 완료.",
+          "at": "2026-08-29T18:27:23.908Z",
+          "url": "https://opinion.lawmaking.go.kr/api/operationGuide"
+        },
+        {
+          "source": "대한민국 전자관보",
+          "status": "ok",
+          "count": 0,
+          "message": "설정된 관보 API URL 수집 완료",
+          "at": "2026-08-29T18:27:24.967Z",
+          "url": "https://www.data.go.kr/data/15109157/openapi.do"
+        },
+        {
+          "source": "행정안전부 훈령·예규·고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:26.752Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016"
+        },
+        {
+          "source": "행정안전부 입법·행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:28.514Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017"
+        },
+        {
+          "source": "행정안전부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:30.205Z",
+          "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018"
+        },
+        {
+          "source": "기획재정부 법령자료실",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:32.492Z",
+          "url": "https://mofe.go.kr/com/bbs/ComtnbbsList.do?bbsId=MOSFBBS_000000000059&menuNo=7080200"
+        },
+        {
+          "source": "기획재정부 영문법령정보",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:34.654Z",
+          "url": "https://mofe.go.kr/lw/entexlaw.do?bbsId=MOSFBBS_000000000058&menuNo=7080300"
+        },
+        {
+          "source": "기획재정부 조세조약",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:36.644Z",
+          "url": "https://mofe.go.kr/lw/taxtrt.do?bbsId=MOSFBBS_000000000057&menuNo=7050100"
+        },
+        {
+          "source": "기획재정부 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:38.935Z",
+          "url": "https://mofe.go.kr/lw/admrul.do?bbsId=MOSFBBS_000000000118&menuNo=7090100"
+        },
+        {
+          "source": "기획재정부 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:40.758Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000119&menuNo=7090100"
+        },
+        {
+          "source": "기획재정부 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:47.888Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000120&menuNo=7090200"
+        },
+        {
+          "source": "기획재정부 공고",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:50.000Z",
+          "url": "https://mofe.go.kr/lw/pblanc/TbPblancList.do?bbsId=MOSFBBS_000000000060&menuNo=7090200"
+        },
+        {
+          "source": "기획재정부 지침",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:51.831Z",
+          "url": "https://mofe.go.kr/lw/denm/TbDenmList.do?bbsId=MOSFBBS_000000000121&menuNo=7090200"
+        },
+        {
+          "source": "기획재정부 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:55.313Z",
+          "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000055&menuNo=7050300"
+        },
+        {
+          "source": "기획재정부 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:27:58.868Z",
+          "url": "https://mofe.go.kr/lw/lap/TbPrvntcList.do?bbsId=MOSFBBS_000000000056&menuNo=7050300"
+        },
+        {
+          "source": "산업통상부 입법예고",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:00.378Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLa1cb24c71"
+        },
+        {
+          "source": "산업통상부 행정예고",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:01.721Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLa6723dc7b"
+        },
+        {
+          "source": "산업통상부 고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:03.096Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL0c554f816"
+        },
+        {
+          "source": "산업통상부 공고",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:04.582Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCLc01b2801b"
+        },
+        {
+          "source": "산업통상부 구.정통부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:05.897Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL6c89ac4d8"
+        },
+        {
+          "source": "산업통상부 구.재경부고시",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:31.531Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL32ba1ce4a"
+        },
+        {
+          "source": "산업통상부 훈령",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:33.017Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL825d20c7e"
+        },
+        {
+          "source": "산업통상부 예규",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:34.242Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL520ce518e"
+        },
+        {
+          "source": "산업통상부 지침",
+          "status": "ok",
+          "count": 0,
+          "message": "공식 게시판 HTML 수집 완료",
+          "at": "2026-08-29T18:28:35.633Z",
+          "url": "https://www.motir.go.kr/kor/article/ATCL516d59376"
+        },
+        {
+          "source": "ALIO 공공기관 법령/지침",
+          "status": "ok",
+          "count": 0,
+          "message": "ALIO 법령/지침 원문 수집 완료",
+          "at": "2026-08-29T18:28:36.999Z",
+          "url": "https://www.alio.go.kr/etc/etcLawDtl.do"
+        },
+        {
+          "source": "ALIO 공공정책자료",
+          "status": "ok",
+          "count": 0,
+          "message": "ALIO 정책자료/보도자료 수집 완료",
+          "at": "2026-08-29T18:28:38.134Z",
+          "url": "https://www.alio.go.kr/etc/etcPdsList.do"
+        },
+        {
+          "source": "네이버 뉴스 검색 API",
+          "status": "ok",
+          "count": 0,
+          "message": "뉴스 보조 수집 완료. 뉴스는 공식 변경으로 표시하지 않습니다.",
+          "at": "2026-08-29T18:28:41.952Z"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-30",
       "status": "not_started",
       "item_count": 0,
       "changed_count": 0,
