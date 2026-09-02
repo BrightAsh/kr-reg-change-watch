@@ -1,0 +1,27 @@
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-09-02T18:40:40.978Z",
+    "collection_date": "2026-09-02",
+    "source": "공공데이터포털 공지사항",
+    "source_type": "ministry_board",
+    "ministry": "공공데이터포털",
+    "document_type": "law",
+    "title": "[한국등산트레킹지원센터] 2026년 공공데이터 활용도 제고를 위한 대국민 추가 설문조사 재실시",
+    "issue_number": null,
+    "publish_date": "2026-09-02",
+    "effective_date": null,
+    "change_type": "unknown",
+    "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000005006",
+    "attachment_urls": [],
+    "raw_text": "공공데이터포털 공지사항 [한국등산트레킹지원센터] 2026년 공공데이터 활용도 제고를 위한 대국민 추가 설문조사 재실시 2670 [한국등산트레킹지원센터] 2026년 공공데이터 활용도 제고를 위한 대국민 추가 설문조사 재실시 2026-09-02 30",
+    "raw_hash": "9dc76788d459cc76e6fdf73900cfc0c85c14f9011839f9d7677cb2a78d80427a",
+    "confidence": "official_notice",
+    "verification_required": false,
+    "source_record_id": null,
+    "id": "9e1f227eb1d676d8",
+    "category": "law"
+  }
+]
