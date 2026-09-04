@@ -1,7 +1,35 @@
 {
-  "today": "2026-09-03",
-  "yesterday": "2026-09-02",
+  "today": "2026-09-04",
+  "yesterday": "2026-09-03",
   "added": [
+    {
+      "summary": null,
+      "diff_summary": null,
+      "auto_summary": false,
+      "collected_at": "2026-09-04T18:22:34.400Z",
+      "collection_date": "2026-09-04",
+      "source": "과학기술정보통신부 공지사항",
+      "source_type": "ministry_board",
+      "ministry": "과학기술정보통신부",
+      "document_type": "law",
+      "title": "인공지능 데이터센터 특별법 하위법령 공개토론회 개최 안내 (2026.9.9.(수) 14시)",
+      "issue_number": null,
+      "publish_date": "2026-09-04",
+      "effective_date": null,
+      "change_type": "unknown",
+      "original_url": "https://www.msit.go.kr/bbs/view.do?sCode=user&mPid=121&mId=310&bbsSeqNo=96&nttSeqNo=3186600",
+      "attachment_urls": [],
+      "raw_text": "과학기술정보통신부 공지사항 인공지능 데이터센터 특별법 하위법령 공개토론회 개최 안내 (2026.9.9.(수) 14시) lect> 검색어 입력 초기화 검색 번호 제목 첨부 등록일",
+      "raw_hash": "c2d8e344d99b0ec96d5444a6fe59de81249cad77fd2ae3af69302b5d745fe8c1",
+      "confidence": "official_notice",
+      "verification_required": false,
+      "source_record_id": "3186600",
+      "id": "9e7cc92b98dad6e0",
+      "category": "law"
+    }
+  ],
+  "changed": [],
+  "removed": [
     {
       "summary": null,
       "diff_summary": null,
@@ -345,34 +373,6 @@
       "source_record_id": "446799",
       "id": "8b86d1b314dce5cf",
       "category": "notice"
-    }
-  ],
-  "changed": [],
-  "removed": [
-    {
-      "summary": null,
-      "diff_summary": null,
-      "auto_summary": false,
-      "collected_at": "2026-09-02T18:40:40.978Z",
-      "collection_date": "2026-09-02",
-      "source": "공공데이터포털 공지사항",
-      "source_type": "ministry_board",
-      "ministry": "공공데이터포털",
-      "document_type": "law",
-      "title": "[한국등산트레킹지원센터] 2026년 공공데이터 활용도 제고를 위한 대국민 추가 설문조사 재실시",
-      "issue_number": null,
-      "publish_date": "2026-09-02",
-      "effective_date": null,
-      "change_type": "unknown",
-      "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000005006",
-      "attachment_urls": [],
-      "raw_text": "공공데이터포털 공지사항 [한국등산트레킹지원센터] 2026년 공공데이터 활용도 제고를 위한 대국민 추가 설문조사 재실시 2670 [한국등산트레킹지원센터] 2026년 공공데이터 활용도 제고를 위한 대국민 추가 설문조사 재실시 2026-09-02 30",
-      "raw_hash": "9dc76788d459cc76e6fdf73900cfc0c85c14f9011839f9d7677cb2a78d80427a",
-      "confidence": "official_notice",
-      "verification_required": false,
-      "source_record_id": null,
-      "id": "9e1f227eb1d676d8",
-      "category": "law"
     }
   ]
 }
