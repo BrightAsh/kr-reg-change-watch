@@ -1,9 +1,10 @@
 {
-  "last_run_at": "2026-09-10T00:43:50.159Z",
-  "last_target_date": "2026-09-09",
-  "item_count": 862,
-  "changed_count": 0,
+  "last_run_at": "2026-09-10T18:25:25.960Z",
+  "last_target_date": "2026-09-10",
+  "item_count": 874,
+  "changed_count": 12,
   "available_dates": [
+    "2026-09-10",
     "2026-09-09",
     "2026-09-08",
     "2026-09-07",
@@ -200,14 +201,14 @@
     "2026-02-02",
     "2026-02-01"
   ],
-  "cache_hit": true,
+  "cache_hit": false,
   "logs": [
     {
       "source": "국가법령정보센터 데이터 법령",
       "status": "ok",
       "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:34:23.462Z",
+      "at": "2026-09-10T18:21:42.317Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 데이터 법령"
@@ -217,7 +218,7 @@
       "status": "ok",
       "message": "국가법령정보센터 데이터 관련 법령/행정규칙 검색 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:34:24.788Z",
+      "at": "2026-09-10T18:21:47.883Z",
       "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
       "group": "official-law",
       "route": "국가법령정보센터 데이터 행정규칙"
@@ -227,7 +228,7 @@
       "status": "ok",
       "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:34:42.326Z",
+      "at": "2026-09-10T18:21:59.099Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
       "group": "lawmaking",
       "route": "국민참여입법센터 데이터 입법예고"
@@ -237,7 +238,7 @@
       "status": "ok",
       "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:35:24.004Z",
+      "at": "2026-09-10T18:22:29.115Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
       "group": "lawmaking",
       "route": "국민참여입법센터 데이터 행정예고"
@@ -247,7 +248,7 @@
       "status": "ok",
       "message": "국민참여입법센터 데이터 키워드 웹 목록 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:35:47.639Z",
+      "at": "2026-09-10T18:22:47.993Z",
       "url": "https://opinion.lawmaking.go.kr/api/operationGuide",
       "group": "lawmaking",
       "route": "국민참여입법센터 국회입법현황"
@@ -257,7 +258,7 @@
       "status": "ok",
       "message": "전자관보 API 데이터 키워드 필터 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:35:48.687Z",
+      "at": "2026-09-10T18:22:48.757Z",
       "url": "https://www.data.go.kr/data/15109157/openapi.do",
       "group": "gazette",
       "route": "대한민국 전자관보 데이터 검색"
@@ -267,7 +268,7 @@
       "status": "ok",
       "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:35:51.992Z",
+      "at": "2026-09-10T18:22:51.516Z",
       "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=108",
       "group": "msit",
       "route": "과학기술정보통신부 훈령예규고시"
@@ -277,7 +278,7 @@
       "status": "ok",
       "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:35:55.400Z",
+      "at": "2026-09-10T18:22:54.028Z",
       "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=103&mId=109",
       "group": "msit",
       "route": "과학기술정보통신부 입법행정예고"
@@ -287,7 +288,7 @@
       "status": "ok",
       "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:35:58.478Z",
+      "at": "2026-09-10T18:22:56.543Z",
       "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=310",
       "group": "msit",
       "route": "과학기술정보통신부 공지사항"
@@ -297,7 +298,7 @@
       "status": "ok",
       "message": "과기정통부 자바스크립트 게시판 목록 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:02.519Z",
+      "at": "2026-09-10T18:22:59.291Z",
       "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mPid=121&mId=311",
       "group": "msit",
       "route": "과학기술정보통신부 사업공고"
@@ -307,7 +308,7 @@
       "status": "ok",
       "message": "K-DATA 게시판 목록/본문 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:04.334Z",
+      "at": "2026-09-10T18:23:00.630Z",
       "url": "https://www.kdata.or.kr/kr/board/notice_01/boardList.do",
       "group": "kdata",
       "route": "한국데이터산업진흥원 공지사항"
@@ -317,7 +318,7 @@
       "status": "ok",
       "message": "K-DATA 게시판 목록/본문 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:06.092Z",
+      "at": "2026-09-10T18:23:01.957Z",
       "url": "https://www.kdata.or.kr/kr/board/promotion_01/boardList.do",
       "group": "kdata",
       "route": "한국데이터산업진흥원 보도자료"
@@ -327,7 +328,7 @@
       "status": "ok",
       "message": "K-DATA 게시판 목록/본문 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:07.233Z",
+      "at": "2026-09-10T18:23:03.245Z",
       "url": "https://www.kdata.or.kr/kr/board/info_01/boardList.do",
       "group": "kdata",
       "route": "한국데이터산업진흥원 조사연구보고서"
@@ -337,7 +338,7 @@
       "status": "ok",
       "message": "K-DATA 게시판 목록/본문 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:08.965Z",
+      "at": "2026-09-10T18:23:06.650Z",
       "url": "https://www.kdata.or.kr/kr/board/info_11/boardList.do",
       "group": "kdata",
       "route": "한국데이터산업진흥원 데이터 산업 동향"
@@ -347,7 +348,7 @@
       "status": "ok",
       "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:09.965Z",
+      "at": "2026-09-10T18:23:07.464Z",
       "url": "https://www.data1window.kr/dbPcyEvlSys/list",
       "group": "data-one-window",
       "route": "데이터 원윈도우 정책지침"
@@ -357,7 +358,7 @@
       "status": "ok",
       "message": "데이터 원윈도우 JSON 목록/본문 API 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:11.128Z",
+      "at": "2026-09-10T18:23:08.520Z",
       "url": "https://www.data1window.kr/ntcMttr/list",
       "group": "data-one-window",
       "route": "데이터 원윈도우 공지사항"
@@ -367,7 +368,7 @@
       "status": "ok",
       "message": "정부/공공 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:16.700Z",
+      "at": "2026-09-10T18:23:12.215Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000016",
       "group": "mois",
       "route": "행정안전부 훈령예규고시"
@@ -377,7 +378,7 @@
       "status": "ok",
       "message": "정부/공공 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:25.413Z",
+      "at": "2026-09-10T18:23:17.571Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000017",
       "group": "mois",
       "route": "행정안전부 입법행정예고"
@@ -387,7 +388,7 @@
       "status": "ok",
       "message": "정부/공공 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:26.639Z",
+      "at": "2026-09-10T18:23:18.472Z",
       "url": "https://www.mois.go.kr/frt/bbs/type001/commonSelectBoardList.do?bbsId=BBSMSTR_000000000018",
       "group": "mois",
       "route": "행정안전부 법령자료실"
@@ -397,7 +398,7 @@
       "status": "ok",
       "message": "정부/공공 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:28.625Z",
+      "at": "2026-09-10T18:23:22.538Z",
       "url": "https://www.mois.go.kr/frt/bbs/type013/commonSelectBoardList.do?bbsId=BBSMSTR_000000000006",
       "group": "mois",
       "route": "행정안전부 알립니다"
@@ -407,7 +408,7 @@
       "status": "ok",
       "message": "국가데이터처 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:32.182Z",
+      "at": "2026-09-10T18:23:25.173Z",
       "url": "https://mods.go.kr/board.es?mid=a10403010000&bid=1401&nPage=1",
       "group": "mods",
       "route": "국가데이터처 법령"
@@ -417,7 +418,7 @@
       "status": "ok",
       "message": "국가데이터처 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:36:35.704Z",
+      "at": "2026-09-10T18:23:27.753Z",
       "url": "https://mods.go.kr/board.es?mid=a10403020000&bid=1402&nPage=1",
       "group": "mods",
       "route": "국가데이터처 입법예고"
@@ -426,8 +427,8 @@
       "source": "국가데이터처 훈령",
       "status": "ok",
       "message": "국가데이터처 게시판 HTML 수집 완료",
-      "count": 0,
-      "at": "2026-09-09T18:36:39.099Z",
+      "count": 1,
+      "at": "2026-09-10T18:23:32.578Z",
       "url": "https://mods.go.kr/board.es?mid=a10403030000&bid=1403&nPage=1",
       "group": "mods",
       "route": "국가데이터처 훈령"
@@ -436,8 +437,8 @@
       "source": "국가데이터처 고시",
       "status": "ok",
       "message": "국가데이터처 게시판 HTML 수집 완료",
-      "count": 0,
-      "at": "2026-09-09T18:37:54.597Z",
+      "count": 11,
+      "at": "2026-09-10T18:24:07.978Z",
       "url": "https://mods.go.kr/board.es?mid=a10403040000&bid=107&nPage=1",
       "group": "mods",
       "route": "국가데이터처 고시"
@@ -447,7 +448,7 @@
       "status": "ok",
       "message": "국가데이터처 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:37:57.548Z",
+      "at": "2026-09-10T18:24:44.584Z",
       "url": "https://mods.go.kr/board.es?mid=a10403050000&bid=1404&nPage=1",
       "group": "mods",
       "route": "국가데이터처 예규"
@@ -457,7 +458,7 @@
       "status": "ok",
       "message": "국가데이터처 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:38:00.742Z",
+      "at": "2026-09-10T18:24:46.797Z",
       "url": "https://mods.go.kr/board.es?mid=a10403060000&bid=10620&nPage=1",
       "group": "mods",
       "route": "국가데이터처 기타 법령자료"
@@ -467,7 +468,7 @@
       "status": "ok",
       "message": "국가데이터처 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:39:23.523Z",
+      "at": "2026-09-10T18:25:21.964Z",
       "url": "https://mods.go.kr/board.es?mid=a10407040100&bid=8705&nPage=1",
       "group": "mods",
       "route": "국가데이터처 통계기반정책평가 관련자료"
@@ -477,7 +478,7 @@
       "status": "ok",
       "message": "국가데이터처 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:39:27.065Z",
+      "at": "2026-09-10T18:25:24.188Z",
       "url": "https://mods.go.kr/board.es?mid=a10409060100&bid=67&nPage=1",
       "group": "mods",
       "route": "국가데이터처 통계품질관리 자료실"
@@ -487,17 +488,10 @@
       "status": "ok",
       "message": "정부/공공 게시판 HTML 수집 완료",
       "count": 0,
-      "at": "2026-09-09T18:39:29.298Z",
+      "at": "2026-09-10T18:25:25.855Z",
       "url": "https://www.data.go.kr/bbs/ntc/selectNoticeListView.do",
       "group": "data-go-kr",
       "route": "공공데이터포털 공지사항"
-    },
-    {
-      "source": "데이터 수집 캐시",
-      "status": "ok",
-      "message": "2026-09-09 데이터 전용 수집 캐시를 재사용했습니다.",
-      "count": 0,
-      "at": "2026-09-10T00:43:50.158Z"
     }
   ]
 }
