@@ -1,7 +1,33 @@
 {
-  "today": "2026-09-15",
-  "yesterday": "2026-09-14",
-  "added": [],
+  "today": "2026-09-16",
+  "yesterday": "2026-09-15",
+  "added": [
+    {
+      "summary": null,
+      "diff_summary": null,
+      "auto_summary": false,
+      "collected_at": "2026-09-16T19:04:21.917Z",
+      "collection_date": "2026-09-16",
+      "source": "공공데이터포털 공지사항",
+      "source_type": "ministry_board",
+      "ministry": "공공데이터포털",
+      "document_type": "law",
+      "title": "[경상남도교육청] 2026년 공공데이터 이용 만족도 및 신규 개방 수요조사",
+      "issue_number": null,
+      "publish_date": "2026-09-16",
+      "effective_date": null,
+      "change_type": "new",
+      "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000005040",
+      "attachment_urls": [],
+      "raw_text": "공공데이터포털 공지사항 [경상남도교육청] 2026년 공공데이터 이용 만족도 및 신규 개방 수요조사 2675 [경상남도교육청] 2026년 공공데이터 이용 만족도 및 신규 개방 수요조사 2026-09-16 30",
+      "raw_hash": "e6604bc9a976d35b84e500f472fb00e2399feeec663c01590ac7602cc3c5692e",
+      "confidence": "official_notice",
+      "verification_required": false,
+      "source_record_id": null,
+      "id": "b72832dfeb8a3082",
+      "category": "law"
+    }
+  ],
   "changed": [],
   "removed": []
 }
