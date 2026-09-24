@@ -1,7 +1,41 @@
 {
-  "today": "2026-09-23",
-  "yesterday": "2026-09-22",
+  "today": "2026-09-24",
+  "yesterday": "2026-09-23",
   "added": [
+    {
+      "summary": null,
+      "diff_summary": null,
+      "auto_summary": false,
+      "collected_at": "2026-09-24T19:00:38.533Z",
+      "collection_date": "2026-09-24",
+      "source": "국가법령정보센터 데이터 행정규칙",
+      "source_type": "official_law",
+      "ministry": "국민권익위원회",
+      "document_type": "directive",
+      "title": "자율기구 지능데이터담당관 설치 및 운영에 관한 규정",
+      "issue_number": "400",
+      "publish_date": "2026-09-24",
+      "effective_date": "2026-03-24",
+      "change_type": "partial_revision",
+      "original_url": "https://www.law.go.kr/DRF/lawService.do?target=admrul&ID=2100000285340&type=HTML&mobileYn=",
+      "attachment_urls": [
+        "http://law.go.kr/flDownload.do?flSeq=169562163%20http://law.go.kr/flDownload.do?flSeq=169562167%20(%ED%9B%88%EB%A0%B9%20%EC%A0%9C400%ED%98%B8)%20%EC%9E%90%EC%9C%A8%EA%B8%B0%EA%B5%AC%20%EC%A7%80%EB%8A%A5%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%B4%EB%8B%B9%EA%B4%80%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95.hwpx%20(%ED%9B%88%EB%A0%B9%20%EC%A0%9C400%ED%98%B8)%20%EC%9E%90%EC%9C%A8%EA%B8%B0%EA%B5%AC%20%EC%A7%80%EB%8A%A5%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%B4%EB%8B%B9%EA%B4%80%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%A0%95.pdf",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=169564281",
+        "https://www.law.go.kr/LSW/flDownload.do?flSeq=169564277",
+        "http://law.go.kr/flDownload.do?flSeq=169562163",
+        "http://law.go.kr/flDownload.do?flSeq=169562167"
+      ],
+      "raw_text": "자율기구 지능데이터담당관 설치 및 운영에 관한 규정 일부개정 국민권익위원회",
+      "raw_hash": "8d2bc2359ba8ccdcc8819416d2bde5cc80877c153b7be738137a2b91f91f0261",
+      "confidence": "official",
+      "verification_required": false,
+      "source_record_id": "2100000285340",
+      "id": "c349ff66865cdf96",
+      "category": "guideline"
+    }
+  ],
+  "changed": [],
+  "removed": [
     {
       "summary": null,
       "diff_summary": null,
@@ -377,7 +411,5 @@
       "id": "ebb69a4fa8a8e1f5",
       "category": "notice"
     }
-  ],
-  "changed": [],
-  "removed": []
+  ]
 }
