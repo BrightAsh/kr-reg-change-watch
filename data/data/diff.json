@@ -1,7 +1,9 @@
 {
-  "today": "2026-09-28",
-  "yesterday": "2026-09-27",
-  "added": [
+  "today": "2026-09-29",
+  "yesterday": "2026-09-28",
+  "added": [],
+  "changed": [],
+  "removed": [
     {
       "summary": null,
       "diff_summary": null,
@@ -60,7 +62,5 @@
       "id": "04473b17c9d6eeb8",
       "category": "notice"
     }
-  ],
-  "changed": [],
-  "removed": []
+  ]
 }
