@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "summary": null,
+    "diff_summary": null,
+    "auto_summary": false,
+    "collected_at": "2026-10-05T22:44:14.078Z",
+    "collection_date": "2026-10-05",
+    "source": "공공데이터포털 공지사항",
+    "source_type": "ministry_board",
+    "ministry": "공공데이터포털",
+    "document_type": "law",
+    "title": "제14회 범정부 공공데이터·AI 활용 창업경진대회 통합본선 발표평가 결과",
+    "issue_number": null,
+    "publish_date": "2026-10-05",
+    "effective_date": null,
+    "change_type": "unknown",
+    "original_url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000005073",
+    "attachment_urls": [],
+    "raw_text": "공공데이터포털 공지사항 제14회 범정부 공공데이터·AI 활용 창업경진대회 통합본선 발표평가 결과 공지 제14회 범정부 공공데이터·AI 활용 창업경진대회 통합본선 발표평가 결과 2026-10-05 47",
+    "raw_hash": "e5f0d33c30dfead3b87add847a399671075425a02fdce5007792e93588c4ae36",
+    "confidence": "official_notice",
+    "verification_required": false,
+    "source_record_id": null,
+    "id": "74521a1aecb880a1",
+    "category": "law"
+  }
+]
